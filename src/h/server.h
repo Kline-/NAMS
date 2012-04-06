@@ -14,18 +14,16 @@ class Server {
         const void Update() const;
 
         // Query
+        uint_t gPort() const { return m_port; }
+        string gTimeBoot() const;
+        string gTimeCurrent() const;
+        Socket* gSocket() const { return m_socket; }
         bool isRunning() const { return !m_shutdown; }
 
         // Manipulate
-        uint_t gPort() const { return m_port; }
         bool sPort( const uint_t port );
-
         bool sSocket( Socket* socket );
-
-        string gTimeBoot() const;
         const void sTimeBoot();
-
-        string gTimeCurrent() const;
         const void sTimeCurrent();
 
     private:

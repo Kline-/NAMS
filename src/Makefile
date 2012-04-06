@@ -40,7 +40,7 @@ $(shell if [ -x ./.dirbuild ]; then ./.dirbuild; rm -f ./.dirbuild; fi )
 help:
 	echo -e "\n### $(VERS) Makefile Options ###"
 	echo -e "    help     Displays this help menu."
-	echo -e "    $(PROG)      Compiles the game into binary file $(PROG)."
+	echo -e "    $(PROG)     Compiles the game into binary file $(PROG)."
 	echo -e "    cbuild   Equivalent to: make clean && make depend && make $(PROG)"
 	echo -e "    clean    Removes files: $(PROG) o/* d/* ../report/core"
 	echo -e "    depend   Generate dependencies for all source code.\n"

@@ -28,21 +28,24 @@ int main( const int argc, const char *argv[] )
     else
         server.sPort( CFG_SOC_PORTNUM );
 
-    socket = new Socket();
+    if ( server.isRunning() )
+    {
+        socket = new Socket();
 
-    if ( !socket->Bind( server.gPort() ) )
-        server.Shutdown( EXIT_FAILURE );
-    if ( !socket->Listen() )
-        server.Shutdown( EXIT_FAILURE );
+        if ( !socket->Bind( server.gPort() ) )
+            server.Shutdown( EXIT_FAILURE );
+        if ( !socket->Listen() )
+            server.Shutdown( EXIT_FAILURE );
 
-    server.sSocket( socket );
+        server.sSocket( socket );
 
-    Utils::Logger( 0, Utils::FormatString( 0, "%s is ready on port %lu.", CFG_STR_VERSION, server.gPort() ) );
-    Utils::Logger( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
+        Utils::Logger( 0, Utils::FormatString( 0, "%s is ready on port %lu.", CFG_STR_VERSION, server.gPort() ) );
+        Utils::Logger( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
 
-    while( server.isRunning() )
-        server.Update();
+        while( server.isRunning() )
+            server.Update();
 
-    Utils::Logger( 0, "Normal termination of server." );
-    server.Shutdown( EXIT_SUCCESS );
+        Utils::Logger( 0, "Normal termination of server." );
+        server.Shutdown( EXIT_SUCCESS );
+    }
 }

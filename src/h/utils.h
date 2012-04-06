@@ -47,6 +47,7 @@ namespace Utils {
 #define SX(x) STR(x)
 #define _caller_ __FILE__ ":" SX(__LINE__)
 
-#define CSTR(x) (x).c_str()
+#define CSTR( func ) ( func ).c_str()
+#define ITER( type, name ) list<type>::iterator name
 
 #endif

@@ -1,6 +1,37 @@
 #include "h/globals.h"
 #include "h/socket.h"
 
+// Core
+
+// Query
+bool Socket::Accept( Socket* socket ) const
+{
+    return true;
+}
+
+bool Socket::Listen() const
+{
+    bitset<CFG_MEM_MAX_BITSET> flags;
+
+    flags.set( UTILS_DEBUG );
+    flags.set( UTILS_TYPE_ERROR );
+
+    if ( !isValid() )
+    {
+        Utils::Logger( flags, "listen() attempted with invalid socket" );
+        return false;
+    }
+
+    if ( ::listen( m_descriptor, CFG_SOC_MAX_PENDING ) < 0 )
+    {
+        Utils::Logger( flags, Utils::FormatString( flags, "listen() returned errno %d: %s", errno, strerror( errno ) ) );
+        return false;
+    }
+
+    return true;
+}
+
+// Manipulate
 bool Socket::Bind( const uint_t port, const string addr )
 {
     bitset<CFG_MEM_MAX_BITSET> flags;
@@ -25,28 +56,6 @@ bool Socket::Bind( const uint_t port, const string addr )
     if ( ::bind( m_descriptor, reinterpret_cast<sockaddr*>( &sa ), sizeof( sa ) ) < 0 )
     {
         Utils::Logger( flags, Utils::FormatString( flags, "bind() returned errno %d: %s", errno, strerror( errno ) ) );
-        return false;
-    }
-
-    return true;
-}
-
-bool Socket::Listen() const
-{
-    bitset<CFG_MEM_MAX_BITSET> flags;
-
-    flags.set( UTILS_DEBUG );
-    flags.set( UTILS_TYPE_ERROR );
-
-    if ( !isValid() )
-    {
-        Utils::Logger( flags, "listen() attempted with invalid socket" );
-        return false;
-    }
-
-    if ( ::listen( m_descriptor, CFG_SOC_MAX_PENDING ) < 0 )
-    {
-        Utils::Logger( flags, Utils::FormatString( flags, "listen() returned errno %d: %s", errno, strerror( errno ) ) );
         return false;
     }
 
