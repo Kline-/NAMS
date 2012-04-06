@@ -15,12 +15,12 @@ int main( const int argc, const char* argv[] )
     {
         if ( !Utils::isNumber( argv[1] ) )
         {
-            Utils::Logger( flags, Utils::FormatString( flags, "Usage: %s [port #]", argv[0] ) );
+            LOGFMT( flags, "Usage: %s [port #]", argv[0] );
             server.Shutdown( EXIT_FAILURE );
         }
         else if ( !server.sPort( atoi( argv[1] ) ) )
         {
-            Utils::Logger( flags, Utils::FormatString( flags, "Port number must be between %d and %d.", CFG_SOC_MIN_PORTNUM, CFG_SOC_MAX_PORTNUM ) );
+            LOGFMT( flags, "Port number must be between %d and %d.", CFG_SOC_MIN_PORTNUM, CFG_SOC_MAX_PORTNUM );
             server.Shutdown( EXIT_FAILURE );
         }
     }

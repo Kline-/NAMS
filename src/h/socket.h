@@ -9,6 +9,8 @@ class Socket {
         ~Socket();
 
     // Core
+    const void Output( const string msg );
+    bool Send();
 
     // Query
     sint_t gDescriptor() const { return m_descriptor; }
@@ -28,6 +30,7 @@ class Socket {
     private:
         sint_t m_descriptor;
         string m_host;
+        string m_output;
         uint_t m_port;
 };
 

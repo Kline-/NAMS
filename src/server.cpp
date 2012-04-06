@@ -9,13 +9,13 @@ bool Server::InitSocket( Socket* socket )
 
     if ( socket->sDescriptor( ::socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Server::InitSocket()->socket()-> returned errno %d: %s", errno, strerror( errno ) ) );
+        LOGFMT( flags, "Server::InitSocket()->socket()-> returned errno %d: %s", errno, strerror( errno ) );
         return false;
     }
 
     if ( ::setsockopt( socket->gDescriptor(), SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char*>( &enable ), sizeof( enable ) ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Server::InitSocket()->setsockopt()-> returned errno %d: %s", errno, strerror( errno ) ) );
+        LOGFMT( flags, "Server::InitSocket()->setsockopt()-> returned errno %d: %s", errno, strerror( errno ) );
         return false;
     }
 
@@ -34,19 +34,19 @@ const void Server::NewConnection() const
 
     if ( ::getsockname( gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Server::NewConnection()->getsockname()-> returned errno %d: %s", errno, strerror( errno ) ) );
+        LOGFMT( flags, "Server::NewConnection()->getsockname()-> returned errno %d: %s", errno, strerror( errno ) );
         return;
     }
 
     if ( ( descriptor = ::accept( gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Server::NewConnection()->accept()-> returned errno %d: %s", errno, strerror( errno ) ) );
+        LOGFMT( flags, "Server::NewConnection()->accept()-> returned errno %d: %s", errno, strerror( errno ) );
         return;
     }
 
     if ( ::fcntl( descriptor, F_SETFL, O_NDELAY ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Server::NewConnection()->fcntl()-> returned errno %d: %s", errno, strerror( errno ) ) );
+        LOGFMT( flags, "Server::NewConnection()->fcntl()-> returned errno %d: %s", errno, strerror( errno ) );
         return;
     }
 
@@ -55,14 +55,14 @@ const void Server::NewConnection() const
 
     if ( ::getpeername( socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Server::NewConnection()->getpeername()-> returned errno %d: %s", errno, strerror( errno ) ) );
+        LOGFMT( flags, "Server::NewConnection()->getpeername()-> returned errno %d: %s", errno, strerror( errno ) );
         socket->sHost( "(unknown)" );
     }
     else
     {
         socket->sHost( inet_ntoa( sin.sin_addr ) );
         socket->sPort( ntohs( sin.sin_port ) );
-        Utils::Logger( 0, Utils::FormatString( 0, "Server::NewConnection()-> %s:%lu", CSTR( socket->gHost() ), socket->gPort() ) );
+        LOGFMT( 0, "Server::NewConnection()-> %s:%lu", CSTR( socket->gHost() ), socket->gPort() );
         socket->ResolveHostname();
     }
 
@@ -103,7 +103,7 @@ bool Server::PollSockets()
     // Ensure the file descriptor lists can be watched for updates
     if ( ::pselect( max_desc + 1, &in_set, &out_set, &exc_set, &static_time, 0 ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Server::PollSockets()->pselect()-> returned errno %d: %s", errno, strerror( errno ) ) );
+        LOGFMT( flags, "Server::PollSockets()->pselect()-> returned errno %d: %s", errno, strerror( errno ) );
         return false;
     }
 
@@ -165,22 +165,25 @@ bool Server::PollSockets()
         }
     }
 
-    // Sleep to control game pacing
-    usleep( USLEEP_MAX / m_pulse_rate );
-
     return true;
 }
 
 const void Server::Shutdown( const sint_t status )
 {
+    bool was_running = !m_shutdown;
+
     m_shutdown = true;
 
     for_each( socket_list.begin(), socket_list.end(), Utils::DeleteObject() );
 
-    if ( status == EXIT_SUCCESS )
-        Utils::Logger( 0, "Normal termination of server." );
-    else
-        Utils::Logger( 0, "Server terminated." );
+    // Only output if the server actually booted; otherwise it probably faulted while getting a port from main()
+    if ( was_running )
+    {
+        if ( status == EXIT_SUCCESS )
+            LOGSTR( 0, "Normal termination of server." );
+        else
+            LOGSTR( 0, "Server terminated." );
+    }
 
     exit( status );
 }
@@ -193,10 +196,13 @@ const void Server::Update()
 
     if ( !PollSockets() )
     {
-        Utils::Logger( flags, "Server::Update()->Server::PollSockets()-> returned false" );
+        LOGSTR( flags, "Server::Update()->Server::PollSockets()-> returned false" );
         Shutdown( EXIT_FAILURE );
         return;
     }
+
+    // Sleep to control game pacing
+    usleep( USLEEP_MAX / m_pulse_rate );
 
     return;
 }
@@ -227,11 +233,9 @@ bool Server::sPort( const uint_t port )
 {
     UFLAGS_DE( flags );
 
+    // No logger output; this should only be called pre-boot
     if ( port <= CFG_SOC_MIN_PORTNUM || port >= CFG_SOC_MAX_PORTNUM )
-    {
-        Utils::Logger( flags, Utils::FormatString( flags, "Server::sPort()-> called with invalid port: %lu", port ) );
         return false;
-    }
 
     m_port = port;
 
@@ -244,7 +248,7 @@ bool Server::sPulseRate( const uint_t rate )
 
     if ( rate < 1 || rate > USLEEP_MAX )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Server::sPulseRate()-> called with invalid rate: %lu", rate ) );
+        LOGFMT( flags, "Server::sPulseRate()-> called with invalid rate: %lu", rate );
         return false;
     }
 
@@ -254,8 +258,8 @@ bool Server::sPulseRate( const uint_t rate )
 const void Server::sRunning()
 {
     m_shutdown = false;
-    Utils::Logger( 0, Utils::FormatString( 0, "%s is ready on port %lu.", CFG_STR_VERSION, server.gPort() ) );
-    Utils::Logger( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
+    LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, server.gPort() );
+    LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
 
     return;
 }
@@ -266,13 +270,13 @@ bool Server::sSocket( Socket* socket )
 
     if ( !socket )
     {
-        Utils::Logger( flags, "Server::sSocket()-> called with NULL socket" );
+        LOGSTR( flags, "Server::sSocket()-> called with NULL socket" );
         return false;
     }
 
     if ( !socket->isValid() )
     {
-        Utils::Logger( flags, "Server::sSocket()-> called with invalid socket" );
+        LOGSTR( flags, "Server::sSocket()-> called with invalid socket" );
         return false;
     }
 

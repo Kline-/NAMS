@@ -42,6 +42,12 @@
 // Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already set
 #define UFLAGS_DE( name ) BSET( name, UTILS_DEBUG | UTILS_TYPE_ERROR )
 
+// Wrap Utils::Logger()
+#define LOGSTR( flags, message ) Utils::Logger( flags, message )
+
+// Wrap Utils::FormatString() within Utils::Logger()
+#define LOGFMT( flags, message, ... ) LOGSTR( flags, Utils::FormatString( flags, message, __VA_ARGS__ ) )
+
 // This is the maximum value usleep will take per man (3) usleep -- 1 second.
 // Changing this will affect game speed; reference CFG_GAM_PULSE_RATE
 #define USLEEP_MAX 1000000

@@ -2,6 +2,31 @@
 #include "h/socket.h"
 
 // Core
+const void Socket::Output( const string msg )
+{
+    if ( m_output.empty() )
+    {
+        m_output += "\r\n";
+        m_output += msg;
+    }
+    else
+        m_output += msg;
+
+    return;
+}
+
+bool Socket::Send()
+{
+    UFLAGS_DE( flags );
+
+    if ( /*::send( stuff ) <*/ 0 )
+    {
+        LOGFMT( flags, "Socket::Send()->send()-> returned errno %d: %s", errno, strerror( errno ) );
+        return false;
+    }
+
+    return true;
+}
 
 // Query
 bool Socket::Listen() const
@@ -10,13 +35,13 @@ bool Socket::Listen() const
 
     if ( !isValid() )
     {
-        Utils::Logger( flags, "Socket::listen()-> called with invalid socket" );
+        LOGSTR( flags, "Socket::Listen()-> called with invalid socket" );
         return false;
     }
 
     if ( ::listen( m_descriptor, CFG_SOC_MAX_PENDING ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Socket::Listen->listen()-> returned errno %d: %s", errno, strerror( errno ) ) );
+        LOGFMT( flags, "Socket::Listen()->listen()-> returned errno %d: %s", errno, strerror( errno ) );
         return false;
     }
 
@@ -32,7 +57,7 @@ bool Socket::Bind( const uint_t port, const string addr )
 
     if ( !isValid() )
     {
-        Utils::Logger( flags, "Socket::bind()-> called with invalid socket" );
+        LOGSTR( flags, "Socket::Bind()-> called with invalid socket" );
         return false;
     }
 
@@ -44,7 +69,7 @@ bool Socket::Bind( const uint_t port, const string addr )
 
     if ( ::bind( m_descriptor, reinterpret_cast<sockaddr*>( &sa ), sizeof( sa ) ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Socket::Bind()->bind()-> returned errno %d: %s", errno, strerror( errno ) ) );
+        LOGFMT( flags, "Socket::Bind()->bind()-> returned errno %d: %s", errno, strerror( errno ) );
         return false;
     }
 
@@ -57,7 +82,7 @@ bool Socket::sDescriptor( const sint_t descriptor )
 
     if ( descriptor < 0 || descriptor >= sintmax_t )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Socket::sDescriptor()-> called with invalid descriptor: %ld", descriptor ) );
+        LOGFMT( flags, "Socket::sDescriptor()-> called with invalid descriptor: %ld", descriptor );
         return false;
     }
 
@@ -72,7 +97,7 @@ bool Socket::sHost( const string host )
 
     if ( host.empty() )
     {
-        Utils::Logger( flags, "Socket::sHost()-> called with empty host" );
+        LOGSTR( flags, "Socket::sHost()-> called with empty host" );
         return false;
     }
 
@@ -87,7 +112,7 @@ bool Socket::sPort( const uint_t port )
 
     if ( port <= uintmin_t || port >= uintmax_t )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Socket::sPort()-> called with invalid input: %lu", port ) );
+        LOGFMT( flags, "Socket::sPort()-> called with invalid input: %lu", port );
         return false;
     }
 
@@ -121,18 +146,18 @@ void* Socket::tResolveHostname( void* data )
 
     if ( ( error = inet_pton( AF_INET, CSTR( socket->gHost() ), &sa.sin_addr ) ) != 1 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Socket::tResolveHostname()->inet_pton()-> returned errno %ld: %s", error, gai_strerror( error ) ) );
+        LOGFMT( flags, "Socket::tResolveHostname()->inet_pton()-> returned errno %ld: %s", error, gai_strerror( error ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
     if ( ( error = getnameinfo( reinterpret_cast<struct sockaddr*>( &sa ), sizeof( sa ), host, sizeof( host ), NULL, 0, 0 ) ) != 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "Socket::tResolveHostname()->getnameinfo()-> returned errno %ld: %s", error, gai_strerror( error ) ) );
+        LOGFMT( flags, "Socket::tResolveHostname()->getnameinfo()-> returned errno %ld: %s", error, gai_strerror( error ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
     socket->sHost( host );
-    Utils::Logger( 0, Utils::FormatString( 0, "Socket::ResolveHostname()-> %s", CSTR( socket->gHost() ) ) );
+    LOGFMT( 0, "Socket::ResolveHostname()-> %s", CSTR( socket->gHost() ) );
 
     pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
 }
@@ -141,6 +166,7 @@ Socket::Socket()
 {
     m_descriptor = 0;
     m_host.clear();
+    m_output.clear();
     m_port = 0;
 
     return;
