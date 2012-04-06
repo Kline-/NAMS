@@ -5,10 +5,9 @@ Server server;
 
 int main( const int argc, const char* argv[] )
 {
-    bitset<CFG_MEM_MAX_BITSET> flags;
+    BSET( flags, UTILS_RAW );
     Socket* socket;
 
-    flags.set( UTILS_RAW );
     server.sTimeBoot();
     server.sTimeCurrent();
 

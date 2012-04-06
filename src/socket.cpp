@@ -6,20 +6,17 @@
 // Query
 bool Socket::Listen() const
 {
-    bitset<CFG_MEM_MAX_BITSET> flags;
-
-    flags.set( UTILS_DEBUG );
-    flags.set( UTILS_TYPE_ERROR );
+    UFLAGS_DE( flags );
 
     if ( !isValid() )
     {
-        Utils::Logger( flags, "listen() attempted with invalid socket" );
+        Utils::Logger( flags, "Socket::listen()-> called with invalid socket" );
         return false;
     }
 
     if ( ::listen( m_descriptor, CFG_SOC_MAX_PENDING ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "listen() returned errno %d: %s", errno, strerror( errno ) ) );
+        Utils::Logger( flags, Utils::FormatString( flags, "Socket::Listen->listen()-> returned errno %d: %s", errno, strerror( errno ) ) );
         return false;
     }
 
@@ -29,16 +26,13 @@ bool Socket::Listen() const
 // Manipulate
 bool Socket::Bind( const uint_t port, const string addr )
 {
-    bitset<CFG_MEM_MAX_BITSET> flags;
+    UFLAGS_DE( flags );
     static struct sockaddr_in sa_zero;
     struct sockaddr_in sa = sa_zero;
 
-    flags.set( UTILS_DEBUG );
-    flags.set( UTILS_TYPE_ERROR );
-
     if ( !isValid() )
     {
-        Utils::Logger( flags, "bind() attempted with invalid socket" );
+        Utils::Logger( flags, "Socket::bind()-> called with invalid socket" );
         return false;
     }
 
@@ -50,7 +44,7 @@ bool Socket::Bind( const uint_t port, const string addr )
 
     if ( ::bind( m_descriptor, reinterpret_cast<sockaddr*>( &sa ), sizeof( sa ) ) < 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "bind() returned errno %d: %s", errno, strerror( errno ) ) );
+        Utils::Logger( flags, Utils::FormatString( flags, "Socket::Bind()->bind()-> returned errno %d: %s", errno, strerror( errno ) ) );
         return false;
     }
 
@@ -59,14 +53,11 @@ bool Socket::Bind( const uint_t port, const string addr )
 
 bool Socket::sDescriptor( const sint_t descriptor )
 {
-    bitset<CFG_MEM_MAX_BITSET> flags;
-
-    flags.set( UTILS_DEBUG );
-    flags.set( UTILS_TYPE_ERROR );
+    UFLAGS_DE( flags );
 
     if ( descriptor < 0 || descriptor >= sintmax_t )
     {
-        Utils::Logger( flags, "sDescriptor() called with invalid input" );
+        Utils::Logger( flags, Utils::FormatString( flags, "Socket::sDescriptor()-> called with invalid descriptor: %ld", descriptor ) );
         return false;
     }
 
@@ -77,14 +68,11 @@ bool Socket::sDescriptor( const sint_t descriptor )
 
 bool Socket::sHost( const string host )
 {
-    bitset<CFG_MEM_MAX_BITSET> flags;
-
-    flags.set( UTILS_DEBUG );
-    flags.set( UTILS_TYPE_ERROR );
+    UFLAGS_DE( flags );
 
     if ( host.empty() )
     {
-        Utils::Logger( flags, "sHost() called with invalid input" );
+        Utils::Logger( flags, "Socket::sHost()-> called with empty host" );
         return false;
     }
 
@@ -95,14 +83,11 @@ bool Socket::sHost( const string host )
 
 bool Socket::sPort( const uint_t port )
 {
-    bitset<CFG_MEM_MAX_BITSET> flags;
-
-    flags.set( UTILS_DEBUG );
-    flags.set( UTILS_TYPE_ERROR );
+    UFLAGS_DE( flags );
 
     if ( port <= uintmin_t || port >= uintmax_t )
     {
-        Utils::Logger( flags, "sPort() called with invalid input" );
+        Utils::Logger( flags, Utils::FormatString( flags, "Socket::sPort()-> called with invalid input: %lu", port ) );
         return false;
     }
 
@@ -119,31 +104,30 @@ const void Socket::ResolveHostname()
     pthread_attr_init( &res_attr );
     pthread_attr_setdetachstate( &res_attr, PTHREAD_CREATE_DETACHED );
     pthread_create( &res_thread, &res_attr, &Socket::tResolveHostname, this );
+
+    return;
 }
 
 void* Socket::tResolveHostname( void* data )
 {
-    bitset<CFG_MEM_MAX_BITSET> flags;
+    UFLAGS_DE( flags );
     Socket* socket = reinterpret_cast<Socket*>( data );
     static struct sockaddr_in sa_zero;
     struct sockaddr_in sa = sa_zero;
     sint_t error = 0;
     char host[CFG_STR_MAX_BUFLEN];
 
-    flags.set( UTILS_DEBUG );
-    flags.set( UTILS_TYPE_ERROR );
-
     sa.sin_family = AF_INET;
 
     if ( ( error = inet_pton( AF_INET, CSTR( socket->gHost() ), &sa.sin_addr ) ) != 1 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "inet_pton() returned errno %ld: %s", error, gai_strerror( error ) ) );
+        Utils::Logger( flags, Utils::FormatString( flags, "Socket::tResolveHostname()->inet_pton()-> returned errno %ld: %s", error, gai_strerror( error ) ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
     if ( ( error = getnameinfo( reinterpret_cast<struct sockaddr*>( &sa ), sizeof( sa ), host, sizeof( host ), NULL, 0, 0 ) ) != 0 )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "getnameinfo() returned errno %ld: %s", error, gai_strerror( error ) ) );
+        Utils::Logger( flags, Utils::FormatString( flags, "Socket::tResolveHostname()->getnameinfo()-> returned errno %ld: %s", error, gai_strerror( error ) ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
