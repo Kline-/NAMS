@@ -1,7 +1,7 @@
 #ifndef DEC_UTILS_H
 #define DEC_UTILS_H
 
-#include "srvinfo.h"
+#include "server.h"
 
 namespace Utils {
     class DeleteObject

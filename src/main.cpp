@@ -40,5 +40,9 @@ int main( const int argc, const char *argv[] )
     Utils::Logger( 0, Utils::FormatString( 0, "%s is ready on port %lu.", CFG_STR_VERSION, server.gPort() ) );
     Utils::Logger( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
 
+    while( server.isRunning() )
+        server.Update();
+
+    Utils::Logger( 0, "Normal termination of server." );
     server.Shutdown( EXIT_SUCCESS );
 }

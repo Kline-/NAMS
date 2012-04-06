@@ -1,10 +1,15 @@
 #include "h/globals.h"
-#include "h/srvinfo.h"
+#include "h/server.h"
 
-const void ServerInfo::Shutdown( const sint_t status ) const
+const void ServerInfo::Shutdown( const sint_t status )
 {
+    m_shutdown = true;
     for_each( socket_list.begin(), socket_list.end(), Utils::DeleteObject() );
     exit( status );
+}
+
+const void ServerInfo::Update() const
+{
 }
 
 bool ServerInfo::sPort( const uint_t port )
@@ -82,6 +87,7 @@ const void ServerInfo::sTimeCurrent()
 ServerInfo::ServerInfo()
 {
     m_port = 0;
+    m_shutdown = false;
     m_socket = 0;
     m_time_boot = 0;
     m_time_current = 0;
