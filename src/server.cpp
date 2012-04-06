@@ -107,7 +107,7 @@ bool Server::PollSockets() const
     fd_set in_set;
     fd_set out_set;
     fd_set exc_set;
-    ITER( Socket*, si );
+    ITER( list, Socket*, si );
     Socket* socket;
     sint_t max_desc = 0;
 

@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "includes.h"
+#include "macros.h"
 #include "config.h"
 #include "typedefs.h"
 #include "enum.h"
