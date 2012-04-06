@@ -9,6 +9,6 @@ using namespace std;
 #include "enum.h"
 #include "utils.h"
 
-extern ServerInfo server;
+extern Server server;
 
 #endif

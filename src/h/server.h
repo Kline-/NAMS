@@ -3,20 +3,28 @@
 
 #include "socket.h"
 
-class ServerInfo {
+class Server {
     public:
-        ServerInfo();
-        ~ServerInfo();
+        Server();
+        ~Server();
 
+        // Core
+        bool PollSockets() const;
         const void Shutdown( const sint_t status );
         const void Update() const;
 
+        // Query
+        bool isRunning() const { return !m_shutdown; }
+
+        // Manipulate
         uint_t gPort() const { return m_port; }
         bool sPort( const uint_t port );
-        bool isRunning() const { return !m_shutdown; }
+
         bool sSocket( Socket* socket );
+
         string gTimeBoot() const;
         const void sTimeBoot();
+
         string gTimeCurrent() const;
         const void sTimeCurrent();
 

@@ -1,18 +1,18 @@
 #include "h/globals.h"
 #include "h/server.h"
 
-const void ServerInfo::Shutdown( const sint_t status )
+const void Server::Shutdown( const sint_t status )
 {
     m_shutdown = true;
     for_each( socket_list.begin(), socket_list.end(), Utils::DeleteObject() );
     exit( status );
 }
 
-const void ServerInfo::Update() const
+const void Server::Update() const
 {
 }
 
-bool ServerInfo::sPort( const uint_t port )
+bool Server::sPort( const uint_t port )
 {
     if ( port <= CFG_SOC_MIN_PORTNUM || port >= CFG_SOC_MAX_PORTNUM )
         return false;
@@ -22,7 +22,7 @@ bool ServerInfo::sPort( const uint_t port )
     return true;
 }
 
-string ServerInfo::gTimeBoot() const
+string Server::gTimeBoot() const
 {
     string output;
 
@@ -32,7 +32,7 @@ string ServerInfo::gTimeBoot() const
     return output;
 }
 
-const void ServerInfo::sTimeBoot()
+const void Server::sTimeBoot()
 {
     struct timeval now;
 
@@ -42,7 +42,7 @@ const void ServerInfo::sTimeBoot()
     return;
 }
 
-string ServerInfo::gTimeCurrent() const
+string Server::gTimeCurrent() const
 {
     string output;
 
@@ -52,7 +52,7 @@ string ServerInfo::gTimeCurrent() const
     return output;
 }
 
-bool ServerInfo::sSocket( Socket* socket )
+bool Server::sSocket( Socket* socket )
 {
     bitset<CFG_MEM_MAX_BITSET> flags;
 
@@ -74,7 +74,7 @@ bool ServerInfo::sSocket( Socket* socket )
     return true;
 }
 
-const void ServerInfo::sTimeCurrent()
+const void Server::sTimeCurrent()
 {
     struct timeval now;
 
@@ -84,7 +84,7 @@ const void ServerInfo::sTimeCurrent()
     return;
 }
 
-ServerInfo::ServerInfo()
+Server::Server()
 {
     m_port = 0;
     m_shutdown = false;
@@ -95,7 +95,7 @@ ServerInfo::ServerInfo()
     return;
 }
 
-ServerInfo::~ServerInfo()
+Server::~Server()
 {
     delete m_socket;
 

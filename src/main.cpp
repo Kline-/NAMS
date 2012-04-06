@@ -1,7 +1,7 @@
 #include "h/globals.h"
 #include "h/main.h"
 
-ServerInfo server;
+Server server;
 
 int main( const int argc, const char *argv[] )
 {
