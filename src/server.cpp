@@ -32,8 +32,6 @@ const void Server::NewConnection() const
     bitset<CFG_MEM_MAX_BITSET> flags;
     struct sockaddr_in sin;
     uint_t descriptor;
-    pthread_t lookup_thread;
-    pthread_attr_t lookup_attr;
     socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
     Socket* socket;
 
@@ -70,37 +68,14 @@ const void Server::NewConnection() const
     {
         socket->sHost( inet_ntoa( sin.sin_addr ) );
         socket->sPort( ntohs( sin.sin_port ) );
-        Utils::Logger( 0, Utils::FormatString( 0, "Server::NewConnection() :: %s:%lu", CSTR( socket->gHost() ), socket->gPort() ) );
-/*
-void *lookup_address( void *input )
-{
-    struct hostent *from = 0;
-    struct hostent ent;
-    char buf[16384];
-    int err;
-    LOOKUP_DATA *ld = static_cast<LOOKUP_DATA *>(input);
-
-    gethostbyaddr_r( ld->buf, sizeof(ld->buf), AF_INET, &ent, buf, 16384, &from, &err);
-
-    if ( from && from->h_name )
-    {
-        ld->m_brain->setHost( from->h_name );
-        snprintf( log_buf, (2 * MIL), "Hostname resolved to: %s.", from->h_name );
-        monitor_chan( log_buf, MONITOR_CONNECT );
-    }
-    else
-        monitor_chan( "Unable to resolve hostname.", MONITOR_CONNECT );
-
-    delete ld;
-    pthread_exit(0);
-}
-*/
+        Utils::Logger( 0, Utils::FormatString( 0, "Server::NewConnection()-> %s:%lu", CSTR( socket->gHost() ), socket->gPort() ) );
+        socket->ResolveHostname();
     }
 
     return;
 }
 
-bool Server::PollSockets() const
+bool Server::PollSockets()
 {
     bitset<CFG_MEM_MAX_BITSET> flags;
     static struct timeval null_time;
@@ -120,9 +95,11 @@ bool Server::PollSockets() const
 
     FD_SET( gSocket()->gDescriptor(), &in_set );
 
-    for ( si = socket_list.begin(); si != socket_list.end(); si++ )
+    // Build three file descriptor lists to be polled
+    for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
     {
         socket = *si;
+        m_socket_next = ++si;
 
         max_desc = max( gSocket()->gDescriptor(), socket->gDescriptor() );
         FD_SET( socket->gDescriptor(), &in_set );
@@ -130,14 +107,53 @@ bool Server::PollSockets() const
         FD_SET( socket->gDescriptor(), &exc_set );
     }
 
+    // Ensure the file descriptor lists can be watched for updates
     if ( ::select( max_desc + 1, &in_set, &out_set, &exc_set, &null_time ) < 0 )
     {
         Utils::Logger( flags, Utils::FormatString( flags, "select() returned errno %d: %s", errno, strerror( errno ) ) );
         return false;
     }
 
+    // Process new connections
     if ( FD_ISSET( gSocket()->gDescriptor(), &in_set ) )
         NewConnection();
+
+    // Process faulted connections
+    for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
+    {
+        socket = *si;
+        m_socket_next = ++si;
+
+        if ( FD_ISSET( socket->gDescriptor(), &exc_set ) )
+        {
+            FD_CLR( socket->gDescriptor(), &in_set );
+            FD_CLR( socket->gDescriptor(), &out_set );
+            socket_list.remove( socket );
+            delete socket;
+        }
+    }
+
+    // Process input from active connections
+    for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
+    {
+        socket = *si;
+        m_socket_next = ++si;
+
+        if ( FD_ISSET( socket->gDescriptor(), &in_set ) )
+        {
+            if ( 0 )
+            {
+                // reset game character idle timer
+            }
+
+            if ( 0 )
+            {
+                // read input, save game character and disconnect socket if unable to
+                // continue since we invalidated the socket
+                continue;
+            }
+        }
+    }
 
     return true;
 }

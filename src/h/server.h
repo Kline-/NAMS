@@ -11,7 +11,7 @@ class Server {
         // Core
         bool InitSocket( Socket* socket );
         const void NewConnection() const;
-        bool PollSockets() const;
+        bool PollSockets();
         const void Shutdown( const sint_t status );
         const void Update();
 
@@ -27,6 +27,7 @@ class Server {
         bool sPort( const uint_t port );
         const void sRunning();
         bool sSocket( Socket* socket );
+        const void sSocketNext( ITER( list, Socket*, socket ) ) { m_socket_next = socket; return; }
         const void sTimeBoot();
         const void sTimeCurrent();
 

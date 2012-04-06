@@ -22,6 +22,8 @@ class Socket {
     bool sDescriptor( const sint_t descriptor );
     bool sHost( const string host );
     bool sPort( const uint_t port );
+    const void ResolveHostname();
+    static void* tResolveHostname( void* data );
 
     private:
         sint_t m_descriptor;

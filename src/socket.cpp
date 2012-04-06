@@ -111,6 +111,48 @@ bool Socket::sPort( const uint_t port )
     return true;
 }
 
+const void Socket::ResolveHostname()
+{
+    pthread_t res_thread;
+    pthread_attr_t res_attr;
+
+    pthread_attr_init( &res_attr );
+    pthread_attr_setdetachstate( &res_attr, PTHREAD_CREATE_DETACHED );
+    pthread_create( &res_thread, &res_attr, &Socket::tResolveHostname, this );
+}
+
+void* Socket::tResolveHostname( void* data )
+{
+    bitset<CFG_MEM_MAX_BITSET> flags;
+    Socket* socket = reinterpret_cast<Socket*>( data );
+    static struct sockaddr_in sa_zero;
+    struct sockaddr_in sa = sa_zero;
+    sint_t error = 0;
+    char host[CFG_STR_MAX_BUFLEN];
+
+    flags.set( UTILS_DEBUG );
+    flags.set( UTILS_TYPE_ERROR );
+
+    sa.sin_family = AF_INET;
+
+    if ( ( error = inet_pton( AF_INET, CSTR( socket->gHost() ), &sa.sin_addr ) ) != 1 )
+    {
+        Utils::Logger( flags, Utils::FormatString( flags, "inet_pton() returned errno %ld: %s", error, gai_strerror( error ) ) );
+        pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
+    }
+
+    if ( ( error = getnameinfo( reinterpret_cast<struct sockaddr*>( &sa ), sizeof( sa ), host, sizeof( host ), NULL, 0, 0 ) ) != 0 )
+    {
+        Utils::Logger( flags, Utils::FormatString( flags, "getnameinfo() returned errno %ld: %s", error, gai_strerror( error ) ) );
+        pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
+    }
+
+    socket->sHost( host );
+    Utils::Logger( 0, Utils::FormatString( 0, "Socket::ResolveHostname()-> %s", CSTR( socket->gHost() ) ) );
+
+    pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
+}
+
 Socket::Socket()
 {
     m_descriptor = 0;
