@@ -3,6 +3,7 @@
 
 const void ServerInfo::Shutdown( const sint_t status ) const
 {
+    for_each( socket_list.begin(), socket_list.end(), Utils::DeleteObject() );
     exit( status );
 }
 

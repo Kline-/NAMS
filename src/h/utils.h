@@ -4,6 +4,11 @@
 #include "srvinfo.h"
 
 namespace Utils {
+    class DeleteObject
+    {
+        public:
+            template <class T> inline void operator() (const T* ptr) const { delete ptr; };
+    };
     string _FormatString( const sint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... );
     string __FormatString( const sint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, va_list val );
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )

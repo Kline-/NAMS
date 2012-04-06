@@ -1,6 +1,8 @@
 #ifndef DEC_SOCKET_H
 #define DEC_SOCKET_H
 
+#include "lists.h"
+
 class Socket {
     public:
         Socket();

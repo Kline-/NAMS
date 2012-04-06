@@ -75,6 +75,7 @@ Socket::Socket()
     }
 
     m_descriptor = descriptor;
+    socket_list.push_back( this );
 
     return;
 }
