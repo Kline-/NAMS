@@ -156,7 +156,7 @@ bool Server::PollSockets()
         socket = *si;
         m_socket_next = ++si;
 
-        if ( socket->PendingOutput() || FD_ISSET( socket->gDescriptor(), &out_set ) )
+        if ( FD_ISSET( socket->gDescriptor(), &out_set ) )
         {
             if ( !socket->Send() )
             {
