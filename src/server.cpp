@@ -52,6 +52,7 @@ const void Server::NewConnection() const
 
     socket = new Socket();
     socket->sDescriptor( descriptor );
+    socket_list.push_back( socket );
 
     if ( ::getpeername( socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
@@ -67,6 +68,7 @@ const void Server::NewConnection() const
     }
 
     // negotiate telopts, send login message
+    socket->Send( CFG_STR_LOGIN );
 
     return;
 }
@@ -154,9 +156,9 @@ bool Server::PollSockets()
         socket = *si;
         m_socket_next = ++si;
 
-        if ( /* check output buffer */ FD_ISSET( socket->gDescriptor(), &out_set ) )
+        if ( socket->PendingOutput() || FD_ISSET( socket->gDescriptor(), &out_set ) )
         {
-            if ( 0 )
+            if ( !socket->Send() )
             {
                 // send output, save game character and disconnect socket if unable to
                 // continue since we invalidated the socket

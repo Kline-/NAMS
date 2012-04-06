@@ -2,7 +2,7 @@
 #include "h/socket.h"
 
 // Core
-const void Socket::Output( const string msg )
+const void Socket::Send( const string msg )
 {
     if ( m_output.empty() )
     {
@@ -19,11 +19,13 @@ bool Socket::Send()
 {
     UFLAGS_DE( flags );
 
-    if ( /*::send( stuff ) <*/ 0 )
+    if ( ::send( m_descriptor, CSTR( m_output ), m_output.length(), 0 ) < 0 )
     {
         LOGFMT( flags, "Socket::Send()->send()-> returned errno %d: %s", errno, strerror( errno ) );
         return false;
     }
+
+    m_output.clear();
 
     return true;
 }

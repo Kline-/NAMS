@@ -9,13 +9,14 @@ class Socket {
         ~Socket();
 
     // Core
-    const void Output( const string msg );
+    const void Send( const string msg );
     bool Send();
 
     // Query
     sint_t gDescriptor() const { return m_descriptor; }
     string gHost() const { return m_host; }
     bool Listen() const;
+    bool PendingOutput() const { return !m_output.empty(); }
     uint_t gPort() const { return m_port; }
     bool isValid() const { return m_descriptor > 0; }
 
