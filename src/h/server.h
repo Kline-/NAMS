@@ -13,7 +13,7 @@ class Server {
         const void NewConnection() const;
         bool PollSockets() const;
         const void Shutdown( const sint_t status );
-        const void Update() const;
+        const void Update();
 
         // Query
         uint_t gPort() const { return m_port; }

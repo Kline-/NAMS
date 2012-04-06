@@ -44,13 +44,13 @@ const void Server::NewConnection() const
     flags.set( UTILS_DEBUG );
     flags.set( UTILS_TYPE_ERROR );
 
-    if ( ::getsockname( server.gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
+    if ( ::getsockname( gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
         Utils::Logger( flags, Utils::FormatString( flags, "getsockname() returned errno %d: %s", errno, strerror( errno ) ) );
         return;
     }
 
-    if ( ( descriptor = ::accept( server.gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) ) < 0 )
+    if ( ( descriptor = ::accept( gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) ) < 0 )
     {
         Utils::Logger( flags, Utils::FormatString( flags, "accept() returned errno %d: %s", errno, strerror( errno ) ) );
         return;
@@ -98,13 +98,13 @@ bool Server::PollSockets() const
     FD_ZERO( &out_set );
     FD_ZERO( &exc_set );
 
-    FD_SET( server.gSocket()->gDescriptor(), &in_set );
+    FD_SET( gSocket()->gDescriptor(), &in_set );
 
     for ( si = socket_list.begin(); si != socket_list.end(); si++ )
     {
         socket = *si;
 
-        max_desc = max( server.gSocket()->gDescriptor(), socket->gDescriptor() );
+        max_desc = max( gSocket()->gDescriptor(), socket->gDescriptor() );
         FD_SET( socket->gDescriptor(), &in_set );
         FD_SET( socket->gDescriptor(), &out_set );
         FD_SET( socket->gDescriptor(), &exc_set );
@@ -116,7 +116,7 @@ bool Server::PollSockets() const
         return false;
     }
 
-    if ( FD_ISSET( server.gSocket()->gDescriptor(), &in_set ) )
+    if ( FD_ISSET( gSocket()->gDescriptor(), &in_set ) )
         NewConnection();
 
     return true;
@@ -129,9 +129,11 @@ const void Server::Shutdown( const sint_t status )
     m_shutdown = true;
 }
 
-const void Server::Update() const
+const void Server::Update()
 {
     bitset<CFG_MEM_MAX_BITSET> flags;
+
+    sTimeCurrent();
 
     flags.set( UTILS_DEBUG );
     flags.set( UTILS_TYPE_ERROR );
@@ -139,7 +141,7 @@ const void Server::Update() const
     if ( !PollSockets() )
     {
         Utils::Logger( flags, Utils::FormatString( flags, "Error while calling PollSockets()" ) );
-        server.Shutdown( EXIT_FAILURE );
+        Shutdown( EXIT_FAILURE );
         return;
     }
 
