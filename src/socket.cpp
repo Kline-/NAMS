@@ -4,11 +4,6 @@
 // Core
 
 // Query
-bool Socket::Accept( Socket* socket ) const
-{
-    return true;
-}
-
 bool Socket::Listen() const
 {
     bitset<CFG_MEM_MAX_BITSET> flags;
@@ -62,28 +57,65 @@ bool Socket::Bind( const uint_t port, const string addr )
     return true;
 }
 
-Socket::Socket()
+bool Socket::sDescriptor( const sint_t descriptor )
 {
     bitset<CFG_MEM_MAX_BITSET> flags;
-    sint_t descriptor = 0;
-    uint_t enable = 1;
 
     flags.set( UTILS_DEBUG );
     flags.set( UTILS_TYPE_ERROR );
 
-    if ( ( descriptor = ::socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
+    if ( descriptor < 0 || descriptor >= sintmax_t )
     {
-        Utils::Logger( flags, Utils::FormatString( flags, "socket() returned errno %d: %s", errno, strerror( errno ) ) );
-        return;
-    }
-
-    if ( ::setsockopt( descriptor, SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char*>( &enable ), sizeof( enable ) ) < 0 )
-    {
-        Utils::Logger( flags, Utils::FormatString( flags, "setsockopt() returned errno %d: %s", errno, strerror( errno ) ) );
-        return;
+        Utils::Logger( flags, "sDescriptor() called with invalid input" );
+        return false;
     }
 
     m_descriptor = descriptor;
+
+    return true;
+}
+
+bool Socket::sHost( const string host )
+{
+    bitset<CFG_MEM_MAX_BITSET> flags;
+
+    flags.set( UTILS_DEBUG );
+    flags.set( UTILS_TYPE_ERROR );
+
+    if ( host.empty() )
+    {
+        Utils::Logger( flags, "sHost() called with invalid input" );
+        return false;
+    }
+
+    m_host = host;
+
+    return true;
+}
+
+bool Socket::sPort( const uint_t port )
+{
+    bitset<CFG_MEM_MAX_BITSET> flags;
+
+    flags.set( UTILS_DEBUG );
+    flags.set( UTILS_TYPE_ERROR );
+
+    if ( port <= uintmin_t || port >= uintmax_t )
+    {
+        Utils::Logger( flags, "sPort() called with invalid input" );
+        return false;
+    }
+
+    m_port = port;
+
+    return true;
+}
+
+Socket::Socket()
+{
+    m_descriptor = 0;
+    m_host.clear();
+    m_port = 0;
     socket_list.push_back( this );
 
     return;

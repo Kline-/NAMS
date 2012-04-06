@@ -2,6 +2,84 @@
 #include "h/server.h"
 
 // Core
+bool Server::InitSocket( Socket* socket )
+{
+    bitset<CFG_MEM_MAX_BITSET> flags;
+    uint_t enable = 1;
+
+    flags.set( UTILS_DEBUG );
+    flags.set( UTILS_TYPE_ERROR );
+
+    if ( !socket->sDescriptor( ::socket( AF_INET, SOCK_STREAM, 0 ) ) )
+    {
+        Utils::Logger( flags, Utils::FormatString( flags, "socket() returned errno %d: %s", errno, strerror( errno ) ) );
+        return false;
+    }
+
+    if ( ::setsockopt( socket->gDescriptor(), SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char*>( &enable ), sizeof( enable ) ) < 0 )
+    {
+        Utils::Logger( flags, Utils::FormatString( flags, "setsockopt() returned errno %d: %s", errno, strerror( errno ) ) );
+        return false;
+    }
+
+    m_socket = socket;
+
+    return true;
+}
+
+const void Server::NewConnection() const
+{/*
+        LOOKUP_DATA *ld = new LOOKUP_DATA();
+        ld->m_brain = dnew;
+        ld->buf = str_dup((char *) & sock.sin_addr);
+*/
+    bitset<CFG_MEM_MAX_BITSET> flags;
+    struct sockaddr_in sin;
+    uint_t descriptor;
+    pthread_t lookup_thread;
+    pthread_attr_t lookup_attr;
+    socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
+    Socket* socket;
+
+    flags.set( UTILS_DEBUG );
+    flags.set( UTILS_TYPE_ERROR );
+
+    if ( ::getsockname( server.gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
+    {
+        Utils::Logger( flags, Utils::FormatString( flags, "getsockname() returned errno %d: %s", errno, strerror( errno ) ) );
+        return;
+    }
+
+    if ( ( descriptor = ::accept( server.gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) ) < 0 )
+    {
+        Utils::Logger( flags, Utils::FormatString( flags, "accept() returned errno %d: %s", errno, strerror( errno ) ) );
+        return;
+    }
+
+    if ( ::fcntl( descriptor, F_SETFL, O_NDELAY ) < 0 )
+    {
+        Utils::Logger( flags, Utils::FormatString( flags, "fcntl() returned errno %d: %s", errno, strerror( errno ) ) );
+        return;
+    }
+
+    socket = new Socket();
+    socket->sDescriptor( descriptor );
+
+    if ( ::getpeername( socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
+    {
+        Utils::Logger( flags, Utils::FormatString( flags, "getpeername() returned errno %d: %s", errno, strerror( errno ) ) );
+        socket->sHost( "(unknown)" );
+    }
+    else
+    {
+        socket->sHost( inet_ntoa( sin.sin_addr ) );
+        socket->sPort( ntohs( sin.sin_port ) );
+        Utils::Logger( 0, Utils::FormatString( 0, "Server::NewConnection() :: %s:%lu", CSTR( socket->gHost() ), socket->gPort() ) );
+    }
+
+    return;
+}
+
 bool Server::PollSockets() const
 {
     bitset<CFG_MEM_MAX_BITSET> flags;
@@ -37,6 +115,9 @@ bool Server::PollSockets() const
         Utils::Logger( flags, Utils::FormatString( flags, "select() returned errno %d: %s", errno, strerror( errno ) ) );
         return false;
     }
+
+    if ( FD_ISSET( server.gSocket()->gDescriptor(), &in_set ) )
+        NewConnection();
 
     return true;
 }

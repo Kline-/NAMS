@@ -32,12 +32,12 @@ int main( const int argc, const char *argv[] )
     {
         socket = new Socket();
 
+        if ( !server.InitSocket( socket ) )
+            server.Shutdown( EXIT_FAILURE );
         if ( !socket->Bind( server.gPort() ) )
             server.Shutdown( EXIT_FAILURE );
         if ( !socket->Listen() )
             server.Shutdown( EXIT_FAILURE );
-
-        server.sSocket( socket );
 
         Utils::Logger( 0, Utils::FormatString( 0, "%s is ready on port %lu.", CFG_STR_VERSION, server.gPort() ) );
         Utils::Logger( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );

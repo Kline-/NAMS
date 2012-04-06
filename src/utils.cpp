@@ -1,7 +1,7 @@
 #include "h/globals.h"
 #include "h/utils.h"
 
-string Utils::_FormatString( const sint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
+string Utils::_FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
 {
     va_list args;
     string output;
@@ -13,7 +13,7 @@ string Utils::_FormatString( const sint_t narg, const bitset<CFG_MEM_MAX_BITSET>
     return output;
 }
 
-string Utils::__FormatString( const sint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, va_list val ) // Thanks go to Darien @ MudBytes.net for the start of this
+string Utils::__FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, va_list val ) // Thanks go to Darien @ MudBytes.net for the start of this
 {
     va_list args;
     vector<string> arguments;
@@ -30,22 +30,22 @@ string Utils::__FormatString( const sint_t narg, const bitset<CFG_MEM_MAX_BITSET
             size++;                              // to ensure a matching narg : format specifier count
     }
 
-    if ( narg != 1 && narg != size ) // if narg == 1 invocation was func( flags, string )
+    if ( narg != 1 && narg != static_cast<uint_t>( size ) && narg != NumChar( fmt, "%" ) ) // if narg == 1 invocation was func( flags, string )
     {
         bitset<CFG_MEM_MAX_BITSET> eflags;
 
         eflags.set( UTILS_TYPE_ERROR );
-        Logger( eflags, "Number of arguments (%ld) did not match number of format specifiers (%ld) at: %s", narg, size, caller.c_str() );
+        Logger( eflags, "Number of arguments (%lu) did not match number of format specifiers (%lu) at: %s", narg, size, CSTR( caller ) );
         return output = "";
     }
 
     va_copy( args, val );
-    size = vsnprintf( NULL, 0, fmt.c_str(), args );
+    size = vsnprintf( NULL, 0, CSTR( fmt ), args );
     va_end( args );
 
     va_copy( args, val );
     buf.resize( size + 1 );
-    vsnprintf( &buf[0], ( size + 1 ), fmt.c_str(), args );
+    vsnprintf( &buf[0], ( size + 1 ), CSTR( fmt ), args );
     va_end( args );
 
     return output = &buf[0];
@@ -65,7 +65,7 @@ bool Utils::isNumber( const string input )
     return true;
 }
 
-void Utils::_Logger( const sint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
+void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
 {
     va_list args;
     string output, pre, post;
@@ -102,6 +102,17 @@ void Utils::_Logger( const sint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, 
 //fixme        monitor_chan( output.c_str(), MONITOR_LOG );
 
     return;
+}
+
+uint_t Utils::NumChar( const string input, const string item )
+{
+    uint_t amount = 0, i = 0;
+
+    for ( i = 0; i < input.length(); i++ )
+        if ( input[i] == item[0] )
+            amount++;
+
+    return amount;
 }
 
 vector<string> Utils::StrTokens( const string input )

@@ -9,6 +9,8 @@ class Server {
         ~Server();
 
         // Core
+        bool InitSocket( Socket* socket );
+        const void NewConnection() const;
         bool PollSockets() const;
         const void Shutdown( const sint_t status );
         const void Update() const;

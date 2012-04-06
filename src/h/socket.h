@@ -11,16 +11,22 @@ class Socket {
     // Core
 
     // Query
-    bool Accept( Socket* socket ) const;
     sint_t gDescriptor() const { return m_descriptor; }
-    bool isValid() const { return m_descriptor > 0; }
+    string gHost() const { return m_host; }
     bool Listen() const;
+    uint_t gPort() const { return m_port; }
+    bool isValid() const { return m_descriptor > 0; }
 
     // Manipulate
     bool Bind( const uint_t port, const string addr = "" );
+    bool sDescriptor( const sint_t descriptor );
+    bool sHost( const string host );
+    bool sPort( const uint_t port );
 
     private:
         sint_t m_descriptor;
+        string m_host;
+        uint_t m_port;
 };
 
 #endif
