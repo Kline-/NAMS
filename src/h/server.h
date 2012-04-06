@@ -17,6 +17,7 @@ class Server {
 
         // Query
         uint_t gPort() const { return m_port; }
+        uint_t gPulseRate() const { return m_pulse_rate; }
         string gTimeBoot() const;
         string gTimeCurrent() const;
         Socket* gSocket() const { return m_socket; }
@@ -25,6 +26,7 @@ class Server {
 
         // Manipulate
         bool sPort( const uint_t port );
+        bool sPulseRate( const uint_t rate );
         const void sRunning();
         bool sSocket( Socket* socket );
         const void sSocketNext( ITER( list, Socket*, socket ) ) { m_socket_next = socket; return; }
@@ -33,6 +35,7 @@ class Server {
 
     private:
         uint_t  m_port;
+        uint_t  m_pulse_rate;
         bool    m_shutdown;
         Socket* m_socket;
         ITER( list, Socket*, m_socket_next );

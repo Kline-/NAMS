@@ -23,11 +23,33 @@
          19,18,17,16,15,14,13,12,11,10, \
          9,8,7,6,5,4,3,2,1,0
 
+// Stringify the calling function's file and line number for debugging
 #define STR(x) #x
 #define SX(x) STR(x)
 #define _caller_ __FILE__ ":" SX(__LINE__)
 
+// Output std::string to const char*
 #define CSTR( func ) ( func ).c_str()
+
+// Define a bitset variable (name) with values (value) already set
+#define BSET( name, value ) \
+        bitset<CFG_MEM_MAX_BITSET> name; \
+        name.set( value )
+
+// Define an iterator variable (name) of class (type) using (container)
 #define ITER( container, type, name ) container<type>::iterator name
 
+// Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already set
+#define UFLAGS_DE( name ) BSET( name, UTILS_DEBUG | UTILS_TYPE_ERROR )
+
+// This is the maximum value usleep will take per man (3) usleep -- 1 second.
+// Changing this will affect game speed; reference CFG_GAM_PULSE_RATE
+#define USLEEP_MAX 1000000
+
+/*
+#define UTIL_DE( name ) \
+        bitset<CFG_MEM_MAX_BITSET> name; \
+        name.set( UTILS_DEBUG ); \
+        name.set( UTILS_TYPE_ERROR );
+*/
 #endif
