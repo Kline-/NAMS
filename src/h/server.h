@@ -13,7 +13,7 @@ class ServerInfo {
 
         uint_t gPort() const { return m_port; }
         bool sPort( const uint_t port );
-        bool isRunning() const { return m_shutdown; }
+        bool isRunning() const { return !m_shutdown; }
         bool sSocket( Socket* socket );
         string gTimeBoot() const;
         const void sTimeBoot();
