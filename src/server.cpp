@@ -28,11 +28,7 @@ bool Server::InitSocket( Socket* socket )
 }
 
 const void Server::NewConnection() const
-{/*
-        LOOKUP_DATA *ld = new LOOKUP_DATA();
-        ld->m_brain = dnew;
-        ld->buf = str_dup((char *) & sock.sin_addr);
-*/
+{
     bitset<CFG_MEM_MAX_BITSET> flags;
     struct sockaddr_in sin;
     uint_t descriptor;
@@ -75,6 +71,30 @@ const void Server::NewConnection() const
         socket->sHost( inet_ntoa( sin.sin_addr ) );
         socket->sPort( ntohs( sin.sin_port ) );
         Utils::Logger( 0, Utils::FormatString( 0, "Server::NewConnection() :: %s:%lu", CSTR( socket->gHost() ), socket->gPort() ) );
+/*
+void *lookup_address( void *input )
+{
+    struct hostent *from = 0;
+    struct hostent ent;
+    char buf[16384];
+    int err;
+    LOOKUP_DATA *ld = static_cast<LOOKUP_DATA *>(input);
+
+    gethostbyaddr_r( ld->buf, sizeof(ld->buf), AF_INET, &ent, buf, 16384, &from, &err);
+
+    if ( from && from->h_name )
+    {
+        ld->m_brain->setHost( from->h_name );
+        snprintf( log_buf, (2 * MIL), "Hostname resolved to: %s.", from->h_name );
+        monitor_chan( log_buf, MONITOR_CONNECT );
+    }
+    else
+        monitor_chan( "Unable to resolve hostname.", MONITOR_CONNECT );
+
+    delete ld;
+    pthread_exit(0);
+}
+*/
     }
 
     return;
@@ -124,9 +144,16 @@ bool Server::PollSockets() const
 
 const void Server::Shutdown( const sint_t status )
 {
+    m_shutdown = true;
+
     for_each( socket_list.begin(), socket_list.end(), Utils::DeleteObject() );
 
-    m_shutdown = true;
+    if ( status == EXIT_SUCCESS )
+        Utils::Logger( 0, "Normal termination of server." );
+    else
+        Utils::Logger( 0, "Server terminated." );
+
+    exit( status );
 }
 
 const void Server::Update()
@@ -180,6 +207,15 @@ bool Server::sPort( const uint_t port )
     return true;
 }
 
+const void Server::sRunning()
+{
+    m_shutdown = false;
+    Utils::Logger( 0, Utils::FormatString( 0, "%s is ready on port %lu.", CFG_STR_VERSION, server.gPort() ) );
+    Utils::Logger( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
+
+    return;
+}
+
 bool Server::sSocket( Socket* socket )
 {
     bitset<CFG_MEM_MAX_BITSET> flags;
@@ -227,7 +263,7 @@ const void Server::sTimeCurrent()
 Server::Server()
 {
     m_port = 0;
-    m_shutdown = false;
+    m_shutdown = true;
     m_socket = 0;
     m_time_boot = 0;
     m_time_current = 0;

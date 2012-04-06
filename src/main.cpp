@@ -3,7 +3,7 @@
 
 Server server;
 
-int main( const int argc, const char *argv[] )
+int main( const int argc, const char* argv[] )
 {
     bitset<CFG_MEM_MAX_BITSET> flags;
     Socket* socket;
@@ -28,24 +28,19 @@ int main( const int argc, const char *argv[] )
     else
         server.sPort( CFG_SOC_PORTNUM );
 
-    if ( server.isRunning() )
-    {
-        socket = new Socket();
+    socket = new Socket();
+    socket_list.push_back( socket );
 
-        if ( !server.InitSocket( socket ) )
-            server.Shutdown( EXIT_FAILURE );
-        if ( !socket->Bind( server.gPort() ) )
-            server.Shutdown( EXIT_FAILURE );
-        if ( !socket->Listen() )
-            server.Shutdown( EXIT_FAILURE );
+    if ( !server.InitSocket( socket ) )
+        server.Shutdown( EXIT_FAILURE );
+    if ( !socket->Bind( server.gPort() ) )
+        server.Shutdown( EXIT_FAILURE );
+    if ( !socket->Listen() )
+        server.Shutdown( EXIT_FAILURE );
 
-        Utils::Logger( 0, Utils::FormatString( 0, "%s is ready on port %lu.", CFG_STR_VERSION, server.gPort() ) );
-        Utils::Logger( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
+    server.sRunning();
+    while( server.isRunning() )
+        server.Update();
 
-        while( server.isRunning() )
-            server.Update();
-
-        Utils::Logger( 0, "Normal termination of server." );
-        server.Shutdown( EXIT_SUCCESS );
-    }
+    server.Shutdown( EXIT_SUCCESS );
 }

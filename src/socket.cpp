@@ -116,7 +116,6 @@ Socket::Socket()
     m_descriptor = 0;
     m_host.clear();
     m_port = 0;
-    socket_list.push_back( this );
 
     return;
 }

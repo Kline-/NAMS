@@ -24,6 +24,7 @@ class Server {
 
         // Manipulate
         bool sPort( const uint_t port );
+        const void sRunning();
         bool sSocket( Socket* socket );
         const void sTimeBoot();
         const void sTimeCurrent();
