@@ -23,5 +23,6 @@ class Command;
 class Directory;
 class Server;
 class Socket;
+class Utils;
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef DEC_DIRECTORY_H
 #define DEC_DIRECTORY_H
 
-class Directory {
+class Directory : public Utils {
     public:
         Directory();
         ~Directory();

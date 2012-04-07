@@ -3,8 +3,9 @@
 
 #include "lists.h"
 #include "enum.h"
+#include "server.h"
 
-class Socket {
+class Socket : public Utils {
     public:
         Socket();
         ~Socket();
@@ -12,7 +13,7 @@ class Socket {
     // Core
     bool Bind( const uint_t port, const string addr );
     const void Disconnect( const string msg = "" );
-    bool Listen() const;
+    bool Listen();
     bool PendingCommand() const { return !m_command_queue.empty(); }
     bool PendingOutput() const { return !m_output.empty(); }
     bool ProcessCommand();

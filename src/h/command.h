@@ -1,7 +1,7 @@
 #ifndef DEC_COMMAND_H
 #define DEC_COMMAND_H
 
-class Command {
+class Command : public Utils {
     public:
         Command();
         ~Command();

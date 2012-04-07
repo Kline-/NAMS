@@ -1,6 +1,7 @@
 #include "h/globals.h"
 #include "h/utils.h"
 
+// Core
 string Utils::_FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
 {
     va_list args;
@@ -51,20 +52,6 @@ string Utils::__FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET
     return output = &buf[0];
 }
 
-bool Utils::isNumber( const string input )
-{
-    uint_t i;
-
-    if ( input.empty() )
-        return false;
-
-    for ( i = 0; i < input.length(); i++ )
-        if ( !isdigit( input[i] ) )
-            return false;
-
-    return true;
-}
-
 void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
 {
     va_list args;
@@ -79,7 +66,7 @@ void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, 
         return;
 
     // prepend timestamp
-    pre += _server.gTimeCurrent(); pre += " :: ";
+    pre += gTimeCurrent(); pre += " :: ";
 
     for ( i = 0; i < MAX_UTILS; i++ )
     {
@@ -106,6 +93,20 @@ void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, 
     return;
 }
 
+bool Utils::iNumber( const string input )
+{
+    uint_t i;
+
+    if ( input.empty() )
+        return false;
+
+    for ( i = 0; i < input.length(); i++ )
+        if ( !isdigit( input[i] ) )
+            return false;
+
+    return true;
+}
+
 uint_t Utils::NumChar( const string input, const string item )
 {
     uint_t amount = 0, i = 0;
@@ -123,6 +124,8 @@ vector<string> Utils::StrNewlines( const string input )
     string line;
     vector<string> output;
 
+    output.clear();
+
     while ( getline( ss, line ) )
         output.push_back( line );
 
@@ -137,4 +140,38 @@ vector<string> Utils::StrTokens( const string input )
     vector<string> output( si, end );
 
     return output;
+}
+
+// Query
+string Utils::gTimeCurrent() const
+{
+    string output;
+
+    output = ctime( &m_time_current );
+    output.resize( output.length() - 1 );
+
+    return output;
+}
+
+// Manipulate
+const void Utils::sTimeCurrent()
+{
+    struct timeval now;
+
+    gettimeofday( &now, NULL );
+    m_time_current = now.tv_sec;
+
+    return;
+}
+
+Utils::Utils()
+{
+    sTimeCurrent();
+
+    return;
+}
+
+Utils::~Utils()
+{
+    return;
 }

@@ -43,7 +43,7 @@ const void Socket::Disconnect( const string msg )
     return;
 }
 
-bool Socket::Listen() const
+bool Socket::Listen()
 {
     UFLAGS_DE( flags );
 
@@ -118,7 +118,8 @@ bool Socket::ProcessInput()
 bool Socket::QueueCommand( const string command )
 {
     UFLAGS_DE( flags );
-
+if ( command.compare( "shutdown" ) )
+    gServer()->Shutdown( EXIT_SUCCESS );
     if ( !iValid() )
     {
         LOGSTR( flags, "Socket::QueueCommand()-> called with invalid socket" );
@@ -327,18 +328,18 @@ void* Socket::tResolveHostname( void* data )
 
     if ( ( error = inet_pton( AF_INET, CSTR( socket->gHost() ), &sa.sin_addr ) ) != 1 )
     {
-        LOGFMT( flags, "Socket::tResolveHostname()->inet_pton()-> returned errno %ld: %s", error, gai_strerror( error ) );
+        socket->Logger( flags, socket->FormatString( flags, "Socket::tResolveHostname()->inet_pton()-> returned errno %ld: %s", error, gai_strerror( error ) ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
     if ( ( error = getnameinfo( reinterpret_cast<struct sockaddr*>( &sa ), sizeof( sa ), host, sizeof( host ), NULL, 0, 0 ) ) != 0 )
     {
-        LOGFMT( flags, "Socket::tResolveHostname()->getnameinfo()-> returned errno %ld: %s", error, gai_strerror( error ) );
+        socket->Logger( flags, socket->FormatString( flags, "Socket::tResolveHostname()->getnameinfo()-> returned errno %ld: %s", error, gai_strerror( error ) ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
     socket->sHost( host );
-    LOGFMT( 0, "Socket::ResolveHostname()-> %s", CSTR( socket->gHost() ) );
+    socket->Logger( 0, "Socket::ResolveHostname()-> %s", CSTR( socket->gHost() ) );
 
     pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
 }

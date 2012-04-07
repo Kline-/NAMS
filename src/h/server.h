@@ -3,7 +3,7 @@
 
 #include "socket.h"
 
-class Server {
+class Server : public Utils {
     public:
         Server();
         ~Server();
@@ -23,7 +23,6 @@ class Server {
         uint_t gPort() const { return m_port; }
         uint_t gPulseRate() const { return m_pulse_rate; }
         string gTimeBoot() const;
-        string gTimeCurrent() const;
         Socket* gSocket() const { return m_socket; }
         ITER( list, Socket*, gSocketNext() ) const { return m_socket_next; }
         bool iRunning() const { return !m_shutdown; }
@@ -34,7 +33,6 @@ class Server {
         bool sSocket( Socket* socket );
         const void sSocketNext( ITER( list, Socket*, socket ) ) { m_socket_next = socket; return; }
         const void sTimeBoot();
-        const void sTimeCurrent();
 
     private:
         uint_t  m_bytes_recvd;
@@ -45,7 +43,6 @@ class Server {
         Socket* m_socket;
         ITER( list, Socket*, m_socket_next );
         time_t  m_time_boot;
-        time_t  m_time_current;
 };
 
 #endif

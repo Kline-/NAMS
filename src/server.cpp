@@ -270,7 +270,6 @@ const void Server::Startup()
     Socket* socket;
 
     sTimeBoot();
-    sTimeCurrent();
 
     socket = new Socket();
     socket_list.push_back( socket );
@@ -360,16 +359,6 @@ string Server::gTimeBoot() const
     return output;
 }
 
-string Server::gTimeCurrent() const
-{
-    string output;
-
-    output = ctime( &m_time_current );
-    output.resize( output.length() - 1 );
-
-    return output;
-}
-
 // Manipulate
 bool Server::sPort( const uint_t port )
 {
@@ -428,16 +417,6 @@ const void Server::sTimeBoot()
     return;
 }
 
-const void Server::sTimeCurrent()
-{
-    struct timeval now;
-
-    gettimeofday( &now, NULL );
-    m_time_current = now.tv_sec;
-
-    return;
-}
-
 Server::Server()
 {
     m_bytes_recvd = 0;
@@ -447,7 +426,6 @@ Server::Server()
     m_shutdown = true;
     m_socket = 0;
     m_time_boot = 0;
-    m_time_current = 0;
 
     return;
 }
