@@ -15,7 +15,8 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-#include "h/globals.h"
+#include "h/includes.h"
+#include "h/class.h"
 #include "h/server.h"
 
 // Core
@@ -396,8 +397,6 @@ const void Server::sTimeBoot()
 
 Server::Server()
 {
-    m_bytes_recvd = 0;
-    m_bytes_sent = 0;
     m_port = 0;
     m_pulse_rate = CFG_GAM_PULSE_RATE;
     m_shutdown = true;

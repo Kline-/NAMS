@@ -15,13 +15,67 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-#ifndef DEC_LISTS_H
-#define DEC_LISTS_H
+#include "h/includes.h"
+#include "h/class.h"
+#include "h/socketserver.h"
 
-#include "class.h"
+// Core
+bool SocketServer::Bind( const uint_t port, const string addr )
+{
+    UFLAGS_DE( flags );
+    static struct sockaddr_in sa_zero;
+    struct sockaddr_in sa = sa_zero;
 
-extern vector<Command*> command_list[ALPHA_MAX];
-extern list<SocketClient*> socket_client_list;
-extern list<SocketServer*> socket_server_list;
+    if ( !Valid() )
+    {
+        LOGSTR( flags, "SocketServer::Bind()-> called with invalid socket" );
+        return false;
+    }
 
-#endif
+    sa.sin_family = AF_INET;
+    sa.sin_port = htons( port );
+
+    if ( !addr.empty() )
+        sa.sin_addr.s_addr = inet_addr( CSTR( addr ) );
+
+    if ( ::bind( m_descriptor, reinterpret_cast<sockaddr*>( &sa ), sizeof( sa ) ) < 0 )
+    {
+        LOGFMT( flags, "SocketServer::Bind()->bind()-> returned errno %d: %s", errno, strerror( errno ) );
+        return false;
+    }
+
+    return true;
+}
+
+bool SocketServer::Listen()
+{
+    UFLAGS_DE( flags );
+
+    if ( !Valid() )
+    {
+        LOGSTR( flags, "SocketServer::Listen()-> called with invalid socket" );
+        return false;
+    }
+
+    if ( ::listen( m_descriptor, CFG_SOC_MAX_PENDING ) < 0 )
+    {
+        LOGFMT( flags, "SocketServer::Listen()->listen()-> returned errno %d: %s", errno, strerror( errno ) );
+        return false;
+    }
+
+    return true;
+}
+
+// Query
+
+// Manipulate
+
+SocketServer::SocketServer()
+{
+    return;
+}
+
+SocketServer::~SocketServer()
+{
+    return;
+}

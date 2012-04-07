@@ -18,6 +18,8 @@
 #ifndef DEC_DIRECTORY_H
 #define DEC_DIRECTORY_H
 
+#include "utils.h"
+
 class Directory : public Utils {
     public:
         Directory();

@@ -15,41 +15,45 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-#ifndef DEC_SOCKET_H
-#define DEC_SOCKET_H
+#ifndef DEC_SYSINCLUDES_H
+#define DEC_SYSINCLUDES_H
 
-#include "utils.h"
+#include <algorithm>
+#include <bitset>
+#include <cassert>
+#include <cmath>
+#include <cctype>
+#include <cstdarg>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <ctime>
+#include <iostream>
+#include <iterator>
+#include <limits>
+#include <list>
+#include <map>
+#include <sstream>
+#include <vector>
 
-class Socket : public Utils {
-    public:
-        Socket();
-        ~Socket();
-
-        // Core
-        bool Valid() const { return m_descriptor > 0; }
-
-        // Query
-        uint_t gBytesRecvd() const { return m_bytes_recvd; }
-        uint_t gBytesSent() const { return m_bytes_sent; }
-        sint_t gDescriptor() const { return m_descriptor; }
-        string gHost() const { return m_host; }
-        uint_t gPort() const { return m_port; }
-
-        // Manipulate
-        bool sBytesRecvd( const uint_t amount );
-        bool sBytesSent( const uint_t amount );
-        bool sDescriptor( const sint_t descriptor );
-        bool sHost( const string host );
-        bool sPort( const uint_t port );
-
-    protected:
-        uint_t  m_bytes_recvd;
-        uint_t  m_bytes_sent;
-        sint_t  m_descriptor;
-        string  m_host;
-
-    private:
-        uint_t  m_port;
-};
+#include <arpa/inet.h>
+#include <arpa/telnet.h>
+#include <dirent.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <memory.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <pthread.h>
+#include <signal.h>
+#include <sys/cdefs.h>
+#include <sys/param.h>
+#include <sys/resource.h>
+#include <sys/socket.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
 #endif

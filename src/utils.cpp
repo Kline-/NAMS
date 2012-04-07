@@ -15,7 +15,8 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-#include "h/globals.h"
+#include "h/includes.h"
+#include "h/class.h"
 #include "h/utils.h"
 
 // Core

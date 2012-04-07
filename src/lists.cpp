@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-#include "h/globals.h"
+#include "h/includes.h"
 #include "h/lists.h"
 
 vector<Command*> command_list[ALPHA_MAX];

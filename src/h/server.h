@@ -18,7 +18,9 @@
 #ifndef DEC_SERVER_H
 #define DEC_SERVER_H
 
-#include "socket.h"
+#include "socketclient.h"
+#include "socketserver.h"
+#include "lists.h"
 
 class Server : public Utils {
     public:
@@ -31,6 +33,7 @@ class Server : public Utils {
         const void NewConnection();
         bool PollSockets();
         bool ProcessInput();
+        bool Running() const { return !m_shutdown; }
         const void Startup();
         const void Shutdown( const sint_t status );
         const void Update();
@@ -40,7 +43,7 @@ class Server : public Utils {
         uint_t gPort() const { return m_port; }
         uint_t gPulseRate() const { return m_pulse_rate; }
         string gTimeBoot() const;
-        bool iRunning() const { return !m_shutdown; }
+        SocketServer* gSocket() const { return m_socket; }
 
         // Manipulate
         bool sPort( const uint_t port );
@@ -48,8 +51,6 @@ class Server : public Utils {
         const void sTimeBoot();
 
     private:
-        uint_t  m_bytes_recvd;
-        uint_t  m_bytes_sent;
         uint_t  m_port;
         uint_t  m_pulse_rate;
         bool    m_shutdown;

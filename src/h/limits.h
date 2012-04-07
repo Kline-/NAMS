@@ -15,18 +15,25 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-#ifndef DEC_GLOBALS_H
-#define DEC_GLOBALS_H
+#ifndef DEC_LIMITS_H
+#define DEC_LIMITS_H
 
-using namespace std;
+#if __WORDSIZE == 64
+ typedef signed long int sint_t;
+ #define sintmax_t numeric_limits<signed long int>::max()
+ #define sintmin_t numeric_limits<signed long int>::min()
 
-#include "includes.h"
-#include "macros.h"
-#include "config.h"
-#include "typedefs.h"
-#include "enum.h"
-#include "utils.h"
+ typedef unsigned long int uint_t;
+ #define uintmax_t numeric_limits<unsigned long int>::max()
+ #define uintmin_t numeric_limits<unsigned long int>::min()
+#else
+ typedef signed int sint_t;
+ #define sintmax_t numeric_limits<signed int>::max()
+ #define sintmin_t numeric_limits<signed int>::min()
 
-extern Server _server;
+ typedef unsigned int uint_t;
+ #define uintmax_t numeric_limits<unsigned int>::max()
+ #define uintmin_t numeric_limits<unsigned int>::min()
+#endif
 
 #endif

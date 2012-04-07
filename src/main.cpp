@@ -15,14 +15,14 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-#include "h/globals.h"
+#include "h/includes.h"
+#include "h/class.h"
 #include "h/main.h"
-
-Server _server;
 
 int main( const int argc, const char* argv[] )
 {
     BSET( flags, UTILS_RAW );
+    Server _server;
 
     if ( argc > 1 )
     {
@@ -41,7 +41,7 @@ int main( const int argc, const char* argv[] )
         _server.sPort( CFG_SOC_PORTNUM );
 
     _server.Startup();
-    while( _server.iRunning() )
+    while( _server.Running() )
         _server.Update();
 
     _server.Shutdown( EXIT_SUCCESS );
