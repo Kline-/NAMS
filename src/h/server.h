@@ -10,9 +10,11 @@ class Server {
 
         // Core
         bool InitSocket( Socket* socket );
+        bool LoadCommands() const;
         const void NewConnection() const;
         bool PollSockets();
         bool ProcessInput();
+        const void Startup();
         const void Shutdown( const sint_t status );
         const void Update();
 
@@ -28,7 +30,6 @@ class Server {
         // Manipulate
         bool sPort( const uint_t port );
         bool sPulseRate( const uint_t rate );
-        const void sRunning();
         bool sSocket( Socket* socket );
         const void sSocketNext( ITER( list, Socket*, socket ) ) { m_socket_next = socket; return; }
         const void sTimeBoot();

@@ -24,6 +24,11 @@ bool Server::InitSocket( Socket* socket )
     return true;
 }
 
+bool Server::LoadCommands() const
+{
+    return true;
+}
+
 const void Server::NewConnection() const
 {
     UFLAGS_DE( flags );
@@ -258,6 +263,37 @@ const void Server::Shutdown( const sint_t status )
     exit( status );
 }
 
+const void Server::Startup()
+{
+    UFLAGS_DE( flags );
+    Socket* socket;
+
+    sTimeBoot();
+    sTimeCurrent();
+
+    socket = new Socket();
+    socket_list.push_back( socket );
+
+    if ( !InitSocket( socket ) )
+        Shutdown( EXIT_FAILURE );
+    if ( !socket->Bind( m_port, CFG_SOC_BIND_ADDR ) )
+        Shutdown( EXIT_FAILURE );
+    if ( !socket->Listen() )
+        Shutdown( EXIT_FAILURE );
+
+    if ( !LoadCommands() )
+    {
+        LOGSTR( flags, "Server::Startup()->LoadCommands()-> returned false" );
+        Shutdown( EXIT_FAILURE );
+    }
+
+    m_shutdown = false;
+    LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, m_port );
+    LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
+
+    return;
+}
+
 const void Server::Update()
 {
     UFLAGS_DE( flags );
@@ -330,15 +366,6 @@ bool Server::sPulseRate( const uint_t rate )
     }
 
     return true;
-}
-
-const void Server::sRunning()
-{
-    m_shutdown = false;
-    LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, server.gPort() );
-    LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
-
-    return;
 }
 
 bool Server::sSocket( Socket* socket )

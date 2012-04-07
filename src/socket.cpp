@@ -374,4 +374,6 @@ Socket::~Socket()
 {
     if ( isValid() )
         ::close( m_descriptor );
+
+    return;
 }

@@ -19,6 +19,7 @@
  #define uintmin_t numeric_limits<unsigned int>::min()
 #endif
 
+class Command;
 class Server;
 class Socket;
 
