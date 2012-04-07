@@ -23,12 +23,20 @@
 // Core
 const void Directory::Close()
 {
+    delete this;
+
     return;
 }
 
 bool Directory::Open( const string path )
 {
     UFLAGS_DE( flags );
+
+    if ( Open() )
+    {
+        LOGSTR( flags, "Directory::Open()-> called while already open" );
+        return false;
+    }
 
     if ( path.empty() )
     {
@@ -45,6 +53,29 @@ bool Directory::Open( const string path )
     return true;
 }
 
+vector<string> Directory::List()
+{
+    UFLAGS_DE( flags );
+    struct dirent* contents = NULL;
+    vector<string> output;
+
+    if ( !Open() )
+    {
+        LOGSTR( flags, "Directory::List()-> called with invalid directory" );
+        output.clear();
+        return output;
+    }
+
+    // Check isalnum to omit . and ..
+    while ( ( contents = readdir( m_handle ) ) != NULL )
+        if ( isalnum( contents->d_name[0] ) )
+            output.push_back( contents->d_name );
+
+    sort( output.begin(), output.end() );
+
+    return output;
+}
+
 // Query
 
 // Manipulate
@@ -58,7 +89,7 @@ Directory::Directory()
 
 Directory::~Directory()
 {
-    if ( iOpen() )
+    if ( Open() )
         ::closedir( m_handle );
 
     return;

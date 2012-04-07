@@ -21,6 +21,10 @@
 #include "h/command.h"
 
 // Core
+bool Command::Load( const string file )
+{
+    return true;
+}
 
 // Query
 
