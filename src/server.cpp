@@ -19,6 +19,7 @@
 #include "h/class.h"
 
 #include "h/server.h"
+#include "h/directory.h"
 
 // Core
 bool Server::InitSocket( SocketServer* socket_server )
@@ -43,8 +44,34 @@ bool Server::InitSocket( SocketServer* socket_server )
     return true;
 }
 
-bool Server::LoadCommands() const
+bool Server::LoadCommands()
 {
+    UFLAGS_DE( flags );
+    Directory dir;
+    vector<string> contents;
+    string content;
+    ITER( vector, string, vi );
+
+    if ( !dir.Open( CFG_DAT_DIR_COMMAND ) )
+    {
+        LOGSTR( flags, "Server::LoadCommands()->Directory::Open()-> returned false" );
+        return false;
+    }
+
+    contents = dir.List();
+    dir.Close();
+    for ( vi = contents.begin(); vi != contents.end(); vi++ )
+    {
+        content = *vi;
+        LOGSTR( flags, CSTR( content ) );
+    }
+
+    if ( !dir.Open( CFG_DAT_DIR_COMMAND ) )
+    {
+        LOGSTR( flags, "Server::LoadCommands()->Directory::Open()-> returned false" );
+        return false;
+    }
+
     return true;
 }
 
@@ -76,7 +103,9 @@ const void Server::NewConnection()
 
     socket_client = new SocketClient();
     socket_client->sDescriptor( descriptor );
-    socket_client->sServer( this );
+    socket_client->sOwner( this );
+    // Usually this is in the constructor, but we have to be certain the socket is fully
+    // Configured to avoid any chance of a processing loop accessing it in an invalid state
     socket_client_list.push_back( socket_client );
 
     if ( ::getpeername( socket_client->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
@@ -251,7 +280,7 @@ const void Server::Shutdown( const sint_t status )
 
     for_each( socket_client_list.begin(), socket_client_list.end(), DeleteObject() );
     for_each( socket_server_list.begin(), socket_server_list.end(), DeleteObject() );
-    
+
     // Only output if the server actually booted; otherwise it probably faulted while getting a port from main()
     if ( was_running )
     {
@@ -272,7 +301,6 @@ const void Server::Startup()
     sTimeBoot();
 
     socket_server = new SocketServer();
-    socket_server_list.push_back( socket_server );
 
     if ( !InitSocket( socket_server ) )
         Shutdown( EXIT_FAILURE );
@@ -398,6 +426,8 @@ const void Server::sTimeBoot()
 
 Server::Server()
 {
+    m_dir_close = 0;
+    m_dir_open = 0;
     m_port = 0;
     m_pulse_rate = CFG_GAM_PULSE_RATE;
     m_shutdown = true;
