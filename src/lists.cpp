@@ -2,4 +2,5 @@
 #include "h/lists.h"
 
 vector<Command*> command_list[ALPHA_MAX];
-list<Socket*> socket_list;
+list<SocketClient*> socket_client_list;
+list<SocketServer*> socket_server_list;

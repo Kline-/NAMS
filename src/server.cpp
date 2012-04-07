@@ -2,24 +2,24 @@
 #include "h/server.h"
 
 // Core
-bool Server::InitSocket( Socket* socket )
+bool Server::InitSocket( SocketServer* socket_server )
 {
     UFLAGS_DE( flags );
     uint_t enable = 1;
 
-    if ( socket->sDescriptor( ::socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
+    if ( socket_server->sDescriptor( ::socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
     {
         LOGFMT( flags, "Server::InitSocket()->socket()-> returned errno %d: %s", errno, strerror( errno ) );
         return false;
     }
 
-    if ( ::setsockopt( socket->gDescriptor(), SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char*>( &enable ), sizeof( enable ) ) < 0 )
+    if ( ::setsockopt( socket_server->gDescriptor(), SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char*>( &enable ), sizeof( enable ) ) < 0 )
     {
         LOGFMT( flags, "Server::InitSocket()->setsockopt()-> returned errno %d: %s", errno, strerror( errno ) );
         return false;
     }
 
-    m_socket = socket;
+    m_socket = socket_server;
 
     return true;
 }
@@ -35,15 +35,15 @@ const void Server::NewConnection()
     struct sockaddr_in sin;
     uint_t descriptor;
     socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
-    Socket* socket;
+    SocketClient* socket_client;
 
-    if ( ::getsockname( gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
+    if ( ::getsockname( m_socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
         LOGFMT( flags, "Server::NewConnection()->getsockname()-> returned errno %d: %s", errno, strerror( errno ) );
         return;
     }
 
-    if ( ( descriptor = ::accept( gSocket()->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) ) < 0 )
+    if ( ( descriptor = ::accept( m_socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) ) < 0 )
     {
         LOGFMT( flags, "Server::NewConnection()->accept()-> returned errno %d: %s", errno, strerror( errno ) );
         return;
@@ -55,27 +55,27 @@ const void Server::NewConnection()
         return;
     }
 
-    socket = new Socket();
-    socket->sDescriptor( descriptor );
-    socket->sServer( this );
-    socket_list.push_back( socket );
+    socket_client = new SocketClient();
+    socket_client->sDescriptor( descriptor );
+    socket_client->sServer( this );
+    socket_client_list.push_back( socket_client );
 
-    if ( ::getpeername( socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
+    if ( ::getpeername( socket_client->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
         LOGFMT( flags, "Server::NewConnection()->getpeername()-> returned errno %d: %s", errno, strerror( errno ) );
-        socket->sHost( "(unknown)" );
+        socket_client->sHost( "(unknown)" );
     }
     else
     {
-        socket->sHost( inet_ntoa( sin.sin_addr ) );
-        socket->sPort( ntohs( sin.sin_port ) );
-        LOGFMT( 0, "Server::NewConnection()-> %s:%lu (%lu)", CSTR( socket->gHost() ), socket->gPort(), socket->gDescriptor() );
-        socket->ResolveHostname();
+        socket_client->sHost( inet_ntoa( sin.sin_addr ) );
+        socket_client->sPort( ntohs( sin.sin_port ) );
+        LOGFMT( 0, "Server::NewConnection()-> %s:%lu (%lu)", CSTR( socket_client->gHost() ), socket_client->gPort(), socket_client->gDescriptor() );
+        socket_client->ResolveHostname();
     }
 
     // negotiate telopts, send login message
-    socket->Send( CFG_STR_LOGIN );
-    socket->sState( SOC_STATE_LOGIN_SCREEN );
+    socket_client->Send( CFG_STR_LOGIN );
+    socket_client->sState( SOC_STATE_LOGIN_SCREEN );
 
     return;
 }
@@ -87,32 +87,28 @@ bool Server::PollSockets()
     fd_set exc_set;
     fd_set in_set;
     fd_set out_set;
-    ITER( list, Socket*, si );
-    Socket* socket;
+    ITER( list, SocketClient*, si );
+    SocketClient* socket_client;
     sint_t max_desc = 0;
 
     FD_ZERO( &exc_set );
     FD_ZERO( &in_set );
     FD_ZERO( &out_set );
 
-    FD_SET( gSocket()->gDescriptor(), &in_set );
-    max_desc = gSocket()->gDescriptor();
+    FD_SET( m_socket->gDescriptor(), &in_set );
+    max_desc = m_socket->gDescriptor();
 
     // Build three file descriptor lists to be polled
-    for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
     {
-        socket = *si;
-        m_socket_next = ++si;
-        max_desc = max( gSocket()->gDescriptor(), socket->gDescriptor() );
-
-        // Skip (this) -- only need to poll clients
-        if ( socket == m_socket )
-            continue;
+        socket_client = *si;
+        m_socket_client_next = ++si;
+        max_desc = max( m_socket->gDescriptor(), socket_client->gDescriptor() );
 
         // Populate lists of: exceptions, pending input, pending output
-        FD_SET( socket->gDescriptor(), &exc_set );
-        FD_SET( socket->gDescriptor(), &in_set );
-        FD_SET( socket->gDescriptor(), &out_set );
+        FD_SET( socket_client->gDescriptor(), &exc_set );
+        FD_SET( socket_client->gDescriptor(), &in_set );
+        FD_SET( socket_client->gDescriptor(), &out_set );
     }
 
     // Ensure the file descriptor lists can be watched for updates
@@ -123,88 +119,76 @@ bool Server::PollSockets()
     }
 
     // Process new connections
-    if ( FD_ISSET( gSocket()->gDescriptor(), &in_set ) )
+    if ( FD_ISSET( m_socket->gDescriptor(), &in_set ) )
         NewConnection();
 
     // Process faulted connections
-    for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
     {
-        socket = *si;
-        m_socket_next = ++si;
-
-        // Skip (this) -- only need to poll clients
-        if ( socket == m_socket )
-            continue;
+        socket_client = *si;
+        m_socket_client_next = ++si;
 
         // Found a faulted socket in the exceptions list
-        if ( FD_ISSET( socket->gDescriptor(), &exc_set ) )
+        if ( FD_ISSET( socket_client->gDescriptor(), &exc_set ) )
         {
             // Remove from the other lists and disconnect
             // Continue since we invalidated the socket
-            FD_CLR( socket->gDescriptor(), &in_set );
-            FD_CLR( socket->gDescriptor(), &out_set );
-            socket->Disconnect();
+            FD_CLR( socket_client->gDescriptor(), &in_set );
+            FD_CLR( socket_client->gDescriptor(), &out_set );
+            socket_client->Disconnect();
             continue;
         }
     }
 
     // Process input from active connections
-    for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
     {
-        socket = *si;
-        m_socket_next = ++si;
-
-        // Skip (this) -- only need to poll clients
-        if ( socket == m_socket )
-            continue;
+        socket_client = *si;
+        m_socket_client_next = ++si;
 
         // Found an active socket in the input list
-        if ( FD_ISSET( socket->gDescriptor(), &in_set ) )
+        if ( FD_ISSET( socket_client->gDescriptor(), &in_set ) )
         {
             // Pending input; clear the idle timeout
-            socket->sIdle( 0 );
+            socket_client->sIdle( 0 );
 
             // Read input, save game character and disconnect socket if unable to
-            if ( !socket->Recv() )
+            if ( !socket_client->Recv() )
             {
                 // Remove from the final list
                 // Continue since we invalidated the socket
-                FD_CLR( socket->gDescriptor(), &out_set );
+                FD_CLR( socket_client->gDescriptor(), &out_set );
                 // todo: save character
-                socket->Disconnect();
+                socket_client->Disconnect();
                 continue;
             }
         }
         else
-            socket->sIdle( socket->gIdle() + 1 );
+            socket_client->sIdle( socket_client->gIdle() + 1 );
     }
 
     // Process any pending output
-    for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
     {
-        socket = *si;
-        m_socket_next = ++si;
-
-        // Skip (this) -- only need to poll clients
-        if ( socket == m_socket )
-            continue;
+        socket_client = *si;
+        m_socket_client_next = ++si;
 
         // Disconnect sockets that have been idle for too long
-        if ( socket->gIdle() >= CFG_SOC_MAX_IDLE )
+        if ( socket_client->gIdle() >= CFG_SOC_MAX_IDLE )
         {
-            socket->Disconnect( CFG_STR_IDLE );
+            socket_client->Disconnect( CFG_STR_IDLE );
             // todo: save character
             continue;
         }
 
         // Found an active socket in the output list
-        if ( FD_ISSET( socket->gDescriptor(), &out_set ) && socket->PendingOutput() )
+        if ( FD_ISSET( socket_client->gDescriptor(), &out_set ) && socket_client->PendingOutput() )
         {
             // Send output, save game character and disconnect socket if unable to
-            if ( !socket->Send() )
+            if ( !socket_client->Send() )
             {
                 // Continue since we invalidated the socket
-                socket->Disconnect();
+                socket_client->Disconnect();
                 // todo: save character
                 continue;
             }
@@ -217,27 +201,23 @@ bool Server::PollSockets()
 bool Server::ProcessInput()
 {
     UFLAGS_DE( flags );
-    ITER( list, Socket*, si );
-    Socket* socket;
+    ITER( list, SocketClient*, si );
+    SocketClient* socket_client;
 
-    for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
     {
-        socket = *si;
-        m_socket_next = ++si;
+        socket_client = *si;
+        m_socket_client_next = ++si;
 
-        // Skip (this) -- only need to process clients
-        if ( socket == m_socket )
-            continue;
-
-        if ( !socket->ProcessInput() )
+        if ( !socket_client->ProcessInput() )
         {
-            socket->Disconnect();
+            socket_client->Disconnect();
             continue;
         }
 
-        if ( socket->PendingCommand() )
+        if ( socket_client->PendingCommand() )
         {
-            socket->ProcessCommand();
+            socket_client->ProcessCommand();
         }
     }
 
@@ -250,8 +230,9 @@ const void Server::Shutdown( const sint_t status )
 
     m_shutdown = true;
 
-    for_each( socket_list.begin(), socket_list.end(), Utils::DeleteObject() );
-
+    for_each( socket_client_list.begin(), socket_client_list.end(), DeleteObject() );
+    for_each( socket_server_list.begin(), socket_server_list.end(), DeleteObject() );
+    
     // Only output if the server actually booted; otherwise it probably faulted while getting a port from main()
     if ( was_running )
     {
@@ -267,20 +248,20 @@ const void Server::Shutdown( const sint_t status )
 const void Server::Startup()
 {
     UFLAGS_DE( flags );
-    Socket* socket;
+    SocketServer* socket_server;
 
     sTimeBoot();
 
-    socket = new Socket();
-    socket_list.push_back( socket );
+    socket_server = new SocketServer();
+    socket_server_list.push_back( socket_server );
 
-    if ( !InitSocket( socket ) )
+    if ( !InitSocket( socket_server ) )
         Shutdown( EXIT_FAILURE );
-    if ( !socket->Bind( m_port, CFG_SOC_BIND_ADDR ) )
+    if ( !socket_server->Bind( m_port, CFG_SOC_BIND_ADDR ) )
         Shutdown( EXIT_FAILURE );
-    if ( !socket->Listen() )
+    if ( !socket_server->Listen() )
         Shutdown( EXIT_FAILURE );
-    socket->sHost( gHost() );
+    socket_server->sHost( gHost() );
 
     // Bump ourselves to the root folder for file paths
     if ( ::chdir( ".." ) < 0 )
@@ -382,27 +363,6 @@ bool Server::sPulseRate( const uint_t rate )
         LOGFMT( flags, "Server::sPulseRate()-> called with invalid rate: %lu", rate );
         return false;
     }
-
-    return true;
-}
-
-bool Server::sSocket( Socket* socket )
-{
-    UFLAGS_DE( flags );
-
-    if ( !socket )
-    {
-        LOGSTR( flags, "Server::sSocket()-> called with NULL socket" );
-        return false;
-    }
-
-    if ( !socket->iValid() )
-    {
-        LOGSTR( flags, "Server::sSocket()-> called with invalid socket" );
-        return false;
-    }
-
-    m_socket = socket;
 
     return true;
 }

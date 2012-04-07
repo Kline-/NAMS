@@ -2,6 +2,7 @@
 #define DEC_LISTS_H
 
 extern vector<Command*> command_list[ALPHA_MAX];
-extern list<Socket*> socket_list;
+extern list<SocketClient*> socket_client_list;
+extern list<SocketServer*> socket_server_list;
 
 #endif

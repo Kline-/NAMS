@@ -6,12 +6,12 @@ class Command : public Utils {
         Command();
         ~Command();
 
-    // Core
-    bool LoadCommand( const string file );
+        // Core
+        bool LoadCommand( const string file );
 
-    // Query
+        // Query
 
-    // Manipulate
+        // Manipulate
 
     private:
         string m_name;

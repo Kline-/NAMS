@@ -6,14 +6,14 @@ class Directory : public Utils {
         Directory();
         ~Directory();
 
-    // Core
-    const void Close();
-    bool Open( const string path );
+        // Core
+        const void Close();
+        bool Open( const string path );
 
-    // Query
-    bool iOpen() const { return m_handle; }
+        // Query
+        bool iOpen() const { return m_handle; }
 
-    // Manipulate
+        // Manipulate
 
     private:
         DIR* m_handle;

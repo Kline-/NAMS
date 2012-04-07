@@ -9,7 +9,7 @@ class Server : public Utils {
         ~Server();
 
         // Core
-        bool InitSocket( Socket* socket );
+        bool InitSocket( SocketServer* socket_server );
         bool LoadCommands() const;
         const void NewConnection();
         bool PollSockets();
@@ -23,15 +23,11 @@ class Server : public Utils {
         uint_t gPort() const { return m_port; }
         uint_t gPulseRate() const { return m_pulse_rate; }
         string gTimeBoot() const;
-        Socket* gSocket() const { return m_socket; }
-        ITER( list, Socket*, gSocketNext() ) const { return m_socket_next; }
         bool iRunning() const { return !m_shutdown; }
 
         // Manipulate
         bool sPort( const uint_t port );
         bool sPulseRate( const uint_t rate );
-        bool sSocket( Socket* socket );
-        const void sSocketNext( ITER( list, Socket*, socket ) ) { m_socket_next = socket; return; }
         const void sTimeBoot();
 
     private:
@@ -40,8 +36,8 @@ class Server : public Utils {
         uint_t  m_port;
         uint_t  m_pulse_rate;
         bool    m_shutdown;
-        Socket* m_socket;
-        ITER( list, Socket*, m_socket_next );
+        SocketServer* m_socket;
+        ITER( list, SocketClient*, m_socket_client_next );
         time_t  m_time_boot;
 };
 
