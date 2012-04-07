@@ -18,7 +18,6 @@
 #ifndef DEC_SERVER_H
 #define DEC_SERVER_H
 
-#include <algorithm>
 #include <fcntl.h>
 
 #include "socketclient.h"
@@ -32,7 +31,7 @@ class Server : public Utils {
 
         // Core
         bool InitSocket( SocketServer* socket_server );
-        bool LoadCommands() const;
+        bool LoadCommands();
         const void NewConnection();
         bool PollSockets();
         bool ProcessInput();
@@ -54,6 +53,8 @@ class Server : public Utils {
         const void sTimeBoot();
 
     private:
+        uint_t  m_dir_close;
+        uint_t  m_dir_open;
         uint_t  m_port;
         uint_t  m_pulse_rate;
         bool    m_shutdown;

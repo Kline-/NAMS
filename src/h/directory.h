@@ -30,9 +30,10 @@ class Directory : public Utils {
         // Core
         const void Close();
         bool Open( const string path );
+        vector<string> List();
 
         // Query
-        bool iOpen() const { return m_handle; }
+        bool Open() const { return m_handle; }
 
         // Manipulate
 
