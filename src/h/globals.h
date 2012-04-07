@@ -10,6 +10,6 @@ using namespace std;
 #include "enum.h"
 #include "utils.h"
 
-extern Server server;
+extern Server _server;
 
 #endif

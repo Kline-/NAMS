@@ -21,6 +21,7 @@
 
 #include <arpa/inet.h>
 #include <arpa/telnet.h>
+#include <dirent.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <fnmatch.h>

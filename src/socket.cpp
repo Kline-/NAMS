@@ -8,7 +8,7 @@ bool Socket::Bind( const uint_t port, const string addr )
     static struct sockaddr_in sa_zero;
     struct sockaddr_in sa = sa_zero;
 
-    if ( !isValid() )
+    if ( !iValid() )
     {
         LOGSTR( flags, "Socket::Bind()-> called with invalid socket" );
         return false;
@@ -47,7 +47,7 @@ bool Socket::Listen() const
 {
     UFLAGS_DE( flags );
 
-    if ( !isValid() )
+    if ( !iValid() )
     {
         LOGSTR( flags, "Socket::Listen()-> called with invalid socket" );
         return false;
@@ -66,7 +66,7 @@ bool Socket::ProcessCommand()
 {
     UFLAGS_DE( flags );
 
-    if ( !isValid() )
+    if ( !iValid() )
     {
         LOGSTR( flags, "Socket::ProcessCommand()-> called with invalid socket" );
         return false;
@@ -89,7 +89,7 @@ bool Socket::ProcessInput()
     string command;
     ITER( vector, string, vi );
 
-    if ( !isValid() )
+    if ( !iValid() )
     {
         LOGSTR( flags, "Socket::ProcessInput()-> called with invalid socket" );
         return false;
@@ -119,7 +119,7 @@ bool Socket::QueueCommand( const string command )
 {
     UFLAGS_DE( flags );
 
-    if ( !isValid() )
+    if ( !iValid() )
     {
         LOGSTR( flags, "Socket::QueueCommand()-> called with invalid socket" );
         return false;
@@ -142,7 +142,7 @@ bool Socket::Recv()
     ssize_t amount = 0;
     char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
 
-    if ( !isValid() )
+    if ( !iValid() )
     {
         LOGSTR( flags, "Socket::Recv()-> called with invalid socket" );
         return false;
@@ -168,6 +168,7 @@ bool Socket::Recv()
         }
     }
 
+    m_bytes_recvd += amount;
     m_input += buf;
 
     return true;
@@ -179,7 +180,7 @@ const void Socket::ResolveHostname()
     pthread_t res_thread;
     pthread_attr_t res_attr;
 
-    if ( !isValid() )
+    if ( !iValid() )
     {
         LOGSTR( flags, "Socket::ResolveHostname()-> called with invalid socket" );
         return;
@@ -196,7 +197,7 @@ const void Socket::Send( const string msg )
 {
     UFLAGS_DE( flags );
 
-    if ( !isValid() )
+    if ( !iValid() )
     {
         LOGSTR( flags, "Socket::Send()-> called with invalid socket" );
         return;
@@ -218,7 +219,7 @@ bool Socket::Send()
     UFLAGS_DE( flags );
     ssize_t amount = 0;
 
-    if ( !isValid() )
+    if ( !iValid() )
     {
         LOGSTR( flags, "Socket::Send()-> called with invalid socket" );
         return false;
@@ -244,6 +245,7 @@ bool Socket::Send()
         }
     }
 
+    m_bytes_sent += amount;
     m_output.clear();
 
     return true;
@@ -284,17 +286,17 @@ bool Socket::sHost( const string host )
 
 bool Socket::sIdle( const uint_t idle )
 {
-        UFLAGS_DE( flags );
+    UFLAGS_DE( flags );
 
-        if ( idle < 0 || idle > CFG_SOC_MAX_IDLE )
-        {
-            LOGFMT( flags, "Socket::sIdle()-> called with invalid idle: %ld", idle );
-            return false;
-        }
+    if ( idle < 0 || idle > CFG_SOC_MAX_IDLE )
+    {
+        LOGFMT( flags, "Socket::sIdle()-> called with invalid idle: %ld", idle );
+        return false;
+    }
 
-        m_idle = idle;
+    m_idle = idle;
 
-        return true;
+    return true;
 }
 
 bool Socket::sPort( const uint_t port )
@@ -341,6 +343,27 @@ void* Socket::tResolveHostname( void* data )
     pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
 }
 
+bool Socket::sServer( Server* server )
+{
+    UFLAGS_DE( flags );
+
+    if ( !server )
+    {
+        LOGSTR( flags, "Socket::sServer()-> called with NULL server" );
+        return false;
+    }
+
+    if ( !server->iRunning() )
+    {
+        LOGSTR( flags, "Socket::sServer()-> called with invalid server" );
+        return false;
+    }
+
+    m_server = server;
+
+    return true;
+}
+
 bool Socket::sState( const uint_t state )
 {
     UFLAGS_DE( flags );
@@ -358,6 +381,8 @@ bool Socket::sState( const uint_t state )
 
 Socket::Socket()
 {
+    m_bytes_recvd = 0;
+    m_bytes_sent = 0;
     m_command_queue.clear();
     m_descriptor = 0;
     m_host.clear();
@@ -365,6 +390,7 @@ Socket::Socket()
     m_input.clear();
     m_output.clear();
     m_port = 0;
+    m_server = 0;
     m_state = SOC_STATE_DISCONNECTED;
 
     return;
@@ -372,7 +398,7 @@ Socket::Socket()
 
 Socket::~Socket()
 {
-    if ( isValid() )
+    if ( iValid() )
         ::close( m_descriptor );
 
     return;

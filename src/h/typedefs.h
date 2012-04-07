@@ -20,6 +20,7 @@
 #endif
 
 class Command;
+class Directory;
 class Server;
 class Socket;
 

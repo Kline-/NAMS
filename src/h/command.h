@@ -6,7 +6,12 @@ class Command {
         Command();
         ~Command();
 
+    // Core
     bool LoadCommand( const string file );
+
+    // Query
+
+    // Manipulate
 
     private:
         string m_name;

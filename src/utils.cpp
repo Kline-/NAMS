@@ -79,7 +79,7 @@ void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, 
         return;
 
     // prepend timestamp
-    pre += server.gTimeCurrent(); pre += " :: ";
+    pre += _server.gTimeCurrent(); pre += " :: ";
 
     for ( i = 0; i < MAX_UTILS; i++ )
     {

@@ -1,6 +1,12 @@
 #include "h/globals.h"
 #include "h/command.h"
 
+// Core
+
+// Query
+
+// Manipulate
+
 Command::Command()
 {
     m_name.clear();

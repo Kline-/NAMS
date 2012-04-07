@@ -1,7 +1,7 @@
 #include "h/globals.h"
 #include "h/main.h"
 
-Server server;
+Server _server;
 
 int main( const int argc, const char* argv[] )
 {
@@ -12,20 +12,20 @@ int main( const int argc, const char* argv[] )
         if ( !Utils::isNumber( argv[1] ) )
         {
             LOGFMT( flags, "Usage: %s [port #]", argv[0] );
-            server.Shutdown( EXIT_FAILURE );
+            _server.Shutdown( EXIT_FAILURE );
         }
-        else if ( !server.sPort( atoi( argv[1] ) ) )
+        else if ( !_server.sPort( atoi( argv[1] ) ) )
         {
             LOGFMT( flags, "Port number must be between %d and %d.", CFG_SOC_MIN_PORTNUM, CFG_SOC_MAX_PORTNUM );
-            server.Shutdown( EXIT_FAILURE );
+            _server.Shutdown( EXIT_FAILURE );
         }
     }
     else
-        server.sPort( CFG_SOC_PORTNUM );
+        _server.sPort( CFG_SOC_PORTNUM );
 
-    server.Startup();
-    while( server.isRunning() )
-        server.Update();
+    _server.Startup();
+    while( _server.iRunning() )
+        _server.Update();
 
-    server.Shutdown( EXIT_SUCCESS );
+    _server.Shutdown( EXIT_SUCCESS );
 }

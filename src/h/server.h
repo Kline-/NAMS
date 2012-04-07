@@ -11,7 +11,7 @@ class Server {
         // Core
         bool InitSocket( Socket* socket );
         bool LoadCommands() const;
-        const void NewConnection() const;
+        const void NewConnection();
         bool PollSockets();
         bool ProcessInput();
         const void Startup();
@@ -19,13 +19,14 @@ class Server {
         const void Update();
 
         // Query
+        string gHost();
         uint_t gPort() const { return m_port; }
         uint_t gPulseRate() const { return m_pulse_rate; }
         string gTimeBoot() const;
         string gTimeCurrent() const;
         Socket* gSocket() const { return m_socket; }
         ITER( list, Socket*, gSocketNext() ) const { return m_socket_next; }
-        bool isRunning() const { return !m_shutdown; }
+        bool iRunning() const { return !m_shutdown; }
 
         // Manipulate
         bool sPort( const uint_t port );
@@ -36,6 +37,8 @@ class Server {
         const void sTimeCurrent();
 
     private:
+        uint_t  m_bytes_recvd;
+        uint_t  m_bytes_sent;
         uint_t  m_port;
         uint_t  m_pulse_rate;
         bool    m_shutdown;

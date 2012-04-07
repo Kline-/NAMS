@@ -29,7 +29,7 @@ bool Server::LoadCommands() const
     return true;
 }
 
-const void Server::NewConnection() const
+const void Server::NewConnection()
 {
     UFLAGS_DE( flags );
     struct sockaddr_in sin;
@@ -57,6 +57,7 @@ const void Server::NewConnection() const
 
     socket = new Socket();
     socket->sDescriptor( descriptor );
+    socket->sServer( this );
     socket_list.push_back( socket );
 
     if ( ::getpeername( socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
@@ -280,9 +281,10 @@ const void Server::Startup()
         Shutdown( EXIT_FAILURE );
     if ( !socket->Listen() )
         Shutdown( EXIT_FAILURE );
+    socket->sHost( gHost() );
 
     // Bump ourselves to the root folder for file paths
-    if ( chdir( ".." ) < 0 )
+    if ( ::chdir( ".." ) < 0 )
     {
         LOGFMT( flags, "Server::Startup()->chdir()-> returned errno %d: %s", errno, strerror( errno ) );
         Shutdown( EXIT_FAILURE );
@@ -328,6 +330,26 @@ const void Server::Update()
 }
 
 // Query
+string Server::gHost()
+{
+    UFLAGS_DE( flags );
+
+    string output;
+    char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
+
+    if ( gethostname( buf, CFG_STR_MAX_BUFLEN - 1 ) < 0 )
+    {
+        LOGFMT( flags, "Server::gHost()->gethostname()-> returned errno %d: %s", errno, strerror( errno ) );
+        output = "";
+
+        return output;
+    }
+
+    output = buf;
+
+    return output;
+}
+
 string Server::gTimeBoot() const
 {
     string output;
@@ -385,7 +407,7 @@ bool Server::sSocket( Socket* socket )
         return false;
     }
 
-    if ( !socket->isValid() )
+    if ( !socket->iValid() )
     {
         LOGSTR( flags, "Server::sSocket()-> called with invalid socket" );
         return false;
@@ -418,6 +440,8 @@ const void Server::sTimeCurrent()
 
 Server::Server()
 {
+    m_bytes_recvd = 0;
+    m_bytes_sent = 0;
     m_port = 0;
     m_pulse_rate = CFG_GAM_PULSE_RATE;
     m_shutdown = true;
