@@ -1,0 +1,6 @@
+## Create possibly empty folders due to Git
+mkdir -p o
+
+for i in {a..z}; do
+ mkdir -p ../command/$i
+done
