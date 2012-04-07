@@ -63,7 +63,7 @@ const void Server::NewConnection() const
     {
         socket->sHost( inet_ntoa( sin.sin_addr ) );
         socket->sPort( ntohs( sin.sin_port ) );
-        LOGFMT( 0, "Server::NewConnection()-> %s:%lu", CSTR( socket->gHost() ), socket->gPort() );
+        LOGFMT( 0, "Server::NewConnection()-> %s:%lu (%lu)", CSTR( socket->gHost() ), socket->gPort(), socket->gDescriptor() );
         socket->ResolveHostname();
     }
 
@@ -89,6 +89,7 @@ bool Server::PollSockets()
     FD_ZERO( &exc_set );
 
     FD_SET( gSocket()->gDescriptor(), &in_set );
+    max_desc = gSocket()->gDescriptor();
 
     // Build three file descriptor lists to be polled
     for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
@@ -119,12 +120,16 @@ bool Server::PollSockets()
         socket = *si;
         m_socket_next = ++si;
 
+        // Skip (this) -- only need to poll clients
+        if ( socket == m_socket )
+            continue;
+
         if ( FD_ISSET( socket->gDescriptor(), &exc_set ) )
         {
             FD_CLR( socket->gDescriptor(), &in_set );
             FD_CLR( socket->gDescriptor(), &out_set );
-            socket_list.remove( socket );
-            delete socket;
+            socket->Disconnect();
+            continue;
         }
     }
 
@@ -134,6 +139,10 @@ bool Server::PollSockets()
         socket = *si;
         m_socket_next = ++si;
 
+        // Skip (this) -- only need to poll clients
+        if ( socket == m_socket )
+            continue;
+
         if ( FD_ISSET( socket->gDescriptor(), &in_set ) )
         {
             if ( 0 )
@@ -141,8 +150,10 @@ bool Server::PollSockets()
                 // reset game character idle timer
             }
 
-            if ( 0 )
+            if ( !socket->Recv() )
             {
+                FD_CLR( socket->gDescriptor(), &out_set );
+                socket->Disconnect();
                 // read input, save game character and disconnect socket if unable to
                 // continue since we invalidated the socket
                 continue;
@@ -156,10 +167,15 @@ bool Server::PollSockets()
         socket = *si;
         m_socket_next = ++si;
 
-        if ( FD_ISSET( socket->gDescriptor(), &out_set ) )
+        // Skip (this) -- only need to poll clients
+        if ( socket == m_socket )
+            continue;
+
+        if ( FD_ISSET( socket->gDescriptor(), &out_set ) && socket->PendingOutput() )
         {
             if ( !socket->Send() )
             {
+                socket->Disconnect();
                 // send output, save game character and disconnect socket if unable to
                 // continue since we invalidated the socket
                 continue;

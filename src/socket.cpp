@@ -2,55 +2,6 @@
 #include "h/socket.h"
 
 // Core
-const void Socket::Send( const string msg )
-{
-    if ( m_output.empty() )
-    {
-        m_output += "\r\n";
-        m_output += msg;
-    }
-    else
-        m_output += msg;
-
-    return;
-}
-
-bool Socket::Send()
-{
-    UFLAGS_DE( flags );
-
-    if ( ::send( m_descriptor, CSTR( m_output ), m_output.length(), 0 ) < 0 )
-    {
-        LOGFMT( flags, "Socket::Send()->send()-> returned errno %d: %s", errno, strerror( errno ) );
-        return false;
-    }
-
-    m_output.clear();
-
-    return true;
-}
-
-// Query
-bool Socket::Listen() const
-{
-    UFLAGS_DE( flags );
-
-    if ( !isValid() )
-    {
-        LOGSTR( flags, "Socket::Listen()-> called with invalid socket" );
-        return false;
-    }
-
-    if ( ::listen( m_descriptor, CFG_SOC_MAX_PENDING ) < 0 )
-    {
-        LOGFMT( flags, "Socket::Listen()->listen()-> returned errno %d: %s", errno, strerror( errno ) );
-        return false;
-    }
-
-    return true;
-}
-
-// Manipulate
 bool Socket::Bind( const uint_t port, const string addr )
 {
     UFLAGS_DE( flags );
@@ -78,6 +29,149 @@ bool Socket::Bind( const uint_t port, const string addr )
     return true;
 }
 
+const void Socket::Disconnect()
+{
+    socket_list.remove( this );
+    delete this;
+
+    return;
+}
+
+bool Socket::Listen() const
+{
+    UFLAGS_DE( flags );
+
+    if ( !isValid() )
+    {
+        LOGSTR( flags, "Socket::Listen()-> called with invalid socket" );
+        return false;
+    }
+
+    if ( ::listen( m_descriptor, CFG_SOC_MAX_PENDING ) < 0 )
+    {
+        LOGFMT( flags, "Socket::Listen()->listen()-> returned errno %d: %s", errno, strerror( errno ) );
+        return false;
+    }
+
+    return true;
+}
+
+bool Socket::Recv()
+{
+    UFLAGS_DE( flags );
+    ssize_t amount = 0;
+    char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
+
+    if ( !isValid() )
+    {
+        LOGSTR( flags, "Socket::Recv()-> called with invalid socket" );
+        return false;
+    }
+
+    if ( ( m_input.length() + CFG_STR_MAX_BUFLEN ) >= m_input.max_size() )
+    {
+        LOGSTR( flags, "Socket::Recv()->recv()-> called with m_input overflow" );
+        return false;
+    }
+
+    if ( ( amount = ::recv( m_descriptor, buf, CFG_STR_MAX_BUFLEN - 1, 0 ) ) < 1 )
+    {
+        if ( amount == 0 )
+        {
+            LOGFMT( flags, "Socket::Recv()->recv()-> broken pipe encountered on recv from: %s", CSTR( m_host ) );
+            return false;
+        }
+        else if ( errno != EAGAIN && errno != EWOULDBLOCK )
+        {
+            LOGFMT( flags, "Socket::Recv()->recv()-> returned errno %d: %s", errno, strerror( errno ) );
+            return false;
+        }
+    }
+
+    m_input += buf;
+
+    return true;
+}
+
+const void Socket::ResolveHostname()
+{
+    UFLAGS_DE( flags );
+    pthread_t res_thread;
+    pthread_attr_t res_attr;
+
+    if ( !isValid() )
+    {
+        LOGSTR( flags, "Socket::ResolveHostname()-> called with invalid socket" );
+        return;
+    }
+
+    pthread_attr_init( &res_attr );
+    pthread_attr_setdetachstate( &res_attr, PTHREAD_CREATE_DETACHED );
+    pthread_create( &res_thread, &res_attr, &Socket::tResolveHostname, this );
+
+    return;
+}
+
+const void Socket::Send( const string msg )
+{
+    UFLAGS_DE( flags );
+
+    if ( !isValid() )
+    {
+        LOGSTR( flags, "Socket::Send()-> called with invalid socket" );
+        return;
+    }
+
+    if ( m_output.empty() )
+    {
+        m_output += "\r\n";
+        m_output += msg;
+    }
+    else
+        m_output += msg;
+
+    return;
+}
+
+bool Socket::Send()
+{
+    UFLAGS_DE( flags );
+    ssize_t amount = 0;
+
+    if ( !isValid() )
+    {
+        LOGSTR( flags, "Socket::Send()-> called with invalid socket" );
+        return false;
+    }
+
+    if ( m_output.empty() )
+    {
+        LOGSTR( flags, "Socket::Send()->send()-> called with empty output buffer" );
+        return false;
+    }
+
+    if ( ( amount = ::send( m_descriptor, CSTR( m_output ), m_output.length(), 0 ) ) < 1 )
+    {
+        if ( amount == 0 )
+        {
+            LOGFMT( flags, "Socket::Send()->send()-> broken pipe encountered on send to: %s", CSTR( m_host ) );
+            return false;
+        }
+        else if ( errno != EAGAIN && errno != EWOULDBLOCK )
+        {
+            LOGFMT( flags, "Socket::Send()->send()-> returned errno %d: %s", errno, strerror( errno ) );
+            return false;
+        }
+    }
+
+    m_output.clear();
+
+    return true;
+}
+
+// Query
+
+// Manipulate
 bool Socket::sDescriptor( const sint_t descriptor )
 {
     UFLAGS_DE( flags );
@@ -123,18 +217,6 @@ bool Socket::sPort( const uint_t port )
     return true;
 }
 
-const void Socket::ResolveHostname()
-{
-    pthread_t res_thread;
-    pthread_attr_t res_attr;
-
-    pthread_attr_init( &res_attr );
-    pthread_attr_setdetachstate( &res_attr, PTHREAD_CREATE_DETACHED );
-    pthread_create( &res_thread, &res_attr, &Socket::tResolveHostname, this );
-
-    return;
-}
-
 void* Socket::tResolveHostname( void* data )
 {
     UFLAGS_DE( flags );
@@ -168,6 +250,7 @@ Socket::Socket()
 {
     m_descriptor = 0;
     m_host.clear();
+    m_input.clear();
     m_output.clear();
     m_port = 0;
 

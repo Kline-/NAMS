@@ -12,6 +12,7 @@ class Socket {
     bool Bind( const uint_t port, const string addr = "" );
     const void Disconnect();
     bool Listen() const;
+    bool PendingOutput() const { return !m_output.empty(); }
     bool Recv();
     const void ResolveHostname();
     const void Send( const string msg );
