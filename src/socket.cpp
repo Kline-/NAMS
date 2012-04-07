@@ -99,7 +99,7 @@ bool Socket::ProcessInput()
     if ( m_input.empty() )
         return true;
 
-    commands = Utils::StrNewlines( m_input );
+    commands = StrNewlines( m_input );
     for ( vi = commands.begin(); vi != commands.end(); vi++ )
     {
         command = *vi;
@@ -118,8 +118,7 @@ bool Socket::ProcessInput()
 bool Socket::QueueCommand( const string command )
 {
     UFLAGS_DE( flags );
-if ( command.compare( "shutdown" ) )
-    gServer()->Shutdown( EXIT_SUCCESS );
+
     if ( !iValid() )
     {
         LOGSTR( flags, "Socket::QueueCommand()-> called with invalid socket" );
