@@ -18,6 +18,8 @@
 #ifndef DEC_SOCKETCLIENT_H
 #define DEC_SOCKETCLIENT_H
 
+#include <netdb.h>
+
 #include "socket.h"
 #include "server.h"
 

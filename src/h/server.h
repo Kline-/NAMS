@@ -18,6 +18,9 @@
 #ifndef DEC_SERVER_H
 #define DEC_SERVER_H
 
+#include <algorithm>
+#include <fcntl.h>
+
 #include "socketclient.h"
 #include "socketserver.h"
 #include "lists.h"

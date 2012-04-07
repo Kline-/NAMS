@@ -1,6 +1,6 @@
 ## Compiler to use. Either g++ or your own flavor of colorgcc, ccache, etc.
 # Default: g++
-CC   = /usr/lib/colorgcc/ccache/g++
+CC   = g++
 
 ### Name of binary file to generate.
 # Default: nams
@@ -22,7 +22,7 @@ endif
 
 #-Werror -Wwrite-strings -Wconversion
 MAKEFLAGS = -j2
-W_FLAGS = -Wall -Wformat-security -Wpointer-arith -Wredundant-decls -Wcast-align -Wshadow -Wno-write-strings
+W_FLAGS = -Wall -Wformat-security -Wpointer-arith -Wredundant-decls -Wcast-align -Wshadow
 L_FLAGS = -lcrypt -lm -lpthread -ldl -L`pwd`
 
 C_FILES = $(wildcard *.c *.cpp)

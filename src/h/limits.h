@@ -18,6 +18,8 @@
 #ifndef DEC_LIMITS_H
 #define DEC_LIMITS_H
 
+#include <limits>
+
 #if __WORDSIZE == 64
  typedef signed long int sint_t;
  #define sintmax_t numeric_limits<signed long int>::max()

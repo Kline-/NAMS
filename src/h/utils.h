@@ -18,6 +18,13 @@
 #ifndef DEC_UTILS_H
 #define DEC_UTILS_H
 
+#include <bitset>
+#include <cstdarg>
+#include <cstdio>
+#include <iostream>
+#include <iterator>
+#include <sstream>
+
 class Utils {
     public:
         Utils();
