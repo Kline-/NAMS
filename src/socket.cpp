@@ -62,6 +62,25 @@ bool Socket::Listen() const
     return true;
 }
 
+bool Socket::ProcessCommand()
+{
+    UFLAGS_DE( flags );
+
+    if ( !isValid() )
+    {
+        LOGSTR( flags, "Socket::ProcessCommand()-> called with invalid socket" );
+        return false;
+    }
+
+    if ( m_command_queue.empty() )
+    {
+        LOGSTR( flags, "Socket::ProcessCommand()-> called with empty command queue" );
+        return false;
+    }
+
+    return true;
+}
+
 bool Socket::ProcessInput()
 {
     UFLAGS_DE( flags );

@@ -13,7 +13,9 @@ class Socket {
     bool Bind( const uint_t port, const string addr );
     const void Disconnect( const string msg = "" );
     bool Listen() const;
+    bool PendingCommand() const { return !m_command_queue.empty(); }
     bool PendingOutput() const { return !m_output.empty(); }
+    bool ProcessCommand();
     bool ProcessInput();
     bool QueueCommand( const string command );
     bool Recv();

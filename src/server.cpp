@@ -208,11 +208,6 @@ bool Server::PollSockets()
     return true;
 }
 
-bool Server::ProcessCommands()
-{
-    return true;
-}
-
 bool Server::ProcessInput()
 {
     UFLAGS_DE( flags );
@@ -232,6 +227,11 @@ bool Server::ProcessInput()
         {
             socket->Disconnect();
             continue;
+        }
+
+        if ( socket->PendingCommand() )
+        {
+            socket->ProcessCommand();
         }
     }
 
@@ -274,13 +274,6 @@ const void Server::Update()
     if ( !ProcessInput() )
     {
         LOGSTR( flags, "Server::Update()->Server::ProcessInput()-> returned false" );
-        Shutdown( EXIT_FAILURE );
-        return;
-    }
-
-    if ( !ProcessCommands() )
-    {
-        LOGSTR( flags, "Server::Update()->Server::ProcessCommands()-> returned false" );
         Shutdown( EXIT_FAILURE );
         return;
     }
