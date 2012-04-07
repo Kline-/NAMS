@@ -281,6 +281,13 @@ const void Server::Startup()
     if ( !socket->Listen() )
         Shutdown( EXIT_FAILURE );
 
+    // Bump ourselves to the root folder for file paths
+    if ( chdir( ".." ) < 0 )
+    {
+        LOGFMT( flags, "Server::Startup()->chdir()-> returned errno %d: %s", errno, strerror( errno ) );
+        Shutdown( EXIT_FAILURE );
+    }
+
     if ( !LoadCommands() )
     {
         LOGSTR( flags, "Server::Startup()->LoadCommands()-> returned false" );
