@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 #include "h/includes.h"
+#include "h/class.h"
+
 #include "h/lists.h"
 
 vector<Command*> command_list[ALPHA_MAX];

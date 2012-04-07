@@ -17,7 +17,8 @@
  ***************************************************************************/
 #include "h/includes.h"
 #include "h/class.h"
-#include "h/main.h"
+
+#include "h/server.h"
 
 int main( const int argc, const char* argv[] )
 {
