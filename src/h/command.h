@@ -26,7 +26,7 @@ class Command : public Utils {
         ~Command();
 
         // Core
-        bool LoadCommand( const string file );
+        bool Load( const string file );
 
         // Query
 

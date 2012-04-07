@@ -73,6 +73,8 @@ bool SocketServer::Listen()
 
 SocketServer::SocketServer()
 {
+    socket_server_list.push_back( this );
+
     return;
 }
 
