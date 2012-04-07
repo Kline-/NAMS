@@ -117,6 +117,18 @@ uint_t Utils::NumChar( const string input, const string item )
     return amount;
 }
 
+vector<string> Utils::StrNewlines( const string input )
+{
+    stringstream ss( input );
+    string line;
+    vector<string> output;
+
+    while ( getline( ss, line ) )
+        output.push_back( line );
+
+    return output;
+}
+
 vector<string> Utils::StrTokens( const string input )
 {
     stringstream ss( input );

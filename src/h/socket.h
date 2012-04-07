@@ -14,6 +14,8 @@ class Socket {
     const void Disconnect( const string msg = "" );
     bool Listen() const;
     bool PendingOutput() const { return !m_output.empty(); }
+    bool ProcessInput();
+    bool QueueCommand( const string command );
     bool Recv();
     const void ResolveHostname();
     const void Send( const string msg );
@@ -36,6 +38,7 @@ class Socket {
     bool sState( const uint_t state );
 
     private:
+        vector<string> m_command_queue;
         sint_t m_descriptor;
         string m_host;
         uint_t m_idle;

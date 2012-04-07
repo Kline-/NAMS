@@ -62,6 +62,61 @@ bool Socket::Listen() const
     return true;
 }
 
+bool Socket::ProcessInput()
+{
+    UFLAGS_DE( flags );
+
+    vector<string> commands;
+    string command;
+    ITER( vector, string, vi );
+
+    if ( !isValid() )
+    {
+        LOGSTR( flags, "Socket::ProcessInput()-> called with invalid socket" );
+        return false;
+    }
+
+    // Nothing new to process; move along
+    if ( m_input.empty() )
+        return true;
+
+    commands = Utils::StrNewlines( m_input );
+    for ( vi = commands.begin(); vi != commands.end(); vi++ )
+    {
+        command = *vi;
+        if ( !QueueCommand( command ) )
+        {
+            LOGSTR( flags, "Socket::ProcessInput()->Socket::QueueCommand()-> returned false" );
+            return false;
+        }
+    }
+
+    m_input.clear();
+
+    return true;
+}
+
+bool Socket::QueueCommand( const string command )
+{
+    UFLAGS_DE( flags );
+
+    if ( !isValid() )
+    {
+        LOGSTR( flags, "Socket::QueueCommand()-> called with invalid socket" );
+        return false;
+    }
+
+    if ( command.empty() )
+    {
+        LOGSTR( flags, "Socket::QueueCommand()-> called with empty command" );
+        return false;
+    }
+
+    m_command_queue.push_back( command );
+
+    return true;
+}
+
 bool Socket::Recv()
 {
     UFLAGS_DE( flags );
@@ -284,6 +339,7 @@ bool Socket::sState( const uint_t state )
 
 Socket::Socket()
 {
+    m_command_queue.clear();
     m_descriptor = 0;
     m_host.clear();
     m_idle = 0;

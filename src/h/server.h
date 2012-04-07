@@ -12,6 +12,8 @@ class Server {
         bool InitSocket( Socket* socket );
         const void NewConnection() const;
         bool PollSockets();
+        bool ProcessCommands();
+        bool ProcessInput();
         const void Shutdown( const sint_t status );
         const void Update();
 

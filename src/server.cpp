@@ -208,6 +208,36 @@ bool Server::PollSockets()
     return true;
 }
 
+bool Server::ProcessCommands()
+{
+    return true;
+}
+
+bool Server::ProcessInput()
+{
+    UFLAGS_DE( flags );
+    ITER( list, Socket*, si );
+    Socket* socket;
+
+    for ( si = socket_list.begin(); si != socket_list.end(); si = m_socket_next )
+    {
+        socket = *si;
+        m_socket_next = ++si;
+
+        // Skip (this) -- only need to process clients
+        if ( socket == m_socket )
+            continue;
+
+        if ( !socket->ProcessInput() )
+        {
+            socket->Disconnect();
+            continue;
+        }
+    }
+
+    return true;
+}
+
 const void Server::Shutdown( const sint_t status )
 {
     bool was_running = !m_shutdown;
@@ -237,6 +267,20 @@ const void Server::Update()
     if ( !PollSockets() )
     {
         LOGSTR( flags, "Server::Update()->Server::PollSockets()-> returned false" );
+        Shutdown( EXIT_FAILURE );
+        return;
+    }
+
+    if ( !ProcessInput() )
+    {
+        LOGSTR( flags, "Server::Update()->Server::ProcessInput()-> returned false" );
+        Shutdown( EXIT_FAILURE );
+        return;
+    }
+
+    if ( !ProcessCommands() )
+    {
+        LOGSTR( flags, "Server::Update()->Server::ProcessCommands()-> returned false" );
         Shutdown( EXIT_FAILURE );
         return;
     }

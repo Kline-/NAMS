@@ -16,6 +16,7 @@ namespace Utils {
     void _Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... );
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     uint_t NumChar( const string input, const string item );
+    vector<string> StrNewlines( const string input );
     vector<string> StrTokens( const string input );
     template <class T> inline string toLower( const T& t )  { stringstream ss; ss << nouppercase << t; return ss.str(); }
     template <class T> inline string toString( const T& t ) { stringstream ss; ss << t; return ss.str(); }
