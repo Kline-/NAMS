@@ -29,8 +29,14 @@ bool Socket::Bind( const uint_t port, const string addr )
     return true;
 }
 
-const void Socket::Disconnect()
+const void Socket::Disconnect( const string msg )
 {
+    if ( !msg.empty() )
+    {
+        Send( msg );
+        Send();
+    }
+
     socket_list.remove( this );
     delete this;
 
@@ -122,9 +128,9 @@ const void Socket::Send( const string msg )
         return;
     }
 
-    if ( m_output.empty() )
+    if ( m_output.empty() && m_state > SOC_STATE_LOGIN_SCREEN )
     {
-        m_output += "\r\n";
+        m_output += CRLF;
         m_output += msg;
     }
     else
@@ -202,13 +208,28 @@ bool Socket::sHost( const string host )
     return true;
 }
 
+bool Socket::sIdle( const uint_t idle )
+{
+        UFLAGS_DE( flags );
+
+        if ( idle < 0 || idle > CFG_SOC_MAX_IDLE )
+        {
+            LOGFMT( flags, "Socket::sIdle()-> called with invalid idle: %ld", idle );
+            return false;
+        }
+
+        m_idle = idle;
+
+        return true;
+}
+
 bool Socket::sPort( const uint_t port )
 {
     UFLAGS_DE( flags );
 
     if ( port <= uintmin_t || port >= uintmax_t )
     {
-        LOGFMT( flags, "Socket::sPort()-> called with invalid input: %lu", port );
+        LOGFMT( flags, "Socket::sPort()-> called with invalid port: %lu", port );
         return false;
     }
 
@@ -246,13 +267,30 @@ void* Socket::tResolveHostname( void* data )
     pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
 }
 
+bool Socket::sState( const uint_t state )
+{
+    UFLAGS_DE( flags );
+
+    if ( state < SOC_STATE_DISCONNECTED || state >= MAX_SOC_STATE )
+    {
+        LOGFMT( flags, "Socket::sState()-> called with invalid state: %lu", state );
+        return false;
+    }
+
+    m_state = state;
+
+    return true;
+}
+
 Socket::Socket()
 {
     m_descriptor = 0;
     m_host.clear();
+    m_idle = 0;
     m_input.clear();
     m_output.clear();
     m_port = 0;
+    m_state = SOC_STATE_DISCONNECTED;
 
     return;
 }

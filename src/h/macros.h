@@ -28,6 +28,9 @@
 #define SX(x) STR(x)
 #define _caller_ __FILE__ ":" SX(__LINE__)
 
+// Output a carriage return \ line feed
+#define CRLF "\r\n"
+
 // Output std::string to const char*
 #define CSTR( func ) ( func ).c_str()
 

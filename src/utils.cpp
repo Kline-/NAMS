@@ -90,7 +90,9 @@ void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, 
                 case UTILS_DEBUG:       post += " ["; post += caller; post += "]"; break; // output caller
                 case UTILS_IGNORE_CASE: break; // noting for now
                 case UTILS_RAW:         pre.clear(); post.clear(); i = MAX_UTILS;  break; //no extraneous data applied
-                case UTILS_TYPE_ERROR:  pre += "ERROR: ";                          break; // so fancy!
+                case UTILS_TYPE_ERROR:  pre += "[ERROR ] ";                        break; // so fancy!
+                case UTILS_TYPE_INFO:   pre += "[INFO  ] ";                        break;
+                case UTILS_TYPE_SOCKET: pre += "[SOCKET] ";                        break;
                 default: break;
             }
         }

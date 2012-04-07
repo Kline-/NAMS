@@ -32,7 +32,7 @@ int main( const int argc, const char* argv[] )
 
     if ( !server.InitSocket( socket ) )
         server.Shutdown( EXIT_FAILURE );
-    if ( !socket->Bind( server.gPort() ) )
+    if ( !socket->Bind( server.gPort(), CFG_SOC_BIND_ADDR ) )
         server.Shutdown( EXIT_FAILURE );
     if ( !socket->Listen() )
         server.Shutdown( EXIT_FAILURE );

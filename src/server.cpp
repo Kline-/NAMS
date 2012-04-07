@@ -69,6 +69,7 @@ const void Server::NewConnection() const
 
     // negotiate telopts, send login message
     socket->Send( CFG_STR_LOGIN );
+    socket->sState( SOC_STATE_LOGIN_SCREEN );
 
     return;
 }
@@ -77,16 +78,16 @@ bool Server::PollSockets()
 {
     UFLAGS_DE( flags );
     static struct timespec static_time;
+    fd_set exc_set;
     fd_set in_set;
     fd_set out_set;
-    fd_set exc_set;
     ITER( list, Socket*, si );
     Socket* socket;
     sint_t max_desc = 0;
 
+    FD_ZERO( &exc_set );
     FD_ZERO( &in_set );
     FD_ZERO( &out_set );
-    FD_ZERO( &exc_set );
 
     FD_SET( gSocket()->gDescriptor(), &in_set );
     max_desc = gSocket()->gDescriptor();
@@ -96,11 +97,16 @@ bool Server::PollSockets()
     {
         socket = *si;
         m_socket_next = ++si;
-
         max_desc = max( gSocket()->gDescriptor(), socket->gDescriptor() );
+
+        // Skip (this) -- only need to poll clients
+        if ( socket == m_socket )
+            continue;
+
+        // Populate lists of: exceptions, pending input, pending output
+        FD_SET( socket->gDescriptor(), &exc_set );
         FD_SET( socket->gDescriptor(), &in_set );
         FD_SET( socket->gDescriptor(), &out_set );
-        FD_SET( socket->gDescriptor(), &exc_set );
     }
 
     // Ensure the file descriptor lists can be watched for updates
@@ -124,8 +130,11 @@ bool Server::PollSockets()
         if ( socket == m_socket )
             continue;
 
+        // Found a faulted socket in the exceptions list
         if ( FD_ISSET( socket->gDescriptor(), &exc_set ) )
         {
+            // Remove from the other lists and disconnect
+            // Continue since we invalidated the socket
             FD_CLR( socket->gDescriptor(), &in_set );
             FD_CLR( socket->gDescriptor(), &out_set );
             socket->Disconnect();
@@ -143,22 +152,25 @@ bool Server::PollSockets()
         if ( socket == m_socket )
             continue;
 
+        // Found an active socket in the input list
         if ( FD_ISSET( socket->gDescriptor(), &in_set ) )
         {
-            if ( 0 )
-            {
-                // reset game character idle timer
-            }
+            // Pending input; clear the idle timeout
+            socket->sIdle( 0 );
 
+            // Read input, save game character and disconnect socket if unable to
             if ( !socket->Recv() )
             {
+                // Remove from the final list
+                // Continue since we invalidated the socket
                 FD_CLR( socket->gDescriptor(), &out_set );
+                // todo: save character
                 socket->Disconnect();
-                // read input, save game character and disconnect socket if unable to
-                // continue since we invalidated the socket
                 continue;
             }
         }
+        else
+            socket->sIdle( socket->gIdle() + 1 );
     }
 
     // Process any pending output
@@ -171,13 +183,23 @@ bool Server::PollSockets()
         if ( socket == m_socket )
             continue;
 
+        // Disconnect sockets that have been idle for too long
+        if ( socket->gIdle() >= CFG_SOC_MAX_IDLE )
+        {
+            socket->Disconnect( CFG_STR_IDLE );
+            // todo: save character
+            continue;
+        }
+
+        // Found an active socket in the output list
         if ( FD_ISSET( socket->gDescriptor(), &out_set ) && socket->PendingOutput() )
         {
+            // Send output, save game character and disconnect socket if unable to
             if ( !socket->Send() )
             {
+                // Continue since we invalidated the socket
                 socket->Disconnect();
-                // send output, save game character and disconnect socket if unable to
-                // continue since we invalidated the socket
+                // todo: save character
                 continue;
             }
         }
