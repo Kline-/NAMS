@@ -1,0 +1,20 @@
+NAMS - Not Another MUD Server
+
+NAMS is a C++ MUD server with the primary goals of a safe, modular design and a
+server core that is substantially decouppled from game logic. NAMS has been designed
+as a generic, robust framework on which to build a rich and immersive game world.
+
+There is a special file 'src/.dirbuild' that will re-create the required directory
+structure and then be removed upon first make. This is to work around the limitations
+of Git not tracking empty directories.
+
+Support for this code is provided both via GitHub and the project website.
+
+GitHub          - https://github.com/Kline-/NAMS
+Project Website - http://www.ackmud.net
+
+Directory Layout
+  command/ -- All server commands, including name, permissions, and function to execute
+  doc/     -- Miscellaneous docs on changes/install, Valgrind suppressions, etc
+  src/     -- Source code, header files within h/ and object files within o/
+

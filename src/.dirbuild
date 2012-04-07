@@ -4,3 +4,8 @@ mkdir -p o
 for i in {a..z}; do
  mkdir -p ../command/$i
 done
+
+singles="doc"
+for i in $singles; do
+ mkdir -p ../$i
+done
