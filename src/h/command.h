@@ -34,6 +34,7 @@ class Command {
         // Manipulate
 
     private:
+        uint_t m_level;
         string m_name;
         bool m_preempt;
 };

@@ -31,7 +31,7 @@ bool Socket::sBytesRecvd( const uint_t amount )
 
     if ( amount < 1 || ( ( m_bytes_recvd + amount ) >= uintmax_t ) )
     {
-        LOGFMT( flags, "Socket::sBytesRecvd()-> amount %ld would overflow m_bytes_recvd: %ld", amount, m_bytes_recvd );
+        LOGFMT( flags, "Socket::sBytesRecvd()-> called with m_bytes_recvd overflow: %lu + %lu", m_bytes_recvd, amount );
         return false;
     }
 
@@ -46,7 +46,7 @@ bool Socket::sBytesSent( const uint_t amount )
 
     if ( amount < 1 || ( ( m_bytes_sent + amount ) >= uintmax_t ) )
     {
-        LOGFMT( flags, "Socket::sBytesSent()-> amount %ld would overflow m_bytes_sent: %ld", amount, m_bytes_sent );
+        LOGFMT( flags, "Socket::sBytesSent()-> called with m_bytes_sent overflow: %lu + %lu", m_bytes_sent, amount );
         return false;
     }
 

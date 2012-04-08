@@ -56,7 +56,7 @@ bool Server::LoadCommands()
 
     if ( files.empty() )
     {
-        LOGSTR( flags, "Server::LoadCommands()->Utils::ListDirectory()-> returned NULL" );
+        LOGFMT( flags, "Server::LoadCommands()->Utils::ListDirectory()-> returned NULL for: %s", CFG_DAT_DIR_COMMAND );
         return false;
     }
 
@@ -67,7 +67,7 @@ bool Server::LoadCommands()
             cmd = new Command();
             if ( !cmd->Load( mi->second ) )
             {
-                LOGSTR( flags, "Server::LoadCommands()->Command::Load()-> returned false" );
+                LOGFMT( flags, "Server::LoadCommands()->Command::Load()-> returned false for command: %s", CSTR( mi->second ) );
                 delete cmd;
             }
             else
@@ -297,9 +297,9 @@ const void Server::Shutdown( const sint_t status )
     if ( was_running )
     {
         if ( status == EXIT_SUCCESS )
-            LOGSTR( 0, "Normal termination of server." );
+            LOGSTR( 0, CFG_STR_EXIT_SUCCESS );
         else
-            LOGSTR( 0, "Server terminated." );
+            LOGSTR( 0, CFG_STR_EXIT_FAILURE );
     }
 
     exit( status );

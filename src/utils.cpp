@@ -50,6 +50,23 @@ bool Utils::iDirectory( const string dir )
     return true;
 }
 
+bool Utils::iFile( const string file )
+{
+    UFLAGS_DE( flags );
+    struct stat dir_info;
+
+    if ( stat( CSTR( file ), &dir_info ) < 0 )
+    {
+        LOGERRNO( flags, "Utils::iFile()->stat()->" );
+        return false;
+    }
+
+    if ( !S_ISREG( dir_info.st_mode ) )
+        return false;
+
+    return true;
+}
+
 string Utils::_FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
 {
     va_list args;
@@ -175,7 +192,7 @@ multimap<bool,string> Utils::ListDirectory( const string dir, const bool recursi
 
     if ( ( directory = opendir( CSTR( dir ) ) ) == NULL )
     {
-        LOGFMT( flags, "Utils::OpenDirectory()->opendir()-> returned NULL trying to open: %s", CSTR( dir ) );
+        LOGFMT( flags, "Utils::OpenDirectory()->opendir()-> returned NULL for dir: %s", CSTR( dir ) );
         return output;
     }
 

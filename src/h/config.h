@@ -80,6 +80,14 @@
 //  Default: 16384
 #define CFG_STR_MAX_BUFLEN      16384
 
+// CFG_STR_EXIT_FAILURE -- String to write to log on EXIT_FAILURE.
+//  Default: "Server terminated."
+#define CFG_STR_EXIT_FAILURE    "Server terminated."
+
+// CFG_STR_EXIT_SUCCESS -- String to write to log on EXIT_SUCCESS.
+//  Default: "Normal termination of server."
+#define CFG_STR_EXIT_SUCCESS    "Normal termination of server."
+
 // CFG_STR_UTILS_ERROR -- String to prepend to logs flagged UTILS_TYPE_ERROR.
 //  Default: "[ERROR ] "
 #define CFG_STR_UTILS_ERROR     "[ERROR] "

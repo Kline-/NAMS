@@ -28,9 +28,7 @@ bool Command::Load( const string file )
     ifstream cmd;
     string path = CFG_DAT_DIR_COMMAND;
     string line, key, value;
-    size_t pos = 0;
-
-    LOGFMT( flags, "Received file: %s", CSTR( file ) );
+    bool found = false;
 
     // Ensure a trailing slash is present to properly recurse
     if ( path.compare( path.length() - 1, 1, "/" ) != 0 )
@@ -42,27 +40,38 @@ bool Command::Load( const string file )
     // Finally add the filename
     path += file;
 
+    // Ensure there is a valid file to open
+    if ( !Utils::iFile( path ) )
+    {
+        LOGFMT( flags, "Command::Load()->Utils::iFile()-> returned false for path: %s", CSTR( path ) );
+        return false;
+    }
+
     cmd.open( CSTR( path ), ifstream::in );
     while( cmd.is_open() && cmd.good() && getline( cmd, line ) )
     {
-        if ( ( pos = line.find( "=" ) ) == string::npos )
+        // Find the key = value split
+        if ( !Utils::KeyValue( key, value, line ) )
         {
-            LOGFMT( flags, "Command::Load()->getline()-> invalid line: %s", CSTR( line ) );
+            LOGFMT( flags, "Command::Load()->getline()-> invalid line format: %s", CSTR( line ) );
             continue;
         }
-        else
+
+        // If the contents of arg3 == arg4 then assign arg5 == arg6
+        for ( ;; )
         {
-            key = line.substr( 0, pos - 1 );
-            value = line.substr( pos + 1, line.length() );
-            key = Utils::rmSpaces( key );
-            value = Utils::rmSpaces( value );
-            LOGFMT( flags, "%s:%s", CSTR( key ), CSTR( value ) );
+            found = false;
+
+            Utils::KeySet( true, found, key, "Level",   value, m_level   );
+            Utils::KeySet( true, found, key, "Name",    value, m_name    );
+            Utils::KeySet( true, found, key, "Preempt", value, m_preempt );
+
+            if ( !found )
+                LOGFMT( flags, "Command::Load()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+
+            break;
         }
-
     }
-
-
-    m_name = file;
 
     return true;
 }
@@ -80,6 +89,7 @@ const void Command::Unload()
 
 Command::Command()
 {
+    m_level = 0;
     m_name.clear();
     m_preempt = false;
 

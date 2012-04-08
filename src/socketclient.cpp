@@ -78,7 +78,7 @@ bool SocketClient::ProcessInput()
         command = *vi;
         if ( !QueueCommand( command ) )
         {
-            LOGSTR( flags, "SocketClient::ProcessInput()->SocketClient::QueueCommand()-> returned false" );
+            LOGFMT( flags, "SocketClient::ProcessInput()->SocketClient::QueueCommand()-> returned false for cmd: %s", CSTR( command ) );
             return false;
         }
     }
@@ -123,7 +123,7 @@ bool SocketClient::Recv()
 
     if ( ( m_input.length() + CFG_STR_MAX_BUFLEN ) >= m_input.max_size() )
     {
-        LOGSTR( flags, "SocketClient::Recv()->recv()-> called with m_input overflow" );
+        LOGFMT( flags, "SocketClient::Recv()->recv()-> called with m_input overflow: %lu + %d", m_input.length(), CFG_STR_MAX_BUFLEN );
         return false;
     }
 
