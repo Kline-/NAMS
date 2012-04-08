@@ -20,7 +20,6 @@
 
 #include "h/server.h"
 #include "h/command.h"
-#include "h/directory.h"
 
 // Core
 bool Server::InitSocket( SocketServer* socket_server )
@@ -30,13 +29,13 @@ bool Server::InitSocket( SocketServer* socket_server )
 
     if ( socket_server->sDescriptor( ::socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
     {
-        LOGFMT( flags, "Server::InitSocket()->socket()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "Server::InitSocket()->socket()->" );
         return false;
     }
 
     if ( ::setsockopt( socket_server->gDescriptor(), SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char*>( &enable ), sizeof( enable ) ) < 0 )
     {
-        LOGFMT( flags, "Server::InitSocket()->setsockopt()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "Server::InitSocket()->setsockopt()->" );
         return false;
     }
 
@@ -49,47 +48,10 @@ bool Server::LoadCommands()
 {
     UFLAGS_DE( flags );
     Command* cmd = NULL;
-    Directory* dir = NULL;
-    vector<string> contents, paths;
-    string file, path;
-    ITER( vector, string, vi );
-    ITER( vector, string, vs );
+    multimap<bool,string> files;
+    string file;
+    MITER( multimap, bool,string, mi );
     uint_t i = 0;
-
-    // Build a vector of dir/letter to be searched
-    path = CFG_DAT_DIR_COMMAND; path += "/";
-    for( i = 0; ALPHA_LOW[i] != '\0'; i++ )
-    {
-        path += ALPHA_LOW[i];
-        paths.push_back( path );
-        path.resize( path.length() - 1 );
-    }
-
-    i = 0;
-    for ( vi = paths.begin(); vi != paths.end(); vi++ )
-    {
-        path = *vi;
-        dir = new Directory( path );
-
-        if ( dir == NULL )
-        {
-            LOGSTR( flags, "Server::LoadCommands()->Directory::Open()-> returned false" );
-            return false;
-        }
-        else
-        {
-            // Directory is valid; now read all commands within it and add to the appropriate list
-            contents = dir->List();
-            for ( vs = contents.begin(); vs != contents.end(); vs++ )
-            {
-                file = *vs;
-                cmd = new Command( file );
-                command_list[i].push_back( cmd );
-            }
-            dir->Close();
-            i++;
-        }
-    }
 
     return true;
 }
@@ -104,19 +66,19 @@ const void Server::NewConnection()
 
     if ( ::getsockname( m_socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
-        LOGFMT( flags, "Server::NewConnection()->getsockname()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "Server::NewConnection()->getsockname()->" );
         return;
     }
 
     if ( ( descriptor = ::accept( m_socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) ) < 0 )
     {
-        LOGFMT( flags, "Server::NewConnection()->accept()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "Server::NewConnection()->accept()->" );
         return;
     }
 
     if ( ::fcntl( descriptor, F_SETFL, O_NDELAY ) < 0 )
     {
-        LOGFMT( flags, "Server::NewConnection()->fcntl()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "Server::NewConnection()->fcntl()->" );
         return;
     }
 
@@ -129,7 +91,7 @@ const void Server::NewConnection()
 
     if ( ::getpeername( socket_client->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
-        LOGFMT( flags, "Server::NewConnection()->getpeername()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "Server::NewConnection()->getpeername()->" );
         socket_client->sHost( "(unknown)" );
     }
     else
@@ -181,7 +143,7 @@ bool Server::PollSockets()
     // Ensure the file descriptor lists can be watched for updates
     if ( ::pselect( max_desc + 1, &in_set, &out_set, &exc_set, &static_time, 0 ) < 0 )
     {
-        LOGFMT( flags, "Server::PollSockets()->pselect()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "Server::PollSockets()->pselect()->" );
         return false;
     }
 
@@ -297,10 +259,9 @@ const void Server::Shutdown( const sint_t status )
     uint_t i = 0;
 
     m_shutdown = true;
-
+/*
     for ( i = 0; i < ALPHA_MAX; i++ )
-        for_each( command_list[i].begin(),       command_list[i].end(),       Utils::DeleteObject() );
-    for_each( directory_list.begin(),     directory_list.end(),     Utils::DeleteObject() );
+        for_each( command_list[i].begin(),       command_list[i].end(),       Utils::DeleteObject() );*/
     for_each( socket_client_list.begin(), socket_client_list.end(), Utils::DeleteObject() );
     for_each( socket_server_list.begin(), socket_server_list.end(), Utils::DeleteObject() );
 
@@ -336,7 +297,7 @@ const void Server::Startup()
     // Bump ourselves to the root folder for file paths
     if ( ::chdir( ".." ) < 0 )
     {
-        LOGFMT( flags, "Server::Startup()->chdir()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "Server::Startup()->chdir()->" );
         Shutdown( EXIT_FAILURE );
     }
 
@@ -389,8 +350,8 @@ string Server::gHost()
 
     if ( gethostname( buf, CFG_STR_MAX_BUFLEN - 1 ) < 0 )
     {
-        LOGFMT( flags, "Server::gHost()->gethostname()-> returned errno %d: %s", errno, strerror( errno ) );
-        output = "";
+        LOGERRNO( flags, "Server::gHost()->gethostname()->" );
+        output = "(unknown)";
 
         return output;
     }

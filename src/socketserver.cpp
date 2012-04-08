@@ -42,7 +42,7 @@ bool SocketServer::Bind( const uint_t port, const string addr )
 
     if ( ::bind( m_descriptor, reinterpret_cast<sockaddr*>( &sa ), sizeof( sa ) ) < 0 )
     {
-        LOGFMT( flags, "SocketServer::Bind()->bind()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "SocketServer::Bind()->bind()->" );
         return false;
     }
 
@@ -61,7 +61,7 @@ bool SocketServer::Listen()
 
     if ( ::listen( m_descriptor, CFG_SOC_MAX_PENDING ) < 0 )
     {
-        LOGFMT( flags, "SocketServer::Listen()->listen()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "SocketServer::Listen()->listen()->" );
         return false;
     }
 

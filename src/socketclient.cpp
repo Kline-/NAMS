@@ -136,7 +136,7 @@ bool SocketClient::Recv()
         }
         else if ( errno != EAGAIN && errno != EWOULDBLOCK )
         {
-            LOGFMT( flags, "SocketClient::Recv()->recv()-> returned errno %d: %s", errno, strerror( errno ) );
+            LOGERRNO( flags, "SocketClient::Recv()->recv()->" );
             return false;
         }
     }
@@ -162,25 +162,25 @@ const void SocketClient::ResolveHostname()
 
     if ( pthread_attr_init( &res_attr ) != 0 )
     {
-        LOGFMT( flags, "SocketClient::ResolveHostname()->pthread_attr_init()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "SocketClient::ResolveHostname()->pthread_attr_init()->" );
         return;
     }
 
     if ( pthread_attr_setdetachstate( &res_attr, PTHREAD_CREATE_DETACHED ) != 0 )
     {
-        LOGFMT( flags, "SocketClient::ResolveHostname()->pthread_attr_setdetachstate()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "SocketClient::ResolveHostname()->pthread_attr_setdetachstate()->" );
         return;
     }
 
     if ( pthread_create( &res_thread, &res_attr, &SocketClient::tResolveHostname, this ) != 0 )
     {
-        LOGFMT( flags, "SocketClient::ResolveHostname()->pthread_create()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "SocketClient::ResolveHostname()->pthread_create()->" );
         return;
     }
 
     if ( pthread_attr_destroy( &res_attr ) != 0 )
     {
-        LOGFMT( flags, "SocketClient::ResolveHostname()->pthread_attr_destroy()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "SocketClient::ResolveHostname()->pthread_attr_destroy()->" );
         return;
     }
 
@@ -215,13 +215,13 @@ bool SocketClient::Send()
 
     if ( !Valid() )
     {
-        LOGSTR( flags, "Socket::Send()-> called with invalid socket" );
+        LOGSTR( flags, "SocketClient::Send()-> called with invalid socket" );
         return false;
     }
 
     if ( m_output.empty() )
     {
-        LOGSTR( flags, "Socket::Send()->send()-> called with empty output buffer" );
+        LOGSTR( flags, "SocketClient::Send()->send()-> called with empty output buffer" );
         return false;
     }
 
@@ -229,12 +229,12 @@ bool SocketClient::Send()
     {
         if ( amount == 0 )
         {
-            LOGFMT( flags, "Socket::Send()->send()-> broken pipe encountered on send to: %s", CSTR( m_host ) );
+            LOGFMT( flags, "SocketClient::Send()->send()-> broken pipe encountered on send to: %s", CSTR( m_host ) );
             return false;
         }
         else if ( errno != EAGAIN && errno != EWOULDBLOCK )
         {
-            LOGFMT( flags, "Socket::Send()->send()-> returned errno %d: %s", errno, strerror( errno ) );
+            LOGERRNO( flags, "SocketClient::Send()->send()->" );
             return false;
         }
     }
@@ -277,13 +277,13 @@ void* SocketClient::tResolveHostname( void* data )
 
     if ( ( error = inet_pton( AF_INET, CSTR( socket_client->gHost() ), &sa.sin_addr ) ) != 1 )
     {
-        LOGFMT( flags, "SocketClient::tResolveHostname()->inet_pton()-> returned errno %ld: %s", error, gai_strerror( error ) );
+        LOGFMT( flags, "SocketClient::tResolveHostname()->inet_pton()-> returned errno %d: %s", error, gai_strerror( error ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
     if ( ( error = getnameinfo( reinterpret_cast<struct sockaddr*>( &sa ), sizeof( sa ), host, sizeof( host ), NULL, 0, 0 ) ) != 0 )
     {
-        LOGFMT( flags, "SocketClient::tResolveHostname()->getnameinfo()-> returned errno %ld: %s", error, gai_strerror( error ) );
+        LOGFMT( flags, "SocketClient::tResolveHostname()->getnameinfo()-> returned errno %d: %s", error, gai_strerror( error ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 

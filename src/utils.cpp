@@ -40,7 +40,7 @@ bool Utils::iDirectory( const string dir )
 
     if ( stat( CSTR( dir ), &dir_info ) < 0 )
     {
-        LOGFMT( flags, "Utils::iDirectory()->stat()-> %s returned errno %d: %s", CSTR( dir ), errno, strerror( errno ) );
+        LOGERRNO( flags, "Utils::iDirectory()->stat()->" );
         return false;
     }
 
@@ -204,7 +204,7 @@ multimap<bool,string> Utils::ListDirectory( const string dir, const bool recursi
     }
 
     if ( closedir( directory ) < 0 )
-        LOGFMT( flags, "Utils::OpenDir()->opendir()-> returned errno %d: %s", errno, strerror( errno ) );
+        LOGERRNO( flags, "Utils::OpenDir()->closedir()->" );
 
     return output;
 }
