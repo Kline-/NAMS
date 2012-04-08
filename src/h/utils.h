@@ -24,6 +24,8 @@
 #include <iostream>
 #include <iterator>
 #include <sstream>
+#include <dirent.h>
+#include <sys/stat.h>
 
 namespace Utils {
     class DeleteObject
@@ -36,6 +38,7 @@ namespace Utils {
     template <class T> inline string toUpper( const T& t )  { stringstream ss; ss << uppercase << t; return ss.str(); }
 
     string CurrentTime();
+    bool iDirectory( const string dir );
     string _FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... );
     string __FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, va_list val );
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
@@ -43,6 +46,7 @@ namespace Utils {
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     bool iNumber( const string input );
     uint_t NumChar( const string input, const string item );
+    multimap<bool,string> ListDirectory( const string dir, const bool recursive, multimap<bool,string>& output );
     vector<string> StrNewlines( const string input );
     vector<string> StrTokens( const string input );
 };

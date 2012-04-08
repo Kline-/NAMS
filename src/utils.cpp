@@ -33,6 +33,23 @@ string Utils::CurrentTime()
     return output;
 }
 
+bool Utils::iDirectory( const string dir )
+{
+    UFLAGS_DE( flags );
+    struct stat dir_info;
+
+    if ( stat( CSTR( dir ), &dir_info ) < 0 )
+    {
+        LOGFMT( flags, "Utils::iDirectory()->stat()-> %s returned errno %d: %s", CSTR( dir ), errno, strerror( errno ) );
+        return false;
+    }
+
+    if ( !S_ISDIR( dir_info.st_mode ) )
+        return false;
+
+    return true;
+}
+
 string Utils::_FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
 {
     va_list args;
@@ -149,13 +166,54 @@ uint_t Utils::NumChar( const string input, const string item )
     return amount;
 }
 
+multimap<bool,string> Utils::ListDirectory( const string dir, const bool recursive, multimap<bool,string>& output )
+{
+    UFLAGS_DE( flags );
+    DIR* directory = NULL;
+    struct dirent* entry = NULL;
+    string ifile, idir;
+
+    if ( ( directory = opendir( CSTR( dir ) ) ) == NULL )
+    {
+        LOGFMT( flags, "Utils::OpenDirectory()->opendir()-> returned NULL trying to open: %s", CSTR( dir ) );
+        return output;
+    }
+
+    idir = dir;
+
+    // Ensure a trailing slash is present to properly recurse
+    if ( idir.compare( dir.length() - 1, 1, "/" ) != 0 )
+        idir += "/";
+
+    while ( ( entry = readdir( directory ) ) != NULL )
+    {
+        ifile = entry->d_name;
+
+        // Skip over the unwanteds
+        if ( ifile.compare( "." ) == 0 || ifile.compare( ".." ) == 0 )
+            continue;
+
+        if ( iDirectory( idir + ifile ) )
+            output.insert( pair<bool,string>( true, ifile ) );
+        else
+            output.insert( pair<bool,string>( false, ifile ) );
+
+        // Only recurse if another directory is found, otherwise a file was found, so skip it
+        if ( iDirectory( idir + ifile ) && recursive )
+            ListDirectory( idir + ifile, recursive, output );
+    }
+
+    if ( closedir( directory ) < 0 )
+        LOGFMT( flags, "Utils::OpenDir()->opendir()-> returned errno %d: %s", errno, strerror( errno ) );
+
+    return output;
+}
+
 vector<string> Utils::StrNewlines( const string input )
 {
     stringstream ss( input );
     string line;
     vector<string> output;
-
-    output.clear();
 
     while ( getline( ss, line ) )
         output.push_back( line );
