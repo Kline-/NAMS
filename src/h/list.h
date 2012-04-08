@@ -20,7 +20,7 @@
 
 #include <list>
 
-extern multimap<const char[1],Command*> command_list;
+extern multimap<const char,Command*> command_list;
 extern list<SocketClient*> socket_client_list;
 extern list<SocketServer*> socket_server_list;
 

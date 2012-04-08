@@ -49,9 +49,31 @@ bool Server::LoadCommands()
     UFLAGS_DE( flags );
     Command* cmd = NULL;
     multimap<bool,string> files;
-    string file;
     MITER( multimap, bool,string, mi );
-    uint_t i = 0;
+
+    // Populate the multimape with a recursive listing of the commands folder
+    Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, files );
+
+    if ( files.empty() )
+    {
+        LOGSTR( flags, "Server::LoadCommands()->Utils::ListDirectory()-> returned NULL" );
+        return false;
+    }
+
+    for ( mi = files.begin(); mi != files.end(); mi++ )
+    {
+        if ( mi->first == UTILS_IS_FILE )
+        {
+            cmd = new Command();
+            if ( !cmd->Load( mi->second ) )
+            {
+                LOGSTR( flags, "Server::LoadCommands()->Command::Load()-> returned false" );
+                delete cmd;
+            }
+            else
+                command_list.insert( pair<const char,Command*>( mi->second[0], cmd ) );
+        }
+    }
 
     return true;
 }
@@ -256,12 +278,18 @@ bool Server::ProcessInput()
 const void Server::Shutdown( const sint_t status )
 {
     bool was_running = !m_shutdown;
-    uint_t i = 0;
+    MITER( multimap, const char,Command*, mi );
+    MITER( multimap, const char,Command*, mi_next );
 
     m_shutdown = true;
-/*
-    for ( i = 0; i < ALPHA_MAX; i++ )
-        for_each( command_list[i].begin(),       command_list[i].end(),       Utils::DeleteObject() );*/
+
+    // Special handling for multimaps
+    for ( mi = command_list.begin(); mi != command_list.end(); )
+    {
+        mi_next = mi++;
+        mi_next->second->Unload();
+        command_list.erase( mi_next );
+    }
     for_each( socket_client_list.begin(), socket_client_list.end(), Utils::DeleteObject() );
     for_each( socket_server_list.begin(), socket_server_list.end(), Utils::DeleteObject() );
 

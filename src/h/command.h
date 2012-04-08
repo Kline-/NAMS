@@ -18,12 +18,16 @@
 #ifndef DEC_COMMAND_H
 #define DEC_COMMAND_H
 
+#include <fstream>
+
 class Command {
     public:
-        Command( const string file );
+        Command();
         ~Command();
 
         // Core
+        bool Load( const string file );
+        const void Unload();
 
         // Query
 

@@ -194,9 +194,9 @@ multimap<bool,string> Utils::ListDirectory( const string dir, const bool recursi
             continue;
 
         if ( iDirectory( idir + ifile ) )
-            output.insert( pair<bool,string>( true, ifile ) );
+            output.insert( pair<bool,string>( UTILS_IS_DIRECTORY, ifile ) );
         else
-            output.insert( pair<bool,string>( false, ifile ) );
+            output.insert( pair<bool,string>( UTILS_IS_FILE, ifile ) );
 
         // Only recurse if another directory is found, otherwise a file was found, so skip it
         if ( iDirectory( idir + ifile ) && recursive )

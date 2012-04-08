@@ -72,7 +72,7 @@
 #define LOGFMT( flags, message, ... ) LOGSTR( flags, Utils::FormatString( flags, message, __VA_ARGS__ ) )
 
 // Wrap logging a pre-formatted errno output
-#define LOGERRNO( flags, message ) LOGFMT( flags, " " message " returned errno %d: %s", errno, strerror( errno ) )
+#define LOGERRNO( flags, message ) LOGFMT( flags, message " returned errno %d: %s", errno, strerror( errno ) )
 
 // This is the maximum value usleep will take per man (3) usleep -- 1 second.
 // Changing this will affect game speed; reference CFG_GAM_PULSE_RATE

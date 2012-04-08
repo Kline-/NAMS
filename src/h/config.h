@@ -81,16 +81,16 @@
 #define CFG_STR_MAX_BUFLEN      16384
 
 // CFG_STR_UTILS_ERROR -- String to prepend to logs flagged UTILS_TYPE_ERROR.
-//  Default: "[ERROR ]"
-#define CFG_STR_UTILS_ERROR     "[ERROR]"
+//  Default: "[ERROR ] "
+#define CFG_STR_UTILS_ERROR     "[ERROR] "
 
 // CFG_STR_UTILS_INFO -- String to prepend to logs flagged UTILS_TYPE_INFO.
-//  Default: "[INFO  ]"
-#define CFG_STR_UTILS_INFO      "[INFO  ]"
+//  Default: "[INFO  ] "
+#define CFG_STR_UTILS_INFO      "[INFO  ] "
 
 // CFG_STR_UTILS_SOCKET -- String to prepend to logs flagged UTILS_TYPE_SOCKET.
-//  Default: "[SOCKET]"
-#define CFG_STR_UTILS_SOCKET    "[SOCKET]"
+//  Default: "[SOCKET] "
+#define CFG_STR_UTILS_SOCKET    "[SOCKET] "
 
 // CFG_STR_VERSION -- The current server version.
 //  Default: "NAMS 1.0.0"

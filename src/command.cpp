@@ -19,20 +19,53 @@
 #include "h/class.h"
 
 #include "h/command.h"
+#include "h/list.h"
 
 // Core
+bool Command::Load( const string file )
+{
+    UFLAGS_DE( flags );
+    ifstream cmd( CSTR( file ), ifstream::in );
+    string path = CFG_DAT_DIR_COMMAND;
+    string line;
+
+    LOGFMT( flags, "Received file: %s", CSTR( file ) );
+
+    // Ensure a trailing slash is present to properly recurse
+    if ( path.compare( path.length() - 1, 1, "/" ) != 0 )
+        path += "/";
+
+    // Now append the first letter of the file recieved as a subdir
+    path += file[0]; path += "/";
+
+    // Finally add the filename
+    path += file;
+
+    while( cmd.is_open() && cmd.good() && getline( cmd, line ) )
+    {
+        LOGFMT( flags, "Read: %s", CSTR( line ) );
+    }
+m_name = file;
+    LOGFMT( flags, "Built path: %s", CSTR( path ) );
+
+    return true;
+}
+
+const void Command::Unload()
+{
+    delete this;
+
+   return;
+}
 
 // Query
 
 // Manipulate
 
-Command::Command( const string file )
+Command::Command()
 {
-    UFLAGS_DE( flags );
     m_name.clear();
     m_preempt = false;
-
-    LOGFMT( flags, "Received file: %s", CSTR( file ) );
 
     return;
 }

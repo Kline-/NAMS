@@ -18,7 +18,7 @@
 #ifndef DEC_ENUM_H
 #define DEC_ENUM_H
 
-// uint_t   Socket
+// uint_t    Socket
 enum {
     SOC_STATE_DISCONNECTED = 0,
     SOC_STATE_LOGIN_SCREEN = 1,
@@ -36,5 +36,9 @@ enum {
     UTILS_TYPE_SOCKET = 5,
     MAX_UTILS         = 6
 };
+
+// bool    Utils::ListDirectory()
+#define UTILS_IS_DIRECTORY true
+#define UTILS_IS_FILE      false
 
 #endif
