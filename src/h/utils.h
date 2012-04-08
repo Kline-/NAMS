@@ -29,6 +29,22 @@
 
 namespace Utils {
     // Core
+    template <class T, class U> inline string DirPath( const T& path, const U& file )
+    {
+        string output = path;
+
+        // Ensure a trailing slash is present to properly recurse
+        if ( output.compare( output.length() - 1, 1, "/" ) != 0 )
+            output += "/";
+
+        // Now append the first letter of the file recieved as a subdir
+        output += file[0]; output += "/";
+
+        // Finally add the filename
+        output += file;
+
+        return output;
+    }
     template <class T> inline string Lower( const T& t ) { stringstream ss; ss << nouppercase << t; return ss.str(); }
     template <class T> inline string Upper( const T& t ) { stringstream ss; ss << uppercase << t; return ss.str(); }
     template <class T> inline string String( const T& t ) { stringstream ss; ss << t; return ss.str(); }
@@ -52,7 +68,7 @@ namespace Utils {
     class DeleteObject
     {
         public:
-            template <class T> inline void operator() (const T* ptr) const { delete ptr; };
+            template <class T> inline void operator() ( const T* ptr ) const { delete ptr; }
     };
     template <class K, class V, class I> inline bool KeyValue( K& key, V& val, const I& item )
     {

@@ -21,9 +21,13 @@
 /***************************************************************************
  *                              DATA OPTIONS                               *
  ***************************************************************************/
-// CFG_DAT_DIR_COMMAND -- Directory for commands to be loaded from; should contain subdirs a-z
+// CFG_DAT_DIR_COMMAND -- Directory for commands to be loaded from; should contain subdirs a-z.
 //  Default: "command"
 #define CFG_DAT_DIR_COMMAND     "command"
+
+// CFG_DAT_DIR_LOG -- Directory for logfiles to be written to.
+//  Default: "log"
+#define CFG_DAT_DIR_LOG         "log"
 
 /***************************************************************************
  *                              GAME OPTIONS                               *
@@ -31,6 +35,13 @@
 // CFG_GAM_PULSE_RATE -- How many cycles per second should be processed.
 //  Default: 100
 #define CFG_GAM_PULSE_RATE      100
+
+/***************************************************************************
+ *                              LOG OPTIONS                                *
+ ***************************************************************************/
+// CFG_LOG_SERVER -- Default log for boot / shutdown and general information.
+//  Default: "server.log"
+#define CFG_LOG_SERVER          "server.log"
 
 /***************************************************************************
  *                              MEMORY OPTIONS                             *

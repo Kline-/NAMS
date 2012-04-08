@@ -26,19 +26,9 @@ bool Command::Load( const string file )
 {
     UFLAGS_DE( flags );
     ifstream cmd;
-    string path = CFG_DAT_DIR_COMMAND;
+    string path = Utils::DirPath( CFG_DAT_DIR_COMMAND, file );
     string line, key, value;
     bool found = false;
-
-    // Ensure a trailing slash is present to properly recurse
-    if ( path.compare( path.length() - 1, 1, "/" ) != 0 )
-        path += "/";
-
-    // Now append the first letter of the file recieved as a subdir
-    path += file[0]; path += "/";
-
-    // Finally add the filename
-    path += file;
 
     // Ensure there is a valid file to open
     if ( !Utils::iFile( path ) )
