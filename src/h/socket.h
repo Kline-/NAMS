@@ -30,21 +30,21 @@ class Socket {
         uint_t gBytesRecvd() const { return m_bytes_recvd; }
         uint_t gBytesSent() const { return m_bytes_sent; }
         sint_t gDescriptor() const { return m_descriptor; }
-        string gHost() const { return m_host; }
+        string gHostname() const { return m_hostname; }
         uint_t gPort() const { return m_port; }
 
         // Manipulate
         bool sBytesRecvd( const uint_t amount );
         bool sBytesSent( const uint_t amount );
         bool sDescriptor( const sint_t descriptor );
-        bool sHost( const string host );
+        bool sHostname( const string hostname );
         bool sPort( const uint_t port );
 
     protected:
         uint_t  m_bytes_recvd;
         uint_t  m_bytes_sent;
         sint_t  m_descriptor;
-        string  m_host;
+        string  m_hostname;
 
     private:
         uint_t  m_port;

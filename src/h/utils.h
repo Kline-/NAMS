@@ -138,7 +138,7 @@ namespace Utils {
 
         return;
     }
-    multimap<bool,string> ListDirectory( const string dir, const bool recursive, multimap<bool,string>& output );
+    multimap<bool,string> ListDirectory( const string dir, const bool recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open );
 };
 
 #endif

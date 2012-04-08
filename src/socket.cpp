@@ -70,17 +70,17 @@ bool Socket::sDescriptor( const sint_t descriptor )
     return true;
 }
 
-bool Socket::sHost( const string host )
+bool Socket::sHostname( const string hostname )
 {
     UFLAGS_DE( flags );
 
-    if ( host.empty() )
+    if ( hostname.empty() )
     {
-        LOGSTR( flags, "Socket::sHost()-> called with empty host" );
+        LOGSTR( flags, "Socket::sHostname()-> called with empty hostname" );
         return false;
     }
 
-    m_host = host;
+    m_hostname = hostname;
 
     return true;
 }
@@ -105,7 +105,7 @@ Socket::Socket()
     m_bytes_recvd = 0;
     m_bytes_sent = 0;
     m_descriptor = 0;
-    m_host.clear();
+    m_hostname.clear();
     m_port = 0;
 
     return;

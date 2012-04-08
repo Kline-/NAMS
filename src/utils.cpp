@@ -183,7 +183,7 @@ uint_t Utils::NumChar( const string input, const string item )
     return amount;
 }
 
-multimap<bool,string> Utils::ListDirectory( const string dir, const bool recursive, multimap<bool,string>& output )
+multimap<bool,string> Utils::ListDirectory( const string dir, const bool recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
 {
     UFLAGS_DE( flags );
     DIR* directory = NULL;
@@ -196,6 +196,7 @@ multimap<bool,string> Utils::ListDirectory( const string dir, const bool recursi
         return output;
     }
 
+    dir_open++;
     idir = dir;
 
     // Ensure a trailing slash is present to properly recurse
@@ -217,11 +218,13 @@ multimap<bool,string> Utils::ListDirectory( const string dir, const bool recursi
 
         // Only recurse if another directory is found, otherwise a file was found, so skip it
         if ( iDirectory( idir + ifile ) && recursive )
-            ListDirectory( idir + ifile, recursive, output );
+            ListDirectory( idir + ifile, recursive, output, dir_close, dir_open );
     }
 
     if ( closedir( directory ) < 0 )
         LOGERRNO( flags, "Utils::OpenDir()->closedir()->" );
+    else
+        dir_close++;
 
     return output;
 }

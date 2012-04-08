@@ -41,7 +41,7 @@ class Server {
         const void Update();
 
         // Query
-        string gHost();
+        string gHostname();
         uint_t gPort() const { return m_port; }
         uint_t gPulseRate() const { return m_pulse_rate; }
         string gTimeBoot() const;

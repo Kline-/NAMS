@@ -52,7 +52,7 @@ bool Server::LoadCommands()
     MITER( multimap, bool,string, mi );
 
     // Populate the multimape with a recursive listing of the commands folder
-    Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, files );
+    Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, files, m_dir_close, m_dir_open );
 
     if ( files.empty() )
     {
@@ -114,13 +114,13 @@ const void Server::NewConnection()
     if ( ::getpeername( socket_client->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
         LOGERRNO( flags, "Server::NewConnection()->getpeername()->" );
-        socket_client->sHost( "(unknown)" );
+        socket_client->sHostname( "(unknown)" );
     }
     else
     {
-        socket_client->sHost( inet_ntoa( sin.sin_addr ) );
+        socket_client->sHostname( inet_ntoa( sin.sin_addr ) );
         socket_client->sPort( ntohs( sin.sin_port ) );
-        LOGFMT( 0, "Server::NewConnection()-> %s:%lu (%lu)", CSTR( socket_client->gHost() ), socket_client->gPort(), socket_client->gDescriptor() );
+        LOGFMT( 0, "Server::NewConnection()-> %s:%lu (%lu)", CSTR( socket_client->gHostname() ), socket_client->gPort(), socket_client->gDescriptor() );
         socket_client->ResolveHostname();
     }
 
@@ -320,7 +320,7 @@ const void Server::Startup()
         Shutdown( EXIT_FAILURE );
     if ( !socket_server->Listen() )
         Shutdown( EXIT_FAILURE );
-    socket_server->sHost( gHost() );
+    socket_server->sHostname( gHostname() );
 
     // Bump ourselves to the root folder for file paths
     if ( ::chdir( ".." ) < 0 )
@@ -369,22 +369,22 @@ const void Server::Update()
 }
 
 // Query
-string Server::gHost()
+string Server::gHostname()
 {
     UFLAGS_DE( flags );
 
     string output;
-    char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
+    char hostname[CFG_STR_MAX_BUFLEN] = {'\0'};
 
-    if ( gethostname( buf, CFG_STR_MAX_BUFLEN - 1 ) < 0 )
+    if ( gethostname( hostname, CFG_STR_MAX_BUFLEN - 1 ) < 0 )
     {
-        LOGERRNO( flags, "Server::gHost()->gethostname()->" );
+        LOGERRNO( flags, "Server::gHostname()->gethostname()->" );
         output = "(unknown)";
 
         return output;
     }
 
-    output = buf;
+    output = hostname;
 
     return output;
 }

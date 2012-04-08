@@ -131,7 +131,7 @@ bool SocketClient::Recv()
     {
         if ( amount == 0 )
         {
-            LOGFMT( flags, "SocketClient::Recv()->recv()-> broken pipe encountered on recv from: %s", CSTR( m_host ) );
+            LOGFMT( flags, "SocketClient::Recv()->recv()-> broken pipe encountered on recv from: %s", CSTR( m_hostname ) );
             return false;
         }
         else if ( errno != EAGAIN && errno != EWOULDBLOCK )
@@ -229,7 +229,7 @@ bool SocketClient::Send()
     {
         if ( amount == 0 )
         {
-            LOGFMT( flags, "SocketClient::Send()->send()-> broken pipe encountered on send to: %s", CSTR( m_host ) );
+            LOGFMT( flags, "SocketClient::Send()->send()-> broken pipe encountered on send to: %s", CSTR( m_hostname ) );
             return false;
         }
         else if ( errno != EAGAIN && errno != EWOULDBLOCK )
@@ -271,24 +271,24 @@ void* SocketClient::tResolveHostname( void* data )
     static struct sockaddr_in sa_zero;
     struct sockaddr_in sa = sa_zero;
     sint_t error = 0;
-    char host[CFG_STR_MAX_BUFLEN];
+    char hostname[CFG_STR_MAX_BUFLEN];
 
     sa.sin_family = AF_INET;
 
-    if ( ( error = inet_pton( AF_INET, CSTR( socket_client->gHost() ), &sa.sin_addr ) ) != 1 )
+    if ( ( error = inet_pton( AF_INET, CSTR( socket_client->gHostname() ), &sa.sin_addr ) ) != 1 )
     {
         LOGFMT( flags, "SocketClient::tResolveHostname()->inet_pton()-> returned errno %d: %s", error, gai_strerror( error ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
-    if ( ( error = getnameinfo( reinterpret_cast<struct sockaddr*>( &sa ), sizeof( sa ), host, sizeof( host ), NULL, 0, 0 ) ) != 0 )
+    if ( ( error = getnameinfo( reinterpret_cast<struct sockaddr*>( &sa ), sizeof( sa ), hostname, sizeof( hostname ), NULL, 0, 0 ) ) != 0 )
     {
         LOGFMT( flags, "SocketClient::tResolveHostname()->getnameinfo()-> returned errno %d: %s", error, gai_strerror( error ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
-    socket_client->sHost( host );
-    LOGFMT( 0, "SocketClient::ResolveHostname()-> %s", CSTR( socket_client->gHost() ) );
+    socket_client->sHostname( hostname );
+    LOGFMT( 0, "SocketClient::ResolveHostname()-> %s", CSTR( socket_client->gHostname() ) );
 
     pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
 }
