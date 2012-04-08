@@ -19,10 +19,9 @@
 #define DEC_CLASS_H
 
 class Command;
-class Directory;
 class Server;
 class Socket;
-class SocketClient;
-class SocketServer;
+    class SocketClient;
+    class SocketServer;
 
 #endif
