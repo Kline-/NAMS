@@ -25,9 +25,10 @@
 bool Command::Load( const string file )
 {
     UFLAGS_DE( flags );
-    ifstream cmd( CSTR( file ), ifstream::in );
+    ifstream cmd;
     string path = CFG_DAT_DIR_COMMAND;
-    string line;
+    string line, key, value;
+    size_t pos = 0;
 
     LOGFMT( flags, "Received file: %s", CSTR( file ) );
 
@@ -41,12 +42,27 @@ bool Command::Load( const string file )
     // Finally add the filename
     path += file;
 
+    cmd.open( CSTR( path ), ifstream::in );
     while( cmd.is_open() && cmd.good() && getline( cmd, line ) )
     {
-        LOGFMT( flags, "Read: %s", CSTR( line ) );
+        if ( ( pos = line.find( "=" ) ) == string::npos )
+        {
+            LOGFMT( flags, "Command::Load()->getline()-> invalid line: %s", CSTR( line ) );
+            continue;
+        }
+        else
+        {
+            key = line.substr( 0, pos - 1 );
+            value = line.substr( pos + 1, line.length() );
+            key = Utils::rmSpaces( key );
+            value = Utils::rmSpaces( value );
+            LOGFMT( flags, "%s:%s", CSTR( key ), CSTR( value ) );
+        }
+
     }
-m_name = file;
-    LOGFMT( flags, "Built path: %s", CSTR( path ) );
+
+
+    m_name = file;
 
     return true;
 }

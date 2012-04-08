@@ -36,6 +36,7 @@ namespace Utils {
     template <class T> inline string toLower( const T& t )  { stringstream ss; ss << nouppercase << t; return ss.str(); }
     template <class T> inline string toString( const T& t ) { stringstream ss; ss << t; return ss.str(); }
     template <class T> inline string toUpper( const T& t )  { stringstream ss; ss << uppercase << t; return ss.str(); }
+    template <class T> inline string rmSpaces( const T& t ) { string output = t; output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); return output; }
 
     string CurrentTime();
     bool iDirectory( const string dir );
