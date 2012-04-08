@@ -47,10 +47,12 @@ class Server {
         string gTimeBoot() const;
         string gTimeCurrent() const;
         SocketServer* gSocket() const { return m_socket; }
+        uint_t gSocketClose() const { return m_socket_close; }
 
         // Manipulate
         bool sPort( const uint_t port );
         bool sPulseRate( const uint_t rate );
+        bool sSocketClose( const uint_t amount );
         const void sTimeBoot();
         const void sTimeCurrent();
 

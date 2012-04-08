@@ -29,6 +29,7 @@ const void SocketClient::Disconnect( const string msg )
         Send();
     }
 
+    gServer()->sSocketClose( gServer()->gSocketClose() + 1 );
     socket_client_list.remove( this );
     delete this;
 

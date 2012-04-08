@@ -107,6 +107,8 @@ const void Server::NewConnection()
     socket_client = new SocketClient();
     socket_client->sDescriptor( descriptor );
     socket_client->sServer( this );
+
+    m_socket_open++;
     // Usually this is in the constructor, but we have to be certain the socket is fully
     // Configured to avoid any chance of a processing loop accessing it in an invalid state
     socket_client_list.push_back( socket_client );
@@ -436,6 +438,21 @@ bool Server::sPulseRate( const uint_t rate )
     return true;
 }
 
+bool Server::sSocketClose( const uint_t amount )
+{
+    UFLAGS_DE( flags );
+
+    if ( amount < 1 || ( ( m_socket_close + amount ) >= uintmax_t ) )
+    {
+        LOGFMT( flags, "Server::sSocketClose()-> called with m_socket_close overflow: %lu + %lu", m_socket_close, amount );
+        return false;
+    }
+
+    m_socket_close += amount;
+
+    return true;
+}
+
 const void Server::sTimeBoot()
 {
     struct timeval now;
@@ -464,7 +481,7 @@ Server::Server()
     m_pulse_rate = CFG_GAM_PULSE_RATE;
     m_shutdown = true;
     m_socket = 0;
-    m_socket_client_next = 0;
+    m_socket_client_next = socket_client_list.begin();
     m_socket_close = 0;
     m_socket_open = 0;
     m_time_boot = 0;
