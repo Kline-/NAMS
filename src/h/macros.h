@@ -72,11 +72,4 @@
 // Changing this will affect game speed; reference CFG_GAM_PULSE_RATE
 #define USLEEP_MAX 1000000
 
-// Total number of characters in the alphabet; used to split queues
-// Be warned; changing this will impact the entire directory structure and break many things
-#define ALPHA_MAX 26
-
-// For easier directory traversal
-#define ALPHA_LOW "abcdefghijklmnopqrstuvwxyz"
-
 #endif

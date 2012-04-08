@@ -19,6 +19,7 @@
 #define DEC_SYSINCLUDES_H
 
 #include <algorithm>
+#include <map>
 #include <vector>
 
 #include <arpa/inet.h>
