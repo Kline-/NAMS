@@ -19,6 +19,7 @@
 #include "h/class.h"
 
 #include "h/server.h"
+#include "h/command.h"
 #include "h/directory.h"
 
 // Core
@@ -47,33 +48,47 @@ bool Server::InitSocket( SocketServer* socket_server )
 bool Server::LoadCommands()
 {
     UFLAGS_DE( flags );
+    Command* cmd = NULL;
     Directory* dir = NULL;
-    vector<string> contents;
-    string content;
+    vector<string> contents, paths;
+    string file, path;
     ITER( vector, string, vi );
+    ITER( vector, string, vs );
+    uint_t i = 0;
 
-    dir = new Directory( CFG_DAT_DIR_COMMAND );
-
-    if ( dir == NULL )
+    // Build a vector of dir/letter to be searched
+    path = CFG_DAT_DIR_COMMAND; path += "/";
+    for( i = 0; ALPHA_LOW[i] != '\0'; i++ )
     {
-        LOGSTR( flags, "Server::LoadCommands()->Directory::Open()-> returned false" );
-        return false;
+        path += ALPHA_LOW[i];
+        paths.push_back( path );
+        path.resize( path.length() - 1 );
     }
 
-    contents = dir->List();
-    dir->Close();
-    for ( vi = contents.begin(); vi != contents.end(); vi++ )
+    i = 0;
+    for ( vi = paths.begin(); vi != paths.end(); vi++ )
     {
-        content = *vi;
-        LOGSTR( flags, CSTR( content ) );
-    }
+        path = *vi;
+        dir = new Directory( path );
 
-    dir = new Directory( CFG_DAT_DIR_COMMAND );
-
-    if ( dir == NULL )
-    {
-        LOGSTR( flags, "Server::LoadCommands()->Directory::Open()-> returned false" );
-        return false;
+        if ( dir == NULL )
+        {
+            LOGSTR( flags, "Server::LoadCommands()->Directory::Open()-> returned false" );
+            return false;
+        }
+        else
+        {
+            // Directory is valid; now read all commands within it and add to the appropriate list
+            contents = dir->List();
+            for ( vs = contents.begin(); vs != contents.end(); vs++ )
+            {
+                file = *vs;
+                cmd = new Command( file );
+                command_list[i].push_back( cmd );
+            }
+            dir->Close();
+            i++;
+        }
     }
 
     return true;
@@ -279,9 +294,12 @@ bool Server::ProcessInput()
 const void Server::Shutdown( const sint_t status )
 {
     bool was_running = !m_shutdown;
+    uint_t i = 0;
 
     m_shutdown = true;
 
+    for ( i = 0; i < ALPHA_MAX; i++ )
+        for_each( command_list[i].begin(),       command_list[i].end(),       Utils::DeleteObject() );
     for_each( directory_list.begin(),     directory_list.end(),     Utils::DeleteObject() );
     for_each( socket_client_list.begin(), socket_client_list.end(), Utils::DeleteObject() );
     for_each( socket_server_list.begin(), socket_server_list.end(), Utils::DeleteObject() );

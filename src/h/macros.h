@@ -76,10 +76,7 @@
 // Be warned; changing this will impact the entire directory structure and break many things
 #define ALPHA_MAX 26
 
-/*
-#define UTIL_DE( name ) \
-        bitset<CFG_MEM_MAX_BITSET> name; \
-        name.set( UTILS_DEBUG ); \
-        name.set( UTILS_TYPE_ERROR );
-*/
+// For easier directory traversal
+#define ALPHA_LOW "abcdefghijklmnopqrstuvwxyz"
+
 #endif

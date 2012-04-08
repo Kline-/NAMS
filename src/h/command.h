@@ -20,11 +20,10 @@
 
 class Command {
     public:
-        Command();
+        Command( const string file );
         ~Command();
 
         // Core
-        bool Load( const string file );
 
         // Query
 

@@ -20,7 +20,7 @@
 
 #include "h/list.h"
 
-vector<Command*> command_list[ALPHA_MAX];
+list<Command*> command_list[ALPHA_MAX];
 list<Directory*> directory_list;
 list<SocketClient*> socket_client_list;
 list<SocketServer*> socket_server_list;

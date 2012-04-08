@@ -21,19 +21,18 @@
 #include "h/command.h"
 
 // Core
-bool Command::Load( const string file )
-{
-    return true;
-}
 
 // Query
 
 // Manipulate
 
-Command::Command()
+Command::Command( const string file )
 {
+    UFLAGS_DE( flags );
     m_name.clear();
     m_preempt = false;
+
+    LOGFMT( flags, "Received file: %s", CSTR( file ) );
 
     return;
 }
