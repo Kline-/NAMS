@@ -19,38 +19,15 @@
 #include "h/class.h"
 
 #include "h/directory.h"
+#include "h/list.h"
 
 // Core
 const void Directory::Close()
 {
+    directory_list.remove( this );
     delete this;
 
     return;
-}
-
-bool Directory::Open( const string path )
-{
-    UFLAGS_DE( flags );
-
-    if ( Open() )
-    {
-        LOGSTR( flags, "Directory::Open()-> called while already open" );
-        return false;
-    }
-
-    if ( path.empty() )
-    {
-        LOGSTR( flags, "Directory::Open()-> called with empty path" );
-        return false;
-    }
-
-    if ( ( m_handle = ::opendir( CSTR( path ) ) ) == NULL )
-    {
-        LOGFMT( flags, "Directory::Open()->opendir()-> returned errno %d: %s", errno, strerror( errno ) );
-        return false;
-    }
-
-    return true;
 }
 
 vector<string> Directory::List()
@@ -80,9 +57,30 @@ vector<string> Directory::List()
 
 // Manipulate
 
-Directory::Directory()
+Directory::Directory( const string path )
 {
+    UFLAGS_DE( flags );
     m_handle = NULL;
+
+    if ( Open() )
+    {
+        LOGSTR( flags, "Directory()-> called while already open" );
+        return;
+    }
+
+    if ( path.empty() )
+    {
+        LOGSTR( flags, "Directory()-> called with empty path" );
+        return;
+    }
+
+    if ( ( m_handle = ::opendir( CSTR( path ) ) ) == NULL )
+    {
+        LOGFMT( flags, "Directory()->opendir()-> returned errno %d: %s", errno, strerror( errno ) );
+        return;
+    }
+
+    directory_list.push_back( this );
 
     return;
 }

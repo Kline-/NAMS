@@ -18,9 +18,7 @@
 #ifndef DEC_COMMAND_H
 #define DEC_COMMAND_H
 
-#include "utils.h"
-
-class Command : public Utils {
+class Command {
     public:
         Command();
         ~Command();

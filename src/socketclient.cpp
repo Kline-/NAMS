@@ -72,7 +72,7 @@ bool SocketClient::ProcessInput()
     if ( m_input.empty() )
         return true;
 
-    commands = StrNewlines( m_input );
+    commands = Utils::StrNewlines( m_input );
     for ( vi = commands.begin(); vi != commands.end(); vi++ )
     {
         command = *vi;
@@ -277,18 +277,18 @@ void* SocketClient::tResolveHostname( void* data )
 
     if ( ( error = inet_pton( AF_INET, CSTR( socket_client->gHost() ), &sa.sin_addr ) ) != 1 )
     {
-        socket_client->Logger( flags, socket_client->FormatString( flags, "SocketClient::tResolveHostname()->inet_pton()-> returned errno %ld: %s", error, gai_strerror( error ) ) );
+        LOGFMT( flags, "SocketClient::tResolveHostname()->inet_pton()-> returned errno %ld: %s", error, gai_strerror( error ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
     if ( ( error = getnameinfo( reinterpret_cast<struct sockaddr*>( &sa ), sizeof( sa ), host, sizeof( host ), NULL, 0, 0 ) ) != 0 )
     {
-        socket_client->Logger( flags, socket_client->FormatString( flags, "SocketClient::tResolveHostname()->getnameinfo()-> returned errno %ld: %s", error, gai_strerror( error ) ) );
+        LOGFMT( flags, "SocketClient::tResolveHostname()->getnameinfo()-> returned errno %ld: %s", error, gai_strerror( error ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
     socket_client->sHost( host );
-    socket_client->Logger( 0, "SocketClient::ResolveHostname()-> %s", CSTR( socket_client->gHost() ) );
+    LOGFMT( 0, "SocketClient::ResolveHostname()-> %s", CSTR( socket_client->gHost() ) );
 
     pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
 }

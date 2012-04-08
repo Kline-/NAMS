@@ -18,9 +18,7 @@
 #ifndef DEC_SOCKET_H
 #define DEC_SOCKET_H
 
-#include "utils.h"
-
-class Socket : public Utils {
+class Socket {
     public:
         Socket();
         ~Socket();

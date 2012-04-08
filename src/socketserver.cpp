@@ -19,6 +19,7 @@
 #include "h/class.h"
 
 #include "h/socketserver.h"
+#include "h/list.h"
 
 // Core
 bool SocketServer::Bind( const uint_t port, const string addr )

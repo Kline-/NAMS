@@ -15,11 +15,14 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-#include "h/includes.h"
-#include "h/class.h"
+#ifndef DEC_LIST_H
+#define DEC_LIST_H
 
-#include "h/lists.h"
+#include <list>
 
-vector<Command*> command_list[ALPHA_MAX];
-list<SocketClient*> socket_client_list;
-list<SocketServer*> socket_server_list;
+extern vector<Command*> command_list[ALPHA_MAX];
+extern list<Directory*> directory_list;
+extern list<SocketClient*> socket_client_list;
+extern list<SocketServer*> socket_server_list;
+
+#endif

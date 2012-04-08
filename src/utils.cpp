@@ -18,9 +18,21 @@
 #include "h/includes.h"
 #include "h/class.h"
 
-#include "h/utils.h"
+string Utils::CurrentTime()
+{
+    struct timeval now;
+    time_t current_time;
+    string output;
 
-// Core
+    gettimeofday( &now, NULL );
+    current_time = now.tv_sec;
+
+    output = ctime( &current_time );
+    output.resize( output.length() - 1 );
+
+    return output;
+}
+
 string Utils::_FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
 {
     va_list args;
@@ -85,7 +97,7 @@ void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, 
         return;
 
     // prepend timestamp
-    pre += gTimeCurrent(); pre += " :: ";
+    pre += CurrentTime(); pre += " :: ";
 
     for ( i = 0; i < MAX_UTILS; i++ )
     {
@@ -159,38 +171,4 @@ vector<string> Utils::StrTokens( const string input )
     vector<string> output( si, end );
 
     return output;
-}
-
-// Query
-string Utils::gTimeCurrent() const
-{
-    string output;
-
-    output = ctime( &m_time_current );
-    output.resize( output.length() - 1 );
-
-    return output;
-}
-
-// Manipulate
-const void Utils::sTimeCurrent()
-{
-    struct timeval now;
-
-    gettimeofday( &now, NULL );
-    m_time_current = now.tv_sec;
-
-    return;
-}
-
-Utils::Utils()
-{
-    sTimeCurrent();
-
-    return;
-}
-
-Utils::~Utils()
-{
-    return;
 }

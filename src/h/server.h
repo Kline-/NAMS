@@ -22,9 +22,9 @@
 
 #include "socketclient.h"
 #include "socketserver.h"
-#include "lists.h"
+#include "list.h"
 
-class Server : public Utils {
+class Server {
     public:
         Server();
         ~Server();
@@ -45,12 +45,14 @@ class Server : public Utils {
         uint_t gPort() const { return m_port; }
         uint_t gPulseRate() const { return m_pulse_rate; }
         string gTimeBoot() const;
+        string gTimeCurrent() const;
         SocketServer* gSocket() const { return m_socket; }
 
         // Manipulate
         bool sPort( const uint_t port );
         bool sPulseRate( const uint_t rate );
         const void sTimeBoot();
+        const void sTimeCurrent();
 
     private:
         uint_t  m_dir_close;
@@ -61,6 +63,7 @@ class Server : public Utils {
         SocketServer* m_socket;
         ITER( list, SocketClient*, m_socket_client_next );
         time_t  m_time_boot;
+        time_t  m_time_current;
 };
 
 #endif

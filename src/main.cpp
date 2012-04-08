@@ -27,14 +27,14 @@ int main( const int argc, const char* argv[] )
 
     if ( argc > 1 )
     {
-        if ( !_server.iNumber( argv[1] ) )
+        if ( !Utils::iNumber( argv[1] ) )
         {
-            _server.Logger( flags, _server.FormatString( flags, "Usage: %s [port #]", argv[0] ) );
+            LOGFMT( flags, "Usage: %s [port #]", argv[0] );
             _server.Shutdown( EXIT_FAILURE );
         }
         else if ( !_server.sPort( atoi( argv[1] ) ) )
         {
-            _server.Logger( flags, _server.FormatString( flags, "Port number must be between %d and %d.", CFG_SOC_MIN_PORTNUM, CFG_SOC_MAX_PORTNUM ) );
+            LOGFMT( flags, "Port number must be between %d and %d.", CFG_SOC_MIN_PORTNUM, CFG_SOC_MAX_PORTNUM );
             _server.Shutdown( EXIT_FAILURE );
         }
     }

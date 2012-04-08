@@ -24,6 +24,5 @@ class Server;
 class Socket;
 class SocketClient;
 class SocketServer;
-class Utils;
 
 #endif

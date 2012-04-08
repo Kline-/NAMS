@@ -47,26 +47,30 @@ bool Server::InitSocket( SocketServer* socket_server )
 bool Server::LoadCommands()
 {
     UFLAGS_DE( flags );
-    Directory dir;
+    Directory* dir = NULL;
     vector<string> contents;
     string content;
     ITER( vector, string, vi );
 
-    if ( !dir.Open( CFG_DAT_DIR_COMMAND ) )
+    dir = new Directory( CFG_DAT_DIR_COMMAND );
+
+    if ( dir == NULL )
     {
         LOGSTR( flags, "Server::LoadCommands()->Directory::Open()-> returned false" );
         return false;
     }
 
-    contents = dir.List();
-    dir.Close();
+    contents = dir->List();
+    dir->Close();
     for ( vi = contents.begin(); vi != contents.end(); vi++ )
     {
         content = *vi;
         LOGSTR( flags, CSTR( content ) );
     }
 
-    if ( !dir.Open( CFG_DAT_DIR_COMMAND ) )
+    dir = new Directory( CFG_DAT_DIR_COMMAND );
+
+    if ( dir == NULL )
     {
         LOGSTR( flags, "Server::LoadCommands()->Directory::Open()-> returned false" );
         return false;
@@ -103,7 +107,7 @@ const void Server::NewConnection()
 
     socket_client = new SocketClient();
     socket_client->sDescriptor( descriptor );
-    socket_client->sOwner( this );
+    socket_client->sServer( this );
     // Usually this is in the constructor, but we have to be certain the socket is fully
     // Configured to avoid any chance of a processing loop accessing it in an invalid state
     socket_client_list.push_back( socket_client );
@@ -278,8 +282,9 @@ const void Server::Shutdown( const sint_t status )
 
     m_shutdown = true;
 
-    for_each( socket_client_list.begin(), socket_client_list.end(), DeleteObject() );
-    for_each( socket_server_list.begin(), socket_server_list.end(), DeleteObject() );
+    for_each( directory_list.begin(),     directory_list.end(),     Utils::DeleteObject() );
+    for_each( socket_client_list.begin(), socket_client_list.end(), Utils::DeleteObject() );
+    for_each( socket_server_list.begin(), socket_server_list.end(), Utils::DeleteObject() );
 
     // Only output if the server actually booted; otherwise it probably faulted while getting a port from main()
     if ( was_running )
@@ -387,6 +392,16 @@ string Server::gTimeBoot() const
     return output;
 }
 
+string Server::gTimeCurrent() const
+{
+    string output;
+
+    output = ctime( &m_time_current );
+    output.resize( output.length() - 1 );
+
+    return output;
+}
+
 // Manipulate
 bool Server::sPort( const uint_t port )
 {
@@ -420,6 +435,16 @@ const void Server::sTimeBoot()
 
     gettimeofday( &now, NULL );
     m_time_boot = now.tv_sec;
+
+    return;
+}
+
+const void Server::sTimeCurrent()
+{
+    struct timeval now;
+
+    gettimeofday( &now, NULL );
+    m_time_current = now.tv_sec;
 
     return;
 }

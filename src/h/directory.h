@@ -20,16 +20,13 @@
 
 #include <dirent.h>
 
-#include "utils.h"
-
-class Directory : public Utils {
+class Directory {
     public:
-        Directory();
+        Directory( const string path );
         ~Directory();
 
         // Core
         const void Close();
-        bool Open( const string path );
         vector<string> List();
 
         // Query
