@@ -59,6 +59,9 @@
 // Define an iterator variable (name) of class (type) using (container)
 #define ITER( container, type, name ) container<type>::iterator name
 
+// Support for multimap/pair iterators, too
+#define MITER( container, type1, type2, name ) container<type1,type2>::iterator name
+
 // Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already set
 #define UFLAGS_DE( name ) BSET( name, UTILS_DEBUG | UTILS_TYPE_ERROR )
 
@@ -67,6 +70,9 @@
 
 // Wrap Utils::FormatString() within Utils::Logger()
 #define LOGFMT( flags, message, ... ) LOGSTR( flags, Utils::FormatString( flags, message, __VA_ARGS__ ) )
+
+// Wrap logging a pre-formatted errno output
+#define LOGERRNO( flags, message ) LOGFMT( flags, " " message " returned errno %d: %s", errno, strerror( errno ) )
 
 // This is the maximum value usleep will take per man (3) usleep -- 1 second.
 // Changing this will affect game speed; reference CFG_GAM_PULSE_RATE
