@@ -62,6 +62,8 @@ class Server {
         bool    m_shutdown;
         SocketServer* m_socket;
         ITER( list, SocketClient*, m_socket_client_next );
+        uint_t  m_socket_close;
+        uint_t  m_socket_open;
         time_t  m_time_boot;
         time_t  m_time_current;
 };

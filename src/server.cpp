@@ -464,7 +464,11 @@ Server::Server()
     m_pulse_rate = CFG_GAM_PULSE_RATE;
     m_shutdown = true;
     m_socket = 0;
+    m_socket_client_next = 0;
+    m_socket_close = 0;
+    m_socket_open = 0;
     m_time_boot = 0;
+    m_time_current = 0;
 
     return;
 }
