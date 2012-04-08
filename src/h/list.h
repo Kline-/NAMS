@@ -20,8 +20,7 @@
 
 #include <list>
 
-extern list<Command*> command_list[ALPHA_MAX];
-extern list<Directory*> directory_list;
+extern multimap<const char[1],Command*> command_list;
 extern list<SocketClient*> socket_client_list;
 extern list<SocketServer*> socket_server_list;
 

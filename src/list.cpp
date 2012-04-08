@@ -20,7 +20,6 @@
 
 #include "h/list.h"
 
-list<Command*> command_list[ALPHA_MAX];
-list<Directory*> directory_list;
+multimap<const char[1],Command*> command_list;
 list<SocketClient*> socket_client_list;
 list<SocketServer*> socket_server_list;
