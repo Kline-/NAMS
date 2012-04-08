@@ -18,30 +18,30 @@
 #ifndef DEC_CONFIG_H
 #define DEC_CONFIG_H
 
-/************************************************************
- *                      DATA OPTIONS                        *
- ***********************************************************/
+/***************************************************************************
+ *                              DATA OPTIONS                               *
+ ***************************************************************************/
 // CFG_DAT_DIR_COMMAND -- Directory for commands to be loaded from; should contain subdirs a-z
-//  Default: "../command/"
+//  Default: "command"
 #define CFG_DAT_DIR_COMMAND     "command"
 
-/************************************************************
- *                      GAME OPTIONS                        *
- ***********************************************************/
+/***************************************************************************
+ *                              GAME OPTIONS                               *
+ ***************************************************************************/
 // CFG_GAM_PULSE_RATE -- How many cycles per second should be processed.
 //  Default: 100
 #define CFG_GAM_PULSE_RATE      100
 
-/************************************************************
- *                      MEMORY OPTIONS                      *
- ************************************************************/
+/***************************************************************************
+ *                              MEMORY OPTIONS                             *
+ ***************************************************************************/
 // CFG_MEM_MAX_BITSET -- Maximum size of all bitset elements within the server.
 //  Default: 128
 #define CFG_MEM_MAX_BITSET      128
 
-/************************************************************
- *                      SOCKET OPTIONS                      *
- ************************************************************/
+/***************************************************************************
+ *                              SOCKET OPTIONS                             *
+ ***************************************************************************/
 // CFG_SOC_BIND_ADDR -- IP address to bind the listening server socket to.
 //  Default: "0.0.0.0"
 #define CFG_SOC_BIND_ADDR       "0.0.0.0"
@@ -66,9 +66,9 @@
 //  Default: 4321
 #define CFG_SOC_PORTNUM         4321
 
-/************************************************************
- *                      STRING OPTIONS                      *
- ************************************************************/
+/***************************************************************************
+ *                              STRING OPTIONS                             *
+ ***************************************************************************/
 // CFG_STR_IDLE -- String sent on disconnecting an idle socket.
 //  Default: CRLF "Idle limit reached. Goodbye."
 #define CFG_STR_IDLE            CRLF "Idle limit reached. Goodbye." CRLF
