@@ -47,10 +47,12 @@ bool Server::InitSocket( SocketServer* socket_server )
 bool Server::LoadCommands()
 {
     UFLAGS_DE( flags );
+    timeval start, finish;
     Command* cmd = NULL;
     multimap<bool,string> files;
     MITER( multimap, bool,string, mi );
 
+    start = Utils::CurrentTime();
     LOGSTR( 0, "Loading commands..." );
 
     // Populate the multimape with a recursive listing of the commands folder
@@ -75,7 +77,8 @@ bool Server::LoadCommands()
         }
     }
 
-    LOGFMT( 0, "Loaded %lu commands.", command_list.size() );
+    finish = Utils::CurrentTime();
+    LOGFMT( 0, "Loaded %lu commands in %lums.", command_list.size(), Utils::DiffTime( start, finish, UTILS_TIME_MS ) );
 
     return true;
 }
@@ -358,24 +361,42 @@ const void Server::Shutdown( const sint_t& status )
 const void Server::Startup()
 {
     UFLAGS_DE( flags );
-    SocketServer* socket_server;
+    SocketServer* socket_server = new SocketServer();
 
     LOGFMT( 0, "%s started.", CFG_STR_VERSION );
-    sTime( m_time_boot );
-    socket_server = new SocketServer();
+    m_time_boot = Utils::CurrentTime();
 
     if ( !InitSocket( socket_server ) )
+    {
+        LOGSTR( flags, "Server::Startup()->Server::InitSocket()-> returned false" );
         Shutdown( EXIT_FAILURE );
-    if ( !socket_server->Bind( m_port, CFG_SOC_BIND_ADDR ) )
-        Shutdown( EXIT_FAILURE );
-    if ( !socket_server->Listen() )
-        Shutdown( EXIT_FAILURE );
+    }
 
-    socket_server->sHostname( gHostname() );
+    if ( !socket_server->Bind( m_port, CFG_SOC_BIND_ADDR ) )
+    {
+        LOGSTR( flags, "Server::Startup()->SocketServer::Bind()-> returned false" );
+        Shutdown( EXIT_FAILURE );
+    }
+
+    if ( !socket_server->Listen() )
+    {
+        LOGSTR( flags, "Server::Startup()->SocketServer::Listen()-> returned false" );
+        Shutdown( EXIT_FAILURE );
+    }
+
+    if ( !socket_server->sHostname( gHostname() ) )
+    {
+        LOGFMT( flags, "Server::Startup()->Socket()->sHostname()-> returned false setting hostname: %s", CSTR( gHostname() ) );
+        Shutdown( EXIT_FAILURE );
+    }
 
     // Ordinarily this is passed via a Socket() constructor, but SocketServer() has no Server* pointer
-    // back to its owner (why sould it?); so we do it here after we know the socket is valid
-    sSocketOpen( m_socket_open + 1 );
+    // back to its owner (why should it?); so we do it here after we know the socket is valid
+    if ( !sSocketOpen( m_socket_open + 1 ) )
+    {
+        LOGFMT( flags, "Server::Startup()->Server::sSocketOpen()-> returned false setting value: %lu", m_socket_open + 1 );
+        Shutdown( EXIT_FAILURE );
+    }
 
     // Bump ourselves to the root folder for file paths
     if ( ::chdir( ".." ) < 0 )
@@ -401,20 +422,18 @@ const void Server::Update()
 {
     UFLAGS_DE( flags );
 
-    sTime( m_time_current );
+    m_time_current = Utils::CurrentTime();
 
     if ( !PollSockets() )
     {
         LOGSTR( flags, "Server::Update()->Server::PollSockets()-> returned false" );
         Shutdown( EXIT_FAILURE );
-        return;
     }
 
     if ( !ProcessInput() )
     {
         LOGSTR( flags, "Server::Update()->Server::ProcessInput()-> returned false" );
         Shutdown( EXIT_FAILURE );
-        return;
     }
 
     // Sleep to control game pacing
@@ -447,26 +466,6 @@ string Server::gHostname() const
 string Server::gStatus() const
 {
     string output;
-
-    return output;
-}
-
-string Server::gTimeBoot() const
-{
-    string output;
-
-    output = ctime( &m_time_boot.tv_sec );
-    output.resize( output.length() - 1 );
-
-    return output;
-}
-
-string Server::gTimeCurrent() const
-{
-    string output;
-
-    output = ctime( &m_time_current.tv_sec );
-    output.resize( output.length() - 1 );
 
     return output;
 }
@@ -524,22 +523,6 @@ bool Server::sSocketOpen( const uint_t& amount )
     }
 
     m_socket_open += amount;
-
-    return true;
-}
-
-bool Server::sTime( timeval& new_time )
-{
-    UFLAGS_DE( flags );
-    timeval now;
-
-    if ( ::gettimeofday( &now, NULL ) < 0 )
-    {
-        LOGERRNO( flags, "Server::sTime()->" );
-        return false;
-    }
-
-    new_time = now;
 
     return true;
 }

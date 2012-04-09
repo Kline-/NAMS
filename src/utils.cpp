@@ -19,51 +19,28 @@
 #include "h/class.h"
 
 // Core
-string Utils::CurrentTime()
+timeval Utils::CurrentTime()
 {
     UFLAGS_DE( flags );
     timeval now;
-    string output;
-
-    if ( !CurrentTime( now ) )
-    {
-        LOGSTR( flags, "Utils::CurrentTime()->Utils::CurrentTime()-> returned false" );
-        return output;
-    }
-
-    if ( ( output = ::ctime( &now.tv_sec ) ).empty() )
-    {
-        LOGSTR( flags, "Utils::CurrentTime()->ctime()-> returned NULL" );
-        return output;
-    }
-
-    // Strip the newline off the end
-    output.resize( output.length() - 1 );
-
-    return output;
-}
-
-bool Utils::CurrentTime( timeval& now )
-{
-    UFLAGS_DE( flags );
 
     if ( ::gettimeofday( &now, NULL ) < 0 )
     {
         LOGERRNO( flags, "Utils::CurrentTime()->" );
-        return false;
+        return timeval();
     }
 
-    return true;
+    return now;
 }
 
 uint_t Utils::DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity )
 {
     switch ( granularity )
     {
-        case  UTILS_TIME_S: return ( prev.tv_sec - current.tv_sec );
-        case UTILS_TIME_MS: return ( prev.tv_usec - current.tv_usec ) / 1000;
+        case  UTILS_TIME_S: return ( current.tv_sec - prev.tv_sec );
+        case UTILS_TIME_MS: return ( current.tv_usec - prev.tv_usec ) / 1000;
         case UTILS_TIME_US:
-                   default: return ( prev.tv_usec - current.tv_usec );
+                   default: return ( current.tv_usec - prev.tv_usec );
     }
 }
 
@@ -152,7 +129,7 @@ void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags
         return;
 
     // prepend timestamp
-    pre = CurrentTime(); pre += " :: ";
+    pre = StrTime( CurrentTime() ); pre += " :: ";
 
     for ( i = 0; i < MAX_UTILS; i++ )
     {
@@ -213,6 +190,23 @@ vector<string> Utils::StrNewlines( const string& input )
 
     while ( getline( ss, line ) )
         output.push_back( line );
+
+    return output;
+}
+
+string Utils::StrTime( const timeval& now )
+{
+    UFLAGS_DE( flags );
+    string output;
+
+    if ( ( output = ::ctime( &now.tv_sec ) ).empty() )
+    {
+        LOGSTR( flags, "Utils::CurrentTime()->ctime()-> returned NULL" );
+        return output;
+    }
+
+    // Strip the newline off the end
+    output.resize( output.length() - 1 );
 
     return output;
 }

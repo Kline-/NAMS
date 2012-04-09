@@ -49,8 +49,7 @@ namespace Utils {
     template <class T> inline string Lower( const T& t ) { stringstream ss; ss << nouppercase << t; return ss.str(); }
     template <class T> inline string Upper( const T& t ) { stringstream ss; ss << uppercase << t; return ss.str(); }
     template <class T> inline string String( const T& t ) { stringstream ss( t ); return ss.str(); }
-    string CurrentTime();
-    bool CurrentTime( timeval& now );
+    timeval CurrentTime();
     uint_t DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity );
     string _FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... );
     string __FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val );
@@ -59,6 +58,7 @@ namespace Utils {
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     uint_t NumChar( const string& input, const string& item );
     vector<string> StrNewlines( const string& input );
+    string StrTime( const timeval& now );
     vector<string> StrTokens( const string& input );
 
     // Query

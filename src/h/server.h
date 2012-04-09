@@ -48,15 +48,12 @@ class Server {
         uint_t gSocketClose() const { return m_socket_close; }
         uint_t gSocketOpen() const { return m_socket_open; }
         string gStatus() const;
-        string gTimeBoot() const;
-        string gTimeCurrent() const;
 
         // Manipulate
         bool sPort( const uint_t& port );
         bool sPulseRate( const uint_t& rate );
         bool sSocketClose( const uint_t& amount );
         bool sSocketOpen( const uint_t& amount );
-        bool sTime( timeval& new_time );
 
     private:
         uint_t  m_dir_close;
