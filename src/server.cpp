@@ -60,7 +60,7 @@ bool Server::LoadCommands()
 
     if ( files.empty() )
     {
-        LOGFMT( flags, "Server::LoadCommands()->Utils::ListDirectory()-> returned NULL for: %s", CFG_DAT_DIR_COMMAND );
+        LOGSTR( flags, "Server::LoadCommands()->Utils::ListDirectory()-> CFG_DAT_DIR_COMMAND returned NULL" );
         return false;
     }
 
@@ -71,7 +71,7 @@ bool Server::LoadCommands()
             cmd = new Command();
             if ( !cmd->Load( mi->second ) )
             {
-                LOGFMT( flags, "Server::LoadCommands()->Command::Load()-> returned false for command: %s", CSTR( mi->second ) );
+                LOGFMT( flags, "Server::LoadCommands()->Command::Load()-> command %s returned false", CSTR( mi->second ) );
                 delete cmd;
             }
         }
@@ -117,23 +117,23 @@ const void Server::NewConnection()
 
         if ( !socket_client->sHostname( "(unknown)" ) )
         {
-            LOGSTR( flags, "Server::NewConnection()->Socket()->sHostname()-> returned false setting hostname: (unknown)" );
+            LOGSTR( flags, "Server::NewConnection()->SocketClient::sHostname()-> hostname (unknown) returned false" );
             socket_client->Disconnect();
             return;
         }
     }
     else
     {
-        if ( !socket_client->sHostname( inet_ntoa( sin.sin_addr ) ) )
+        if ( !socket_client->sHostname( ::inet_ntoa( sin.sin_addr ) ) )
         {
-            LOGFMT( flags, "Server::NewConnection()->Socket()->sHostname()-> returned false setting hostname: %s", inet_ntoa( sin.sin_addr ) );
+            LOGFMT( flags, "Server::NewConnection()->SocketClient::sHostname()-> hostname %s returned false", ::inet_ntoa( sin.sin_addr ) );
             socket_client->Disconnect();
             return;
         }
 
-        if ( !socket_client->sPort( ntohs( sin.sin_port ) ) )
+        if ( !socket_client->sPort( ::ntohs( sin.sin_port ) ) )
         {
-            LOGFMT( flags, "Server::NewConnection()->Socket()->sPort()-> returned false setting port: %lu", ntohs( sin.sin_port ) );
+            LOGFMT( flags, "Server::NewConnection()->SocketClient::sPort()-> port %lu returned false", ::ntohs( sin.sin_port ) );
             socket_client->Disconnect();
             return;
         }
@@ -145,14 +145,14 @@ const void Server::NewConnection()
     // negotiate telopts, send login message
     if ( !socket_client->Send( CFG_STR_LOGIN ) )
     {
-        LOGFMT( flags, "Server::NewConnection()->SocketClient()->Send()-> returned false sending: %s", CFG_STR_LOGIN );
+        LOGSTR( flags, "Server::NewConnection()->SocketClient::Send()-> msg CFG_STR_LOGIN returned false" );
         socket_client->Disconnect();
         return;
     }
 
     if ( !socket_client->sState( SOC_STATE_LOGIN_SCREEN ) )
     {
-        LOGFMT( flags, "Server::NewConnection()->SocketClient()->sState()-> returned false setting state: %lu", SOC_STATE_LOGIN_SCREEN );
+        LOGFMT( flags, "Server::NewConnection()->SocketClient::sState()-> state %lu returned false", SOC_STATE_LOGIN_SCREEN );
         socket_client->Disconnect();
         return;
     }
@@ -315,7 +315,7 @@ bool Server::PollSockets()
             // Send output, save game character and disconnect socket if unable to
             if ( !socket_client->Send() )
             {
-                LOGFMT( flags, "Server::PollSockets()->SocketClient()->Send()-> descriptor %ld returned false", client_desc );
+                LOGFMT( flags, "Server::PollSockets()->SocketClient::PendingOutput()->SocketClient::Send()-> descriptor %ld returned false", client_desc );
                 socket_client->Disconnect();
                 // todo: save character
                 continue;
@@ -358,7 +358,7 @@ bool Server::ProcessInput()
         {
             if ( !socket_client->ProcessCommand() )
             {
-                LOGFMT( flags, "Server::ProcessInput()->SocketClient::ProcessCommand()-> descriptor %ld returned false", client_desc );
+                LOGFMT( flags, "Server::ProcessInput()->SocketClient::PendingCommand()->SocketClient::ProcessCommand()-> descriptor %ld returned false", client_desc );
                 // todo: save character
                 socket_client->Disconnect();
                 continue;
@@ -427,7 +427,7 @@ const void Server::Startup()
 
     if ( !socket_server->sHostname( gHostname() ) )
     {
-        LOGFMT( flags, "Server::Startup()->SocketServer()::sHostname()-> returned false setting hostname: %s", CSTR( gHostname() ) );
+        LOGFMT( flags, "Server::Startup()->SocketServer::sHostname()-> hostname %s returned false", CSTR( gHostname() ) );
         Shutdown( EXIT_FAILURE );
     }
 
@@ -435,7 +435,7 @@ const void Server::Startup()
     // back to its owner (why should it?); so we do it here after we know the socket is valid
     if ( !sSocketOpen( m_socket_open + 1 ) )
     {
-        LOGFMT( flags, "Server::Startup()->Server::sSocketOpen()-> returned false setting value: %lu", m_socket_open + 1 );
+        LOGFMT( flags, "Server::Startup()->Server::sSocketOpen()-> value %lu returned false", m_socket_open + 1 );
         Shutdown( EXIT_FAILURE );
     }
 
@@ -487,7 +487,6 @@ const void Server::Update()
 string Server::gHostname() const
 {
     UFLAGS_DE( flags );
-
     string output;
     char hostname[CFG_STR_MAX_BUFLEN] = {'\0'};
 

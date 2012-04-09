@@ -23,13 +23,17 @@
 // Core
 const void SocketClient::Disconnect( const string& msg )
 {
+    UFLAGS_DE( flags );
+
     if ( !msg.empty() )
     {
         Send( msg );
         Send();
     }
 
-    m_server->sSocketClose( m_server->gSocketClose() + 1 );
+    if ( !m_server->sSocketClose( m_server->gSocketClose() + 1 ) )
+        LOGFMT( flags, "SocketClient::Disconnect()->Server::sSocketClose()-> value %lu returned false", m_server->gSocketClose() + 1 );
+
     socket_client_list.remove( this );
     delete this;
 
@@ -42,7 +46,7 @@ bool SocketClient::ProcessCommand()
 
     if ( !Valid() )
     {
-        LOGSTR( flags, "SocketClient::ProcessCommand()-> called with invalid socket" );
+        LOGFMT( flags, "SocketClient::ProcessCommand()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
         return false;
     }
 
@@ -64,7 +68,7 @@ bool SocketClient::ProcessInput()
 
     if ( !Valid() )
     {
-        LOGSTR( flags, "SocketClient::ProcessInput()-> called with invalid socket" );
+        LOGFMT( flags, "SocketClient::ProcessInput()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
         return false;
     }
 
@@ -78,7 +82,7 @@ bool SocketClient::ProcessInput()
         command = *vi;
         if ( !QueueCommand( command ) )
         {
-            LOGFMT( flags, "SocketClient::ProcessInput()->SocketClient::QueueCommand()-> returned false for cmd: %s", CSTR( command ) );
+            LOGFMT( flags, "SocketClient::ProcessInput()->SocketClient::QueueCommand()-> command %s returned false", CSTR( command ) );
             return false;
         }
     }
@@ -94,7 +98,7 @@ bool SocketClient::QueueCommand( const string& command )
 
     if ( !Valid() )
     {
-        LOGSTR( flags, "SocketClient::QueueCommand()-> called with invalid socket" );
+        LOGFMT( flags, "SocketClient::QueueCommand()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
         return false;
     }
 
@@ -117,13 +121,13 @@ bool SocketClient::Recv()
 
     if ( !Valid() )
     {
-        LOGSTR( flags, "SocketClient::Recv()-> called with invalid socket" );
+        LOGFMT( flags, "SocketClient::Recv()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
         return false;
     }
 
     if ( ( m_input.length() + CFG_STR_MAX_BUFLEN ) >= m_input.max_size() )
     {
-        LOGFMT( flags, "SocketClient::Recv()->recv()-> called with m_input overflow: %lu + %d", m_input.length(), CFG_STR_MAX_BUFLEN );
+        LOGFMT( flags, "SocketClient::Recv()-> called with m_input overflow: %lu + %lu", m_input.length(), CFG_STR_MAX_BUFLEN );
         return false;
     }
 
@@ -141,8 +145,18 @@ bool SocketClient::Recv()
         }
     }
 
-    m_server->gSocket()->sBytesRecvd( m_server->gSocket()->gBytesRecvd() + amount );
-    sBytesRecvd( m_bytes_recvd + amount );
+    if ( !m_server->gSocket()->sBytesRecvd( m_server->gSocket()->gBytesRecvd() + amount ) )
+    {
+        LOGFMT( flags, "SocketClient::Recv()->Server::gSocket()->Server::sBytesRecvd()-> value %ld returned false", m_server->gSocket()->gBytesRecvd() + amount );
+        return false;
+    }
+
+    if ( !sBytesRecvd( m_bytes_recvd + amount ) )
+    {
+        LOGFMT( flags, "SocketClient::Recv()->SocketClient::sBytesRecvd()-> value %ld returned false", m_bytes_recvd + amount );
+        return false;
+    }
+
     m_input += buf;
 
     return true;
@@ -156,29 +170,29 @@ const void SocketClient::ResolveHostname()
 
     if ( !Valid() )
     {
-        LOGSTR( flags, "SocketClient::ResolveHostname()-> called with invalid socket" );
+        LOGFMT( flags, "SocketClient::ResolveHostname()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
         return;
     }
 
-    if ( pthread_attr_init( &res_attr ) != 0 )
+    if ( ::pthread_attr_init( &res_attr ) != 0 )
     {
         LOGERRNO( flags, "SocketClient::ResolveHostname()->pthread_attr_init()->" );
         return;
     }
 
-    if ( pthread_attr_setdetachstate( &res_attr, PTHREAD_CREATE_DETACHED ) != 0 )
+    if ( ::pthread_attr_setdetachstate( &res_attr, PTHREAD_CREATE_DETACHED ) != 0 )
     {
         LOGERRNO( flags, "SocketClient::ResolveHostname()->pthread_attr_setdetachstate()->" );
         return;
     }
 
-    if ( pthread_create( &res_thread, &res_attr, &SocketClient::tResolveHostname, this ) != 0 )
+    if ( ::pthread_create( &res_thread, &res_attr, &SocketClient::tResolveHostname, this ) != 0 )
     {
         LOGERRNO( flags, "SocketClient::ResolveHostname()->pthread_create()->" );
         return;
     }
 
-    if ( pthread_attr_destroy( &res_attr ) != 0 )
+    if ( ::pthread_attr_destroy( &res_attr ) != 0 )
     {
         LOGERRNO( flags, "SocketClient::ResolveHostname()->pthread_attr_destroy()->" );
         return;
@@ -193,7 +207,13 @@ bool SocketClient::Send( const string& msg )
 
     if ( !Valid() )
     {
-        LOGSTR( flags, "SocketClient::Send()-> called with invalid socket" );
+        LOGFMT( flags, "SocketClient::Send()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
+        return false;
+    }
+
+    if ( msg.empty() )
+    {
+        LOGSTR( flags, "SocketClient::Send()-> called with empty msg" );
         return false;
     }
 
@@ -217,13 +237,13 @@ bool SocketClient::Send()
 
     if ( !Valid() )
     {
-        LOGSTR( flags, "SocketClient::Send()-> called with invalid socket" );
+        LOGFMT( flags, "SocketClient::Send()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
         return false;
     }
 
     if ( m_output.empty() )
     {
-        LOGSTR( flags, "SocketClient::Send()->send()-> called with empty output buffer" );
+        LOGSTR( flags, "SocketClient::Send()-> called with empty output buffer" );
         return false;
     }
 
@@ -241,8 +261,18 @@ bool SocketClient::Send()
         }
     }
 
-    m_server->gSocket()->sBytesSent( m_server->gSocket()->gBytesSent() + amount );
-    sBytesSent( m_bytes_sent + amount );
+    if ( !m_server->gSocket()->sBytesSent( m_server->gSocket()->gBytesSent() + amount ) )
+    {
+        LOGFMT( flags, "SocketClient::Send()->Server::gSocket()->Server::sBytesSent()-> value %lu returned false", m_server->gSocket()->gBytesSent() + amount );
+        return false;
+    }
+
+    if ( !sBytesSent( m_bytes_sent + amount ) )
+    {
+        LOGFMT( flags, "SocketClient::Send()->SocketClient::sBytesSent()-> value %lu returned false", m_bytes_sent + amount );
+        return false;
+    }
+
     m_output.clear();
 
     return true;
@@ -277,22 +307,27 @@ void* SocketClient::tResolveHostname( void* data )
 
     sa.sin_family = AF_INET;
 
-    if ( ( error = inet_pton( AF_INET, CSTR( socket_client->gHostname() ), &sa.sin_addr ) ) != 1 )
+    if ( ( error = ::inet_pton( AF_INET, CSTR( socket_client->gHostname() ), &sa.sin_addr ) ) != 1 )
     {
         LOGFMT( flags, "SocketClient::tResolveHostname()->inet_pton()-> returned errno %d: %s", error, gai_strerror( error ) );
-        pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
+        ::pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
-    if ( ( error = getnameinfo( reinterpret_cast<sockaddr*>( &sa ), sizeof( sa ), hostname, sizeof( hostname ), NULL, 0, 0 ) ) != 0 )
+    if ( ( error = ::getnameinfo( reinterpret_cast<sockaddr*>( &sa ), sizeof( sa ), hostname, sizeof( hostname ), NULL, 0, 0 ) ) != 0 )
     {
         LOGFMT( flags, "SocketClient::tResolveHostname()->getnameinfo()-> returned errno %d: %s", error, gai_strerror( error ) );
-        pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
+        ::pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
-    socket_client->sHostname( hostname );
+    if ( !socket_client->sHostname( hostname ) )
+    {
+        LOGFMT( flags, "SocketClient::tResolveHostname()->SocketClient::sHostname()-> hostname %s returned false", hostname );
+        ::pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
+    }
+
     LOGFMT( 0, "SocketClient::ResolveHostname()-> %s", CSTR( socket_client->gHostname() ) );
 
-    pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
+    ::pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
 }
 
 bool SocketClient::sServer( Server* server )
@@ -307,7 +342,7 @@ bool SocketClient::sServer( Server* server )
 
     if ( !server->Running() )
     {
-        LOGSTR( flags, "SocketClient::sServer()-> called with invalid server" );
+        LOGSTR( flags, "SocketClient::sServer()-> called with offline server" );
         return false;
     }
 
