@@ -331,15 +331,25 @@ bool Server::ProcessInput()
     UFLAGS_DE( flags );
     ITER( list, SocketClient*, si );
     SocketClient* socket_client;
+    sint_t client_desc = 0;
 
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
     {
         socket_client = *si;
         m_socket_client_next = ++si;
 
+        if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
+        {
+            LOGFMT( flags, "Server::ProcessInput()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
+            // todo: save character
+            socket_client->Disconnect();
+            continue;
+        }
+
         if ( !socket_client->ProcessInput() )
         {
-            LOGSTR( flags, "Server::ProcessInput()->SocketClient()->ProcessInput()-> returned false" );
+            LOGFMT( flags, "Server::ProcessInput()->SocketClient::ProcessInput()-> descriptor %ld returned false", client_desc );
+            // todo: save character
             socket_client->Disconnect();
             continue;
         }
@@ -348,7 +358,8 @@ bool Server::ProcessInput()
         {
             if ( !socket_client->ProcessCommand() )
             {
-                LOGSTR( flags, "Server::ProcessInput()->SocketClient()->ProcessCommand()-> returned false" );
+                LOGFMT( flags, "Server::ProcessInput()->SocketClient::ProcessCommand()-> descriptor %ld returned false", client_desc );
+                // todo: save character
                 socket_client->Disconnect();
                 continue;
             }
@@ -416,7 +427,7 @@ const void Server::Startup()
 
     if ( !socket_server->sHostname( gHostname() ) )
     {
-        LOGFMT( flags, "Server::Startup()->Socket()->sHostname()-> returned false setting hostname: %s", CSTR( gHostname() ) );
+        LOGFMT( flags, "Server::Startup()->SocketServer()::sHostname()-> returned false setting hostname: %s", CSTR( gHostname() ) );
         Shutdown( EXIT_FAILURE );
     }
 
@@ -437,7 +448,7 @@ const void Server::Startup()
 
     if ( !LoadCommands() )
     {
-        LOGSTR( flags, "Server::Startup()->LoadCommands()-> returned false" );
+        LOGSTR( flags, "Server::Startup()->Server::LoadCommands()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
 
@@ -480,7 +491,7 @@ string Server::gHostname() const
     string output;
     char hostname[CFG_STR_MAX_BUFLEN] = {'\0'};
 
-    if ( gethostname( hostname, CFG_STR_MAX_BUFLEN - 1 ) < 0 )
+    if ( ::gethostname( hostname, CFG_STR_MAX_BUFLEN - 1 ) < 0 )
     {
         LOGERRNO( flags, "Server::gHostname()->gethostname()->" );
         output = "(unknown)";
