@@ -270,8 +270,8 @@ void* SocketClient::tResolveHostname( void* data )
 {
     UFLAGS_DE( flags );
     SocketClient* socket_client = reinterpret_cast<SocketClient*>( data );
-    static struct sockaddr_in sa_zero;
-    struct sockaddr_in sa = sa_zero;
+    static sockaddr_in sa_zero;
+    sockaddr_in sa = sa_zero;
     sint_t error = 0;
     char hostname[CFG_STR_MAX_BUFLEN];
 
@@ -283,7 +283,7 @@ void* SocketClient::tResolveHostname( void* data )
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
 
-    if ( ( error = getnameinfo( reinterpret_cast<struct sockaddr*>( &sa ), sizeof( sa ), hostname, sizeof( hostname ), NULL, 0, 0 ) ) != 0 )
+    if ( ( error = getnameinfo( reinterpret_cast<sockaddr*>( &sa ), sizeof( sa ), hostname, sizeof( hostname ), NULL, 0, 0 ) ) != 0 )
     {
         LOGFMT( flags, "SocketClient::tResolveHostname()->getnameinfo()-> returned errno %d: %s", error, gai_strerror( error ) );
         pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );

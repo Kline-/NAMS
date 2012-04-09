@@ -25,8 +25,8 @@
 bool SocketServer::Bind( const uint_t& port, const string& addr )
 {
     UFLAGS_DE( flags );
-    static struct sockaddr_in sa_zero;
-    struct sockaddr_in sa = sa_zero;
+    static sockaddr_in sa_zero;
+    sockaddr_in sa = sa_zero;
 
     if ( !Valid() )
     {

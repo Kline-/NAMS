@@ -22,8 +22,7 @@
 string Utils::CurrentTime()
 {
     UFLAGS_DE( flags );
-    struct timeval now;
-    time_t current_time;
+    timeval now;
     string output;
 
     if ( ::gettimeofday( &now, NULL ) < 0 )
@@ -31,9 +30,7 @@ string Utils::CurrentTime()
         LOGERRNO( flags, "Utils::CurrentTime()->" );
         return output;
     }
-    current_time = now.tv_sec;
-
-    output = ::ctime( &current_time );
+    output = ::ctime( &now.tv_sec );
     output.resize( output.length() - 1 );
 
     return output;
@@ -265,7 +262,7 @@ multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recur
 {
     UFLAGS_DE( flags );
     DIR* directory = NULL;
-    struct dirent* entry = NULL;
+    dirent* entry = NULL;
     string ifile, idir;
 
     if ( ( directory = ::opendir( CSTR( dir ) ) ) == NULL )

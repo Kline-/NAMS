@@ -51,6 +51,8 @@ bool Server::LoadCommands()
     multimap<bool,string> files;
     MITER( multimap, bool,string, mi );
 
+    LOGSTR( 0, "Loading commands..." );
+
     // Populate the multimape with a recursive listing of the commands folder
     Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, files, m_dir_close, m_dir_open );
 
@@ -73,13 +75,15 @@ bool Server::LoadCommands()
         }
     }
 
+    LOGFMT( 0, "Loaded %lu commands.", command_list.size() );
+
     return true;
 }
 
 const void Server::NewConnection()
 {
     UFLAGS_DE( flags );
-    struct sockaddr_in sin;
+    sockaddr_in sin;
     sint_t descriptor;
     socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
     SocketClient* socket_client;
@@ -156,7 +160,7 @@ const void Server::NewConnection()
 bool Server::PollSockets()
 {
     UFLAGS_DE( flags );
-    static struct timespec static_time;
+    static timespec static_time;
     fd_set exc_set;
     fd_set in_set;
     fd_set out_set;
@@ -357,7 +361,7 @@ const void Server::Startup()
     SocketServer* socket_server;
 
     LOGFMT( 0, "%s started.", CFG_STR_VERSION );
-    sTimeBoot();
+    sTime( m_time_boot );
     socket_server = new SocketServer();
 
     if ( !InitSocket( socket_server ) )
@@ -397,7 +401,7 @@ const void Server::Update()
 {
     UFLAGS_DE( flags );
 
-    sTimeCurrent();
+    sTime( m_time_current );
 
     if ( !PollSockets() )
     {
@@ -440,11 +444,18 @@ string Server::gHostname() const
     return output;
 }
 
+string Server::gStatus() const
+{
+    string output;
+
+    return output;
+}
+
 string Server::gTimeBoot() const
 {
     string output;
 
-    output = ctime( &m_time_boot );
+    output = ctime( &m_time_boot.tv_sec );
     output.resize( output.length() - 1 );
 
     return output;
@@ -454,7 +465,7 @@ string Server::gTimeCurrent() const
 {
     string output;
 
-    output = ctime( &m_time_current );
+    output = ctime( &m_time_current.tv_sec );
     output.resize( output.length() - 1 );
 
     return output;
@@ -517,24 +528,20 @@ bool Server::sSocketOpen( const uint_t& amount )
     return true;
 }
 
-const void Server::sTimeBoot()
+bool Server::sTime( timeval& new_time )
 {
-    struct timeval now;
+    UFLAGS_DE( flags );
+    timeval now;
 
-    ::gettimeofday( &now, NULL );
-    m_time_boot = now.tv_sec;
+    if ( ::gettimeofday( &now, NULL ) < 0 )
+    {
+        LOGERRNO( flags, "Server::sTime()->" );
+        return false;
+    }
 
-    return;
-}
+    new_time = now;
 
-const void Server::sTimeCurrent()
-{
-    struct timeval now;
-
-    ::gettimeofday( &now, NULL );
-    m_time_current = now.tv_sec;
-
-    return;
+    return true;
 }
 
 Server::Server()
@@ -548,8 +555,8 @@ Server::Server()
     m_socket_client_next = socket_client_list.begin();
     m_socket_close = 0;
     m_socket_open = 0;
-    m_time_boot = 0;
-    m_time_current = 0;
+    m_time_boot = timeval();
+    m_time_current = timeval();
 
     return;
 }

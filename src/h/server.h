@@ -44,19 +44,19 @@ class Server {
         string gHostname() const;
         uint_t gPort() const { return m_port; }
         uint_t gPulseRate() const { return m_pulse_rate; }
-        string gTimeBoot() const;
-        string gTimeCurrent() const;
         SocketServer* gSocket() const { return m_socket; }
         uint_t gSocketClose() const { return m_socket_close; }
         uint_t gSocketOpen() const { return m_socket_open; }
+        string gStatus() const;
+        string gTimeBoot() const;
+        string gTimeCurrent() const;
 
         // Manipulate
         bool sPort( const uint_t& port );
         bool sPulseRate( const uint_t& rate );
         bool sSocketClose( const uint_t& amount );
         bool sSocketOpen( const uint_t& amount );
-        const void sTimeBoot();
-        const void sTimeCurrent();
+        bool sTime( timeval& new_time );
 
     private:
         uint_t  m_dir_close;
@@ -68,8 +68,8 @@ class Server {
         ITER( list, SocketClient*, m_socket_client_next );
         uint_t  m_socket_close;
         uint_t  m_socket_open;
-        time_t  m_time_boot;
-        time_t  m_time_current;
+        timeval m_time_boot;
+        timeval m_time_current;
 };
 
 #endif
