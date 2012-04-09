@@ -29,7 +29,7 @@ const void SocketClient::Disconnect( const string msg )
         Send();
     }
 
-    gServer()->sSocketClose( gServer()->gSocketClose() + 1 );
+    m_server->sSocketClose( m_server->gSocketClose() + 1 );
     socket_client_list.remove( this );
     delete this;
 
@@ -330,14 +330,19 @@ bool SocketClient::sState( const uint_t state )
     return true;
 }
 
-SocketClient::SocketClient()
+SocketClient::SocketClient( Server* server, sint_t descriptor ) : Socket( descriptor )
 {
     m_command_queue.clear();
     m_idle = 0;
     m_input.clear();
     m_output.clear();
-    m_server = 0;
     m_state = SOC_STATE_DISCONNECTED;
+
+    sDescriptor( descriptor );
+    sServer( server );
+    m_server->sSocketOpen( m_server->gSocketOpen() + 1 );
+
+    socket_client_list.push_back( this );
 
     return;
 }

@@ -25,7 +25,7 @@
 
 class SocketClient : public Socket {
     public:
-        SocketClient();
+        SocketClient( Server* server, sint_t descriptor );
         ~SocketClient();
 
         // Core

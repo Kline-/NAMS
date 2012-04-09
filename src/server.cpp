@@ -70,8 +70,6 @@ bool Server::LoadCommands()
                 LOGFMT( flags, "Server::LoadCommands()->Command::Load()-> returned false for command: %s", CSTR( mi->second ) );
                 delete cmd;
             }
-            else
-                command_list.insert( pair<const char,Command*>( mi->second[0], cmd ) );
         }
     }
 
@@ -104,14 +102,7 @@ const void Server::NewConnection()
         return;
     }
 
-    socket_client = new SocketClient();
-    socket_client->sDescriptor( descriptor );
-    socket_client->sServer( this );
-
-    m_socket_open++;
-    // Usually this is in the constructor, but we have to be certain the socket is fully
-    // Configured to avoid any chance of a processing loop accessing it in an invalid state
-    socket_client_list.push_back( socket_client );
+    socket_client = new SocketClient( this, descriptor );
 
     if ( ::getpeername( socket_client->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
@@ -322,7 +313,12 @@ const void Server::Startup()
         Shutdown( EXIT_FAILURE );
     if ( !socket_server->Listen() )
         Shutdown( EXIT_FAILURE );
+
     socket_server->sHostname( gHostname() );
+
+    // Ordinarily this is passed via a Socket() constructor, but SocketServer() has no Server* pointer
+    // back to its owner (why sould it?); so we do it here after we know the socket is valid
+    m_socket_open++;
 
     // Bump ourselves to the root folder for file paths
     if ( ::chdir( ".." ) < 0 )
@@ -449,6 +445,21 @@ bool Server::sSocketClose( const uint_t amount )
     }
 
     m_socket_close += amount;
+
+    return true;
+}
+
+bool Server::sSocketOpen( const uint_t amount )
+{
+    UFLAGS_DE( flags );
+
+    if ( amount < 1 || ( ( m_socket_open + amount ) >= uintmax_t ) )
+    {
+        LOGFMT( flags, "Server::sSocketOpen()-> called with m_socket_open overflow: %lu + %lu", m_socket_open, amount );
+        return false;
+    }
+
+    m_socket_open += amount;
 
     return true;
 }

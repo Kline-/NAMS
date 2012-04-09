@@ -20,7 +20,8 @@
 
 class Socket {
     public:
-        Socket();
+        Socket() { Socket( 0 ); return; }
+        Socket( sint_t descriptor );
         ~Socket();
 
         // Core

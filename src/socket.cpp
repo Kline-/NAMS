@@ -100,7 +100,7 @@ bool Socket::sPort( const uint_t port )
     return true;
 }
 
-Socket::Socket()
+Socket::Socket( sint_t descriptor )
 {
     m_bytes_recvd = 0;
     m_bytes_sent = 0;
