@@ -26,7 +26,7 @@ class Command {
         ~Command();
 
         // Core
-        bool Load( const string file );
+        bool Load( const string& file );
         const void Unload();
 
         // Query

@@ -40,7 +40,7 @@ int main( const int argc, const char* argv[] )
     }
     else
         _server.sPort( CFG_SOC_PORTNUM );
-
+LOGSTR( flags, "Booting" );
     _server.Startup();
     while( _server.Running() )
         _server.Update();

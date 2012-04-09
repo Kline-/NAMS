@@ -22,13 +22,13 @@
 #include "h/list.h"
 
 // Core
-bool Command::Load( const string file )
+bool Command::Load( const string& file )
 {
     UFLAGS_DE( flags );
-    ifstream cmd;
-    string path = Utils::DirPath( CFG_DAT_DIR_COMMAND, file );
+    string path(  Utils::DirPath( CFG_DAT_DIR_COMMAND, file ) );
     string line, key, value;
     bool found = false;
+    ifstream cmd;
 
     // Ensure there is a valid file to open
     if ( !Utils::iFile( path ) )
@@ -64,7 +64,7 @@ bool Command::Load( const string file )
     }
 
     command_list.insert( pair<const char,Command*>( m_name[0], this ) );
-
+clog << m_level << endl << m_name << endl << m_preempt << endl;
     return true;
 }
 

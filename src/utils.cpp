@@ -22,18 +22,17 @@ string Utils::CurrentTime()
 {
     struct timeval now;
     time_t current_time;
-    string output;
 
     gettimeofday( &now, NULL );
     current_time = now.tv_sec;
 
-    output = ctime( &current_time );
+    string output( ctime( &current_time ) );
     output.resize( output.length() - 1 );
 
     return output;
 }
 
-bool Utils::iDirectory( const string dir )
+bool Utils::iDirectory( const string& dir )
 {
     UFLAGS_DE( flags );
     struct stat dir_info;
@@ -50,7 +49,7 @@ bool Utils::iDirectory( const string dir )
     return true;
 }
 
-bool Utils::iFile( const string file )
+bool Utils::iFile( const string& file )
 {
     UFLAGS_DE( flags );
     struct stat dir_info;
@@ -67,13 +66,12 @@ bool Utils::iFile( const string file )
     return true;
 }
 
-string Utils::_FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
+string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
 {
     va_list args;
-    string output;
 
     va_start( args, fmt );
-    output = __FormatString( narg, flags, caller, fmt, args );
+    string output( __FormatString( narg, flags, caller, fmt, args ) );
     va_end( args );
 
     return output;
@@ -183,7 +181,7 @@ uint_t Utils::NumChar( const string input, const string item )
     return amount;
 }
 
-multimap<bool,string> Utils::ListDirectory( const string dir, const bool recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
+multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
 {
     UFLAGS_DE( flags );
     DIR* directory = NULL;
