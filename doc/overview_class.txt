@@ -1,0 +1,53 @@
+NAMS - Not Another MUD Server
+    High Level Overview - Class
+
+This document provides a high level overview of class inheritance and purpose
+within the NAMS server.
+
+Namespace
+    Utils       Currently all non-member functions are kept within this namespace.
+
+Class
+    Command
+        Inherits: None
+        Children: None
+
+        A single command within the server. Command structure is loaded
+        from disk at boot time. Once fully implemented, command logic is
+        intended to run either natively compiled into the server or
+        via a yet-to-be determined scripting language (TCL, Ruby, etc).
+
+    Server
+        Inherits: None
+        Children: None
+
+        The server core. Currently, NAMS is designed utilizing a single
+        Server instance. However, it would be possible for this to be
+        forked or threaded into multiple instances such as alternative
+        ports or game worlds.
+
+    Socket
+        Inherits: None
+        Children: SocketClient, SocketServer
+
+        An individual socket connection within a Server. Sockets are
+        currently implemented as IPv4 TCP connections only. In the
+        future, sockets will also support IPv6 connectivity.
+
+    SocketClient
+        Inherits: Socket
+        Children: None
+
+        An individual socket connection to a remote client. In addition
+        to the base functions of a socket, a client socket implements
+        threaded hostname resolution and all input / output / queue
+        processing. A client socket references back to a single Server
+        object.
+
+    SocketServer
+        Inherits: Socket
+        Children: None
+
+        An individual listening socket on a Server. Beyond basic
+        socket functions, Server sockets only implement methods
+        to bind to an address and listen for incomming connections.

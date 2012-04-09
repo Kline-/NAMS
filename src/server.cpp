@@ -107,19 +107,48 @@ const void Server::NewConnection()
     if ( ::getpeername( socket_client->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
         LOGERRNO( flags, "Server::NewConnection()->getpeername()->" );
-        socket_client->sHostname( "(unknown)" );
+
+        if ( !socket_client->sHostname( "(unknown)" ) )
+        {
+            LOGSTR( flags, "Server::NewConnection()->Socket()->sHostname()-> returned false setting hostname: (unknown)" );
+            socket_client->Disconnect();
+            return;
+        }
     }
     else
     {
-        socket_client->sHostname( inet_ntoa( sin.sin_addr ) );
-        socket_client->sPort( ntohs( sin.sin_port ) );
+        if ( !socket_client->sHostname( inet_ntoa( sin.sin_addr ) ) )
+        {
+            LOGFMT( flags, "Server::NewConnection()->Socket()->sHostname()-> returned false setting hostname: %s", inet_ntoa( sin.sin_addr ) );
+            socket_client->Disconnect();
+            return;
+        }
+
+        if ( !socket_client->sPort( ntohs( sin.sin_port ) ) )
+        {
+            LOGFMT( flags, "Server::NewConnection()->Socket()->sPort()-> returned false setting port: %lu", ntohs( sin.sin_port ) );
+            socket_client->Disconnect();
+            return;
+        }
+
         LOGFMT( 0, "Server::NewConnection()-> %s:%lu (%lu)", CSTR( socket_client->gHostname() ), socket_client->gPort(), socket_client->gDescriptor() );
         socket_client->ResolveHostname();
     }
 
     // negotiate telopts, send login message
-    socket_client->Send( CFG_STR_LOGIN );
-    socket_client->sState( SOC_STATE_LOGIN_SCREEN );
+    if ( !socket_client->Send( CFG_STR_LOGIN ) )
+    {
+        LOGFMT( flags, "Server::NewConnection()->SocketClient()->Send()-> returned false sending: %s", CFG_STR_LOGIN );
+        socket_client->Disconnect();
+        return;
+    }
+
+    if ( !socket_client->sState( SOC_STATE_LOGIN_SCREEN ) )
+    {
+        LOGFMT( flags, "Server::NewConnection()->SocketClient()->sState()-> returned false setting state: %lu", SOC_STATE_LOGIN_SCREEN );
+        socket_client->Disconnect();
+        return;
+    }
 
     return;
 }
@@ -179,6 +208,7 @@ bool Server::PollSockets()
             // Continue since we invalidated the socket
             FD_CLR( socket_client->gDescriptor(), &in_set );
             FD_CLR( socket_client->gDescriptor(), &out_set );
+            // Don't try to save characters on faulty clients, just boot them
             socket_client->Disconnect();
             continue;
         }
@@ -194,7 +224,14 @@ bool Server::PollSockets()
         if ( FD_ISSET( socket_client->gDescriptor(), &in_set ) )
         {
             // Pending input; clear the idle timeout
-            socket_client->sIdle( 0 );
+            if ( !socket_client->sIdle( 0 ) )
+            {
+                LOGSTR( flags, "Server::PollSockets()->SocketClient()->sIdle()-> returned false setting idle: 0" );
+                FD_CLR( socket_client->gDescriptor(), &out_set );
+                // todo: save character
+                socket_client->Disconnect();
+                continue;
+            }
 
             // Read input, save game character and disconnect socket if unable to
             if ( !socket_client->Recv() )
@@ -208,7 +245,16 @@ bool Server::PollSockets()
             }
         }
         else
-            socket_client->sIdle( socket_client->gIdle() + 1 );
+        {
+            if ( !socket_client->sIdle( socket_client->gIdle() + 1 ) )
+            {
+                LOGFMT( flags, "Server::PollSockets()->SocketClient()->sIdle()-> returned false setting idle: %lu", socket_client->gIdle() + 1 );
+                FD_CLR( socket_client->gDescriptor(), &out_set );
+                // todo: save character
+                socket_client->Disconnect();
+                continue;
+            }
+        }
     }
 
     // Process any pending output
@@ -231,6 +277,7 @@ bool Server::PollSockets()
             // Send output, save game character and disconnect socket if unable to
             if ( !socket_client->Send() )
             {
+                LOGSTR( flags, "Server::PollSockets()->SocketClient()->Send()-> returned false" );
                 // Continue since we invalidated the socket
                 socket_client->Disconnect();
                 // todo: save character
@@ -255,13 +302,19 @@ bool Server::ProcessInput()
 
         if ( !socket_client->ProcessInput() )
         {
+            LOGSTR( flags, "Server::ProcessInput()->SocketClient()->ProcessInput()-> returned false" );
             socket_client->Disconnect();
             continue;
         }
 
         if ( socket_client->PendingCommand() )
         {
-            socket_client->ProcessCommand();
+            if ( !socket_client->ProcessCommand() )
+            {
+                LOGSTR( flags, "Server::ProcessInput()->SocketClient()->ProcessCommand()-> returned false" );
+                socket_client->Disconnect();
+                continue;
+            }
         }
     }
 
@@ -295,7 +348,7 @@ const void Server::Shutdown( const sint_t& status )
             LOGSTR( 0, CFG_STR_EXIT_FAILURE );
     }
 
-    exit( status );
+    ::exit( status );
 }
 
 const void Server::Startup()
@@ -318,7 +371,7 @@ const void Server::Startup()
 
     // Ordinarily this is passed via a Socket() constructor, but SocketServer() has no Server* pointer
     // back to its owner (why sould it?); so we do it here after we know the socket is valid
-    m_socket_open++;
+    sSocketOpen( m_socket_open + 1 );
 
     // Bump ourselves to the root folder for file paths
     if ( ::chdir( ".." ) < 0 )
@@ -361,7 +414,7 @@ const void Server::Update()
     }
 
     // Sleep to control game pacing
-    usleep( USLEEP_MAX / m_pulse_rate );
+    ::usleep( USLEEP_MAX / m_pulse_rate );
 
     return;
 }
@@ -468,7 +521,7 @@ const void Server::sTimeBoot()
 {
     struct timeval now;
 
-    gettimeofday( &now, NULL );
+    ::gettimeofday( &now, NULL );
     m_time_boot = now.tv_sec;
 
     return;
@@ -478,7 +531,7 @@ const void Server::sTimeCurrent()
 {
     struct timeval now;
 
-    gettimeofday( &now, NULL );
+    ::gettimeofday( &now, NULL );
     m_time_current = now.tv_sec;
 
     return;

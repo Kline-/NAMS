@@ -1,0 +1,92 @@
+NAMS - Not Another MUD Server
+    High Level Overview - Logic
+
+This document provides a high level overview of the logical data flow
+within the NAMS server.
+
+Core boot functions will call const void Server::Shutdown( const sint_t& status )
+with EXIT_FAILURE if they return FALSE. While this is not an all-exhaustive list
+of logic flow, it should provide sufficient detail to assist in understanding how
+NAMS operates. When possible, classes that provide abstract access to system
+calls have been listed down to the system call they rely on.
+
+int main( const int argc, const char* argv[] )
+
+    const void Server::Startup()
+        const void sTimeBoot()
+            ::gettimeofday()
+
+        bool Server::InitSocket( SocketServer* socket_server )
+            ::socket()
+            ::setsockopt()
+
+        bool SocketServer::Bind( const uint_t& port, const string& addr )
+            ::bind()
+
+        bool SocketServer::Listen()
+            ::listen()
+
+        bool Socket::sHostname( const string& hostname )
+            string Server::gHostname() const
+                ::gethostname()
+
+        ::chdir()
+
+        bool Server::LoadCommands()
+            multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
+                ::opendir()
+                    bool Utils::iDirectory( const string& dir )
+                        ::stat()
+                ::readdir()
+                ::closedir()
+
+            for ( file_list() ) -- Directory tree of command dir
+                bool Command::Load( const string& file )
+                    template <class T, class U> inline string Utils::DirPath( const T& path, const U& file )
+                    bool Utils::iFile( const string& file )
+                        ::stat()
+
+                    while ( getline() )
+                        template <class K, class V, class I> inline bool Utils::KeyValue( K& key, V& val, const I& item )
+                        for ( ;; )
+                            template <class K, class V> inline void Utils::KeySet( const bool& igncase, bool& found, const K& keyd, const V& valu, const string& item, string& loc )
+                            template <class K, class V, class I, class L> inline void Utils::KeySet( const bool& igncase, bool& found, const K& keyd, const V& valu, const I& item, L& loc )
+
+    while ( bool Server::Running() )
+        const void Server::Update()
+            bool Server::PollSockets()
+                for ( socket_client_list() ) -- Faulted / input / output lists
+
+                ::pselect()
+
+                sint_t Socket::gDescriptor()
+                    const void Server::NewConnection()
+                        ::getsockname()
+                        ::accept()
+                        ::fcntl()
+                        ::getpeername()
+
+                for ( socket_client_list() ) -- Faulted sockets
+                    sint_t Socket::gDescriptor()
+                        const void SocketClient::Disconnect( const string& msg )
+                            ::close()
+
+                for ( socket_client_list() ) -- Process input
+                    bool SocketClient::Recv()
+                        bool Socket::Valid()
+                            ::recv()
+
+                for ( socket_client_list() ) -- Process output
+                    bool SocketClient::Send()
+                        bool Socket::Valid()
+                            ::send()
+
+            bool Server::ProcessInput()
+                for( socket_client_list() ) -- All sockets
+                    bool SocketClient::PendingCommand()
+                        bool SocketClient::ProcessCommand()
+
+            ::usleep()
+
+    const void Server::Shutdown( const sint_t status )
+        ::exit()

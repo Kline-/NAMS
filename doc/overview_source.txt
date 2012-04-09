@@ -1,0 +1,171 @@
+NAMS - Not Another MUD Server
+    High Level Overview - Source
+
+This document provides a high level overview of source code layout and purpose
+within the NAMS server.
+
+NAMS exists within the std:: namespace (using namespace std) and utilizes only
+standard system libraries (no Boost or other popular 3rd party libs). With the
+exception of two integer types (sint_t and uint_t, detailed below), NAMS only
+utilizes STL objects to implement any further functionality. The decision to
+specifically define two integer types was to avoid common mistakes of writing
+beyond size boundaries of variable types, causing difficult problems to track
+and fix later. Given the standard of STL object use, NAMS only utilizes base
+character classes in limited situations where required to interact with low
+level system calls.
+
+When required to make a call to a system function for low level activities
+such as socket or file handling, the call is prepended with "::" to ensure
+access to the appropriate system implementation. All low level system functions
+are abstracted and implemented within classes for error checking and safe use.
+
+All NAMS functions, when feasible, are implemented as a boolean or other type
+that can be checked to ensure a proper return value. The only void functions
+are special use cases that require this, such as threads, or where a return
+value would have no significance: such as server booting / shutdown, or the
+termination of a socket.
+
+For any class that is required to exist as a pointer of objects, a list,
+vector, multimap, or other container is implemented to track the pointers
+so that their safe cleanup and deallocation can be assured. All pointers
+that are added to and removed from their respective lists within the class
+constructor / destructor unless they are so abstract as to make this not
+feasible.
+
+Within each .cpp or .h file NAMS attempts to maintain a common style and layout.
+All class and namespace files contain comment markers of "//Core", "//Query",
+and "//Manipulate".
+
+Within each section, functions are primarily arranged alphabetically by the first
+capital letter of their name (ignoring any lowercase prefixes). Templates are
+always the first items listed within their given section. Not all files implement
+functions within each section, however all files still contain the comment markers
+as a frame of reference within the file. Constructors and destructors, even if
+empty, are fully declared and implemented at the bottom of their respective class
+files.
+
+Core functions are intended to be those of vital, primary use within a given class
+or namespace. Core functions are always declared in CamelCase to help identify
+the purpose and importance of them. Core functions have no restrictions on if
+they are const or not. Some core functions may be as simple as a query function,
+however, their significance to the overall utility and function of their class
+or namespace is why they have been denoted as a core function.
+
+Query functions are designed as as const restricted requests for data only. No
+query function should modify any data. Most are simply small wrappers to access
+private member variables. Query functions are declared in CamelCase with the
+exception of the first character which is in lowecase. The first character is
+predominately intended as a hint to the use or purpose of a function, such as
+"g" for "get" or "i" for "is".
+
+Manipulate functions always modify data passed to them in some form. The primary
+use of manipulate functions is value assignment for private member variables.
+The purpose of this design was to allow for input validation before assigning the
+data to a member variable. Manipulate functions may also be reentrant. Most
+manipulate functions are delcared in CamelCase with the exception of the first
+character which is in lowercase. The first character is predominately intended
+as a hint to the use or purpose of a function, such as "s" for "set" or "t"
+for "thread". The only exception to this are functions within the Utils
+namespace. Utils namespace functions designared as manipulate that do not follow
+this naming paridigim are primarily "one time" functions that are typically only
+called during server startup or shutdown and do not merit enough need to be
+re-designated as a core function due to their limited frequency of use.
+
+.cpp
+    All .cpp files have their include directives structured in the following
+    manner: "h/includes.h", "h/class.h" and then a blank line for visual
+    reference. If the file implements a class the "h/myclass.h" file is
+    included after this and then subsequently followed by any other classes or
+    headers it depends on.
+
+    command.cpp
+        Contains all non-trival member functions of the Command class.
+
+    list.cpp
+        Contains all globally referenced list / map / vector types.
+
+    main.cpp
+        Currently only implements int main() and creates a Server object.
+
+    server.cpp
+        Contains all non-trival member functions of the Server class.
+
+    socket.cpp
+        Contains all non-trivial member functions of the Socket class.
+
+    socketclient.cpp
+        Contains all non-trivial member functions of the SocketClient class.
+
+    socketserver.cpp
+        Contains all non-trivial member functions of the SocketServer class.
+
+    utils.cpp
+        Contains all functions within the Utils namespace.
+
+.h
+    All .h files are #ifdef guard wrapped and contain only external includes
+    required for their function. If a header file requires any system libraries
+    then those are the first files included within it. Any dependent class
+    header file includes follow after this.
+
+    class.h
+        Contains declarations of all classes. Indented to denote inheritance.
+        This is the second file included within every NAMS .cpp file.
+
+    command.h
+        Contains the Command class, templates, and trivial member functions.
+
+    config.h
+        Contains values intended to be modified to customize parts of NAMS,
+        such as frequently output string messages, directory layout,
+        memory tuning, etc.
+
+    enum.h
+        Contains numerical and boolean defines for all classes and namespaces.
+        All items of similar purpose are grouped together with a comment to
+        denote the class or namespace they are significant to. Any specific
+        member variables that rely on values here are also specified within
+        the comments.
+
+    includes.h
+        This is the first file included within every NAMS .cpp file. It
+        is one of two header files that only serve as a "header of headers"
+        designed for brevity within the .cpp files.
+
+    limits.h
+        Defines two integral numeric types within NAMS: sint_t and uint_t.
+        Both sint_t (signed) and uint_t (unsigned) are implemented as the
+        numeric maximums of the host operating system. Further OS-specific
+        limitations may be placed here in the future.
+
+    list.h
+        Contains all globally referenced list / map / vector types.
+
+    macros.h
+        Contains all pre-processor macros within NAMS and select reference
+        values that "should not" be changed and are hence omitted from
+        config.h. When feasible, NAMS implements things as template
+        functions rather than macros, but this is not always possible.
+        Macros are also used for standardization of common, simple tasks
+        such as outputting the value of errno and it's string meaning.
+
+    server.h
+        Contains the Server class, templates, and trivial member functions.
+
+    socket.h
+        Contains the Socket class, templates, and trivial member functions.
+
+    socketclient.h
+        Contains the SocketClient class, templates, and trivial member functions.
+
+    socketserver.h
+        Contains the SocketServer class, templates, and trivial member functions.
+
+    sysincludes.h
+        This is the second of two "header of headers" files within
+        NAMS. All system include files that are required by more than
+        two .cpp or header files are moved within this header for
+        easier management and readability.
+
+    utils.h
+        Contains the Utils namespace, templates, and trivial member functions.

@@ -187,16 +187,18 @@ const void SocketClient::ResolveHostname()
     return;
 }
 
-const void SocketClient::Send( const string& msg )
+bool SocketClient::Send( const string& msg )
 {
     UFLAGS_DE( flags );
 
     if ( !Valid() )
     {
         LOGSTR( flags, "SocketClient::Send()-> called with invalid socket" );
-        return;
+        return false;
     }
 
+    // Prepend a CRLF to ensure output lands on a newline.
+    // Make this client configurable in the future.
     if ( m_output.empty() && m_state > SOC_STATE_LOGIN_SCREEN )
     {
         m_output += CRLF;
@@ -205,7 +207,7 @@ const void SocketClient::Send( const string& msg )
     else
         m_output += msg;
 
-    return;
+    return true;
 }
 
 bool SocketClient::Send()

@@ -37,7 +37,7 @@ class SocketClient : public Socket {
         bool QueueCommand( const string& command );
         bool Recv();
         const void ResolveHostname();
-        const void Send( const string& msg );
+        bool Send( const string& msg );
         bool Send();
 
         // Query

@@ -26,14 +26,14 @@ string Utils::CurrentTime()
     time_t current_time;
     string output;
 
-    if ( gettimeofday( &now, NULL ) < 0 )
+    if ( ::gettimeofday( &now, NULL ) < 0 )
     {
         LOGERRNO( flags, "Utils::CurrentTime()->" );
         return output;
     }
     current_time = now.tv_sec;
 
-    output = ctime( &current_time );
+    output = ::ctime( &current_time );
     output.resize( output.length() - 1 );
 
     return output;
@@ -213,7 +213,7 @@ bool Utils::iDirectory( const string& dir )
     UFLAGS_DE( flags );
     struct stat dir_info;
 
-    if ( stat( CSTR( dir ), &dir_info ) < 0 )
+    if ( ::stat( CSTR( dir ), &dir_info ) < 0 )
     {
         LOGERRNO( flags, "Utils::iDirectory()->stat()->" );
         return false;
@@ -230,7 +230,7 @@ bool Utils::iFile( const string& file )
     UFLAGS_DE( flags );
     struct stat dir_info;
 
-    if ( stat( CSTR( file ), &dir_info ) < 0 )
+    if ( ::stat( CSTR( file ), &dir_info ) < 0 )
     {
         LOGERRNO( flags, "Utils::iFile()->stat()->" );
         return false;
@@ -268,7 +268,7 @@ multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recur
     struct dirent* entry = NULL;
     string ifile, idir;
 
-    if ( ( directory = opendir( CSTR( dir ) ) ) == NULL )
+    if ( ( directory = ::opendir( CSTR( dir ) ) ) == NULL )
     {
         LOGFMT( flags, "Utils::OpenDirectory()->opendir()-> returned NULL for dir: %s", CSTR( dir ) );
         return output;
@@ -281,7 +281,7 @@ multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recur
     if ( idir.compare( dir.length() - 1, 1, "/" ) != 0 )
         idir += "/";
 
-    while ( ( entry = readdir( directory ) ) != NULL )
+    while ( ( entry = ::readdir( directory ) ) != NULL )
     {
         ifile = entry->d_name;
 
@@ -299,7 +299,7 @@ multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recur
             ListDirectory( idir + ifile, recursive, output, dir_close, dir_open );
     }
 
-    if ( closedir( directory ) < 0 )
+    if ( ::closedir( directory ) < 0 )
         LOGERRNO( flags, "Utils::OpenDir()->closedir()->" );
     else
         dir_close++;

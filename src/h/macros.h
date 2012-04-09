@@ -19,6 +19,7 @@
 #define DEC_MACROS_H
 
 // Thanks to Laurent Deniau @ https://groups.google.com/d/msg/comp.std.c/d-6Mj5Lko_s/5R6bMWTEbzQJ
+// Determine of the number of arguments passed to a function from a __VA_ARGS__ list
 #define PP_NARG(...) \
          PP_NARG_(__VA_ARGS__,PP_RSEQ_N())
 #define PP_NARG_(...) \
