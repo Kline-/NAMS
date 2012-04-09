@@ -64,9 +64,7 @@
 #define MITER( container, type1, type2, name ) container<type1,type2>::iterator name
 
 // Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already set
-#define UFLAGS_DE( name ) \
-    BSET( name, UTILS_DEBUG ); \
-    name.set( UTILS_TYPE_ERROR )
+#define UFLAGS_DE( name ) BSET( name, UTILS_DEBUG & UTILS_TYPE_ERROR )
 
 // Wrap Utils::Logger()
 #define LOGSTR( flags, message ) Utils::Logger( flags, message )
