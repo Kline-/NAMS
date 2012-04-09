@@ -34,7 +34,10 @@ enum {
     UTILS_TYPE_ERROR  = 3,
     UTILS_TYPE_INFO   = 4,
     UTILS_TYPE_SOCKET = 5,
-    MAX_UTILS         = 6
+    UTILS_TIME_S      = 6,
+    UTILS_TIME_MS     = 7,
+    UTILS_TIME_US     = 8,
+    MAX_UTILS         = 9
 };
 
 // bool    Utils::ListDirectory()

@@ -25,15 +25,46 @@ string Utils::CurrentTime()
     timeval now;
     string output;
 
-    if ( ::gettimeofday( &now, NULL ) < 0 )
+    if ( !CurrentTime( now ) )
     {
-        LOGERRNO( flags, "Utils::CurrentTime()->" );
+        LOGSTR( flags, "Utils::CurrentTime()->Utils::CurrentTime()-> returned false" );
         return output;
     }
-    output = ::ctime( &now.tv_sec );
+
+    if ( ( output = ::ctime( &now.tv_sec ) ).empty() )
+    {
+        LOGSTR( flags, "Utils::CurrentTime()->ctime()-> returned NULL" );
+        return output;
+    }
+
+    // Strip the newline off the end
     output.resize( output.length() - 1 );
 
     return output;
+}
+
+bool Utils::CurrentTime( timeval& now )
+{
+    UFLAGS_DE( flags );
+
+    if ( ::gettimeofday( &now, NULL ) < 0 )
+    {
+        LOGERRNO( flags, "Utils::CurrentTime()->" );
+        return false;
+    }
+
+    return true;
+}
+
+uint_t Utils::DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity )
+{
+    switch ( granularity )
+    {
+        case  UTILS_TIME_S: return ( prev.tv_sec - current.tv_sec );
+        case UTILS_TIME_MS: return ( prev.tv_usec - current.tv_usec ) / 1000;
+        case UTILS_TIME_US:
+                   default: return ( prev.tv_usec - current.tv_usec );
+    }
 }
 
 string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
