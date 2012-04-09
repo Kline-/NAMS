@@ -169,13 +169,13 @@ bool Server::PollSockets()
     fd_set out_set;
     ITER( list, SocketClient*, si );
     SocketClient* socket_client;
-    sint_t max_desc = 0, server_desc = 0;
+    sint_t client_desc = 0, max_desc = 0, server_desc = 0;
 
     FD_ZERO( &exc_set );
     FD_ZERO( &in_set );
     FD_ZERO( &out_set );
 
-    if ( ( server_desc  = m_socket->gDescriptor() ) < 1 )
+    if ( ( server_desc = m_socket->gDescriptor() ) < 1 )
     {
         LOGFMT( flags, "Server::PollSockets()->SocketServer::gDescriptor()-> returned invalid descriptor: %ld", server_desc );
         return false;
@@ -188,13 +188,21 @@ bool Server::PollSockets()
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
     {
         socket_client = *si;
+
+        if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
+        {
+            LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
+            socket_client->Disconnect();
+            continue;
+        }
+
         m_socket_client_next = ++si;
-        max_desc = max( server_desc, socket_client->gDescriptor() );
+        max_desc = max( server_desc, client_desc );
 
         // Populate lists of: exceptions, pending input, pending output
-        FD_SET( socket_client->gDescriptor(), &exc_set );
-        FD_SET( socket_client->gDescriptor(), &in_set );
-        FD_SET( socket_client->gDescriptor(), &out_set );
+        FD_SET( client_desc, &exc_set );
+        FD_SET( client_desc, &in_set );
+        FD_SET( client_desc, &out_set );
     }
 
     // Ensure the file descriptor lists can be watched for updates
@@ -214,14 +222,18 @@ bool Server::PollSockets()
         socket_client = *si;
         m_socket_client_next = ++si;
 
-        // Found a faulted socket in the exceptions list
-        if ( FD_ISSET( socket_client->gDescriptor(), &exc_set ) )
+        if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
-            // Remove from the other lists and disconnect
-            // Continue since we invalidated the socket
-            FD_CLR( socket_client->gDescriptor(), &in_set );
-            FD_CLR( socket_client->gDescriptor(), &out_set );
+            LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
+            socket_client->Disconnect();
+            continue;
+        }
+
+        // Found a faulted socket in the exceptions list
+        if ( FD_ISSET( client_desc, &exc_set ) )
+        {
             // Don't try to save characters on faulty clients, just boot them
+            LOGFMT( flags, "Server::PollSockets()-> disconnecting faulted descriptor: %ld", client_desc );
             socket_client->Disconnect();
             continue;
         }
@@ -233,14 +245,21 @@ bool Server::PollSockets()
         socket_client = *si;
         m_socket_client_next = ++si;
 
+        if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
+        {
+            LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
+            // todo: save character
+            socket_client->Disconnect();
+            continue;
+        }
+
         // Found an active socket in the input list
-        if ( FD_ISSET( socket_client->gDescriptor(), &in_set ) )
+        if ( FD_ISSET( client_desc, &in_set ) )
         {
             // Pending input; clear the idle timeout
             if ( !socket_client->sIdle( 0 ) )
             {
-                LOGSTR( flags, "Server::PollSockets()->SocketClient()->sIdle()-> returned false setting idle: 0" );
-                FD_CLR( socket_client->gDescriptor(), &out_set );
+                LOGFMT( flags, "Server::PollSockets()->SocketClient::sIdle()-> descriptor %ld returned false setting idle: 0", client_desc );
                 // todo: save character
                 socket_client->Disconnect();
                 continue;
@@ -249,9 +268,7 @@ bool Server::PollSockets()
             // Read input, save game character and disconnect socket if unable to
             if ( !socket_client->Recv() )
             {
-                // Remove from the final list
-                // Continue since we invalidated the socket
-                FD_CLR( socket_client->gDescriptor(), &out_set );
+                LOGFMT( flags, "Server::PollSockets()->SocketClient::Recv()-> descriptor %ld returned false", client_desc );
                 // todo: save character
                 socket_client->Disconnect();
                 continue;
@@ -261,8 +278,7 @@ bool Server::PollSockets()
         {
             if ( !socket_client->sIdle( socket_client->gIdle() + 1 ) )
             {
-                LOGFMT( flags, "Server::PollSockets()->SocketClient()->sIdle()-> returned false setting idle: %lu", socket_client->gIdle() + 1 );
-                FD_CLR( socket_client->gDescriptor(), &out_set );
+                LOGFMT( flags, "Server::PollSockets()->SocketClient::sIdle()-> descriptor %ld returned false setting idle: %lu", client_desc, socket_client->gIdle() + 1 );
                 // todo: save character
                 socket_client->Disconnect();
                 continue;
@@ -276,22 +292,30 @@ bool Server::PollSockets()
         socket_client = *si;
         m_socket_client_next = ++si;
 
+        if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
+        {
+            LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
+            // todo: save character
+            socket_client->Disconnect();
+            continue;
+        }
+
         // Disconnect sockets that have been idle for too long
         if ( socket_client->gIdle() >= CFG_SOC_MAX_IDLE )
         {
+            LOGFMT( flags, "Server::PollSockets()->SocketClient::gIdle()-> disconnecting idle descriptor: %ld", client_desc );
             socket_client->Disconnect( CFG_STR_IDLE );
             // todo: save character
             continue;
         }
 
         // Found an active socket in the output list
-        if ( FD_ISSET( socket_client->gDescriptor(), &out_set ) && socket_client->PendingOutput() )
+        if ( FD_ISSET( client_desc, &out_set ) && socket_client->PendingOutput() )
         {
             // Send output, save game character and disconnect socket if unable to
             if ( !socket_client->Send() )
             {
-                LOGSTR( flags, "Server::PollSockets()->SocketClient()->Send()-> returned false" );
-                // Continue since we invalidated the socket
+                LOGFMT( flags, "Server::PollSockets()->SocketClient()->Send()-> descriptor %ld returned false", client_desc );
                 socket_client->Disconnect();
                 // todo: save character
                 continue;
