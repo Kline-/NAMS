@@ -169,21 +169,27 @@ bool Server::PollSockets()
     fd_set out_set;
     ITER( list, SocketClient*, si );
     SocketClient* socket_client;
-    sint_t max_desc = 0;
+    sint_t max_desc = 0, server_desc = 0;
 
     FD_ZERO( &exc_set );
     FD_ZERO( &in_set );
     FD_ZERO( &out_set );
 
-    FD_SET( m_socket->gDescriptor(), &in_set );
-    max_desc = m_socket->gDescriptor();
+    if ( ( server_desc  = m_socket->gDescriptor() ) < 1 )
+    {
+        LOGFMT( flags, "Server::PollSockets()->SocketServer::gDescriptor()-> returned invalid descriptor: %ld", server_desc );
+        return false;
+    }
+
+    FD_SET( server_desc, &in_set );
+    max_desc = server_desc;
 
     // Build three file descriptor lists to be polled
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
     {
         socket_client = *si;
         m_socket_client_next = ++si;
-        max_desc = max( m_socket->gDescriptor(), socket_client->gDescriptor() );
+        max_desc = max( server_desc, socket_client->gDescriptor() );
 
         // Populate lists of: exceptions, pending input, pending output
         FD_SET( socket_client->gDescriptor(), &exc_set );
@@ -199,7 +205,7 @@ bool Server::PollSockets()
     }
 
     // Process new connections
-    if ( FD_ISSET( m_socket->gDescriptor(), &in_set ) )
+    if ( FD_ISSET( server_desc, &in_set ) )
         NewConnection();
 
     // Process faulted connections
