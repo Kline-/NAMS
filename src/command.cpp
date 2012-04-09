@@ -64,7 +64,7 @@ bool Command::Load( const string& file )
     }
 
     command_list.insert( pair<const char,Command*>( m_name[0], this ) );
-clog << m_level << endl << m_name << endl << m_preempt << endl;
+
     return true;
 }
 

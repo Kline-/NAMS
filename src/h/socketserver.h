@@ -25,8 +25,13 @@ class SocketServer : public Socket {
         SocketServer();
         ~SocketServer();
 
+        // Core
         bool Bind( const uint_t& port, const string& addr );
         bool Listen();
+
+        // Query
+
+        // Manipulate
 
     private:
 };

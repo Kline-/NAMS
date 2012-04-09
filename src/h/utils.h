@@ -45,16 +45,17 @@ namespace Utils {
 
         return output;
     }
+    template <class T> inline string DelSpaces( const T& t ) { string output( t ); output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); return output; }
     template <class T> inline string Lower( const T& t ) { stringstream ss; ss << nouppercase << t; return ss.str(); }
     template <class T> inline string Upper( const T& t ) { stringstream ss; ss << uppercase << t; return ss.str(); }
     template <class T> inline string String( const T& t ) { stringstream ss( t ); return ss.str(); }
-    template <class T> inline string rmSpaces( const T& t ) { string output( t ); output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); return output; }
     string CurrentTime();
     string _FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... );
     string __FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val );
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     void _Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... );
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
+    uint_t NumChar( const string& input, const string& item );
     vector<string> StrNewlines( const string& input );
     vector<string> StrTokens( const string& input );
 
@@ -62,7 +63,6 @@ namespace Utils {
     bool iDirectory( const string& dir );
     bool iFile( const string& file );
     bool iNumber( const string& input );
-    uint_t NumChar( const string& input, const string& item );
 
     // Manipulate
     class DeleteObject

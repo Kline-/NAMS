@@ -303,8 +303,8 @@ const void Server::Startup()
     UFLAGS_DE( flags );
     SocketServer* socket_server;
 
+    LOGFMT( 0, "%s started.", CFG_STR_VERSION );
     sTimeBoot();
-
     socket_server = new SocketServer();
 
     if ( !InitSocket( socket_server ) )
@@ -367,7 +367,7 @@ const void Server::Update()
 }
 
 // Query
-string Server::gHostname()
+string Server::gHostname() const
 {
     UFLAGS_DE( flags );
 

@@ -18,13 +18,19 @@
 #include "h/includes.h"
 #include "h/class.h"
 
+// Core
 string Utils::CurrentTime()
 {
+    UFLAGS_DE( flags );
     struct timeval now;
     time_t current_time;
     string output;
 
-    gettimeofday( &now, NULL );
+    if ( gettimeofday( &now, NULL ) < 0 )
+    {
+        LOGERRNO( flags, "Utils::CurrentTime()->" );
+        return output;
+    }
     current_time = now.tv_sec;
 
     output = ctime( &current_time );
@@ -33,44 +39,17 @@ string Utils::CurrentTime()
     return output;
 }
 
-bool Utils::iDirectory( const string& dir )
-{
-    UFLAGS_DE( flags );
-    struct stat dir_info;
-
-    if ( stat( CSTR( dir ), &dir_info ) < 0 )
-    {
-        LOGERRNO( flags, "Utils::iDirectory()->stat()->" );
-        return false;
-    }
-
-    if ( !S_ISDIR( dir_info.st_mode ) )
-        return false;
-
-    return true;
-}
-
-bool Utils::iFile( const string& file )
-{
-    UFLAGS_DE( flags );
-    struct stat dir_info;
-
-    if ( stat( CSTR( file ), &dir_info ) < 0 )
-    {
-        LOGERRNO( flags, "Utils::iFile()->stat()->" );
-        return false;
-    }
-
-    if ( !S_ISREG( dir_info.st_mode ) )
-        return false;
-
-    return true;
-}
-
 string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
 {
+    UFLAGS_DE( uflags );
     va_list args;
     string output;
+
+    if ( fmt.empty() )
+    {
+        LOGSTR( uflags, "Utils::_FormatString()-> called with empty fmt" );
+        return output;
+    }
 
     va_start( args, fmt );
     output = __FormatString( narg, flags, caller, fmt, args );
@@ -81,12 +60,19 @@ string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET
 
 string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val ) // Thanks go to Darien @ MudBytes.net for the start of this
 {
+    UFLAGS_DE( uflags );
     va_list args;
     vector<string> arguments;
     vector<string>::iterator si;
     vector<char> buf;
     string output, token;
     sint_t size = 0;
+
+    if ( fmt.empty() )
+    {
+        LOGSTR( uflags, "Utils::__FormatString()-> called with empty fmt" );
+        return output;
+    }
 
     arguments = StrTokens( fmt );
     for ( si = arguments.begin(); si != arguments.end(); si++ )
@@ -119,9 +105,16 @@ string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSE
 
 void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
 {
+    UFLAGS_DE( uflags );
     va_list args;
     string pre, post, output;
     uint_t i = 0;
+
+    if ( fmt.empty() )
+    {
+        LOGSTR( uflags, "Utils::_Logger()-> called with empty fmt" );
+        return;
+    }
 
     va_start( args, fmt );
     output = __FormatString( narg, flags, caller, fmt, args );
@@ -158,23 +151,16 @@ void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags
     return;
 }
 
-bool Utils::iNumber( const string& input )
-{
-    uint_t i;
-
-    if ( input.empty() )
-        return false;
-
-    for ( i = 0; i < input.length(); i++ )
-        if ( !isdigit( input[i] ) )
-            return false;
-
-    return true;
-}
-
 uint_t Utils::NumChar( const string& input, const string& item )
 {
+    UFLAGS_DE( flags );
     uint_t amount = 0, i = 0;
+
+    if ( input.empty() )
+    {
+        LOGSTR( flags, "Utils::NumChar()-> called with empty input" );
+        return amount;
+    }
 
     for ( i = 0; i < input.length(); i++ )
         if ( input[i] == item[0] )
@@ -183,6 +169,98 @@ uint_t Utils::NumChar( const string& input, const string& item )
     return amount;
 }
 
+vector<string> Utils::StrNewlines( const string& input )
+{
+    UFLAGS_DE( flags );
+
+    if ( input.empty() )
+    {
+        LOGSTR( flags, "Utils::StrNewlines()-> called with empty input" );
+        return vector<string>();
+    }
+
+    stringstream ss( input );
+    string line;
+    vector<string> output;
+
+    while ( getline( ss, line ) )
+        output.push_back( line );
+
+    return output;
+}
+
+vector<string> Utils::StrTokens( const string& input )
+{
+    UFLAGS_DE( flags );
+
+    if ( input.empty() )
+    {
+        LOGSTR( flags, "Utils::StrTokens()-> called with empty input" );
+        return vector<string>();
+    }
+
+    stringstream ss( input );
+    istream_iterator<string> si( ss );
+    istream_iterator<string> end;
+    vector<string> output( si, end );
+
+    return output;
+}
+
+// Query
+bool Utils::iDirectory( const string& dir )
+{
+    UFLAGS_DE( flags );
+    struct stat dir_info;
+
+    if ( stat( CSTR( dir ), &dir_info ) < 0 )
+    {
+        LOGERRNO( flags, "Utils::iDirectory()->stat()->" );
+        return false;
+    }
+
+    if ( !S_ISDIR( dir_info.st_mode ) )
+        return false;
+
+    return true;
+}
+
+bool Utils::iFile( const string& file )
+{
+    UFLAGS_DE( flags );
+    struct stat dir_info;
+
+    if ( stat( CSTR( file ), &dir_info ) < 0 )
+    {
+        LOGERRNO( flags, "Utils::iFile()->stat()->" );
+        return false;
+    }
+
+    if ( !S_ISREG( dir_info.st_mode ) )
+        return false;
+
+    return true;
+}
+
+bool Utils::iNumber( const string& input )
+{
+    UFLAGS_DE( flags );
+    uint_t i = 0;
+
+    if ( input.empty() )
+    {
+        LOGSTR( flags, "Utils::iNumber()-> called with empty input" );
+        return false;
+    }
+
+    for ( i = 0; i < input.length(); i++ )
+        if ( !isdigit( input[i] ) )
+            return false;
+
+    return true;
+}
+
+// Manipulate
 multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
 {
     UFLAGS_DE( flags );
@@ -225,28 +303,6 @@ multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recur
         LOGERRNO( flags, "Utils::OpenDir()->closedir()->" );
     else
         dir_close++;
-
-    return output;
-}
-
-vector<string> Utils::StrNewlines( const string& input )
-{
-    stringstream ss( input );
-    string line;
-    vector<string> output;
-
-    while ( getline( ss, line ) )
-        output.push_back( line );
-
-    return output;
-}
-
-vector<string> Utils::StrTokens( const string& input )
-{
-    stringstream ss( input );
-    istream_iterator<string> si( ss );
-    istream_iterator<string> end;
-    vector<string> output( si, end );
 
     return output;
 }
