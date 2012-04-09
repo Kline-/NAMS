@@ -20,8 +20,8 @@
 
 class Socket {
     public:
-        Socket() { Socket( 0 ); return; }
-        Socket( sint_t descriptor );
+        Socket() { Socket( sint_t() ); return; }
+        Socket( sint_t& descriptor );
         ~Socket();
 
         // Core
@@ -35,11 +35,11 @@ class Socket {
         uint_t gPort() const { return m_port; }
 
         // Manipulate
-        bool sBytesRecvd( const uint_t amount );
-        bool sBytesSent( const uint_t amount );
-        bool sDescriptor( const sint_t descriptor );
-        bool sHostname( const string hostname );
-        bool sPort( const uint_t port );
+        bool sBytesRecvd( const uint_t& amount );
+        bool sBytesSent( const uint_t& amount );
+        bool sDescriptor( const sint_t& descriptor );
+        bool sHostname( const string& hostname );
+        bool sPort( const uint_t& port );
 
     protected:
         uint_t  m_bytes_recvd;

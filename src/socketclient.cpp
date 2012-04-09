@@ -21,7 +21,7 @@
 #include "h/socketclient.h"
 
 // Core
-const void SocketClient::Disconnect( const string msg )
+const void SocketClient::Disconnect( const string& msg )
 {
     if ( !msg.empty() )
     {
@@ -58,7 +58,6 @@ bool SocketClient::ProcessCommand()
 bool SocketClient::ProcessInput()
 {
     UFLAGS_DE( flags );
-
     vector<string> commands;
     string command;
     ITER( vector, string, vi );
@@ -89,7 +88,7 @@ bool SocketClient::ProcessInput()
     return true;
 }
 
-bool SocketClient::QueueCommand( const string command )
+bool SocketClient::QueueCommand( const string& command )
 {
     UFLAGS_DE( flags );
 
@@ -188,7 +187,7 @@ const void SocketClient::ResolveHostname()
     return;
 }
 
-const void SocketClient::Send( const string msg )
+const void SocketClient::Send( const string& msg )
 {
     UFLAGS_DE( flags );
 
@@ -250,7 +249,7 @@ bool SocketClient::Send()
 // Query
 
 // Manipulate
-bool SocketClient::sIdle( const uint_t idle )
+bool SocketClient::sIdle( const uint_t& idle )
 {
     UFLAGS_DE( flags );
 
@@ -315,7 +314,7 @@ bool SocketClient::sServer( Server* server )
     return true;
 }
 
-bool SocketClient::sState( const uint_t state )
+bool SocketClient::sState( const uint_t& state )
 {
     UFLAGS_DE( flags );
 
@@ -330,7 +329,7 @@ bool SocketClient::sState( const uint_t state )
     return true;
 }
 
-SocketClient::SocketClient( Server* server, sint_t descriptor ) : Socket( descriptor )
+SocketClient::SocketClient( Server* server, sint_t& descriptor ) : Socket( descriptor )
 {
     m_command_queue.clear();
     m_idle = 0;
@@ -338,7 +337,6 @@ SocketClient::SocketClient( Server* server, sint_t descriptor ) : Socket( descri
     m_output.clear();
     m_state = SOC_STATE_DISCONNECTED;
 
-    sDescriptor( descriptor );
     sServer( server );
     m_server->sSocketOpen( m_server->gSocketOpen() + 1 );
 

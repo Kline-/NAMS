@@ -80,7 +80,7 @@ const void Server::NewConnection()
 {
     UFLAGS_DE( flags );
     struct sockaddr_in sin;
-    uint_t descriptor;
+    sint_t descriptor;
     socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
     SocketClient* socket_client;
 
@@ -268,7 +268,7 @@ bool Server::ProcessInput()
     return true;
 }
 
-const void Server::Shutdown( const sint_t status )
+const void Server::Shutdown( const sint_t& status )
 {
     bool was_running = !m_shutdown;
     MITER( multimap, const char,Command*, mi );
@@ -336,7 +336,7 @@ const void Server::Startup()
     m_shutdown = false;
     LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, m_port );
     LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
-Shutdown( EXIT_SUCCESS );
+
     return;
 }
 
@@ -408,7 +408,7 @@ string Server::gTimeCurrent() const
 }
 
 // Manipulate
-bool Server::sPort( const uint_t port )
+bool Server::sPort( const uint_t& port )
 {
     UFLAGS_DE( flags );
 
@@ -421,7 +421,7 @@ bool Server::sPort( const uint_t port )
     return true;
 }
 
-bool Server::sPulseRate( const uint_t rate )
+bool Server::sPulseRate( const uint_t& rate )
 {
     UFLAGS_DE( flags );
 
@@ -434,7 +434,7 @@ bool Server::sPulseRate( const uint_t rate )
     return true;
 }
 
-bool Server::sSocketClose( const uint_t amount )
+bool Server::sSocketClose( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
@@ -449,7 +449,7 @@ bool Server::sSocketClose( const uint_t amount )
     return true;
 }
 
-bool Server::sSocketOpen( const uint_t amount )
+bool Server::sSocketOpen( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 

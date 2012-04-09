@@ -25,19 +25,19 @@
 
 class SocketClient : public Socket {
     public:
-        SocketClient( Server* server, sint_t descriptor );
+        SocketClient( Server* server, sint_t& descriptor );
         ~SocketClient();
 
         // Core
-        const void Disconnect( const string msg = "" );
+        const void Disconnect( const string& msg = "" );
         bool PendingCommand() const { return !m_command_queue.empty(); }
         bool PendingOutput() const { return !m_output.empty(); }
         bool ProcessCommand();
         bool ProcessInput();
-        bool QueueCommand( const string command );
+        bool QueueCommand( const string& command );
         bool Recv();
         const void ResolveHostname();
-        const void Send( const string msg );
+        const void Send( const string& msg );
         bool Send();
 
         // Query
@@ -46,10 +46,10 @@ class SocketClient : public Socket {
         uint_t gState() const { return m_state; }
 
         // Manipulate
-        bool sIdle( const uint_t idle );
+        bool sIdle( const uint_t& idle );
         static void* tResolveHostname( void* data );
         bool sServer( Server* server );
-        bool sState( const uint_t state );
+        bool sState( const uint_t& state );
 
     private:
         vector<string> m_command_queue;

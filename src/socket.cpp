@@ -25,7 +25,7 @@
 // Query
 
 // Manipulate
-bool Socket::sBytesRecvd( const uint_t amount )
+bool Socket::sBytesRecvd( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
@@ -40,7 +40,7 @@ bool Socket::sBytesRecvd( const uint_t amount )
     return true;
 }
 
-bool Socket::sBytesSent( const uint_t amount )
+bool Socket::sBytesSent( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
@@ -55,7 +55,7 @@ bool Socket::sBytesSent( const uint_t amount )
     return true;
 }
 
-bool Socket::sDescriptor( const sint_t descriptor )
+bool Socket::sDescriptor( const sint_t& descriptor )
 {
     UFLAGS_DE( flags );
 
@@ -70,7 +70,7 @@ bool Socket::sDescriptor( const sint_t descriptor )
     return true;
 }
 
-bool Socket::sHostname( const string hostname )
+bool Socket::sHostname( const string& hostname )
 {
     UFLAGS_DE( flags );
 
@@ -85,7 +85,7 @@ bool Socket::sHostname( const string hostname )
     return true;
 }
 
-bool Socket::sPort( const uint_t port )
+bool Socket::sPort( const uint_t& port )
 {
     UFLAGS_DE( flags );
 
@@ -100,13 +100,14 @@ bool Socket::sPort( const uint_t port )
     return true;
 }
 
-Socket::Socket( sint_t descriptor )
+Socket::Socket( sint_t& descriptor )
 {
     m_bytes_recvd = 0;
     m_bytes_sent = 0;
-    m_descriptor = 0;
     m_hostname.clear();
     m_port = 0;
+
+    sDescriptor( descriptor );
 
     return;
 }

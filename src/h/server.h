@@ -37,7 +37,7 @@ class Server {
         bool ProcessInput();
         bool Running() const { return !m_shutdown; }
         const void Startup();
-        const void Shutdown( const sint_t status );
+        const void Shutdown( const sint_t& status );
         const void Update();
 
         // Query
@@ -51,10 +51,10 @@ class Server {
         uint_t gSocketOpen() const { return m_socket_open; }
 
         // Manipulate
-        bool sPort( const uint_t port );
-        bool sPulseRate( const uint_t rate );
-        bool sSocketClose( const uint_t amount );
-        bool sSocketOpen( const uint_t amount );
+        bool sPort( const uint_t& port );
+        bool sPulseRate( const uint_t& rate );
+        bool sSocketClose( const uint_t& amount );
+        bool sSocketOpen( const uint_t& amount );
         const void sTimeBoot();
         const void sTimeCurrent();
 

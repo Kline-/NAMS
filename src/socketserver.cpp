@@ -22,7 +22,7 @@
 #include "h/list.h"
 
 // Core
-bool SocketServer::Bind( const uint_t port, const string addr )
+bool SocketServer::Bind( const uint_t& port, const string& addr )
 {
     UFLAGS_DE( flags );
     static struct sockaddr_in sa_zero;

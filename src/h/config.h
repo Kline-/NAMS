@@ -112,7 +112,7 @@
 #define CFG_STR_UTILS_SOCKET    "[SOCKET] "
 
 // CFG_STR_VERSION -- The current server version.
-//  Default: "NAMS 1.0.0"
-#define CFG_STR_VERSION         "NAMS 1.0.0"
+//  Default: "NAMS Development 0.0.0"
+#define CFG_STR_VERSION         "NAMS Development 0.0.0"
 
 #endif

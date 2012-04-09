@@ -25,7 +25,7 @@ class SocketServer : public Socket {
         SocketServer();
         ~SocketServer();
 
-        bool Bind( const uint_t port, const string addr );
+        bool Bind( const uint_t& port, const string& addr );
         bool Listen();
 
     private:
