@@ -51,18 +51,18 @@ namespace Utils {
     template <class T> inline string rmSpaces( const T& t ) { string output( t ); output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); return output; }
     string CurrentTime();
     string _FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... );
-    string __FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, va_list val );
+    string __FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val );
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
-    void _Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... );
+    void _Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... );
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
-    vector<string> StrNewlines( const string input );
-    vector<string> StrTokens( const string input );
+    vector<string> StrNewlines( const string& input );
+    vector<string> StrTokens( const string& input );
 
     // Query
     bool iDirectory( const string& dir );
     bool iFile( const string& file );
-    bool iNumber( const string input );
-    uint_t NumChar( const string input, const string item );
+    bool iNumber( const string& input );
+    uint_t NumChar( const string& input, const string& item );
 
     // Manipulate
     class DeleteObject
@@ -88,8 +88,8 @@ namespace Utils {
     }
     template <class K, class V> inline void KeySet( const bool& igncase, bool& found, const K& keyd, const V& valu, const string& item, string& loc )
     {
-        string key = keyd;
-        string val = valu;
+        string key( keyd );
+        string val( valu );
 
         if ( igncase )
         {
@@ -109,8 +109,8 @@ namespace Utils {
     }
     template <class K, class V, class I, class L> inline void KeySet( const bool& igncase, bool& found, const K& keyd, const V& valu, const I& item, L& loc )
     {
-        string key = keyd;
-        string val = valu;
+        string key( keyd );
+        string val( valu );
 
         if ( igncase )
         {
@@ -120,7 +120,7 @@ namespace Utils {
 
         if( key.compare( val ) == 0 )
         {
-            string tf = item;
+            string tf( item );
 
             // Allow bools be any of: true / 1 or false / 0
             transform( tf.begin(), tf.end(), tf.begin(), ::tolower );

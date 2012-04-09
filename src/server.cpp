@@ -336,7 +336,7 @@ const void Server::Startup()
     m_shutdown = false;
     LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, m_port );
     LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
-//kline Shutdown( EXIT_SUCCESS );
+Shutdown( EXIT_SUCCESS );
     return;
 }
 

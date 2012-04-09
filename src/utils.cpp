@@ -22,11 +22,12 @@ string Utils::CurrentTime()
 {
     struct timeval now;
     time_t current_time;
+    string output;
 
     gettimeofday( &now, NULL );
     current_time = now.tv_sec;
 
-    string output( ctime( &current_time ) );
+    output = ctime( &current_time );
     output.resize( output.length() - 1 );
 
     return output;
@@ -69,15 +70,16 @@ bool Utils::iFile( const string& file )
 string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
 {
     va_list args;
+    string output;
 
     va_start( args, fmt );
-    string output( __FormatString( narg, flags, caller, fmt, args ) );
+    output = __FormatString( narg, flags, caller, fmt, args );
     va_end( args );
 
     return output;
 }
 
-string Utils::__FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, va_list val ) // Thanks go to Darien @ MudBytes.net for the start of this
+string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val ) // Thanks go to Darien @ MudBytes.net for the start of this
 {
     va_list args;
     vector<string> arguments;
@@ -115,10 +117,10 @@ string Utils::__FormatString( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET
     return output = &buf[0];
 }
 
-void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, const string caller, const string fmt, ... )
+void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
 {
     va_list args;
-    string output, pre, post;
+    string pre, post, output;
     uint_t i = 0;
 
     va_start( args, fmt );
@@ -129,7 +131,7 @@ void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, 
         return;
 
     // prepend timestamp
-    pre += CurrentTime(); pre += " :: ";
+    pre = CurrentTime(); pre += " :: ";
 
     for ( i = 0; i < MAX_UTILS; i++ )
     {
@@ -156,7 +158,7 @@ void Utils::_Logger( const uint_t narg, const bitset<CFG_MEM_MAX_BITSET> flags, 
     return;
 }
 
-bool Utils::iNumber( const string input )
+bool Utils::iNumber( const string& input )
 {
     uint_t i;
 
@@ -170,7 +172,7 @@ bool Utils::iNumber( const string input )
     return true;
 }
 
-uint_t Utils::NumChar( const string input, const string item )
+uint_t Utils::NumChar( const string& input, const string& item )
 {
     uint_t amount = 0, i = 0;
 
@@ -227,7 +229,7 @@ multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recur
     return output;
 }
 
-vector<string> Utils::StrNewlines( const string input )
+vector<string> Utils::StrNewlines( const string& input )
 {
     stringstream ss( input );
     string line;
@@ -239,7 +241,7 @@ vector<string> Utils::StrNewlines( const string input )
     return output;
 }
 
-vector<string> Utils::StrTokens( const string input )
+vector<string> Utils::StrTokens( const string& input )
 {
     stringstream ss( input );
     istream_iterator<string> si( ss );
