@@ -300,14 +300,14 @@ void* SocketClient::tResolveHostname( void* data )
 {
     UFLAGS_DE( flags );
     SocketClient* socket_client = reinterpret_cast<SocketClient*>( data );
-    static sockaddr_in sa_zero;
-    sockaddr_in sa = sa_zero;
+    static sockaddr_in6 sa_zero;
+    sockaddr_in6 sa = sa_zero;
     sint_t error = 0;
     char hostname[CFG_STR_MAX_BUFLEN];
 
-    sa.sin_family = AF_INET;
+    sa.sin6_family = AF_INET;
 
-    if ( ( error = ::inet_pton( AF_INET, CSTR( socket_client->gHostname() ), &sa.sin_addr ) ) != 1 )
+    if ( ( error = ::inet_pton( AF_INET6, CSTR( socket_client->gHostname() ), &sa.sin6_addr ) ) != 1 )
     {
         LOGFMT( flags, "SocketClient::tResolveHostname()->inet_pton()-> returned errno %d: %s", error, gai_strerror( error ) );
         ::pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
@@ -318,7 +318,7 @@ void* SocketClient::tResolveHostname( void* data )
         LOGFMT( flags, "SocketClient::tResolveHostname()->getnameinfo()-> returned errno %d: %s", error, gai_strerror( error ) );
         ::pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
-
+clog << hostname << endl;
     if ( !socket_client->sHostname( hostname ) )
     {
         LOGFMT( flags, "SocketClient::tResolveHostname()->SocketClient::sHostname()-> hostname %s returned false", hostname );
