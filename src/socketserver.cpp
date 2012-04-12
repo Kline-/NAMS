@@ -25,8 +25,8 @@
 bool SocketServer::Bind( const uint_t& port, const string& addr )
 {
     UFLAGS_DE( flags );
-    static sockaddr_in sa_zero;
-    sockaddr_in sa = sa_zero;
+    static sockaddr_in6 sa_zero;
+    sockaddr_in6 sa = sa_zero;
 
     if ( !Valid() )
     {
@@ -34,11 +34,15 @@ bool SocketServer::Bind( const uint_t& port, const string& addr )
         return false;
     }
 
-    sa.sin_family = AF_INET;
-    sa.sin_port = htons( port );
+    if ( addr.empty() )
+    {
+        LOGSTR( flags, "SocketServer::Bind()-> called with empty addr" );
+        return false;
+    }
 
-    if ( !addr.empty() )
-        sa.sin_addr.s_addr = inet_addr( CSTR( addr ) );
+    sa.sin6_family = AF_INET6;
+    sa.sin6_port = htons( port );
+    inet_pton( AF_INET6, CSTR( addr ), &sa.sin6_addr );
 
     if ( ::bind( m_descriptor, reinterpret_cast<sockaddr*>( &sa ), sizeof( sa ) ) < 0 )
     {

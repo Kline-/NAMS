@@ -27,7 +27,7 @@ bool Server::InitSocket( SocketServer* socket_server )
     UFLAGS_DE( flags );
     uint_t enable = 1;
 
-    if ( socket_server->sDescriptor( ::socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
+    if ( socket_server->sDescriptor( ::socket( AF_INET6, SOCK_STREAM, 0 ) ) < 0 )
     {
         LOGERRNO( flags, "Server::InitSocket()->socket()->" );
         return false;
@@ -86,10 +86,11 @@ bool Server::LoadCommands()
 const void Server::NewConnection()
 {
     UFLAGS_DE( flags );
-    sockaddr_in sin;
+    sockaddr_in6 sin;
     sint_t descriptor;
     socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
     SocketClient* socket_client;
+    char hostname[CFG_STR_MAX_BUFLEN];
 
     if ( ::getsockname( m_socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
@@ -124,16 +125,16 @@ const void Server::NewConnection()
     }
     else
     {
-        if ( !socket_client->sHostname( ::inet_ntoa( sin.sin_addr ) ) )
+        if ( !socket_client->sHostname( ::inet_ntop( AF_INET6, &sin.sin6_addr, hostname, sizeof( hostname ) ) ) )
         {
-            LOGFMT( flags, "Server::NewConnection()->SocketClient::sHostname()-> hostname %s returned false", ::inet_ntoa( sin.sin_addr ) );
+            LOGFMT( flags, "Server::NewConnection()->SocketClient::sHostname()-> hostname %s returned false", ::inet_ntop( AF_INET6, &sin.sin6_addr, hostname, sizeof( hostname ) ) );
             socket_client->Disconnect();
             return;
         }
 
-        if ( !socket_client->sPort( ::ntohs( sin.sin_port ) ) )
+        if ( !socket_client->sPort( ::ntohs( sin.sin6_port ) ) )
         {
-            LOGFMT( flags, "Server::NewConnection()->SocketClient::sPort()-> port %lu returned false", ::ntohs( sin.sin_port ) );
+            LOGFMT( flags, "Server::NewConnection()->SocketClient::sPort()-> port %lu returned false", ::ntohs( sin.sin6_port ) );
             socket_client->Disconnect();
             return;
         }

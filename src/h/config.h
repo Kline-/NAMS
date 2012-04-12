@@ -54,8 +54,8 @@
  *                              SOCKET OPTIONS                             *
  ***************************************************************************/
 // CFG_SOC_BIND_ADDR -- IP address to bind the listening server socket to.
-//  Default: "0.0.0.0"
-#define CFG_SOC_BIND_ADDR       "0.0.0.0"
+//  Default: "::"
+#define CFG_SOC_BIND_ADDR       "::"
 
 // CFG_SOC_MIN_PORTNUM -- The listening server socket must be above this port.
 //  Default: 1024
