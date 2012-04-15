@@ -60,7 +60,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" target="_top" xlink:title="Server::Shutdown">
+<a xlink:href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" target="_top" xlink:title="Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all m...">
 <polygon fill="white" stroke="black" points="1065.5,-1291.5 1065.5,-1312.5 1166.5,-1312.5 1166.5,-1291.5 1065.5,-1291.5"/>
 <text text-anchor="middle" x="1116" y="-1299.5" font-family="FreeSans.ttf" font-size="10.00">Server::Shutdown</text>
 </a>
@@ -72,7 +72,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" target="_top" xlink:title="Server::sPort">
+<a xlink:href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" target="_top" xlink:title="Set the port of a NAMS Server object.">
 <polygon fill="white" stroke="black" points="83.5,-120.5 83.5,-141.5 162.5,-141.5 162.5,-120.5 83.5,-120.5"/>
 <text text-anchor="middle" x="123" y="-128.5" font-family="FreeSans.ttf" font-size="10.00">Server::sPort</text>
 </a>
@@ -84,7 +84,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
-<a xlink:href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" target="_top" xlink:title="Server::Startup">
+<a xlink:href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" target="_top" xlink:title="Start the NAMS server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
 <polygon fill="white" stroke="black" points="78,-1116.5 78,-1137.5 168,-1137.5 168,-1116.5 78,-1116.5"/>
 <text text-anchor="middle" x="123" y="-1124.5" font-family="FreeSans.ttf" font-size="10.00">Server::Startup</text>
 </a>
@@ -108,7 +108,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node47 -->
 <g id="node122" class="node"><title>Node47</title>
-<a xlink:href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="Server::Update">
+<a xlink:href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
 <polygon fill="white" stroke="black" points="226.5,-1155.5 226.5,-1176.5 315.5,-1176.5 315.5,-1155.5 226.5,-1155.5"/>
 <text text-anchor="middle" x="271" y="-1163.5" font-family="FreeSans.ttf" font-size="10.00">Server::Update</text>
 </a>
@@ -149,7 +149,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node39 -->
 <g id="node104" class="node"><title>Node39</title>
-<a xlink:href="classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5" target="_top" xlink:title="Server::LoadCommands">
+<a xlink:href="classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5" target="_top" xlink:title="Search all subfolders of CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memor...">
 <polygon fill="white" stroke="black" points="204.5,-272.5 204.5,-293.5 337.5,-293.5 337.5,-272.5 204.5,-272.5"/>
 <text text-anchor="middle" x="271" y="-280.5" font-family="FreeSans.ttf" font-size="10.00">Server::LoadCommands</text>
 </a>
@@ -250,7 +250,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node15 -->
 <g id="node32" class="node"><title>Node15</title>
-<a xlink:href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" target="_top" xlink:title="Server::gHostname">
+<a xlink:href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" target="_top" xlink:title="Gets the hostname of the machine that NAMS is running on.">
 <polygon fill="white" stroke="black" points="1061,-979.5 1061,-1000.5 1171,-1000.5 1171,-979.5 1061,-979.5"/>
 <text text-anchor="middle" x="1116" y="-987.5" font-family="FreeSans.ttf" font-size="10.00">Server::gHostname</text>
 </a>
@@ -369,7 +369,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node20 -->
 <g id="node47" class="node"><title>Node20</title>
-<a xlink:href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" target="_top" xlink:title="Server::sSocketClose">
+<a xlink:href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" target="_top" xlink:title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">
 <polygon fill="white" stroke="black" points="1212.5,-179.5 1212.5,-200.5 1331.5,-200.5 1331.5,-179.5 1212.5,-179.5"/>
 <text text-anchor="middle" x="1272" y="-187.5" font-family="FreeSans.ttf" font-size="10.00">Server::sSocketClose</text>
 </a>
@@ -755,7 +755,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node48 -->
 <g id="node125" class="node"><title>Node48</title>
-<a xlink:href="classServer.xhtml#a7f5259e36a6bcf3a78a5bede522c3632" target="_top" xlink:title="Server::ProcessInput">
+<a xlink:href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" target="_top" xlink:title="Loop through all connected SocketClient objects to obtain a Thread::MutexLock() and then signal each ...">
 <polygon fill="white" stroke="black" points="693,-1155.5 693,-1176.5 809,-1176.5 809,-1155.5 693,-1155.5"/>
 <text text-anchor="middle" x="751" y="-1163.5" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessInput</text>
 </a>

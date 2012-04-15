@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.xhtml"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.xhtml"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.xhtml"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.xhtml"><span>Classes</span></a></li>
       <li><a href="files.xhtml"><span>Files</span></a></li>
@@ -80,7 +81,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Socket Class Reference</div>  </div>
@@ -107,21 +107,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#aab53cde845a88cec27192ad7ec8c8869">Socket</a> (<a class="el" href="classServer.xhtml">Server</a> *server, const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;descriptor)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#aeac4eb6379a543d38ed88977d3b6630a">~Socket</a> ()</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#ac7a9c8cef7e70fa1cfa5d4512db2adea">Delete</a> ()=0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a6c74362c2411c96aff10a875772021f2">New</a> ()=0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a> () const </td></tr>
+<tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002">gBytesRecvd</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c">gBytesSent</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">gPort</a> () const </td></tr>
+<tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a150a2ba8da11a6934d6943613ba011ec">sBytesRecvd</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a4966e11df7fca3a810cad1cc7091af5e">sBytesSent</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a">sDescriptor</a> (const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;descriptor)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39">sHostname</a> (const string &amp;hostname)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578">sPort</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;port)</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#aab53cde845a88cec27192ad7ec8c8869">Socket</a> (<a class="el" href="classServer.xhtml">Server</a> *server, const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;descriptor)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#aeac4eb6379a543d38ed88977d3b6630a">~Socket</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a></td></tr>
@@ -159,7 +163,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00107">107</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00111">111</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a> = 0;
     <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a> = 0;
@@ -195,7 +199,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00118">118</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00122">122</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -240,7 +244,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00040">40</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00038">38</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a>; }
 </pre></div>
 <p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -268,7 +272,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00041">41</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00039">39</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a>; }
 </pre></div>
 <p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -296,7 +300,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00042">42</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00040">40</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#ad3472404a4a16e143e90dbfb45ddced5">m_descriptor</a>; }
 </pre></div>
 <p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -324,7 +328,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00043">43</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00041">41</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#a86ca51943303992adf59bfb70036400a">m_hostname</a>; }
 </pre></div>
 <p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -352,7 +356,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00044">44</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00042">42</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#a5df79ab7d50cced90646c94dc479e278">m_port</a>; }
 </pre></div>
 <p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -399,7 +403,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00032">32</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00034">34</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -440,7 +444,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00047">47</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00049">49</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -481,7 +485,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00062">62</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00064">64</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -522,7 +526,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00077">77</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00079">79</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -563,7 +567,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00092">92</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00094">94</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -603,7 +607,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00037">37</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00034">34</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#ad3472404a4a16e143e90dbfb45ddced5">m_descriptor</a> &gt; 0; }
 </pre></div>
 <p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -629,7 +633,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00054">54</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00059">59</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -644,7 +648,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00055">55</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00060">60</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -659,7 +663,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00056">56</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00061">61</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -674,7 +678,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00057">57</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00062">62</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -689,7 +693,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00058">58</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00063">63</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -715,7 +719,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 13:48:55 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 17:49:29 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

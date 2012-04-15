@@ -132,7 +132,7 @@ var sectionId = 'dynsection-4';
 </g>
 <!-- Node8 -->
 <g id="node15" class="node"><title>Node8</title>
-<a xlink:href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" target="_top" xlink:title="Server::Startup">
+<a xlink:href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" target="_top" xlink:title="Start the NAMS server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
 <polygon fill="white" stroke="black" points="1108,-39.5 1108,-60.5 1198,-60.5 1198,-39.5 1108,-39.5"/>
 <text text-anchor="middle" x="1153" y="-47.5" font-family="FreeSans.ttf" font-size="10.00">Server::Startup</text>
 </a>
@@ -156,7 +156,7 @@ var sectionId = 'dynsection-4';
 </g>
 <!-- Node11 -->
 <g id="node21" class="node"><title>Node11</title>
-<a xlink:href="classServer.xhtml#a7f5259e36a6bcf3a78a5bede522c3632" target="_top" xlink:title="Server::ProcessInput">
+<a xlink:href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" target="_top" xlink:title="Loop through all connected SocketClient objects to obtain a Thread::MutexLock() and then signal each ...">
 <polygon fill="white" stroke="black" points="640,-0.5 640,-21.5 756,-21.5 756,-0.5 640,-0.5"/>
 <text text-anchor="middle" x="698" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessInput</text>
 </a>
@@ -168,7 +168,7 @@ var sectionId = 'dynsection-4';
 </g>
 <!-- Node12 -->
 <g id="node23" class="node"><title>Node12</title>
-<a xlink:href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="Server::Update">
+<a xlink:href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
 <polygon fill="white" stroke="black" points="810.5,-0.5 810.5,-21.5 899.5,-21.5 899.5,-0.5 810.5,-0.5"/>
 <text text-anchor="middle" x="855" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Server::Update</text>
 </a>

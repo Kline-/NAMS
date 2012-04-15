@@ -6,10 +6,10 @@
 <area shape="rect" id="node7" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="SocketServer::Accept" alt="" coords="875,57,1035,87"/>
 <area shape="rect" id="node9" href="$classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="SocketServer::Update" alt="" coords="1083,57,1245,87"/>
 <area shape="rect" id="node11" href="$classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" title="SocketServer::Thread" alt="" coords="1293,59,1453,88"/>
-<area shape="rect" id="node13" href="$classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" title="Server::Startup" alt="" coords="1501,59,1621,88"/>
+<area shape="rect" id="node13" href="$classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" title="Start the NAMS server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="1501,59,1621,88"/>
 <area shape="rect" id="node15" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="1671,85,1724,115"/>
 <area shape="rect" id="node19" href="$classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" title="SocketClient::Update" alt="" coords="395,5,552,35"/>
 <area shape="rect" id="node25" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="SocketClient::ProcessCommand" alt="" coords="600,111,827,140"/>
-<area shape="rect" id="node27" href="$classServer.xhtml#a7f5259e36a6bcf3a78a5bede522c3632" title="Server::ProcessInput" alt="" coords="877,111,1032,140"/>
-<area shape="rect" id="node29" href="$classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="Server::Update" alt="" coords="1105,111,1223,140"/>
+<area shape="rect" id="node27" href="$classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Loop through all connected SocketClient objects to obtain a Thread::MutexLock() and then signal each ..." alt="" coords="877,111,1032,140"/>
+<area shape="rect" id="node29" href="$classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="1105,111,1223,140"/>
 </map>

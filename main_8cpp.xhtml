@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.xhtml"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.xhtml"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.xhtml"><span>Namespaces</span></a></li>
       <li><a href="annotated.xhtml"><span>Classes</span></a></li>
       <li class="current"><a href="files.xhtml"><span>Files</span></a></li>
@@ -156,22 +157,22 @@ Functions</h2></td></tr>
         <span class="keywordflow">if</span> ( !<a class="code" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442">Utils::iNumber</a>( argv[1] ) )
         {
             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Usage: %s [port #]&quot;</span>, argv[0] );
-            _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762">Shutdown</a>( EXIT_FAILURE );
+            _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
         }
-        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( !_server.<a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244">sPort</a>( atoi( argv[1] ) ) )
+        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( !_server.<a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" title="Set the port of a NAMS Server object.">sPort</a>( atoi( argv[1] ) ) )
         {
             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Port number must be between %d and %d.&quot;</span>, <a class="code" href="config_8h.xhtml#ae5e151c935c7bb282e854ef030390695" title="The listening server socket must be above this port.">CFG_SOC_MIN_PORTNUM</a>, <a class="code" href="config_8h.xhtml#a234e78c07d081a99b72af652cfa37cb8" title="The listening server socket must be below this port.">CFG_SOC_MAX_PORTNUM</a> );
-            _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762">Shutdown</a>( EXIT_FAILURE );
+            _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
         }
     }
     <span class="keywordflow">else</span>
-        _server.<a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244">sPort</a>( <a class="code" href="config_8h.xhtml#a5f105c04f494daec2a03ed9a85eb092b" title="Port number to listen on if not specified on the command line.">CFG_SOC_PORTNUM</a> );
+        _server.<a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" title="Set the port of a NAMS Server object.">sPort</a>( <a class="code" href="config_8h.xhtml#a5f105c04f494daec2a03ed9a85eb092b" title="Port number to listen on if not specified on the command line.">CFG_SOC_PORTNUM</a> );
 
-    _server.<a class="code" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a">Startup</a>();
+    _server.<a class="code" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" title="Start the NAMS server. Responsible for calling all critical boot-time functions such as SocketServer ...">Startup</a>();
     <span class="keywordflow">while</span>( _server.<a class="code" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea">Running</a>() )
-        _server.<a class="code" href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990">Update</a>();
+        _server.<a class="code" href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">Update</a>();
 
-    _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762">Shutdown</a>( EXIT_SUCCESS );
+    _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_SUCCESS );
 }
 </pre></div>
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -203,7 +204,7 @@ Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 13:48:55 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 17:49:29 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

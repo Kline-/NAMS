@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.xhtml"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.xhtml"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="namespaces.xhtml"><span>Namespaces</span></a></li>
       <li><a href="annotated.xhtml"><span>Classes</span></a></li>
       <li><a href="files.xhtml"><span>Files</span></a></li>
@@ -78,8 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">Utils Namespace Reference</div>  </div>
 </div><!--header-->
@@ -90,6 +90,7 @@ Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtils_1_1DeleteObject.xhtml">DeleteObject</a></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T , class U &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a478a7f4bb31ceb79a2d3e19aaa53724d">DirPath</a> (const T &amp;path, const U &amp;file)</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
@@ -109,9 +110,11 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aeda29ae05e927b463309cf1db39344a0">StrNewlines</a> (const string &amp;input)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a">StrTime</a> (const timeval &amp;now)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a9b5c8a47a2cb834c5970f9bc6633b00a">StrTokens</a> (const string &amp;input)</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">iDirectory</a> (const string &amp;dir)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b">iFile</a> (const string &amp;file)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442">iNumber</a> (const string &amp;input)</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V , class I &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">KeyValue</a> (K &amp;key, V &amp;val, const I &amp;item)</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V &gt; </td></tr>
@@ -545,7 +548,7 @@ template&lt;class K , class V &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00097">97</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00099">99</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">string</span> key( keyd );
         <span class="keywordtype">string</span> val( valu );
@@ -629,7 +632,7 @@ template&lt;class K , class V , class I , class L &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00118">118</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00120">120</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">string</span> key( keyd );
         <span class="keywordtype">string</span> val( valu );
@@ -696,7 +699,7 @@ template&lt;class K , class V , class I &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00081">81</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00083">83</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">size_t</span> loc = 0;
 
@@ -966,7 +969,7 @@ template&lt;class T &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 13:48:55 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 17:49:29 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

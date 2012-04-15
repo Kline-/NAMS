@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.xhtml"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.xhtml"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.xhtml"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.xhtml"><span>Classes</span></a></li>
       <li><a href="files.xhtml"><span>Files</span></a></li>
@@ -80,7 +81,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Thread Class Reference</div>  </div>
@@ -107,10 +107,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.xhtml#a95c703fb8f2f27cb64f475a8c940864a">Thread</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.xhtml#a37d9edd3a1a776cbc27dedff949c9726">~Thread</a> ()</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1">MutexLock</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf">MutexUnlock</a> ()</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.xhtml#a95c703fb8f2f27cb64f475a8c940864a">Thread</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.xhtml#a37d9edd3a1a776cbc27dedff949c9726">~Thread</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.xhtml#a1e00125868b5359b961bd810b5ca96fe">m_mutex</a></td></tr>
@@ -135,7 +137,7 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316">SocketClient</a>, and <a class="el" href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546">SocketServer</a>.</p>
 
-<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00052">52</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00057">57</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -161,7 +163,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00062">62</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00067">67</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -188,7 +190,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00028">28</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00029">29</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -223,7 +225,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00038">38</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00039">39</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -256,7 +258,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thread_8h_source.xhtml#l00041">41</a> of file <a class="el" href="thread_8h_source.xhtml">thread.h</a>.</p>
+<p>Definition at line <a class="el" href="thread_8h_source.xhtml#l00046">46</a> of file <a class="el" href="thread_8h_source.xhtml">thread.h</a>.</p>
 
 </div>
 </div>
@@ -282,7 +284,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 13:48:55 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 17:49:29 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

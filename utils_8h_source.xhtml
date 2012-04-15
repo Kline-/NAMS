@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.xhtml"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.xhtml"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.xhtml"><span>Namespaces</span></a></li>
       <li><a href="annotated.xhtml"><span>Classes</span></a></li>
       <li class="current"><a href="files.xhtml"><span>Files</span></a></li>
@@ -110,8 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00033"></a>00033 <span class="preprocessor">#include &lt;dirent.h&gt;</span>
 <a name="l00034"></a>00034 <span class="preprocessor">#include &lt;sys/stat.h&gt;</span>
 <a name="l00035"></a>00035 
-<a name="l00036"></a><a class="code" href="namespaceUtils.xhtml">00036</a> <span class="keyword">namespace </span>Utils {
-<a name="l00037"></a>00037     <span class="comment">// Core</span>
+<a name="l00036"></a><a class="code" href="namespaceUtils.xhtml">00036</a> <span class="keyword">namespace </span>Utils { 
 <a name="l00038"></a><a class="code" href="namespaceUtils.xhtml#a478a7f4bb31ceb79a2d3e19aaa53724d">00038</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt; <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="namespaceUtils.xhtml#a478a7f4bb31ceb79a2d3e19aaa53724d">DirPath</a>( <span class="keyword">const</span> T&amp; path, <span class="keyword">const</span> U&amp; file )
 <a name="l00039"></a>00039     {
 <a name="l00040"></a>00040         <span class="keywordtype">string</span> output = path;
@@ -142,91 +142,87 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00065"></a>00065 <span class="preprocessor"></span>    <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="namespaceUtils.xhtml#afaf029667f299587a52ba9c8de11edfa">NumChar</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; item );
 <a name="l00066"></a>00066     <span class="keyword">const</span> vector&lt;string&gt; <a class="code" href="namespaceUtils.xhtml#aeda29ae05e927b463309cf1db39344a0">StrNewlines</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input );
 <a name="l00067"></a>00067     <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a">StrTime</a>( <span class="keyword">const</span> timeval&amp; now );
-<a name="l00068"></a>00068     <span class="keyword">const</span> vector&lt;string&gt; <a class="code" href="namespaceUtils.xhtml#a9b5c8a47a2cb834c5970f9bc6633b00a">StrTokens</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input );
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070     <span class="comment">// Query</span>
-<a name="l00071"></a>00071     <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">iDirectory</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; dir );
-<a name="l00072"></a>00072     <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b">iFile</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file );
-<a name="l00073"></a>00073     <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442">iNumber</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input );
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075     <span class="comment">// Manipulate</span>
-<a name="l00076"></a><a class="code" href="classUtils_1_1DeleteObject.xhtml">00076</a>     <span class="keyword">class </span><a class="code" href="classUtils_1_1DeleteObject.xhtml">DeleteObject</a>
-<a name="l00077"></a>00077     {
-<a name="l00078"></a>00078         <span class="keyword">public</span>:
-<a name="l00079"></a><a class="code" href="classUtils_1_1DeleteObject.xhtml#a89315a95b06d363275626abb137a4b6e">00079</a>             <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classUtils_1_1DeleteObject.xhtml#a89315a95b06d363275626abb137a4b6e">operator() </a>( <span class="keyword">const</span> T* ptr )<span class="keyword"> const </span>{ <span class="keyword">delete</span> ptr; }
-<a name="l00080"></a>00080     };
-<a name="l00081"></a><a class="code" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">00081</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> V, <span class="keyword">class</span> I&gt; <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">KeyValue</a>( K&amp; key, V&amp; val, <span class="keyword">const</span> I&amp; item )
-<a name="l00082"></a>00082     {
-<a name="l00083"></a>00083         <span class="keywordtype">size_t</span> loc = 0;
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085         <span class="keywordflow">if</span> ( ( loc = item.find( <span class="stringliteral">&quot;=&quot;</span> ) ) == string::npos )
-<a name="l00086"></a>00086             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088         key = item.substr( 0, loc - 1 );
-<a name="l00089"></a>00089         val = item.substr( loc + 1, item.length() );
-<a name="l00090"></a>00090         loc = key.find_last_not_of( <span class="stringliteral">&quot; &quot;</span> );
-<a name="l00091"></a>00091         key.erase( loc + 1 );
-<a name="l00092"></a>00092         loc = val.find_first_not_of( <span class="stringliteral">&quot; &quot;</span> );
-<a name="l00093"></a>00093         val.erase( 0, loc );
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00096"></a>00096     }
-<a name="l00097"></a><a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">00097</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> V&gt; <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">KeySet</a>( <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; igncase, <span class="keywordtype">bool</span>&amp; found, <span class="keyword">const</span> K&amp; keyd, <span class="keyword">const</span> V&amp; valu, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; item, <span class="keywordtype">string</span>&amp; loc )
-<a name="l00098"></a>00098     {
-<a name="l00099"></a>00099         <span class="keywordtype">string</span> key( keyd );
-<a name="l00100"></a>00100         <span class="keywordtype">string</span> val( valu );
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102         <span class="keywordflow">if</span> ( igncase )
-<a name="l00103"></a>00103         {
-<a name="l00104"></a>00104             transform( key.begin(), key.end(), key.begin(), ::tolower );
-<a name="l00105"></a>00105             transform( val.begin(), val.end(), val.begin(), ::tolower );
-<a name="l00106"></a>00106         }
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108         <span class="keywordflow">if</span>( key.compare( val ) == 0 )
-<a name="l00109"></a>00109         {
-<a name="l00110"></a>00110             loc = item;
-<a name="l00111"></a>00111             found = <span class="keyword">true</span>;
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113             <span class="keywordflow">return</span>;
-<a name="l00114"></a>00114         }
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116         <span class="keywordflow">return</span>;
-<a name="l00117"></a>00117     }
-<a name="l00118"></a><a class="code" href="namespaceUtils.xhtml#a0aff3514e06faae8ed026c673efe002b">00118</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> V, <span class="keyword">class</span> I, <span class="keyword">class</span> L&gt; <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">KeySet</a>( <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; igncase, <span class="keywordtype">bool</span>&amp; found, <span class="keyword">const</span> K&amp; keyd, <span class="keyword">const</span> V&amp; valu, <span class="keyword">const</span> I&amp; item, L&amp; loc )
-<a name="l00119"></a>00119     {
-<a name="l00120"></a>00120         <span class="keywordtype">string</span> key( keyd );
-<a name="l00121"></a>00121         <span class="keywordtype">string</span> val( valu );
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123         <span class="keywordflow">if</span> ( igncase )
-<a name="l00124"></a>00124         {
-<a name="l00125"></a>00125             transform( key.begin(), key.end(), key.begin(), ::tolower );
-<a name="l00126"></a>00126             transform( val.begin(), val.end(), val.begin(), ::tolower );
-<a name="l00127"></a>00127         }
-<a name="l00128"></a>00128 
-<a name="l00129"></a>00129         <span class="keywordflow">if</span>( key.compare( val ) == 0 )
-<a name="l00130"></a>00130         {
-<a name="l00131"></a>00131             <span class="keywordtype">string</span> tf( item );
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133             <span class="comment">// Allow bools be any of: true / 1 or false / 0</span>
-<a name="l00134"></a>00134             transform( tf.begin(), tf.end(), tf.begin(), ::tolower );
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136             <span class="keywordflow">if</span> ( tf.compare( <span class="stringliteral">&quot;true&quot;</span> ) == 0 )
-<a name="l00137"></a>00137                 loc = <span class="keyword">true</span>;
-<a name="l00138"></a>00138             <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( tf.compare( <span class="stringliteral">&quot;false&quot;</span> ) == 0 )
-<a name="l00139"></a>00139                 loc = <span class="keyword">false</span>;
-<a name="l00140"></a>00140             <span class="keywordflow">else</span>
-<a name="l00141"></a>00141                 stringstream( item ) &gt;&gt; loc;
-<a name="l00142"></a>00142             found = <span class="keyword">true</span>;
-<a name="l00143"></a>00143 
-<a name="l00144"></a>00144             <span class="keywordflow">return</span>;
-<a name="l00145"></a>00145         }
-<a name="l00146"></a>00146 
-<a name="l00147"></a>00147         <span class="keywordflow">return</span>;
-<a name="l00148"></a>00148     }
-<a name="l00149"></a>00149     <span class="keyword">const</span> multimap&lt;bool,string&gt; <a class="code" href="namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4">ListDirectory</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; dir, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; recursive, multimap&lt;bool,string&gt;&amp; output, <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; dir_close, <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; dir_open );
-<a name="l00150"></a>00150 };
-<a name="l00151"></a>00151 
-<a name="l00152"></a>00152 <span class="preprocessor">#endif</span>
+<a name="l00068"></a>00068     <span class="keyword">const</span> vector&lt;string&gt; <a class="code" href="namespaceUtils.xhtml#a9b5c8a47a2cb834c5970f9bc6633b00a">StrTokens</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input ); 
+<a name="l00072"></a>00072     <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">iDirectory</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; dir );
+<a name="l00073"></a>00073     <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b">iFile</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file );
+<a name="l00074"></a>00074     <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442">iNumber</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input ); 
+<a name="l00078"></a><a class="code" href="classUtils_1_1DeleteObject.xhtml">00078</a>     <span class="keyword">class </span><a class="code" href="classUtils_1_1DeleteObject.xhtml">DeleteObject</a>
+<a name="l00079"></a>00079     {
+<a name="l00080"></a>00080         <span class="keyword">public</span>:
+<a name="l00081"></a><a class="code" href="classUtils_1_1DeleteObject.xhtml#a89315a95b06d363275626abb137a4b6e">00081</a>             <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classUtils_1_1DeleteObject.xhtml#a89315a95b06d363275626abb137a4b6e">operator() </a>( <span class="keyword">const</span> T* ptr )<span class="keyword"> const </span>{ <span class="keyword">delete</span> ptr; }
+<a name="l00082"></a>00082     };
+<a name="l00083"></a><a class="code" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">00083</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> V, <span class="keyword">class</span> I&gt; <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">KeyValue</a>( K&amp; key, V&amp; val, <span class="keyword">const</span> I&amp; item )
+<a name="l00084"></a>00084     {
+<a name="l00085"></a>00085         <span class="keywordtype">size_t</span> loc = 0;
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087         <span class="keywordflow">if</span> ( ( loc = item.find( <span class="stringliteral">&quot;=&quot;</span> ) ) == string::npos )
+<a name="l00088"></a>00088             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090         key = item.substr( 0, loc - 1 );
+<a name="l00091"></a>00091         val = item.substr( loc + 1, item.length() );
+<a name="l00092"></a>00092         loc = key.find_last_not_of( <span class="stringliteral">&quot; &quot;</span> );
+<a name="l00093"></a>00093         key.erase( loc + 1 );
+<a name="l00094"></a>00094         loc = val.find_first_not_of( <span class="stringliteral">&quot; &quot;</span> );
+<a name="l00095"></a>00095         val.erase( 0, loc );
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00098"></a>00098     }
+<a name="l00099"></a><a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">00099</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> V&gt; <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">KeySet</a>( <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; igncase, <span class="keywordtype">bool</span>&amp; found, <span class="keyword">const</span> K&amp; keyd, <span class="keyword">const</span> V&amp; valu, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; item, <span class="keywordtype">string</span>&amp; loc )
+<a name="l00100"></a>00100     {
+<a name="l00101"></a>00101         <span class="keywordtype">string</span> key( keyd );
+<a name="l00102"></a>00102         <span class="keywordtype">string</span> val( valu );
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104         <span class="keywordflow">if</span> ( igncase )
+<a name="l00105"></a>00105         {
+<a name="l00106"></a>00106             transform( key.begin(), key.end(), key.begin(), ::tolower );
+<a name="l00107"></a>00107             transform( val.begin(), val.end(), val.begin(), ::tolower );
+<a name="l00108"></a>00108         }
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110         <span class="keywordflow">if</span>( key.compare( val ) == 0 )
+<a name="l00111"></a>00111         {
+<a name="l00112"></a>00112             loc = item;
+<a name="l00113"></a>00113             found = <span class="keyword">true</span>;
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115             <span class="keywordflow">return</span>;
+<a name="l00116"></a>00116         }
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118         <span class="keywordflow">return</span>;
+<a name="l00119"></a>00119     }
+<a name="l00120"></a><a class="code" href="namespaceUtils.xhtml#a0aff3514e06faae8ed026c673efe002b">00120</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> K, <span class="keyword">class</span> V, <span class="keyword">class</span> I, <span class="keyword">class</span> L&gt; <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">KeySet</a>( <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; igncase, <span class="keywordtype">bool</span>&amp; found, <span class="keyword">const</span> K&amp; keyd, <span class="keyword">const</span> V&amp; valu, <span class="keyword">const</span> I&amp; item, L&amp; loc )
+<a name="l00121"></a>00121     {
+<a name="l00122"></a>00122         <span class="keywordtype">string</span> key( keyd );
+<a name="l00123"></a>00123         <span class="keywordtype">string</span> val( valu );
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125         <span class="keywordflow">if</span> ( igncase )
+<a name="l00126"></a>00126         {
+<a name="l00127"></a>00127             transform( key.begin(), key.end(), key.begin(), ::tolower );
+<a name="l00128"></a>00128             transform( val.begin(), val.end(), val.begin(), ::tolower );
+<a name="l00129"></a>00129         }
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131         <span class="keywordflow">if</span>( key.compare( val ) == 0 )
+<a name="l00132"></a>00132         {
+<a name="l00133"></a>00133             <span class="keywordtype">string</span> tf( item );
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135             <span class="comment">// Allow bools be any of: true / 1 or false / 0</span>
+<a name="l00136"></a>00136             transform( tf.begin(), tf.end(), tf.begin(), ::tolower );
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138             <span class="keywordflow">if</span> ( tf.compare( <span class="stringliteral">&quot;true&quot;</span> ) == 0 )
+<a name="l00139"></a>00139                 loc = <span class="keyword">true</span>;
+<a name="l00140"></a>00140             <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( tf.compare( <span class="stringliteral">&quot;false&quot;</span> ) == 0 )
+<a name="l00141"></a>00141                 loc = <span class="keyword">false</span>;
+<a name="l00142"></a>00142             <span class="keywordflow">else</span>
+<a name="l00143"></a>00143                 stringstream( item ) &gt;&gt; loc;
+<a name="l00144"></a>00144             found = <span class="keyword">true</span>;
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146             <span class="keywordflow">return</span>;
+<a name="l00147"></a>00147         }
+<a name="l00148"></a>00148 
+<a name="l00149"></a>00149         <span class="keywordflow">return</span>;
+<a name="l00150"></a>00150     }
+<a name="l00151"></a>00151     <span class="keyword">const</span> multimap&lt;bool,string&gt; <a class="code" href="namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4">ListDirectory</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; dir, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; recursive, multimap&lt;bool,string&gt;&amp; output, <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; dir_close, <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; dir_open ); 
+<a name="l00156"></a>00156 };
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -245,7 +241,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 13:48:54 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 17:49:28 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

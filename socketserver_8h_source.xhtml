@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.xhtml"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.xhtml"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.xhtml"><span>Namespaces</span></a></li>
       <li><a href="annotated.xhtml"><span>Classes</span></a></li>
       <li class="current"><a href="files.xhtml"><span>Files</span></a></li>
@@ -104,30 +105,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="socket_8h.xhtml" title="The Socket class.">socket.h</a>&quot;</span>
 <a name="l00028"></a>00028 
 <a name="l00029"></a><a class="code" href="classSocketServer.xhtml">00029</a> <span class="keyword">class </span><a class="code" href="classSocketServer.xhtml">SocketServer</a> : <span class="keyword">public</span> <a class="code" href="classSocket.xhtml">Socket</a> {
-<a name="l00030"></a>00030     <span class="keyword">public</span>:
-<a name="l00031"></a>00031         <a class="code" href="classSocketServer.xhtml#ad7fde891ef174c336b46299c8ace88f4">SocketServer</a>( <a class="code" href="classServer.xhtml">Server</a>* server, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>&amp; descriptor );
-<a name="l00032"></a>00032         <a class="code" href="classSocketServer.xhtml#af0e595690e453ef4b8e8da174069aba9">~SocketServer</a>();
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034         <span class="comment">// Core</span>
-<a name="l00035"></a>00035         <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63">Accept</a>();
-<a name="l00036"></a>00036         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8">Bind</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; port, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; addr );
-<a name="l00037"></a>00037         <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41">Delete</a>();
-<a name="l00038"></a>00038         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8">Listen</a>();
-<a name="l00039"></a>00039         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231">New</a>();
-<a name="l00040"></a>00040         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546">Thread</a>();
-<a name="l00041"></a>00041         <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code" href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690">Update</a>( <span class="keywordtype">void</span>* data );
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043         <span class="comment">// Query</span>
-<a name="l00044"></a><a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">00044</a>         <a class="code" href="classServer.xhtml">Server</a>* <a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">gServer</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>; }
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046         <span class="comment">// Manipulate</span>
-<a name="l00047"></a>00047         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a89cde9791b2f0ce928329c55a9ad21e7">sServer</a>( <a class="code" href="classServer.xhtml">Server</a>* server );
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049     <span class="keyword">private</span>:
-<a name="l00050"></a><a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">00050</a>         <a class="code" href="classServer.xhtml">Server</a>* <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>;
-<a name="l00051"></a>00051 };
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="preprocessor">#endif</span>
+<a name="l00030"></a>00030     <span class="keyword">public</span>: 
+<a name="l00032"></a>00032         <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63">Accept</a>();
+<a name="l00033"></a>00033         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8">Bind</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; port, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; addr );
+<a name="l00034"></a>00034         <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41">Delete</a>();
+<a name="l00035"></a>00035         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8">Listen</a>();
+<a name="l00036"></a>00036         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231">New</a>();
+<a name="l00037"></a>00037         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546">Thread</a>();
+<a name="l00038"></a>00038         <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code" href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690">Update</a>( <span class="keywordtype">void</span>* data ); 
+<a name="l00042"></a><a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">00042</a>         <a class="code" href="classServer.xhtml">Server</a>* <a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">gServer</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>; } 
+<a name="l00046"></a>00046         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a89cde9791b2f0ce928329c55a9ad21e7">sServer</a>( <a class="code" href="classServer.xhtml">Server</a>* server ); 
+<a name="l00050"></a>00050         <a class="code" href="classSocketServer.xhtml#ad7fde891ef174c336b46299c8ace88f4">SocketServer</a>( <a class="code" href="classServer.xhtml">Server</a>* server, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>&amp; descriptor );
+<a name="l00051"></a>00051         <a class="code" href="classSocketServer.xhtml#af0e595690e453ef4b8e8da174069aba9">~SocketServer</a>();
+<a name="l00054"></a>00054     <span class="keyword">private</span>:
+<a name="l00055"></a><a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">00055</a>         <a class="code" href="classServer.xhtml">Server</a>* <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>;
+<a name="l00056"></a>00056 };
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -146,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 13:48:54 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 17:49:28 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
