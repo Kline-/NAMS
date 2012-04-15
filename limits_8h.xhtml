@@ -77,13 +77,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Defines</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">h/limits.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Custom defined numeric types and system limits.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;limits&gt;</code><br/>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for limits.h:</div>
@@ -97,23 +97,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="limits_8h__dep__incl.svg" width="100%" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="limits_8h__dep__incl.svg" width="100%" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </div>
 <p><a href="limits_8h_source.xhtml">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="define-members"></a>
-Defines</h2></td></tr>
+<tr><td colspan="2"><h2><a name="member-group"></a>
+Signed</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limits_8h.xhtml#aebe7e0b7dfb9e7afa6c28b51a4cc137e">sintmax_t</a>&#160;&#160;&#160;numeric_limits&lt;signed int&gt;::max()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum value of any <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> variable.  <a href="#aebe7e0b7dfb9e7afa6c28b51a4cc137e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limits_8h.xhtml#a9698df90d76cdc260431fe109ce29675">sintmin_t</a>&#160;&#160;&#160;numeric_limits&lt;signed int&gt;::min()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum value of any <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> variable.  <a href="#a9698df90d76cdc260431fe109ce29675"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef signed int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A signed integer value based upon system limits.  <a href="#a4b065143310513611ddcce5fb87f9dbd"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="member-group"></a>
+Unsigned</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f">uintmax_t</a>&#160;&#160;&#160;numeric_limits&lt;unsigned int&gt;::max()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum value of any <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> variable.  <a href="#a036884201058b0d86aae031fdbcfa16f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78">uintmin_t</a>&#160;&#160;&#160;numeric_limits&lt;unsigned int&gt;::min()</td></tr>
-<tr><td colspan="2"><h2><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef signed int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limits_8h.xhtml#a95d88c395560ef694e6258da742ad660">sint_t</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limits_8h.xhtml#a12a1e9b3ce141648783a82445d02b58d">uint_t</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum value of any <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> variable.  <a href="#ace307ffbe4c934f4565176f184b38d78"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An unsigned integer value based upon system limits.  <a href="#a83d6866a5b3c76f2ad436a370ecd5b5a"></a><br/></td></tr>
 </table>
-<hr/><h2>Define Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>NAMS utilizes two numeric types, both defined within this file. These types, <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> (signed) and <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> (unsigned) are implemented as the numeric maximums of the host operating system. Further OS-specific limitations may be placed here in the future. </p>
+
+<p>Definition in file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
+</div><hr/><h2>Define Documentation</h2>
 <a class="anchor" id="aebe7e0b7dfb9e7afa6c28b51a4cc137e"></a><!-- doxytag: member="limits.h::sintmax_t" ref="aebe7e0b7dfb9e7afa6c28b51a4cc137e" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -125,7 +136,7 @@ Typedefs</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00033">33</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
+<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00084">84</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
 
 </div>
 </div>
@@ -140,7 +151,7 @@ Typedefs</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00034">34</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
+<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00090">90</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
 
 </div>
 </div>
@@ -155,7 +166,7 @@ Typedefs</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00037">37</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
+<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00104">104</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
 
 </div>
 </div>
@@ -170,38 +181,38 @@ Typedefs</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00038">38</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
+<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00110">110</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Typedef Documentation</h2>
-<a class="anchor" id="a95d88c395560ef694e6258da742ad660"></a><!-- doxytag: member="limits.h::sint_t" ref="a95d88c395560ef694e6258da742ad660" args="" -->
+<a class="anchor" id="a4b065143310513611ddcce5fb87f9dbd"></a><!-- doxytag: member="limits.h::sint_t" ref="a4b065143310513611ddcce5fb87f9dbd" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef signed int <a class="el" href="limits_8h.xhtml#a95d88c395560ef694e6258da742ad660">sint_t</a></td>
+          <td class="memname"><a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00032">32</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
+<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00078">78</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a12a1e9b3ce141648783a82445d02b58d"></a><!-- doxytag: member="limits.h::uint_t" ref="a12a1e9b3ce141648783a82445d02b58d" args="" -->
+<a class="anchor" id="a83d6866a5b3c76f2ad436a370ecd5b5a"></a><!-- doxytag: member="limits.h::uint_t" ref="a83d6866a5b3c76f2ad436a370ecd5b5a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef unsigned int <a class="el" href="limits_8h.xhtml#a12a1e9b3ce141648783a82445d02b58d">uint_t</a></td>
+          <td class="memname"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00036">36</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
+<p>Definition at line <a class="el" href="limits_8h_source.xhtml#l00098">98</a> of file <a class="el" href="limits_8h_source.xhtml">limits.h</a>.</p>
 
 </div>
 </div>
@@ -211,7 +222,7 @@ Typedefs</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -223,7 +234,7 @@ Typedefs</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 03:39:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 13:48:55 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

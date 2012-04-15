@@ -21,5 +21,5 @@ var searchData=
   ['cfg_5fstr_5futils_5fsocket',['CFG_STR_UTILS_SOCKET',['../config_8h.xhtml#ac38f0f1beed2da9e2c6e0210da5ba57f',1,'config.h']]],
   ['cfg_5fstr_5fversion',['CFG_STR_VERSION',['../config_8h.xhtml#ae0189326402738016ca074f43606978f',1,'config.h']]],
   ['crlf',['CRLF',['../macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f',1,'macros.h']]],
-  ['cstr',['CSTR',['../macros_8h.xhtml#a9e05c5960bb1d108f6621513f708bad4',1,'macros.h']]]
+  ['cstr',['CSTR',['../macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc',1,'macros.h']]]
 ];

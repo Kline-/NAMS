@@ -26,8 +26,8 @@ var searchData=
   ['macros_2eh',['macros.h',['../macros_8h.xhtml',1,'']]],
   ['main',['main',['../main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967',1,'main.cpp']]],
   ['main_2ecpp',['main.cpp',['../main_8cpp.xhtml',1,'']]],
-  ['max_5fsoc_5fstate',['MAX_SOC_STATE',['../enum_8h.xhtml#a06fc87d81c62e9abb8790b6e5713c55ba840d70589e2217ed8aa208ba921e5e88',1,'enum.h']]],
-  ['max_5futils',['MAX_UTILS',['../enum_8h.xhtml#adf764cbdea00d65edcd07bb9953ad2b7aa435dc1cf64950a334aba3ae322dc7e3',1,'enum.h']]],
+  ['max_5fsoc_5fstate',['MAX_SOC_STATE',['../enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7a840d70589e2217ed8aa208ba921e5e88',1,'enum.h']]],
+  ['max_5futils',['MAX_UTILS',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa435dc1cf64950a334aba3ae322dc7e3',1,'enum.h']]],
   ['miter',['MITER',['../macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504',1,'macros.h']]],
   ['mutexlock',['MutexLock',['../classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1',1,'Thread']]],
   ['mutexunlock',['MutexUnlock',['../classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf',1,'Thread']]]

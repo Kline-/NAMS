@@ -85,11 +85,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 This is the complete list of members for <a class="el" href="classCommand.xhtml">Command</a>, including all inherited members.<table>
   <tr class="memlist"><td><a class="el" href="classCommand.xhtml#a18df2d81039392daeb0b78c346a70537">Command</a>()</td><td><a class="el" href="classCommand.xhtml">Command</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classCommand.xhtml#a90be4d3384e3bc09529247ecfe5d4a9e">Load</a>(const string &amp;file)</td><td><a class="el" href="classCommand.xhtml">Command</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCommand.xhtml#afc0d482427309deb78e094fa787d1477">Delete</a>()</td><td><a class="el" href="classCommand.xhtml">Command</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">m_level</a></td><td><a class="el" href="classCommand.xhtml">Command</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCommand.xhtml#af0105dd32ef8d8e0035631fc3a6ba9b6">m_name</a></td><td><a class="el" href="classCommand.xhtml">Command</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">m_preempt</a></td><td><a class="el" href="classCommand.xhtml">Command</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classCommand.xhtml#a133870f97086cfd556c4191fbebb2106">Unload</a>()</td><td><a class="el" href="classCommand.xhtml">Command</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48">New</a>(const string &amp;file)</td><td><a class="el" href="classCommand.xhtml">Command</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classCommand.xhtml#ab552bb3a07fdd1acbfd8ea76e69b2278">~Command</a>()</td><td><a class="el" href="classCommand.xhtml">Command</a></td><td></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
@@ -97,7 +97,7 @@ This is the complete list of members for <a class="el" href="classCommand.xhtml"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,7 +109,7 @@ This is the complete list of members for <a class="el" href="classCommand.xhtml"
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 03:39:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 13:48:55 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

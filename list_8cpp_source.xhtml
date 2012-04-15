@@ -98,22 +98,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 <span class="comment"> * You should have received a copy of the GNU General Public License       *</span>
 <a name="l00016"></a>00016 <span class="comment"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.   *</span>
 <a name="l00017"></a>00017 <span class="comment"> ***************************************************************************/</span>
-<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="includes_8h.xhtml">h/includes.h</a>&quot;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="class_8h.xhtml" title="All class declarations.">h/class.h</a>&quot;</span>
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="list_8h.xhtml">h/list.h</a>&quot;</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a><a class="code" href="list_8h.xhtml#a82a4f4375bf789a81d7ef1a01ea83943">00023</a> multimap&lt;const char,Command*&gt; <a class="code" href="list_8cpp.xhtml#a82a4f4375bf789a81d7ef1a01ea83943">command_list</a>;
-<a name="l00024"></a><a class="code" href="list_8h.xhtml#a0a518fc6607b121546a40295adc8c06b">00024</a> list&lt;SocketClient*&gt; <a class="code" href="list_8cpp.xhtml#a0a518fc6607b121546a40295adc8c06b">socket_client_list</a>;
-<a name="l00025"></a><a class="code" href="list_8h.xhtml#a2545f37b44cab86c6aa83abf4489b18b">00025</a> list&lt;SocketServer*&gt; <a class="code" href="list_8cpp.xhtml#a2545f37b44cab86c6aa83abf4489b18b">socket_server_list</a>;
-<a name="l00026"></a><a class="code" href="list_8h.xhtml#ac358631acaeaf160b1da80cac988471b">00026</a> map&lt;pthread_t,string&gt; <a class="code" href="list_8cpp.xhtml#ac358631acaeaf160b1da80cac988471b">thread_list</a>;
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="includes_8h.xhtml" title="All non-system includes that need to be within each .cpp file.">h/includes.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="class_8h.xhtml" title="All class declarations.">h/class.h</a>&quot;</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="list_8h.xhtml" title="All globally referenced list / map / vector types.">h/list.h</a>&quot;</span>
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="list_8h.xhtml#a82a4f4375bf789a81d7ef1a01ea83943">00031</a> multimap&lt;const char,Command*&gt; <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>;
+<a name="l00032"></a><a class="code" href="list_8h.xhtml#a0a518fc6607b121546a40295adc8c06b">00032</a> list&lt;SocketClient*&gt; <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>;
+<a name="l00033"></a><a class="code" href="list_8h.xhtml#a2545f37b44cab86c6aa83abf4489b18b">00033</a> list&lt;SocketServer*&gt; <a class="code" href="list_8cpp.xhtml#acc7c180313f75720b77ac49721ba874b" title="All SocketServer objects listening for new client connections.">socket_server_list</a>;
+<a name="l00034"></a><a class="code" href="list_8h.xhtml#ac358631acaeaf160b1da80cac988471b">00034</a> map&lt;pthread_t,string&gt; <a class="code" href="list_8cpp.xhtml#aaf5f7633ec620b380d55167e8213da84" title="All active threads within the server.">thread_list</a>;
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -125,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 03:39:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 13:48:54 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

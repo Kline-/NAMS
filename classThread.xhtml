@@ -117,7 +117,7 @@ Private Attributes</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="thread_8h_source.xhtml#l00021">21</a> of file <a class="el" href="thread_8h_source.xhtml">thread.h</a>.</p>
+<p>Definition at line <a class="el" href="thread_8h_source.xhtml#l00027">27</a> of file <a class="el" href="thread_8h_source.xhtml">thread.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a95c703fb8f2f27cb64f475a8c940864a"></a><!-- doxytag: member="Thread::Thread" ref="a95c703fb8f2f27cb64f475a8c940864a" args="()" -->
 <div class="memitem">
@@ -135,12 +135,12 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316">SocketClient</a>, and <a class="el" href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546">SocketServer</a>.</p>
 
-<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00048">48</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00052">52</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502">UFLAGS_DE</a>( flags );
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
     <span class="keywordflow">if</span> ( ::pthread_mutex_init( &amp;<a class="code" href="classThread.xhtml#a1e00125868b5359b961bd810b5ca96fe">m_mutex</a>, NULL ) != 0 )
-        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Thread::Thread()-&gt;&quot;</span> );
+        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Thread::Thread()-&gt;&quot;</span> );
 
     <span class="keywordflow">return</span>;
 }
@@ -161,12 +161,12 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00058">58</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00062">62</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502">UFLAGS_DE</a>( flags );
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
     <span class="keywordflow">if</span> ( ::pthread_mutex_destroy( &amp;<a class="code" href="classThread.xhtml#a1e00125868b5359b961bd810b5ca96fe">m_mutex</a> ) != 0 )
-        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Thread::~Thread()-&gt;&quot;</span> );
+        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Thread::~Thread()-&gt;&quot;</span> );
 
     <span class="keywordflow">return</span>;
 }
@@ -188,12 +188,12 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00024">24</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00028">28</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502">UFLAGS_DE</a>( flags );
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
     <span class="keywordflow">if</span> ( ::pthread_mutex_trylock( &amp;<a class="code" href="classThread.xhtml#a1e00125868b5359b961bd810b5ca96fe">m_mutex</a> ) != 0 )
-        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Thread::MutexLock()-&gt;&quot;</span> );
+        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Thread::MutexLock()-&gt;&quot;</span> );
 
     <span class="keywordflow">return</span>;
 }
@@ -223,12 +223,12 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00034">34</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thread_8cpp_source.xhtml#l00038">38</a> of file <a class="el" href="thread_8cpp_source.xhtml">thread.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502">UFLAGS_DE</a>( flags );
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
     <span class="keywordflow">if</span> ( ::pthread_mutex_unlock( &amp;<a class="code" href="classThread.xhtml#a1e00125868b5359b961bd810b5ca96fe">m_mutex</a> ) != 0 )
-        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Thread::~Thread()-&gt;&quot;</span> );
+        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Thread::~Thread()-&gt;&quot;</span> );
 
     <span class="keywordflow">return</span>;
 }
@@ -256,7 +256,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thread_8h_source.xhtml#l00035">35</a> of file <a class="el" href="thread_8h_source.xhtml">thread.h</a>.</p>
+<p>Definition at line <a class="el" href="thread_8h_source.xhtml#l00041">41</a> of file <a class="el" href="thread_8h_source.xhtml">thread.h</a>.</p>
 
 </div>
 </div>
@@ -270,7 +270,7 @@ Private Attributes</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -282,7 +282,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 03:39:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 15 2012 13:48:55 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

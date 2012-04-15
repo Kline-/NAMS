@@ -5,7 +5,6 @@ var searchData=
   ['list_2eh',['list.h',['../list_8h.xhtml',1,'']]],
   ['listdirectory',['ListDirectory',['../namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4',1,'Utils']]],
   ['listen',['Listen',['../classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8',1,'SocketServer']]],
-  ['load',['Load',['../classCommand.xhtml#a90be4d3384e3bc09529247ecfe5d4a9e',1,'Command']]],
   ['loadcommands',['LoadCommands',['../classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5',1,'Server']]],
   ['logerrno',['LOGERRNO',['../macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3',1,'macros.h']]],
   ['logfmt',['LOGFMT',['../macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da',1,'macros.h']]],
