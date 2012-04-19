@@ -189,7 +189,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00125"></a>00125     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
 <a name="l00126"></a>00126         <span class="keywordflow">return</span>;
 <a name="l00127"></a>00127 
-<a name="l00128"></a>00128     <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1">MutexLock</a>();
+<a name="l00128"></a>00128     <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Attempt to obtain a mutex lock on the current Thread object.">MutexLock</a>();
 <a name="l00129"></a>00129 
 <a name="l00130"></a>00130     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">sSocketClose</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a>() + 1 ) )
 <a name="l00131"></a>00131         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketServer::Delete()-&gt;Server::sSocketClose()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a>() + 1 );
@@ -223,7 +223,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00169"></a>00169 {
 <a name="l00170"></a>00170     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 <a name="l00171"></a>00171 
-<a name="l00172"></a>00172     <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1">MutexLock</a>();
+<a name="l00172"></a>00172     <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Attempt to obtain a mutex lock on the current Thread object.">MutexLock</a>();
 <a name="l00173"></a>00173 
 <a name="l00174"></a>00174     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address.">Bind</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">gPort</a>(), <a class="code" href="config_8h.xhtml#acfbfb90b5a0afa6cddd1403c1e10a7ee" title="IP address to bind the listening server socket to.">CFG_SOC_BIND_ADDR</a> ) )
 <a name="l00175"></a>00175     {
@@ -377,7 +377,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:31:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 19 2012 10:35:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

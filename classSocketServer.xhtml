@@ -294,7 +294,8 @@ Core</h2></td></tr>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_afdbc60c3bc840875d2214b59c6213f63_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_afdbc60c3bc840875d2214b59c6213f63_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -435,7 +436,7 @@ Core</h2></td></tr>
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
         <span class="keywordflow">return</span>;
 
-    <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1">MutexLock</a>();
+    <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Attempt to obtain a mutex lock on the current Thread object.">MutexLock</a>();
 
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">sSocketClose</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a>() + 1 ) )
         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketServer::Delete()-&gt;Server::sSocketClose()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a>() + 1 );
@@ -451,7 +452,8 @@ Core</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a4fb2589ed01cea5daae154b2f06b4f41_cgraph.svg" width="379" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a4fb2589ed01cea5daae154b2f06b4f41_cgraph.svg" width="379" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -581,7 +583,7 @@ Core</h2></td></tr>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1">MutexLock</a>();
+    <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Attempt to obtain a mutex lock on the current Thread object.">MutexLock</a>();
 
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address.">Bind</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">gPort</a>(), <a class="code" href="config_8h.xhtml#acfbfb90b5a0afa6cddd1403c1e10a7ee" title="IP address to bind the listening server socket to.">CFG_SOC_BIND_ADDR</a> ) )
     {
@@ -611,7 +613,8 @@ Core</h2></td></tr>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a276e17da8bbf562313bce8edfd32e231_cgraph.svg" width="558" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a276e17da8bbf562313bce8edfd32e231_cgraph.svg" width="558" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -770,7 +773,8 @@ Core</h2></td></tr>
 <div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-17-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_a613401f64ca4c185e0a90dd2ae57b546_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_a613401f64ca4c185e0a90dd2ae57b546_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -843,7 +847,8 @@ Core</h2></td></tr>
 <div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-19-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_abf0a57a793cb3cf9ad308c238329b690_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_abf0a57a793cb3cf9ad308c238329b690_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -896,7 +901,7 @@ Core</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:31:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 19 2012 10:35:07 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -105,7 +105,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5">LoadCommands</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Search all subfolders of <a class="el" href="config_8h.xhtml#af2e75e297c4447df28b526dff66734ce" title="Directory for commands to be loaded from; should contain subdirs a-z.">CFG_DAT_DIR_COMMAND</a> and call <a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a command to memory from a file within a subdirectory of CFG_DAT_DIR_COMMAND.">Command::New()</a> to load each file found to memory.  <a href="#ac2e1d14caee54a38a89c2394abe6e5a5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae">ProcessInput</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop through all connected <a class="el" href="classSocketClient.xhtml">SocketClient</a> objects to obtain a <a class="el" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1">Thread::MutexLock()</a> and then signal each socket to <a class="el" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue.">SocketClient::ProcessCommand()</a> from its queue.  <a href="#a2b4cec469bb99c2a45e49de5ba74d1ae"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop through all connected <a class="el" href="classSocketClient.xhtml">SocketClient</a> objects to obtain a <a class="el" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Attempt to obtain a mutex lock on the current Thread object.">Thread::MutexLock()</a> and then signal each socket to <a class="el" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue.">SocketClient::ProcessCommand()</a> from its queue.  <a href="#a2b4cec469bb99c2a45e49de5ba74d1ae"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea">Running</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a">Startup</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the NAMS server. Responsible for calling all critical boot-time functions such as <a class="el" href="classSocketServer.xhtml">SocketServer</a> initialization, <a class="el" href="classCommand.xhtml">Command</a> loading, etc.  <a href="#a84ed4b0103f83fe0ece0a89983d0787a"></a><br/></td></tr>
@@ -507,8 +507,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_ac2e1d14caee54a38a89c2394abe6e5a5_cgraph.svg" width="539" height="227"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_ac2e1d14caee54a38a89c2394abe6e5a5_cgraph.svg" width="539" height="227"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -542,7 +541,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000002">Todo:</a></b></dt><dd>Implement <a class="el" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1">Thread::MutexLock()</a> and <a class="el" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf" title="Release a mutex lock on the current Thread object.">Thread::MutexUnlock()</a> here. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000002">Todo:</a></b></dt><dd>Implement <a class="el" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Attempt to obtain a mutex lock on the current Thread object.">Thread::MutexLock()</a> and <a class="el" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf" title="Release a mutex lock on the current Thread object.">Thread::MutexUnlock()</a> here. </dd></dl>
 
 <p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00078">78</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
@@ -579,7 +578,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a2b4cec469bb99c2a45e49de5ba74d1ae_cgraph.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a2b4cec469bb99c2a45e49de5ba74d1ae_cgraph.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -1155,7 +1155,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:31:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 19 2012 10:35:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
