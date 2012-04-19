@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="SocketClient::Send" alt="" coords="201,33,343,63"/>
-<area shape="rect" id="node5" href="$classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="SocketClient::New" alt="" coords="393,7,529,36"/>
-<area shape="rect" id="node19" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="SocketClient::ProcessCommand" alt="" coords="579,59,805,88"/>
-<area shape="rect" id="node7" href="$classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" title="SocketClient::Thread" alt="" coords="615,5,769,35"/>
+<area shape="rect" id="node3" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="201,33,343,63"/>
+<area shape="rect" id="node5" href="$classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes." alt="" coords="393,7,529,36"/>
+<area shape="rect" id="node19" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="579,59,805,88"/>
+<area shape="rect" id="node7" href="$classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" title="Spawns a new Thread of SocketClient::Update() for a fully connected client." alt="" coords="615,5,769,35"/>
 <area shape="rect" id="node9" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="SocketServer::Accept" alt="" coords="853,5,1013,35"/>
 <area shape="rect" id="node11" href="$classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="SocketServer::Update" alt="" coords="1061,5,1224,35"/>
 <area shape="rect" id="node13" href="$classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" title="SocketServer::Thread" alt="" coords="1272,7,1432,36"/>

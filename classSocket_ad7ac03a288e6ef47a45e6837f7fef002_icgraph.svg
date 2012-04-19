@@ -48,7 +48,7 @@ var sectionId = 'dynsection-3';
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d" target="_top" xlink:title="SocketClient::Recv">
+<a xlink:href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d" target="_top" xlink:title="Receive data from the client and append it to a receive buffer.">
 <polygon fill="white" stroke="black" points="152,-0.5 152,-21.5 256,-21.5 256,-0.5 152,-0.5"/>
 <text text-anchor="middle" x="204" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Recv</text>
 </a>
@@ -60,7 +60,7 @@ var sectionId = 'dynsection-3';
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" target="_top" xlink:title="SocketClient::Update">
+<a xlink:href="classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" target="_top" xlink:title="Operates all other looping functions within a SocketClient object, such as sending/receiving data and...">
 <polygon fill="white" stroke="black" points="292,-0.5 292,-21.5 410,-21.5 410,-0.5 292,-0.5"/>
 <text text-anchor="middle" x="351" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Update</text>
 </a>
@@ -72,7 +72,7 @@ var sectionId = 'dynsection-3';
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" target="_top" xlink:title="SocketClient::Thread">
+<a xlink:href="classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" target="_top" xlink:title="Spawns a new Thread of SocketClient::Update() for a fully connected client.">
 <polygon fill="white" stroke="black" points="446,-0.5 446,-21.5 562,-21.5 562,-0.5 446,-0.5"/>
 <text text-anchor="middle" x="504" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Thread</text>
 </a>

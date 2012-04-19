@@ -77,11 +77,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000002"></a>Member <a class="el" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052">Server::gHostname</a>  () const </dt>
+<dt><a class="anchor" id="_todo000001"></a>File <a class="el" href="command_8cpp.xhtml">command.cpp</a>  </dt>
+<dd>Commands need to contain additional fields for function name and the location of the cpp library file they will reside in. Implement method to self-compile and reload libraries externally with dlsym. Create abstract classes to treat as an API layer to the shared objects.  </dd>
+<dt><a class="anchor" id="_todo000003"></a>Member <a class="el" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052">Server::gHostname</a>  () const </dt>
 <dd>Move this to Server::sHostname() and redo this func as a simple getter. Don't need to query the host server multiple times.  </dd>
-<dt><a class="anchor" id="_todo000003"></a>Member <a class="el" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8">Server::gStatus</a>  () const </dt>
+<dt><a class="anchor" id="_todo000004"></a>Member <a class="el" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8">Server::gStatus</a>  () const </dt>
 <dd>Write this entire function.  </dd>
-<dt><a class="anchor" id="_todo000001"></a>Member <a class="el" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae">Server::ProcessInput</a>  ()</dt>
+<dt><a class="anchor" id="_todo000002"></a>Member <a class="el" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae">Server::ProcessInput</a>  ()</dt>
 <dd>Implement <a class="el" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1">Thread::MutexLock()</a> and <a class="el" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf">Thread::MutexUnlock()</a> here. </dd>
 </dl>
 </div></div><!-- contents -->
@@ -102,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 15 2012 17:49:29 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 19 2012 07:37:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

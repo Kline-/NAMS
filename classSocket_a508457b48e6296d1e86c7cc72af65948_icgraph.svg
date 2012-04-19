@@ -48,7 +48,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" target="_top" xlink:title="SocketClient::Delete">
+<a xlink:href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" target="_top" xlink:title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">
 <polygon fill="white" stroke="black" points="342,-328.949 342,-349.949 456,-349.949 456,-328.949 342,-328.949"/>
 <text text-anchor="middle" x="399" y="-336.949" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Delete</text>
 </a>
@@ -60,7 +60,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node7 -->
 <g id="node13" class="node"><title>Node7</title>
-<a xlink:href="classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" target="_top" xlink:title="SocketClient::Thread">
+<a xlink:href="classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" target="_top" xlink:title="Spawns a new Thread of SocketClient::Update() for a fully connected client.">
 <polygon fill="white" stroke="black" points="676,-163.949 676,-184.949 792,-184.949 792,-163.949 676,-163.949"/>
 <text text-anchor="middle" x="734" y="-171.949" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Thread</text>
 </a>
@@ -108,7 +108,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node12 -->
 <g id="node24" class="node"><title>Node12</title>
-<a xlink:href="classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" target="_top" xlink:title="SocketClient::Update">
+<a xlink:href="classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" target="_top" xlink:title="Operates all other looping functions within a SocketClient object, such as sending/receiving data and...">
 <polygon fill="white" stroke="black" points="520,-201.949 520,-222.949 638,-222.949 638,-201.949 520,-201.949"/>
 <text text-anchor="middle" x="579" y="-209.949" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Update</text>
 </a>
@@ -120,7 +120,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node13 -->
 <g id="node28" class="node"><title>Node13</title>
-<a xlink:href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" target="_top" xlink:title="SocketClient::ProcessCommand">
+<a xlink:href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" target="_top" xlink:title="Interpret the command at the front of the queue.">
 <polygon fill="white" stroke="black" points="314,-385.949 314,-406.949 484,-406.949 484,-385.949 314,-385.949"/>
 <text text-anchor="middle" x="399" y="-393.949" font-family="FreeSans.ttf" font-size="10.00">SocketClient::ProcessCommand</text>
 </a>
@@ -132,7 +132,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node14 -->
 <g id="node31" class="node"><title>Node14</title>
-<a xlink:href="classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" target="_top" xlink:title="SocketClient::ProcessInput">
+<a xlink:href="classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" target="_top" xlink:title="Process data from the client&#39;s receive buffer and split it into commands to queue as necessary...">
 <polygon fill="white" stroke="black" points="327,-241.949 327,-262.949 471,-262.949 471,-241.949 327,-241.949"/>
 <text text-anchor="middle" x="399" y="-249.949" font-family="FreeSans.ttf" font-size="10.00">SocketClient::ProcessInput</text>
 </a>
@@ -144,7 +144,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node15 -->
 <g id="node34" class="node"><title>Node15</title>
-<a xlink:href="classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" target="_top" xlink:title="SocketClient::QueueCommand">
+<a xlink:href="classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" target="_top" xlink:title="Append a command to the back of the queue.">
 <polygon fill="white" stroke="black" points="114,-277.949 114,-298.949 278,-298.949 278,-277.949 114,-277.949"/>
 <text text-anchor="middle" x="196" y="-285.949" font-family="FreeSans.ttf" font-size="10.00">SocketClient::QueueCommand</text>
 </a>
@@ -156,7 +156,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node16 -->
 <g id="node37" class="node"><title>Node16</title>
-<a xlink:href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d" target="_top" xlink:title="SocketClient::Recv">
+<a xlink:href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d" target="_top" xlink:title="Receive data from the client and append it to a receive buffer.">
 <polygon fill="white" stroke="black" points="347,-201.949 347,-222.949 451,-222.949 451,-201.949 347,-201.949"/>
 <text text-anchor="middle" x="399" y="-209.949" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Recv</text>
 </a>
@@ -168,7 +168,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node17 -->
 <g id="node40" class="node"><title>Node17</title>
-<a xlink:href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" target="_top" xlink:title="SocketClient::Send">
+<a xlink:href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" target="_top" xlink:title="Process data from the client&#39;s send buffer and transmit it via the socket.">
 <polygon fill="white" stroke="black" points="142.5,-317.949 142.5,-338.949 249.5,-338.949 249.5,-317.949 142.5,-317.949"/>
 <text text-anchor="middle" x="196" y="-325.949" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Send</text>
 </a>
@@ -228,7 +228,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node6 -->
 <g id="node11" class="node"><title>Node6</title>
-<a xlink:href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" target="_top" xlink:title="SocketClient::New">
+<a xlink:href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" target="_top" xlink:title="Build a socket for a new client connection and set all attributes.">
 <polygon fill="white" stroke="black" points="527.5,-289.949 527.5,-310.949 630.5,-310.949 630.5,-289.949 527.5,-289.949"/>
 <text text-anchor="middle" x="579" y="-297.949" font-family="FreeSans.ttf" font-size="10.00">SocketClient::New</text>
 </a>
