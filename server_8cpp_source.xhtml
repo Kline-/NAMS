@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00039"></a>00039     multimap&lt;bool,string&gt; files;
 <a name="l00040"></a>00040     <a class="code" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504" title="Define an iterator variable (name) of (type1,type2) using (container).">MITER</a>( multimap, <span class="keywordtype">bool</span>,<span class="keywordtype">string</span>, mi );
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042     start = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">Utils::CurrentTime</a>();
+<a name="l00042"></a>00042     start = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">Utils::CurrentTime</a>();
 <a name="l00043"></a>00043     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <span class="stringliteral">&quot;Loading commands...&quot;</span> );
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045     <span class="comment">// Populate the multimape with a recursive listing of the commands folder</span>
@@ -138,8 +138,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00064"></a>00064         }
 <a name="l00065"></a>00065     }
 <a name="l00066"></a>00066 
-<a name="l00067"></a>00067     finish = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">Utils::CurrentTime</a>();
-<a name="l00068"></a>00068     <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;Loaded %lu commands in %lums.&quot;</span>, <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.size(), <a class="code" href="namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee">Utils::DiffTime</a>( start, finish, <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ab80ef2c700675085764563f89553686d">UTILS_TIME_MS</a> ) );
+<a name="l00067"></a>00067     finish = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">Utils::CurrentTime</a>();
+<a name="l00068"></a>00068     <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;Loaded %lu commands in %lums.&quot;</span>, <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.size(), <a class="code" href="namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee" title="Calculates the different between two timeval variables.">Utils::DiffTime</a>( start, finish, <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ab80ef2c700675085764563f89553686d">UTILS_TIME_MS</a> ) );
 <a name="l00069"></a>00069 
 <a name="l00070"></a>00070     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00071"></a>00071 }
@@ -219,7 +219,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00159"></a>00159     <a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">m_shutdown</a> = <span class="keyword">false</span>;
 <a name="l00160"></a>00160 
 <a name="l00161"></a>00161     <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;%s started.&quot;</span>, <a class="code" href="config_8h.xhtml#ae0189326402738016ca074f43606978f" title="The current server version.">CFG_STR_VERSION</a> );
-<a name="l00162"></a>00162     <a class="code" href="classServer.xhtml#ab31b9d2584a9bdcae78154fb7ed37915">m_time_boot</a> = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">Utils::CurrentTime</a>();
+<a name="l00162"></a>00162     <a class="code" href="classServer.xhtml#ab31b9d2584a9bdcae78154fb7ed37915">m_time_boot</a> = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">Utils::CurrentTime</a>();
 <a name="l00163"></a>00163 
 <a name="l00164"></a>00164     <span class="keywordflow">if</span> ( ( descriptor = ::socket( AF_INET6, SOCK_STREAM, 0 ) ) &lt; 0 )
 <a name="l00165"></a>00165     {
@@ -259,7 +259,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00203"></a>00203 {
 <a name="l00204"></a>00204     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 <a name="l00205"></a>00205 
-<a name="l00206"></a>00206     <a class="code" href="classServer.xhtml#a8f5d1702652eae5aa8602fd7b24d4b5c">m_time_current</a> = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">Utils::CurrentTime</a>();
+<a name="l00206"></a>00206     <a class="code" href="classServer.xhtml#a8f5d1702652eae5aa8602fd7b24d4b5c">m_time_current</a> = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">Utils::CurrentTime</a>();
 <a name="l00207"></a>00207 
 <a name="l00208"></a>00208     <a class="code" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Loop through all connected SocketClient objects to obtain a Thread::MutexLock() and then signal each ...">ProcessInput</a>();
 <a name="l00209"></a>00209 
@@ -375,7 +375,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:03:28 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 19 2012 10:31:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

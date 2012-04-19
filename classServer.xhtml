@@ -471,7 +471,7 @@ Private Attributes</h2></td></tr>
     multimap&lt;bool,string&gt; files;
     <a class="code" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504" title="Define an iterator variable (name) of (type1,type2) using (container).">MITER</a>( multimap, <span class="keywordtype">bool</span>,<span class="keywordtype">string</span>, mi );
 
-    start = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">Utils::CurrentTime</a>();
+    start = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">Utils::CurrentTime</a>();
     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <span class="stringliteral">&quot;Loading commands...&quot;</span> );
 
     <span class="comment">// Populate the multimape with a recursive listing of the commands folder</span>
@@ -496,8 +496,8 @@ Private Attributes</h2></td></tr>
         }
     }
 
-    finish = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">Utils::CurrentTime</a>();
-    <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;Loaded %lu commands in %lums.&quot;</span>, <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.size(), <a class="code" href="namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee">Utils::DiffTime</a>( start, finish, <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ab80ef2c700675085764563f89553686d">UTILS_TIME_MS</a> ) );
+    finish = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">Utils::CurrentTime</a>();
+    <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;Loaded %lu commands in %lums.&quot;</span>, <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.size(), <a class="code" href="namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee" title="Calculates the different between two timeval variables.">Utils::DiffTime</a>( start, finish, <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ab80ef2c700675085764563f89553686d">UTILS_TIME_MS</a> ) );
 
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
@@ -507,7 +507,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_ac2e1d14caee54a38a89c2394abe6e5a5_cgraph.svg" width="539" height="227"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_ac2e1d14caee54a38a89c2394abe6e5a5_cgraph.svg" width="539" height="227"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -884,7 +885,7 @@ Private Attributes</h2></td></tr>
     <a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">m_shutdown</a> = <span class="keyword">false</span>;
 
     <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;%s started.&quot;</span>, <a class="code" href="config_8h.xhtml#ae0189326402738016ca074f43606978f" title="The current server version.">CFG_STR_VERSION</a> );
-    <a class="code" href="classServer.xhtml#ab31b9d2584a9bdcae78154fb7ed37915">m_time_boot</a> = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">Utils::CurrentTime</a>();
+    <a class="code" href="classServer.xhtml#ab31b9d2584a9bdcae78154fb7ed37915">m_time_boot</a> = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">Utils::CurrentTime</a>();
 
     <span class="keywordflow">if</span> ( ( descriptor = ::socket( AF_INET6, SOCK_STREAM, 0 ) ) &lt; 0 )
     {
@@ -965,7 +966,7 @@ Private Attributes</h2></td></tr>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <a class="code" href="classServer.xhtml#a8f5d1702652eae5aa8602fd7b24d4b5c">m_time_current</a> = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">Utils::CurrentTime</a>();
+    <a class="code" href="classServer.xhtml#a8f5d1702652eae5aa8602fd7b24d4b5c">m_time_current</a> = <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">Utils::CurrentTime</a>();
 
     <a class="code" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Loop through all connected SocketClient objects to obtain a Thread::MutexLock() and then signal each ...">ProcessInput</a>();
 
@@ -980,7 +981,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-18-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a50b81aa91d8fdaee6f52c5c5ec987990_cgraph.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a50b81aa91d8fdaee6f52c5c5ec987990_cgraph.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -1153,7 +1155,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:03:28 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 19 2012 10:31:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
