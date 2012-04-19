@@ -243,7 +243,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00189"></a>00189         <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
 <a name="l00190"></a>00190     }
 <a name="l00191"></a>00191 
-<a name="l00192"></a>00192     <a class="code" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf">MutexUnlock</a>();
+<a name="l00192"></a>00192     <a class="code" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf" title="Release a mutex lock on the current Thread object.">MutexUnlock</a>();
 <a name="l00193"></a>00193 
 <a name="l00194"></a>00194     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00195"></a>00195 }
@@ -354,7 +354,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00330"></a>00330 
 <a name="l00334"></a><a class="code" href="classSocketServer.xhtml#af0e595690e453ef4b8e8da174069aba9">00334</a> <a class="code" href="classSocketServer.xhtml#af0e595690e453ef4b8e8da174069aba9" title="Destructor for the SocketServer class.">SocketServer::~SocketServer</a>()
 <a name="l00335"></a>00335 {
-<a name="l00336"></a>00336     <a class="code" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf">MutexUnlock</a>();
+<a name="l00336"></a>00336     <a class="code" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf" title="Release a mutex lock on the current Thread object.">MutexUnlock</a>();
 <a name="l00337"></a>00337     ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_SUCCESS ) );
 <a name="l00338"></a>00338 
 <a name="l00339"></a>00339     <span class="keywordflow">return</span>;
@@ -377,7 +377,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:00:12 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 19 2012 10:03:28 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
