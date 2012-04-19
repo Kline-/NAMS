@@ -34,7 +34,7 @@
 <script type="text/javascript">
 var viewWidth = 1506;
 var viewHeight = 416;
-var sectionId = 'dynsection-5';
+var sectionId = 'dynsection-7';
 </script>
 <script xlink:href="svgpan.js"/>
 <svg id="graph" class="graph">
@@ -72,7 +72,7 @@ var sectionId = 'dynsection-5';
 </g>
 <!-- Node7 -->
 <g id="node13" class="node"><title>Node7</title>
-<a xlink:href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" target="_top" xlink:title="SocketServer::Accept">
+<a xlink:href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" target="_top" xlink:title="Accept a new connection on the listening port.">
 <polygon fill="white" stroke="black" points="860,-244.5 860,-265.5 980,-265.5 980,-244.5 860,-244.5"/>
 <text text-anchor="middle" x="920" y="-252.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Accept</text>
 </a>
@@ -156,7 +156,7 @@ var sectionId = 'dynsection-5';
 </g>
 <!-- Node17 -->
 <g id="node42" class="node"><title>Node17</title>
-<a xlink:href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" target="_top" xlink:title="SocketServer::Bind">
+<a xlink:href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" target="_top" xlink:title="Bind a listening socket to a given port and IP address.">
 <polygon fill="white" stroke="black" points="176,-40.5 176,-61.5 284,-61.5 284,-40.5 176,-40.5"/>
 <text text-anchor="middle" x="230" y="-48.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Bind</text>
 </a>
@@ -168,7 +168,7 @@ var sectionId = 'dynsection-5';
 </g>
 <!-- Node19 -->
 <g id="node47" class="node"><title>Node19</title>
-<a xlink:href="classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" target="_top" xlink:title="SocketServer::Listen">
+<a xlink:href="classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" target="_top" xlink:title="Listen for new connections on an established socket.">
 <polygon fill="white" stroke="black" points="172,-0.5 172,-21.5 288,-21.5 288,-0.5 172,-0.5"/>
 <text text-anchor="middle" x="230" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Listen</text>
 </a>
@@ -221,7 +221,7 @@ var sectionId = 'dynsection-5';
 </g>
 <!-- Node8 -->
 <g id="node15" class="node"><title>Node8</title>
-<a xlink:href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" target="_top" xlink:title="SocketServer::Update">
+<a xlink:href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" target="_top" xlink:title="Operates all other looping functions within a SocketServer object, such as directing clients to proce...">
 <polygon fill="white" stroke="black" points="1016,-244.5 1016,-265.5 1138,-265.5 1138,-244.5 1016,-244.5"/>
 <text text-anchor="middle" x="1077" y="-252.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Update</text>
 </a>
@@ -233,7 +233,7 @@ var sectionId = 'dynsection-5';
 </g>
 <!-- Node9 -->
 <g id="node17" class="node"><title>Node9</title>
-<a xlink:href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" target="_top" xlink:title="SocketServer::Thread">
+<a xlink:href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" target="_top" xlink:title="Spawns a new Thread of SocketServer::Update() to process client updates.">
 <polygon fill="white" stroke="black" points="1174,-244.5 1174,-265.5 1294,-265.5 1294,-244.5 1174,-244.5"/>
 <text text-anchor="middle" x="1234" y="-252.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Thread</text>
 </a>
@@ -297,7 +297,7 @@ var sectionId = 'dynsection-5';
 </g>
 <!-- Node18 -->
 <g id="node44" class="node"><title>Node18</title>
-<a xlink:href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" target="_top" xlink:title="SocketServer::New">
+<a xlink:href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" target="_top" xlink:title="Build a socket for a server and set all attributes.">
 <polygon fill="white" stroke="black" points="379.5,-40.5 379.5,-61.5 486.5,-61.5 486.5,-40.5 379.5,-40.5"/>
 <text text-anchor="middle" x="433" y="-48.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::New</text>
 </a>

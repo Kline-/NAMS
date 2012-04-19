@@ -108,7 +108,7 @@ var sectionId = 'dynsection-25';
 </g>
 <!-- Node6 -->
 <g id="node11" class="node"><title>Node6</title>
-<a xlink:href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" target="_top" xlink:title="Socket::sHostname">
+<a xlink:href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" target="_top" xlink:title="Sets the hostname of the socket.">
 <polygon fill="white" stroke="black" points="512.5,-506.5 512.5,-527.5 623.5,-527.5 623.5,-506.5 512.5,-506.5"/>
 <text text-anchor="middle" x="568" y="-514.5" font-family="FreeSans.ttf" font-size="10.00">Socket::sHostname</text>
 </a>
@@ -132,7 +132,7 @@ var sectionId = 'dynsection-25';
 </g>
 <!-- Node10 -->
 <g id="node21" class="node"><title>Node10</title>
-<a xlink:href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578" target="_top" xlink:title="Socket::sPort">
+<a xlink:href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578" target="_top" xlink:title="Sets the port that was opened for the socket.">
 <polygon fill="white" stroke="black" points="528,-466.5 528,-487.5 608,-487.5 608,-466.5 528,-466.5"/>
 <text text-anchor="middle" x="568" y="-474.5" font-family="FreeSans.ttf" font-size="10.00">Socket::sPort</text>
 </a>
@@ -253,9 +253,9 @@ var sectionId = 'dynsection-25';
 </g>
 <!-- Node15 -->
 <g id="node34" class="node"><title>Node15</title>
-<a xlink:href="classSocket.xhtml#a4966e11df7fca3a810cad1cc7091af5e" target="_top" xlink:title="Socket::sBytesSent">
-<polygon fill="white" stroke="black" points="691,-586.5 691,-607.5 801,-607.5 801,-586.5 691,-586.5"/>
-<text text-anchor="middle" x="746" y="-594.5" font-family="FreeSans.ttf" font-size="10.00">Socket::sBytesSent</text>
+<a xlink:href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" target="_top" xlink:title="Increment the total count of bytes sent by the socket.">
+<polygon fill="white" stroke="black" points="690.5,-586.5 690.5,-607.5 801.5,-607.5 801.5,-586.5 690.5,-586.5"/>
+<text text-anchor="middle" x="746" y="-594.5" font-family="FreeSans.ttf" font-size="10.00">Socket::aBytesSent</text>
 </a>
 </g>
 <!-- Node13&#45;&gt;Node15 -->
@@ -401,9 +401,9 @@ var sectionId = 'dynsection-25';
 </g>
 <!-- Node23 -->
 <g id="node57" class="node"><title>Node23</title>
-<a xlink:href="classSocket.xhtml#a150a2ba8da11a6934d6943613ba011ec" target="_top" xlink:title="Socket::sBytesRecvd">
+<a xlink:href="classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd" target="_top" xlink:title="Increment the total count of bytes received by the socket.">
 <polygon fill="white" stroke="black" points="688,-187.5 688,-208.5 804,-208.5 804,-187.5 688,-187.5"/>
-<text text-anchor="middle" x="746" y="-195.5" font-family="FreeSans.ttf" font-size="10.00">Socket::sBytesRecvd</text>
+<text text-anchor="middle" x="746" y="-195.5" font-family="FreeSans.ttf" font-size="10.00">Socket::aBytesRecvd</text>
 </a>
 </g>
 <!-- Node22&#45;&gt;Node23 -->

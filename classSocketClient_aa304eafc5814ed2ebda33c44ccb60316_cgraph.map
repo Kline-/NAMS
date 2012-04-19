@@ -4,9 +4,9 @@
 <area shape="rect" id="node40" href="$classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" title="Operates all other looping functions within a SocketClient object, such as sending/receiving data and..." alt="" coords="208,739,365,768"/>
 <area shape="rect" id="node7" href="$classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Thread::MutexLock" alt="" coords="929,8,1071,37"/>
 <area shape="rect" id="node9" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Socket::gDescriptor" alt="" coords="927,659,1073,688"/>
-<area shape="rect" id="node11" href="$classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Socket::sHostname" alt="" coords="689,324,836,353"/>
+<area shape="rect" id="node11" href="$classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket." alt="" coords="689,324,836,353"/>
 <area shape="rect" id="node13" href="$classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New()." alt="" coords="687,60,839,89"/>
-<area shape="rect" id="node21" href="$classSocket.xhtml#a24c8132ced233add89f4fda68284e578" title="Socket::sPort" alt="" coords="709,377,816,407"/>
+<area shape="rect" id="node21" href="$classSocket.xhtml#a24c8132ced233add89f4fda68284e578" title="Sets the port that was opened for the socket." alt="" coords="709,377,816,407"/>
 <area shape="rect" id="node23" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Socket::gHostname" alt="" coords="925,324,1075,353"/>
 <area shape="rect" id="node25" href="$classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c" title="Socket::gPort" alt="" coords="709,113,816,143"/>
 <area shape="rect" id="node27" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="692,271,833,300"/>
@@ -14,7 +14,7 @@
 <area shape="rect" id="node17" href="$classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S..." alt="" coords="921,61,1079,91"/>
 <area shape="rect" id="node19" href="$classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Server::gSocketClose" alt="" coords="921,115,1079,144"/>
 <area shape="rect" id="node32" href="$classServer.xhtml#a2f8f36b615b6d10eb96dd35620ffd524" title="Server::gSocket" alt="" coords="939,557,1061,587"/>
-<area shape="rect" id="node34" href="$classSocket.xhtml#a4966e11df7fca3a810cad1cc7091af5e" title="Socket::sBytesSent" alt="" coords="927,217,1073,247"/>
+<area shape="rect" id="node34" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="927,217,1073,247"/>
 <area shape="rect" id="node36" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Socket::gBytesSent" alt="" coords="927,271,1073,300"/>
 <area shape="rect" id="node44" href="$classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket." alt="" coords="931,880,1069,909"/>
 <area shape="rect" id="node46" href="$classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb" title="SocketClient::gIdle" alt="" coords="440,945,579,975"/>
@@ -23,7 +23,7 @@
 <area shape="rect" id="node62" href="$classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" title="Process data from the client&#39;s receive buffer and split it into commands to queue as necessary..." alt="" coords="413,687,605,716"/>
 <area shape="rect" id="node72" href="$classSocketClient.xhtml#a074944c7006f994646ed22cb2c955dc9" title="SocketClient::gServer" alt="" coords="429,377,589,407"/>
 <area shape="rect" id="node74" href="$classServer.xhtml#ae3d4d866381050c00f383248872877ea" title="Server::Running" alt="" coords="448,791,571,820"/>
-<area shape="rect" id="node57" href="$classSocket.xhtml#a150a2ba8da11a6934d6943613ba011ec" title="Socket::sBytesRecvd" alt="" coords="923,749,1077,779"/>
+<area shape="rect" id="node57" href="$classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd" title="Increment the total count of bytes received by the socket." alt="" coords="923,749,1077,779"/>
 <area shape="rect" id="node59" href="$classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002" title="Socket::gBytesRecvd" alt="" coords="923,803,1077,832"/>
 <area shape="rect" id="node66" href="$namespaceUtils.xhtml#aeda29ae05e927b463309cf1db39344a0" title="Utils::StrNewlines" alt="" coords="696,687,829,716"/>
 <area shape="rect" id="node68" href="$classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" title="Append a command to the back of the queue." alt="" coords="653,583,872,612"/>

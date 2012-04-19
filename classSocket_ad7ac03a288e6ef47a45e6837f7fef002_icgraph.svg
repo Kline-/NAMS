@@ -34,7 +34,7 @@
 <script type="text/javascript">
 var viewWidth = 1244;
 var viewHeight = 30;
-var sectionId = 'dynsection-3';
+var sectionId = 'dynsection-5';
 </script>
 <script xlink:href="svgpan.js"/>
 <svg id="graph" class="graph">
@@ -84,7 +84,7 @@ var sectionId = 'dynsection-3';
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
-<a xlink:href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" target="_top" xlink:title="SocketServer::Accept">
+<a xlink:href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" target="_top" xlink:title="Accept a new connection on the listening port.">
 <polygon fill="white" stroke="black" points="598,-0.5 598,-21.5 718,-21.5 718,-0.5 598,-0.5"/>
 <text text-anchor="middle" x="658" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Accept</text>
 </a>
@@ -96,7 +96,7 @@ var sectionId = 'dynsection-3';
 </g>
 <!-- Node6 -->
 <g id="node11" class="node"><title>Node6</title>
-<a xlink:href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" target="_top" xlink:title="SocketServer::Update">
+<a xlink:href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" target="_top" xlink:title="Operates all other looping functions within a SocketServer object, such as directing clients to proce...">
 <polygon fill="white" stroke="black" points="754,-0.5 754,-21.5 876,-21.5 876,-0.5 754,-0.5"/>
 <text text-anchor="middle" x="815" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Update</text>
 </a>
@@ -108,7 +108,7 @@ var sectionId = 'dynsection-3';
 </g>
 <!-- Node7 -->
 <g id="node13" class="node"><title>Node7</title>
-<a xlink:href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" target="_top" xlink:title="SocketServer::Thread">
+<a xlink:href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" target="_top" xlink:title="Spawns a new Thread of SocketServer::Update() to process client updates.">
 <polygon fill="white" stroke="black" points="912,-0.5 912,-21.5 1032,-21.5 1032,-0.5 912,-0.5"/>
 <text text-anchor="middle" x="972" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Thread</text>
 </a>

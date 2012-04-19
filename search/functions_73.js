@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['sbytesrecvd',['sBytesRecvd',['../classSocket.xhtml#a150a2ba8da11a6934d6943613ba011ec',1,'Socket']]],
-  ['sbytessent',['sBytesSent',['../classSocket.xhtml#a4966e11df7fca3a810cad1cc7091af5e',1,'Socket']]],
   ['sdescriptor',['sDescriptor',['../classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a',1,'Socket']]],
   ['send',['Send',['../classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a',1,'SocketClient::Send(const string &amp;msg)'],['../classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80',1,'SocketClient::Send()']]],
   ['server',['Server',['../classServer.xhtml#ad5ec9462b520e59f7ea831e157ee5e59',1,'Server']]],

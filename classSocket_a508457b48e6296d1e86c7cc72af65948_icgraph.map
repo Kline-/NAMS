@@ -1,22 +1,22 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New()." alt="" coords="461,249,613,279"/>
 <area shape="rect" id="node13" href="$classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" title="Spawns a new Thread of SocketClient::Update() for a fully connected client." alt="" coords="907,469,1061,499"/>
-<area shape="rect" id="node15" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="SocketServer::Accept" alt="" coords="1112,495,1272,524"/>
-<area shape="rect" id="node17" href="$classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="SocketServer::Update" alt="" coords="1320,547,1483,576"/>
-<area shape="rect" id="node19" href="$classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" title="SocketServer::Thread" alt="" coords="1531,112,1691,141"/>
+<area shape="rect" id="node15" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="1112,495,1272,524"/>
+<area shape="rect" id="node17" href="$classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="Operates all other looping functions within a SocketServer object, such as directing clients to proce..." alt="" coords="1320,547,1483,576"/>
+<area shape="rect" id="node19" href="$classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" title="Spawns a new Thread of SocketServer::Update() to process client updates." alt="" coords="1531,112,1691,141"/>
 <area shape="rect" id="node24" href="$classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" title="Operates all other looping functions within a SocketClient object, such as sending/receiving data and..." alt="" coords="699,419,856,448"/>
 <area shape="rect" id="node28" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="424,173,651,203"/>
 <area shape="rect" id="node31" href="$classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" title="Process data from the client&#39;s receive buffer and split it into commands to queue as necessary..." alt="" coords="441,365,633,395"/>
 <area shape="rect" id="node34" href="$classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" title="Append a command to the back of the queue." alt="" coords="157,317,376,347"/>
 <area shape="rect" id="node37" href="$classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d" title="Receive data from the client and append it to a receive buffer." alt="" coords="468,419,607,448"/>
 <area shape="rect" id="node40" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="196,264,337,293"/>
-<area shape="rect" id="node47" href="$classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="SocketServer::Bind" alt="" coords="195,5,339,35"/>
-<area shape="rect" id="node52" href="$classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="SocketServer::Delete" alt="" coords="905,623,1063,652"/>
-<area shape="rect" id="node55" href="$classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" title="SocketServer::Listen" alt="" coords="189,59,344,88"/>
+<area shape="rect" id="node47" href="$classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address." alt="" coords="195,5,339,35"/>
+<area shape="rect" id="node52" href="$classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="Unload a server&#39;s socket from memory that was previously loaded via SocketServer::New()." alt="" coords="905,623,1063,652"/>
+<area shape="rect" id="node55" href="$classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" title="Listen for new connections on an established socket." alt="" coords="189,59,344,88"/>
 <area shape="rect" id="node5" href="$classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Loop through all connected SocketClient objects to obtain a Thread::MutexLock() and then signal each ..." alt="" coords="700,173,855,203"/>
 <area shape="rect" id="node11" href="$classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes." alt="" coords="709,301,845,331"/>
 <area shape="rect" id="node7" href="$classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="1133,168,1251,197"/>
 <area shape="rect" id="node9" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="1908,140,1961,169"/>
 <area shape="rect" id="node21" href="$classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" title="Start the NAMS server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="1739,113,1859,143"/>
-<area shape="rect" id="node49" href="$classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="SocketServer::New" alt="" coords="467,59,608,88"/>
+<area shape="rect" id="node49" href="$classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="Build a socket for a server and set all attributes." alt="" coords="467,59,608,88"/>
 </map>

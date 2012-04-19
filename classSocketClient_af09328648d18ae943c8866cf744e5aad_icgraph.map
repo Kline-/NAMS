@@ -1,12 +1,12 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Loop through all connected SocketClient objects to obtain a Thread::MutexLock() and then signal each ..." alt="" coords="207,5,361,35"/>
 <area shape="rect" id="node9" href="$classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes." alt="" coords="216,59,352,88"/>
-<area shape="rect" id="node13" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="SocketServer::Accept" alt="" coords="613,85,773,115"/>
+<area shape="rect" id="node13" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="613,85,773,115"/>
 <area shape="rect" id="node22" href="$classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" title="Operates all other looping functions within a SocketClient object, such as sending/receiving data and..." alt="" coords="205,112,363,141"/>
 <area shape="rect" id="node5" href="$classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="635,25,752,55"/>
 <area shape="rect" id="node7" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="1409,53,1463,83"/>
 <area shape="rect" id="node11" href="$classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" title="Spawns a new Thread of SocketClient::Update() for a fully connected client." alt="" coords="411,85,565,115"/>
-<area shape="rect" id="node15" href="$classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="SocketServer::Update" alt="" coords="821,81,984,111"/>
-<area shape="rect" id="node17" href="$classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" title="SocketServer::Thread" alt="" coords="1032,80,1192,109"/>
+<area shape="rect" id="node15" href="$classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="Operates all other looping functions within a SocketServer object, such as directing clients to proce..." alt="" coords="821,81,984,111"/>
+<area shape="rect" id="node17" href="$classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" title="Spawns a new Thread of SocketServer::Update() to process client updates." alt="" coords="1032,80,1192,109"/>
 <area shape="rect" id="node19" href="$classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" title="Start the NAMS server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="1240,79,1360,108"/>
 </map>

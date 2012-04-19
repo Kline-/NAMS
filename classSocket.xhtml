@@ -118,14 +118,21 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">gPort</a> () const </td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a150a2ba8da11a6934d6943613ba011ec">sBytesRecvd</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a4966e11df7fca3a810cad1cc7091af5e">sBytesSent</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd">aBytesRecvd</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the total count of bytes received by the socket.  <a href="#aec278bc5096a3087a7bb6a1ed06d7ddd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a">aBytesSent</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the total count of bytes sent by the socket.  <a href="#a688f0d2182f7ca098de3f76156efad0a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a">sDescriptor</a> (const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;descriptor)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the file descriptor that was opened for the socket.  <a href="#a60b2aa97e6b50c485486e510a1f14d0a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39">sHostname</a> (const string &amp;hostname)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the hostname of the socket.  <a href="#a14e5e2493abcae97043297dd170e7a39"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578">sPort</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;port)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the port that was opened for the socket.  <a href="#a24c8132ced233add89f4fda68284e578"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#aab53cde845a88cec27192ad7ec8c8869">Socket</a> (<a class="el" href="classServer.xhtml">Server</a> *server, const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;descriptor)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classSocket.xhtml">Socket</a> class.  <a href="#aab53cde845a88cec27192ad7ec8c8869"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#aeac4eb6379a543d38ed88977d3b6630a">~Socket</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classSocket.xhtml">Socket</a> class.  <a href="#aeac4eb6379a543d38ed88977d3b6630a"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a></td></tr>
@@ -162,12 +169,19 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">server</td><td>A pointer to an instance of a <a class="el" href="classServer.xhtml">Server</a> object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">descriptor</td><td>A <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> value of the file descriptor that has been opened for the socket. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00111">111</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00146">146</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a> = 0;
     <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a> = 0;
-    <a class="code" href="classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a">sDescriptor</a>( descriptor );
+    <a class="code" href="classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a" title="Sets the file descriptor that was opened for the socket.">sDescriptor</a>( descriptor );
     <a class="code" href="classSocket.xhtml#a86ca51943303992adf59bfb70036400a">m_hostname</a>.clear();
     <a class="code" href="classSocket.xhtml#a5df79ab7d50cced90646c94dc479e278">m_port</a> = 0;
 
@@ -199,7 +213,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00122">122</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00160">160</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -212,6 +226,114 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aec278bc5096a3087a7bb6a1ed06d7ddd"></a><!-- doxytag: member="Socket::aBytesRecvd" ref="aec278bc5096a3087a7bb6a1ed06d7ddd" args="(const uint_t &amp;amount)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd">Socket::aBytesRecvd</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">amount</td><td>A <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> value to increase the byte count by. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the amount is outside the limits for a <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> variable or if the existing counter would overflow. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the byte counter was successfully incremented. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00040">40</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( amount &lt; 1 || ( ( <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a> + amount ) &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> ) )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Socket::aBytesRecvd()-&gt; called with m_bytes_recvd overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a>, amount );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a> += amount;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_aec278bc5096a3087a7bb6a1ed06d7ddd_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a688f0d2182f7ca098de3f76156efad0a"></a><!-- doxytag: member="Socket::aBytesSent" ref="a688f0d2182f7ca098de3f76156efad0a" args="(const uint_t &amp;amount)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a">Socket::aBytesSent</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">amount</td><td>A <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> value to increase the byte count by. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the amount is outside the limits for a <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> variable or if the existing counter would overflow. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the byte counter was successfully incremented. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00061">61</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( amount &lt; 1 || ( ( <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a> + amount ) &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> ) )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Socket::aBytesSent()-&gt; called with m_bytes_sent overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a>, amount );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a> += amount;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a688f0d2182f7ca098de3f76156efad0a_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="ac7a9c8cef7e70fa1cfa5d4512db2adea"></a><!-- doxytag: member="Socket::Delete" ref="ac7a9c8cef7e70fa1cfa5d4512db2adea" args="()=0" -->
 <div class="memitem">
 <div class="memproto">
@@ -247,13 +369,12 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00038">38</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a>; }
 </pre></div>
-<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_ad7ac03a288e6ef47a45e6837f7fef002_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_ad7ac03a288e6ef47a45e6837f7fef002_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -276,13 +397,12 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00039">39</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a>; }
 </pre></div>
-<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a3bb9f40d6e5f32cfa960a86323322c0c_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a3bb9f40d6e5f32cfa960a86323322c0c_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -305,13 +425,12 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00040">40</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#ad3472404a4a16e143e90dbfb45ddced5">m_descriptor</a>; }
 </pre></div>
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a45d3aa99d71b868921543a4708471f82_icgraph.svg" width="100%" height="456"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a45d3aa99d71b868921543a4708471f82_icgraph.svg" width="100%" height="456"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -334,13 +453,12 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00041">41</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#a86ca51943303992adf59bfb70036400a">m_hostname</a>; }
 </pre></div>
-<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_adc72a37934a4f2d10f6ae8fc94bb4ca7_icgraph.svg" width="100%" height="149"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_adc72a37934a4f2d10f6ae8fc94bb4ca7_icgraph.svg" width="100%" height="149"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -363,13 +481,12 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00042">42</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#a5df79ab7d50cced90646c94dc479e278">m_port</a>; }
 </pre></div>
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_accd94dbf518b30cdd878a9710d3c481c_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_accd94dbf518b30cdd878a9710d3c481c_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -393,90 +510,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a150a2ba8da11a6934d6943613ba011ec"></a><!-- doxytag: member="Socket::sBytesRecvd" ref="a150a2ba8da11a6934d6943613ba011ec" args="(const uint_t &amp;amount)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const bool <a class="el" href="classSocket.xhtml#a150a2ba8da11a6934d6943613ba011ec">Socket::sBytesRecvd</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>amount</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00034">34</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-
-    <span class="keywordflow">if</span> ( amount &lt; 1 || ( ( <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a> + amount ) &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> ) )
-    {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Socket::sBytesRecvd()-&gt; called with m_bytes_recvd overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a>, amount );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a> += amount;
-
-    <span class="keywordflow">return</span> <span class="keyword">true</span>;
-}
-</pre></div>
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a150a2ba8da11a6934d6943613ba011ec_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a4966e11df7fca3a810cad1cc7091af5e"></a><!-- doxytag: member="Socket::sBytesSent" ref="a4966e11df7fca3a810cad1cc7091af5e" args="(const uint_t &amp;amount)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const bool <a class="el" href="classSocket.xhtml#a4966e11df7fca3a810cad1cc7091af5e">Socket::sBytesSent</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>amount</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00049">49</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-
-    <span class="keywordflow">if</span> ( amount &lt; 1 || ( ( <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a> + amount ) &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> ) )
-    {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Socket::sBytesSent()-&gt; called with m_bytes_sent overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a>, amount );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a> += amount;
-
-    <span class="keywordflow">return</span> <span class="keyword">true</span>;
-}
-</pre></div>
-<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a4966e11df7fca3a810cad1cc7091af5e_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-</p>
-
-</div>
-</div>
 <a class="anchor" id="a60b2aa97e6b50c485486e510a1f14d0a"></a><!-- doxytag: member="Socket::sDescriptor" ref="a60b2aa97e6b50c485486e510a1f14d0a" args="(const sint_t &amp;descriptor)" -->
 <div class="memitem">
 <div class="memproto">
@@ -491,8 +524,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">descriptor</td><td>A <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> value that corresponds to an open file descriptor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the descriptor is outside the limits for a <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> variable. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the descriptor was successfully set. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00064">64</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00082">82</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -532,8 +578,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">hostname</td><td>A string value that equal to the hostname of the socket. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the hostname is empty. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the hostname was successfully set. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00079">79</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00103">103</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -553,8 +612,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a14e5e2493abcae97043297dd170e7a39_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a14e5e2493abcae97043297dd170e7a39_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -574,8 +632,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>A <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> value that corresponds to an open port. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the port is outside the limits for a <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> variable. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the port was successfully set. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00094">94</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socket_8cpp_source.xhtml#l00124">124</a> of file <a class="el" href="socket_8cpp_source.xhtml">socket.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -595,8 +666,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a24c8132ced233add89f4fda68284e578_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a24c8132ced233add89f4fda68284e578_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -624,8 +694,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a508457b48e6296d1e86c7cc72af65948_icgraph.svg" width="100%" height="581"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a508457b48e6296d1e86c7cc72af65948_icgraph.svg" width="100%" height="581"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -729,7 +798,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 07:37:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 19 2012 10:00:12 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
