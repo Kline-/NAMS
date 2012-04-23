@@ -20,10 +20,9 @@ else
 	C_FLAGS = -O0 -ggdb3 -pg
 endif
 
-#-Werror -Wwrite-strings -Wconversion
 MAKEFLAGS = -j2
-W_FLAGS = -Wall -Wformat-security -Wpointer-arith -Wredundant-decls -Wcast-align -Wshadow
-L_FLAGS = -lcrypt -lm -lpthread -ldl -L`pwd`
+W_FLAGS = -Wall -Wformat-security -Wpointer-arith -Wredundant-decls -Wcast-align -Wshadow -Wwrite-strings -Werror
+L_FLAGS = -lcrypt -ldl -lm -lpthread -L`pwd`
 
 C_FILES = $(wildcard *.c *.cpp)
 O_FILES = $(patsubst %.cpp,o/%.o,$(patsubst %.c,o/%.o,$(C_FILES)))
