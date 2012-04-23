@@ -1,6 +1,6 @@
 ## Compiler to use. Either g++ or your own flavor of colorgcc, ccache, etc.
 # Default: g++
-CC   = g++
+CXX  = g++
 
 ### Name of binary file to generate.
 # Default: nams
@@ -15,9 +15,9 @@ MODE = DEBUG
 
 
 ifeq '$(MODE)' 'RELEASE'
-	C_FLAGS = -w -O3
+	C_FLAGS = -w -O3 -std=c++0x
 else
-	C_FLAGS = -O0 -ggdb3 -pg
+	C_FLAGS = -O0 -ggdb3 -pg -std=c++0x
 endif
 
 MAKEFLAGS = -j2
@@ -25,7 +25,9 @@ W_FLAGS = -Wall -Wformat-security -Wpointer-arith -Wredundant-decls -Wcast-align
 L_FLAGS = -lcrypt -ldl -lm -lpthread -L`pwd`
 
 C_FILES = $(wildcard *.c *.cpp)
-O_FILES = $(patsubst %.cpp,o/%.o,$(patsubst %.c,o/%.o,$(C_FILES)))
+O_FILES = $(patsubst %.cpp,o/%.o,$(C_FILES))
+H_FILES = $(wildcard h/includes.h)
+G_FILES = $(patsubst h/%.h,h/%.h.gch,$(H_FILES))
 DEPS = o/dependencies.d
 VERS =  $(shell grep 'define CFG_STR_VERSION' h/config.h | cut -d\" -f2)
 
@@ -34,7 +36,7 @@ VERS =  $(shell grep 'define CFG_STR_VERSION' h/config.h | cut -d\" -f2)
 $(shell if [ -x ./.dirbuild ]; then ./.dirbuild; rm -f ./.dirbuild; fi )
 
 .PHONY: help $(PROG) clean depend cbuild
-.SILENT: help $(PROG) clean depend cbuild $(O_FILES)
+.SILENT: help $(PROG) clean depend cbuild $(G_FILES) $(O_FILES)
 
 help:
 	echo -e "\n### $(VERS) Makefile Options ###"
@@ -42,21 +44,22 @@ help:
 	echo -e "    $(PROG)     Compiles the game into binary file $(PROG)."
 	echo -e "    cbuild   Equivalent to: make clean && make depend && make $(PROG)"
 	echo -e "    clean    Removes files: $(PROG) o/* d/* ../report/core"
-	echo -e "    depend   Generate dependencies for all source code.\n"
+	echo -e "    depend   Generate dependencies for all source code."
+	echo -e "    doxygen  Generate Doxygen output in ../etc/gh-pages\n"
 
-$(PROG): $(O_FILES)
+$(PROG): $(G_FILES) $(O_FILES)
 	$(RM) $(PROG)
-	$(CC) -o $(PROG) $(O_FILES) $(L_FLAGS)
+	$(CXX) -o $(PROG) $(O_FILES) $(L_FLAGS)
 	echo "Finished building $(VERS) ($(MODE))."
 	chmod +x $(PROG)
 
 clean:
-	$(RM) $(O_FILES) $(DEPS) $(PROG) ../report/core
+	$(RM) $(O_FILES) $(G_FILES) $(DEPS) $(PROG) ../report/core
 
 depend:
 	$(RM) $(DEPS)
 	echo "Generating dependencies for $(VERS) ... "
-	$(CC) -MM $(C_FLAGS) $(C_FILES) > $(DEPS)
+	$(CXX) -MM $(C_FLAGS) $(C_FILES) > $(DEPS)
 	perl -pi -e 's.^([a-z]).o/$$1.g' $(DEPS)
 	echo "Finished writing dependencies to $(DEPS)"
 
@@ -68,10 +71,10 @@ cbuild:
 # pull in dependency info for *existing* .o files
 -include $(DEPS)
 
-o/%.o: %.c
+h/%.h.gch: h/%.h
 	echo "Compiling `echo $@ | cut -c 3-` ... ";
-	$(CC) -c $(C_FLAGS) $(W_FLAGS) $< -o $@
+	$(CXX) -c $(C_FLAGS) $(W_FLAGS) $< -o $@
 
 o/%.o: %.cpp
 	echo "Compiling `echo $@ | cut -c 3-` ...";
-	$(CC) -c $(C_FLAGS) $(W_FLAGS) $< -o $@
+	$(CXX) -c $(C_FLAGS) $(W_FLAGS) $< -o $@
