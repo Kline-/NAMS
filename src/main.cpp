@@ -15,11 +15,35 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file main.cpp
+ * @brief Initial server entry point.
+ *
+ * @mainpage
+ * @section sec_about About
+ *  NAMS is a C++ MUD server with the primary goals of a safe, modular design and a\n
+ *  server core that is substantially decouppled from game logic. NAMS has been designed\n
+ *  as a generic, robust framework on which to build a rich and immersive game world.\n
+ *
+ * @section sec_support Support
+ * Support for this code is provided both via GitHub and the project website.\n\n
+ * Documentation   - http://kline-.github.com/NAMS/\n
+ * GitHub          - https://github.com/Kline-/NAMS\n
+ * Project Website - http://www.ackmud.net\n
+ */
 #include "h/includes.h"
 #include "h/class.h"
 
 #include "h/server.h"
 
+/** @name Core */ /**@{*/
+/**
+ * @brief The default function required to execute the server.
+ * @param[in] argc The numbers of arguments the server was started with, including 0 as itself.
+ * @param[in] argv[] An array of char pointers containing the arguments the server was started with.
+ * @retval EXIT_FAILURE Returned if any critical fault is encountered during operation.
+ * @retval EXIT_SUCCESS Returned if NAMS is properly shutdown without fault.
+ */
 int main( const int argc, const char* argv[] )
 {
     BSET( flags, UTILS_RAW );
@@ -47,3 +71,14 @@ int main( const int argc, const char* argv[] )
 
     _server.Shutdown( EXIT_SUCCESS );
 }
+/**@}*/
+
+/** @name Query */ /**@{*/
+/**@}*/
+
+/** @name Manipulate */ /**@{*/
+/**@}*/
+
+/** @name Internal */
+/**@}*/
+

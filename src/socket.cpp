@@ -15,23 +15,35 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file socket.cpp
+ * @brief All non-trivial member functions of the Socket class.
+ */
 #include "h/includes.h"
 #include "h/class.h"
 
 #include "h/socket.h"
 
-// Core
+/** @name Core */ /**@{*/
+/**@}*/
 
-// Query
+/** @name Query */ /**@{*/
+/**@}*/
 
-// Manipulate
-bool Socket::sBytesRecvd( const uint_t& amount )
+/** @name Manipulate */ /**@{*/
+/**
+ * @brief Increment the total count of bytes received by the socket.
+ * @param[in] amount A #uint_t value to increase the byte count by.
+ * @retval false Returned if the amount is outside the limits for a #uint_t variable or if the existing counter would overflow.
+ * @retval true Returned if the byte counter was successfully incremented.
+ */
+const bool Socket::aBytesRecvd( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
     if ( amount < 1 || ( ( m_bytes_recvd + amount ) >= uintmax_t ) )
     {
-        LOGFMT( flags, "Socket::sBytesRecvd()-> called with m_bytes_recvd overflow: %lu + %lu", m_bytes_recvd, amount );
+        LOGFMT( flags, "Socket::aBytesRecvd()-> called with m_bytes_recvd overflow: %lu + %lu", m_bytes_recvd, amount );
         return false;
     }
 
@@ -40,7 +52,13 @@ bool Socket::sBytesRecvd( const uint_t& amount )
     return true;
 }
 
-bool Socket::sBytesSent( const uint_t& amount )
+/**
+ * @brief Increment the total count of bytes sent by the socket.
+ * @param[in] amount A #uint_t value to increase the byte count by.
+ * @retval false Returned if the amount is outside the limits for a #uint_t variable or if the existing counter would overflow.
+ * @retval true Returned if the byte counter was successfully incremented.
+ */
+const bool Socket::aBytesSent( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
@@ -55,7 +73,13 @@ bool Socket::sBytesSent( const uint_t& amount )
     return true;
 }
 
-bool Socket::sDescriptor( const sint_t& descriptor )
+/**
+ * @brief Sets the file descriptor that was opened for the socket.
+ * @param[in] descriptor A #sint_t value that corresponds to an open file descriptor.
+ * @retval false Returned if the descriptor is outside the limits for a #sint_t variable.
+ * @retval true Returned if the descriptor was successfully set.
+ */
+const bool Socket::sDescriptor( const sint_t& descriptor )
 {
     UFLAGS_DE( flags );
 
@@ -70,7 +94,13 @@ bool Socket::sDescriptor( const sint_t& descriptor )
     return true;
 }
 
-bool Socket::sHostname( const string& hostname )
+/**
+ * @brief Sets the hostname of the socket.
+ * @param[in] hostname A string value that equal to the hostname of the socket.
+ * @retval false Returned if the hostname is empty.
+ * @retval true Returned if the hostname was successfully set.
+ */
+const bool Socket::sHostname( const string& hostname )
 {
     UFLAGS_DE( flags );
 
@@ -85,7 +115,13 @@ bool Socket::sHostname( const string& hostname )
     return true;
 }
 
-bool Socket::sPort( const uint_t& port )
+/**
+ * @brief Sets the port that was opened for the socket.
+ * @param[in] port A #uint_t value that corresponds to an open port.
+ * @retval false Returned if the port is outside the limits for a #uint_t variable.
+ * @retval true Returned if the port was successfully set.
+ */
+const bool Socket::sPort( const uint_t& port )
 {
     UFLAGS_DE( flags );
 
@@ -99,23 +135,35 @@ bool Socket::sPort( const uint_t& port )
 
     return true;
 }
+/**@}*/
 
-Socket::Socket( sint_t& descriptor )
+/** @name Internal */ /**@{*/
+/**
+ * @brief Constructor for the Socket class.
+ * @param[in] server A pointer to an instance of a Server object.
+ * @param[in] descriptor A #sint_t value of the file descriptor that has been opened for the socket.
+ */
+Socket::Socket( Server* server, const sint_t& descriptor )
 {
     m_bytes_recvd = 0;
     m_bytes_sent = 0;
+    sDescriptor( descriptor );
     m_hostname.clear();
     m_port = 0;
 
-    sDescriptor( descriptor );
-
     return;
 }
 
+/**
+ * @brief Destructor for the Socket class.
+ */
 Socket::~Socket()
 {
-    if ( Valid() )
-        ::close( m_descriptor );
+    UFLAGS_DE( flags );
+
+    if ( ::close( m_descriptor ) < 0 )
+        LOGERRNO( flags, "Socket::~Socket()->close()->" );
 
     return;
 }
+/**@}*/

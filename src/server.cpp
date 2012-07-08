@@ -15,36 +15,23 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file server.cpp
+ * @brief All non-trivial member functions of the Server class.
+ */
 #include "h/includes.h"
 #include "h/class.h"
 
 #include "h/server.h"
 #include "h/command.h"
 
-// Core
-bool Server::InitSocket( SocketServer* socket_server )
-{
-    UFLAGS_DE( flags );
-    uint_t enable = 1;
-
-    if ( socket_server->sDescriptor( ::socket( AF_INET6, SOCK_STREAM, 0 ) ) < 0 )
-    {
-        LOGERRNO( flags, "Server::InitSocket()->socket()->" );
-        return false;
-    }
-
-    if ( ::setsockopt( socket_server->gDescriptor(), SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char*>( &enable ), sizeof( enable ) ) < 0 )
-    {
-        LOGERRNO( flags, "Server::InitSocket()->setsockopt()->" );
-        return false;
-    }
-
-    m_socket = socket_server;
-
-    return true;
-}
-
-bool Server::LoadCommands()
+/** @name Core */ /**@{*/
+/**
+ * @brief Search all subfolders of #CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memory.
+ * @retval false Returned if a fault is experienced trying to obtain a directory listing to process.
+ * @retval true Returned if 0 or more Command objects are loaded from disk.
+ */
+const bool Server::LoadCommands()
 {
     UFLAGS_DE( flags );
     timeval start, finish;
@@ -55,7 +42,7 @@ bool Server::LoadCommands()
     start = Utils::CurrentTime();
     LOGSTR( 0, "Loading commands..." );
 
-    // Populate the multimape with a recursive listing of the commands folder
+    // Populate the multimap with a recursive listing of the commands folder
     Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, files, m_dir_close, m_dir_open );
 
     if ( files.empty() )
@@ -69,9 +56,9 @@ bool Server::LoadCommands()
         if ( mi->first == UTILS_IS_FILE )
         {
             cmd = new Command();
-            if ( !cmd->Load( mi->second ) )
+            if ( !cmd->New( mi->second ) )
             {
-                LOGFMT( flags, "Server::LoadCommands()->Command::Load()-> command %s returned false", CSTR( mi->second ) );
+                LOGFMT( flags, "Server::LoadCommands()->Command::New()-> command %s returned false", CSTR( mi->second ) );
                 delete cmd;
             }
         }
@@ -83,92 +70,7 @@ bool Server::LoadCommands()
     return true;
 }
 
-const void Server::NewConnection()
-{
-    UFLAGS_DE( flags );
-    sockaddr_storage sin;
-    sint_t descriptor, error;
-    socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
-    SocketClient* socket_client;
-    char hostname[CFG_STR_MAX_BUFLEN], service[CFG_STR_MAX_BUFLEN];
-
-    if ( ::getsockname( m_socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
-    {
-        LOGERRNO( flags, "Server::NewConnection()->getsockname()->" );
-        return;
-    }
-
-    if ( ( descriptor = ::accept( m_socket->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) ) < 0 )
-    {
-        LOGERRNO( flags, "Server::NewConnection()->accept()->" );
-        return;
-    }
-
-    if ( ::fcntl( descriptor, F_SETFL, O_NDELAY ) < 0 )
-    {
-        LOGERRNO( flags, "Server::NewConnection()->fcntl()->" );
-        return;
-    }
-
-    socket_client = new SocketClient( this, descriptor );
-
-    if ( ::getpeername( socket_client->gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
-    {
-        LOGERRNO( flags, "Server::NewConnection()->getpeername()->" );
-
-        if ( !socket_client->sHostname( "(unknown)" ) )
-        {
-            LOGSTR( flags, "Server::NewConnection()->SocketClient::sHostname()-> hostname (unknown) returned false" );
-            socket_client->Disconnect();
-            return;
-        }
-    }
-    else
-    {
-        if ( ( error = ::getnameinfo( reinterpret_cast<sockaddr*>( &sin ), size, hostname, sizeof( hostname ), service, sizeof( service ), NI_NUMERICHOST & NI_NUMERICSERV) ) != 0 )
-        {
-            LOGFMT( flags, "Server::NewConnection()->getnameinfo()-> returned errno %d:%s", error, gai_strerror( error ) );
-            socket_client->Disconnect();
-            return;
-        }
-
-        if ( !socket_client->sHostname( hostname ) )
-        {
-            LOGFMT( flags, "Server::NewConnection()->SocketClient::sHostname()-> hostname %s returned false", hostname );
-            socket_client->Disconnect();
-            return;
-        }
-
-        if ( !socket_client->sPort( atol( service ) ) )
-        {
-            LOGFMT( flags, "Server::NewConnection()->SocketClient::sPort()-> port %lu returned false", atol( service ) );
-            socket_client->Disconnect();
-            return;
-        }
-
-        LOGFMT( 0, "Server::NewConnection()-> %s:%lu (%lu)", CSTR( socket_client->gHostname() ), socket_client->gPort(), socket_client->gDescriptor() );
-        socket_client->ResolveHostname();
-    }
-
-    // negotiate telopts, send login message
-    if ( !socket_client->Send( CFG_STR_LOGIN ) )
-    {
-        LOGSTR( flags, "Server::NewConnection()->SocketClient::Send()-> msg CFG_STR_LOGIN returned false" );
-        socket_client->Disconnect();
-        return;
-    }
-
-    if ( !socket_client->sState( SOC_STATE_LOGIN_SCREEN ) )
-    {
-        LOGFMT( flags, "Server::NewConnection()->SocketClient::sState()-> state %lu returned false", SOC_STATE_LOGIN_SCREEN );
-        socket_client->Disconnect();
-        return;
-    }
-
-    return;
-}
-
-bool Server::PollSockets()
+const bool Server::PollSockets()
 {
     UFLAGS_DE( flags );
     static timespec static_time;
@@ -200,7 +102,7 @@ bool Server::PollSockets()
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
             LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
-            socket_client->Disconnect();
+            socket_client->Delete();
             continue;
         }
 
@@ -222,7 +124,7 @@ bool Server::PollSockets()
 
     // Process new connections
     if ( FD_ISSET( server_desc, &in_set ) )
-        NewConnection();
+        m_socket->Accept();
 
     // Process faulted connections
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
@@ -233,7 +135,7 @@ bool Server::PollSockets()
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
             LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
-            socket_client->Disconnect();
+            socket_client->Delete();
             continue;
         }
 
@@ -242,7 +144,7 @@ bool Server::PollSockets()
         {
             // Don't try to save characters on faulty clients, just boot them
             LOGFMT( flags, "Server::PollSockets()-> disconnecting faulted descriptor: %ld", client_desc );
-            socket_client->Disconnect();
+            socket_client->Delete();
             continue;
         }
     }
@@ -257,7 +159,7 @@ bool Server::PollSockets()
         {
             LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
             // todo: save character
-            socket_client->Disconnect();
+            socket_client->Delete();
             continue;
         }
 
@@ -269,7 +171,7 @@ bool Server::PollSockets()
             {
                 LOGFMT( flags, "Server::PollSockets()->SocketClient::sIdle()-> descriptor %ld returned false setting idle: 0", client_desc );
                 // todo: save character
-                socket_client->Disconnect();
+                socket_client->Delete();
                 continue;
             }
 
@@ -278,7 +180,7 @@ bool Server::PollSockets()
             {
                 LOGFMT( flags, "Server::PollSockets()->SocketClient::Recv()-> descriptor %ld returned false", client_desc );
                 // todo: save character
-                socket_client->Disconnect();
+                socket_client->Delete();
                 continue;
             }
         }
@@ -288,7 +190,7 @@ bool Server::PollSockets()
             {
                 LOGFMT( flags, "Server::PollSockets()->SocketClient::sIdle()-> descriptor %ld returned false setting idle: %lu", client_desc, socket_client->gIdle() + 1 );
                 // todo: save character
-                socket_client->Disconnect();
+                socket_client->Delete();
                 continue;
             }
         }
@@ -304,7 +206,7 @@ bool Server::PollSockets()
         {
             LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
             // todo: save character
-            socket_client->Disconnect();
+            socket_client->Delete();
             continue;
         }
 
@@ -312,7 +214,8 @@ bool Server::PollSockets()
         if ( socket_client->gIdle() >= CFG_SOC_MAX_IDLE )
         {
             LOGFMT( flags, "Server::PollSockets()->SocketClient::gIdle()-> disconnecting idle descriptor: %ld", client_desc );
-            socket_client->Disconnect( CFG_STR_IDLE );
+            socket_client->Send( CFG_STR_IDLE );
+            socket_client->Delete();
             // todo: save character
             continue;
         }
@@ -324,7 +227,7 @@ bool Server::PollSockets()
             if ( !socket_client->Send() )
             {
                 LOGFMT( flags, "Server::PollSockets()->SocketClient::PendingOutput()->SocketClient::Send()-> descriptor %ld returned false", client_desc );
-                socket_client->Disconnect();
+                socket_client->Delete();
                 // todo: save character
                 continue;
             }
@@ -334,7 +237,7 @@ bool Server::PollSockets()
     return true;
 }
 
-bool Server::ProcessInput()
+const bool Server::ProcessInput()
 {
     UFLAGS_DE( flags );
     ITER( list, SocketClient*, si );
@@ -350,7 +253,7 @@ bool Server::ProcessInput()
         {
             LOGFMT( flags, "Server::ProcessInput()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
             // todo: save character
-            socket_client->Disconnect();
+            socket_client->Delete();
             continue;
         }
 
@@ -358,7 +261,7 @@ bool Server::ProcessInput()
         {
             LOGFMT( flags, "Server::ProcessInput()->SocketClient::ProcessInput()-> descriptor %ld returned false", client_desc );
             // todo: save character
-            socket_client->Disconnect();
+            socket_client->Delete();
             continue;
         }
 
@@ -368,7 +271,7 @@ bool Server::ProcessInput()
             {
                 LOGFMT( flags, "Server::ProcessInput()->SocketClient::PendingCommand()->SocketClient::ProcessCommand()-> descriptor %ld returned false", client_desc );
                 // todo: save character
-                socket_client->Disconnect();
+                socket_client->Delete();
                 continue;
             }
         }
@@ -377,19 +280,23 @@ bool Server::ProcessInput()
     return true;
 }
 
+/**
+ * @brief Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all memory to verify there are no leaks.
+ * @param[in] status The shutdown code to pass to exit() when NAMS exits. Either EXIT_FAILURE or EXIT_SUCCESS.
+ * @retval void
+ */
 const void Server::Shutdown( const sint_t& status )
 {
     bool was_running = !m_shutdown;
     MITER( multimap, const char,Command*, mi );
     MITER( multimap, const char,Command*, mi_next );
-
     m_shutdown = true;
 
-    // Special handling for multimaps
+    // Cleanup commands
     for ( mi = command_list.begin(); mi != command_list.end(); )
     {
         mi_next = mi++;
-        mi_next->second->Unload();
+        mi_next->second->Delete();
         command_list.erase( mi_next );
     }
     for_each( socket_client_list.begin(), socket_client_list.end(), Utils::DeleteObject() );
@@ -407,43 +314,32 @@ const void Server::Shutdown( const sint_t& status )
     ::exit( status );
 }
 
+/**
+ * @brief Start the NAMS server. Responsible for calling all critical boot-time functions such as SocketServer initialization, Command loading, etc.
+ * @retval void
+ */
 const void Server::Startup()
 {
     UFLAGS_DE( flags );
-    SocketServer* socket_server = new SocketServer();
+    SocketServer* socket_server;
+    sint_t descriptor = 0;
+    m_shutdown = false;
 
     LOGFMT( 0, "%s started.", CFG_STR_VERSION );
     m_time_boot = Utils::CurrentTime();
 
-    if ( !InitSocket( socket_server ) )
+    if ( ( descriptor = ::socket( AF_INET6, SOCK_STREAM, 0 ) ) < 0 )
     {
-        LOGSTR( flags, "Server::Startup()->Server::InitSocket()-> returned false" );
+        LOGERRNO( flags, "Server::Startup()->socket()->" );
         Shutdown( EXIT_FAILURE );
     }
 
-    if ( !socket_server->Bind( m_port, CFG_SOC_BIND_ADDR ) )
-    {
-        LOGSTR( flags, "Server::Startup()->SocketServer::Bind()-> returned false" );
-        Shutdown( EXIT_FAILURE );
-    }
+    socket_server = new SocketServer( this, descriptor );
+    m_socket = socket_server;
 
-    if ( !socket_server->Listen() )
+    if ( !socket_server->New() )
     {
-        LOGSTR( flags, "Server::Startup()->SocketServer::Listen()-> returned false" );
-        Shutdown( EXIT_FAILURE );
-    }
-
-    if ( !socket_server->sHostname( gHostname() ) )
-    {
-        LOGFMT( flags, "Server::Startup()->SocketServer::sHostname()-> hostname %s returned false", CSTR( gHostname() ) );
-        Shutdown( EXIT_FAILURE );
-    }
-
-    // Ordinarily this is passed via a Socket() constructor, but SocketServer() has no Server* pointer
-    // back to its owner (why should it?); so we do it here after we know the socket is valid
-    if ( !sSocketOpen( m_socket_open + 1 ) )
-    {
-        LOGFMT( flags, "Server::Startup()->Server::sSocketOpen()-> value %lu returned false", m_socket_open + 1 );
+        LOGSTR( flags, "Server::Startup()->SocketServer::New()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
 
@@ -460,13 +356,16 @@ const void Server::Startup()
         Shutdown( EXIT_FAILURE );
     }
 
-    m_shutdown = false;
     LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, m_port );
     LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
 
     return;
 }
 
+/**
+ * @brief The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps for ( #USLEEP_MAX / #CFG_GAM_PULSE_RATE ) each cycle.
+ * @retval void
+ */
 const void Server::Update()
 {
     UFLAGS_DE( flags );
@@ -486,13 +385,19 @@ const void Server::Update()
     }
 
     // Sleep to control game pacing
-    ::usleep( USLEEP_MAX / m_pulse_rate );
+    ::usleep( USLEEP_MAX / CFG_GAM_PULSE_RATE );
 
     return;
 }
+/**@}*/
 
-// Query
-string Server::gHostname() const
+/** @name Query */ /**@{*/
+/**
+ * @brief Gets the hostname of the machine that NAMS is running on.
+ * @retval string A string is returned containing either "(unknown)" or the machine hostname.
+ * @todo Move this to Server::sHostname() and redo this func as a simple getter. Don't need to query the host server multiple times.
+ */
+const string Server::gHostname() const
 {
     UFLAGS_DE( flags );
     string output;
@@ -511,15 +416,27 @@ string Server::gHostname() const
     return output;
 }
 
-string Server::gStatus() const
+/**
+ * @brief Display miscellaneous data about the NAMS server, such as total data transfered, objects in memory, etc.
+ * @retval string A string is returned containing a pre-formatted data display of all Server information.
+ * @todo Write this entire function.
+ */
+const string Server::gStatus() const
 {
     string output;
 
     return output;
 }
+/**@}*/
 
-// Manipulate
-bool Server::sPort( const uint_t& port )
+/** @name Manipulate */ /**@{*/
+/**
+ * @brief Set the port of a NAMS Server object.
+ * @param[in] port The port number to have a SocketServer instance listen for new connections on.
+ * @retval false Returned if the port was <= #CFG_SOC_MIN_PORTNUM or >= #CFG_SOC_MAX_PORTNUM.
+ * @retval true Returned if the port was > #CFG_SOC_MIN_PORTNUM and < #CFG_SOC_MAX_PORTNUM.
+ */
+const bool Server::sPort( const uint_t& port )
 {
     UFLAGS_DE( flags );
 
@@ -532,49 +449,53 @@ bool Server::sPort( const uint_t& port )
     return true;
 }
 
-bool Server::sPulseRate( const uint_t& rate )
+/**
+ * @brief Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS Server object.
+ * @param[in] amount The amount that Server::m_socket_close should be set to.
+ * @retval false Returned if amount is outside the boundaries of a uint_t variable.
+ * @retval true Returned if amount is within the boundaries of a uint_t variable.
+ */
+const bool Server::sSocketClose( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
-    if ( rate < 1 || rate > USLEEP_MAX )
-    {
-        LOGFMT( flags, "Server::sPulseRate()-> called with invalid rate: %lu", rate );
-        return false;
-    }
-
-    return true;
-}
-
-bool Server::sSocketClose( const uint_t& amount )
-{
-    UFLAGS_DE( flags );
-
-    if ( amount < 1 || ( ( m_socket_close + amount ) >= uintmax_t ) )
+    if ( amount < 0 || amount >= uintmax_t )
     {
         LOGFMT( flags, "Server::sSocketClose()-> called with m_socket_close overflow: %lu + %lu", m_socket_close, amount );
         return false;
     }
 
-    m_socket_close += amount;
+    m_socket_close = amount;
 
     return true;
 }
 
-bool Server::sSocketOpen( const uint_t& amount )
+/**
+ * @brief Set the amount of subordinate SocketClient and SocketServer objects that have been opened on a NAMS Server object.
+ * @param[in] amount The amount that Server::m_socket_open should be set to.
+ * @retval false Returned if amount is outside the boundaries of a uint_t variable.
+ * @retval true Returned if amount is within the boundaries of a uint_t variable.
+ */
+const bool Server::sSocketOpen( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
-    if ( amount < 1 || ( ( m_socket_open + amount ) >= uintmax_t ) )
+    if ( amount < 0 || amount >= uintmax_t )
     {
         LOGFMT( flags, "Server::sSocketOpen()-> called with m_socket_open overflow: %lu + %lu", m_socket_open, amount );
         return false;
     }
 
-    m_socket_open += amount;
+    m_socket_open = amount;
 
     return true;
 }
+/**@}*/
 
+/** @name Internal */ /**@{*/
+/**
+ * @brief Constructor for the Server class.
+ */
 Server::Server()
 {
     m_dir_close = 0;
@@ -592,7 +513,11 @@ Server::Server()
     return;
 }
 
+/**
+ * @brief Destructor for the Server class.
+ */
 Server::~Server()
 {
     return;
 }
+/**@}*/

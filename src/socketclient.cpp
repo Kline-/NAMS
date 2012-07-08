@@ -20,16 +20,17 @@
 
 #include "h/socketclient.h"
 
-// Core
-const void SocketClient::Disconnect( const string& msg )
+/** @name Core */ /**@{*/
+/**
+ * @brief Unload a client's socket from memory that was previously loaded via SocketClient::New().
+ * @retval void
+ */
+const void SocketClient::Delete()
 {
     UFLAGS_DE( flags );
 
-    if ( !msg.empty() )
-    {
-        Send( msg );
-        Send();
-    }
+    if ( !Valid() )
+        return;
 
     if ( !m_server->sSocketClose( m_server->gSocketClose() + 1 ) )
         LOGFMT( flags, "SocketClient::Disconnect()->Server::sSocketClose()-> value %lu returned false", m_server->gSocketClose() + 1 );
@@ -40,26 +41,119 @@ const void SocketClient::Disconnect( const string& msg )
     return;
 }
 
-bool SocketClient::ProcessCommand()
+/**
+ * @brief Build a socket for a new client connection and set all attributes.
+ * @retval false Returned if there is an error in connecting the client.
+ * @retval true Returned if the client is successfully connected.
+ */
+const bool SocketClient::New()
 {
     UFLAGS_DE( flags );
+    sint_t error = 0;
+    sockaddr_storage sin;
+    socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
+    char hostname[CFG_STR_MAX_BUFLEN], service[CFG_STR_MAX_BUFLEN];
 
-    if ( !Valid() )
+    if ( ::fcntl( gDescriptor(), F_SETFL, O_NONBLOCK ) < 0 )
     {
-        LOGFMT( flags, "SocketClient::ProcessCommand()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
+        LOGERRNO( flags, "SocketClient::New()->fcntl()->" );
         return false;
     }
 
-    if ( m_command_queue.empty() )
+    if ( ::getpeername( gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
     {
-        LOGSTR( flags, "SocketClient::ProcessCommand()-> called with empty command queue" );
+        LOGERRNO( flags, "SocketClient::New()->getpeername()->" );
+
+        if ( !sHostname( "(unknown)" ) )
+        {
+            LOGSTR( flags, "SocketClient::New()->SocketClient::sHostname()-> hostname (unknown) returned false" );
+            return false;
+        }
+    }
+    else
+    {
+        if ( ( error = ::getnameinfo( reinterpret_cast<sockaddr*>( &sin ), size, hostname, sizeof( hostname ), service, sizeof( service ), NI_NUMERICSERV) ) != 0 )
+        {
+            LOGFMT( flags, "SocketClient::New()->getnameinfo()-> returned errno %d:%s", error, gai_strerror( error ) );
+            return false;
+        }
+
+        if ( !sHostname( hostname ) )
+        {
+            LOGFMT( flags, "SocketClient::New()->SocketClient::sHostname()-> hostname %s returned false", hostname );
+            return false;
+        }
+
+        if ( !sPort( atol( service ) ) )
+        {
+            LOGFMT( flags, "SocketClient::New()->SocketClient::sPort()-> port %lu returned false", atol( service ) );
+            return false;
+        }
+
+        LOGFMT( 0, "SocketClient::New()-> %s:%lu (%lu)", CSTR( gHostname() ), gPort(), gDescriptor() );
+    }
+
+    // negotiate telopts, send login message
+    if ( !Send( CFG_STR_LOGIN ) )
+    {
+        LOGSTR( flags, "SocketClient::New()->SocketClient::Send()-> msg CFG_STR_LOGIN returned false" );
+        return false;
+    }
+
+    if ( !sState( SOC_STATE_LOGIN_SCREEN ) )
+    {
+        LOGFMT( flags, "SocketClient::New()->SocketClient::sState()-> state %lu returned false", SOC_STATE_LOGIN_SCREEN );
         return false;
     }
 
     return true;
 }
 
-bool SocketClient::ProcessInput()
+/**
+ * @brief Interpret the command at the front of the queue.
+ * @retval false Returned if the socket is invalid or if a critical fault occurs during interpreting.
+ * @retval true Returned if the queue is empty or there were no errors interpreting the command.
+ */
+const bool SocketClient::ProcessCommand()
+{
+    UFLAGS_DE( flags );
+    ITER( vector, string, vi );
+    ITER( vector, string, vi_next );
+    string cmd;
+
+    if ( !Valid() )
+    {
+        LOGFMT( flags, "SocketClient::ProcessCommand()->SocketClient::Valid()-> descriptor %ld returned false", gDescriptor() );
+        return false;
+    }
+
+    // Nothing new to process; move along
+    if ( m_command_queue.empty() )
+        return true;
+
+    for ( vi = m_command_queue.begin(); vi != m_command_queue.end(); vi = vi_next )
+    {
+        cmd = *vi;
+        vi_next = m_command_queue.erase( vi );
+
+        if ( cmd.compare( "shutdown" ) == 0 )
+            gServer()->Shutdown( EXIT_SUCCESS );
+        else
+        {
+            Send( cmd );
+            Send( CRLF );
+        }
+    }
+
+    return true;
+}
+
+/**
+ * @brief Process data from the client's receive buffer and split it into commands to queue as necessary.
+ * @retval false Returned if the socket is invalid or if a critical fault occurs when adding the command to the queue.
+ * @retval true Returned if there is no input to process or input was processed successfully.
+ */
+const bool SocketClient::ProcessInput()
 {
     UFLAGS_DE( flags );
     vector<string> commands;
@@ -68,7 +162,7 @@ bool SocketClient::ProcessInput()
 
     if ( !Valid() )
     {
-        LOGFMT( flags, "SocketClient::ProcessInput()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
+        LOGFMT( flags, "SocketClient::ProcessInput()->SocketClient::Valid()-> descriptor %ld returned false", gDescriptor() );
         return false;
     }
 
@@ -92,19 +186,18 @@ bool SocketClient::ProcessInput()
     return true;
 }
 
-bool SocketClient::QueueCommand( const string& command )
+/**
+ * @brief Append a command to the back of the queue.
+ * @retval false Returned if the socket is invalid.
+ * @retval true Returned if a command was successfully added.
+ */
+const bool SocketClient::QueueCommand( const string& command )
 {
     UFLAGS_DE( flags );
 
     if ( !Valid() )
     {
-        LOGFMT( flags, "SocketClient::QueueCommand()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
-        return false;
-    }
-
-    if ( command.empty() )
-    {
-        LOGSTR( flags, "SocketClient::QueueCommand()-> called with empty command" );
+        LOGFMT( flags, "SocketClient::QueueCommand()->SocketClient::Valid()-> descriptor %ld returned false", gDescriptor() );
         return false;
     }
 
@@ -113,7 +206,12 @@ bool SocketClient::QueueCommand( const string& command )
     return true;
 }
 
-bool SocketClient::Recv()
+/**
+ * @brief Receive data from the client and append it to a receive buffer.
+ * @retval false Returned if there was an error while receiving data.
+ * @retval true Returned if there is no data to receive or data was received successfully.
+ */
+const bool SocketClient::Recv()
 {
     UFLAGS_DE( flags );
     ssize_t amount = 0;
@@ -121,7 +219,7 @@ bool SocketClient::Recv()
 
     if ( !Valid() )
     {
-        LOGFMT( flags, "SocketClient::Recv()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
+        LOGFMT( flags, "SocketClient::Recv()->SocketClient::Valid()-> descriptor %ld returned false", gDescriptor() );
         return false;
     }
 
@@ -131,11 +229,11 @@ bool SocketClient::Recv()
         return false;
     }
 
-    if ( ( amount = ::recv( m_descriptor, buf, CFG_STR_MAX_BUFLEN - 1, 0 ) ) < 1 )
+    if ( ( amount = ::recv( gDescriptor(), buf, CFG_STR_MAX_BUFLEN - 1, 0 ) ) < 1 )
     {
         if ( amount == 0 )
         {
-            LOGFMT( flags, "SocketClient::Recv()->recv()-> broken pipe encountered on recv from: %s", CSTR( m_hostname ) );
+            LOGFMT( flags, "SocketClient::Recv()->recv()-> broken pipe encountered on recv from: %s", CSTR( gHostname() ) );
             return false;
         }
         else if ( errno != EAGAIN && errno != EWOULDBLOCK )
@@ -145,15 +243,21 @@ bool SocketClient::Recv()
         }
     }
 
-    if ( !m_server->gSocket()->sBytesRecvd( m_server->gSocket()->gBytesRecvd() + amount ) )
+    if ( !m_server->gSocket()->aBytesRecvd( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Recv()->Server::gSocket()->Server::sBytesRecvd()-> value %ld returned false", m_server->gSocket()->gBytesRecvd() + amount );
+        LOGFMT( flags, "SocketClient::Recv()->Server::gSocket()->Server::aBytesRecvd()-> value %ld returned false", m_server->gSocket()->gBytesRecvd() + amount );
         return false;
     }
 
-    if ( !sBytesRecvd( m_bytes_recvd + amount ) )
+    if ( !aBytesRecvd( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Recv()->SocketClient::sBytesRecvd()-> value %ld returned false", m_bytes_recvd + amount );
+        LOGFMT( flags, "SocketClient::Recv()->SocketClient::aBytesRecvd()-> value %ld returned false", gBytesRecvd() + amount );
+        return false;
+    }
+
+    if ( !sIdle( 0 ) )
+    {
+        LOGSTR( flags, "SocketClient::Recv()->SocketClient::sIdle()-> value 0 returned false" );
         return false;
     }
 
@@ -170,7 +274,7 @@ const void SocketClient::ResolveHostname()
 
     if ( !Valid() )
     {
-        LOGFMT( flags, "SocketClient::ResolveHostname()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
+        LOGFMT( flags, "SocketClient::ResolveHostname()->SocketClient::Valid()-> descriptor %ld returned false", gDescriptor() );
         return;
     }
 
@@ -201,19 +305,19 @@ const void SocketClient::ResolveHostname()
     return;
 }
 
-bool SocketClient::Send( const string& msg )
+/**
+ * @brief Append data to an output buffer in preparation of being sent to the client.
+ * @param[in] msg The data to be buffered for sending.
+ * @retval false Returned if the socket is invalid.
+ * @retval true Returned if data was successfully buffered for sending.
+ */
+const bool SocketClient::Send( const string& msg )
 {
     UFLAGS_DE( flags );
 
     if ( !Valid() )
     {
-        LOGFMT( flags, "SocketClient::Send()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
-        return false;
-    }
-
-    if ( msg.empty() )
-    {
-        LOGSTR( flags, "SocketClient::Send()-> called with empty msg" );
+        LOGFMT( flags, "SocketClient::Send()->SocketClient::Valid()-> descriptor %ld returned false", gDescriptor() );
         return false;
     }
 
@@ -230,28 +334,31 @@ bool SocketClient::Send( const string& msg )
     return true;
 }
 
-bool SocketClient::Send()
+/**
+ * @brief Process data from the client's send buffer and transmit it via the socket.
+ * @retval false Returned if the socket is invalid or there is an error while sending.
+ * @retval true Returned if there is no data to send or data was sent successfully.
+ */
+const bool SocketClient::Send()
 {
     UFLAGS_DE( flags );
     ssize_t amount = 0;
 
     if ( !Valid() )
     {
-        LOGFMT( flags, "SocketClient::Send()->SocketClient::Valid()-> descriptor %ld returned false", m_descriptor );
+        LOGFMT( flags, "SocketClient::Send()->SocketClient::Valid()-> descriptor %ld returned false", gDescriptor() );
         return false;
     }
 
+    // Nothing new to process; move along
     if ( m_output.empty() )
-    {
-        LOGSTR( flags, "SocketClient::Send()-> called with empty output buffer" );
-        return false;
-    }
+        return true;
 
-    if ( ( amount = ::send( m_descriptor, CSTR( m_output ), m_output.length(), 0 ) ) < 1 )
+    if ( ( amount = ::send( gDescriptor(), CSTR( m_output ), m_output.length(), 0 ) ) < 1 )
     {
         if ( amount == 0 )
         {
-            LOGFMT( flags, "SocketClient::Send()->send()-> broken pipe encountered on send to: %s", CSTR( m_hostname ) );
+            LOGFMT( flags, "SocketClient::Send()->send()-> broken pipe encountered on send to: %s", CSTR( gHostname() ) );
             return false;
         }
         else if ( errno != EAGAIN && errno != EWOULDBLOCK )
@@ -261,15 +368,15 @@ bool SocketClient::Send()
         }
     }
 
-    if ( !m_server->gSocket()->sBytesSent( m_server->gSocket()->gBytesSent() + amount ) )
+    if ( !m_server->gSocket()->aBytesSent( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Send()->Server::gSocket()->Server::sBytesSent()-> value %lu returned false", m_server->gSocket()->gBytesSent() + amount );
+        LOGFMT( flags, "SocketClient::Send()->Server::gSocket()->Server::aBytesSent()-> value %lu returned false", m_server->gSocket()->gBytesSent() + amount );
         return false;
     }
 
-    if ( !sBytesSent( m_bytes_sent + amount ) )
+    if ( !aBytesSent( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Send()->SocketClient::sBytesSent()-> value %lu returned false", m_bytes_sent + amount );
+        LOGFMT( flags, "SocketClient::Send()->SocketClient::aBytesSent()-> value %lu returned false", gBytesSent() + amount );
         return false;
     }
 
@@ -277,11 +384,19 @@ bool SocketClient::Send()
 
     return true;
 }
+/**@}*/
 
-// Query
+/** @name Query */ /**@{*/
+/**@}*/
 
-// Manipulate
-bool SocketClient::sIdle( const uint_t& idle )
+/** @name Manipulate */ /**@{*/
+/**
+ * @brief Set the idle timer value of the socket.
+ * @param[in] idle A #uint_t value ranging from 0 to #CFG_SOC_MAX_IDLE.
+ * @retval false Returned if the idle value is outside the proper range.
+ * @retval true Returned if the idle value was successfully set.
+ */
+const bool SocketClient::sIdle( const uint_t& idle )
 {
     UFLAGS_DE( flags );
 
@@ -330,7 +445,13 @@ clog << hostname << endl;
     ::pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
 }
 
-bool SocketClient::sServer( Server* server )
+/**
+ * @brief Set the owning server object that the socket is actually connected to.
+ * @param[in] server A pointer to an instance of a Server object. By default this is the server instance which initially accepted the client connection.
+ * @retval false Returned if the server is either invalid (NULL) or shutdown.
+ * @retval true Returned if owning server is successfully set.
+ */
+const bool SocketClient::sServer( Server* server )
 {
     UFLAGS_DE( flags );
 
@@ -351,7 +472,13 @@ bool SocketClient::sServer( Server* server )
     return true;
 }
 
-bool SocketClient::sState( const uint_t& state )
+/**
+ * @brief Set the connection state value of the socket.
+ * @param[in] state A #uint_t value ranging from #SOC_STATE_DISCONNECTED to #MAX_SOC_STATE-1.
+ * @retval false Returned if the socket state value is outside the proper range.
+ * @retval true Returned if the socket state was successfully set.
+ */
+const bool SocketClient::sState( const uint_t& state )
 {
     UFLAGS_DE( flags );
 
@@ -365,24 +492,34 @@ bool SocketClient::sState( const uint_t& state )
 
     return true;
 }
+/**@}*/
 
-SocketClient::SocketClient( Server* server, sint_t& descriptor ) : Socket( descriptor )
+/** @name Internal */ /**@{*/
+/**
+ * @brief Constructor for the SocketClient class.
+ * @param[in] server A pointer to an instance of a Server object.
+ * @param[in] descriptor A #sint_t value of the file descriptor that has been opened for the socket.
+ */
+SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket( server, descriptor )
 {
     m_command_queue.clear();
     m_idle = 0;
     m_input.clear();
     m_output.clear();
+    sServer( server );
     m_state = SOC_STATE_DISCONNECTED;
 
-    sServer( server );
     m_server->sSocketOpen( m_server->gSocketOpen() + 1 );
-
     socket_client_list.push_back( this );
 
     return;
 }
 
+/**
+ * @brief Destructor for the SocketClient class.
+ */
 SocketClient::~SocketClient()
 {
     return;
 }
+/**@}*/

@@ -15,6 +15,12 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file socketserver.h
+ * @brief The SocketServer class.
+ *
+ *  This file contains the SocketServer class, templates, and trivial member functions.
+ */
 #ifndef DEC_SOCKETSERVER_H
 #define DEC_SOCKETSERVER_H
 
@@ -22,18 +28,31 @@
 
 class SocketServer : public Socket {
     public:
-        SocketServer();
+        /** @name Core */ /**@{*/
+        const void Accept();
+        const bool Bind( const uint_t& port, const string& addr );
+        const void Delete();
+        const bool Listen();
+        const bool New();
+        const bool Thread();
+        static void* Update( void* data );
+        /**@}*/
+
+        /** @name Query */ /**@{*/
+        Server* gServer() const { return m_server; }
+        /**@}*/
+
+        /** @name Manipulate */ /**@{*/
+        const bool sServer( Server* server );
+        /**@}*/
+
+        /** @name Internal */ /**@{*/
+        SocketServer( Server* server, const sint_t& descriptor );
         ~SocketServer();
-
-        // Core
-        bool Bind( const uint_t& port, const string& addr );
-        bool Listen();
-
-        // Query
-
-        // Manipulate
+        /**@}*/
 
     private:
+        Server* m_server;
 };
 
 #endif

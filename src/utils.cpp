@@ -15,11 +15,19 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file utils.cpp
+ * @brief All non-trivial member functions of the Utils namespace.
+ */
 #include "h/includes.h"
 #include "h/class.h"
 
-// Core
-timeval Utils::CurrentTime()
+/** @name Core */ /**@{*/
+/**
+ * @brief Returns the current system time.
+ * @retval timeval
+ */
+const timeval Utils::CurrentTime()
 {
     UFLAGS_DE( flags );
     timeval now;
@@ -33,7 +41,14 @@ timeval Utils::CurrentTime()
     return now;
 }
 
-uint_t Utils::DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity )
+/**
+ * @brief Calculates the different between two timeval variables.
+ * @param[in] prev A timeval of the beginning time.
+ * @param[in] current A timeval of the current, or end time.
+ * @param[in] granularity A #uint_t variable specified as a UTILS_TIME value from #UTILS_OPTS.
+ * @retval #uint_t A #uint_t value is returned as the difference between prev and current in units granularity.
+ */
+const uint_t Utils::DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity )
 {
     switch ( granularity )
     {
@@ -44,7 +59,16 @@ uint_t Utils::DiffTime( const timeval& prev, const timeval& current, const uint_
     }
 }
 
-string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
+/**
+ * @brief This is a nested wrapper for Utils::__FormatString and should not be called directly.
+ * @param[in] narg A #uint_t variable of the total number of arguments passed. Handled automatically.
+ * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
+ * @param[in] caller A string value containing the calling function. Handled automatically.
+ * @param[in] fmt A string value containing a printf-style format string.
+ * @param[in] ... A variable arguments list to populate fmt with.
+ * @retval string A printf-style formatted string.
+ */
+const string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
 {
     UFLAGS_DE( uflags );
     va_list args;
@@ -63,7 +87,16 @@ string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET
     return output;
 }
 
-string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val ) // Thanks go to Darien @ MudBytes.net for the start of this
+/**
+ * @brief This is the printf-style string formatter. It should not be invoked directly, but rather by using Utils::FormatString() to ensure proper argument count and caller passing.
+ * @param[in] narg A #uint_t variable of the total number of arguments passed. Handled automatically.
+ * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
+ * @param[in] caller A string value containing the calling function. Handled automatically.
+ * @param[in] fmt A string value containing a printf-style format string.
+ * @param[in] ... A variable arguments list to populate fmt with.
+ * @retval string A printf-style formatted string.
+ */
+const string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val ) // Thanks go to Darien @ MudBytes.net for the start of this
 {
     UFLAGS_DE( uflags );
     va_list args;
@@ -108,7 +141,16 @@ string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSE
     return output = &buf[0];
 }
 
-void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
+/**
+ * @brief This is the logging output engine. It should not be invoked directly, but rather by calling Utils::Logger() to ensure proper argument count and caller passing.
+ * @param[in] narg A #uint_t variable of the total number of arguments passed. Handled automatically.
+ * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
+ * @param[in] caller A string value containing the calling function. Handled automatically.
+ * @param[in] fmt A string value containing a printf-style format string.
+ * @param[in] ... A variable arguments list to populate fmt with.
+ * @retval string A printf-style formatted string.
+ */
+const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
 {
     UFLAGS_DE( uflags );
     va_list args;
@@ -138,7 +180,6 @@ void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags
             switch( i )
             {
                 case UTILS_DEBUG:       post += " ["; post += caller; post += "]"; break; // output caller
-                case UTILS_IGNORE_CASE: break; // noting for now
                 case UTILS_RAW:         pre.clear(); post.clear(); i = MAX_UTILS;  break; //no extraneous data applied
                 case UTILS_TYPE_ERROR:  pre += CFG_STR_UTILS_ERROR;                break; // so fancy!
                 case UTILS_TYPE_INFO:   pre += CFG_STR_UTILS_INFO;                 break;
@@ -149,14 +190,18 @@ void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags
     }
 
     clog << pre << output << post << endl;
-
-//fixme    if ( !server.shutdown )
-//fixme        monitor_chan( output.c_str(), MONITOR_LOG );
+    /** @todo Add monitor channel support */
 
     return;
 }
 
-uint_t Utils::NumChar( const string& input, const string& item )
+/**
+ * @brief Returns the number of a specific character in a given string.
+ * @param[in] input A string value to search.
+ * @param[in] item The character to search for within input.
+ * @retval uint_t A #uint_t value containing the total count of item within input.
+ */
+const uint_t Utils::NumChar( const string& input, const string& item )
 {
     UFLAGS_DE( flags );
     uint_t amount = 0, i = 0;
@@ -174,7 +219,12 @@ uint_t Utils::NumChar( const string& input, const string& item )
     return amount;
 }
 
-vector<string> Utils::StrNewlines( const string& input )
+/**
+ * @brief Returns a vector of strings split at linebreaks based on input.
+ * @param[in] input A string to split on newline characters.
+ * @retval vector<string> A vector of strings that were split on the linebreaks detected from input.
+ */
+const vector<string> Utils::StrNewlines( const string& input )
 {
     UFLAGS_DE( flags );
 
@@ -189,12 +239,22 @@ vector<string> Utils::StrNewlines( const string& input )
     vector<string> output;
 
     while ( getline( ss, line ) )
-        output.push_back( line );
+    {
+        // Strip the newline off the end
+        line.resize( line.length() - 1 );
+        if ( !line.empty() )
+            output.push_back( line );
+    }
 
     return output;
 }
 
-string Utils::StrTime( const timeval& now )
+/**
+ * @brief Returns a given time as a string.
+ * @param[in] now A timeval to be formatted into a string.
+ * @retval string A string value containing the human readable form of the contents of now.
+ */
+const string Utils::StrTime( const timeval& now )
 {
     UFLAGS_DE( flags );
     string output;
@@ -211,7 +271,12 @@ string Utils::StrTime( const timeval& now )
     return output;
 }
 
-vector<string> Utils::StrTokens( const string& input )
+/**
+ * @brief Returns a vector of strings split at spaces based on input.
+ * @param[in] input A string to split on space characters.
+ * @retval vector<string> A vector of strings that were split on the spaces detected from input.
+ */
+const vector<string> Utils::StrTokens( const string& input )
 {
     UFLAGS_DE( flags );
 
@@ -228,9 +293,16 @@ vector<string> Utils::StrTokens( const string& input )
 
     return output;
 }
+/**@}*/
 
-// Query
-bool Utils::iDirectory( const string& dir )
+/** @name Query */ /**@{*/
+/**
+ * @brief Determines if a file path is a directory or file on disk.
+ * @param[in] dir A string containing the file path to be checked.
+ * @retval false Returned if the file path received in dir is not of type directory or an error occurs during stat.
+ * @retval true Returned if the file path received in dir is of type directory.
+ */
+const bool Utils::iDirectory( const string& dir )
 {
     UFLAGS_DE( flags );
     struct stat dir_info;
@@ -247,7 +319,13 @@ bool Utils::iDirectory( const string& dir )
     return true;
 }
 
-bool Utils::iFile( const string& file )
+/**
+ * @brief Determines if a file path is a file or directory on disk.
+ * @param[in] file A string containing the file path to be checked.
+ * @retval false Returned if the file path received in file is not of type file or an error occurs during stat.
+ * @retval true Returned if the file path receievd in dir is of type file.
+ */
+const bool Utils::iFile( const string& file )
 {
     UFLAGS_DE( flags );
     struct stat dir_info;
@@ -264,7 +342,13 @@ bool Utils::iFile( const string& file )
     return true;
 }
 
-bool Utils::iNumber( const string& input )
+/**
+ * @brief Determines if a string is only a string of numerical values.
+ * @param[in] input A string to check for numerical values.
+ * @retval false Returned if input is empty or the input contains non-numerical values.
+ * @retval true Returned if input contains only numerical values.
+ */
+const bool Utils::iNumber( const string& input )
 {
     UFLAGS_DE( flags );
     uint_t i = 0;
@@ -281,9 +365,19 @@ bool Utils::iNumber( const string& input )
 
     return true;
 }
+/**@}*/
 
-// Manipulate
-multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
+/** @name Manipulate */ /**@{*/
+/**
+ * @brief Return a multimap of a specified directory tree on disk.
+ * @param[in] dir The filesystem path to search.
+ * @param[in] recursive If tue, the function will continue to recursively list folders multi-layers deep rather than top level only.
+ * @param[in,out] output A multimap<bool,string> consisting of a boolean value denoting either #UTILS_IS_DIRECTORY or #UTILS_IS_FILE. If recursive, this will be updated on each pass.
+ * @param[in,out] dir_close A #uint_t pointing to the total directory opened count on a Server object.
+ * @param[in,out] dir_open A #uint_t pointing to the total directory closed count on a Server object.
+ * @retval multimap<bool,string> A multimap<bool,string> consisting of a boolean value denoting either #UTILS_IS_DIRECTORY or #UTILS_IS_FILE. If recursive, this will be updated on each pass.
+ */
+const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
 {
     UFLAGS_DE( flags );
     DIR* directory = NULL;
@@ -328,3 +422,7 @@ multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recur
 
     return output;
 }
+/**@}*/
+
+/** @name Internal */ /**@{*/
+/**@}*/

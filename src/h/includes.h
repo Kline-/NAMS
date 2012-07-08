@@ -15,6 +15,14 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file includes.h
+ * @brief All non-system includes that need to be within each .cpp file.
+ *
+ *  This file is a "headers of headers" in that it only references other
+ *  headers within NAMS that should be included to each .cpp file. This
+ *  header file should be the first file included within every .cpp file.
+ */
 #ifndef DEC_INCLUDES_H
 #define DEC_INCLUDES_H
 

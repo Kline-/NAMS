@@ -15,6 +15,12 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file server.h
+ * @brief The Server class.
+ *
+ *  This file contains the Server class, templates, and trivial member functions.
+ */
 #ifndef DEC_SERVER_H
 #define DEC_SERVER_H
 
@@ -26,34 +32,36 @@
 
 class Server {
     public:
-        Server();
-        ~Server();
-
-        // Core
-        bool InitSocket( SocketServer* socket_server );
-        bool LoadCommands();
-        const void NewConnection();
-        bool PollSockets();
-        bool ProcessInput();
-        bool Running() const { return !m_shutdown; }
+        /** @name Core */ /**@{*/
+        const bool LoadCommands();
+        const bool PollSockets();
+        const bool ProcessInput();
+        const bool Running() const { return !m_shutdown; }
         const void Startup();
         const void Shutdown( const sint_t& status );
         const void Update();
+        /**@}*/
 
-        // Query
-        string gHostname() const;
-        uint_t gPort() const { return m_port; }
-        uint_t gPulseRate() const { return m_pulse_rate; }
+        /** @name Query */ /**@{*/
+        const string gHostname() const;
+        const uint_t gPort() const { return m_port; }
+        const uint_t gPulseRate() const { return m_pulse_rate; }
         SocketServer* gSocket() const { return m_socket; }
-        uint_t gSocketClose() const { return m_socket_close; }
-        uint_t gSocketOpen() const { return m_socket_open; }
-        string gStatus() const;
+        const uint_t gSocketClose() const { return m_socket_close; }
+        const uint_t gSocketOpen() const { return m_socket_open; }
+        const string gStatus() const;
+        /**@}*/
 
-        // Manipulate
-        bool sPort( const uint_t& port );
-        bool sPulseRate( const uint_t& rate );
-        bool sSocketClose( const uint_t& amount );
-        bool sSocketOpen( const uint_t& amount );
+        /** @name Manipulate */ /**@{*/
+        const bool sPort( const uint_t& port );
+        const bool sSocketClose( const uint_t& amount );
+        const bool sSocketOpen( const uint_t& amount );
+        /**@}*/
+
+        /** @name Internal */ /**@{*/
+        Server();
+        ~Server();
+        /**@}*/
 
     private:
         uint_t  m_dir_close;

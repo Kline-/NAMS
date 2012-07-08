@@ -15,6 +15,12 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file socketclient.h
+ * @brief The SocketClient class.
+ *
+ *  This file contains the SocketClient class, templates, and trivial member functions.
+ */
 #ifndef DEC_SOCKETCLIENT_H
 #define DEC_SOCKETCLIENT_H
 
@@ -25,31 +31,37 @@
 
 class SocketClient : public Socket {
     public:
-        SocketClient( Server* server, sint_t& descriptor );
-        ~SocketClient();
-
-        // Core
-        const void Disconnect( const string& msg = "" );
-        bool PendingCommand() const { return !m_command_queue.empty(); }
-        bool PendingOutput() const { return !m_output.empty(); }
-        bool ProcessCommand();
-        bool ProcessInput();
-        bool QueueCommand( const string& command );
-        bool Recv();
+        /** @name Core */ /**@{*/
+        const void Delete();
+        const bool New();
+        const bool PendingCommand() const { return !m_command_queue.empty(); }
+        const bool PendingOutput() const { return !m_output.empty(); }
+        const bool ProcessCommand();
+        const bool ProcessInput();
+        const bool QueueCommand( const string& command );
+        const bool Recv();
         const void ResolveHostname();
-        bool Send( const string& msg );
-        bool Send();
+        const bool Send( const string& msg );
+        const bool Send();
+        /**@}*/
 
         // Query
-        uint_t gIdle() const { return m_idle; }
+        const uint_t gIdle() const { return m_idle; }
         Server* gServer() const { return m_server; }
-        uint_t gState() const { return m_state; }
+        const uint_t gState() const { return m_state; }
+        /**@}*/
 
         // Manipulate
-        bool sIdle( const uint_t& idle );
+        const bool sIdle( const uint_t& idle );
         static void* tResolveHostname( void* data );
-        bool sServer( Server* server );
-        bool sState( const uint_t& state );
+        const bool sServer( Server* server );
+        const bool sState( const uint_t& state );
+        /**@}*/
+
+        /** @name Internal */ /**@{*/
+        SocketClient( Server* server, const sint_t& descriptor );
+        ~SocketClient();
+        /**@}*/
 
     private:
         vector<string> m_command_queue;

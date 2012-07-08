@@ -15,6 +15,14 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file class.h
+ * @brief All class declarations.
+ *
+ *  This file contains declarations of all classes. Each declaration is
+ *  indented to denote inheritance. This header file should be the second
+ *  file included within every .cpp file.
+ */
 #ifndef DEC_CLASS_H
 #define DEC_CLASS_H
 

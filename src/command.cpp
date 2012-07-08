@@ -15,14 +15,39 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file command.cpp
+ * @brief All non-trivial member functions of the Command class.
+ * @todo Commands need to contain additional fields for function name
+ *  and the location of the cpp library file they will reside in. Implement
+ *  method to self-compile and reload libraries externally with dlsym.
+ *  Create abstract classes to treat as an API layer to the shared objects.
+ */
 #include "h/includes.h"
 #include "h/class.h"
 
 #include "h/command.h"
 #include "h/list.h"
 
-// Core
-bool Command::Load( const string& file )
+/** @name Core */ /**@{*/
+/**
+ * @brief Unload a command from memory that was previously loaded via Command::New().
+ * @retval void
+ */
+const void Command::Delete()
+{
+    delete this;
+
+   return;
+}
+
+/**
+ * @brief Load a command to memory from a file within a subdirectory of #CFG_DAT_DIR_COMMAND.
+ * @param[in] file The filename to load without any path prepended to it.
+ * @retval false Returned if the command in file was not found or unable to be loaded.
+ * @retval true Returned if the command in file was successfully loaded.
+ */
+const bool Command::New( const string& file )
 {
     UFLAGS_DE( flags );
     string path(  Utils::DirPath( CFG_DAT_DIR_COMMAND, file ) );
@@ -33,7 +58,7 @@ bool Command::Load( const string& file )
     // Ensure there is a valid file to open
     if ( !Utils::iFile( path ) )
     {
-        LOGFMT( flags, "Command::Load()->Utils::iFile()-> returned false for path: %s", CSTR( path ) );
+        LOGFMT( flags, "Command::New()->Utils::iFile()-> returned false for path: %s", CSTR( path ) );
         return false;
     }
 
@@ -43,7 +68,7 @@ bool Command::Load( const string& file )
         // Find the key = value split
         if ( !Utils::KeyValue( key, value, line ) )
         {
-            LOGFMT( flags, "Command::Load()->getline()-> invalid line format: %s", CSTR( line ) );
+            LOGFMT( flags, "Command::New()->getline()-> invalid line format: %s", CSTR( line ) );
             continue;
         }
 
@@ -57,7 +82,7 @@ bool Command::Load( const string& file )
             Utils::KeySet( true, found, key, "Preempt", value, m_preempt );
 
             if ( !found )
-                LOGFMT( flags, "Command::Load()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+                LOGFMT( flags, "Command::New()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
 
             break;
         }
@@ -67,18 +92,18 @@ bool Command::Load( const string& file )
 
     return true;
 }
+/**@}*/
 
-const void Command::Unload()
-{
-    delete this;
+/** @name Query */
+/**@}*/
 
-   return;
-}
+/** @name Manipulate */
+/**@}*/
 
-// Query
-
-// Manipulate
-
+/** @name Internal */
+/**
+ * @brief Constructor for the Command class.
+ */
 Command::Command()
 {
     m_level = 0;
@@ -88,7 +113,11 @@ Command::Command()
     return;
 }
 
+/**
+ * @brief Destructor for the Command class.
+ */
 Command::~Command()
 {
     return;
 }
+/**@}*/

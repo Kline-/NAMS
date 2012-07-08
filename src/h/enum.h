@@ -15,33 +15,62 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file enum.h
+ * @brief All numerical and boolean defines for every class and namespace.
+ *
+ *  This file contains all numerical and boolean defines for each class and
+ *  namespace. All items of similar purpose are grouped together with a
+ *  comment to denote the class or namespace they are significant to.
+ */
 #ifndef DEC_ENUM_H
 #define DEC_ENUM_H
 
-// uint_t    Socket
-enum {
-    SOC_STATE_DISCONNECTED = 0,
-    SOC_STATE_LOGIN_SCREEN = 1,
-    SOC_STATE_PLAYING      = 100,
-    MAX_SOC_STATE          = 101
+/** @name Socket */ /**@{*/
+/**
+ * @enum SOC_STATE
+ *
+ * #uint_t
+ */
+enum SOC_STATE {
+    SOC_STATE_DISCONNECTED = 0,     /**< A Socket in a disconnected state. */
+    SOC_STATE_LOGIN_SCREEN = 1,     /**< A Socket waiting at the login screen. */
+    SOC_STATE_PLAYING      = 100,   /**< A Socket fully within the game world and actively playing. */
+    MAX_SOC_STATE          = 101    /**< Safety limit for looping. */
+};
+/**@}*/
+
+/** @name Utils */ /**@{*/
+/**
+ * @enum UTILS_OPTS
+ *
+ * bitset<#CFG_MEM_MAX_BITSET>
+ */
+enum UTILS_OPTS {
+    UTILS_DEBUG       = 0,  /**< Enables debugging output in Utils::_Logger(). This typically includes the calling function's file and line number. */
+    UTILS_RAW         = 1,  /**< Raw data output. Skips prepending / appending anything on Utils::_Logger writes (no timestamp, etc). */
+    UTILS_TYPE_ERROR  = 2,  /**< Indicates an error and prepends #CFG_STR_UTILS_ERROR to Utils::_Logger() output. */
+    UTILS_TYPE_INFO   = 3,  /**< Indicates an info message and prepends #CFG_STR_UTILS_INFO to Utils::_Logger() output. */
+    UTILS_TYPE_SOCKET = 4,  /**< Indicates a socket related message and prepends #CFG_STR_UTILS_SOCKET to Utils::_Logger() output. */
+    UTILS_TIME_S      = 5,  /**< Will return time as @a seconds from Utils::DiffTime(). */
+    UTILS_TIME_MS     = 6,  /**< Will return time as @a milliseconds from Utils::DiffTime(). */
+    UTILS_TIME_US     = 7,  /**< Will return time as @a microseconds from Utils::DiffTime(). */
+    MAX_UTILS         = 8   /**< Safety limit for looping. */
 };
 
-// bitset<CFG_MEM_MAX_BITSET>    Utils
-enum {
-    UTILS_DEBUG       = 0,
-    UTILS_IGNORE_CASE = 1,
-    UTILS_RAW         = 2,
-    UTILS_TYPE_ERROR  = 3,
-    UTILS_TYPE_INFO   = 4,
-    UTILS_TYPE_SOCKET = 5,
-    UTILS_TIME_S      = 6,
-    UTILS_TIME_MS     = 7,
-    UTILS_TIME_US     = 8,
-    MAX_UTILS         = 9
-};
-
-// bool    Utils::ListDirectory()
+/**
+ * @def UTILS_IS_DIRECTORY
+ *
+ * Utils::ListDirectory()
+ */
 #define UTILS_IS_DIRECTORY true
+
+/**
+ * @def UTILS_IS_FILE
+ *
+ * Utils::ListDirectory()
+ */
 #define UTILS_IS_FILE      false
+/**@}*/
 
 #endif

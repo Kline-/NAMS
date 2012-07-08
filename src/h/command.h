@@ -15,6 +15,12 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file command.h
+ * @brief The Command class.
+ *
+ *  This file contains the Command class, templates, and trivial member functions.
+ */
 #ifndef DEC_COMMAND_H
 #define DEC_COMMAND_H
 
@@ -22,16 +28,21 @@
 
 class Command {
     public:
+        /** @name Core */ /**@{*/
+        const void Delete();
+        const bool New( const string& file );
+        /**@}*/
+
+        /** @name Query */ /**@{*/
+        /**@}*/
+
+        /** @name Manipulate */ /**@{*/
+        /**@}*/
+
+        /** @name Internal */ /**@{*/
         Command();
         ~Command();
-
-        // Core
-        bool Load( const string& file );
-        const void Unload();
-
-        // Query
-
-        // Manipulate
+        /**@}*/
 
     private:
         uint_t m_level;

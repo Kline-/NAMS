@@ -15,6 +15,14 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file sysincludes.h
+ * @brief All system standard includes that are used within NAMS.
+ *
+ *  This is the second "header of headers" file within NAMS. All system include
+ *  files that are required by more than two .cpp or .h files are moved within
+ *  this header for easier management and readability.
+ */
 #ifndef DEC_SYSINCLUDES_H
 #define DEC_SYSINCLUDES_H
 
