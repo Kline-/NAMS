@@ -53,7 +53,7 @@ const bool Server::LoadCommands()
 
     for ( mi = files.begin(); mi != files.end(); mi++ )
     {
-        if ( mi->first == UTILS_IS_FILE )
+        if ( mi->first == UTILS_IS_DIRECTORY && mi->second.size() > 1 )
         {
             cmd = new Command();
             if ( !cmd->New( mi->second ) )
