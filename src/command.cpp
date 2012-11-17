@@ -41,19 +41,13 @@ const void Command::Delete()
    return;
 }
 
-/**
- * @brief Load a command to memory from a file within a subdirectory of #CFG_DAT_DIR_COMMAND.
- * @param[in] file The filename to load without any path prepended to it.
- * @retval false Returned if the command in file was not found or unable to be loaded.
- * @retval true Returned if the command in file was successfully loaded.
- */
 const bool Command::New( const string& file )
 {
     UFLAGS_DE( flags );
     string path(  Utils::DirPath( CFG_DAT_DIR_COMMAND, file ) );
     string line, key, value;
-    bool found = false;
-    ifstream cmd;
+//    bool found = false;
+    FILE* src = NULL;
 
     // Ensure there is a valid file to open
     if ( !Utils::iFile( path ) )
@@ -62,6 +56,18 @@ const bool Command::New( const string& file )
         return false;
     }
 
+    if ( ( src = popen( "ls", "r" ) ) != NULL )
+        cout << "Yes";
+    return true;
+}
+/**
+ * @brief Load a command to memory from a file within a subdirectory of #CFG_DAT_DIR_COMMAND.
+ * @param[in] file The filename to load without any path prepended to it.
+ * @retval false Returned if the command in file was not found or unable to be loaded.
+ * @retval true Returned if the command in file was successfully loaded.
+
+const bool Command::New( const string& file )
+{
     cmd.open( CSTR( path ), ifstream::in );
     while( cmd.is_open() && cmd.good() && getline( cmd, line ) )
     {
@@ -91,7 +97,7 @@ const bool Command::New( const string& file )
     command_list.insert( pair<const char,Command*>( m_name[0], this ) );
 
     return true;
-}
+}*/
 /**@}*/
 
 /** @name Query */

@@ -70,6 +70,20 @@
 /**@}*/
 
 /***************************************************************************
+ *                              PLUGIN OPTIONS                             *
+ ***************************************************************************/
+/** @name Plugin Options */ /**@{*/
+/**
+ * @def CFG_PLG_BUILD_INCLUDE
+ * @brief Directory of header files to search when building a plugin.
+ * @par Default: "src/h"
+ */
+#define CFG_PLG_BUILD_INCLUDE   "src/h"
+/**@}*/
+
+#define CFG_PLG_BUILD_CMD       "g++"
+#define CFG_PLG_BUILD_OPT       "-Isrc/h -fpic -ldl -rdynamic -shared 2>&1"
+/***************************************************************************
  *                              MEMORY OPTIONS                             *
  ***************************************************************************/
 /** @name Memory Options */ /**@{*/

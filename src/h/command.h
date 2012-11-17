@@ -24,6 +24,7 @@
 #ifndef DEC_COMMAND_H
 #define DEC_COMMAND_H
 
+#include <cstdio>
 #include <fstream>
 
 class Command {
@@ -34,6 +35,7 @@ class Command {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        const string gName() const { return m_name; };
         /**@}*/
 
         /** @name Manipulate */ /**@{*/

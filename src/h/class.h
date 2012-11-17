@@ -27,6 +27,7 @@
 #define DEC_CLASS_H
 
 class Command;
+class Plugin;
 class Server;
 class Socket;
     class SocketClient;
