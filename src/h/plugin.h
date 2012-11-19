@@ -27,6 +27,7 @@
 class Plugin {
     public:
         /** @name Core */ /**@{*/
+        const void Register(  );
         virtual const void Run() const = 0;
         /**@}*/
 
@@ -38,12 +39,16 @@ class Plugin {
         /**@}*/
 
         /** @name Internal */ /**@{*/
-        Plugin( const string& name );
+        Plugin( const string& name, const uint_t& type );
         ~Plugin();
         /**@}*/
 
     private:
+        bool m_bool[CFG_PLG_MAX_ARR];
         string m_name;
+        string m_string[CFG_PLG_MAX_ARR];
+        uint_t m_type;
+        uint_t m_uint_t[CFG_PLG_MAX_ARR];
 };
 
 typedef Plugin* NewPlugin();

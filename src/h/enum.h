@@ -26,6 +26,28 @@
 #ifndef DEC_ENUM_H
 #define DEC_ENUM_H
 
+/** @name Plugin */ /**@{*/
+/**
+ * @enum PLG_TYPE
+ *
+ * #uint_t
+ */
+enum PLG_TYPE {
+    PLG_TYPE_COMMAND = 0,   /**< A Plugin that specifies a game command. */
+    MAX_PLG_TYPE     = 1    /**< Safety limit for looping. */
+};
+
+/**
+ * @enum PLG_TYPE_COMMAND_BOOL
+ *
+ * #bool
+ */
+enum PLG_TYPE_COMMAND_BOOL {
+    PLG_TYPE_COMMAND_BOOL_PREEMPT = 0,
+    MAX_PLG_TYPE_COMMAND_BOOL     = 1
+};
+/**@}*/
+
 /** @name Socket */ /**@{*/
 /**
  * @enum SOC_STATE

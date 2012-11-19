@@ -57,7 +57,8 @@ const bool Command::New( const string& file )
     }
 
     if ( ( src = popen( "ls", "r" ) ) != NULL )
-        cout << "Yes";
+        cout << "Yes" << endl;;
+    cout << file << endl;
     return true;
 }
 /**

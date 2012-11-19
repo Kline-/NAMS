@@ -55,6 +55,7 @@ namespace Utils {
     template <class T> inline const string Lower( const T& t ) { stringstream ss; ss << nouppercase << t; return ss.str(); }
     template <class T> inline const string Upper( const T& t ) { stringstream ss; ss << uppercase << t; return ss.str(); }
     template <class T> inline const string String( const T& t ) { stringstream ss( t ); return ss.str(); }
+    const string BuildPath( const string& directory, const string& file, const string& ext = "" );
     const timeval CurrentTime();
     const uint_t DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity );
     const string _FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... );

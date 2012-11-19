@@ -24,6 +24,33 @@
 
 /** @name Core */ /**@{*/
 /**
+ * @brief Returns a string consisting of dir/file[0]/file.
+ * @param[in] directory The top level directory build the path from.
+ * @param[in] file The file to build the path from.
+ * @param[in] ext Optionally replaces the file extension with this.
+ * @retval string A string consisting of directory/file[0]/file.
+ */
+const string Utils::BuildPath( const string& directory, const string& file, const string& ext )
+{
+    string path;
+
+    path = directory;
+    path += "/";
+    path += file[0];
+    path += "/";
+
+    if ( !ext.empty() )
+    {
+        path += file.substr( 0, file.find_last_of( "." ) + 1 );
+        path += ext;
+    }
+    else
+        path += file;
+
+    return path;
+}
+
+/**
  * @brief Returns the current system time.
  * @retval timeval
  */

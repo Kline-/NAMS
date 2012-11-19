@@ -43,6 +43,13 @@
  * @par Default: "log"
  */
 #define CFG_DAT_DIR_LOG         "log"
+
+/**
+ * @def CFG_DAT_DIR_OBJ
+ * @brief Directory for plugins to be loaded from; should contain subdirs a-z.
+ * @par Default: "obj"
+ */
+#define CFG_DAT_DIR_OBJ         "obj"
 /**@}*/
 
 /***************************************************************************
@@ -74,15 +81,41 @@
  ***************************************************************************/
 /** @name Plugin Options */ /**@{*/
 /**
- * @def CFG_PLG_BUILD_INCLUDE
- * @brief Directory of header files to search when building a plugin.
- * @par Default: "src/h"
+ * @def CFG_PLG_BUILD_CMD
+ * @brief The compiler command to use when building plugins.
+ * @par Default: "g++"
  */
-#define CFG_PLG_BUILD_INCLUDE   "src/h"
+#define CFG_PLG_BUILD_CMD       "g++"
+
+/**
+ * @def CFG_PLG_BUILD_OPT
+ * @brief All build options passed during compiling a plugin.
+ * @par Default: "-Isrc/h -fpic -ldl -rdynamic -shared 2>&1"
+ */
+#define CFG_PLG_BUILD_OPT       "-Isrc/h -fpic -ldl -rdynamic -shared 2>&1"
+
+/**
+ * @def CFG_PLG_BUILD_EXT_IN
+ * @brief File extension for files to be compiled.
+ * @par Default: "cpp"
+ */
+#define CFG_PLG_BUILD_EXT_IN    "cpp"
+
+/**
+ * @def CFG_PLG_BUILD_EXT_OUT
+ * @brief File extension for files after they are compiled.
+ * @par Default: "so"
+ */
+#define CFG_PLG_BUILD_EXT_OUT   "so"
+
+/**
+ * @def CFG_PLG_MAX_ARR
+ * @brief The maximum number of elements for each data type array in a plugin.
+ * @par Default: 5
+ */
+#define CFG_PLG_MAX_ARR         5
 /**@}*/
 
-#define CFG_PLG_BUILD_CMD       "g++"
-#define CFG_PLG_BUILD_OPT       "-Isrc/h -fpic -ldl -rdynamic -shared 2>&1"
 /***************************************************************************
  *                              MEMORY OPTIONS                             *
  ***************************************************************************/

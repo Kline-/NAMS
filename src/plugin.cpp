@@ -34,9 +34,13 @@
 /**@}*/
 
 /** @name Internal */ /**@{*/
-Plugin::Plugin( const string& name )
+Plugin::Plugin( const string& name, const uint_t& type )
 {
+    m_bool[CFG_PLG_MAX_ARR] = { false };
     m_name = name;
+    m_string[CFG_PLG_MAX_ARR] = { string() };
+    m_type = type;
+    m_uint_t[CFG_PLG_MAX_ARR] = { uintmin_t };
 
     return;
 }

@@ -27,6 +27,43 @@
 
 /** @name Core */ /**@{*/
 /**
+ * @brief Compile a plugin file.
+ * @param[in] file The file to be compiled. The file extension should end in #CFG_PLG_BUILD_EXT_IN.
+ * @retval false Returned if a fault is experienced trying to build the plugin.
+ * @retval true Returned if the plugin builds successfully.
+ */
+const bool Server::BuildPlugin( const string& file )
+{
+    UFLAGS_DE( flags );
+    FILE* popen_fil = NULL;
+    string build_cmd, build_res;
+    char buf[CFG_STR_MAX_BUFLEN];
+
+    build_cmd = CFG_PLG_BUILD_CMD " -o ";
+    build_cmd += Utils::BuildPath( CFG_DAT_DIR_OBJ, file.substr( file.find_last_of( "/" ) + 1, file.length() ), CFG_PLG_BUILD_EXT_OUT );
+    build_cmd += " ";
+    build_cmd += file;
+    build_cmd += " " CFG_PLG_BUILD_OPT;
+
+    if ( ( popen_fil = popen( CSTR( build_cmd ), "r" ) ) != NULL )
+    {
+        while( fgets( buf, CFG_STR_MAX_BUFLEN, popen_fil ) != NULL )
+            build_res += buf;
+
+        pclose( popen_fil );
+    }
+
+    // Something went wrong
+    if ( !build_res.empty() )
+    {
+        LOGFMT( flags, "Server::BuildPlugin()->returned error: %s", CSTR( build_res ) );
+        return false;
+    }
+
+    return true;
+}
+
+/**
  * @brief Search all subfolders of #CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memory.
  * @retval false Returned if a fault is experienced trying to obtain a directory listing to process.
  * @retval true Returned if 0 or more Command objects are loaded from disk.
@@ -35,7 +72,7 @@ const bool Server::LoadCommands()
 {
     UFLAGS_DE( flags );
     timeval start, finish;
-    Command* cmd = NULL;
+//    Command* cmd = NULL;
     multimap<bool,string> files;
     MITER( multimap, bool,string, mi );
 
@@ -53,14 +90,19 @@ const bool Server::LoadCommands()
 
     for ( mi = files.begin(); mi != files.end(); mi++ )
     {
-        if ( mi->first == UTILS_IS_DIRECTORY && mi->second.size() > 1 )
+        if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ).compare( CFG_PLG_BUILD_EXT_IN ) == 0 ) )
         {
-            cmd = new Command();
+            if ( !BuildPlugin( Utils::BuildPath( CFG_DAT_DIR_COMMAND, mi->second ) ) )
+            {
+                LOGFMT( flags, "Server::LoadCommand()->Server::BuildPlugin()-> file %s returned false", CSTR( mi->second ) );
+            }
+/*            cmd = new Command();
             if ( !cmd->New( mi->second ) )
             {
                 LOGFMT( flags, "Server::LoadCommands()->Command::New()-> command %s returned false", CSTR( mi->second ) );
                 delete cmd;
             }
+*/
         }
     }
 
