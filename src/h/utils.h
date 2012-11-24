@@ -27,6 +27,7 @@
 #include <bitset>
 #include <cstdarg>
 #include <cstdio>
+#include <fstream>
 #include <iostream>
 #include <iterator>
 #include <sstream>
@@ -73,6 +74,7 @@ namespace Utils {
     const bool iDirectory( const string& dir );
     const bool iFile( const string& file );
     const bool iNumber( const string& input );
+    const bool iReadable( const string& file );
     /**@}*/
 
     /** @name Manipulate */ /**@{*/

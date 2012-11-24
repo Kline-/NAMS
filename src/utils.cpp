@@ -350,7 +350,7 @@ const bool Utils::iDirectory( const string& dir )
  * @brief Determines if a file path is a file or directory on disk.
  * @param[in] file A string containing the file path to be checked.
  * @retval false Returned if the file path received in file is not of type file or an error occurs during stat.
- * @retval true Returned if the file path receievd in dir is of type file.
+ * @retval true Returned if the file path receievd in file is of type file.
  */
 const bool Utils::iFile( const string& file )
 {
@@ -391,6 +391,30 @@ const bool Utils::iNumber( const string& input )
             return false;
 
     return true;
+}
+
+/**
+ * @brief Determines if a file is readable.
+ * @param[in] file A string containing the file path to be checked.
+ * @retval false Returned if file does not exist or is not readable.
+ * @retval true Returned if file exists and is readable.
+ */
+const bool Utils::iReadable( const string& file )
+{
+    UFLAGS_DE( flags );
+    ifstream ifile;
+    bool ret = false;
+
+    ifile.open( file, ifstream::in );
+
+    if ( ifile.fail() )
+        ret = false;
+    else
+        ret = true;
+
+    ifile.close();
+
+    return ret;
 }
 /**@}*/
 

@@ -33,7 +33,7 @@
 class Server {
     public:
         /** @name Core */ /**@{*/
-        const bool BuildPlugin( const string& file );
+        const bool BuildPlugin( const string& file, const bool& force = false );
         const bool LoadCommands();
         const bool PollSockets();
         const bool ProcessInput();

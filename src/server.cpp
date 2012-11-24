@@ -29,15 +29,19 @@
 /**
  * @brief Compile a plugin file.
  * @param[in] file The file to be compiled. The file extension should end in #CFG_PLG_BUILD_EXT_IN.
+ * @param[in] force Force a rebuild even if the output file already exists.
  * @retval false Returned if a fault is experienced trying to build the plugin.
  * @retval true Returned if the plugin builds successfully.
  */
-const bool Server::BuildPlugin( const string& file )
+const bool Server::BuildPlugin( const string& file, const bool& force )
 {
     UFLAGS_DE( flags );
     FILE* popen_fil = NULL;
     string build_cmd, build_res;
-    char buf[CFG_STR_MAX_BUFLEN];
+    char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
+
+    if ( Utils::iReadable( Utils::BuildPath( CFG_DAT_DIR_OBJ, file.substr( file.find_last_of( "/" ) + 1, file.length() ), CFG_PLG_BUILD_EXT_OUT ) ) && !force )
+        return true;
 
     build_cmd = CFG_PLG_BUILD_CMD " -o ";
     build_cmd += Utils::BuildPath( CFG_DAT_DIR_OBJ, file.substr( file.find_last_of( "/" ) + 1, file.length() ), CFG_PLG_BUILD_EXT_OUT );
