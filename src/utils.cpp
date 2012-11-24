@@ -24,33 +24,6 @@
 
 /** @name Core */ /**@{*/
 /**
- * @brief Returns a string consisting of dir/file[0]/file.
- * @param[in] directory The top level directory build the path from.
- * @param[in] file The file to build the path from.
- * @param[in] ext Optionally replaces the file extension with this.
- * @retval string A string consisting of directory/file[0]/file.
- */
-const string Utils::BuildPath( const string& directory, const string& file, const string& ext )
-{
-    string path;
-
-    path = directory;
-    path += "/";
-    path += file[0];
-    path += "/";
-
-    if ( !ext.empty() )
-    {
-        path += file.substr( 0, file.find_last_of( "." ) + 1 );
-        path += ext;
-    }
-    else
-        path += file;
-
-    return path;
-}
-
-/**
  * @brief Returns the current system time.
  * @retval timeval
  */
@@ -84,6 +57,32 @@ const uint_t Utils::DiffTime( const timeval& prev, const timeval& current, const
         case UTILS_TIME_US:
                    default: return ( current.tv_usec - prev.tv_usec );
     }
+}
+
+/**
+* @brief Returns a string consisting of dir/file[0]/file.
+* @param[in] directory The top level directory build the path from.
+* @param[in] file The file to build the path from.
+* @param[in] ext Optionally replaces the file extension with this.
+* @retval string A string consisting of directory/file[0]/file.
+*/
+const string Utils::DirPath( const string& directory, const string& file, const string& ext )
+{
+    string path( directory );
+
+    path.append( "/" );
+    path += file[0];
+    path.append( "/" );
+
+    if ( !ext.empty() )
+    {
+        path.append( file.substr( 0, file.find_last_of( "." ) + 1 ) );
+        path.append( ext );
+    }
+    else
+        path.append( file );
+
+    return path;
 }
 
 /**
@@ -198,7 +197,8 @@ const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>&
         return;
 
     // prepend timestamp
-    pre = StrTime( CurrentTime() ); pre += " :: ";
+    pre = StrTime( CurrentTime() );
+    pre.append( " :: " );
 
     for ( i = 0; i < MAX_UTILS; i++ )
     {
@@ -206,11 +206,25 @@ const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>&
         {
             switch( i )
             {
-                case UTILS_DEBUG:       post += " ["; post += caller; post += "]"; break; // output caller
-                case UTILS_RAW:         pre.clear(); post.clear(); i = MAX_UTILS;  break; //no extraneous data applied
-                case UTILS_TYPE_ERROR:  pre += CFG_STR_UTILS_ERROR;                break; // so fancy!
-                case UTILS_TYPE_INFO:   pre += CFG_STR_UTILS_INFO;                 break;
-                case UTILS_TYPE_SOCKET: pre += CFG_STR_UTILS_SOCKET;               break;
+                case UTILS_DEBUG: //output caller
+                    post.append( " [" );
+                    post.append( caller );
+                    post.append( "]" );
+                break;
+                case UTILS_RAW: //no extraneous data applied
+                    pre.clear();
+                    post.clear();
+                    i = MAX_UTILS;
+                break;
+                case UTILS_TYPE_ERROR: //so fancy!
+                    pre.append( CFG_STR_UTILS_ERROR );
+                break;
+                case UTILS_TYPE_INFO: //so fancy!
+                    pre.append( CFG_STR_UTILS_INFO );
+                break;
+                case UTILS_TYPE_SOCKET: //so fancy!
+                    pre.append( CFG_STR_UTILS_SOCKET );
+                break;
                 default: break;
             }
         }
@@ -446,7 +460,7 @@ const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool&
 
     // Ensure a trailing slash is present to properly recurse
     if ( idir.compare( dir.length() - 1, 1, "/" ) != 0 )
-        idir += "/";
+        idir.append( "/" );
 
     while ( ( entry = ::readdir( directory ) ) != NULL )
     {

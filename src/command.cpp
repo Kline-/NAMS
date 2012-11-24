@@ -44,10 +44,10 @@ const void Command::Delete()
 const bool Command::New( const string& file )
 {
     UFLAGS_DE( flags );
-    string path(  Utils::DirPath( CFG_DAT_DIR_COMMAND, file ) );
+    string path( Utils::DirPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT ) );
     string line, key, value;
 //    bool found = false;
-    FILE* src = NULL;
+//    FILE* src = NULL;
 
     // Ensure there is a valid file to open
     if ( !Utils::iFile( path ) )
@@ -56,9 +56,14 @@ const bool Command::New( const string& file )
         return false;
     }
 
-    if ( ( src = popen( "ls", "r" ) ) != NULL )
-        cout << "Yes" << endl;;
-    cout << file << endl;
+    if ( ( m_handle = ::dlopen( CSTR( path ), RTLD_LAZY | RTLD_GLOBAL ) ) == NULL )
+    {
+        LOGFMT( flags, "Command::New()->dlopen returned error: %s", dlerror() );
+        return false;
+    }
+ //   else
+   //     m_handle->Run();
+
     return true;
 }
 /**
@@ -113,6 +118,7 @@ const bool Command::New( const string& file )
  */
 Command::Command()
 {
+    m_handle = NULL;
     m_level = 0;
     m_name.clear();
     m_preempt = false;

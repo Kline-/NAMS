@@ -36,29 +36,13 @@
 
 namespace Utils {
     /** @name Core */ /**@{*/
-    template <class T, class U> inline const string DirPath( const T& path, const U& file )
-    {
-        string output = path;
-
-        // Ensure a trailing slash is present to properly recurse
-        if ( output.compare( output.length() - 1, 1, "/" ) != 0 )
-            output += "/";
-
-        // Now append the first letter of the file recieved as a subdir
-        output += file[0]; output += "/";
-
-        // Finally add the filename
-        output += file;
-
-        return output;
-    }
     template <class T> inline const string DelSpaces( const T& t ) { string output( t ); output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); return output; }
     template <class T> inline const string Lower( const T& t ) { stringstream ss; ss << nouppercase << t; return ss.str(); }
     template <class T> inline const string Upper( const T& t ) { stringstream ss; ss << uppercase << t; return ss.str(); }
     template <class T> inline const string String( const T& t ) { stringstream ss( t ); return ss.str(); }
-    const string BuildPath( const string& directory, const string& file, const string& ext = "" );
     const timeval CurrentTime();
     const uint_t DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity );
+    const string DirPath( const string& directory, const string& file, const string& ext = "" );
     const string _FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... );
     const string __FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val );
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )

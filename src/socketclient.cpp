@@ -261,7 +261,7 @@ const bool SocketClient::Recv()
         return false;
     }
 
-    m_input += buf;
+    m_input.append( buf );
 
     return true;
 }
@@ -325,11 +325,11 @@ const bool SocketClient::Send( const string& msg )
     // Make this client configurable in the future.
     if ( m_output.empty() && m_state > SOC_STATE_LOGIN_SCREEN )
     {
-        m_output += CRLF;
-        m_output += msg;
+        m_output.append( CRLF );
+        m_output.append( msg );
     }
     else
-        m_output += msg;
+        m_output.append( msg );
 
     return true;
 }

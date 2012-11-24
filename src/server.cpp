@@ -40,19 +40,19 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
     string build_cmd, build_res;
     char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
 
-    if ( Utils::iReadable( Utils::BuildPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT ) ) && !force )
+    if ( Utils::iReadable( Utils::DirPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT ) ) && !force )
         return true;
 
     build_cmd = CFG_PLG_BUILD_CMD " -o ";
-    build_cmd += Utils::BuildPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT );
-    build_cmd += " ";
-    build_cmd += Utils::BuildPath( CFG_DAT_DIR_COMMAND, file );
-    build_cmd += " " CFG_PLG_BUILD_OPT;
+    build_cmd.append( Utils::DirPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT ) );
+    build_cmd.append( " " );
+    build_cmd.append( Utils::DirPath( CFG_DAT_DIR_COMMAND, file ) );
+    build_cmd.append( " " CFG_PLG_BUILD_OPT );
 
     if ( ( popen_fil = popen( CSTR( build_cmd ), "r" ) ) != NULL )
     {
         while( fgets( buf, CFG_STR_MAX_BUFLEN, popen_fil ) != NULL )
-            build_res += buf;
+            build_res.append( buf );
 
         pclose( popen_fil );
     }

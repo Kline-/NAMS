@@ -25,6 +25,7 @@
 #define DEC_COMMAND_H
 
 #include <cstdio>
+#include <dlfcn.h>
 #include <fstream>
 
 class Command {
@@ -47,6 +48,7 @@ class Command {
         /**@}*/
 
     private:
+        void* m_handle;
         uint_t m_level;
         string m_name;
         bool m_preempt;
