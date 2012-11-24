@@ -40,13 +40,13 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
     string build_cmd, build_res;
     char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
 
-    if ( Utils::iReadable( Utils::BuildPath( CFG_DAT_DIR_OBJ, file.substr( file.find_last_of( "/" ) + 1, file.length() ), CFG_PLG_BUILD_EXT_OUT ) ) && !force )
+    if ( Utils::iReadable( Utils::BuildPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT ) ) && !force )
         return true;
 
     build_cmd = CFG_PLG_BUILD_CMD " -o ";
-    build_cmd += Utils::BuildPath( CFG_DAT_DIR_OBJ, file.substr( file.find_last_of( "/" ) + 1, file.length() ), CFG_PLG_BUILD_EXT_OUT );
+    build_cmd += Utils::BuildPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT );
     build_cmd += " ";
-    build_cmd += file;
+    build_cmd += Utils::BuildPath( CFG_DAT_DIR_COMMAND, file );
     build_cmd += " " CFG_PLG_BUILD_OPT;
 
     if ( ( popen_fil = popen( CSTR( build_cmd ), "r" ) ) != NULL )
@@ -63,6 +63,8 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
         LOGFMT( flags, "Server::BuildPlugin()->returned error: %s", CSTR( build_res ) );
         return false;
     }
+    else
+        LOGFMT( 0, "Plugin built successfully: %s", CSTR( file ) );
 
     return true;
 }
@@ -76,7 +78,7 @@ const bool Server::LoadCommands()
 {
     UFLAGS_DE( flags );
     timeval start, finish;
-//    Command* cmd = NULL;
+    Command* cmd = NULL;
     multimap<bool,string> files;
     MITER( multimap, bool,string, mi );
 
@@ -96,17 +98,18 @@ const bool Server::LoadCommands()
     {
         if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ).compare( CFG_PLG_BUILD_EXT_IN ) == 0 ) )
         {
-            if ( !BuildPlugin( Utils::BuildPath( CFG_DAT_DIR_COMMAND, mi->second ) ) )
+            if ( !BuildPlugin( mi->second ) )
             {
                 LOGFMT( flags, "Server::LoadCommand()->Server::BuildPlugin()-> file %s returned false", CSTR( mi->second ) );
+                continue;
             }
-/*            cmd = new Command();
+
+            cmd = new Command();
             if ( !cmd->New( mi->second ) )
             {
                 LOGFMT( flags, "Server::LoadCommands()->Command::New()-> command %s returned false", CSTR( mi->second ) );
                 delete cmd;
             }
-*/
         }
     }
 
