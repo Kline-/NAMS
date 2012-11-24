@@ -36,9 +36,12 @@
 /** @name Internal */ /**@{*/
 Plugin::Plugin( const string& name, const uint_t& type )
 {
+    uint_t i = 0;
+
     m_bool[CFG_PLG_MAX_ARR] = { false };
     m_name = name;
-    m_string[CFG_PLG_MAX_ARR] = { string() };
+    for ( i = 0; i < CFG_PLG_MAX_ARR; i++ )
+        m_string[i].clear();
     m_type = type;
     m_uint_t[CFG_PLG_MAX_ARR] = { uintmin_t };
 

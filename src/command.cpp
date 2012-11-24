@@ -61,8 +61,18 @@ const bool Command::New( const string& file )
         LOGFMT( flags, "Command::New()->dlopen returned error: %s", dlerror() );
         return false;
     }
- //   else
-   //     m_handle->Run();
+    else
+    {
+        NewPlugin* np = (NewPlugin*) dlsym( m_handle, "New" );
+        cout << "new loaded" << endl;
+        DeletePlugin* dp = (DeletePlugin*) dlsym( m_handle, "Delete" );
+        cout << "delete loaded" << endl;
+        Plugin* pg = np();
+        cout << "plugin created" << endl;
+        pg->Run();
+        dp( pg );
+        dlclose( m_handle );
+    }
 
     return true;
 }

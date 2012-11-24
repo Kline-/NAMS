@@ -28,6 +28,8 @@
 #include <dlfcn.h>
 #include <fstream>
 
+#include "plugin.h"
+
 class Command {
     public:
         /** @name Core */ /**@{*/
