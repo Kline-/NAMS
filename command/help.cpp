@@ -1,17 +1,22 @@
 #include "includes.h"
+#include "class.h"
 #include "plugin.h"
 
 class Help : public Plugin {
     public:
-        virtual const void Run() const;
+        virtual const void Run( SocketClient* client = NULL ) const;
 
         Help( const string& name, const uint_t& type );
         ~Help();
 };
 
-const void Help::Run() const
+const void Help::Run( SocketClient* client ) const
 {
-    cout << "Help!" << endl;
+    if ( client )
+        client->Send( "Help!" CRLF );
+    else
+        cout << "Help!" << endl;
+
     return;
 }
 
