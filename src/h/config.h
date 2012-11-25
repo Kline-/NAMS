@@ -32,7 +32,7 @@
 /** @name Data Options */ /**@{*/
 /**
  * @def CFG_DAT_DIR_COMMAND
- * @brief Directory for commands to be loaded from; should contain subdirs a-z.
+ * @brief Directory for commands to be loaded from.
  * @par Default: "command"
  */
 #define CFG_DAT_DIR_COMMAND     "command"
@@ -46,7 +46,7 @@
 
 /**
  * @def CFG_DAT_DIR_OBJ
- * @brief Directory for plugins to be loaded from; should contain subdirs a-z.
+ * @brief Directory for plugins to be loaded from.
  * @par Default: "obj"
  */
 #define CFG_DAT_DIR_OBJ         "obj"
@@ -56,6 +56,13 @@
  *                              GAME OPTIONS                               *
  ***************************************************************************/
 /** @name Game Options */ /**@{*/
+/**
+ * @def CFG_GAM_CMD_IGNORE_CASE
+ * @brief Ignore case sensitivity on input from sockets.
+ * @par Default: true
+ */
+#define CFG_GAM_CMD_IGNORE_CASE true
+
 /**
  * @def CFG_GAM_PULSE_RATE
  * @brief How many cycles per second should be processed.

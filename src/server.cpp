@@ -344,10 +344,10 @@ const void Server::Shutdown( const sint_t& status )
         command_list.begin()->second->Delete();
     // Cleanup socket clients
     while ( !socket_client_list.empty() )
-        (*socket_client_list.begin())->Delete();
+        socket_client_list.front()->Delete();
     // Cleanup socket servers
     while ( !socket_server_list.empty() )
-        (*socket_server_list.begin())->Delete();
+        socket_server_list.front()->Delete();
 
     // Only output if the server actually booted; otherwise it probably faulted while getting a port from main()
     if ( was_running )

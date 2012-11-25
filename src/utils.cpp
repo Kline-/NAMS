@@ -71,8 +71,6 @@ const string Utils::DirPath( const string& directory, const string& file, const 
     string path( directory );
 
     path.append( "/" );
-    path += file[0];
-    path.append( "/" );
 
     if ( !ext.empty() )
     {

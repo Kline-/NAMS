@@ -35,10 +35,11 @@ class Command {
         /** @name Core */ /**@{*/
         const void Delete();
         const bool New( const string& file );
+        const void Run( SocketClient* client = NULL ) const { m_plg->Run( client ); return; }
         /**@}*/
 
         /** @name Query */ /**@{*/
-        const string gName() const { return m_plg->gName(); };
+        const string gName() const { return m_plg->gName(); }
         /**@}*/
 
         /** @name Manipulate */ /**@{*/

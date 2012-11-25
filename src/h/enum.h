@@ -40,7 +40,7 @@ enum PLG_TYPE {
 /**
  * @enum PLG_TYPE_COMMAND_BOOL
  *
- * #bool
+ * bool
  */
 enum PLG_TYPE_COMMAND_BOOL {
     PLG_TYPE_COMMAND_BOOL_PREEMPT = 0,

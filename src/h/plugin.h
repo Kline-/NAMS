@@ -24,15 +24,17 @@
 #ifndef DEC_PLUGIN_H
 #define DEC_PLUGIN_H
 
+#include "socketclient.h"
+
 class Plugin {
     public:
         /** @name Core */ /**@{*/
-        const void Register(  );
-        virtual const void Run() const = 0;
+        const void Register();
+        virtual const void Run( SocketClient* client = NULL ) const = 0;
         /**@}*/
 
         /** @name Query */ /**@{*/
-        const string gName() const { return m_name; };
+        const string gName() const { return m_name; }
         /**@}*/
 
         /** @name Manipulate */ /**@{*/

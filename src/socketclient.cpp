@@ -19,6 +19,7 @@
 #include "h/class.h"
 
 #include "h/socketclient.h"
+#include "h/command.h"
 
 /** @name Core */ /**@{*/
 /**
@@ -117,9 +118,10 @@ const bool SocketClient::New()
 const bool SocketClient::ProcessCommand()
 {
     UFLAGS_DE( flags );
-    ITER( vector, string, vi );
-    ITER( vector, string, vi_next );
+    pair<multimap<const char,Command*>::iterator,multimap<const char,Command*>::iterator> cmd_list;
+    MITER( multimap, const char,Command*, mi );
     string cmd;
+    bool found = false;
 
     if ( !Valid() )
     {
@@ -131,17 +133,40 @@ const bool SocketClient::ProcessCommand()
     if ( m_command_queue.empty() )
         return true;
 
-    for ( vi = m_command_queue.begin(); vi != m_command_queue.end(); vi = vi_next )
+    while ( !m_command_queue.empty() )
     {
-        cmd = *vi;
-        vi_next = m_command_queue.erase( vi );
+        cmd = m_command_queue.front();
+        m_command_queue.pop_front();
 
-        if ( cmd.compare( "shutdown" ) == 0 )
-            gServer()->Shutdown( EXIT_SUCCESS );
+        if ( CFG_GAM_CMD_IGNORE_CASE )
+            cmd_list = command_list.equal_range( Utils::Lower( cmd )[0] );
+        else
+            cmd_list = command_list.equal_range( cmd[0] );
+
+        if ( cmd_list.first == cmd_list.second )
+            Send( "Invalid command." CRLF );
         else
         {
-            Send( cmd );
-            Send( CRLF );
+            for ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
+            {
+                found = false;
+
+                if ( CFG_GAM_CMD_IGNORE_CASE )
+                {
+                    if ( Utils::Lower( mi->second->gName() ).find( Utils::Lower( cmd ) ) == 0 )
+                        found = true;
+                }
+                else
+                {
+                    if ( mi->second->gName().find( cmd ) == 0 )
+                        found = true;
+                }
+
+                if ( found )
+                    mi->second->Run( this );
+                else
+                    Send( "Invalid command." CRLF );
+            }
         }
     }
 

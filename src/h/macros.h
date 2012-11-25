@@ -164,6 +164,7 @@
  * @def LOGERRNO
  * @brief Wrap Utils::Logger() based on a locally generated errno value from system functions.
  * @param[in] flags   A local variable name of type bitset<#CFG_MEM_MAX_BITSET> with #UTILS_OPTS enabled as appropriate. 0 may be used if no options are needed.
+ * @param[in] message Any string that contains printf style format variables.
  */
 #define LOGERRNO( flags, message ) LOGFMT( flags, message " returned errno %d: %s", errno, strerror( errno ) )
 

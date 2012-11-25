@@ -90,7 +90,10 @@ const bool Command::New( const string& file )
         m_plg = m_plg_new();
     }
 
-    command_list.insert( pair<const char,Command*>( gName()[0], this ) );
+    if ( CFG_GAM_CMD_IGNORE_CASE )
+        command_list.insert( pair<const char,Command*>( Utils::Lower( gName() )[0], this ) );
+    else
+        command_list.insert( pair<const char,Command*>( gName()[0], this ) );
 
     return true;
 }

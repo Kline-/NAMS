@@ -24,6 +24,7 @@
 #ifndef DEC_SOCKETCLIENT_H
 #define DEC_SOCKETCLIENT_H
 
+#include <deque>
 #include <netdb.h>
 
 #include "socket.h"
@@ -64,7 +65,7 @@ class SocketClient : public Socket {
         /**@}*/
 
     private:
-        vector<string> m_command_queue;
+        deque<string> m_command_queue;
         uint_t  m_idle;
         string  m_input;
         string  m_output;

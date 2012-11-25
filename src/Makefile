@@ -73,6 +73,9 @@ depend:
 	perl -pi -e 's.^([a-z]).o/$$1.g' $(DEPS)
 	echo "Finished writing dependencies to $(DEPS)"
 
+doxygen:
+	doxygen ../etc/doxyfile
+
 cbuild:
 	$(MAKE) clean
 	$(MAKE) depend
@@ -96,4 +99,4 @@ o/%.o: %.cpp
 
 ../obj/%.so: ../command/%.cpp
 	echo "Compiling `echo $@ | cut -c 8-` ... ";
-	$(CXX) -c $(PLG_OPT) $< -o $@
+	$(CXX) $(PLG_OPT) $< -o $@
