@@ -148,7 +148,7 @@ const bool SocketClient::ProcessCommand()
             cmd_list = command_list.equal_range( cmd[0] );
 
         if ( cmd_list.first == cmd_list.second )
-            Send( "Invalid command." CRLF );
+            Send( CFG_STR_CMD_INVALID );
         else
         {
             for ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
@@ -169,7 +169,7 @@ const bool SocketClient::ProcessCommand()
                 if ( found )
                     mi->second->Run( this );
                 else
-                    Send( "Invalid command." CRLF );
+                    Send( CFG_STR_CMD_INVALID );
             }
         }
     }
