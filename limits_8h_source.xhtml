@@ -104,37 +104,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00029"></a>00029 <span class="preprocessor"></span>
 <a name="l00030"></a>00030 <span class="preprocessor">#include &lt;limits&gt;</span>
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="preprocessor">#if __WORDSIZE == 64</span>
-<a name="l00033"></a>00033 <span class="preprocessor"></span> 
-<a name="l00038"></a>00038     <span class="keyword">typedef</span> <span class="keywordtype">signed</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>;
-<a name="l00039"></a>00039 
-<a name="l00044"></a>00044 <span class="preprocessor">    #define sintmax_t numeric_limits&lt;signed long int&gt;::max()</span>
-<a name="l00045"></a>00045 <span class="preprocessor"></span>
-<a name="l00050"></a>00050 <span class="preprocessor">    #define sintmin_t numeric_limits&lt;signed long int&gt;::min()</span>
-<a name="l00051"></a>00051 <span class="preprocessor"></span> 
-<a name="l00058"></a>00058     <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>;
-<a name="l00059"></a>00059 
-<a name="l00064"></a>00064 <span class="preprocessor">    #define uintmax_t numeric_limits&lt;unsigned long int&gt;::max()</span>
-<a name="l00065"></a>00065 <span class="preprocessor"></span>
-<a name="l00070"></a>00070 <span class="preprocessor">    #define uintmin_t numeric_limits&lt;unsigned long int&gt;::min()</span>
-<a name="l00071"></a>00071 <span class="preprocessor"></span>
-<a name="l00072"></a>00072 <span class="preprocessor">#else</span>
-<a name="l00073"></a>00073 <span class="preprocessor"></span> 
-<a name="l00078"></a><a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">00078</a>     <span class="keyword">typedef</span> <span class="keywordtype">signed</span> <span class="keywordtype">int</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>;
-<a name="l00079"></a>00079 
-<a name="l00084"></a><a class="code" href="limits_8h.xhtml#aebe7e0b7dfb9e7afa6c28b51a4cc137e">00084</a> <span class="preprocessor">    #define sintmax_t numeric_limits&lt;signed int&gt;::max()</span>
-<a name="l00085"></a>00085 <span class="preprocessor"></span>
-<a name="l00090"></a><a class="code" href="limits_8h.xhtml#a9698df90d76cdc260431fe109ce29675">00090</a> <span class="preprocessor">    #define sintmin_t numeric_limits&lt;signed int&gt;::min()</span>
-<a name="l00091"></a>00091 <span class="preprocessor"></span> 
-<a name="l00098"></a><a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">00098</a>     <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>;
-<a name="l00099"></a>00099 
-<a name="l00104"></a><a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f">00104</a> <span class="preprocessor">    #define uintmax_t numeric_limits&lt;unsigned int&gt;::max()</span>
-<a name="l00105"></a>00105 <span class="preprocessor"></span>
-<a name="l00110"></a><a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78">00110</a> <span class="preprocessor">    #define uintmin_t numeric_limits&lt;unsigned int&gt;::min()</span>
-<a name="l00111"></a>00111 <span class="preprocessor"></span>
-<a name="l00112"></a>00112 <span class="preprocessor">#endif</span>
+<a name="l00032"></a>00032 <span class="keyword">using namespace </span>std;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="preprocessor">#if __WORDSIZE == 64</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span> 
+<a name="l00040"></a>00040     <span class="keyword">typedef</span> <span class="keywordtype">signed</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>;
+<a name="l00041"></a>00041 
+<a name="l00046"></a>00046 <span class="preprocessor">    #define sintmax_t numeric_limits&lt;signed long int&gt;::max()</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>
+<a name="l00052"></a>00052 <span class="preprocessor">    #define sintmin_t numeric_limits&lt;signed long int&gt;::min()</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span> 
+<a name="l00060"></a>00060     <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>;
+<a name="l00061"></a>00061 
+<a name="l00066"></a>00066 <span class="preprocessor">    #define uintmax_t numeric_limits&lt;unsigned long int&gt;::max()</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00072"></a>00072 <span class="preprocessor">    #define uintmin_t numeric_limits&lt;unsigned long int&gt;::min()</span>
+<a name="l00073"></a>00073 <span class="preprocessor"></span>
+<a name="l00074"></a>00074 <span class="preprocessor">#else</span>
+<a name="l00075"></a>00075 <span class="preprocessor"></span> 
+<a name="l00080"></a><a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">00080</a>     <span class="keyword">typedef</span> <span class="keywordtype">signed</span> <span class="keywordtype">int</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>;
+<a name="l00081"></a>00081 
+<a name="l00086"></a><a class="code" href="limits_8h.xhtml#aebe7e0b7dfb9e7afa6c28b51a4cc137e">00086</a> <span class="preprocessor">    #define sintmax_t numeric_limits&lt;signed int&gt;::max()</span>
+<a name="l00087"></a>00087 <span class="preprocessor"></span>
+<a name="l00092"></a><a class="code" href="limits_8h.xhtml#a9698df90d76cdc260431fe109ce29675">00092</a> <span class="preprocessor">    #define sintmin_t numeric_limits&lt;signed int&gt;::min()</span>
+<a name="l00093"></a>00093 <span class="preprocessor"></span> 
+<a name="l00100"></a><a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">00100</a>     <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>;
+<a name="l00101"></a>00101 
+<a name="l00106"></a><a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f">00106</a> <span class="preprocessor">    #define uintmax_t numeric_limits&lt;unsigned int&gt;::max()</span>
+<a name="l00107"></a>00107 <span class="preprocessor"></span>
+<a name="l00112"></a><a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78">00112</a> <span class="preprocessor">    #define uintmin_t numeric_limits&lt;unsigned int&gt;::min()</span>
 <a name="l00113"></a>00113 <span class="preprocessor"></span>
 <a name="l00114"></a>00114 <span class="preprocessor">#endif</span>
+<a name="l00115"></a>00115 <span class="preprocessor"></span>
+<a name="l00116"></a>00116 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -153,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

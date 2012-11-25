@@ -99,462 +99,469 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 <span class="comment"> * You should have received a copy of the GNU General Public License       *</span>
 <a name="l00016"></a>00016 <span class="comment"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.   *</span>
 <a name="l00017"></a>00017 <span class="comment"> ***************************************************************************/</span>
-<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="includes_8h.xhtml" title="All non-system includes that need to be within each .cpp file.">h/includes.h</a>&quot;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="class_8h.xhtml" title="All class declarations.">h/class.h</a>&quot;</span>
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="socketclient_8h.xhtml" title="The SocketClient class.">h/socketclient.h</a>&quot;</span>
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="command_8h.xhtml" title="The Command class.">h/command.h</a>&quot;</span>
-<a name="l00023"></a>00023  
-<a name="l00029"></a><a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad">00029</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">SocketClient::Delete</a>()
-<a name="l00030"></a>00030 {
-<a name="l00031"></a>00031     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-<a name="l00034"></a>00034         <span class="keywordflow">return</span>;
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">sSocketClose</a>( <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a>() + 1 ) )
-<a name="l00037"></a>00037         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Disconnect()-&gt;Server::sSocketClose()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a>() + 1 );
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039     <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.remove( <span class="keyword">this</span> );
-<a name="l00040"></a>00040     <span class="keyword">delete</span> <span class="keyword">this</span>;
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042     <span class="keywordflow">return</span>;
-<a name="l00043"></a>00043 }
-<a name="l00044"></a>00044 
-<a name="l00050"></a><a class="code" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607">00050</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes.">SocketClient::New</a>()
-<a name="l00051"></a>00051 {
-<a name="l00052"></a>00052     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00053"></a>00053     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> error = 0;
-<a name="l00054"></a>00054     sockaddr_storage sin;
-<a name="l00055"></a>00055     socklen_t size = <span class="keyword">static_cast&lt;</span>socklen_t<span class="keyword">&gt;</span>( <span class="keyword">sizeof</span>( sin ) );
-<a name="l00056"></a>00056     <span class="keywordtype">char</span> hostname[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>], service[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>];
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058     <span class="keywordflow">if</span> ( ::fcntl( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), F_SETFL, O_NONBLOCK ) &lt; 0 )
-<a name="l00059"></a>00059     {
-<a name="l00060"></a>00060         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;fcntl()-&gt;&quot;</span> );
-<a name="l00061"></a>00061         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00062"></a>00062     }
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064     <span class="keywordflow">if</span> ( ::getpeername( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), &amp;size ) &lt; 0 )
-<a name="l00065"></a>00065     {
-<a name="l00066"></a>00066         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;getpeername()-&gt;&quot;</span> );
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="includes_8h.xhtml" title="All non-system includes that need to be within each .cpp file.">h/includes.h</a>&quot;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="class_8h.xhtml" title="All class declarations.">h/class.h</a>&quot;</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="socketclient_8h.xhtml" title="The SocketClient class.">h/socketclient.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="command_8h.xhtml" title="The Command class.">h/command.h</a>&quot;</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="comment">/* Core */</span>
+<a name="l00033"></a><a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad">00033</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">SocketClient::Delete</a>()
+<a name="l00034"></a>00034 {
+<a name="l00035"></a>00035     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+<a name="l00038"></a>00038         <span class="keywordflow">return</span>;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">sSocketClose</a>( <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed...">gSocketClose</a>() + 1 ) )
+<a name="l00041"></a>00041         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Disconnect()-&gt;Server::sSocketClose()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed...">gSocketClose</a>() + 1 );
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043     <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.remove( <span class="keyword">this</span> );
+<a name="l00044"></a>00044     <span class="keyword">delete</span> <span class="keyword">this</span>;
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046     <span class="keywordflow">return</span>;
+<a name="l00047"></a>00047 }
+<a name="l00048"></a>00048 
+<a name="l00054"></a><a class="code" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607">00054</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes.">SocketClient::New</a>()
+<a name="l00055"></a>00055 {
+<a name="l00056"></a>00056     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00057"></a>00057     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> error = 0;
+<a name="l00058"></a>00058     sockaddr_storage sin;
+<a name="l00059"></a>00059     socklen_t size = <span class="keyword">static_cast&lt;</span>socklen_t<span class="keyword">&gt;</span>( <span class="keyword">sizeof</span>( sin ) );
+<a name="l00060"></a>00060     <span class="keywordtype">char</span> hostname[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>], service[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>];
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062     <span class="keywordflow">if</span> ( ::fcntl( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), F_SETFL, O_NONBLOCK ) &lt; 0 )
+<a name="l00063"></a>00063     {
+<a name="l00064"></a>00064         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;fcntl()-&gt;&quot;</span> );
+<a name="l00065"></a>00065         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00066"></a>00066     }
 <a name="l00067"></a>00067 
-<a name="l00068"></a>00068         <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket.">sHostname</a>( <span class="stringliteral">&quot;(unknown)&quot;</span> ) )
-<a name="l00069"></a>00069         {
-<a name="l00070"></a>00070             <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::sHostname()-&gt; hostname (unknown) returned false&quot;</span> );
-<a name="l00071"></a>00071             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00072"></a>00072         }
-<a name="l00073"></a>00073     }
-<a name="l00074"></a>00074     <span class="keywordflow">else</span>
-<a name="l00075"></a>00075     {
-<a name="l00076"></a>00076         <span class="keywordflow">if</span> ( ( error = ::getnameinfo( reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), size, hostname, <span class="keyword">sizeof</span>( hostname ), service, <span class="keyword">sizeof</span>( service ), NI_NUMERICSERV) ) != 0 )
-<a name="l00077"></a>00077         {
-<a name="l00078"></a>00078             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;getnameinfo()-&gt; returned errno %d:%s&quot;</span>, error, gai_strerror( error ) );
-<a name="l00079"></a>00079             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00080"></a>00080         }
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082         <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket.">sHostname</a>( hostname ) )
-<a name="l00083"></a>00083         {
-<a name="l00084"></a>00084             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::sHostname()-&gt; hostname %s returned false&quot;</span>, hostname );
-<a name="l00085"></a>00085             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00086"></a>00086         }
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088         <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578" title="Sets the port that was opened for the socket.">sPort</a>( atol( service ) ) )
-<a name="l00089"></a>00089         {
-<a name="l00090"></a>00090             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::sPort()-&gt; port %lu returned false&quot;</span>, atol( service ) );
-<a name="l00091"></a>00091             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00092"></a>00092         }
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;SocketClient::New()-&gt; %s:%lu (%lu)&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ), <a class="code" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">gPort</a>(), <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
-<a name="l00095"></a>00095     }
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097     <span class="comment">// negotiate telopts, send login message</span>
-<a name="l00098"></a>00098     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#a8d29374ea9db48916be70f6c809e148c" title="String sent on initial socket connection.">CFG_STR_LOGIN</a> ) )
-<a name="l00099"></a>00099     {
-<a name="l00100"></a>00100         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::Send()-&gt; msg CFG_STR_LOGIN returned false&quot;</span> );
-<a name="l00101"></a>00101         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00102"></a>00102     }
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket.">sState</a>( <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7aa97346118bd6336de5373254e8cbd15f">SOC_STATE_LOGIN_SCREEN</a> ) )
-<a name="l00105"></a>00105     {
-<a name="l00106"></a>00106         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::sState()-&gt; state %lu returned false&quot;</span>, <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7aa97346118bd6336de5373254e8cbd15f">SOC_STATE_LOGIN_SCREEN</a> );
-<a name="l00107"></a>00107         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00108"></a>00108     }
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00111"></a>00111 }
-<a name="l00112"></a>00112 
-<a name="l00118"></a><a class="code" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f">00118</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue.">SocketClient::ProcessCommand</a>()
-<a name="l00119"></a>00119 {
-<a name="l00120"></a>00120     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00121"></a>00121     pair&lt;multimap&lt;const char,Command*&gt;::iterator,multimap&lt;const char,Command*&gt;::iterator&gt; cmd_list;
-<a name="l00122"></a>00122     <a class="code" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504" title="Define an iterator variable (name) of (type1,type2) using (container).">MITER</a>( multimap, <span class="keyword">const</span> <span class="keywordtype">char</span>,<a class="code" href="classCommand.xhtml">Command</a>*, mi );
-<a name="l00123"></a>00123     <span class="keywordtype">string</span> cmd;
-<a name="l00124"></a>00124     <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
-<a name="l00125"></a>00125 
-<a name="l00126"></a>00126     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-<a name="l00127"></a>00127     {
-<a name="l00128"></a>00128         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessCommand()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
-<a name="l00129"></a>00129         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00130"></a>00130     }
-<a name="l00131"></a>00131 
-<a name="l00132"></a>00132     <span class="comment">// Nothing new to process; move along</span>
-<a name="l00133"></a>00133     <span class="keywordflow">if</span> ( <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.empty() )
-<a name="l00134"></a>00134         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00068"></a>00068     <span class="keywordflow">if</span> ( ::getpeername( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), &amp;size ) &lt; 0 )
+<a name="l00069"></a>00069     {
+<a name="l00070"></a>00070         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;getpeername()-&gt;&quot;</span> );
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072         <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket.">sHostname</a>( <span class="stringliteral">&quot;(unknown)&quot;</span> ) )
+<a name="l00073"></a>00073         {
+<a name="l00074"></a>00074             <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::sHostname()-&gt; hostname (unknown) returned false&quot;</span> );
+<a name="l00075"></a>00075             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00076"></a>00076         }
+<a name="l00077"></a>00077     }
+<a name="l00078"></a>00078     <span class="keywordflow">else</span>
+<a name="l00079"></a>00079     {
+<a name="l00080"></a>00080         <span class="keywordflow">if</span> ( ( error = ::getnameinfo( reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), size, hostname, <span class="keyword">sizeof</span>( hostname ), service, <span class="keyword">sizeof</span>( service ), NI_NUMERICSERV) ) != 0 )
+<a name="l00081"></a>00081         {
+<a name="l00082"></a>00082             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;getnameinfo()-&gt; returned errno %d:%s&quot;</span>, error, gai_strerror( error ) );
+<a name="l00083"></a>00083             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00084"></a>00084         }
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086         <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket.">sHostname</a>( hostname ) )
+<a name="l00087"></a>00087         {
+<a name="l00088"></a>00088             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::sHostname()-&gt; hostname %s returned false&quot;</span>, hostname );
+<a name="l00089"></a>00089             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00090"></a>00090         }
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092         <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578" title="Sets the port that was opened for the socket.">sPort</a>( atol( service ) ) )
+<a name="l00093"></a>00093         {
+<a name="l00094"></a>00094             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::sPort()-&gt; port %lu returned false&quot;</span>, atol( service ) );
+<a name="l00095"></a>00095             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00096"></a>00096         }
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;SocketClient::New()-&gt; %s:%lu (%lu)&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ), <a class="code" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">gPort</a>(), <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+<a name="l00099"></a>00099     }
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101     <span class="comment">// negotiate telopts, send login message</span>
+<a name="l00102"></a>00102     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#a8d29374ea9db48916be70f6c809e148c" title="String sent on initial socket connection.">CFG_STR_LOGIN</a> ) )
+<a name="l00103"></a>00103     {
+<a name="l00104"></a>00104         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::Send()-&gt; msg CFG_STR_LOGIN returned false&quot;</span> );
+<a name="l00105"></a>00105         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00106"></a>00106     }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket.">sState</a>( <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7aa97346118bd6336de5373254e8cbd15f">SOC_STATE_LOGIN_SCREEN</a> ) )
+<a name="l00109"></a>00109     {
+<a name="l00110"></a>00110         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;SocketClient::sState()-&gt; state %lu returned false&quot;</span>, <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7aa97346118bd6336de5373254e8cbd15f">SOC_STATE_LOGIN_SCREEN</a> );
+<a name="l00111"></a>00111         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00112"></a>00112     }
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00115"></a>00115 }
+<a name="l00116"></a>00116 
+<a name="l00122"></a><a class="code" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f">00122</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue.">SocketClient::ProcessCommand</a>()
+<a name="l00123"></a>00123 {
+<a name="l00124"></a>00124     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00125"></a>00125     pair&lt;multimap&lt;const char,Command*&gt;::iterator,multimap&lt;const char,Command*&gt;::iterator&gt; cmd_list;
+<a name="l00126"></a>00126     <a class="code" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504" title="Define an iterator variable (name) of (type1,type2) using (container).">MITER</a>( multimap, <span class="keyword">const</span> <span class="keywordtype">char</span>,<a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>*, mi );
+<a name="l00127"></a>00127     <span class="keywordtype">string</span> cmd;
+<a name="l00128"></a>00128     <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+<a name="l00131"></a>00131     {
+<a name="l00132"></a>00132         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessCommand()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+<a name="l00133"></a>00133         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00134"></a>00134     }
 <a name="l00135"></a>00135 
-<a name="l00136"></a>00136     <span class="keywordflow">while</span> ( !<a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.empty() )
-<a name="l00137"></a>00137     {
-<a name="l00138"></a>00138         cmd = <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.front();
-<a name="l00139"></a>00139         <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.pop_front();
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141         <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )
-<a name="l00142"></a>00142             cmd_list = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.equal_range( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Utils::Lower</a>( cmd )[0] );
-<a name="l00143"></a>00143         <span class="keywordflow">else</span>
-<a name="l00144"></a>00144             cmd_list = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.equal_range( cmd[0] );
-<a name="l00145"></a>00145 
-<a name="l00146"></a>00146         <span class="keywordflow">if</span> ( cmd_list.first == cmd_list.second )
-<a name="l00147"></a>00147             <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <span class="stringliteral">&quot;Invalid command.&quot;</span> <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> );
-<a name="l00148"></a>00148         <span class="keywordflow">else</span>
-<a name="l00149"></a>00149         {
-<a name="l00150"></a>00150             <span class="keywordflow">for</span> ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
-<a name="l00151"></a>00151             {
-<a name="l00152"></a>00152                 found = <span class="keyword">false</span>;
-<a name="l00153"></a>00153 
-<a name="l00154"></a>00154                 <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )
-<a name="l00155"></a>00155                 {
-<a name="l00156"></a>00156                     <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Utils::Lower</a>( mi-&gt;second-&gt;gName() ).find( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Utils::Lower</a>( cmd ) ) == 0 )
-<a name="l00157"></a>00157                         found = <span class="keyword">true</span>;
-<a name="l00158"></a>00158                 }
-<a name="l00159"></a>00159                 <span class="keywordflow">else</span>
-<a name="l00160"></a>00160                 {
-<a name="l00161"></a>00161                     <span class="keywordflow">if</span> ( mi-&gt;second-&gt;gName().find( cmd ) == 0 )
-<a name="l00162"></a>00162                         found = <span class="keyword">true</span>;
-<a name="l00163"></a>00163                 }
-<a name="l00164"></a>00164 
-<a name="l00165"></a>00165                 <span class="keywordflow">if</span> ( found )
-<a name="l00166"></a>00166                     mi-&gt;second-&gt;Run( <span class="keyword">this</span> );
-<a name="l00167"></a>00167                 <span class="keywordflow">else</span>
-<a name="l00168"></a>00168                     <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <span class="stringliteral">&quot;Invalid command.&quot;</span> <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> );
-<a name="l00169"></a>00169             }
-<a name="l00170"></a>00170         }
-<a name="l00171"></a>00171     }
-<a name="l00172"></a>00172 
-<a name="l00173"></a>00173     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00174"></a>00174 }
-<a name="l00175"></a>00175 
-<a name="l00181"></a><a class="code" href="classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b">00181</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" title="Process data from the client&#39;s receive buffer and split it into commands to queue as necessary...">SocketClient::ProcessInput</a>()
-<a name="l00182"></a>00182 {
-<a name="l00183"></a>00183     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00184"></a>00184     vector&lt;string&gt; commands;
-<a name="l00185"></a>00185     <span class="keywordtype">string</span> command;
-<a name="l00186"></a>00186     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <span class="keywordtype">string</span>, vi );
-<a name="l00187"></a>00187 
-<a name="l00188"></a>00188     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-<a name="l00189"></a>00189     {
-<a name="l00190"></a>00190         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessInput()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
-<a name="l00191"></a>00191         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00192"></a>00192     }
-<a name="l00193"></a>00193 
-<a name="l00194"></a>00194     <span class="comment">// Nothing new to process; move along</span>
-<a name="l00195"></a>00195     <span class="keywordflow">if</span> ( <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.empty() )
-<a name="l00196"></a>00196         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00136"></a>00136     <span class="comment">// Nothing new to process; move along</span>
+<a name="l00137"></a>00137     <span class="keywordflow">if</span> ( <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.empty() )
+<a name="l00138"></a>00138         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140     <span class="keywordflow">while</span> ( !<a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.empty() )
+<a name="l00141"></a>00141     {
+<a name="l00142"></a>00142         cmd = <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.front();
+<a name="l00143"></a>00143         <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.pop_front();
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145         <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )
+<a name="l00146"></a>00146             cmd_list = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.equal_range( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Utils::Lower</a>( cmd )[0] );
+<a name="l00147"></a>00147         <span class="keywordflow">else</span>
+<a name="l00148"></a>00148             cmd_list = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.equal_range( cmd[0] );
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150         <span class="keywordflow">if</span> ( cmd_list.first == cmd_list.second )
+<a name="l00151"></a>00151             <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <span class="stringliteral">&quot;Invalid command.&quot;</span> <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> );
+<a name="l00152"></a>00152         <span class="keywordflow">else</span>
+<a name="l00153"></a>00153         {
+<a name="l00154"></a>00154             <span class="keywordflow">for</span> ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
+<a name="l00155"></a>00155             {
+<a name="l00156"></a>00156                 found = <span class="keyword">false</span>;
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158                 <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )
+<a name="l00159"></a>00159                 {
+<a name="l00160"></a>00160                     <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Utils::Lower</a>( mi-&gt;second-&gt;gName() ).find( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Utils::Lower</a>( cmd ) ) == 0 )
+<a name="l00161"></a>00161                         found = <span class="keyword">true</span>;
+<a name="l00162"></a>00162                 }
+<a name="l00163"></a>00163                 <span class="keywordflow">else</span>
+<a name="l00164"></a>00164                 {
+<a name="l00165"></a>00165                     <span class="keywordflow">if</span> ( mi-&gt;second-&gt;gName().find( cmd ) == 0 )
+<a name="l00166"></a>00166                         found = <span class="keyword">true</span>;
+<a name="l00167"></a>00167                 }
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169                 <span class="keywordflow">if</span> ( found )
+<a name="l00170"></a>00170                     mi-&gt;second-&gt;Run( <span class="keyword">this</span> );
+<a name="l00171"></a>00171                 <span class="keywordflow">else</span>
+<a name="l00172"></a>00172                     <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <span class="stringliteral">&quot;Invalid command.&quot;</span> <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> );
+<a name="l00173"></a>00173             }
+<a name="l00174"></a>00174         }
+<a name="l00175"></a>00175     }
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00178"></a>00178 }
+<a name="l00179"></a>00179 
+<a name="l00185"></a><a class="code" href="classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b">00185</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" title="Process data from the client&#39;s receive buffer and split it into commands to queue as necessary...">SocketClient::ProcessInput</a>()
+<a name="l00186"></a>00186 {
+<a name="l00187"></a>00187     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00188"></a>00188     vector&lt;string&gt; commands;
+<a name="l00189"></a>00189     <span class="keywordtype">string</span> command;
+<a name="l00190"></a>00190     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <span class="keywordtype">string</span>, vi );
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+<a name="l00193"></a>00193     {
+<a name="l00194"></a>00194         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessInput()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+<a name="l00195"></a>00195         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00196"></a>00196     }
 <a name="l00197"></a>00197 
-<a name="l00198"></a>00198     commands = <a class="code" href="namespaceUtils.xhtml#aeda29ae05e927b463309cf1db39344a0">Utils::StrNewlines</a>( <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a> );
-<a name="l00199"></a>00199     <span class="keywordflow">for</span> ( vi = commands.begin(); vi != commands.end(); vi++ )
-<a name="l00200"></a>00200     {
-<a name="l00201"></a>00201         command = *vi;
-<a name="l00202"></a>00202         <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" title="Append a command to the back of the queue.">QueueCommand</a>( command ) )
-<a name="l00203"></a>00203         {
-<a name="l00204"></a>00204             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessInput()-&gt;SocketClient::QueueCommand()-&gt; command %s returned false&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( command ) );
-<a name="l00205"></a>00205             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00206"></a>00206         }
-<a name="l00207"></a>00207     }
-<a name="l00208"></a>00208 
-<a name="l00209"></a>00209     <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.clear();
-<a name="l00210"></a>00210 
-<a name="l00211"></a>00211     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00212"></a>00212 }
-<a name="l00213"></a>00213 
-<a name="l00219"></a><a class="code" href="classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6">00219</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" title="Append a command to the back of the queue.">SocketClient::QueueCommand</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; command )
-<a name="l00220"></a>00220 {
-<a name="l00221"></a>00221     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00222"></a>00222 
-<a name="l00223"></a>00223     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-<a name="l00224"></a>00224     {
-<a name="l00225"></a>00225         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::QueueCommand()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
-<a name="l00226"></a>00226         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00227"></a>00227     }
-<a name="l00228"></a>00228 
-<a name="l00229"></a>00229     <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.push_back( command );
-<a name="l00230"></a>00230 
-<a name="l00231"></a>00231     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00232"></a>00232 }
-<a name="l00233"></a>00233 
-<a name="l00239"></a><a class="code" href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d">00239</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d" title="Receive data from the client and append it to a receive buffer.">SocketClient::Recv</a>()
-<a name="l00240"></a>00240 {
-<a name="l00241"></a>00241     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00242"></a>00242     ssize_t amount = 0;
-<a name="l00243"></a>00243     <span class="keywordtype">char</span> buf[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>] = {<span class="charliteral">&#39;\0&#39;</span>};
-<a name="l00244"></a>00244 
-<a name="l00245"></a>00245     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-<a name="l00246"></a>00246     {
-<a name="l00247"></a>00247         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
-<a name="l00248"></a>00248         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00249"></a>00249     }
-<a name="l00250"></a>00250 
-<a name="l00251"></a>00251     <span class="keywordflow">if</span> ( ( <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.length() + <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> ) &gt;= <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.max_size() )
-<a name="l00252"></a>00252     {
-<a name="l00253"></a>00253         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt; called with m_input overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.length(), <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> );
-<a name="l00254"></a>00254         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00255"></a>00255     }
-<a name="l00256"></a>00256 
-<a name="l00257"></a>00257     <span class="keywordflow">if</span> ( ( amount = ::recv( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), buf, <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> - 1, 0 ) ) &lt; 1 )
-<a name="l00258"></a>00258     {
-<a name="l00259"></a>00259         <span class="keywordflow">if</span> ( amount == 0 )
-<a name="l00260"></a>00260         {
-<a name="l00261"></a>00261             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;recv()-&gt; broken pipe encountered on recv from: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ) );
-<a name="l00262"></a>00262             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00263"></a>00263         }
-<a name="l00264"></a>00264         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( errno != EAGAIN &amp;&amp; errno != EWOULDBLOCK )
-<a name="l00265"></a>00265         {
-<a name="l00266"></a>00266             <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;recv()-&gt;&quot;</span> );
-<a name="l00267"></a>00267             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00268"></a>00268         }
-<a name="l00269"></a>00269     }
-<a name="l00270"></a>00270 
-<a name="l00271"></a>00271     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a2f8f36b615b6d10eb96dd35620ffd524">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd" title="Increment the total count of bytes received by the socket.">aBytesRecvd</a>( amount ) )
-<a name="l00272"></a>00272     {
-<a name="l00273"></a>00273         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;Server::gSocket()-&gt;Server::aBytesRecvd()-&gt; value %ld returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a2f8f36b615b6d10eb96dd35620ffd524">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002">gBytesRecvd</a>() + amount );
-<a name="l00274"></a>00274         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00275"></a>00275     }
-<a name="l00276"></a>00276 
-<a name="l00277"></a>00277     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd" title="Increment the total count of bytes received by the socket.">aBytesRecvd</a>( amount ) )
-<a name="l00278"></a>00278     {
-<a name="l00279"></a>00279         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::aBytesRecvd()-&gt; value %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002">gBytesRecvd</a>() + amount );
-<a name="l00280"></a>00280         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00281"></a>00281     }
-<a name="l00282"></a>00282 
-<a name="l00283"></a>00283     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket.">sIdle</a>( 0 ) )
-<a name="l00284"></a>00284     {
-<a name="l00285"></a>00285         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::sIdle()-&gt; value 0 returned false&quot;</span> );
-<a name="l00286"></a>00286         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00287"></a>00287     }
-<a name="l00288"></a>00288 
-<a name="l00289"></a>00289     <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.append( buf );
-<a name="l00290"></a>00290 
-<a name="l00291"></a>00291     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00292"></a>00292 }
-<a name="l00293"></a>00293 
-<a name="l00294"></a><a class="code" href="classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1">00294</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1">SocketClient::ResolveHostname</a>()
-<a name="l00295"></a>00295 {
-<a name="l00296"></a>00296     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00297"></a>00297     pthread_t res_thread;
-<a name="l00298"></a>00298     pthread_attr_t res_attr;
-<a name="l00299"></a>00299 
-<a name="l00300"></a>00300     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-<a name="l00301"></a>00301     {
-<a name="l00302"></a>00302         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
-<a name="l00303"></a>00303         <span class="keywordflow">return</span>;
-<a name="l00304"></a>00304     }
-<a name="l00305"></a>00305 
-<a name="l00306"></a>00306     <span class="keywordflow">if</span> ( ::pthread_attr_init( &amp;res_attr ) != 0 )
-<a name="l00307"></a>00307     {
-<a name="l00308"></a>00308         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;pthread_attr_init()-&gt;&quot;</span> );
-<a name="l00309"></a>00309         <span class="keywordflow">return</span>;
-<a name="l00310"></a>00310     }
-<a name="l00311"></a>00311 
-<a name="l00312"></a>00312     <span class="keywordflow">if</span> ( ::pthread_attr_setdetachstate( &amp;res_attr, PTHREAD_CREATE_DETACHED ) != 0 )
-<a name="l00313"></a>00313     {
-<a name="l00314"></a>00314         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;pthread_attr_setdetachstate()-&gt;&quot;</span> );
-<a name="l00315"></a>00315         <span class="keywordflow">return</span>;
-<a name="l00316"></a>00316     }
-<a name="l00317"></a>00317 
-<a name="l00318"></a>00318     <span class="keywordflow">if</span> ( ::pthread_create( &amp;res_thread, &amp;res_attr, &amp;<a class="code" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">SocketClient::tResolveHostname</a>, <span class="keyword">this</span> ) != 0 )
-<a name="l00319"></a>00319     {
-<a name="l00320"></a>00320         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;pthread_create()-&gt;&quot;</span> );
-<a name="l00321"></a>00321         <span class="keywordflow">return</span>;
-<a name="l00322"></a>00322     }
-<a name="l00323"></a>00323 
-<a name="l00324"></a>00324     <span class="keywordflow">if</span> ( ::pthread_attr_destroy( &amp;res_attr ) != 0 )
-<a name="l00325"></a>00325     {
-<a name="l00326"></a>00326         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;pthread_attr_destroy()-&gt;&quot;</span> );
-<a name="l00327"></a>00327         <span class="keywordflow">return</span>;
-<a name="l00328"></a>00328     }
-<a name="l00329"></a>00329 
-<a name="l00330"></a>00330     <span class="keywordflow">return</span>;
-<a name="l00331"></a>00331 }
-<a name="l00332"></a>00332 
-<a name="l00339"></a>00339 <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">SocketClient::Send</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg )
-<a name="l00340"></a>00340 {
-<a name="l00341"></a>00341     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00342"></a>00342 
-<a name="l00343"></a>00343     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-<a name="l00344"></a>00344     {
-<a name="l00345"></a>00345         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
-<a name="l00346"></a>00346         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00347"></a>00347     }
-<a name="l00348"></a>00348 
-<a name="l00349"></a>00349     <span class="comment">// Prepend a CRLF to ensure output lands on a newline.</span>
-<a name="l00350"></a>00350     <span class="comment">// Make this client configurable in the future.</span>
-<a name="l00351"></a>00351     <span class="keywordflow">if</span> ( <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.empty() &amp;&amp; <a class="code" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a> &gt; <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7aa97346118bd6336de5373254e8cbd15f">SOC_STATE_LOGIN_SCREEN</a> )
-<a name="l00352"></a>00352     {
-<a name="l00353"></a>00353         <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.append( <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> );
-<a name="l00354"></a>00354         <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.append( msg );
-<a name="l00355"></a>00355     }
-<a name="l00356"></a>00356     <span class="keywordflow">else</span>
-<a name="l00357"></a>00357         <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.append( msg );
-<a name="l00358"></a>00358 
-<a name="l00359"></a>00359     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00360"></a>00360 }
-<a name="l00361"></a>00361 
-<a name="l00367"></a><a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80">00367</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">SocketClient::Send</a>()
-<a name="l00368"></a>00368 {
-<a name="l00369"></a>00369     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00370"></a>00370     ssize_t amount = 0;
-<a name="l00371"></a>00371 
-<a name="l00372"></a>00372     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-<a name="l00373"></a>00373     {
-<a name="l00374"></a>00374         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
-<a name="l00375"></a>00375         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00376"></a>00376     }
-<a name="l00377"></a>00377 
-<a name="l00378"></a>00378     <span class="comment">// Nothing new to process; move along</span>
-<a name="l00379"></a>00379     <span class="keywordflow">if</span> ( <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.empty() )
-<a name="l00380"></a>00380         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00381"></a>00381 
-<a name="l00382"></a>00382     <span class="keywordflow">if</span> ( ( amount = ::send( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a> ), <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.length(), 0 ) ) &lt; 1 )
-<a name="l00383"></a>00383     {
-<a name="l00384"></a>00384         <span class="keywordflow">if</span> ( amount == 0 )
-<a name="l00385"></a>00385         {
-<a name="l00386"></a>00386             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;send()-&gt; broken pipe encountered on send to: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ) );
-<a name="l00387"></a>00387             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00388"></a>00388         }
-<a name="l00389"></a>00389         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( errno != EAGAIN &amp;&amp; errno != EWOULDBLOCK )
-<a name="l00390"></a>00390         {
-<a name="l00391"></a>00391             <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;send()-&gt;&quot;</span> );
-<a name="l00392"></a>00392             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00393"></a>00393         }
-<a name="l00394"></a>00394     }
-<a name="l00395"></a>00395 
-<a name="l00396"></a>00396     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a2f8f36b615b6d10eb96dd35620ffd524">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket.">aBytesSent</a>( amount ) )
-<a name="l00397"></a>00397     {
-<a name="l00398"></a>00398         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;Server::gSocket()-&gt;Server::aBytesSent()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a2f8f36b615b6d10eb96dd35620ffd524">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c">gBytesSent</a>() + amount );
-<a name="l00399"></a>00399         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00400"></a>00400     }
-<a name="l00401"></a>00401 
-<a name="l00402"></a>00402     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket.">aBytesSent</a>( amount ) )
-<a name="l00403"></a>00403     {
-<a name="l00404"></a>00404         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::aBytesSent()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c">gBytesSent</a>() + amount );
-<a name="l00405"></a>00405         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00406"></a>00406     }
-<a name="l00407"></a>00407 
-<a name="l00408"></a>00408     <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.clear();
-<a name="l00409"></a>00409 
-<a name="l00410"></a>00410     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00411"></a>00411 }  
-<a name="l00424"></a><a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293">00424</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket.">SocketClient::sIdle</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; idle )
-<a name="l00425"></a>00425 {
-<a name="l00426"></a>00426     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00427"></a>00427 
-<a name="l00428"></a>00428     <span class="keywordflow">if</span> ( idle &lt; 0 || idle &gt; <a class="code" href="config_8h.xhtml#a9e1bbc3ba39f67dbf7398220cdca6441" title="(Minutes / tick rate) before disconneting an idle socket. Approx 30 minutes.">CFG_SOC_MAX_IDLE</a> )
-<a name="l00429"></a>00429     {
-<a name="l00430"></a>00430         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::sIdle()-&gt; called with invalid idle: %ld&quot;</span>, idle );
-<a name="l00431"></a>00431         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00432"></a>00432     }
-<a name="l00433"></a>00433 
-<a name="l00434"></a>00434     <a class="code" href="classSocketClient.xhtml#aa3da4ed0f9760c3dd0c39c048f9e99ac">m_idle</a> = idle;
+<a name="l00198"></a>00198     <span class="comment">// Nothing new to process; move along</span>
+<a name="l00199"></a>00199     <span class="keywordflow">if</span> ( <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.empty() )
+<a name="l00200"></a>00200         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202     commands = <a class="code" href="namespaceUtils.xhtml#a8c70e85acdb1549aa4cd3a16b8d8d9cf" title="Returns a vector of strings split at linebreaks based on input.">Utils::StrNewlines</a>( <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a> );
+<a name="l00203"></a>00203     <span class="keywordflow">for</span> ( vi = commands.begin(); vi != commands.end(); vi++ )
+<a name="l00204"></a>00204     {
+<a name="l00205"></a>00205         command = *vi;
+<a name="l00206"></a>00206         <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" title="Append a command to the back of the queue.">QueueCommand</a>( command ) )
+<a name="l00207"></a>00207         {
+<a name="l00208"></a>00208             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessInput()-&gt;SocketClient::QueueCommand()-&gt; command %s returned false&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( command ) );
+<a name="l00209"></a>00209             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00210"></a>00210         }
+<a name="l00211"></a>00211     }
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213     <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.clear();
+<a name="l00214"></a>00214 
+<a name="l00215"></a>00215     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00216"></a>00216 }
+<a name="l00217"></a>00217 
+<a name="l00223"></a><a class="code" href="classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6">00223</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" title="Append a command to the back of the queue.">SocketClient::QueueCommand</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; command )
+<a name="l00224"></a>00224 {
+<a name="l00225"></a>00225     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+<a name="l00228"></a>00228     {
+<a name="l00229"></a>00229         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::QueueCommand()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+<a name="l00230"></a>00230         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00231"></a>00231     }
+<a name="l00232"></a>00232 
+<a name="l00233"></a>00233     <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.push_back( command );
+<a name="l00234"></a>00234 
+<a name="l00235"></a>00235     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00236"></a>00236 }
+<a name="l00237"></a>00237 
+<a name="l00243"></a><a class="code" href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d">00243</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d" title="Receive data from the client and append it to a receive buffer.">SocketClient::Recv</a>()
+<a name="l00244"></a>00244 {
+<a name="l00245"></a>00245     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00246"></a>00246     ssize_t amount = 0;
+<a name="l00247"></a>00247     <span class="keywordtype">char</span> buf[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>] = {<span class="charliteral">&#39;\0&#39;</span>};
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+<a name="l00250"></a>00250     {
+<a name="l00251"></a>00251         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+<a name="l00252"></a>00252         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00253"></a>00253     }
+<a name="l00254"></a>00254 
+<a name="l00255"></a>00255     <span class="keywordflow">if</span> ( ( <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.length() + <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> ) &gt;= <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.max_size() )
+<a name="l00256"></a>00256     {
+<a name="l00257"></a>00257         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt; called with m_input overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.length(), <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> );
+<a name="l00258"></a>00258         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00259"></a>00259     }
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261     <span class="keywordflow">if</span> ( ( amount = ::recv( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), buf, <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> - 1, 0 ) ) &lt; 1 )
+<a name="l00262"></a>00262     {
+<a name="l00263"></a>00263         <span class="keywordflow">if</span> ( amount == 0 )
+<a name="l00264"></a>00264         {
+<a name="l00265"></a>00265             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;recv()-&gt; broken pipe encountered on recv from: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ) );
+<a name="l00266"></a>00266             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00267"></a>00267         }
+<a name="l00268"></a>00268         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( errno != EAGAIN &amp;&amp; errno != EWOULDBLOCK )
+<a name="l00269"></a>00269         {
+<a name="l00270"></a>00270             <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;recv()-&gt;&quot;</span> );
+<a name="l00271"></a>00271             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00272"></a>00272         }
+<a name="l00273"></a>00273     }
+<a name="l00274"></a>00274 
+<a name="l00275"></a>00275     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd" title="Increment the total count of bytes received by the socket.">aBytesRecvd</a>( amount ) )
+<a name="l00276"></a>00276     {
+<a name="l00277"></a>00277         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;Server::gSocket()-&gt;Server::aBytesRecvd()-&gt; value %ld returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002">gBytesRecvd</a>() + amount );
+<a name="l00278"></a>00278         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00279"></a>00279     }
+<a name="l00280"></a>00280 
+<a name="l00281"></a>00281     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd" title="Increment the total count of bytes received by the socket.">aBytesRecvd</a>( amount ) )
+<a name="l00282"></a>00282     {
+<a name="l00283"></a>00283         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::aBytesRecvd()-&gt; value %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002">gBytesRecvd</a>() + amount );
+<a name="l00284"></a>00284         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00285"></a>00285     }
+<a name="l00286"></a>00286 
+<a name="l00287"></a>00287     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket.">sIdle</a>( 0 ) )
+<a name="l00288"></a>00288     {
+<a name="l00289"></a>00289         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::sIdle()-&gt; value 0 returned false&quot;</span> );
+<a name="l00290"></a>00290         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00291"></a>00291     }
+<a name="l00292"></a>00292 
+<a name="l00293"></a>00293     <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.append( buf );
+<a name="l00294"></a>00294 
+<a name="l00295"></a>00295     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00296"></a>00296 }
+<a name="l00297"></a>00297 
+<a name="l00298"></a><a class="code" href="classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1">00298</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1">SocketClient::ResolveHostname</a>()
+<a name="l00299"></a>00299 {
+<a name="l00300"></a>00300     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00301"></a>00301     pthread_t res_thread;
+<a name="l00302"></a>00302     pthread_attr_t res_attr;
+<a name="l00303"></a>00303 
+<a name="l00304"></a>00304     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+<a name="l00305"></a>00305     {
+<a name="l00306"></a>00306         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+<a name="l00307"></a>00307         <span class="keywordflow">return</span>;
+<a name="l00308"></a>00308     }
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310     <span class="keywordflow">if</span> ( ::pthread_attr_init( &amp;res_attr ) != 0 )
+<a name="l00311"></a>00311     {
+<a name="l00312"></a>00312         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;pthread_attr_init()-&gt;&quot;</span> );
+<a name="l00313"></a>00313         <span class="keywordflow">return</span>;
+<a name="l00314"></a>00314     }
+<a name="l00315"></a>00315 
+<a name="l00316"></a>00316     <span class="keywordflow">if</span> ( ::pthread_attr_setdetachstate( &amp;res_attr, PTHREAD_CREATE_DETACHED ) != 0 )
+<a name="l00317"></a>00317     {
+<a name="l00318"></a>00318         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;pthread_attr_setdetachstate()-&gt;&quot;</span> );
+<a name="l00319"></a>00319         <span class="keywordflow">return</span>;
+<a name="l00320"></a>00320     }
+<a name="l00321"></a>00321 
+<a name="l00322"></a>00322     <span class="keywordflow">if</span> ( ::pthread_create( &amp;res_thread, &amp;res_attr, &amp;<a class="code" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">SocketClient::tResolveHostname</a>, <span class="keyword">this</span> ) != 0 )
+<a name="l00323"></a>00323     {
+<a name="l00324"></a>00324         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;pthread_create()-&gt;&quot;</span> );
+<a name="l00325"></a>00325         <span class="keywordflow">return</span>;
+<a name="l00326"></a>00326     }
+<a name="l00327"></a>00327 
+<a name="l00328"></a>00328     <span class="keywordflow">if</span> ( ::pthread_attr_destroy( &amp;res_attr ) != 0 )
+<a name="l00329"></a>00329     {
+<a name="l00330"></a>00330         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;pthread_attr_destroy()-&gt;&quot;</span> );
+<a name="l00331"></a>00331         <span class="keywordflow">return</span>;
+<a name="l00332"></a>00332     }
+<a name="l00333"></a>00333 
+<a name="l00334"></a>00334     <span class="keywordflow">return</span>;
+<a name="l00335"></a>00335 }
+<a name="l00336"></a>00336 
+<a name="l00342"></a><a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80">00342</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">SocketClient::Send</a>()
+<a name="l00343"></a>00343 {
+<a name="l00344"></a>00344     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00345"></a>00345     ssize_t amount = 0;
+<a name="l00346"></a>00346 
+<a name="l00347"></a>00347     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+<a name="l00348"></a>00348     {
+<a name="l00349"></a>00349         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+<a name="l00350"></a>00350         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00351"></a>00351     }
+<a name="l00352"></a>00352 
+<a name="l00353"></a>00353     <span class="comment">// Nothing new to process; move along</span>
+<a name="l00354"></a>00354     <span class="keywordflow">if</span> ( <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.empty() )
+<a name="l00355"></a>00355         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00356"></a>00356 
+<a name="l00357"></a>00357     <span class="keywordflow">if</span> ( ( amount = ::send( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a> ), <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.length(), 0 ) ) &lt; 1 )
+<a name="l00358"></a>00358     {
+<a name="l00359"></a>00359         <span class="keywordflow">if</span> ( amount == 0 )
+<a name="l00360"></a>00360         {
+<a name="l00361"></a>00361             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;send()-&gt; broken pipe encountered on send to: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ) );
+<a name="l00362"></a>00362             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00363"></a>00363         }
+<a name="l00364"></a>00364         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( errno != EAGAIN &amp;&amp; errno != EWOULDBLOCK )
+<a name="l00365"></a>00365         {
+<a name="l00366"></a>00366             <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;send()-&gt;&quot;</span> );
+<a name="l00367"></a>00367             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00368"></a>00368         }
+<a name="l00369"></a>00369     }
+<a name="l00370"></a>00370 
+<a name="l00371"></a>00371     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket.">aBytesSent</a>( amount ) )
+<a name="l00372"></a>00372     {
+<a name="l00373"></a>00373         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;Server::gSocket()-&gt;Server::aBytesSent()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c">gBytesSent</a>() + amount );
+<a name="l00374"></a>00374         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00375"></a>00375     }
+<a name="l00376"></a>00376 
+<a name="l00377"></a>00377     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket.">aBytesSent</a>( amount ) )
+<a name="l00378"></a>00378     {
+<a name="l00379"></a>00379         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::aBytesSent()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c">gBytesSent</a>() + amount );
+<a name="l00380"></a>00380         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00381"></a>00381     }
+<a name="l00382"></a>00382 
+<a name="l00383"></a>00383     <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.clear();
+<a name="l00384"></a>00384 
+<a name="l00385"></a>00385     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00386"></a>00386 }
+<a name="l00387"></a>00387 
+<a name="l00394"></a><a class="code" href="classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a">00394</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">SocketClient::Send</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg )
+<a name="l00395"></a>00395 {
+<a name="l00396"></a>00396     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00397"></a>00397 
+<a name="l00398"></a>00398     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+<a name="l00399"></a>00399     {
+<a name="l00400"></a>00400         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+<a name="l00401"></a>00401         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00402"></a>00402     }
+<a name="l00403"></a>00403 
+<a name="l00404"></a>00404     <span class="comment">// Prepend a CRLF to ensure output lands on a newline.</span>
+<a name="l00405"></a>00405     <span class="comment">// Make this client configurable in the future.</span>
+<a name="l00406"></a>00406     <span class="keywordflow">if</span> ( <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.empty() &amp;&amp; <a class="code" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a> &gt; <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7aa97346118bd6336de5373254e8cbd15f">SOC_STATE_LOGIN_SCREEN</a> )
+<a name="l00407"></a>00407     {
+<a name="l00408"></a>00408         <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.append( <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> );
+<a name="l00409"></a>00409         <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.append( msg );
+<a name="l00410"></a>00410     }
+<a name="l00411"></a>00411     <span class="keywordflow">else</span>
+<a name="l00412"></a>00412         <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.append( msg );
+<a name="l00413"></a>00413 
+<a name="l00414"></a>00414     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00415"></a>00415 }
+<a name="l00416"></a>00416 
+<a name="l00417"></a>00417 <span class="comment">/* Query */</span>
+<a name="l00418"></a>00418 
+<a name="l00419"></a>00419 <span class="comment">/* Manipulate */</span>
+<a name="l00426"></a><a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293">00426</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket.">SocketClient::sIdle</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; idle )
+<a name="l00427"></a>00427 {
+<a name="l00428"></a>00428     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00429"></a>00429 
+<a name="l00430"></a>00430     <span class="keywordflow">if</span> ( idle &lt; 0 || idle &gt; <a class="code" href="config_8h.xhtml#a9e1bbc3ba39f67dbf7398220cdca6441" title="(Minutes / tick rate) before disconneting an idle socket. Approx 30 minutes.">CFG_SOC_MAX_IDLE</a> )
+<a name="l00431"></a>00431     {
+<a name="l00432"></a>00432         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::sIdle()-&gt; called with invalid idle: %ld&quot;</span>, idle );
+<a name="l00433"></a>00433         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00434"></a>00434     }
 <a name="l00435"></a>00435 
-<a name="l00436"></a>00436     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00437"></a>00437 }
-<a name="l00438"></a>00438 
-<a name="l00439"></a><a class="code" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">00439</a> <span class="keywordtype">void</span>* <a class="code" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">SocketClient::tResolveHostname</a>( <span class="keywordtype">void</span>* data )
-<a name="l00440"></a>00440 {
-<a name="l00441"></a>00441     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00442"></a>00442     <a class="code" href="classSocketClient.xhtml">SocketClient</a>* socket_client = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classSocketClient.xhtml">SocketClient</a>*<span class="keyword">&gt;</span>( data );
-<a name="l00443"></a>00443     <span class="keyword">static</span> sockaddr_in6 sa_zero;
-<a name="l00444"></a>00444     sockaddr_in6 sa = sa_zero;
-<a name="l00445"></a>00445     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> error = 0;
-<a name="l00446"></a>00446     <span class="keywordtype">char</span> hostname[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>];
-<a name="l00447"></a>00447 
-<a name="l00448"></a>00448     sa.sin6_family = AF_INET;
+<a name="l00436"></a>00436     <a class="code" href="classSocketClient.xhtml#aa3da4ed0f9760c3dd0c39c048f9e99ac">m_idle</a> = idle;
+<a name="l00437"></a>00437 
+<a name="l00438"></a>00438     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00439"></a>00439 }
+<a name="l00440"></a>00440 
+<a name="l00441"></a><a class="code" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">00441</a> <span class="keywordtype">void</span>* <a class="code" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">SocketClient::tResolveHostname</a>( <span class="keywordtype">void</span>* data )
+<a name="l00442"></a>00442 {
+<a name="l00443"></a>00443     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00444"></a>00444     <a class="code" href="classSocketClient.xhtml">SocketClient</a>* socket_client = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classSocketClient.xhtml">SocketClient</a>*<span class="keyword">&gt;</span>( data );
+<a name="l00445"></a>00445     <span class="keyword">static</span> sockaddr_in6 sa_zero;
+<a name="l00446"></a>00446     sockaddr_in6 sa = sa_zero;
+<a name="l00447"></a>00447     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> error = 0;
+<a name="l00448"></a>00448     <span class="keywordtype">char</span> hostname[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>];
 <a name="l00449"></a>00449 
-<a name="l00450"></a>00450     <span class="keywordflow">if</span> ( ( error = ::inet_pton( AF_INET6, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( socket_client-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ), &amp;sa.sin6_addr ) ) != 1 )
-<a name="l00451"></a>00451     {
-<a name="l00452"></a>00452         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::tResolveHostname()-&gt;inet_pton()-&gt; returned errno %d: %s&quot;</span>, error, gai_strerror( error ) );
-<a name="l00453"></a>00453         ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_FAILURE ) );
-<a name="l00454"></a>00454     }
-<a name="l00455"></a>00455 
-<a name="l00456"></a>00456     <span class="keywordflow">if</span> ( ( error = ::getnameinfo( reinterpret_cast&lt;sockaddr*&gt;( &amp;sa ), <span class="keyword">sizeof</span>( sa ), hostname, <span class="keyword">sizeof</span>( hostname ), NULL, 0, 0 ) ) != 0 )
-<a name="l00457"></a>00457     {
-<a name="l00458"></a>00458         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::tResolveHostname()-&gt;getnameinfo()-&gt; returned errno %d: %s&quot;</span>, error, gai_strerror( error ) );
-<a name="l00459"></a>00459         ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_FAILURE ) );
-<a name="l00460"></a>00460     }
-<a name="l00461"></a>00461 clog &lt;&lt; hostname &lt;&lt; endl;
-<a name="l00462"></a>00462     <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket.">sHostname</a>( hostname ) )
-<a name="l00463"></a>00463     {
-<a name="l00464"></a>00464         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::tResolveHostname()-&gt;SocketClient::sHostname()-&gt; hostname %s returned false&quot;</span>, hostname );
-<a name="l00465"></a>00465         ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_FAILURE ) );
-<a name="l00466"></a>00466     }
-<a name="l00467"></a>00467 
-<a name="l00468"></a>00468     <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt; %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( socket_client-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ) );
+<a name="l00450"></a>00450     sa.sin6_family = AF_INET;
+<a name="l00451"></a>00451 
+<a name="l00452"></a>00452     <span class="keywordflow">if</span> ( ( error = ::inet_pton( AF_INET6, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( socket_client-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ), &amp;sa.sin6_addr ) ) != 1 )
+<a name="l00453"></a>00453     {
+<a name="l00454"></a>00454         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::tResolveHostname()-&gt;inet_pton()-&gt; returned errno %d: %s&quot;</span>, error, gai_strerror( error ) );
+<a name="l00455"></a>00455         ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_FAILURE ) );
+<a name="l00456"></a>00456     }
+<a name="l00457"></a>00457 
+<a name="l00458"></a>00458     <span class="keywordflow">if</span> ( ( error = ::getnameinfo( reinterpret_cast&lt;sockaddr*&gt;( &amp;sa ), <span class="keyword">sizeof</span>( sa ), hostname, <span class="keyword">sizeof</span>( hostname ), NULL, 0, 0 ) ) != 0 )
+<a name="l00459"></a>00459     {
+<a name="l00460"></a>00460         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::tResolveHostname()-&gt;getnameinfo()-&gt; returned errno %d: %s&quot;</span>, error, gai_strerror( error ) );
+<a name="l00461"></a>00461         ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_FAILURE ) );
+<a name="l00462"></a>00462     }
+<a name="l00463"></a>00463 
+<a name="l00464"></a>00464     <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket.">sHostname</a>( hostname ) )
+<a name="l00465"></a>00465     {
+<a name="l00466"></a>00466         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::tResolveHostname()-&gt;SocketClient::sHostname()-&gt; hostname %s returned false&quot;</span>, hostname );
+<a name="l00467"></a>00467         ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_FAILURE ) );
+<a name="l00468"></a>00468     }
 <a name="l00469"></a>00469 
-<a name="l00470"></a>00470     ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_SUCCESS ) );
-<a name="l00471"></a>00471 }
-<a name="l00472"></a>00472 
-<a name="l00479"></a><a class="code" href="classSocketClient.xhtml#aa3e0896a5e763ae0a7b250396d722084">00479</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#aa3e0896a5e763ae0a7b250396d722084" title="Set the owning server object that the socket is actually connected to.">SocketClient::sServer</a>( <a class="code" href="classServer.xhtml">Server</a>* server )
-<a name="l00480"></a>00480 {
-<a name="l00481"></a>00481     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00482"></a>00482 
-<a name="l00483"></a>00483     <span class="keywordflow">if</span> ( !server )
-<a name="l00484"></a>00484     {
-<a name="l00485"></a>00485         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::sServer()-&gt; called with NULL server&quot;</span> );
-<a name="l00486"></a>00486         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00487"></a>00487     }
-<a name="l00488"></a>00488 
-<a name="l00489"></a>00489     <span class="keywordflow">if</span> ( !server-&gt;<a class="code" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea">Running</a>() )
-<a name="l00490"></a>00490     {
-<a name="l00491"></a>00491         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::sServer()-&gt; called with offline server&quot;</span> );
-<a name="l00492"></a>00492         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00493"></a>00493     }
-<a name="l00494"></a>00494 
-<a name="l00495"></a>00495     <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a> = server;
+<a name="l00470"></a>00470     <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt; %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( socket_client-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ) );
+<a name="l00471"></a>00471 
+<a name="l00472"></a>00472     ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_SUCCESS ) );
+<a name="l00473"></a>00473 }
+<a name="l00474"></a>00474 
+<a name="l00481"></a><a class="code" href="classSocketClient.xhtml#aa3e0896a5e763ae0a7b250396d722084">00481</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#aa3e0896a5e763ae0a7b250396d722084" title="Set the owning server object that the socket is actually connected to.">SocketClient::sServer</a>( <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>* server )
+<a name="l00482"></a>00482 {
+<a name="l00483"></a>00483     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00484"></a>00484 
+<a name="l00485"></a>00485     <span class="keywordflow">if</span> ( !server )
+<a name="l00486"></a>00486     {
+<a name="l00487"></a>00487         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::sServer()-&gt; called with NULL server&quot;</span> );
+<a name="l00488"></a>00488         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00489"></a>00489     }
+<a name="l00490"></a>00490 
+<a name="l00491"></a>00491     <span class="keywordflow">if</span> ( !server-&gt;<a class="code" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea" title="Returns if the Server is shutdown or not.">Running</a>() )
+<a name="l00492"></a>00492     {
+<a name="l00493"></a>00493         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketClient::sServer()-&gt; called with offline server&quot;</span> );
+<a name="l00494"></a>00494         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00495"></a>00495     }
 <a name="l00496"></a>00496 
-<a name="l00497"></a>00497     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00498"></a>00498 }
-<a name="l00499"></a>00499 
-<a name="l00506"></a><a class="code" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4">00506</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket.">SocketClient::sState</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; state )
-<a name="l00507"></a>00507 {
-<a name="l00508"></a>00508     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00509"></a>00509 
-<a name="l00510"></a>00510     <span class="keywordflow">if</span> ( state &lt; SOC_STATE_DISCONNECTED || state &gt;= <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7a840d70589e2217ed8aa208ba921e5e88">MAX_SOC_STATE</a> )
-<a name="l00511"></a>00511     {
-<a name="l00512"></a>00512         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::sState()-&gt; called with invalid state: %lu&quot;</span>, state );
-<a name="l00513"></a>00513         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00514"></a>00514     }
-<a name="l00515"></a>00515 
-<a name="l00516"></a>00516     <a class="code" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a> = state;
+<a name="l00497"></a>00497     <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a> = server;
+<a name="l00498"></a>00498 
+<a name="l00499"></a>00499     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00500"></a>00500 }
+<a name="l00501"></a>00501 
+<a name="l00508"></a><a class="code" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4">00508</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket.">SocketClient::sState</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; state )
+<a name="l00509"></a>00509 {
+<a name="l00510"></a>00510     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00511"></a>00511 
+<a name="l00512"></a>00512     <span class="keywordflow">if</span> ( state &lt; SOC_STATE_DISCONNECTED || state &gt;= <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7a840d70589e2217ed8aa208ba921e5e88">MAX_SOC_STATE</a> )
+<a name="l00513"></a>00513     {
+<a name="l00514"></a>00514         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::sState()-&gt; called with invalid state: %lu&quot;</span>, state );
+<a name="l00515"></a>00515         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00516"></a>00516     }
 <a name="l00517"></a>00517 
-<a name="l00518"></a>00518     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00519"></a>00519 } 
-<a name="l00528"></a><a class="code" href="classSocketClient.xhtml#a72bb9c02dbe7894b91feb4b94e2eea55">00528</a> <a class="code" href="classSocketClient.xhtml#a72bb9c02dbe7894b91feb4b94e2eea55" title="Constructor for the SocketClient class.">SocketClient::SocketClient</a>( <a class="code" href="classServer.xhtml">Server</a>* server, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>&amp; descriptor ) : <a class="code" href="classSocket.xhtml">Socket</a>( server, descriptor )
-<a name="l00529"></a>00529 {
-<a name="l00530"></a>00530     <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.clear();
-<a name="l00531"></a>00531     <a class="code" href="classSocketClient.xhtml#aa3da4ed0f9760c3dd0c39c048f9e99ac">m_idle</a> = 0;
-<a name="l00532"></a>00532     <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.clear();
-<a name="l00533"></a>00533     <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.clear();
-<a name="l00534"></a>00534     <a class="code" href="classSocketClient.xhtml#aa3e0896a5e763ae0a7b250396d722084" title="Set the owning server object that the socket is actually connected to.">sServer</a>( server );
-<a name="l00535"></a>00535     <a class="code" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a> = <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7ad79e38eb5b7df99065c5222ab9bb1583">SOC_STATE_DISCONNECTED</a>;
-<a name="l00536"></a>00536 
-<a name="l00537"></a>00537     <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been opened on a NAMS S...">sSocketOpen</a>( <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503">gSocketOpen</a>() + 1 );
-<a name="l00538"></a>00538     <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.push_back( <span class="keyword">this</span> );
-<a name="l00539"></a>00539 
-<a name="l00540"></a>00540     <span class="keywordflow">return</span>;
-<a name="l00541"></a>00541 }
-<a name="l00542"></a>00542 
-<a name="l00546"></a><a class="code" href="classSocketClient.xhtml#af4ecba63b08737b5be4fef324cef1df6">00546</a> <a class="code" href="classSocketClient.xhtml#af4ecba63b08737b5be4fef324cef1df6" title="Destructor for the SocketClient class.">SocketClient::~SocketClient</a>()
-<a name="l00547"></a>00547 {
-<a name="l00548"></a>00548     <span class="keywordflow">return</span>;
-<a name="l00549"></a>00549 }
+<a name="l00518"></a>00518     <a class="code" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a> = state;
+<a name="l00519"></a>00519 
+<a name="l00520"></a>00520     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00521"></a>00521 }
+<a name="l00522"></a>00522 
+<a name="l00523"></a>00523 <span class="comment">/* Internal */</span>
+<a name="l00529"></a><a class="code" href="classSocketClient.xhtml#a72bb9c02dbe7894b91feb4b94e2eea55">00529</a> <a class="code" href="classSocketClient.xhtml#a72bb9c02dbe7894b91feb4b94e2eea55" title="Constructor for the SocketClient class.">SocketClient::SocketClient</a>( <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>* server, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>&amp; descriptor ) : <a class="code" href="classSocket.xhtml">Socket</a>( server, descriptor )
+<a name="l00530"></a>00530 {
+<a name="l00531"></a>00531     <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.clear();
+<a name="l00532"></a>00532     <a class="code" href="classSocketClient.xhtml#aa3da4ed0f9760c3dd0c39c048f9e99ac">m_idle</a> = 0;
+<a name="l00533"></a>00533     <a class="code" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">m_input</a>.clear();
+<a name="l00534"></a>00534     <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.clear();
+<a name="l00535"></a>00535     <a class="code" href="classSocketClient.xhtml#aa3e0896a5e763ae0a7b250396d722084" title="Set the owning server object that the socket is actually connected to.">sServer</a>( server );
+<a name="l00536"></a>00536     <a class="code" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a> = <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7ad79e38eb5b7df99065c5222ab9bb1583">SOC_STATE_DISCONNECTED</a>;
+<a name="l00537"></a>00537 
+<a name="l00538"></a>00538     <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been opened on a NAMS S...">sSocketOpen</a>( <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503" title="Returns the combined number of SocketClient and SocketServer objects that have been created...">gSocketOpen</a>() + 1 );
+<a name="l00539"></a>00539     <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.push_back( <span class="keyword">this</span> );
+<a name="l00540"></a>00540 
+<a name="l00541"></a>00541     <span class="keywordflow">return</span>;
+<a name="l00542"></a>00542 }
+<a name="l00543"></a>00543 
+<a name="l00547"></a><a class="code" href="classSocketClient.xhtml#af4ecba63b08737b5be4fef324cef1df6">00547</a> <a class="code" href="classSocketClient.xhtml#af4ecba63b08737b5be4fef324cef1df6" title="Destructor for the SocketClient class.">SocketClient::~SocketClient</a>()
+<a name="l00548"></a>00548 {
+<a name="l00549"></a>00549     <span class="keywordflow">return</span>;
+<a name="l00550"></a>00550 }
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -573,7 +580,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

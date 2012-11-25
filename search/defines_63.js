@@ -18,6 +18,7 @@ var searchData=
   ['cfg_5fsoc_5fmax_5fportnum',['CFG_SOC_MAX_PORTNUM',['../config_8h.xhtml#a234e78c07d081a99b72af652cfa37cb8',1,'config.h']]],
   ['cfg_5fsoc_5fmin_5fportnum',['CFG_SOC_MIN_PORTNUM',['../config_8h.xhtml#ae5e151c935c7bb282e854ef030390695',1,'config.h']]],
   ['cfg_5fsoc_5fportnum',['CFG_SOC_PORTNUM',['../config_8h.xhtml#a5f105c04f494daec2a03ed9a85eb092b',1,'config.h']]],
+  ['cfg_5fstr_5fcmd_5finvalid',['CFG_STR_CMD_INVALID',['../config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc',1,'config.h']]],
   ['cfg_5fstr_5fexit_5ffailure',['CFG_STR_EXIT_FAILURE',['../config_8h.xhtml#ac890497fb16954e976eabed51b23b1dd',1,'config.h']]],
   ['cfg_5fstr_5fexit_5fsuccess',['CFG_STR_EXIT_SUCCESS',['../config_8h.xhtml#ac53ab4c77c45a5e739a054086eec42fa',1,'config.h']]],
   ['cfg_5fstr_5fidle',['CFG_STR_IDLE',['../config_8h.xhtml#a8e2bae4932d5625144ae9f3bfc8c3fb0',1,'config.h']]],

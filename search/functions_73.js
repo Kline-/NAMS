@@ -1,7 +1,7 @@
 var searchData=
 [
   ['sdescriptor',['sDescriptor',['../classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a',1,'Socket']]],
-  ['send',['Send',['../classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a',1,'SocketClient::Send(const string &amp;msg)'],['../classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80',1,'SocketClient::Send()']]],
+  ['send',['Send',['../classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80',1,'SocketClient::Send()'],['../classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a',1,'SocketClient::Send(const string &amp;msg)']]],
   ['server',['Server',['../classServer.xhtml#ad5ec9462b520e59f7ea831e157ee5e59',1,'Server']]],
   ['shostname',['sHostname',['../classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39',1,'Socket']]],
   ['shutdown',['Shutdown',['../classServer.xhtml#a9b7082bbc9faca6eb84180f856116762',1,'Server']]],
@@ -16,7 +16,7 @@ var searchData=
   ['sstate',['sState',['../classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4',1,'SocketClient']]],
   ['startup',['Startup',['../classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a',1,'Server']]],
   ['string',['String',['../namespaceUtils.xhtml#a594756861a60d256d31db7bb34ea70de',1,'Utils']]],
-  ['strnewlines',['StrNewlines',['../namespaceUtils.xhtml#aeda29ae05e927b463309cf1db39344a0',1,'Utils']]],
+  ['strnewlines',['StrNewlines',['../namespaceUtils.xhtml#a8c70e85acdb1549aa4cd3a16b8d8d9cf',1,'Utils']]],
   ['strtime',['StrTime',['../namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a',1,'Utils']]],
-  ['strtokens',['StrTokens',['../namespaceUtils.xhtml#a9b5c8a47a2cb834c5970f9bc6633b00a',1,'Utils']]]
+  ['strtokens',['StrTokens',['../namespaceUtils.xhtml#a498e31ec51c129ae9b68a20aa4e05c57',1,'Utils']]]
 ];

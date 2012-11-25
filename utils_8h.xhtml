@@ -102,8 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="utils_8h__incl.svg" width="100%" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="utils_8h__incl.svg" width="100%" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
@@ -126,9 +125,13 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">Utils::iDirectory</a> (const string &amp;dir)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a file path is a directory or file on disk.  <a href="#a303e8afc983db3b483fb450a1c499c1e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b">Utils::iFile</a> (const string &amp;file)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a file path is a file or directory on disk.  <a href="#a7d40818a602fb21db4b4f0917705f85b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442">Utils::iNumber</a> (const string &amp;input)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a string is only a string of numerical values.  <a href="#a47aae40aead5b696e927fb0cdd336442"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc">Utils::iReadable</a> (const string &amp;file)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a file is readable.  <a href="#a158e1deb611937a6313e8683fe7db3fc"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V , class I &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">Utils::KeyValue</a> (K &amp;key, V &amp;val, const I &amp;item)</td></tr>
@@ -136,7 +139,8 @@ Functions</h2></td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">Utils::KeySet</a> (const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const string &amp;item, string &amp;loc)</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V , class I , class L &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a0aff3514e06faae8ed026c673efe002b">Utils::KeySet</a> (const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const I &amp;item, L &amp;loc)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const multimap&lt; bool, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4">Utils::ListDirectory</a> (const string &amp;dir, const bool &amp;recursive, multimap&lt; bool, string &gt; &amp;output, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_close, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_open)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const multimap&lt; bool, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a014607a95c6d01ee99564479b3620ee7">Utils::ListDirectory</a> (const string &amp;dir, const bool &amp;recursive, multimap&lt; bool, string &gt; &amp;output, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_close, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_open)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a multimap of a specified directory tree on disk.  <a href="#a014607a95c6d01ee99564479b3620ee7"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 Core</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.xhtml#a1e42e9736fc6dc3c7450d100f4267a29">FormatString</a>(flags, fmt,...)&#160;&#160;&#160;_FormatString( <a class="el" href="macros_8h.xhtml#a31b9bcd0e7f30adb8ed947d86d4ae11b">PP_NARG</a>( __VA_ARGS__ ), flags, <a class="el" href="macros_8h.xhtml#a88894f3ccb47c646ae7d86a6d6f80121">_caller_</a>, fmt, ##__VA_ARGS__ )</td></tr>
@@ -154,14 +158,21 @@ Core</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee">Utils::DiffTime</a> (const timeval &amp;prev, const timeval &amp;current, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;granularity)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the different between two timeval variables.  <a href="#a405af6e04f92e289f5be1f8ae24a78ee"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107">Utils::DirPath</a> (const string &amp;directory, const string &amp;file, const string &amp;ext=&quot;&quot;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string consisting of directory/file.ext.  <a href="#addb4a550d4405e6351e52a275fae8107"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a33e08ea185b71aab494d83322ad3cd53">Utils::_FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a nested wrapper for <a class="el" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e" title="This is the printf-style string formatter. It should not be invoked directly, but rather by using Uti...">Utils::__FormatString</a> and should not be called directly.  <a href="#a33e08ea185b71aab494d83322ad3cd53"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">Utils::__FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt, va_list &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the printf-style string formatter. It should not be invoked directly, but rather by using Utils::FormatString() to ensure proper argument count and caller passing.  <a href="#a070c642e01b4b1d2ded94e234d32f65e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aa2ac8bf1bb304bab8f29829ec30af243">Utils::_Logger</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the logging output engine. It should not be invoked directly, but rather by calling Utils::Logger() to ensure proper argument count and caller passing.  <a href="#aa2ac8bf1bb304bab8f29829ec30af243"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#afaf029667f299587a52ba9c8de11edfa">Utils::NumChar</a> (const string &amp;input, const string &amp;item)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aeda29ae05e927b463309cf1db39344a0">Utils::StrNewlines</a> (const string &amp;input)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of a specific character in a given string.  <a href="#afaf029667f299587a52ba9c8de11edfa"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a8c70e85acdb1549aa4cd3a16b8d8d9cf">Utils::StrNewlines</a> (const string &amp;input)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector of strings split at linebreaks based on input.  <a href="#a8c70e85acdb1549aa4cd3a16b8d8d9cf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a">Utils::StrTime</a> (const timeval &amp;now)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a given time as a string.  <a href="#aa3855eafe3e4898c743bc47cdc962a4a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a9b5c8a47a2cb834c5970f9bc6633b00a">Utils::StrTokens</a> (const string &amp;input)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a498e31ec51c129ae9b68a20aa4e05c57">Utils::StrTokens</a> (const string &amp;input)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector of strings split at spaces based on input.  <a href="#a498e31ec51c129ae9b68a20aa4e05c57"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This file contains the <a class="el" href="namespaceUtils.xhtml">Utils</a> namespace, templates, and trivial member functions. </p>
@@ -199,7 +210,7 @@ Core</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00048">48</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00050">50</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 
 </div>
 </div>
@@ -234,7 +245,7 @@ Core</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00050">50</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00052">52</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 
 </div>
 </div>
@@ -256,7 +267,7 @@ Core</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

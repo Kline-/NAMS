@@ -87,14 +87,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="Plugin" -->
+<p>Functions that indepdently built and loaded to extend the server core via an API.  
+</p>
+
 <p><code>#include &quot;<a class="el" href="plugin_8h_source.xhtml">plugin.h</a>&quot;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Plugin:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPlugin__coll__graph.svg" width="279" height="152"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlugin__coll__graph.svg" width="342" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classPlugin-members.xhtml">List of all members.</a></p>
@@ -102,13 +104,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#ad9d4b703902b9818ca13b2d31c960101">Register</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a033532442d50d8f4f79401d0d90ea45d">Run</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client=NULL) const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the primary function of the implemented class.  <a href="#a033532442d50d8f4f79401d0d90ea45d"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">gName</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the name of the object.  <a href="#af031147ea2e2d7e7f73f7edb9a5921ae"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a3bf3ac47f4c7ad4a24629e487115a986">Plugin</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> class.  <a href="#a3bf3ac47f4c7ad4a24629e487115a986"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#aee4cc1864a2afa84a9ad935153f3fe39">~Plugin</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> class.  <a href="#aee4cc1864a2afa84a9ad935153f3fe39"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">m_bool</a> [<a class="el" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660">CFG_PLG_MAX_ARR</a>]</td></tr>
@@ -119,7 +124,7 @@ Private Attributes</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00029">29</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00034">34</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3bf3ac47f4c7ad4a24629e487115a986"></a><!-- doxytag: member="Plugin::Plugin" ref="a3bf3ac47f4c7ad4a24629e487115a986" args="(const string &amp;name, const uint_t &amp;type)" -->
 <div class="memitem">
@@ -145,8 +150,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of the class implemented by the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The <a class="el" href="enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bd">PLG_TYPE</a> of the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> to assist in the API implementation for specific object types. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00037">37</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00054">54</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = 0;
 
@@ -178,11 +190,10 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00053">53</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00073">73</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
-}
-</pre></div>
+}</pre></div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -194,40 +205,31 @@ Private Attributes</h2></td></tr>
           <td class="memname">const string <a class="el" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">Plugin::gName</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string containing the name of the object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00037">37</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">m_name</a>; }
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00041">41</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">m_name</a>;
+}
 </pre></div>
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_af031147ea2e2d7e7f73f7edb9a5921ae_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_af031147ea2e2d7e7f73f7edb9a5921ae_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="ad9d4b703902b9818ca13b2d31c960101"></a><!-- doxytag: member="Plugin::Register" ref="ad9d4b703902b9818ca13b2d31c960101" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const void <a class="el" href="classPlugin.xhtml#ad9d4b703902b9818ca13b2d31c960101">Plugin::Register</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
 
 </div>
 </div>
@@ -245,14 +247,25 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>If called from a <a class="el" href="classSocketClient.xhtml">SocketClient</a>, the caller is passed through to the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> for reference. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPlugin_a033532442d50d8f4f79401d0d90ea45d_icgraph.svg" width="270" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlugin_a033532442d50d8f4f79401d0d90ea45d_icgraph.svg" width="270" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -269,8 +282,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Any bool that needs to be tied back to the parent object member variables. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00049">49</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00058">58</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -284,8 +298,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>The name of the class the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00050">50</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00059">59</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -299,8 +314,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Any string that needs to be tied back to the parent object member variables. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00051">51</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00060">60</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -314,8 +330,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>The <a class="el" href="enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bd">PLG_TYPE</a> of the class the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00052">52</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00061">61</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -329,8 +346,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Any <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> that needs to be tied back to the parent object member variables. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00053">53</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00062">62</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -356,7 +374,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -104,25 +104,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00026"></a>00026 <span class="preprocessor"></span>
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="socketclient_8h.xhtml" title="The SocketClient class.">socketclient.h</a>&quot;</span>
 <a name="l00028"></a>00028 
-<a name="l00029"></a><a class="code" href="classPlugin.xhtml">00029</a> <span class="keyword">class </span><a class="code" href="classPlugin.xhtml">Plugin</a> {
-<a name="l00030"></a>00030     <span class="keyword">public</span>: 
-<a name="l00032"></a>00032         <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classPlugin.xhtml#ad9d4b703902b9818ca13b2d31c960101">Register</a>();
-<a name="l00033"></a>00033         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classPlugin.xhtml#a033532442d50d8f4f79401d0d90ea45d">Run</a>( <a class="code" href="classSocketClient.xhtml">SocketClient</a>* client = NULL ) <span class="keyword">const</span> = 0; 
-<a name="l00037"></a><a class="code" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">00037</a>         <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">gName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">m_name</a>; }  
-<a name="l00044"></a>00044         <a class="code" href="classPlugin.xhtml#a3bf3ac47f4c7ad4a24629e487115a986">Plugin</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type );
-<a name="l00045"></a>00045         <a class="code" href="classPlugin.xhtml#aee4cc1864a2afa84a9ad935153f3fe39">~Plugin</a>();
-<a name="l00048"></a>00048     <span class="keyword">private</span>:
-<a name="l00049"></a><a class="code" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">00049</a>         <span class="keywordtype">bool</span> <a class="code" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">m_bool</a>[<a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a>];
-<a name="l00050"></a><a class="code" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">00050</a>         <span class="keywordtype">string</span> <a class="code" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">m_name</a>;
-<a name="l00051"></a><a class="code" href="classPlugin.xhtml#ad0402ff90752f7c96d5d30e9d68b0026">00051</a>         <span class="keywordtype">string</span> <a class="code" href="classPlugin.xhtml#ad0402ff90752f7c96d5d30e9d68b0026">m_string</a>[<a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a>];
-<a name="l00052"></a><a class="code" href="classPlugin.xhtml#a4fecbf827fa745b458c416340d609e34">00052</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classPlugin.xhtml#a4fecbf827fa745b458c416340d609e34">m_type</a>;
-<a name="l00053"></a><a class="code" href="classPlugin.xhtml#a6ec3d0115316ffc283e9ee3a7c019195">00053</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classPlugin.xhtml#a6ec3d0115316ffc283e9ee3a7c019195">m_uint_t</a>[<a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a>];
-<a name="l00054"></a>00054 };
-<a name="l00055"></a>00055 
-<a name="l00056"></a><a class="code" href="plugin_8h.xhtml#a2b24a1886d94b64c6bf8b35303fbf47a">00056</a> <span class="keyword">typedef</span> <a class="code" href="classPlugin.xhtml">Plugin</a>* <a class="code" href="plugin_8h.xhtml#a2b24a1886d94b64c6bf8b35303fbf47a">NewPlugin</a>();
-<a name="l00057"></a><a class="code" href="plugin_8h.xhtml#aa8da93bcd88aad2b45497818180f3706">00057</a> <span class="keyword">typedef</span> <span class="keywordtype">void</span> <a class="code" href="plugin_8h.xhtml#aa8da93bcd88aad2b45497818180f3706">DeletePlugin</a>( <a class="code" href="classPlugin.xhtml">Plugin</a>* );
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="preprocessor">#endif</span>
+<a name="l00029"></a>00029 <span class="keyword">using namespace </span>std;
+<a name="l00030"></a>00030 
+<a name="l00034"></a><a class="code" href="classPlugin.xhtml">00034</a> <span class="keyword">class </span><a class="code" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> {
+<a name="l00035"></a>00035     <span class="keyword">public</span>: 
+<a name="l00042"></a>00042         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">void</span> Run( <a class="code" href="classSocketClient.xhtml">SocketClient</a>* client = NULL ) <span class="keyword">const</span> = 0; 
+<a name="l00046"></a>00046         <span class="keyword">const</span> <span class="keywordtype">string</span> gName() <span class="keyword">const</span>;  
+<a name="l00053"></a>00053         <a class="code" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type );
+<a name="l00054"></a>00054         ~<a class="code" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a>();
+<a name="l00057"></a>00057     <span class="keyword">private</span>:
+<a name="l00058"></a><a class="code" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">00058</a>         <span class="keywordtype">bool</span> m_bool[<a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a>];       
+<a name="l00059"></a><a class="code" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">00059</a>         <span class="keywordtype">string</span> <a class="code" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">m_name</a>;                      
+<a name="l00060"></a><a class="code" href="classPlugin.xhtml#ad0402ff90752f7c96d5d30e9d68b0026">00060</a>         <span class="keywordtype">string</span> m_string[<a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a>];   
+<a name="l00061"></a><a class="code" href="classPlugin.xhtml#a4fecbf827fa745b458c416340d609e34">00061</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classPlugin.xhtml#a4fecbf827fa745b458c416340d609e34">m_type</a>;                      
+<a name="l00062"></a><a class="code" href="classPlugin.xhtml#a6ec3d0115316ffc283e9ee3a7c019195">00062</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> m_uint_t[<a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a>];   
+<a name="l00063"></a>00063 };
+<a name="l00064"></a>00064 
+<a name="l00068"></a><a class="code" href="plugin_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6">00068</a> <span class="keyword">typedef</span> <a class="code" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a>* <a class="code" href="plugin_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6" title="Used as a pointer to the New() function within an implemented class.">PluginNew</a>();
+<a name="l00069"></a>00069 
+<a name="l00073"></a><a class="code" href="plugin_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4">00073</a> <span class="keyword">typedef</span> <span class="keywordtype">void</span> <a class="code" href="plugin_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4" title="Used as a pointer to the Delete() function within an implemented class.">PluginDelete</a>( <a class="code" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a>* );
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -141,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
