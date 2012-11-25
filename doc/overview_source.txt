@@ -33,8 +33,8 @@ constructor / destructor unless they are so abstract as to make this not
 feasible.
 
 Within each .cpp or .h file NAMS attempts to maintain a common style and layout.
-All class and namespace files contain comment markers of "//Core", "//Query",
-and "//Manipulate".
+All class and namespace files contain comment markers of "/* Core */",
+"/* Query */", "/* Manipulate */", and "/* Internal */".
 
 Within each section, functions are primarily arranged alphabetically by the first
 capital letter of their name (ignoring any lowercase prefixes). Templates are
@@ -71,6 +71,11 @@ this naming paridigim are primarily "one time" functions that are typically only
 called during server startup or shutdown and do not merit enough need to be
 re-designated as a core function due to their limited frequency of use.
 
+Internal functions are predominately the constructor and destructor for each
+class. Other functions that serve a vital role to the operation of the class,
+yet don't need to interface beyond the class, or are implemented as private,
+are also grouped here.
+
 .cpp
     All .cpp files have their include directives structured in the following
     manner: "h/includes.h", "h/class.h" and then a blank line for visual
@@ -79,7 +84,7 @@ re-designated as a core function due to their limited frequency of use.
     headers it depends on.
 
     command.cpp
-        Contains all non-trival member functions of the Command class.
+        Contains all non-template member functions of the Command class.
 
     list.cpp
         Contains all globally referenced list / map / vector types.
@@ -87,17 +92,20 @@ re-designated as a core function due to their limited frequency of use.
     main.cpp
         Currently only implements int main() and creates a Server object.
 
+    plugin.cpp
+        Contains all non-template member functions of the Plugin class.
+
     server.cpp
-        Contains all non-trival member functions of the Server class.
+        Contains all non-template member functions of the Server class.
 
     socket.cpp
-        Contains all non-trivial member functions of the Socket class.
+        Contains all non-template member functions of the Socket class.
 
     socketclient.cpp
-        Contains all non-trivial member functions of the SocketClient class.
+        Contains all non-template  member functions of the SocketClient class.
 
     socketserver.cpp
-        Contains all non-trivial member functions of the SocketServer class.
+        Contains all non-template member functions of the SocketServer class.
 
     utils.cpp
         Contains all functions within the Utils namespace.
@@ -106,14 +114,19 @@ re-designated as a core function due to their limited frequency of use.
     All .h files are #ifdef guard wrapped and contain only external includes
     required for their function. If a header file requires any system libraries
     then those are the first files included within it. Any dependent class
-    header file includes follow after this.
+    header file includes follow after this. Header files that implement a
+    class also state "using namespace std;" in addition to the globally
+    referenced statement within "includes.h". This is to aid Doxygen in
+    properly parsing files and generating correct documentation. Macros are
+    not used in declaring member functions or variables of individual classes
+    for easier visual reference and to also aid Doxygen.
 
     class.h
         Contains declarations of all classes. Indented to denote inheritance.
         This is the second file included within every NAMS .cpp file.
 
     command.h
-        Contains the Command class, templates, and trivial member functions.
+        Contains the Command class and templates.
 
     config.h
         Contains values intended to be modified to customize parts of NAMS,
@@ -149,17 +162,20 @@ re-designated as a core function due to their limited frequency of use.
         Macros are also used for standardization of common, simple tasks
         such as outputting the value of errno and it's string meaning.
 
+    plugin.h
+        Contains the Plugin class and templates.
+
     server.h
-        Contains the Server class, templates, and trivial member functions.
+        Contains the Server class and templates.
 
     socket.h
-        Contains the Socket class, templates, and trivial member functions.
+        Contains the Socket class and templates.
 
     socketclient.h
-        Contains the SocketClient class, templates, and trivial member functions.
+        Contains the SocketClient class and templates.
 
     socketserver.h
-        Contains the SocketServer class, templates, and trivial member functions.
+        Contains the SocketServer class and templates.
 
     sysincludes.h
         This is the second of two "header of headers" files within

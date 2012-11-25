@@ -17,6 +17,15 @@ Class
         intended to run either natively compiled into the server or
         via a yet-to-be determined scripting language (TCL, Ruby, etc).
 
+    Plugin
+        Inherits: None
+        Children: None
+
+        A self-contained object file that implements a new class and
+        interacts with the server via an API. Other server objects
+        will tie into, but not inherit, the Plugin class in order to
+        interface with any class that is implemented in this manner.
+
     Server
         Inherits: None
         Children: None
