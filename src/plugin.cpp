@@ -17,7 +17,14 @@
  ***************************************************************************/
 /**
  * @file plugin.cpp
- * @brief All non-trivial member functions of the Plugin class.
+ * @brief All non-template member functions of the Plugin class.
+ *
+ * Plugin objects provide an API to interface with the NAMS server in
+ * different ways. Each Plugin is compiled and loaded as an indepdendent shared
+ * object that implements a new class.
+ *
+ * Server::BuildPlugin() will automatically compile any plugins at boot time
+ * unless an existing shared object file is already found in #CFG_DAT_DIR_OBJ.
  */
 #include "h/includes.h"
 #include "h/class.h"
@@ -27,10 +34,23 @@
 /* Core */
 
 /* Query */
+/**
+ * @brief Return the name of the object.
+ * @retval string A string containing the name of the object.
+ */
+const string Plugin::gName() const
+{
+    return m_name;
+}
 
 /* Manipulate */
 
 /* Internal */
+/**
+ * @brief Constructor for the Plugin class.
+ * @param[in] name The name of the class implemented by the Plugin.
+ * @param[in] type The #PLG_TYPE of the Plugin to assist in the API implementation for specific object types.
+ */
 Plugin::Plugin( const string& name, const uint_t& type )
 {
     uint_t i = 0;
@@ -47,6 +67,9 @@ Plugin::Plugin( const string& name, const uint_t& type )
     return;
 }
 
+/**
+ * @brief Destructor for the Plugin class.
+ */
 Plugin::~Plugin()
 {
     return;

@@ -19,27 +19,31 @@
  * @file server.h
  * @brief The Server class.
  *
- *  This file contains the Server class, templates, and trivial member functions.
+ *  This file contains the Server class and template functions.
  */
 #ifndef DEC_SERVER_H
 #define DEC_SERVER_H
 
 #include <fcntl.h>
 
+#include "list.h"
 #include "socketclient.h"
 #include "socketserver.h"
-#include "list.h"
+
 
 using namespace std;
 
+/**
+ * @brief The core of the game server.
+ */
 class Server {
     public:
         /** @name Core */ /**@{*/
         const bool BuildPlugin( const string& file, const bool& force = false );
         const bool LoadCommands();
         const bool PollSockets();
-        const bool ProcessInput();
-        const bool Running() const { return !m_shutdown; }
+        const void ProcessInput();
+        const bool Running() const;
         const void Startup();
         const void Shutdown( const sint_t& status );
         const void Update();
@@ -47,11 +51,10 @@ class Server {
 
         /** @name Query */ /**@{*/
         const string gHostname() const;
-        const uint_t gPort() const { return m_port; }
-        const uint_t gPulseRate() const { return m_pulse_rate; }
-        SocketServer* gSocket() const { return m_socket; }
-        const uint_t gSocketClose() const { return m_socket_close; }
-        const uint_t gSocketOpen() const { return m_socket_open; }
+        const uint_t gPort() const;
+        SocketServer* gSocket() const;
+        const uint_t gSocketClose() const;
+        const uint_t gSocketOpen() const;
         const string gStatus() const;
         /**@}*/
 
@@ -67,17 +70,16 @@ class Server {
         /**@}*/
 
     private:
-        uint_t  m_dir_close;
-        uint_t  m_dir_open;
-        uint_t  m_port;
-        uint_t  m_pulse_rate;
-        bool    m_shutdown;
-        SocketServer* m_socket;
-        ITER( list, SocketClient*, m_socket_client_next );
-        uint_t  m_socket_close;
-        uint_t  m_socket_open;
-        timeval m_time_boot;
-        timeval m_time_current;
+        uint_t  m_dir_close;                                /**<Total number of directories closed by the Server. */
+        uint_t  m_dir_open;                                 /**<Total number of directories opened by the Server. */
+        uint_t  m_port;                                     /**<Port number to be passed to the associated SocketServer. */
+        bool    m_shutdown;                                 /**<Shutdown state of the Server. */
+        SocketServer* m_socket;                             /**<Pointer to the associated SocketServer object. */
+        list<SocketClient*>::iterator m_socket_client_next; /**<Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
+        uint_t  m_socket_close;                             /**<Total number of SocketClient and SocketServer objects closed by the Server. */
+        uint_t  m_socket_open;                              /**<Total number of SocketClient and SocketServer objects opened by the Server. */
+        timeval m_time_boot;                                /**<Time the Server was first booted. */
+        timeval m_time_current;                             /**<Current time from the host OS. */
 };
 
 #endif

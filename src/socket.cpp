@@ -17,7 +17,7 @@
  ***************************************************************************/
 /**
  * @file socket.cpp
- * @brief All non-trivial member functions of the Socket class.
+ * @brief All non-template member functions of the Socket class.
  */
 #include "h/includes.h"
 #include "h/class.h"

@@ -19,7 +19,7 @@
  * @file command.h
  * @brief The Command class.
  *
- *  This file contains the Command class and template functions..
+ *  This file contains the Command class and template functions.
  */
 #ifndef DEC_COMMAND_H
 #define DEC_COMMAND_H
@@ -32,6 +32,9 @@
 
 using namespace std;
 
+/**
+ * @brief Functions that are built and loaded independently as Plugin objects.
+ */
 class Command {
     public:
         /** @name Core */ /**@{*/

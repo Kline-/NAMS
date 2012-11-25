@@ -19,7 +19,7 @@
  * @file socket.h
  * @brief The Socket class.
  *
- *  This file contains the Socket class, templates, and trivial member functions.
+ *  This file contains the Socket class and template functions.
  */
 #ifndef DEC_SOCKET_H
 #define DEC_SOCKET_H

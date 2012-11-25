@@ -19,7 +19,7 @@
  * @file plugin.h
  * @brief The Plugin class.
  *
- *  This file contains the Plugin class, templates, and trivial member functions.
+ *  This file contains the Plugin class and template functions.
  */
 #ifndef DEC_PLUGIN_H
 #define DEC_PLUGIN_H
@@ -28,17 +28,22 @@
 
 using namespace std;
 
+/**
+ * @brief Functions that indepdently built and loaded to extend the server core via an API.
+ */
 class Plugin {
     public:
         /** @name Core */ /**@{*/
-        Plugin* New();
-        const void Delete( Plugin* );
-        const void Register();
+        /**
+         * @brief Execute the primary function of the implemented class.
+         * @param[in] client If called from a SocketClient, the caller is passed through to the Plugin for reference.
+         * @retval void
+         */
         virtual const void Run( SocketClient* client = NULL ) const = 0;
         /**@}*/
 
         /** @name Query */ /**@{*/
-        const string gName() const { return m_name; }
+        const string gName() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -50,14 +55,21 @@ class Plugin {
         /**@}*/
 
     private:
-        bool m_bool[CFG_PLG_MAX_ARR];
-        string m_name;
-        string m_string[CFG_PLG_MAX_ARR];
-        uint_t m_type;
-        uint_t m_uint_t[CFG_PLG_MAX_ARR];
+        bool m_bool[CFG_PLG_MAX_ARR];       /**<Any bool that needs to be tied back to the parent object member variables. */
+        string m_name;                      /**<The name of the class the Plugin implements. */
+        string m_string[CFG_PLG_MAX_ARR];   /**<Any string that needs to be tied back to the parent object member variables. */
+        uint_t m_type;                      /**<The #PLG_TYPE of the class the Plugin implements. */
+        uint_t m_uint_t[CFG_PLG_MAX_ARR];   /**<Any #uint_t that needs to be tied back to the parent object member variables. */
 };
 
+/**
+ * @brief Used as a pointer to the New() function within an implemented class.
+ */
 typedef Plugin* PluginNew();
+
+/**
+ * @brief Used as a pointer to the Delete() function within an implemented class.
+ */
 typedef void PluginDelete( Plugin* );
 
 #endif

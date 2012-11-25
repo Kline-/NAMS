@@ -46,7 +46,7 @@ const timeval Utils::CurrentTime()
  * @param[in] prev A timeval of the beginning time.
  * @param[in] current A timeval of the current, or end time.
  * @param[in] granularity A #uint_t variable specified as a UTILS_TIME value from #UTILS_OPTS.
- * @retval #uint_t A #uint_t value is returned as the difference between prev and current in units granularity.
+ * @retval uint_t The difference between prev and current in units granularity.
  */
 const uint_t Utils::DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity )
 {
@@ -238,7 +238,7 @@ const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>&
  * @brief Returns the number of a specific character in a given string.
  * @param[in] input A string value to search.
  * @param[in] item The character to search for within input.
- * @retval uint_t A #uint_t value containing the total count of item within input.
+ * @retval uint_t The total count of item within input.
  */
 const uint_t Utils::NumChar( const string& input, const string& item )
 {

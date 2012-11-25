@@ -17,7 +17,16 @@
  ***************************************************************************/
 /**
  * @file server.cpp
- * @brief All non-trivial member functions of the Server class.
+ * @brief All non-template member functions of the Server class.
+ *
+ * A Server object is created from main() when NAMS is first started. The Server
+ * object handles all further interfacing with the host OS and is the central
+ * core of NAMS.
+ *
+ * During its boot sequence, the Server will spawn a SocketServer to listen for
+ * incomming SocketClient connections, compile and load any Plugin objects,
+ * and then indefinitely loop and process game logic until it receives a shutdown
+ * notification.
  */
 #include "h/includes.h"
 #include "h/class.h"
@@ -27,11 +36,11 @@
 
 /* Core */
 /**
- * @brief Compile a plugin file.
+ * @brief Compile a Plugin file.
  * @param[in] file The file to be compiled. The file extension should end in #CFG_PLG_BUILD_EXT_IN.
  * @param[in] force Force a rebuild even if the output file already exists.
  * @retval false Returned if a fault is experienced trying to build the plugin.
- * @retval true Returned if the plugin builds successfully.
+ * @retval true Returned if the Plugin builds successfully.
  */
 const bool Server::BuildPlugin( const string& file, const bool& force )
 {
@@ -40,6 +49,7 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
     string build_cmd, build_res;
     char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
 
+    // No need to run if the output file already exists and a rebuild wasn't forced
     if ( Utils::iReadable( Utils::DirPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT ) ) && !force )
         return true;
 
@@ -49,6 +59,7 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
     build_cmd.append( Utils::DirPath( CFG_DAT_DIR_COMMAND, file ) );
     build_cmd.append( " " CFG_PLG_BUILD_OPT );
 
+    // Pipe the build_cmd to the host for processing
     if ( ( popen_fil = popen( CSTR( build_cmd ), "r" ) ) != NULL )
     {
         while( fgets( buf, CFG_STR_MAX_BUFLEN, popen_fil ) != NULL )
@@ -119,6 +130,11 @@ const bool Server::LoadCommands()
     return true;
 }
 
+/**
+ * @brief Poll all SocketClient objects that are communicating with the associated SocketServer object.
+ * @retval false Returned if the file descriptor of the SocketServer is invalid and no further processing can take place.
+ * @retval true Returned if the file descriptor of the SocketServer is valid and all SocketClient objects were polled successfully.
+ */
 const bool Server::PollSockets()
 {
     UFLAGS_DE( flags );
@@ -286,7 +302,11 @@ const bool Server::PollSockets()
     return true;
 }
 
-const bool Server::ProcessInput()
+/**
+ * @brief Processes input from all active SocketClient objects.
+ * @retval void
+ */
+const void Server::ProcessInput()
 {
     UFLAGS_DE( flags );
     ITER( list, SocketClient*, si );
@@ -326,11 +346,21 @@ const bool Server::ProcessInput()
         }
     }
 
-    return true;
+    return;
 }
 
 /**
- * @brief Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all memory to verify there are no leaks.
+ * @brief Returns if the Server is shutdown or not.
+ * @retval false Returned if the server is inactive and is shutdown.
+ * @retval true Returned if the server is active and not shutdown.
+ */
+const bool Server::Running() const
+{
+    return !m_shutdown;
+}
+
+/**
+ * @brief Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all memory to verify there are no leaks.
  * @param[in] status The shutdown code to pass to exit() when NAMS exits. Either EXIT_FAILURE or EXIT_SUCCESS.
  * @retval void
  */
@@ -362,7 +392,7 @@ const void Server::Shutdown( const sint_t& status )
 }
 
 /**
- * @brief Start the NAMS server. Responsible for calling all critical boot-time functions such as SocketServer initialization, Command loading, etc.
+ * @brief Start the NAMS Server. Responsible for calling all critical boot-time functions such as SocketServer initialization, Command loading, etc.
  * @retval void
  */
 const void Server::Startup()
@@ -419,17 +449,15 @@ const void Server::Update()
 
     m_time_current = Utils::CurrentTime();
 
+    // Poll all sockets for changes
     if ( !PollSockets() )
     {
         LOGSTR( flags, "Server::Update()->Server::PollSockets()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
 
-    if ( !ProcessInput() )
-    {
-        LOGSTR( flags, "Server::Update()->Server::ProcessInput()-> returned false" );
-        Shutdown( EXIT_FAILURE );
-    }
+    // Process any input received
+    ProcessInput();
 
     // Sleep to control game pacing
     ::usleep( USLEEP_MAX / CFG_GAM_PULSE_RATE );
@@ -463,7 +491,43 @@ const string Server::gHostname() const
 }
 
 /**
- * @brief Display miscellaneous data about the NAMS server, such as total data transfered, objects in memory, etc.
+ * @brief Returns the port that any SocketServer should bind to. Defaults to #CFG_SOC_PORTNUM.
+ * @retval uint_t The port for a SocketServer to bind to.
+ */
+const uint_t Server::gPort() const
+{
+    return m_port;
+}
+
+/**
+ * @brief Returns the SocketServer associated with the current Server instance.
+ * @retval SocketServer A pointer to the #SocketServer object spanwed by this object.
+ */
+SocketServer* Server::gSocket() const
+{
+    return m_socket;
+}
+
+/**
+ * @brief Returns the combined number of SocketClient and SocketServer objects that have been destroyed.
+ * @retval uint_t The total number of closed sockets that were tied to this object.
+ */
+const uint_t Server::gSocketClose() const
+{
+    return m_socket_close;
+}
+
+/**
+ * @brief Returns the combined number of SocketClient and SocketServer objects that have been created.
+ * @retval uint_t The total number of opened sockets that are tied to this object.
+ */
+const uint_t Server::gSocketOpen() const
+{
+    return m_socket_open;
+}
+
+/**
+ * @brief Display miscellaneous data about the NAMS Server, such as total data transfered, objects in memory, etc.
  * @retval string A string is returned containing a pre-formatted data display of all Server information.
  * @todo Write this entire function.
  */
@@ -545,7 +609,6 @@ Server::Server()
     m_dir_close = 0;
     m_dir_open = 0;
     m_port = 0;
-    m_pulse_rate = CFG_GAM_PULSE_RATE;
     m_shutdown = true;
     m_socket = 0;
     m_socket_client_next = socket_client_list.begin();

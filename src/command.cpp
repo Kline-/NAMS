@@ -17,7 +17,7 @@
  ***************************************************************************/
 /**
  * @file command.cpp
- * @brief All non-trivial member functions of the Command class.
+ * @brief All non-template member functions of the Command class.
  *
  * Command objects are built as independently loaded Plugin classes. The
  * Server will compile any file within #CFG_DAT_DIR_COMMAND and ending in
@@ -105,7 +105,7 @@ const bool Command::New( const string& file )
 
 /**
  * @brief Execute a Plugin object's primary function.
- * @param client[in] If called from a SocketClient, the caller is passed through to the Plugin for reference.
+ * @param[in] client If called from a SocketClient, the caller is passed through to the Plugin for reference.
  * @retval void
  */
 const void Command::Run( SocketClient* client ) const
