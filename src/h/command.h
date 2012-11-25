@@ -38,7 +38,7 @@ class Command {
         /**@}*/
 
         /** @name Query */ /**@{*/
-        const string gName() const { return m_name; };
+        const string gName() const { return m_plg->gName(); };
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -50,9 +50,11 @@ class Command {
         /**@}*/
 
     private:
-        void* m_handle;
         uint_t m_level;
-        string m_name;
+        Plugin* m_plg;
+        DeletePlugin* m_plg_delete;
+        void* m_plg_handle;
+        NewPlugin* m_plg_new;
         bool m_preempt;
 };
 

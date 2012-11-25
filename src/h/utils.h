@@ -94,7 +94,7 @@ namespace Utils {
             transform( val.begin(), val.end(), val.begin(), ::tolower );
         }
 
-        if( key.compare( val ) == 0 )
+        if ( key.compare( val ) == 0 )
         {
             loc = item;
             found = true;
@@ -115,7 +115,7 @@ namespace Utils {
             transform( val.begin(), val.end(), val.begin(), ::tolower );
         }
 
-        if( key.compare( val ) == 0 )
+        if ( key.compare( val ) == 0 )
         {
             string tf( item );
 

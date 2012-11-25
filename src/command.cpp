@@ -36,18 +36,40 @@
  */
 const void Command::Delete()
 {
+    UFLAGS_DE( flags );
+    MITER( multimap, const char,Command*, mi );
+
+    m_plg_delete( m_plg );
+    ::dlerror();
+
+    if ( ::dlclose( m_plg_handle ) )
+        LOGFMT( flags, "Command::Delete()->dlclose() returned error: %s", ::dlerror() );
+
+    for ( mi = command_list.begin(); mi != command_list.end(); )
+    {
+        if ( mi->second == this )
+        {
+            command_list.erase( mi++ );
+            break;
+        }
+        else
+            ++mi;
+    }
     delete this;
 
    return;
 }
 
+/**
+ * @brief Load a plugin command from #CFG_DAT_DIR_OBJ.
+ * @param[in] file The filename to load without any path prepended to it.
+ * @retval false Returned if the command in file was not found or unable to be loaded.
+ * @retval true Returned if the command in file was successfully loaded.
+ */
 const bool Command::New( const string& file )
 {
     UFLAGS_DE( flags );
     string path( Utils::DirPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT ) );
-    string line, key, value;
-//    bool found = false;
-//    FILE* src = NULL;
 
     // Ensure there is a valid file to open
     if ( !Utils::iFile( path ) )
@@ -55,33 +77,25 @@ const bool Command::New( const string& file )
         LOGFMT( flags, "Command::New()->Utils::iFile()-> returned false for path: %s", CSTR( path ) );
         return false;
     }
-
-    if ( ( m_handle = ::dlopen( CSTR( path ), RTLD_LAZY | RTLD_GLOBAL ) ) == NULL )
+    path = "/home/matt/muds/active/nams/obj/h/help.so";
+    if ( ( m_plg_handle = ::dlopen( CSTR( path ), RTLD_NOW | RTLD_GLOBAL ) ) == NULL )
     {
-        LOGFMT( flags, "Command::New()->dlopen returned error: %s", dlerror() );
+        LOGFMT( flags, "Command::New()->dlopen returned error: %s", ::dlerror() );
         return false;
     }
     else
     {
-        NewPlugin* np = (NewPlugin*) dlsym( m_handle, "New" );
-        cout << "new loaded" << endl;
-        DeletePlugin* dp = (DeletePlugin*) dlsym( m_handle, "Delete" );
-        cout << "delete loaded" << endl;
-        Plugin* pg = np();
-        cout << "plugin created" << endl;
-        pg->Run();
-        dp( pg );
-        dlclose( m_handle );
+        m_plg_delete = (DeletePlugin*) ::dlsym( m_plg_handle, "Delete" );
+        m_plg_new = (NewPlugin*) ::dlsym( m_plg_handle, "New" );
+        m_plg = m_plg_new();
+        m_plg->Run();
     }
+
+    command_list.insert( pair<const char,Command*>( gName()[0], this ) );
 
     return true;
 }
-/**
- * @brief Load a command to memory from a file within a subdirectory of #CFG_DAT_DIR_COMMAND.
- * @param[in] file The filename to load without any path prepended to it.
- * @retval false Returned if the command in file was not found or unable to be loaded.
- * @retval true Returned if the command in file was successfully loaded.
-
+/*
 const bool Command::New( const string& file )
 {
     cmd.open( CSTR( path ), ifstream::in );
@@ -128,9 +142,11 @@ const bool Command::New( const string& file )
  */
 Command::Command()
 {
-    m_handle = NULL;
-    m_level = 0;
-    m_name.clear();
+    m_level = uintmin_t;
+    m_plg = NULL;
+    m_plg_delete = NULL;
+    m_plg_handle = NULL;
+    m_plg_new = NULL;
     m_preempt = false;
 
     return;

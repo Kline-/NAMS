@@ -6,6 +6,7 @@ class Help : public Plugin {
         virtual const void Run() const;
 
         Help( const string& name, const uint_t& type );
+        ~Help();
 };
 
 const void Help::Run() const
@@ -17,6 +18,10 @@ const void Help::Run() const
 Help::Help( const string& name = "Help", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     return;
+}
+
+Help::~Help()
+{
 }
 
 extern "C" {

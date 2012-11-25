@@ -38,12 +38,14 @@ Plugin::Plugin( const string& name, const uint_t& type )
 {
     uint_t i = 0;
 
-    m_bool[CFG_PLG_MAX_ARR] = { false };
+    for ( i = 0; i < CFG_PLG_MAX_ARR; i++ )
+        m_bool[i] = false;
     m_name = name;
     for ( i = 0; i < CFG_PLG_MAX_ARR; i++ )
         m_string[i].clear();
     m_type = type;
-    m_uint_t[CFG_PLG_MAX_ARR] = { uintmin_t };
+    for ( i = 0; i < CFG_PLG_MAX_ARR; i++ )
+        m_uint_t[i] = uintmin_t;
 
     return;
 }

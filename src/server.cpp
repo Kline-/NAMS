@@ -337,19 +337,17 @@ const bool Server::ProcessInput()
 const void Server::Shutdown( const sint_t& status )
 {
     bool was_running = !m_shutdown;
-    MITER( multimap, const char,Command*, mi );
-    MITER( multimap, const char,Command*, mi_next );
     m_shutdown = true;
 
     // Cleanup commands
-    for ( mi = command_list.begin(); mi != command_list.end(); )
-    {
-        mi_next = mi++;
-        mi_next->second->Delete();
-        command_list.erase( mi_next );
-    }
-    for_each( socket_client_list.begin(), socket_client_list.end(), Utils::DeleteObject() );
-    for_each( socket_server_list.begin(), socket_server_list.end(), Utils::DeleteObject() );
+    while ( !command_list.empty() )
+        command_list.begin()->second->Delete();
+    // Cleanup socket clients
+    while ( !socket_client_list.empty() )
+        (*socket_client_list.begin())->Delete();
+    // Cleanup socket servers
+    while ( !socket_server_list.empty() )
+        (*socket_server_list.begin())->Delete();
 
     // Only output if the server actually booted; otherwise it probably faulted while getting a port from main()
     if ( was_running )
