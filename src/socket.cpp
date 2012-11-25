@@ -24,13 +24,11 @@
 
 #include "h/socket.h"
 
-/** @name Core */ /**@{*/
-/**@}*/
+/* Core */
 
-/** @name Query */ /**@{*/
-/**@}*/
+/* Query */
 
-/** @name Manipulate */ /**@{*/
+/* Manipulate */
 /**
  * @brief Increment the total count of bytes received by the socket.
  * @param[in] amount A #uint_t value to increase the byte count by.
@@ -135,9 +133,8 @@ const bool Socket::sPort( const uint_t& port )
 
     return true;
 }
-/**@}*/
 
-/** @name Internal */ /**@{*/
+/* Internal */
 /**
  * @brief Constructor for the Socket class.
  * @param[in] server A pointer to an instance of a Server object.
@@ -166,4 +163,3 @@ Socket::~Socket()
 
     return;
 }
-/**@}*/

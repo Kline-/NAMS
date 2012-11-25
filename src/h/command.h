@@ -19,7 +19,7 @@
  * @file command.h
  * @brief The Command class.
  *
- *  This file contains the Command class, templates, and trivial member functions.
+ *  This file contains the Command class and template functions..
  */
 #ifndef DEC_COMMAND_H
 #define DEC_COMMAND_H
@@ -30,16 +30,18 @@
 
 #include "plugin.h"
 
+using namespace std;
+
 class Command {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
         const bool New( const string& file );
-        const void Run( SocketClient* client = NULL ) const { m_plg->Run( client ); return; }
+        const void Run( SocketClient* cliet = NULL ) const;
         /**@}*/
 
         /** @name Query */ /**@{*/
-        const string gName() const { return m_plg->gName(); }
+        const string gName() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -52,10 +54,10 @@ class Command {
 
     private:
         uint_t m_level;
-        Plugin* m_plg;
-        DeletePlugin* m_plg_delete;
-        void* m_plg_handle;
-        NewPlugin* m_plg_new;
+        Plugin* m_plg;              /**<Pointer to the associated Plugin. */
+        DeletePlugin* m_plg_delete; /**<Pointer to the DeletePlugin object within the associated Plugin. */
+        void* m_plg_handle;         /**<Pointer to the file handle of the associated Plugin. */
+        NewPlugin* m_plg_new;       /**<Pointer to the NewPlugin object within the associated Plugin. */
         bool m_preempt;
 };
 

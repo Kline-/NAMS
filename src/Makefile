@@ -15,12 +15,12 @@ MODE = DEBUG
 
 
 ifeq '$(MODE)' 'RELEASE'
-	C_FLAGS = -w -O3 -std=c++0x
+	CXX_FLAGS = -w -O3 -std=c++0x
 else
-	C_FLAGS = -O0 -ggdb3 -pg -std=c++0x
+	CXX_FLAGS = -O0 -ggdb3 -pg -std=c++0x
 endif
 
-MAKEFLAGS = -j2
+MAKEFLAGS = -s
 W_FLAGS = -Wall -Wformat-security -Wpointer-arith -Wredundant-decls -Wcast-align -Wshadow -Wwrite-strings -Werror
 L_FLAGS = -lcrypt -ldl -lm -lpthread -L`pwd` -rdynamic
 
@@ -34,23 +34,22 @@ VERS =  $(shell grep 'define CFG_STR_VERSION' h/config.h | cut -d\" -f2)
 CMD_C_FILES = $(wildcard ../command/*.cpp)
 CMD_O_FILES = $(patsubst ../command/%.cpp,../obj/%.so,$(CMD_C_FILES))
 PLG_O_FILES = $(CMD_O_FILES)
-PLG_OPT = -I../src/h -fpic -ldl -rdynamic -shared
+PLG_CXX_FLAGS = -I../src/h -fpic -ldl -rdynamic -shared
 
 # Trickery to run a script on the -first ever- compile and re-create a directory
 # structure that may be missing due to Git not tracking empty directories.
 $(shell if [ -x ./.dirbuild ]; then ./.dirbuild; rm -f ./.dirbuild; fi )
 
-.PHONY: help $(PROG) clean commands depend doxygen cbuild pclean plugins
-.SILENT: help $(PROG) clean commands depend doxygen cbuild pclean plugins $(G_FILES) $(O_FILES) $(PLG_O_FILES)
+.PHONY: help $(PROG) cbuild clean commands depend doxygen pclean plugins
 
 help:
 	echo -e "\n### $(VERS) Makefile Options ###"
 	echo -e "    help     Displays this help menu."
 	echo -e "    $(PROG)     Compiles the game into binary file $(PROG)."
-	echo -e "    cbuild   Equivalent to: make clean && make depend && make $(PROG)"
+	echo -e "    cbuild   Equivalent to: make clean && make depend && make $(PROG) && make plugins"
 	echo -e "    clean    Removes files: $(PROG) o/* d/* ../report/core ../obj/*"
 	echo -e "    depend   Generate dependencies for all source code."
-	echo -e "    doxygen  Generate Doxygen output in ../etc/gh-pages"
+	echo -e "    doxygen  Generate Doxygen output in ../etc/gh-pages."
 	echo -e "    pclean   Removes files: ../obj/*"
 	echo -e "    plugins  Compiles all available plugins.\n"
 
@@ -59,6 +58,12 @@ $(PROG): $(G_FILES) $(O_FILES)
 	$(CXX) -o $(PROG) $(O_FILES) $(L_FLAGS)
 	echo "Finished building $(VERS) ($(MODE))."
 	chmod +x $(PROG)
+
+cbuild:
+	$(MAKE) clean
+	$(MAKE) depend
+	$(MAKE) $(PROG)
+	$(MAKE) plugins
 
 clean:
 	$(RM) $(O_FILES) $(G_FILES) $(DEPS) $(PROG) ../report/core $(PLG_O_FILES)
@@ -76,11 +81,6 @@ depend:
 doxygen:
 	doxygen ../etc/doxyfile
 
-cbuild:
-	$(MAKE) clean
-	$(MAKE) depend
-	$(MAKE) $(PROG)
-
 pclean:
 	$(RM) $(PLG_O_FILES)
 
@@ -91,12 +91,12 @@ plugins: commands
 
 h/%.h.gch: h/%.h
 	echo "Compiling `echo $@ | cut -c 3-` ... ";
-	$(CXX) -c $(C_FLAGS) $(W_FLAGS) $< -o $@
+	$(CXX) -c $(CXX_FLAGS) $(W_FLAGS) $< -o $@
 
 o/%.o: %.cpp
 	echo "Compiling `echo $@ | cut -c 3-` ...";
-	$(CXX) -c $(C_FLAGS) $(W_FLAGS) $< -o $@
+	$(CXX) -c $(CXX_FLAGS) $(W_FLAGS) $< -o $@
 
 ../obj/%.so: ../command/%.cpp
 	echo "Compiling `echo $@ | cut -c 8-` ... ";
-	$(CXX) $(PLG_OPT) $< -o $@
+	$(CXX) $(PLG_CXX_FLAGS) $(W_FLAGS) $< -o $@

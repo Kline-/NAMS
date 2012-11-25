@@ -30,6 +30,8 @@
 #include "socket.h"
 #include "server.h"
 
+using namespace std;
+
 class SocketClient : public Socket {
     public:
         /** @name Core */ /**@{*/
@@ -42,17 +44,17 @@ class SocketClient : public Socket {
         const bool QueueCommand( const string& command );
         const bool Recv();
         const void ResolveHostname();
-        const bool Send( const string& msg );
         const bool Send();
+        const bool Send( const string& msg );
         /**@}*/
 
-        // Query
+        /** @name Query */ /**@{*/
         const uint_t gIdle() const { return m_idle; }
         Server* gServer() const { return m_server; }
         const uint_t gState() const { return m_state; }
         /**@}*/
 
-        // Manipulate
+        /** @name Manipulate */ /**@{*/
         const bool sIdle( const uint_t& idle );
         static void* tResolveHostname( void* data );
         const bool sServer( Server* server );

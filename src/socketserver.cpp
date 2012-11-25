@@ -26,7 +26,7 @@
 #include "h/server.h"
 #include "h/list.h"
 
-/** @name Core */ /**@{*/
+/* Core */
 /**
  * @brief Accept a new connection on the listening port.
  * @retval void
@@ -187,12 +187,10 @@ const bool SocketServer::New()
 
     return true;
 }
-/**@}*/
 
-/** @name Query */ /**@{*/
-/**@}*/
+/* Query */
 
-/** @name Manipulate */ /**@{*/
+/* Manipulate */
 /**
  * @brief Set the owning server object that the socket is actually connected to.
  * @param[in] server A pointer to an instance of a Server object. By default this is  the server instance which initially spawned the socket.
@@ -219,9 +217,8 @@ const bool SocketServer::sServer( Server* server )
 
     return true;
 }
-/**@}*/
 
-/** @name Internal */ /**@{*/
+/* Internal */
 /**
  * @brief Constructor for the SocketServer class.
  * @param[in] server A pointer to an instance of a Server object.
@@ -246,4 +243,3 @@ SocketServer::~SocketServer()
 {
     return;
 }
-/**@}*/

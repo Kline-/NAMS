@@ -22,7 +22,7 @@
 #include "h/includes.h"
 #include "h/class.h"
 
-/** @name Core */ /**@{*/
+/* Core */
 /**
  * @brief Returns the current system time.
  * @retval timeval
@@ -60,11 +60,11 @@ const uint_t Utils::DiffTime( const timeval& prev, const timeval& current, const
 }
 
 /**
-* @brief Returns a string consisting of dir/file[0]/file.
+* @brief Returns a string consisting of directory/file.ext.
 * @param[in] directory The top level directory build the path from.
 * @param[in] file The file to build the path from.
 * @param[in] ext Optionally replaces the file extension with this.
-* @retval string A string consisting of directory/file[0]/file.
+* @retval string A string consisting of directory/file.ext.
 */
 const string Utils::DirPath( const string& directory, const string& file, const string& ext )
 {
@@ -117,7 +117,7 @@ const string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_
  * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
  * @param[in] caller A string value containing the calling function. Handled automatically.
  * @param[in] fmt A string value containing a printf-style format string.
- * @param[in] ... A variable arguments list to populate fmt with.
+ * @param[in] val A variable arguments list to populate fmt with.
  * @retval string A printf-style formatted string.
  */
 const string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val ) // Thanks go to Darien @ MudBytes.net for the start of this
@@ -332,9 +332,8 @@ const vector<string> Utils::StrTokens( const string& input )
 
     return output;
 }
-/**@}*/
 
-/** @name Query */ /**@{*/
+/* Query */
 /**
  * @brief Determines if a file path is a directory or file on disk.
  * @param[in] dir A string containing the file path to be checked.
@@ -428,9 +427,8 @@ const bool Utils::iReadable( const string& file )
 
     return ret;
 }
-/**@}*/
 
-/** @name Manipulate */ /**@{*/
+/* Manipulate */
 /**
  * @brief Return a multimap of a specified directory tree on disk.
  * @param[in] dir The filesystem path to search.
@@ -485,7 +483,5 @@ const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool&
 
     return output;
 }
-/**@}*/
 
-/** @name Internal */ /**@{*/
-/**@}*/
+/* Internal */

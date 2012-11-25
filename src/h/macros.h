@@ -25,6 +25,8 @@
 #ifndef DEC_MACROS_H
 #define DEC_MACROS_H
 
+using namespace std;
+
 /**
  * @def PP_NARG
  * @author Laurent Deniau @ http://goo.gl/3jkAm

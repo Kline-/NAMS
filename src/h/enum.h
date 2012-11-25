@@ -29,8 +29,6 @@
 /** @name Plugin */ /**@{*/
 /**
  * @enum PLG_TYPE
- *
- * #uint_t
  */
 enum PLG_TYPE {
     PLG_TYPE_COMMAND = 0,   /**< A Plugin that specifies a game command. */
@@ -39,8 +37,6 @@ enum PLG_TYPE {
 
 /**
  * @enum PLG_TYPE_COMMAND_BOOL
- *
- * bool
  */
 enum PLG_TYPE_COMMAND_BOOL {
     PLG_TYPE_COMMAND_BOOL_PREEMPT = 0,
@@ -51,8 +47,6 @@ enum PLG_TYPE_COMMAND_BOOL {
 /** @name Socket */ /**@{*/
 /**
  * @enum SOC_STATE
- *
- * #uint_t
  */
 enum SOC_STATE {
     SOC_STATE_DISCONNECTED = 0,     /**< A Socket in a disconnected state. */
@@ -65,8 +59,6 @@ enum SOC_STATE {
 /** @name Utils */ /**@{*/
 /**
  * @enum UTILS_OPTS
- *
- * bitset<#CFG_MEM_MAX_BITSET>
  */
 enum UTILS_OPTS {
     UTILS_DEBUG       = 0,  /**< Enables debugging output in Utils::_Logger(). This typically includes the calling function's file and line number. */
@@ -82,15 +74,11 @@ enum UTILS_OPTS {
 
 /**
  * @def UTILS_IS_DIRECTORY
- *
- * Utils::ListDirectory()
  */
 #define UTILS_IS_DIRECTORY true
 
 /**
  * @def UTILS_IS_FILE
- *
- * Utils::ListDirectory()
  */
 #define UTILS_IS_FILE      false
 /**@}*/

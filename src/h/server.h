@@ -30,6 +30,8 @@
 #include "socketserver.h"
 #include "list.h"
 
+using namespace std;
+
 class Server {
     public:
         /** @name Core */ /**@{*/

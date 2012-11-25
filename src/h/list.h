@@ -28,6 +28,8 @@
 
 #include <list>
 
+using namespace std;
+
 /**
  * @var command_list
  * @brief All commands loaded into memory.

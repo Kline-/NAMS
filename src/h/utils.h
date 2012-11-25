@@ -34,6 +34,8 @@
 #include <dirent.h>
 #include <sys/stat.h>
 
+using namespace std;
+
 namespace Utils {
     /** @name Core */ /**@{*/
     template <class T> inline const string DelSpaces( const T& t ) { string output( t ); output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); return output; }

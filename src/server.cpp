@@ -25,7 +25,7 @@
 #include "h/server.h"
 #include "h/command.h"
 
-/** @name Core */ /**@{*/
+/* Core */
 /**
  * @brief Compile a plugin file.
  * @param[in] file The file to be compiled. The file extension should end in #CFG_PLG_BUILD_EXT_IN.
@@ -436,9 +436,8 @@ const void Server::Update()
 
     return;
 }
-/**@}*/
 
-/** @name Query */ /**@{*/
+/* Query */
 /**
  * @brief Gets the hostname of the machine that NAMS is running on.
  * @retval string A string is returned containing either "(unknown)" or the machine hostname.
@@ -474,9 +473,8 @@ const string Server::gStatus() const
 
     return output;
 }
-/**@}*/
 
-/** @name Manipulate */ /**@{*/
+/* Manipulate */
 /**
  * @brief Set the port of a NAMS Server object.
  * @param[in] port The port number to have a SocketServer instance listen for new connections on.
@@ -537,9 +535,8 @@ const bool Server::sSocketOpen( const uint_t& amount )
 
     return true;
 }
-/**@}*/
 
-/** @name Internal */ /**@{*/
+/* Internal */
 /**
  * @brief Constructor for the Server class.
  */
@@ -567,4 +564,3 @@ Server::~Server()
 {
     return;
 }
-/**@}*/

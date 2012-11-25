@@ -15,13 +15,17 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
+/**
+ * @file socketclient.cpp
+ * @brief All non-trivial member functions of the SocketClient class.
+ */
 #include "h/includes.h"
 #include "h/class.h"
 
 #include "h/socketclient.h"
 #include "h/command.h"
 
-/** @name Core */ /**@{*/
+/* Core */
 /**
  * @brief Unload a client's socket from memory that was previously loaded via SocketClient::New().
  * @retval void
@@ -331,35 +335,6 @@ const void SocketClient::ResolveHostname()
 }
 
 /**
- * @brief Append data to an output buffer in preparation of being sent to the client.
- * @param[in] msg The data to be buffered for sending.
- * @retval false Returned if the socket is invalid.
- * @retval true Returned if data was successfully buffered for sending.
- */
-const bool SocketClient::Send( const string& msg )
-{
-    UFLAGS_DE( flags );
-
-    if ( !Valid() )
-    {
-        LOGFMT( flags, "SocketClient::Send()->SocketClient::Valid()-> descriptor %ld returned false", gDescriptor() );
-        return false;
-    }
-
-    // Prepend a CRLF to ensure output lands on a newline.
-    // Make this client configurable in the future.
-    if ( m_output.empty() && m_state > SOC_STATE_LOGIN_SCREEN )
-    {
-        m_output.append( CRLF );
-        m_output.append( msg );
-    }
-    else
-        m_output.append( msg );
-
-    return true;
-}
-
-/**
  * @brief Process data from the client's send buffer and transmit it via the socket.
  * @retval false Returned if the socket is invalid or there is an error while sending.
  * @retval true Returned if there is no data to send or data was sent successfully.
@@ -409,12 +384,39 @@ const bool SocketClient::Send()
 
     return true;
 }
-/**@}*/
 
-/** @name Query */ /**@{*/
-/**@}*/
+/**
+ * @brief Append data to an output buffer in preparation of being sent to the client.
+ * @param[in] msg The data to be buffered for sending.
+ * @retval false Returned if the socket is invalid.
+ * @retval true Returned if data was successfully buffered for sending.
+ */
+const bool SocketClient::Send( const string& msg )
+{
+    UFLAGS_DE( flags );
 
-/** @name Manipulate */ /**@{*/
+    if ( !Valid() )
+    {
+        LOGFMT( flags, "SocketClient::Send()->SocketClient::Valid()-> descriptor %ld returned false", gDescriptor() );
+        return false;
+    }
+
+    // Prepend a CRLF to ensure output lands on a newline.
+    // Make this client configurable in the future.
+    if ( m_output.empty() && m_state > SOC_STATE_LOGIN_SCREEN )
+    {
+        m_output.append( CRLF );
+        m_output.append( msg );
+    }
+    else
+        m_output.append( msg );
+
+    return true;
+}
+
+/* Query */
+
+/* Manipulate */
 /**
  * @brief Set the idle timer value of the socket.
  * @param[in] idle A #uint_t value ranging from 0 to #CFG_SOC_MAX_IDLE.
@@ -458,7 +460,7 @@ void* SocketClient::tResolveHostname( void* data )
         LOGFMT( flags, "SocketClient::tResolveHostname()->getnameinfo()-> returned errno %d: %s", error, gai_strerror( error ) );
         ::pthread_exit( reinterpret_cast<void*>( EXIT_FAILURE ) );
     }
-clog << hostname << endl;
+
     if ( !socket_client->sHostname( hostname ) )
     {
         LOGFMT( flags, "SocketClient::tResolveHostname()->SocketClient::sHostname()-> hostname %s returned false", hostname );
@@ -517,9 +519,8 @@ const bool SocketClient::sState( const uint_t& state )
 
     return true;
 }
-/**@}*/
 
-/** @name Internal */ /**@{*/
+/* Internal */
 /**
  * @brief Constructor for the SocketClient class.
  * @param[in] server A pointer to an instance of a Server object.
@@ -547,4 +548,3 @@ SocketClient::~SocketClient()
 {
     return;
 }
-/**@}*/

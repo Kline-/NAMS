@@ -26,6 +26,8 @@
 
 #include "socket.h"
 
+using namespace std;
+
 class SocketServer : public Socket {
     public:
         /** @name Core */ /**@{*/

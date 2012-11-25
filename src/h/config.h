@@ -201,6 +201,13 @@
 #define CFG_STR_LOGIN           "For a list of commands type 'help'." CRLF "Please enter your name: "
 
 /**
+ * @def CFG_STR_CMD_INVALID
+ * @brief String sent when an invalid command is received.
+ * @par Default: "Invalid command." CRLF
+ */
+#define CFG_STR_CMD_INVALID     "Invalid command." CRLF
+
+/**
  * @def CFG_STR_MAX_BUFLEN
  * @brief Maximum length of all char type buffers.
  * @par Default: 16384

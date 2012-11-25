@@ -26,9 +26,13 @@
 
 #include "socketclient.h"
 
+using namespace std;
+
 class Plugin {
     public:
         /** @name Core */ /**@{*/
+        Plugin* New();
+        const void Delete( Plugin* );
         const void Register();
         virtual const void Run( SocketClient* client = NULL ) const = 0;
         /**@}*/

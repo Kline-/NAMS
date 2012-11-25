@@ -24,6 +24,8 @@
 #ifndef DEC_SOCKET_H
 #define DEC_SOCKET_H
 
+using namespace std;
+
 class Socket {
     public:
         /** @name Core */ /**@{*/

@@ -24,16 +24,13 @@
 
 #include "h/plugin.h"
 
-/** @name Core */ /**@{*/
-/**@}*/
+/* Core */
 
-/** @name Query */ /**@{*/
-/**@}*/
+/* Query */
 
-/** @name Manipulate */ /**@{*/
-/**@}*/
+/* Manipulate */
 
-/** @name Internal */ /**@{*/
+/* Internal */
 Plugin::Plugin( const string& name, const uint_t& type )
 {
     uint_t i = 0;
@@ -54,4 +51,3 @@ Plugin::~Plugin()
 {
     return;
 }
-/**@}*/

@@ -18,10 +18,15 @@
 /**
  * @file command.cpp
  * @brief All non-trivial member functions of the Command class.
- * @todo Commands need to contain additional fields for function name
- *  and the location of the cpp library file they will reside in. Implement
- *  method to self-compile and reload libraries externally with dlsym.
- *  Create abstract classes to treat as an API layer to the shared objects.
+ *
+ * Command objects are built as independently loaded Plugin classes. The
+ * Server will compile any file within #CFG_DAT_DIR_COMMAND and ending in
+ * #CFG_PLG_BUILD_EXT_IN to a shared object file stored in #CFG_DAT_DIR_OBJ.
+ *
+ * Each object file is a unique class derived from Plugin. The Command class
+ * then acts as an abstraction layer for interacting with thse objects in a
+ * more specialized manner, as the Plugin class is broadly generic to support
+ * other implementation uses.
  */
 #include "h/includes.h"
 #include "h/class.h"
@@ -29,7 +34,7 @@
 #include "h/command.h"
 #include "h/list.h"
 
-/** @name Core */ /**@{*/
+/* Core */
 /**
  * @brief Unload a command from memory that was previously loaded via Command::New().
  * @retval void
@@ -97,15 +102,32 @@ const bool Command::New( const string& file )
 
     return true;
 }
-/**@}*/
 
-/** @name Query */
-/**@}*/
+/**
+ * @brief Execute a Plugin object's primary function.
+ * @param client[in] If called from a SocketClient, the caller is passed through to the Plugin for reference.
+ * @retval void
+ */
+const void Command::Run( SocketClient* client ) const
+{
+    m_plg->Run( client );
 
-/** @name Manipulate */
-/**@}*/
+    return;
+}
 
-/** @name Internal */
+/* Query */
+/**
+ * @brief Return the name of the associated Plugin object.
+ * @retval string A string containing the name of the associated Plugin object.
+ */
+const string Command::gName() const
+{
+    return m_plg->gName();
+}
+
+/* Manipulate */
+
+/* Internal */
 /**
  * @brief Constructor for the Command class.
  */
@@ -128,4 +150,3 @@ Command::~Command()
 {
     return;
 }
-/**@}*/

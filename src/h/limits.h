@@ -29,6 +29,8 @@
 
 #include <limits>
 
+using namespace std;
+
 #if __WORDSIZE == 64
     /** @name Signed */ /**@{*/
     /**
