@@ -37,8 +37,8 @@
 namespace Utils {
     /** @name Core */ /**@{*/
     template <class T> inline const string DelSpaces( const T& t ) { string output( t ); output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); return output; }
-    template <class T> inline const string Lower( const T& t ) { stringstream ss; ss << nouppercase << t; return ss.str(); }
-    template <class T> inline const string Upper( const T& t ) { stringstream ss; ss << uppercase << t; return ss.str(); }
+    template <class T> inline const string Lower( const T& t ) { string output( t ); transform( output.begin(), output.end(), output.begin(), ::tolower ); return output; }
+    template <class T> inline const string Upper( const T& t ) { string output( t ); transform( output.begin(), output.end(), output.begin(), ::toupper ); return output; }
     template <class T> inline const string String( const T& t ) { stringstream ss( t ); return ss.str(); }
     const timeval CurrentTime();
     const uint_t DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity );
