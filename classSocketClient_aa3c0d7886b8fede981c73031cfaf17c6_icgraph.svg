@@ -32,7 +32,7 @@
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 1332;
+var viewWidth = 708;
 var viewHeight = 30;
 var sectionId = 'dynsection-15';
 </script>
@@ -40,7 +40,7 @@ var sectionId = 'dynsection-15';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>G</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-26 1329,-26 1329,5 -4,5"/>
+<polygon fill="white" stroke="white" points="-4,5 -4,-26 705,-26 705,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-21.5 164,-21.5 164,-0.5 0,-0.5"/>
@@ -60,87 +60,39 @@ var sectionId = 'dynsection-15';
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" target="_top" xlink:title="Operates all other looping functions within a SocketClient object, such as sending/receiving data and...">
-<polygon fill="white" stroke="black" points="380,-0.5 380,-21.5 498,-21.5 498,-0.5 380,-0.5"/>
-<text text-anchor="middle" x="439" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Update</text>
+<a xlink:href="classServer.xhtml#a7f5259e36a6bcf3a78a5bede522c3632" target="_top" xlink:title="Server::ProcessInput">
+<polygon fill="white" stroke="black" points="380,-0.5 380,-21.5 496,-21.5 496,-0.5 380,-0.5"/>
+<text text-anchor="middle" x="438" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessInput</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M354.37,-11C362.992,-11 371.631,-11 379.917,-11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="354.277,-7.5001 344.277,-11 354.277,-14.5001 354.277,-7.5001"/>
+<path fill="none" stroke="midnightblue" d="M354.401,-11C363.005,-11 371.617,-11 379.868,-11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="354.327,-7.5001 344.327,-11 354.327,-14.5001 354.327,-7.5001"/>
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" target="_top" xlink:title="Spawns a new Thread of SocketClient::Update() for a fully connected client.">
-<polygon fill="white" stroke="black" points="534,-0.5 534,-21.5 650,-21.5 650,-0.5 534,-0.5"/>
-<text text-anchor="middle" x="592" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Thread</text>
+<a xlink:href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
+<polygon fill="white" stroke="black" points="532.5,-0.5 532.5,-21.5 621.5,-21.5 621.5,-0.5 532.5,-0.5"/>
+<text text-anchor="middle" x="577" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Server::Update</text>
 </a>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge6" class="edge"><title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M508.405,-11C516.879,-11 525.471,-11 533.759,-11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="508.154,-7.5001 498.154,-11 508.154,-14.5001 508.154,-7.5001"/>
+<path fill="none" stroke="midnightblue" d="M506.39,-11C515.156,-11 523.945,-11 532.2,-11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="506.143,-7.5001 496.143,-11 506.143,-14.5001 506.143,-7.5001"/>
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
-<a xlink:href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" target="_top" xlink:title="Accept a new connection on the listening port.">
-<polygon fill="white" stroke="black" points="686,-0.5 686,-21.5 806,-21.5 806,-0.5 686,-0.5"/>
-<text text-anchor="middle" x="746" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Accept</text>
+<a xlink:href="main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" target="_top" xlink:title="The default function required to execute the server.">
+<polygon fill="white" stroke="black" points="658.5,-0.5 658.5,-21.5 699.5,-21.5 699.5,-0.5 658.5,-0.5"/>
+<text text-anchor="middle" x="679" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">main</text>
 </a>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge8" class="edge"><title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M660.466,-11C668.944,-11 677.563,-11 685.903,-11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="660.221,-7.5001 650.221,-11 660.221,-14.5001 660.221,-7.5001"/>
-</g>
-<!-- Node6 -->
-<g id="node11" class="node"><title>Node6</title>
-<a xlink:href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" target="_top" xlink:title="Operates all other looping functions within a SocketServer object, such as directing clients to proce...">
-<polygon fill="white" stroke="black" points="842,-0.5 842,-21.5 964,-21.5 964,-0.5 842,-0.5"/>
-<text text-anchor="middle" x="903" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Update</text>
-</a>
-</g>
-<!-- Node5&#45;&gt;Node6 -->
-<g id="edge10" class="edge"><title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M816.491,-11C824.959,-11 833.552,-11 841.871,-11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="816.251,-7.5001 806.251,-11 816.251,-14.5001 816.251,-7.5001"/>
-</g>
-<!-- Node7 -->
-<g id="node13" class="node"><title>Node7</title>
-<a xlink:href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" target="_top" xlink:title="Spawns a new Thread of SocketServer::Update() to process client updates.">
-<polygon fill="white" stroke="black" points="1000,-0.5 1000,-21.5 1120,-21.5 1120,-0.5 1000,-0.5"/>
-<text text-anchor="middle" x="1060" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Thread</text>
-</a>
-</g>
-<!-- Node6&#45;&gt;Node7 -->
-<g id="edge12" class="edge"><title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M974.413,-11C982.895,-11 991.487,-11 999.791,-11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="974.15,-7.5001 964.15,-11 974.15,-14.5001 974.15,-7.5001"/>
-</g>
-<!-- Node8 -->
-<g id="node15" class="node"><title>Node8</title>
-<a xlink:href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" target="_top" xlink:title="Start the NAMS server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
-<polygon fill="white" stroke="black" points="1156,-0.5 1156,-21.5 1246,-21.5 1246,-0.5 1156,-0.5"/>
-<text text-anchor="middle" x="1201" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Server::Startup</text>
-</a>
-</g>
-<!-- Node7&#45;&gt;Node8 -->
-<g id="edge14" class="edge"><title>Node7&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M1130.37,-11C1139.07,-11 1147.76,-11 1155.93,-11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1130.21,-7.5001 1120.21,-11 1130.21,-14.5001 1130.21,-7.5001"/>
-</g>
-<!-- Node9 -->
-<g id="node17" class="node"><title>Node9</title>
-<a xlink:href="main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" target="_top" xlink:title="The default function required to execute the server.">
-<polygon fill="white" stroke="black" points="1282.5,-0.5 1282.5,-21.5 1323.5,-21.5 1323.5,-0.5 1282.5,-0.5"/>
-<text text-anchor="middle" x="1303" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">main</text>
-</a>
-</g>
-<!-- Node8&#45;&gt;Node9 -->
-<g id="edge16" class="edge"><title>Node8&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M1256.2,-11C1265.56,-11 1274.73,-11 1282.43,-11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1256.04,-7.5001 1246.04,-11 1256.04,-14.5001 1256.04,-7.5001"/>
+<path fill="none" stroke="midnightblue" d="M631.942,-11C641.336,-11 650.55,-11 658.3,-11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="631.739,-7.5001 621.739,-11 631.739,-14.5001 631.739,-7.5001"/>
 </g>
 </g>
 </svg>

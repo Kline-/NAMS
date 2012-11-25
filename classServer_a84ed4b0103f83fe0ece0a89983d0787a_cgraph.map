@@ -1,51 +1,23 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time." alt="" coords="413,5,549,35"/>
-<area shape="rect" id="node5" href="$classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all m..." alt="" coords="1269,160,1403,189"/>
-<area shape="rect" id="node7" href="$classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" title="Spawns a new Thread of SocketServer::Update() to process client updates." alt="" coords="183,344,343,373"/>
-<area shape="rect" id="node118" href="$classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5" title="Search all subfolders of CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memor..." alt="" coords="175,112,351,141"/>
-<area shape="rect" id="node9" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Socket::Valid" alt="" coords="1508,763,1612,792"/>
-<area shape="rect" id="node11" href="$classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="Build a socket for a server and set all attributes." alt="" coords="1043,525,1184,555"/>
-<area shape="rect" id="node33" href="$classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="Operates all other looping functions within a SocketServer object, such as directing clients to proce..." alt="" coords="400,815,563,844"/>
-<area shape="rect" id="node13" href="$classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Attempt to obtain a mutex lock on the current Thread object." alt="" coords="1489,263,1631,292"/>
-<area shape="rect" id="node15" href="$classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address." alt="" coords="1264,472,1408,501"/>
-<area shape="rect" id="node20" href="$classServer.xhtml#a307ecabcbab896360450e2b06b22a411" title="Server::gPort" alt="" coords="1283,579,1389,608"/>
-<area shape="rect" id="node23" href="$classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket." alt="" coords="1263,840,1409,869"/>
-<area shape="rect" id="node25" href="$classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" title="Gets the hostname of the machine that NAMS is running on." alt="" coords="1263,632,1409,661"/>
-<area shape="rect" id="node27" href="$classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" title="Listen for new connections on an established socket." alt="" coords="1259,525,1413,555"/>
-<area shape="rect" id="node31" href="$classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf" title="Release a mutex lock on the current Thread object." alt="" coords="1259,685,1413,715"/>
-<area shape="rect" id="node18" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Socket::gDescriptor" alt="" coords="1487,1048,1633,1077"/>
-<area shape="rect" id="node36" href="$classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="Unload a server&#39;s socket from memory that was previously loaded via SocketServer::New()." alt="" coords="1257,315,1415,344"/>
-<area shape="rect" id="node44" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="611,892,771,921"/>
-<area shape="rect" id="node48" href="$classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7" title="SocketServer::gServer" alt="" coords="820,1305,985,1335"/>
-<area shape="rect" id="node113" href="$classServer.xhtml#ae3d4d866381050c00f383248872877ea" title="Server::Running" alt="" coords="1275,1728,1397,1757"/>
-<area shape="rect" id="node40" href="$classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S..." alt="" coords="1481,316,1639,345"/>
-<area shape="rect" id="node42" href="$classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Server::gSocketClose" alt="" coords="1481,369,1639,399"/>
-<area shape="rect" id="node50" href="$classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" title="Spawns a new Thread of SocketClient::Update() for a fully connected client." alt="" coords="825,969,980,999"/>
-<area shape="rect" id="node58" href="$classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New()." alt="" coords="1260,368,1412,397"/>
-<area shape="rect" id="node53" href="$classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes." alt="" coords="1045,1020,1181,1049"/>
-<area shape="rect" id="node83" href="$classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc" title="Operates all other looping functions within a SocketClient object, such as sending/receiving data and..." alt="" coords="1035,1201,1192,1231"/>
-<area shape="rect" id="node64" href="$classSocket.xhtml#a24c8132ced233add89f4fda68284e578" title="Sets the port that was opened for the socket." alt="" coords="1283,1304,1389,1333"/>
-<area shape="rect" id="node66" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Socket::gHostname" alt="" coords="1485,1252,1635,1281"/>
-<area shape="rect" id="node68" href="$classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c" title="Socket::gPort" alt="" coords="1283,1357,1389,1387"/>
-<area shape="rect" id="node70" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="1265,995,1407,1024"/>
-<area shape="rect" id="node81" href="$classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket." alt="" coords="1260,1411,1412,1440"/>
-<area shape="rect" id="node75" href="$classServer.xhtml#a2f8f36b615b6d10eb96dd35620ffd524" title="Server::gSocket" alt="" coords="1499,1101,1621,1131"/>
-<area shape="rect" id="node77" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="1487,941,1633,971"/>
-<area shape="rect" id="node79" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Socket::gBytesSent" alt="" coords="1487,995,1633,1024"/>
-<area shape="rect" id="node87" href="$classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket." alt="" coords="1491,1517,1629,1547"/>
-<area shape="rect" id="node89" href="$classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb" title="SocketClient::gIdle" alt="" coords="1267,1568,1405,1597"/>
-<area shape="rect" id="node92" href="$classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a" title="SocketClient::Send" alt="" coords="1265,1621,1407,1651"/>
-<area shape="rect" id="node94" href="$classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d" title="Receive data from the client and append it to a receive buffer." alt="" coords="1267,1464,1405,1493"/>
-<area shape="rect" id="node105" href="$classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" title="Process data from the client&#39;s receive buffer and split it into commands to queue as necessary..." alt="" coords="1240,1149,1432,1179"/>
-<area shape="rect" id="node111" href="$classSocketClient.xhtml#a074944c7006f994646ed22cb2c955dc9" title="SocketClient::gServer" alt="" coords="1256,1675,1416,1704"/>
-<area shape="rect" id="node100" href="$classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd" title="Increment the total count of bytes received by the socket." alt="" coords="1483,1411,1637,1440"/>
-<area shape="rect" id="node102" href="$classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002" title="Socket::gBytesRecvd" alt="" coords="1483,1464,1637,1493"/>
-<area shape="rect" id="node109" href="$namespaceUtils.xhtml#aeda29ae05e927b463309cf1db39344a0" title="Utils::StrNewlines" alt="" coords="1493,1155,1627,1184"/>
-<area shape="rect" id="node121" href="$namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4" title="Utils::ListDirectory" alt="" coords="412,59,551,88"/>
-<area shape="rect" id="node123" href="$classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a command to memory from a file within a subdirectory of CFG_DAT_DIR_COMMAND." alt="" coords="420,112,543,141"/>
-<area shape="rect" id="node133" href="$namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee" title="Calculates the different between two timeval variables." alt="" coords="427,165,536,195"/>
-<area shape="rect" id="node125" href="$namespaceUtils.xhtml#a478a7f4bb31ceb79a2d3e19aaa53724d" title="Utils::DirPath" alt="" coords="639,5,743,35"/>
-<area shape="rect" id="node127" href="$namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b" title="Utils::iFile" alt="" coords="651,59,731,88"/>
-<area shape="rect" id="node129" href="$namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b" title="Utils::KeyValue" alt="" coords="633,112,748,141"/>
-<area shape="rect" id="node131" href="$namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" title="Utils::KeySet" alt="" coords="640,165,741,195"/>
+<area shape="rect" id="node3" href="$namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time." alt="" coords="409,5,545,35"/>
+<area shape="rect" id="node5" href="$classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all m..." alt="" coords="411,272,544,301"/>
+<area shape="rect" id="node7" href="$classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="Build a socket for a server and set all attributes." alt="" coords="192,379,333,408"/>
+<area shape="rect" id="node26" href="$classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5" title="Search all subfolders of CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memor..." alt="" coords="175,139,351,168"/>
+<area shape="rect" id="node9" href="$classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address." alt="" coords="405,539,549,568"/>
+<area shape="rect" id="node15" href="$classServer.xhtml#a307ecabcbab896360450e2b06b22a411" title="Server::gPort" alt="" coords="424,325,531,355"/>
+<area shape="rect" id="node18" href="$classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket." alt="" coords="404,379,551,408"/>
+<area shape="rect" id="node20" href="$classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" title="Gets the hostname of the machine that NAMS is running on." alt="" coords="404,432,551,461"/>
+<area shape="rect" id="node22" href="$classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" title="Listen for new connections on an established socket." alt="" coords="400,485,555,515"/>
+<area shape="rect" id="node11" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Socket::Valid" alt="" coords="625,539,729,568"/>
+<area shape="rect" id="node13" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Socket::gDescriptor" alt="" coords="604,485,751,515"/>
+<area shape="rect" id="node29" href="$namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4" title="Utils::ListDirectory" alt="" coords="408,112,547,141"/>
+<area shape="rect" id="node31" href="$classServer.xhtml#a45782df02e28df1c52c2a8edb90264e1" title="Compile a plugin file." alt="" coords="407,165,548,195"/>
+<area shape="rect" id="node37" href="$classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ." alt="" coords="416,219,539,248"/>
+<area shape="rect" id="node48" href="$namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee" title="Calculates the different between two timeval variables." alt="" coords="423,59,532,88"/>
+<area shape="rect" id="node33" href="$namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc" title="Utils::iReadable" alt="" coords="619,112,736,141"/>
+<area shape="rect" id="node35" href="$namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Utils::DirPath" alt="" coords="625,165,729,195"/>
+<area shape="rect" id="node40" href="$namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b" title="Utils::iFile" alt="" coords="637,272,717,301"/>
+<area shape="rect" id="node42" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Utils::Lower" alt="" coords="631,325,724,355"/>
+<area shape="rect" id="node44" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Command::gName" alt="" coords="605,219,749,248"/>
+<area shape="rect" id="node46" href="$classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Plugin::gName" alt="" coords="800,219,915,248"/>
 </map>

@@ -102,21 +102,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00024"></a>00024 <span class="preprocessor">#ifndef DEC_COMMAND_H</span>
 <a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#define DEC_COMMAND_H</span>
 <a name="l00026"></a>00026 <span class="preprocessor"></span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;fstream&gt;</span>
-<a name="l00028"></a>00028 
-<a name="l00029"></a><a class="code" href="classCommand.xhtml">00029</a> <span class="keyword">class </span><a class="code" href="classCommand.xhtml">Command</a> {
-<a name="l00030"></a>00030     <span class="keyword">public</span>: 
-<a name="l00032"></a>00032         <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classCommand.xhtml#afc0d482427309deb78e094fa787d1477" title="Unload a command from memory that was previously loaded via Command::New().">Delete</a>();
-<a name="l00033"></a>00033         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a command to memory from a file within a subdirectory of CFG_DAT_DIR_COMMAND.">New</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file );   
-<a name="l00043"></a>00043         <a class="code" href="classCommand.xhtml#a18df2d81039392daeb0b78c346a70537" title="Constructor for the Command class.">Command</a>();
-<a name="l00044"></a>00044         <a class="code" href="classCommand.xhtml#ab552bb3a07fdd1acbfd8ea76e69b2278" title="Destructor for the Command class.">~Command</a>();
-<a name="l00047"></a>00047     <span class="keyword">private</span>:
-<a name="l00048"></a><a class="code" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">00048</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">m_level</a>;
-<a name="l00049"></a><a class="code" href="classCommand.xhtml#af0105dd32ef8d8e0035631fc3a6ba9b6">00049</a>         <span class="keywordtype">string</span> <a class="code" href="classCommand.xhtml#af0105dd32ef8d8e0035631fc3a6ba9b6">m_name</a>;
-<a name="l00050"></a><a class="code" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">00050</a>         <span class="keywordtype">bool</span> <a class="code" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">m_preempt</a>;
-<a name="l00051"></a>00051 };
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="preprocessor">#endif</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;cstdio&gt;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;dlfcn.h&gt;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;fstream&gt;</span>
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="plugin_8h.xhtml" title="The Plugin class.">plugin.h</a>&quot;</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="classCommand.xhtml">00033</a> <span class="keyword">class </span><a class="code" href="classCommand.xhtml">Command</a> {
+<a name="l00034"></a>00034     <span class="keyword">public</span>: 
+<a name="l00036"></a>00036         <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classCommand.xhtml#afc0d482427309deb78e094fa787d1477" title="Unload a command from memory that was previously loaded via Command::New().">Delete</a>();
+<a name="l00037"></a>00037         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ.">New</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file );
+<a name="l00038"></a><a class="code" href="classCommand.xhtml#aba79a0926881e530fda8a848bc5e9501">00038</a>         <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classCommand.xhtml#aba79a0926881e530fda8a848bc5e9501">Run</a>( <a class="code" href="classSocketClient.xhtml">SocketClient</a>* client = NULL )<span class="keyword"> const </span>{ <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#a033532442d50d8f4f79401d0d90ea45d">Run</a>( client ); <span class="keywordflow">return</span>; } 
+<a name="l00042"></a><a class="code" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">00042</a>         <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">gName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">gName</a>(); }  
+<a name="l00049"></a>00049         <a class="code" href="classCommand.xhtml#a18df2d81039392daeb0b78c346a70537" title="Constructor for the Command class.">Command</a>();
+<a name="l00050"></a>00050         <a class="code" href="classCommand.xhtml#ab552bb3a07fdd1acbfd8ea76e69b2278" title="Destructor for the Command class.">~Command</a>();
+<a name="l00053"></a>00053     <span class="keyword">private</span>:
+<a name="l00054"></a><a class="code" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">00054</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">m_level</a>;
+<a name="l00055"></a><a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">00055</a>         <a class="code" href="classPlugin.xhtml">Plugin</a>* <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>;
+<a name="l00056"></a><a class="code" href="classCommand.xhtml#a36486a6c14b75c248ec5d013d04c2343">00056</a>         <a class="code" href="plugin_8h.xhtml#aa8da93bcd88aad2b45497818180f3706">DeletePlugin</a>* <a class="code" href="classCommand.xhtml#a36486a6c14b75c248ec5d013d04c2343">m_plg_delete</a>;
+<a name="l00057"></a><a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">00057</a>         <span class="keywordtype">void</span>* <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>;
+<a name="l00058"></a><a class="code" href="classCommand.xhtml#a9a9e429c1d38868f4029cdf8cf3f3ab5">00058</a>         <a class="code" href="plugin_8h.xhtml#a2b24a1886d94b64c6bf8b35303fbf47a">NewPlugin</a>* <a class="code" href="classCommand.xhtml#a9a9e429c1d38868f4029cdf8cf3f3ab5">m_plg_new</a>;
+<a name="l00059"></a><a class="code" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">00059</a>         <span class="keywordtype">bool</span> <a class="code" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">m_preempt</a>;
+<a name="l00060"></a>00060 };
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -135,7 +144,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

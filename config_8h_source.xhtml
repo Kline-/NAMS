@@ -109,58 +109,75 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00039"></a>00039 <span class="preprocessor"></span>
 <a name="l00045"></a><a class="code" href="config_8h.xhtml#aa99cb1c2cee52329e37e8da56108d692">00045</a> <span class="preprocessor">#define CFG_DAT_DIR_LOG         &quot;log&quot;</span>
 <a name="l00046"></a>00046 <span class="preprocessor"></span>
-<a name="l00048"></a>00048 <span class="comment">/***************************************************************************</span>
-<a name="l00049"></a>00049 <span class="comment"> *                              GAME OPTIONS                               *</span>
-<a name="l00050"></a>00050 <span class="comment"> ***************************************************************************/</span> 
-<a name="l00057"></a><a class="code" href="config_8h.xhtml#abf59791d9bc371bb841717a963babfc3">00057</a> <span class="preprocessor">#define CFG_GAM_PULSE_RATE      100</span>
-<a name="l00058"></a>00058 <span class="preprocessor"></span>
-<a name="l00060"></a>00060 <span class="comment">/***************************************************************************</span>
-<a name="l00061"></a>00061 <span class="comment"> *                              LOG OPTIONS                                *</span>
-<a name="l00062"></a>00062 <span class="comment"> ***************************************************************************/</span> 
-<a name="l00069"></a><a class="code" href="config_8h.xhtml#a266f79146762f7bc9db667ebd40e2d53">00069</a> <span class="preprocessor">#define CFG_LOG_SERVER          &quot;server.log&quot;</span>
-<a name="l00070"></a>00070 <span class="preprocessor"></span>
-<a name="l00072"></a>00072 <span class="comment">/***************************************************************************</span>
-<a name="l00073"></a>00073 <span class="comment"> *                              MEMORY OPTIONS                             *</span>
-<a name="l00074"></a>00074 <span class="comment"> ***************************************************************************/</span> 
-<a name="l00081"></a><a class="code" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">00081</a> <span class="preprocessor">#define CFG_MEM_MAX_BITSET      128</span>
-<a name="l00082"></a>00082 <span class="preprocessor"></span>
-<a name="l00084"></a>00084 <span class="comment">/***************************************************************************</span>
-<a name="l00085"></a>00085 <span class="comment"> *                              SOCKET OPTIONS                             *</span>
-<a name="l00086"></a>00086 <span class="comment"> ***************************************************************************/</span> 
-<a name="l00093"></a><a class="code" href="config_8h.xhtml#acfbfb90b5a0afa6cddd1403c1e10a7ee">00093</a> <span class="preprocessor">#define CFG_SOC_BIND_ADDR       &quot;::&quot;</span>
-<a name="l00094"></a>00094 <span class="preprocessor"></span>
-<a name="l00100"></a><a class="code" href="config_8h.xhtml#ae5e151c935c7bb282e854ef030390695">00100</a> <span class="preprocessor">#define CFG_SOC_MIN_PORTNUM     1024</span>
-<a name="l00101"></a>00101 <span class="preprocessor"></span>
-<a name="l00107"></a><a class="code" href="config_8h.xhtml#a9e1bbc3ba39f67dbf7398220cdca6441">00107</a> <span class="preprocessor">#define CFG_SOC_MAX_IDLE        ( ( 30 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )</span>
-<a name="l00108"></a>00108 <span class="preprocessor"></span>
-<a name="l00114"></a><a class="code" href="config_8h.xhtml#aa0e8c6d702ecb6118b49483584524db1">00114</a> <span class="preprocessor">#define CFG_SOC_MAX_PENDING     5</span>
-<a name="l00115"></a>00115 <span class="preprocessor"></span>
-<a name="l00121"></a><a class="code" href="config_8h.xhtml#a234e78c07d081a99b72af652cfa37cb8">00121</a> <span class="preprocessor">#define CFG_SOC_MAX_PORTNUM     65536</span>
-<a name="l00122"></a>00122 <span class="preprocessor"></span>
-<a name="l00128"></a><a class="code" href="config_8h.xhtml#a5f105c04f494daec2a03ed9a85eb092b">00128</a> <span class="preprocessor">#define CFG_SOC_PORTNUM         4321</span>
-<a name="l00129"></a>00129 <span class="preprocessor"></span>
-<a name="l00131"></a>00131 <span class="comment">/***************************************************************************</span>
-<a name="l00132"></a>00132 <span class="comment"> *                              STRING OPTIONS                             *</span>
-<a name="l00133"></a>00133 <span class="comment"> ***************************************************************************/</span> 
-<a name="l00140"></a><a class="code" href="config_8h.xhtml#a8e2bae4932d5625144ae9f3bfc8c3fb0">00140</a> <span class="preprocessor">#define CFG_STR_IDLE            CRLF &quot;Idle limit reached. Goodbye.&quot; CRLF</span>
-<a name="l00141"></a>00141 <span class="preprocessor"></span>
-<a name="l00147"></a><a class="code" href="config_8h.xhtml#a8d29374ea9db48916be70f6c809e148c">00147</a> <span class="preprocessor">#define CFG_STR_LOGIN           &quot;For a list of commands type &#39;help&#39;.&quot; CRLF &quot;Please enter your name: &quot;</span>
+<a name="l00052"></a><a class="code" href="config_8h.xhtml#a7e0533ce20f3c090bdf24cc750916edb">00052</a> <span class="preprocessor">#define CFG_DAT_DIR_OBJ         &quot;obj&quot;</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span>
+<a name="l00055"></a>00055 <span class="comment">/***************************************************************************</span>
+<a name="l00056"></a>00056 <span class="comment"> *                              GAME OPTIONS                               *</span>
+<a name="l00057"></a>00057 <span class="comment"> ***************************************************************************/</span> 
+<a name="l00064"></a><a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a">00064</a> <span class="preprocessor">#define CFG_GAM_CMD_IGNORE_CASE true</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span>
+<a name="l00071"></a><a class="code" href="config_8h.xhtml#abf59791d9bc371bb841717a963babfc3">00071</a> <span class="preprocessor">#define CFG_GAM_PULSE_RATE      100</span>
+<a name="l00072"></a>00072 <span class="preprocessor"></span>
+<a name="l00074"></a>00074 <span class="comment">/***************************************************************************</span>
+<a name="l00075"></a>00075 <span class="comment"> *                              LOG OPTIONS                                *</span>
+<a name="l00076"></a>00076 <span class="comment"> ***************************************************************************/</span> 
+<a name="l00083"></a><a class="code" href="config_8h.xhtml#a266f79146762f7bc9db667ebd40e2d53">00083</a> <span class="preprocessor">#define CFG_LOG_SERVER          &quot;server.log&quot;</span>
+<a name="l00084"></a>00084 <span class="preprocessor"></span>
+<a name="l00086"></a>00086 <span class="comment">/***************************************************************************</span>
+<a name="l00087"></a>00087 <span class="comment"> *                              PLUGIN OPTIONS                             *</span>
+<a name="l00088"></a>00088 <span class="comment"> ***************************************************************************/</span> 
+<a name="l00095"></a><a class="code" href="config_8h.xhtml#a7c9c9701683a057772f0aa1de56d7285">00095</a> <span class="preprocessor">#define CFG_PLG_BUILD_CMD       &quot;g++&quot;</span>
+<a name="l00096"></a>00096 <span class="preprocessor"></span>
+<a name="l00102"></a><a class="code" href="config_8h.xhtml#aaa9f269d301804d5b6963323f2a049a6">00102</a> <span class="preprocessor">#define CFG_PLG_BUILD_OPT       &quot;-Isrc/h -fpic -ldl -rdynamic -shared 2&gt;&amp;1&quot;</span>
+<a name="l00103"></a>00103 <span class="preprocessor"></span>
+<a name="l00109"></a><a class="code" href="config_8h.xhtml#a47a6c4a9a6b1e4fbcd8edeee92314a25">00109</a> <span class="preprocessor">#define CFG_PLG_BUILD_EXT_IN    &quot;cpp&quot;</span>
+<a name="l00110"></a>00110 <span class="preprocessor"></span>
+<a name="l00116"></a><a class="code" href="config_8h.xhtml#aec22aee0979a918423c5743237a25d81">00116</a> <span class="preprocessor">#define CFG_PLG_BUILD_EXT_OUT   &quot;so&quot;</span>
+<a name="l00117"></a>00117 <span class="preprocessor"></span>
+<a name="l00123"></a><a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660">00123</a> <span class="preprocessor">#define CFG_PLG_MAX_ARR         5</span>
+<a name="l00124"></a>00124 <span class="preprocessor"></span>
+<a name="l00126"></a>00126 <span class="comment">/***************************************************************************</span>
+<a name="l00127"></a>00127 <span class="comment"> *                              MEMORY OPTIONS                             *</span>
+<a name="l00128"></a>00128 <span class="comment"> ***************************************************************************/</span> 
+<a name="l00135"></a><a class="code" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">00135</a> <span class="preprocessor">#define CFG_MEM_MAX_BITSET      128</span>
+<a name="l00136"></a>00136 <span class="preprocessor"></span>
+<a name="l00138"></a>00138 <span class="comment">/***************************************************************************</span>
+<a name="l00139"></a>00139 <span class="comment"> *                              SOCKET OPTIONS                             *</span>
+<a name="l00140"></a>00140 <span class="comment"> ***************************************************************************/</span> 
+<a name="l00147"></a><a class="code" href="config_8h.xhtml#acfbfb90b5a0afa6cddd1403c1e10a7ee">00147</a> <span class="preprocessor">#define CFG_SOC_BIND_ADDR       &quot;::&quot;</span>
 <a name="l00148"></a>00148 <span class="preprocessor"></span>
-<a name="l00154"></a><a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456">00154</a> <span class="preprocessor">#define CFG_STR_MAX_BUFLEN      16384</span>
+<a name="l00154"></a><a class="code" href="config_8h.xhtml#ae5e151c935c7bb282e854ef030390695">00154</a> <span class="preprocessor">#define CFG_SOC_MIN_PORTNUM     1024</span>
 <a name="l00155"></a>00155 <span class="preprocessor"></span>
-<a name="l00161"></a><a class="code" href="config_8h.xhtml#ac890497fb16954e976eabed51b23b1dd">00161</a> <span class="preprocessor">#define CFG_STR_EXIT_FAILURE    &quot;Server terminated.&quot;</span>
+<a name="l00161"></a><a class="code" href="config_8h.xhtml#a9e1bbc3ba39f67dbf7398220cdca6441">00161</a> <span class="preprocessor">#define CFG_SOC_MAX_IDLE        ( ( 30 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )</span>
 <a name="l00162"></a>00162 <span class="preprocessor"></span>
-<a name="l00168"></a><a class="code" href="config_8h.xhtml#ac53ab4c77c45a5e739a054086eec42fa">00168</a> <span class="preprocessor">#define CFG_STR_EXIT_SUCCESS    &quot;Normal termination of server.&quot;</span>
+<a name="l00168"></a><a class="code" href="config_8h.xhtml#aa0e8c6d702ecb6118b49483584524db1">00168</a> <span class="preprocessor">#define CFG_SOC_MAX_PENDING     5</span>
 <a name="l00169"></a>00169 <span class="preprocessor"></span>
-<a name="l00175"></a><a class="code" href="config_8h.xhtml#ab1422261ac78a78462c06713ccb88155">00175</a> <span class="preprocessor">#define CFG_STR_UTILS_ERROR     &quot;[ERROR] &quot;</span>
+<a name="l00175"></a><a class="code" href="config_8h.xhtml#a234e78c07d081a99b72af652cfa37cb8">00175</a> <span class="preprocessor">#define CFG_SOC_MAX_PORTNUM     65536</span>
 <a name="l00176"></a>00176 <span class="preprocessor"></span>
-<a name="l00182"></a><a class="code" href="config_8h.xhtml#aa5d991baf2e5165be5c3f1a1a53eacd6">00182</a> <span class="preprocessor">#define CFG_STR_UTILS_INFO      &quot;[INFO  ] &quot;</span>
+<a name="l00182"></a><a class="code" href="config_8h.xhtml#a5f105c04f494daec2a03ed9a85eb092b">00182</a> <span class="preprocessor">#define CFG_SOC_PORTNUM         4321</span>
 <a name="l00183"></a>00183 <span class="preprocessor"></span>
-<a name="l00189"></a><a class="code" href="config_8h.xhtml#ac38f0f1beed2da9e2c6e0210da5ba57f">00189</a> <span class="preprocessor">#define CFG_STR_UTILS_SOCKET    &quot;[SOCKET] &quot;</span>
-<a name="l00190"></a>00190 <span class="preprocessor"></span>
-<a name="l00196"></a><a class="code" href="config_8h.xhtml#ae0189326402738016ca074f43606978f">00196</a> <span class="preprocessor">#define CFG_STR_VERSION         &quot;NAMS Development 0.0.0&quot;</span>
-<a name="l00197"></a>00197 <span class="preprocessor"></span>
-<a name="l00199"></a>00199 <span class="preprocessor">#endif</span>
+<a name="l00185"></a>00185 <span class="comment">/***************************************************************************</span>
+<a name="l00186"></a>00186 <span class="comment"> *                              STRING OPTIONS                             *</span>
+<a name="l00187"></a>00187 <span class="comment"> ***************************************************************************/</span> 
+<a name="l00194"></a><a class="code" href="config_8h.xhtml#a8e2bae4932d5625144ae9f3bfc8c3fb0">00194</a> <span class="preprocessor">#define CFG_STR_IDLE            CRLF &quot;Idle limit reached. Goodbye.&quot; CRLF</span>
+<a name="l00195"></a>00195 <span class="preprocessor"></span>
+<a name="l00201"></a><a class="code" href="config_8h.xhtml#a8d29374ea9db48916be70f6c809e148c">00201</a> <span class="preprocessor">#define CFG_STR_LOGIN           &quot;For a list of commands type &#39;help&#39;.&quot; CRLF &quot;Please enter your name: &quot;</span>
+<a name="l00202"></a>00202 <span class="preprocessor"></span>
+<a name="l00208"></a><a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456">00208</a> <span class="preprocessor">#define CFG_STR_MAX_BUFLEN      16384</span>
+<a name="l00209"></a>00209 <span class="preprocessor"></span>
+<a name="l00215"></a><a class="code" href="config_8h.xhtml#ac890497fb16954e976eabed51b23b1dd">00215</a> <span class="preprocessor">#define CFG_STR_EXIT_FAILURE    &quot;Server terminated.&quot;</span>
+<a name="l00216"></a>00216 <span class="preprocessor"></span>
+<a name="l00222"></a><a class="code" href="config_8h.xhtml#ac53ab4c77c45a5e739a054086eec42fa">00222</a> <span class="preprocessor">#define CFG_STR_EXIT_SUCCESS    &quot;Normal termination of server.&quot;</span>
+<a name="l00223"></a>00223 <span class="preprocessor"></span>
+<a name="l00229"></a><a class="code" href="config_8h.xhtml#ab1422261ac78a78462c06713ccb88155">00229</a> <span class="preprocessor">#define CFG_STR_UTILS_ERROR     &quot;[ERROR] &quot;</span>
+<a name="l00230"></a>00230 <span class="preprocessor"></span>
+<a name="l00236"></a><a class="code" href="config_8h.xhtml#aa5d991baf2e5165be5c3f1a1a53eacd6">00236</a> <span class="preprocessor">#define CFG_STR_UTILS_INFO      &quot;[INFO  ] &quot;</span>
+<a name="l00237"></a>00237 <span class="preprocessor"></span>
+<a name="l00243"></a><a class="code" href="config_8h.xhtml#ac38f0f1beed2da9e2c6e0210da5ba57f">00243</a> <span class="preprocessor">#define CFG_STR_UTILS_SOCKET    &quot;[SOCKET] &quot;</span>
+<a name="l00244"></a>00244 <span class="preprocessor"></span>
+<a name="l00250"></a><a class="code" href="config_8h.xhtml#ae0189326402738016ca074f43606978f">00250</a> <span class="preprocessor">#define CFG_STR_VERSION         &quot;NAMS Development 0.0.0&quot;</span>
+<a name="l00251"></a>00251 <span class="preprocessor"></span>
+<a name="l00253"></a>00253 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -179,7 +196,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

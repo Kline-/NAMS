@@ -93,14 +93,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer__inherit__graph.svg" width="118" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer__inherit__graph.svg" width="118" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for SocketServer:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer__coll__graph.svg" width="519" height="544"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer__coll__graph.svg" width="496" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classSocketServer-members.xhtml">List of all members.</a></p>
@@ -133,9 +135,7 @@ Core</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231">New</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a socket for a server and set all attributes.  <a href="#a276e17da8bbf562313bce8edfd32e231"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546">Thread</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns a new <a class="el" href="classThread.xhtml">Thread</a> of <a class="el" href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="Operates all other looping functions within a SocketServer object, such as directing clients to proce...">SocketServer::Update()</a> to process client updates.  <a href="#a613401f64ca4c185e0a90dd2ae57b546"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690">Update</a> (void *data)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operates all other looping functions within a <a class="el" href="classSocketServer.xhtml">SocketServer</a> object, such as directing clients to process a command and then sleeps to control game pacing.  <a href="#abf0a57a793cb3cf9ad308c238329b690"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#abb93749604a5b7ee5608d5216cf6289c">Update</a> (void *data)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -173,7 +173,7 @@ Core</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00319">319</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00230">230</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                     : <a class="code" href="classSocket.xhtml#aab53cde845a88cec27192ad7ec8c8869" title="Constructor for the Socket class.">Socket</a>( server, descriptor )
 {
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
@@ -211,23 +211,11 @@ Core</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00334">334</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00245">245</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <a class="code" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf" title="Release a mutex lock on the current Thread object.">MutexUnlock</a>();
-    ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_SUCCESS ) );
-
     <span class="keywordflow">return</span>;
 }
 </pre></div>
-<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_af0e595690e453ef4b8e8da174069aba9_cgraph.svg" width="430" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -279,9 +267,9 @@ Core</h2></td></tr>
 
     socket_client = <span class="keyword">new</span> <a class="code" href="classSocketClient.xhtml">SocketClient</a>( <a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">gServer</a>(), descriptor );
 
-    <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316" title="Spawns a new Thread of SocketClient::Update() for a fully connected client.">Thread</a>() )
+    <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes.">New</a>() )
     {
-        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Accept()-&gt;SocketClient::Thread()-&gt; returned false&quot;</span> );
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Accept()-&gt;SocketClient::New()-&gt; returned false&quot;</span> );
         socket_client-&gt;<a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">Delete</a>();
         <span class="keywordflow">return</span>;
     }
@@ -289,22 +277,23 @@ Core</h2></td></tr>
     <span class="keywordflow">return</span>;
 }
 </pre></div>
-<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_afdbc60c3bc840875d2214b59c6213f63_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_afdbc60c3bc840875d2214b59c6213f63_cgraph.svg" width="100%" height="484"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </p>
 
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_afdbc60c3bc840875d2214b59c6213f63_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_afdbc60c3bc840875d2214b59c6213f63_icgraph.svg" width="638" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -387,21 +376,22 @@ Core</h2></td></tr>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_aee14cfe29fef99baa29664eef8d89dc8_cgraph.svg" width="352" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_aee14cfe29fef99baa29664eef8d89dc8_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_aee14cfe29fef99baa29664eef8d89dc8_icgraph.svg" width="619" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -436,8 +426,6 @@ Core</h2></td></tr>
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
         <span class="keywordflow">return</span>;
 
-    <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Attempt to obtain a mutex lock on the current Thread object.">MutexLock</a>();
-
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">sSocketClose</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a>() + 1 ) )
         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketServer::Delete()-&gt;Server::sSocketClose()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a>() + 1 );
 
@@ -447,22 +435,13 @@ Core</h2></td></tr>
     <span class="keywordflow">return</span>;
 }
 </pre></div>
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a4fb2589ed01cea5daae154b2f06b4f41_cgraph.svg" width="379" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a4fb2589ed01cea5daae154b2f06b4f41_cgraph.svg" width="379" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
-</div>
-</p>
-
-<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_a4fb2589ed01cea5daae154b2f06b4f41_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -485,12 +464,13 @@ Core</h2></td></tr>
 <p>Definition at line <a class="el" href="socketserver_8h_source.xhtml#l00042">42</a> of file <a class="el" href="socketserver_8h_source.xhtml">socketserver.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>; }
 </pre></div>
-<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_a659e5775db60e3f8d29b70f2fdd317e7_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_a659e5775db60e3f8d29b70f2fdd317e7_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -517,7 +497,7 @@ Core</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00144">144</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00142">142</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -536,21 +516,22 @@ Core</h2></td></tr>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a5c5b0cbbee6a2e265d0510b40bcc12d8_cgraph.svg" width="363" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_a5c5b0cbbee6a2e265d0510b40bcc12d8_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a5c5b0cbbee6a2e265d0510b40bcc12d8_icgraph.svg" width="630" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -579,11 +560,9 @@ Core</h2></td></tr>
 
 <p>Implements <a class="el" href="classSocket.xhtml#a6c74362c2411c96aff10a875772021f2">Socket</a>.</p>
 
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00168">168</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00166">166</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-
-    <a class="code" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1" title="Attempt to obtain a mutex lock on the current Thread object.">MutexLock</a>();
 
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address.">Bind</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">gPort</a>(), <a class="code" href="config_8h.xhtml#acfbfb90b5a0afa6cddd1403c1e10a7ee" title="IP address to bind the listening server socket to.">CFG_SOC_BIND_ADDR</a> ) )
     {
@@ -603,27 +582,26 @@ Core</h2></td></tr>
         <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
     }
 
-    <a class="code" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf" title="Release a mutex lock on the current Thread object.">MutexUnlock</a>();
-
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a276e17da8bbf562313bce8edfd32e231_cgraph.svg" width="558" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a276e17da8bbf562313bce8edfd32e231_cgraph.svg" width="555" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </p>
 
-<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a276e17da8bbf562313bce8edfd32e231_icgraph.svg" width="635" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a276e17da8bbf562313bce8edfd32e231_icgraph.svg" width="427" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -657,7 +635,7 @@ Core</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00291">291</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00202">202</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -678,20 +656,20 @@ Core</h2></td></tr>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a89cde9791b2f0ce928329c55a9ad21e7_cgraph.svg" width="347" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a89cde9791b2f0ce928329c55a9ad21e7_icgraph.svg" width="427" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -711,90 +689,15 @@ Core</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="retval"><dt><b>Return values:</b></dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">false</td><td>Returned if an error is encountered while creating a thread. </td></tr>
-    <tr><td class="paramname">true</td><td>Returned if a thread was successfully created. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Reimplemented from <a class="el" href="classThread.xhtml#a95c703fb8f2f27cb64f475a8c940864a">Thread</a>.</p>
-
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00202">202</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-    pthread_t thread_id = 0;
-    pthread_attr_t res_attr;
-
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-    {
-        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Thread()-&gt; called with invalid socket&quot;</span> );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="Build a socket for a server and set all attributes.">New</a>() )
-    {
-        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Thread()-&gt;SocketServer::New()-&gt; returned false&quot;</span> );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <span class="keywordflow">if</span> ( ::pthread_attr_init( &amp;res_attr ) != 0 )
-    {
-        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketServer::Thread()-&gt;pthread_attr_init()-&gt;&quot;</span> );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <span class="keywordflow">if</span> ( ::pthread_attr_setdetachstate( &amp;res_attr, PTHREAD_CREATE_JOINABLE ) != 0 )
-    {
-        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketServer::Thread()-&gt;pthread_attr_setdetachstate()-&gt;&quot;</span> );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <span class="keywordflow">if</span> ( ::pthread_create( &amp;thread_id, &amp;res_attr, &amp;<a class="code" href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="Operates all other looping functions within a SocketServer object, such as directing clients to proce...">SocketServer::Update</a>, <span class="keyword">this</span> ) != 0 )
-    {
-        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketServer::Thread()-&gt;pthread_create()-&gt;&quot;</span> );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <span class="keywordflow">if</span> ( ::pthread_attr_destroy( &amp;res_attr ) != 0 )
-    {
-        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketServer::Thread()-&gt;pthread_attr_destroy()-&gt;&quot;</span> );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <a class="code" href="list_8cpp.xhtml#aaf5f7633ec620b380d55167e8213da84" title="All active threads within the server.">thread_list</a>.insert( pair&lt;pthread_t,string&gt;( thread_id, <span class="stringliteral">&quot;SocketServer::Thread()&quot;</span> ) );
-
-    <span class="keywordflow">return</span> <span class="keyword">true</span>;
-}
-</pre></div>
-<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_a613401f64ca4c185e0a90dd2ae57b546_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-</p>
-
-<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a613401f64ca4c185e0a90dd2ae57b546_icgraph.svg" width="443" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
 
 </div>
 </div>
-<a class="anchor" id="abf0a57a793cb3cf9ad308c238329b690"></a><!-- doxytag: member="SocketServer::Update" ref="abf0a57a793cb3cf9ad308c238329b690" args="(void *data)" -->
+<a class="anchor" id="abb93749604a5b7ee5608d5216cf6289c"></a><!-- doxytag: member="SocketServer::Update" ref="abb93749604a5b7ee5608d5216cf6289c" args="(void *data)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void * <a class="el" href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690">SocketServer::Update</a> </td>
+          <td class="memname">static void* <a class="el" href="classSocketServer.xhtml#abb93749604a5b7ee5608d5216cf6289c">SocketServer::Update</a> </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>data</em></td><td>)</td>
@@ -803,63 +706,6 @@ Core</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>A void pointer containing a self-reference (this) of the <a class="el" href="classSocketServer.xhtml">SocketServer</a>. It should be re-cast appropriately. This is necessary for threading. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt><b>Return values:</b></dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">void</td><td>While a void pointer is required for threading, all methods of exiting a server thread currently return EXIT_SUCCESS either via the loop processes terminating on shutdown or by the server faulting and eventually calling <a class="el" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="Unload a server&#39;s socket from memory that was previously loaded via SocketServer::New().">SocketServer::Delete()</a> gracefully. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00254">254</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-    <a class="code" href="classSocketServer.xhtml">SocketServer</a>* socket_server = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classSocketServer.xhtml">SocketServer</a>*<span class="keyword">&gt;</span>( data );
-
-    <span class="keywordflow">if</span> ( !socket_server-&gt;<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
-    {
-        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Update()-&gt; called with invalid socket&quot;</span> );
-        socket_server-&gt;<a class="code" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="Unload a server&#39;s socket from memory that was previously loaded via SocketServer::New().">Delete</a>();
-    }
-
-    <span class="keywordflow">for</span> ( ;; )
-    {
-        <span class="comment">// Look for new connections</span>
-        socket_server-&gt;<a class="code" href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port.">Accept</a>();
-
-        <span class="keywordflow">if</span> ( !socket_server-&gt;<a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">gServer</a>()-&gt;<a class="code" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea">Running</a>() )
-            <span class="keywordflow">break</span>;
-
-        ::usleep( <a class="code" href="macros_8h.xhtml#a5fc45be6b0bb71dc5d4c6390d98bf3ee" title="This is the maximum value usleep will take per man (3) usleep -- 1 second.">USLEEP_MAX</a> / <a class="code" href="config_8h.xhtml#abf59791d9bc371bb841717a963babfc3" title="How many cycles per second should be processed.">CFG_GAM_PULSE_RATE</a> );
-    }
-
-    socket_server-&gt;<a class="code" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="Unload a server&#39;s socket from memory that was previously loaded via SocketServer::New().">Delete</a>();
-    ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_SUCCESS ) );
-}
-</pre></div>
-<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_abf0a57a793cb3cf9ad308c238329b690_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-</p>
-
-<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_abf0a57a793cb3cf9ad308c238329b690_icgraph.svg" width="654" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
 
 </div>
 </div>
@@ -901,7 +747,7 @@ Core</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:07 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

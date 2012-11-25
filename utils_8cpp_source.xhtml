@@ -127,286 +127,336 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00059"></a>00059     }
 <a name="l00060"></a>00060 }
 <a name="l00061"></a>00061 
-<a name="l00071"></a>00071 <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="namespaceUtils.xhtml#a33e08ea185b71aab494d83322ad3cd53">Utils::_FormatString</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; narg, <span class="keyword">const</span> bitset&lt;CFG_MEM_MAX_BITSET&gt;&amp; flags, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; caller, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; fmt, ... )
-<a name="l00072"></a>00072 {
-<a name="l00073"></a>00073     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
-<a name="l00074"></a>00074     va_list args;
-<a name="l00075"></a>00075     <span class="keywordtype">string</span> output;
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077     <span class="keywordflow">if</span> ( fmt.empty() )
-<a name="l00078"></a>00078     {
-<a name="l00079"></a>00079         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( uflags, <span class="stringliteral">&quot;Utils::_FormatString()-&gt; called with empty fmt&quot;</span> );
-<a name="l00080"></a>00080         <span class="keywordflow">return</span> output;
-<a name="l00081"></a>00081     }
+<a name="l00069"></a>00069 <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107">Utils::DirPath</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; directory, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; ext )
+<a name="l00070"></a>00070 {
+<a name="l00071"></a>00071     <span class="keywordtype">string</span> path( directory );
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073     path.append( <span class="stringliteral">&quot;/&quot;</span> );
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075     <span class="keywordflow">if</span> ( !ext.empty() )
+<a name="l00076"></a>00076     {
+<a name="l00077"></a>00077         path.append( file.substr( 0, file.find_last_of( <span class="stringliteral">&quot;.&quot;</span> ) + 1 ) );
+<a name="l00078"></a>00078         path.append( ext );
+<a name="l00079"></a>00079     }
+<a name="l00080"></a>00080     <span class="keywordflow">else</span>
+<a name="l00081"></a>00081         path.append( file );
 <a name="l00082"></a>00082 
-<a name="l00083"></a>00083     va_start( args, fmt );
-<a name="l00084"></a>00084     output = <a class="code" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">__FormatString</a>( narg, flags, caller, fmt, args );
-<a name="l00085"></a>00085     va_end( args );
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087     <span class="keywordflow">return</span> output;
-<a name="l00088"></a>00088 }
-<a name="l00089"></a>00089 
-<a name="l00099"></a>00099 <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">Utils::__FormatString</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; narg, <span class="keyword">const</span> bitset&lt;CFG_MEM_MAX_BITSET&gt;&amp; flags, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; caller, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; fmt, va_list&amp; val ) <span class="comment">// Thanks go to Darien @ MudBytes.net for the start of this</span>
-<a name="l00100"></a>00100 {
-<a name="l00101"></a>00101     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
-<a name="l00102"></a>00102     va_list args;
-<a name="l00103"></a>00103     vector&lt;string&gt; arguments;
-<a name="l00104"></a>00104     vector&lt;string&gt;::iterator si;
-<a name="l00105"></a>00105     vector&lt;char&gt; buf;
-<a name="l00106"></a>00106     <span class="keywordtype">string</span> output, token;
-<a name="l00107"></a>00107     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> size = 0;
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109     <span class="keywordflow">if</span> ( fmt.empty() )
-<a name="l00110"></a>00110     {
-<a name="l00111"></a>00111         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( uflags, <span class="stringliteral">&quot;Utils::__FormatString()-&gt; called with empty fmt&quot;</span> );
-<a name="l00112"></a>00112         <span class="keywordflow">return</span> output;
-<a name="l00113"></a>00113     }
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115     arguments = <a class="code" href="namespaceUtils.xhtml#a9b5c8a47a2cb834c5970f9bc6633b00a">StrTokens</a>( fmt );
-<a name="l00116"></a>00116     <span class="keywordflow">for</span> ( si = arguments.begin(); si != arguments.end(); si++ )
-<a name="l00117"></a>00117     {
-<a name="l00118"></a>00118         token = *si;
-<a name="l00119"></a>00119         <span class="keywordflow">if</span> ( token.find( <span class="stringliteral">&quot;%&quot;</span> ) != string::npos ) <span class="comment">// not foolproof, but it should catch some worst cases by attempting</span>
-<a name="l00120"></a>00120             size++;                              <span class="comment">// to ensure a matching narg : format specifier count</span>
-<a name="l00121"></a>00121     }
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123     <span class="keywordflow">if</span> ( narg != 1 &amp;&amp; narg != static_cast&lt;uint_t&gt;( size ) &amp;&amp; narg != <a class="code" href="namespaceUtils.xhtml#afaf029667f299587a52ba9c8de11edfa">NumChar</a>( fmt, <span class="stringliteral">&quot;%&quot;</span> ) ) <span class="comment">// if narg == 1 invocation was func( flags, string )</span>
-<a name="l00124"></a>00124     {
-<a name="l00125"></a>00125         bitset&lt;CFG_MEM_MAX_BITSET&gt; eflags;
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127         eflags.set( <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a3953ba936b7fd0b7cbc726e534c63197">UTILS_TYPE_ERROR</a> );
-<a name="l00128"></a>00128         <a class="code" href="utils_8h.xhtml#acf49e3634b60414304a9adfc79e02adb">Logger</a>( eflags, <span class="stringliteral">&quot;Number of arguments (%lu) did not match number of format specifiers (%lu) at: %s&quot;</span>, narg, size, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( caller ) );
-<a name="l00129"></a>00129         <span class="keywordflow">return</span> output = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00130"></a>00130     }
-<a name="l00131"></a>00131 
-<a name="l00132"></a>00132     va_copy( args, val );
-<a name="l00133"></a>00133     size = vsnprintf( NULL, 0, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( fmt ), args );
-<a name="l00134"></a>00134     va_end( args );
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136     va_copy( args, val );
-<a name="l00137"></a>00137     buf.resize( size + 1 );
-<a name="l00138"></a>00138     vsnprintf( &amp;buf[0], ( size + 1 ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( fmt ), args );
-<a name="l00139"></a>00139     va_end( args );
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141     <span class="keywordflow">return</span> output = &amp;buf[0];
-<a name="l00142"></a>00142 }
-<a name="l00143"></a>00143 
-<a name="l00153"></a>00153 <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="namespaceUtils.xhtml#aa2ac8bf1bb304bab8f29829ec30af243">Utils::_Logger</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; narg, <span class="keyword">const</span> bitset&lt;CFG_MEM_MAX_BITSET&gt;&amp; flags, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; caller, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; fmt, ... )
-<a name="l00154"></a>00154 {
-<a name="l00155"></a>00155     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
-<a name="l00156"></a>00156     va_list args;
-<a name="l00157"></a>00157     <span class="keywordtype">string</span> pre, post, output;
-<a name="l00158"></a>00158     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = 0;
+<a name="l00083"></a>00083     <span class="keywordflow">return</span> path;
+<a name="l00084"></a>00084 }
+<a name="l00085"></a>00085 
+<a name="l00095"></a>00095 <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="namespaceUtils.xhtml#a33e08ea185b71aab494d83322ad3cd53">Utils::_FormatString</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; narg, <span class="keyword">const</span> bitset&lt;CFG_MEM_MAX_BITSET&gt;&amp; flags, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; caller, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; fmt, ... )
+<a name="l00096"></a>00096 {
+<a name="l00097"></a>00097     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
+<a name="l00098"></a>00098     va_list args;
+<a name="l00099"></a>00099     <span class="keywordtype">string</span> output;
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101     <span class="keywordflow">if</span> ( fmt.empty() )
+<a name="l00102"></a>00102     {
+<a name="l00103"></a>00103         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( uflags, <span class="stringliteral">&quot;Utils::_FormatString()-&gt; called with empty fmt&quot;</span> );
+<a name="l00104"></a>00104         <span class="keywordflow">return</span> output;
+<a name="l00105"></a>00105     }
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107     va_start( args, fmt );
+<a name="l00108"></a>00108     output = <a class="code" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">__FormatString</a>( narg, flags, caller, fmt, args );
+<a name="l00109"></a>00109     va_end( args );
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111     <span class="keywordflow">return</span> output;
+<a name="l00112"></a>00112 }
+<a name="l00113"></a>00113 
+<a name="l00123"></a>00123 <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">Utils::__FormatString</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; narg, <span class="keyword">const</span> bitset&lt;CFG_MEM_MAX_BITSET&gt;&amp; flags, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; caller, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; fmt, va_list&amp; val ) <span class="comment">// Thanks go to Darien @ MudBytes.net for the start of this</span>
+<a name="l00124"></a>00124 {
+<a name="l00125"></a>00125     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
+<a name="l00126"></a>00126     va_list args;
+<a name="l00127"></a>00127     vector&lt;string&gt; arguments;
+<a name="l00128"></a>00128     vector&lt;string&gt;::iterator si;
+<a name="l00129"></a>00129     vector&lt;char&gt; buf;
+<a name="l00130"></a>00130     <span class="keywordtype">string</span> output, token;
+<a name="l00131"></a>00131     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> size = 0;
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133     <span class="keywordflow">if</span> ( fmt.empty() )
+<a name="l00134"></a>00134     {
+<a name="l00135"></a>00135         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( uflags, <span class="stringliteral">&quot;Utils::__FormatString()-&gt; called with empty fmt&quot;</span> );
+<a name="l00136"></a>00136         <span class="keywordflow">return</span> output;
+<a name="l00137"></a>00137     }
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139     arguments = <a class="code" href="namespaceUtils.xhtml#a9b5c8a47a2cb834c5970f9bc6633b00a">StrTokens</a>( fmt );
+<a name="l00140"></a>00140     <span class="keywordflow">for</span> ( si = arguments.begin(); si != arguments.end(); si++ )
+<a name="l00141"></a>00141     {
+<a name="l00142"></a>00142         token = *si;
+<a name="l00143"></a>00143         <span class="keywordflow">if</span> ( token.find( <span class="stringliteral">&quot;%&quot;</span> ) != string::npos ) <span class="comment">// not foolproof, but it should catch some worst cases by attempting</span>
+<a name="l00144"></a>00144             size++;                              <span class="comment">// to ensure a matching narg : format specifier count</span>
+<a name="l00145"></a>00145     }
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147     <span class="keywordflow">if</span> ( narg != 1 &amp;&amp; narg != static_cast&lt;uint_t&gt;( size ) &amp;&amp; narg != <a class="code" href="namespaceUtils.xhtml#afaf029667f299587a52ba9c8de11edfa">NumChar</a>( fmt, <span class="stringliteral">&quot;%&quot;</span> ) ) <span class="comment">// if narg == 1 invocation was func( flags, string )</span>
+<a name="l00148"></a>00148     {
+<a name="l00149"></a>00149         bitset&lt;CFG_MEM_MAX_BITSET&gt; eflags;
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151         eflags.set( <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a3953ba936b7fd0b7cbc726e534c63197">UTILS_TYPE_ERROR</a> );
+<a name="l00152"></a>00152         <a class="code" href="utils_8h.xhtml#acf49e3634b60414304a9adfc79e02adb">Logger</a>( eflags, <span class="stringliteral">&quot;Number of arguments (%lu) did not match number of format specifiers (%lu) at: %s&quot;</span>, narg, size, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( caller ) );
+<a name="l00153"></a>00153         <span class="keywordflow">return</span> output = <span class="stringliteral">&quot;&quot;</span>;
+<a name="l00154"></a>00154     }
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156     va_copy( args, val );
+<a name="l00157"></a>00157     size = vsnprintf( NULL, 0, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( fmt ), args );
+<a name="l00158"></a>00158     va_end( args );
 <a name="l00159"></a>00159 
-<a name="l00160"></a>00160     <span class="keywordflow">if</span> ( fmt.empty() )
-<a name="l00161"></a>00161     {
-<a name="l00162"></a>00162         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( uflags, <span class="stringliteral">&quot;Utils::_Logger()-&gt; called with empty fmt&quot;</span> );
-<a name="l00163"></a>00163         <span class="keywordflow">return</span>;
-<a name="l00164"></a>00164     }
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166     va_start( args, fmt );
-<a name="l00167"></a>00167     output = <a class="code" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">__FormatString</a>( narg, flags, caller, fmt, args );
-<a name="l00168"></a>00168     va_end( args );
-<a name="l00169"></a>00169 
-<a name="l00170"></a>00170     <span class="keywordflow">if</span> ( output.empty() )
-<a name="l00171"></a>00171         <span class="keywordflow">return</span>;
-<a name="l00172"></a>00172 
-<a name="l00173"></a>00173     <span class="comment">// prepend timestamp</span>
-<a name="l00174"></a>00174     pre = <a class="code" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a" title="Returns a given time as a string.">StrTime</a>( <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">CurrentTime</a>() ); pre += <span class="stringliteral">&quot; :: &quot;</span>;
-<a name="l00175"></a>00175 
-<a name="l00176"></a>00176     <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa435dc1cf64950a334aba3ae322dc7e3">MAX_UTILS</a>; i++ )
-<a name="l00177"></a>00177     {
-<a name="l00178"></a>00178         <span class="keywordflow">if</span> ( flags.test( i ) )
-<a name="l00179"></a>00179         {
-<a name="l00180"></a>00180             <span class="keywordflow">switch</span>( i )
-<a name="l00181"></a>00181             {
-<a name="l00182"></a>00182                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a285bb6b32d7a114b3103822c8ba11914">UTILS_DEBUG</a>:       post += <span class="stringliteral">&quot; [&quot;</span>; post += caller; post += <span class="stringliteral">&quot;]&quot;</span>; <span class="keywordflow">break</span>; <span class="comment">// output caller</span>
-<a name="l00183"></a>00183                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a7d4a5f7891869a8964c9f3be6ad4fb03">UTILS_RAW</a>:         pre.clear(); post.clear(); i = <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa435dc1cf64950a334aba3ae322dc7e3">MAX_UTILS</a>;  <span class="keywordflow">break</span>; <span class="comment">// no extraneous data applied</span>
-<a name="l00184"></a>00184                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a3953ba936b7fd0b7cbc726e534c63197">UTILS_TYPE_ERROR</a>:  pre += <a class="code" href="config_8h.xhtml#ab1422261ac78a78462c06713ccb88155" title="String to prepend to logs flagged UTILS_TYPE_ERROR.">CFG_STR_UTILS_ERROR</a>;                <span class="keywordflow">break</span>; <span class="comment">// so fancy!</span>
-<a name="l00185"></a>00185                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88af08cecf6f2c8ca5d3c5e4202a8450a92">UTILS_TYPE_INFO</a>:   pre += <a class="code" href="config_8h.xhtml#aa5d991baf2e5165be5c3f1a1a53eacd6" title="String to prepend to logs flagged UTILS_TYPE_INFO.">CFG_STR_UTILS_INFO</a>;                 <span class="keywordflow">break</span>;
-<a name="l00186"></a>00186                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ad9f4e83dec6fdf793451e709fb5d9509">UTILS_TYPE_SOCKET</a>: pre += <a class="code" href="config_8h.xhtml#ac38f0f1beed2da9e2c6e0210da5ba57f" title="String to prepend to logs flagged UTILS_TYPE_SOCKET.">CFG_STR_UTILS_SOCKET</a>;               <span class="keywordflow">break</span>;
-<a name="l00187"></a>00187                 <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;
-<a name="l00188"></a>00188             }
-<a name="l00189"></a>00189         }
-<a name="l00190"></a>00190     }
-<a name="l00191"></a>00191 
-<a name="l00192"></a>00192     clog &lt;&lt; pre &lt;&lt; output &lt;&lt; post &lt;&lt; endl;
-<a name="l00195"></a>00195     <span class="keywordflow">return</span>;
-<a name="l00196"></a>00196 }
-<a name="l00197"></a>00197 
-<a name="l00204"></a>00204 <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="namespaceUtils.xhtml#afaf029667f299587a52ba9c8de11edfa">Utils::NumChar</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; item )
-<a name="l00205"></a>00205 {
-<a name="l00206"></a>00206     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00207"></a>00207     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> amount = 0, i = 0;
-<a name="l00208"></a>00208 
-<a name="l00209"></a>00209     <span class="keywordflow">if</span> ( input.empty() )
-<a name="l00210"></a>00210     {
-<a name="l00211"></a>00211         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::NumChar()-&gt; called with empty input&quot;</span> );
-<a name="l00212"></a>00212         <span class="keywordflow">return</span> amount;
-<a name="l00213"></a>00213     }
-<a name="l00214"></a>00214 
-<a name="l00215"></a>00215     <span class="keywordflow">for</span> ( i = 0; i &lt; input.length(); i++ )
-<a name="l00216"></a>00216         <span class="keywordflow">if</span> ( input[i] == item[0] )
-<a name="l00217"></a>00217             amount++;
-<a name="l00218"></a>00218 
-<a name="l00219"></a>00219     <span class="keywordflow">return</span> amount;
-<a name="l00220"></a>00220 }
-<a name="l00221"></a>00221 
-<a name="l00227"></a>00227 <span class="keyword">const</span> vector&lt;string&gt; <a class="code" href="namespaceUtils.xhtml#aeda29ae05e927b463309cf1db39344a0">Utils::StrNewlines</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input )
-<a name="l00228"></a>00228 {
-<a name="l00229"></a>00229     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00160"></a>00160     va_copy( args, val );
+<a name="l00161"></a>00161     buf.resize( size + 1 );
+<a name="l00162"></a>00162     vsnprintf( &amp;buf[0], ( size + 1 ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( fmt ), args );
+<a name="l00163"></a>00163     va_end( args );
+<a name="l00164"></a>00164 
+<a name="l00165"></a>00165     <span class="keywordflow">return</span> output = &amp;buf[0];
+<a name="l00166"></a>00166 }
+<a name="l00167"></a>00167 
+<a name="l00177"></a>00177 <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="namespaceUtils.xhtml#aa2ac8bf1bb304bab8f29829ec30af243">Utils::_Logger</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; narg, <span class="keyword">const</span> bitset&lt;CFG_MEM_MAX_BITSET&gt;&amp; flags, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; caller, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; fmt, ... )
+<a name="l00178"></a>00178 {
+<a name="l00179"></a>00179     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
+<a name="l00180"></a>00180     va_list args;
+<a name="l00181"></a>00181     <span class="keywordtype">string</span> pre, post, output;
+<a name="l00182"></a>00182     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = 0;
+<a name="l00183"></a>00183 
+<a name="l00184"></a>00184     <span class="keywordflow">if</span> ( fmt.empty() )
+<a name="l00185"></a>00185     {
+<a name="l00186"></a>00186         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( uflags, <span class="stringliteral">&quot;Utils::_Logger()-&gt; called with empty fmt&quot;</span> );
+<a name="l00187"></a>00187         <span class="keywordflow">return</span>;
+<a name="l00188"></a>00188     }
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190     va_start( args, fmt );
+<a name="l00191"></a>00191     output = <a class="code" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">__FormatString</a>( narg, flags, caller, fmt, args );
+<a name="l00192"></a>00192     va_end( args );
+<a name="l00193"></a>00193 
+<a name="l00194"></a>00194     <span class="keywordflow">if</span> ( output.empty() )
+<a name="l00195"></a>00195         <span class="keywordflow">return</span>;
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197     <span class="comment">// prepend timestamp</span>
+<a name="l00198"></a>00198     pre = <a class="code" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a" title="Returns a given time as a string.">StrTime</a>( <a class="code" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time.">CurrentTime</a>() );
+<a name="l00199"></a>00199     pre.append( <span class="stringliteral">&quot; :: &quot;</span> );
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201     <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa435dc1cf64950a334aba3ae322dc7e3">MAX_UTILS</a>; i++ )
+<a name="l00202"></a>00202     {
+<a name="l00203"></a>00203         <span class="keywordflow">if</span> ( flags.test( i ) )
+<a name="l00204"></a>00204         {
+<a name="l00205"></a>00205             <span class="keywordflow">switch</span>( i )
+<a name="l00206"></a>00206             {
+<a name="l00207"></a>00207                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a285bb6b32d7a114b3103822c8ba11914">UTILS_DEBUG</a>: <span class="comment">//output caller</span>
+<a name="l00208"></a>00208                     post.append( <span class="stringliteral">&quot; [&quot;</span> );
+<a name="l00209"></a>00209                     post.append( caller );
+<a name="l00210"></a>00210                     post.append( <span class="stringliteral">&quot;]&quot;</span> );
+<a name="l00211"></a>00211                 <span class="keywordflow">break</span>;
+<a name="l00212"></a>00212                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a7d4a5f7891869a8964c9f3be6ad4fb03">UTILS_RAW</a>: <span class="comment">//no extraneous data applied</span>
+<a name="l00213"></a>00213                     pre.clear();
+<a name="l00214"></a>00214                     post.clear();
+<a name="l00215"></a>00215                     i = <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa435dc1cf64950a334aba3ae322dc7e3">MAX_UTILS</a>;
+<a name="l00216"></a>00216                 <span class="keywordflow">break</span>;
+<a name="l00217"></a>00217                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a3953ba936b7fd0b7cbc726e534c63197">UTILS_TYPE_ERROR</a>: <span class="comment">//so fancy!</span>
+<a name="l00218"></a>00218                     pre.append( <a class="code" href="config_8h.xhtml#ab1422261ac78a78462c06713ccb88155" title="String to prepend to logs flagged UTILS_TYPE_ERROR.">CFG_STR_UTILS_ERROR</a> );
+<a name="l00219"></a>00219                 <span class="keywordflow">break</span>;
+<a name="l00220"></a>00220                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88af08cecf6f2c8ca5d3c5e4202a8450a92">UTILS_TYPE_INFO</a>: <span class="comment">//so fancy!</span>
+<a name="l00221"></a>00221                     pre.append( <a class="code" href="config_8h.xhtml#aa5d991baf2e5165be5c3f1a1a53eacd6" title="String to prepend to logs flagged UTILS_TYPE_INFO.">CFG_STR_UTILS_INFO</a> );
+<a name="l00222"></a>00222                 <span class="keywordflow">break</span>;
+<a name="l00223"></a>00223                 <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ad9f4e83dec6fdf793451e709fb5d9509">UTILS_TYPE_SOCKET</a>: <span class="comment">//so fancy!</span>
+<a name="l00224"></a>00224                     pre.append( <a class="code" href="config_8h.xhtml#ac38f0f1beed2da9e2c6e0210da5ba57f" title="String to prepend to logs flagged UTILS_TYPE_SOCKET.">CFG_STR_UTILS_SOCKET</a> );
+<a name="l00225"></a>00225                 <span class="keywordflow">break</span>;
+<a name="l00226"></a>00226                 <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;
+<a name="l00227"></a>00227             }
+<a name="l00228"></a>00228         }
+<a name="l00229"></a>00229     }
 <a name="l00230"></a>00230 
-<a name="l00231"></a>00231     <span class="keywordflow">if</span> ( input.empty() )
-<a name="l00232"></a>00232     {
-<a name="l00233"></a>00233         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::StrNewlines()-&gt; called with empty input&quot;</span> );
-<a name="l00234"></a>00234         <span class="keywordflow">return</span> vector&lt;string&gt;();
-<a name="l00235"></a>00235     }
+<a name="l00231"></a>00231     clog &lt;&lt; pre &lt;&lt; output &lt;&lt; post &lt;&lt; endl;
+<a name="l00234"></a>00234     <span class="keywordflow">return</span>;
+<a name="l00235"></a>00235 }
 <a name="l00236"></a>00236 
-<a name="l00237"></a>00237     stringstream ss( input );
-<a name="l00238"></a>00238     <span class="keywordtype">string</span> line;
-<a name="l00239"></a>00239     vector&lt;string&gt; output;
-<a name="l00240"></a>00240 
-<a name="l00241"></a>00241     <span class="keywordflow">while</span> ( getline( ss, line ) )
-<a name="l00242"></a>00242     {
-<a name="l00243"></a>00243         <span class="comment">// Strip the newline off the end</span>
-<a name="l00244"></a>00244         line.resize( line.length() - 1 );
-<a name="l00245"></a>00245         <span class="keywordflow">if</span> ( !line.empty() )
-<a name="l00246"></a>00246             output.push_back( line );
-<a name="l00247"></a>00247     }
-<a name="l00248"></a>00248 
-<a name="l00249"></a>00249     <span class="keywordflow">return</span> output;
-<a name="l00250"></a>00250 }
-<a name="l00251"></a>00251 
-<a name="l00257"></a><a class="code" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a">00257</a> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a" title="Returns a given time as a string.">Utils::StrTime</a>( <span class="keyword">const</span> timeval&amp; now )
-<a name="l00258"></a>00258 {
-<a name="l00259"></a>00259     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00260"></a>00260     <span class="keywordtype">string</span> output;
-<a name="l00261"></a>00261 
-<a name="l00262"></a>00262     <span class="keywordflow">if</span> ( ( output = ::ctime( &amp;now.tv_sec ) ).empty() )
-<a name="l00263"></a>00263     {
-<a name="l00264"></a>00264         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::CurrentTime()-&gt;ctime()-&gt; returned NULL&quot;</span> );
-<a name="l00265"></a>00265         <span class="keywordflow">return</span> output;
-<a name="l00266"></a>00266     }
-<a name="l00267"></a>00267 
-<a name="l00268"></a>00268     <span class="comment">// Strip the newline off the end</span>
-<a name="l00269"></a>00269     output.resize( output.length() - 1 );
-<a name="l00270"></a>00270 
-<a name="l00271"></a>00271     <span class="keywordflow">return</span> output;
-<a name="l00272"></a>00272 }
-<a name="l00273"></a>00273 
-<a name="l00279"></a>00279 <span class="keyword">const</span> vector&lt;string&gt; <a class="code" href="namespaceUtils.xhtml#a9b5c8a47a2cb834c5970f9bc6633b00a">Utils::StrTokens</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input )
-<a name="l00280"></a>00280 {
-<a name="l00281"></a>00281     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00282"></a>00282 
-<a name="l00283"></a>00283     <span class="keywordflow">if</span> ( input.empty() )
-<a name="l00284"></a>00284     {
-<a name="l00285"></a>00285         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::StrTokens()-&gt; called with empty input&quot;</span> );
-<a name="l00286"></a>00286         <span class="keywordflow">return</span> vector&lt;string&gt;();
-<a name="l00287"></a>00287     }
-<a name="l00288"></a>00288 
-<a name="l00289"></a>00289     stringstream ss( input );
-<a name="l00290"></a>00290     istream_iterator&lt;string&gt; si( ss );
-<a name="l00291"></a>00291     istream_iterator&lt;string&gt; end;
-<a name="l00292"></a>00292     vector&lt;string&gt; output( si, end );
-<a name="l00293"></a>00293 
-<a name="l00294"></a>00294     <span class="keywordflow">return</span> output;
-<a name="l00295"></a>00295 } 
-<a name="l00305"></a>00305 <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">Utils::iDirectory</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; dir )
-<a name="l00306"></a>00306 {
-<a name="l00307"></a>00307     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00308"></a>00308     <span class="keyword">struct </span>stat dir_info;
+<a name="l00243"></a>00243 <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="namespaceUtils.xhtml#afaf029667f299587a52ba9c8de11edfa">Utils::NumChar</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; item )
+<a name="l00244"></a>00244 {
+<a name="l00245"></a>00245     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00246"></a>00246     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> amount = 0, i = 0;
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248     <span class="keywordflow">if</span> ( input.empty() )
+<a name="l00249"></a>00249     {
+<a name="l00250"></a>00250         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::NumChar()-&gt; called with empty input&quot;</span> );
+<a name="l00251"></a>00251         <span class="keywordflow">return</span> amount;
+<a name="l00252"></a>00252     }
+<a name="l00253"></a>00253 
+<a name="l00254"></a>00254     <span class="keywordflow">for</span> ( i = 0; i &lt; input.length(); i++ )
+<a name="l00255"></a>00255         <span class="keywordflow">if</span> ( input[i] == item[0] )
+<a name="l00256"></a>00256             amount++;
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258     <span class="keywordflow">return</span> amount;
+<a name="l00259"></a>00259 }
+<a name="l00260"></a>00260 
+<a name="l00266"></a>00266 <span class="keyword">const</span> vector&lt;string&gt; <a class="code" href="namespaceUtils.xhtml#aeda29ae05e927b463309cf1db39344a0">Utils::StrNewlines</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input )
+<a name="l00267"></a>00267 {
+<a name="l00268"></a>00268     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00269"></a>00269 
+<a name="l00270"></a>00270     <span class="keywordflow">if</span> ( input.empty() )
+<a name="l00271"></a>00271     {
+<a name="l00272"></a>00272         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::StrNewlines()-&gt; called with empty input&quot;</span> );
+<a name="l00273"></a>00273         <span class="keywordflow">return</span> vector&lt;string&gt;();
+<a name="l00274"></a>00274     }
+<a name="l00275"></a>00275 
+<a name="l00276"></a>00276     stringstream ss( input );
+<a name="l00277"></a>00277     <span class="keywordtype">string</span> line;
+<a name="l00278"></a>00278     vector&lt;string&gt; output;
+<a name="l00279"></a>00279 
+<a name="l00280"></a>00280     <span class="keywordflow">while</span> ( getline( ss, line ) )
+<a name="l00281"></a>00281     {
+<a name="l00282"></a>00282         <span class="comment">// Strip the newline off the end</span>
+<a name="l00283"></a>00283         line.resize( line.length() - 1 );
+<a name="l00284"></a>00284         <span class="keywordflow">if</span> ( !line.empty() )
+<a name="l00285"></a>00285             output.push_back( line );
+<a name="l00286"></a>00286     }
+<a name="l00287"></a>00287 
+<a name="l00288"></a>00288     <span class="keywordflow">return</span> output;
+<a name="l00289"></a>00289 }
+<a name="l00290"></a>00290 
+<a name="l00296"></a><a class="code" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a">00296</a> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a" title="Returns a given time as a string.">Utils::StrTime</a>( <span class="keyword">const</span> timeval&amp; now )
+<a name="l00297"></a>00297 {
+<a name="l00298"></a>00298     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00299"></a>00299     <span class="keywordtype">string</span> output;
+<a name="l00300"></a>00300 
+<a name="l00301"></a>00301     <span class="keywordflow">if</span> ( ( output = ::ctime( &amp;now.tv_sec ) ).empty() )
+<a name="l00302"></a>00302     {
+<a name="l00303"></a>00303         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::CurrentTime()-&gt;ctime()-&gt; returned NULL&quot;</span> );
+<a name="l00304"></a>00304         <span class="keywordflow">return</span> output;
+<a name="l00305"></a>00305     }
+<a name="l00306"></a>00306 
+<a name="l00307"></a>00307     <span class="comment">// Strip the newline off the end</span>
+<a name="l00308"></a>00308     output.resize( output.length() - 1 );
 <a name="l00309"></a>00309 
-<a name="l00310"></a>00310     <span class="keywordflow">if</span> ( ::stat( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( dir ), &amp;dir_info ) &lt; 0 )
-<a name="l00311"></a>00311     {
-<a name="l00312"></a>00312         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::iDirectory()-&gt;stat()-&gt;&quot;</span> );
-<a name="l00313"></a>00313         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00314"></a>00314     }
-<a name="l00315"></a>00315 
-<a name="l00316"></a>00316     <span class="keywordflow">if</span> ( !S_ISDIR( dir_info.st_mode ) )
-<a name="l00317"></a>00317         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00318"></a>00318 
-<a name="l00319"></a>00319     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00320"></a>00320 }
+<a name="l00310"></a>00310     <span class="keywordflow">return</span> output;
+<a name="l00311"></a>00311 }
+<a name="l00312"></a>00312 
+<a name="l00318"></a>00318 <span class="keyword">const</span> vector&lt;string&gt; <a class="code" href="namespaceUtils.xhtml#a9b5c8a47a2cb834c5970f9bc6633b00a">Utils::StrTokens</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input )
+<a name="l00319"></a>00319 {
+<a name="l00320"></a>00320     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 <a name="l00321"></a>00321 
-<a name="l00328"></a>00328 <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b">Utils::iFile</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file )
-<a name="l00329"></a>00329 {
-<a name="l00330"></a>00330     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00331"></a>00331     <span class="keyword">struct </span>stat dir_info;
+<a name="l00322"></a>00322     <span class="keywordflow">if</span> ( input.empty() )
+<a name="l00323"></a>00323     {
+<a name="l00324"></a>00324         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::StrTokens()-&gt; called with empty input&quot;</span> );
+<a name="l00325"></a>00325         <span class="keywordflow">return</span> vector&lt;string&gt;();
+<a name="l00326"></a>00326     }
+<a name="l00327"></a>00327 
+<a name="l00328"></a>00328     stringstream ss( input );
+<a name="l00329"></a>00329     istream_iterator&lt;string&gt; si( ss );
+<a name="l00330"></a>00330     istream_iterator&lt;string&gt; end;
+<a name="l00331"></a>00331     vector&lt;string&gt; output( si, end );
 <a name="l00332"></a>00332 
-<a name="l00333"></a>00333     <span class="keywordflow">if</span> ( ::stat( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ), &amp;dir_info ) &lt; 0 )
-<a name="l00334"></a>00334     {
-<a name="l00335"></a>00335         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::iFile()-&gt;stat()-&gt;&quot;</span> );
-<a name="l00336"></a>00336         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00337"></a>00337     }
-<a name="l00338"></a>00338 
-<a name="l00339"></a>00339     <span class="keywordflow">if</span> ( !S_ISREG( dir_info.st_mode ) )
-<a name="l00340"></a>00340         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00341"></a>00341 
-<a name="l00342"></a>00342     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00343"></a>00343 }
-<a name="l00344"></a>00344 
-<a name="l00351"></a>00351 <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442">Utils::iNumber</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input )
-<a name="l00352"></a>00352 {
-<a name="l00353"></a>00353     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00354"></a>00354     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = 0;
-<a name="l00355"></a>00355 
-<a name="l00356"></a>00356     <span class="keywordflow">if</span> ( input.empty() )
-<a name="l00357"></a>00357     {
-<a name="l00358"></a>00358         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::iNumber()-&gt; called with empty input&quot;</span> );
-<a name="l00359"></a>00359         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00360"></a>00360     }
-<a name="l00361"></a>00361 
-<a name="l00362"></a>00362     <span class="keywordflow">for</span> ( i = 0; i &lt; input.length(); i++ )
-<a name="l00363"></a>00363         <span class="keywordflow">if</span> ( !isdigit( input[i] ) )
-<a name="l00364"></a>00364             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00365"></a>00365 
-<a name="l00366"></a>00366     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00367"></a>00367 } 
-<a name="l00380"></a>00380 <span class="keyword">const</span> multimap&lt;bool,string&gt; <a class="code" href="namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4">Utils::ListDirectory</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; dir, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; recursive, multimap&lt;bool,string&gt;&amp; output, <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; dir_close, <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; dir_open )
-<a name="l00381"></a>00381 {
-<a name="l00382"></a>00382     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00383"></a>00383     DIR* directory = NULL;
-<a name="l00384"></a>00384     dirent* entry = NULL;
-<a name="l00385"></a>00385     <span class="keywordtype">string</span> ifile, idir;
-<a name="l00386"></a>00386 
-<a name="l00387"></a>00387     <span class="keywordflow">if</span> ( ( directory = ::opendir( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( dir ) ) ) == NULL )
-<a name="l00388"></a>00388     {
-<a name="l00389"></a>00389         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Utils::OpenDirectory()-&gt;opendir()-&gt; returned NULL for dir: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( dir ) );
-<a name="l00390"></a>00390         <span class="keywordflow">return</span> output;
-<a name="l00391"></a>00391     }
-<a name="l00392"></a>00392 
-<a name="l00393"></a>00393     dir_open++;
-<a name="l00394"></a>00394     idir = dir;
-<a name="l00395"></a>00395 
-<a name="l00396"></a>00396     <span class="comment">// Ensure a trailing slash is present to properly recurse</span>
-<a name="l00397"></a>00397     <span class="keywordflow">if</span> ( idir.compare( dir.length() - 1, 1, <span class="stringliteral">&quot;/&quot;</span> ) != 0 )
-<a name="l00398"></a>00398         idir += <span class="stringliteral">&quot;/&quot;</span>;
-<a name="l00399"></a>00399 
-<a name="l00400"></a>00400     <span class="keywordflow">while</span> ( ( entry = ::readdir( directory ) ) != NULL )
-<a name="l00401"></a>00401     {
-<a name="l00402"></a>00402         ifile = entry-&gt;d_name;
-<a name="l00403"></a>00403 
-<a name="l00404"></a>00404         <span class="comment">// Skip over the unwanteds</span>
-<a name="l00405"></a>00405         <span class="keywordflow">if</span> ( ifile.compare( <span class="stringliteral">&quot;.&quot;</span> ) == 0 || ifile.compare( <span class="stringliteral">&quot;..&quot;</span> ) == 0 )
-<a name="l00406"></a>00406             <span class="keywordflow">continue</span>;
+<a name="l00333"></a>00333     <span class="keywordflow">return</span> output;
+<a name="l00334"></a>00334 } 
+<a name="l00344"></a>00344 <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">Utils::iDirectory</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; dir )
+<a name="l00345"></a>00345 {
+<a name="l00346"></a>00346     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00347"></a>00347     <span class="keyword">struct </span>stat dir_info;
+<a name="l00348"></a>00348 
+<a name="l00349"></a>00349     <span class="keywordflow">if</span> ( ::stat( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( dir ), &amp;dir_info ) &lt; 0 )
+<a name="l00350"></a>00350     {
+<a name="l00351"></a>00351         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::iDirectory()-&gt;stat()-&gt;&quot;</span> );
+<a name="l00352"></a>00352         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00353"></a>00353     }
+<a name="l00354"></a>00354 
+<a name="l00355"></a>00355     <span class="keywordflow">if</span> ( !S_ISDIR( dir_info.st_mode ) )
+<a name="l00356"></a>00356         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00357"></a>00357 
+<a name="l00358"></a>00358     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00359"></a>00359 }
+<a name="l00360"></a>00360 
+<a name="l00367"></a>00367 <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b">Utils::iFile</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file )
+<a name="l00368"></a>00368 {
+<a name="l00369"></a>00369     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00370"></a>00370     <span class="keyword">struct </span>stat dir_info;
+<a name="l00371"></a>00371 
+<a name="l00372"></a>00372     <span class="keywordflow">if</span> ( ::stat( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ), &amp;dir_info ) &lt; 0 )
+<a name="l00373"></a>00373     {
+<a name="l00374"></a>00374         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::iFile()-&gt;stat()-&gt;&quot;</span> );
+<a name="l00375"></a>00375         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00376"></a>00376     }
+<a name="l00377"></a>00377 
+<a name="l00378"></a>00378     <span class="keywordflow">if</span> ( !S_ISREG( dir_info.st_mode ) )
+<a name="l00379"></a>00379         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00380"></a>00380 
+<a name="l00381"></a>00381     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00382"></a>00382 }
+<a name="l00383"></a>00383 
+<a name="l00390"></a>00390 <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442">Utils::iNumber</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; input )
+<a name="l00391"></a>00391 {
+<a name="l00392"></a>00392     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00393"></a>00393     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = 0;
+<a name="l00394"></a>00394 
+<a name="l00395"></a>00395     <span class="keywordflow">if</span> ( input.empty() )
+<a name="l00396"></a>00396     {
+<a name="l00397"></a>00397         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::iNumber()-&gt; called with empty input&quot;</span> );
+<a name="l00398"></a>00398         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00399"></a>00399     }
+<a name="l00400"></a>00400 
+<a name="l00401"></a>00401     <span class="keywordflow">for</span> ( i = 0; i &lt; input.length(); i++ )
+<a name="l00402"></a>00402         <span class="keywordflow">if</span> ( !isdigit( input[i] ) )
+<a name="l00403"></a>00403             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00404"></a>00404 
+<a name="l00405"></a>00405     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00406"></a>00406 }
 <a name="l00407"></a>00407 
-<a name="l00408"></a>00408         <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">iDirectory</a>( idir + ifile ) )
-<a name="l00409"></a>00409             output.insert( pair&lt;bool,string&gt;( <a class="code" href="enum_8h.xhtml#aa51282a877957eaf36ac9e8416145a53">UTILS_IS_DIRECTORY</a>, ifile ) );
-<a name="l00410"></a>00410         <span class="keywordflow">else</span>
-<a name="l00411"></a>00411             output.insert( pair&lt;bool,string&gt;( <a class="code" href="enum_8h.xhtml#a9325070b1daf70dbe43f7fb9a341aaf2">UTILS_IS_FILE</a>, ifile ) );
-<a name="l00412"></a>00412 
-<a name="l00413"></a>00413         <span class="comment">// Only recurse if another directory is found, otherwise a file was found, so skip it</span>
-<a name="l00414"></a>00414         <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">iDirectory</a>( idir + ifile ) &amp;&amp; recursive )
-<a name="l00415"></a>00415             <a class="code" href="namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4">ListDirectory</a>( idir + ifile, recursive, output, dir_close, dir_open );
-<a name="l00416"></a>00416     }
-<a name="l00417"></a>00417 
-<a name="l00418"></a>00418     <span class="keywordflow">if</span> ( ::closedir( directory ) &lt; 0 )
-<a name="l00419"></a>00419         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::OpenDir()-&gt;closedir()-&gt;&quot;</span> );
-<a name="l00420"></a>00420     <span class="keywordflow">else</span>
-<a name="l00421"></a>00421         dir_close++;
-<a name="l00422"></a>00422 
-<a name="l00423"></a>00423     <span class="keywordflow">return</span> output;
-<a name="l00424"></a>00424 } 
+<a name="l00414"></a>00414 <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc">Utils::iReadable</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file )
+<a name="l00415"></a>00415 {
+<a name="l00416"></a>00416     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00417"></a>00417     ifstream ifile;
+<a name="l00418"></a>00418     <span class="keywordtype">bool</span> ret = <span class="keyword">false</span>;
+<a name="l00419"></a>00419 
+<a name="l00420"></a>00420     ifile.open( file, ifstream::in );
+<a name="l00421"></a>00421 
+<a name="l00422"></a>00422     <span class="keywordflow">if</span> ( ifile.fail() )
+<a name="l00423"></a>00423         ret = <span class="keyword">false</span>;
+<a name="l00424"></a>00424     <span class="keywordflow">else</span>
+<a name="l00425"></a>00425         ret = <span class="keyword">true</span>;
+<a name="l00426"></a>00426 
+<a name="l00427"></a>00427     ifile.close();
+<a name="l00428"></a>00428 
+<a name="l00429"></a>00429     <span class="keywordflow">return</span> ret;
+<a name="l00430"></a>00430 } 
+<a name="l00443"></a>00443 <span class="keyword">const</span> multimap&lt;bool,string&gt; <a class="code" href="namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4">Utils::ListDirectory</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; dir, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; recursive, multimap&lt;bool,string&gt;&amp; output, <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; dir_close, <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; dir_open )
+<a name="l00444"></a>00444 {
+<a name="l00445"></a>00445     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00446"></a>00446     DIR* directory = NULL;
+<a name="l00447"></a>00447     dirent* entry = NULL;
+<a name="l00448"></a>00448     <span class="keywordtype">string</span> ifile, idir;
+<a name="l00449"></a>00449 
+<a name="l00450"></a>00450     <span class="keywordflow">if</span> ( ( directory = ::opendir( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( dir ) ) ) == NULL )
+<a name="l00451"></a>00451     {
+<a name="l00452"></a>00452         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Utils::OpenDirectory()-&gt;opendir()-&gt; returned NULL for dir: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( dir ) );
+<a name="l00453"></a>00453         <span class="keywordflow">return</span> output;
+<a name="l00454"></a>00454     }
+<a name="l00455"></a>00455 
+<a name="l00456"></a>00456     dir_open++;
+<a name="l00457"></a>00457     idir = dir;
+<a name="l00458"></a>00458 
+<a name="l00459"></a>00459     <span class="comment">// Ensure a trailing slash is present to properly recurse</span>
+<a name="l00460"></a>00460     <span class="keywordflow">if</span> ( idir.compare( dir.length() - 1, 1, <span class="stringliteral">&quot;/&quot;</span> ) != 0 )
+<a name="l00461"></a>00461         idir.append( <span class="stringliteral">&quot;/&quot;</span> );
+<a name="l00462"></a>00462 
+<a name="l00463"></a>00463     <span class="keywordflow">while</span> ( ( entry = ::readdir( directory ) ) != NULL )
+<a name="l00464"></a>00464     {
+<a name="l00465"></a>00465         ifile = entry-&gt;d_name;
+<a name="l00466"></a>00466 
+<a name="l00467"></a>00467         <span class="comment">// Skip over the unwanteds</span>
+<a name="l00468"></a>00468         <span class="keywordflow">if</span> ( ifile.compare( <span class="stringliteral">&quot;.&quot;</span> ) == 0 || ifile.compare( <span class="stringliteral">&quot;..&quot;</span> ) == 0 )
+<a name="l00469"></a>00469             <span class="keywordflow">continue</span>;
+<a name="l00470"></a>00470 
+<a name="l00471"></a>00471         <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">iDirectory</a>( idir + ifile ) )
+<a name="l00472"></a>00472             output.insert( pair&lt;bool,string&gt;( <a class="code" href="enum_8h.xhtml#aa51282a877957eaf36ac9e8416145a53">UTILS_IS_DIRECTORY</a>, ifile ) );
+<a name="l00473"></a>00473         <span class="keywordflow">else</span>
+<a name="l00474"></a>00474             output.insert( pair&lt;bool,string&gt;( <a class="code" href="enum_8h.xhtml#a9325070b1daf70dbe43f7fb9a341aaf2">UTILS_IS_FILE</a>, ifile ) );
+<a name="l00475"></a>00475 
+<a name="l00476"></a>00476         <span class="comment">// Only recurse if another directory is found, otherwise a file was found, so skip it</span>
+<a name="l00477"></a>00477         <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">iDirectory</a>( idir + ifile ) &amp;&amp; recursive )
+<a name="l00478"></a>00478             <a class="code" href="namespaceUtils.xhtml#af8f745fab0d76a937181e752a54015e4">ListDirectory</a>( idir + ifile, recursive, output, dir_close, dir_open );
+<a name="l00479"></a>00479     }
+<a name="l00480"></a>00480 
+<a name="l00481"></a>00481     <span class="keywordflow">if</span> ( ::closedir( directory ) &lt; 0 )
+<a name="l00482"></a>00482         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::OpenDir()-&gt;closedir()-&gt;&quot;</span> );
+<a name="l00483"></a>00483     <span class="keywordflow">else</span>
+<a name="l00484"></a>00484         dir_close++;
+<a name="l00485"></a>00485 
+<a name="l00486"></a>00486     <span class="keywordflow">return</span> output;
+<a name="l00487"></a>00487 } 
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -425,7 +475,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

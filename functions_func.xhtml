@@ -94,7 +94,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
-      <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
@@ -127,6 +126,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
 <li>Bind()
 : <a class="el" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8">SocketServer</a>
+</li>
+<li>BuildPlugin()
+: <a class="el" href="classServer.xhtml#a45782df02e28df1c52c2a8edb90264e1">Server</a>
 </li>
 </ul>
 
@@ -165,13 +167,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>gIdle()
 : <a class="el" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">SocketClient</a>
 </li>
+<li>gName()
+: <a class="el" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">Plugin</a>
+, <a class="el" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">Command</a>
+</li>
 <li>gPort()
-: <a class="el" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">Socket</a>
-, <a class="el" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">Server</a>
+: <a class="el" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">Server</a>
+, <a class="el" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">Socket</a>
+</li>
+<li>gPulseRate()
+: <a class="el" href="classServer.xhtml#aeb2b00fcbb527a65ef0ae18c6efa82bf">Server</a>
 </li>
 <li>gServer()
-: <a class="el" href="classSocketClient.xhtml#a074944c7006f994646ed22cb2c955dc9">SocketClient</a>
-, <a class="el" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">SocketServer</a>
+: <a class="el" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">SocketServer</a>
+, <a class="el" href="classSocketClient.xhtml#a074944c7006f994646ed22cb2c955dc9">SocketClient</a>
 </li>
 <li>gSocket()
 : <a class="el" href="classServer.xhtml#a2f8f36b615b6d10eb96dd35620ffd524">Server</a>
@@ -208,16 +217,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 
 
-<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
-<li>MutexLock()
-: <a class="el" href="classThread.xhtml#a975e77d37e7955c21155bfe4b9ddc7d1">Thread</a>
-</li>
-<li>MutexUnlock()
-: <a class="el" href="classThread.xhtml#ad616deeb95beb7384b3283c00a0c9bdf">Thread</a>
-</li>
-</ul>
-
-
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>New()
 : <a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48">Command</a>
@@ -236,14 +235,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>PendingCommand()
+: <a class="el" href="classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d">SocketClient</a>
+</li>
 <li>PendingOutput()
 : <a class="el" href="classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a">SocketClient</a>
+</li>
+<li>Plugin()
+: <a class="el" href="classPlugin.xhtml#a3bf3ac47f4c7ad4a24629e487115a986">Plugin</a>
+</li>
+<li>PollSockets()
+: <a class="el" href="classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c">Server</a>
 </li>
 <li>ProcessCommand()
 : <a class="el" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f">SocketClient</a>
 </li>
 <li>ProcessInput()
-: <a class="el" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae">Server</a>
+: <a class="el" href="classServer.xhtml#a7f5259e36a6bcf3a78a5bede522c3632">Server</a>
 , <a class="el" href="classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b">SocketClient</a>
 </li>
 </ul>
@@ -259,6 +267,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>Recv()
 : <a class="el" href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d">SocketClient</a>
+</li>
+<li>Register()
+: <a class="el" href="classPlugin.xhtml#ad9d4b703902b9818ca13b2d31c960101">Plugin</a>
+</li>
+<li>ResolveHostname()
+: <a class="el" href="classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1">SocketClient</a>
+</li>
+<li>Run()
+: <a class="el" href="classCommand.xhtml#aba79a0926881e530fda8a848bc5e9501">Command</a>
+, <a class="el" href="classPlugin.xhtml#a033532442d50d8f4f79401d0d90ea45d">Plugin</a>
 </li>
 <li>Running()
 : <a class="el" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea">Server</a>
@@ -319,9 +337,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
 <li>Thread()
-: <a class="el" href="classSocketClient.xhtml#aa304eafc5814ed2ebda33c44ccb60316">SocketClient</a>
-, <a class="el" href="classThread.xhtml#a95c703fb8f2f27cb64f475a8c940864a">Thread</a>
-, <a class="el" href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546">SocketServer</a>
+: <a class="el" href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546">SocketServer</a>
+</li>
+<li>tResolveHostname()
+: <a class="el" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">SocketClient</a>
 </li>
 </ul>
 
@@ -329,8 +348,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
 <li>Update()
 : <a class="el" href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990">Server</a>
-, <a class="el" href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690">SocketServer</a>
-, <a class="el" href="classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc">SocketClient</a>
+, <a class="el" href="classSocketServer.xhtml#abb93749604a5b7ee5608d5216cf6289c">SocketServer</a>
 </li>
 </ul>
 
@@ -346,6 +364,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>~Command()
 : <a class="el" href="classCommand.xhtml#ab552bb3a07fdd1acbfd8ea76e69b2278">Command</a>
 </li>
+<li>~Plugin()
+: <a class="el" href="classPlugin.xhtml#aee4cc1864a2afa84a9ad935153f3fe39">Plugin</a>
+</li>
 <li>~Server()
 : <a class="el" href="classServer.xhtml#a4b3aa2579cb1c8cd1d069582c14d0fa6">Server</a>
 </li>
@@ -357,9 +378,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>~SocketServer()
 : <a class="el" href="classSocketServer.xhtml#af0e595690e453ef4b8e8da174069aba9">SocketServer</a>
-</li>
-<li>~Thread()
-: <a class="el" href="classThread.xhtml#a37d9edd3a1a776cbc27dedff949c9726">Thread</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -380,7 +398,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:07 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

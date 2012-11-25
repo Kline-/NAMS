@@ -86,21 +86,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Socket Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="Socket" --><!-- doxytag: inherits="Thread" -->
+<!-- doxytag: class="Socket" -->
 <p><code>#include &quot;<a class="el" href="socket_8h_source.xhtml">socket.h</a>&quot;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for Socket:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocket__inherit__graph.svg" width="243" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocket__inherit__graph.svg" width="243" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for Socket:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocket__coll__graph.svg" width="492" height="267"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocket__coll__graph.svg" width="372" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classSocket-members.xhtml">List of all members.</a></p>
@@ -143,7 +145,7 @@ Private Attributes</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00029">29</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00027">27</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aab53cde845a88cec27192ad7ec8c8869"></a><!-- doxytag: member="Socket::Socket" ref="aab53cde845a88cec27192ad7ec8c8869" args="(Server *server, const sint_t &amp;descriptor)" -->
 <div class="memitem">
@@ -274,7 +276,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_aec278bc5096a3087a7bb6a1ed06d7ddd_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_aec278bc5096a3087a7bb6a1ed06d7ddd_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -314,7 +317,7 @@ Private Attributes</h2></td></tr>
 
     <span class="keywordflow">if</span> ( amount &lt; 1 || ( ( <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a> + amount ) &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> ) )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Socket::aBytesSent()-&gt; called with m_bytes_sent overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a>, amount );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Socket::sBytesSent()-&gt; called with m_bytes_sent overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a>, amount );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -328,7 +331,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a688f0d2182f7ca098de3f76156efad0a_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a688f0d2182f7ca098de3f76156efad0a_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -366,7 +370,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00038">38</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00036">36</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a>; }
 </pre></div>
 <p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -374,7 +378,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_ad7ac03a288e6ef47a45e6837f7fef002_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_ad7ac03a288e6ef47a45e6837f7fef002_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -394,7 +399,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00039">39</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00037">37</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a>; }
 </pre></div>
 <p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -402,7 +407,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a3bb9f40d6e5f32cfa960a86323322c0c_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a3bb9f40d6e5f32cfa960a86323322c0c_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -422,7 +428,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00040">40</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00038">38</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#ad3472404a4a16e143e90dbfb45ddced5">m_descriptor</a>; }
 </pre></div>
 <p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -430,7 +436,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a45d3aa99d71b868921543a4708471f82_icgraph.svg" width="100%" height="456"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a45d3aa99d71b868921543a4708471f82_icgraph.svg" width="100%" height="499"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -450,7 +457,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00041">41</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00039">39</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#a86ca51943303992adf59bfb70036400a">m_hostname</a>; }
 </pre></div>
 <p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -458,7 +465,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_adc72a37934a4f2d10f6ae8fc94bb4ca7_icgraph.svg" width="100%" height="149"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_adc72a37934a4f2d10f6ae8fc94bb4ca7_icgraph.svg" width="100%" height="188"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -478,7 +486,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00042">42</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00040">40</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#a5df79ab7d50cced90646c94dc479e278">m_port</a>; }
 </pre></div>
 <p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -486,7 +494,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_accd94dbf518b30cdd878a9710d3c481c_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_accd94dbf518b30cdd878a9710d3c481c_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -612,7 +621,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a14e5e2493abcae97043297dd170e7a39_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a14e5e2493abcae97043297dd170e7a39_icgraph.svg" width="100%" height="150"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -666,7 +676,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a24c8132ced233add89f4fda68284e578_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a24c8132ced233add89f4fda68284e578_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -686,7 +697,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00034">34</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00032">32</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocket.xhtml#ad3472404a4a16e143e90dbfb45ddced5">m_descriptor</a> &gt; 0; }
 </pre></div>
 <p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -694,7 +705,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a508457b48e6296d1e86c7cc72af65948_icgraph.svg" width="100%" height="581"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a508457b48e6296d1e86c7cc72af65948_icgraph.svg" width="100%" height="460"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -712,7 +724,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00059">59</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00057">57</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -727,7 +739,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00060">60</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00058">58</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -742,7 +754,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00061">61</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00059">59</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -757,7 +769,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00062">62</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00060">60</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -772,7 +784,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00063">63</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00061">61</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -798,7 +810,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:07 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

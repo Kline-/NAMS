@@ -4,7 +4,7 @@ var searchData=
   ['uint_5ft',['uint_t',['../limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a',1,'limits.h']]],
   ['uintmax_5ft',['uintmax_t',['../limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f',1,'limits.h']]],
   ['uintmin_5ft',['uintmin_t',['../limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78',1,'limits.h']]],
-  ['update',['Update',['../classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990',1,'Server::Update()'],['../classSocketClient.xhtml#a920016d3ec4026b7cdfc1000cc8168cc',1,'SocketClient::Update()'],['../classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690',1,'SocketServer::Update()']]],
+  ['update',['Update',['../classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990',1,'Server::Update()'],['../classSocketServer.xhtml#abb93749604a5b7ee5608d5216cf6289c',1,'SocketServer::Update()']]],
   ['upper',['Upper',['../namespaceUtils.xhtml#a817d26eb6a3427ad3742fb3cb788d30e',1,'Utils']]],
   ['usleep_5fmax',['USLEEP_MAX',['../macros_8h.xhtml#a5fc45be6b0bb71dc5d4c6390d98bf3ee',1,'macros.h']]],
   ['utils',['Utils',['../namespaceUtils.xhtml',1,'']]],

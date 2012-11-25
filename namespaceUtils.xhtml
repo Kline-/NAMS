@@ -91,8 +91,6 @@ Classes</h2></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class T , class U &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a478a7f4bb31ceb79a2d3e19aaa53724d">DirPath</a> (const T &amp;path, const U &amp;file)</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a35029e6e20697c4fef5121040892e144">DelSpaces</a> (const T &amp;t)</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
@@ -105,6 +103,7 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current system time.  <a href="#adbb91eecf7e80e6e97b3ebe38123cc12"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee">DiffTime</a> (const timeval &amp;prev, const timeval &amp;current, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;granularity)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the different between two timeval variables.  <a href="#a405af6e04f92e289f5be1f8ae24a78ee"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107">DirPath</a> (const string &amp;directory, const string &amp;file, const string &amp;ext=&quot;&quot;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a33e08ea185b71aab494d83322ad3cd53">_FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">__FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt, va_list &amp;val)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aa2ac8bf1bb304bab8f29829ec30af243">_Logger</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
@@ -117,6 +116,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">iDirectory</a> (const string &amp;dir)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b">iFile</a> (const string &amp;file)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442">iNumber</a> (const string &amp;input)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc">iReadable</a> (const string &amp;file)</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V , class I &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">KeyValue</a> (K &amp;key, V &amp;val, const I &amp;item)</td></tr>
@@ -324,7 +324,7 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00054">54</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00039">39</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordtype">string</span> output( t ); output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); <span class="keywordflow">return</span> output; }
 </pre></div>
 </div>
@@ -396,56 +396,44 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a478a7f4bb31ceb79a2d3e19aaa53724d"></a><!-- doxytag: member="Utils::DirPath" ref="a478a7f4bb31ceb79a2d3e19aaa53724d" args="(const T &amp;path, const U &amp;file)" -->
+<a class="anchor" id="addb4a550d4405e6351e52a275fae8107"></a><!-- doxytag: member="Utils::DirPath" ref="addb4a550d4405e6351e52a275fae8107" args="(const string &amp;directory, const string &amp;file, const string &amp;ext=&quot;&quot;)" -->
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class T , class U &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#a478a7f4bb31ceb79a2d3e19aaa53724d">Utils::DirPath</a> </td>
+          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107">Utils::DirPath</a> </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>directory</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const U &amp;&#160;</td>
-          <td class="paramname"><em>file</em>&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>ext</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td><code> [inline]</code></td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00038">38</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
-<div class="fragment"><pre class="fragment">    {
-        <span class="keywordtype">string</span> output = path;
-
-        <span class="comment">// Ensure a trailing slash is present to properly recurse</span>
-        <span class="keywordflow">if</span> ( output.compare( output.length() - 1, 1, <span class="stringliteral">&quot;/&quot;</span> ) != 0 )
-            output += <span class="stringliteral">&quot;/&quot;</span>;
-
-        <span class="comment">// Now append the first letter of the file recieved as a subdir</span>
-        output += file[0]; output += <span class="stringliteral">&quot;/&quot;</span>;
-
-        <span class="comment">// Finally add the filename</span>
-        output += file;
-
-        <span class="keywordflow">return</span> output;
-    }
-</pre></div>
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a478a7f4bb31ceb79a2d3e19aaa53724d_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_addb4a550d4405e6351e52a275fae8107_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -488,7 +476,8 @@ template&lt;class T , class U &gt; </div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a7d40818a602fb21db4b4f0917705f85b_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a7d40818a602fb21db4b4f0917705f85b_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -515,6 +504,33 @@ template&lt;class T , class U &gt; </div>
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a47aae40aead5b696e927fb0cdd336442_icgraph.svg" width="230" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a158e1deb611937a6313e8683fe7db3fc"></a><!-- doxytag: member="Utils::iReadable" ref="a158e1deb611937a6313e8683fe7db3fc" args="(const string &amp;file)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc">Utils::iReadable</a> </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a158e1deb611937a6313e8683fe7db3fc_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -571,7 +587,7 @@ template&lt;class K , class V &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00099">99</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00086">86</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">string</span> key( keyd );
         <span class="keywordtype">string</span> val( valu );
@@ -582,7 +598,7 @@ template&lt;class K , class V &gt; </div>
             transform( val.begin(), val.end(), val.begin(), ::tolower );
         }
 
-        <span class="keywordflow">if</span>( key.compare( val ) == 0 )
+        <span class="keywordflow">if</span> ( key.compare( val ) == 0 )
         {
             loc = item;
             found = <span class="keyword">true</span>;
@@ -593,15 +609,6 @@ template&lt;class K , class V &gt; </div>
         <span class="keywordflow">return</span>;
     }
 </pre></div>
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_aba8fca9daa0f767d7f5af5e2b1d6b81d_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="a0aff3514e06faae8ed026c673efe002b"></a><!-- doxytag: member="Utils::KeySet" ref="a0aff3514e06faae8ed026c673efe002b" args="(const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const I &amp;item, L &amp;loc)" -->
@@ -655,7 +662,7 @@ template&lt;class K , class V , class I , class L &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00120">120</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00107">107</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">string</span> key( keyd );
         <span class="keywordtype">string</span> val( valu );
@@ -666,7 +673,7 @@ template&lt;class K , class V , class I , class L &gt; </div>
             transform( val.begin(), val.end(), val.begin(), ::tolower );
         }
 
-        <span class="keywordflow">if</span>( key.compare( val ) == 0 )
+        <span class="keywordflow">if</span> ( key.compare( val ) == 0 )
         {
             <span class="keywordtype">string</span> tf( item );
 
@@ -722,7 +729,7 @@ template&lt;class K , class V , class I &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00083">83</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00070">70</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">size_t</span> loc = 0;
 
@@ -739,15 +746,6 @@ template&lt;class K , class V , class I &gt; </div>
         <span class="keywordflow">return</span> <span class="keyword">true</span>;
     }
 </pre></div>
-<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a4a4d3dfd2ddb691bc5bcff82252c058b_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="af8f745fab0d76a937181e752a54015e4"></a><!-- doxytag: member="Utils::ListDirectory" ref="af8f745fab0d76a937181e752a54015e4" args="(const string &amp;dir, const bool &amp;recursive, multimap&lt; bool, string &gt; &amp;output, uint_t &amp;dir_close, uint_t &amp;dir_open)" -->
@@ -793,11 +791,11 @@ template&lt;class K , class V , class I &gt; </div>
 </div>
 <div class="memdoc">
 
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_af8f745fab0d76a937181e752a54015e4_icgraph.svg" width="648" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -821,9 +819,19 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00055">55</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ stringstream ss; ss &lt;&lt; nouppercase &lt;&lt; t; <span class="keywordflow">return</span> ss.str(); }
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00040">40</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<div class="fragment"><pre class="fragment">{ <span class="keywordtype">string</span> output( t ); transform( output.begin(), output.end(), output.begin(), ::tolower ); <span class="keywordflow">return</span> output; }
 </pre></div>
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a9b70f9dd0af906c806695b35488e778f_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afaf029667f299587a52ba9c8de11edfa"></a><!-- doxytag: member="Utils::NumChar" ref="afaf029667f299587a52ba9c8de11edfa" args="(const string &amp;input, const string &amp;item)" -->
@@ -870,7 +878,7 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00057">57</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00042">42</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ stringstream ss( t ); <span class="keywordflow">return</span> ss.str(); }
 </pre></div>
 </div>
@@ -895,7 +903,8 @@ template&lt;class T &gt; </div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_aeda29ae05e927b463309cf1db39344a0_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_aeda29ae05e927b463309cf1db39344a0_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -928,7 +937,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00257">257</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00296">296</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keywordtype">string</span> output;
@@ -981,8 +990,8 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00056">56</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ stringstream ss; ss &lt;&lt; uppercase &lt;&lt; t; <span class="keywordflow">return</span> ss.str(); }
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00041">41</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<div class="fragment"><pre class="fragment">{ <span class="keywordtype">string</span> output( t ); transform( output.begin(), output.end(), output.begin(), ::toupper ); <span class="keywordflow">return</span> output; }
 </pre></div>
 </div>
 </div>
@@ -1004,7 +1013,7 @@ template&lt;class T &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:07 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

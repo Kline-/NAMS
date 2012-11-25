@@ -93,7 +93,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand__coll__graph.svg" width="292" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand__coll__graph.svg" width="100%" height="226"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classCommand-members.xhtml">List of all members.</a></p>
@@ -102,9 +103,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#afc0d482427309deb78e094fa787d1477">Delete</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a command from memory that was previously loaded via <a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a command to memory from a file within a subdirectory of CFG_DAT_DIR_COMMAND.">Command::New()</a>.  <a href="#afc0d482427309deb78e094fa787d1477"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a command from memory that was previously loaded via <a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ.">Command::New()</a>.  <a href="#afc0d482427309deb78e094fa787d1477"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48">New</a> (const string &amp;file)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a command to memory from a file within a subdirectory of <a class="el" href="config_8h.xhtml#af2e75e297c4447df28b526dff66734ce" title="Directory for commands to be loaded from; should contain subdirs a-z.">CFG_DAT_DIR_COMMAND</a>.  <a href="#a6b8eed27f76619d07effd72372a4be48"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a plugin command from <a class="el" href="config_8h.xhtml#a7e0533ce20f3c090bdf24cc750916edb" title="Directory for plugins to be loaded from.">CFG_DAT_DIR_OBJ</a>.  <a href="#a6b8eed27f76619d07effd72372a4be48"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#aba79a0926881e530fda8a848bc5e9501">Run</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client=NULL) const </td></tr>
+<tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">gName</a> () const </td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a18df2d81039392daeb0b78c346a70537">Command</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classCommand.xhtml">Command</a> class.  <a href="#a18df2d81039392daeb0b78c346a70537"></a><br/></td></tr>
@@ -113,12 +117,15 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">m_level</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#af0105dd32ef8d8e0035631fc3a6ba9b6">m_name</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlugin.xhtml">Plugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="plugin_8h.xhtml#aa8da93bcd88aad2b45497818180f3706">DeletePlugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a36486a6c14b75c248ec5d013d04c2343">m_plg_delete</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="plugin_8h.xhtml#a2b24a1886d94b64c6bf8b35303fbf47a">NewPlugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a9a9e429c1d38868f4029cdf8cf3f3ab5">m_plg_new</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">m_preempt</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00029">29</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00033">33</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a18df2d81039392daeb0b78c346a70537"></a><!-- doxytag: member="Command::Command" ref="a18df2d81039392daeb0b78c346a70537" args="()" -->
 <div class="memitem">
@@ -134,10 +141,13 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00107">107</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00112">112</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <a class="code" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">m_level</a> = 0;
-    <a class="code" href="classCommand.xhtml#af0105dd32ef8d8e0035631fc3a6ba9b6">m_name</a>.clear();
+    <a class="code" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">m_level</a> = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+    <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a> = NULL;
+    <a class="code" href="classCommand.xhtml#a36486a6c14b75c248ec5d013d04c2343">m_plg_delete</a> = NULL;
+    <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a> = NULL;
+    <a class="code" href="classCommand.xhtml#a9a9e429c1d38868f4029cdf8cf3f3ab5">m_plg_new</a> = NULL;
     <a class="code" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">m_preempt</a> = <span class="keyword">false</span>;
 
     <span class="keywordflow">return</span>;
@@ -159,7 +169,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00119">119</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00127">127</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -189,11 +199,69 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00037">37</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+    <a class="code" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504" title="Define an iterator variable (name) of (type1,type2) using (container).">MITER</a>( multimap, <span class="keyword">const</span> <span class="keywordtype">char</span>,<a class="code" href="classCommand.xhtml">Command</a>*, mi );
+
+    <a class="code" href="classCommand.xhtml#a36486a6c14b75c248ec5d013d04c2343">m_plg_delete</a>( <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a> );
+    ::dlerror();
+
+    <span class="keywordflow">if</span> ( ::dlclose( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a> ) )
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Command::Delete()-&gt;dlclose() returned error: %s&quot;</span>, ::dlerror() );
+
+    <span class="keywordflow">for</span> ( mi = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.begin(); mi != <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.end(); )
+    {
+        <span class="keywordflow">if</span> ( mi-&gt;second == <span class="keyword">this</span> )
+        {
+            <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.erase( mi++ );
+            <span class="keywordflow">break</span>;
+        }
+        <span class="keywordflow">else</span>
+            ++mi;
+    }
     <span class="keyword">delete</span> <span class="keyword">this</span>;
 
    <span class="keywordflow">return</span>;
 }
 </pre></div>
+</div>
+</div>
+<a class="anchor" id="a7e591e2b82f59fd73d9b25daaa192021"></a><!-- doxytag: member="Command::gName" ref="a7e591e2b82f59fd73d9b25daaa192021" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">Command::gName</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00042">42</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">gName</a>(); }
+</pre></div>
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a7e591e2b82f59fd73d9b25daaa192021_cgraph.svg" width="318" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a7e591e2b82f59fd73d9b25daaa192021_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a6b8eed27f76619d07effd72372a4be48"></a><!-- doxytag: member="Command::New" ref="a6b8eed27f76619d07effd72372a4be48" args="(const string &amp;file)" -->
@@ -224,67 +292,84 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00050">50</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00069">69</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-    <span class="keywordtype">string</span> path(  <a class="code" href="namespaceUtils.xhtml#a478a7f4bb31ceb79a2d3e19aaa53724d">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#af2e75e297c4447df28b526dff66734ce" title="Directory for commands to be loaded from; should contain subdirs a-z.">CFG_DAT_DIR_COMMAND</a>, file ) );
-    <span class="keywordtype">string</span> line, key, value;
-    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
-    ifstream cmd;
+    <span class="keywordtype">string</span> path( <a class="code" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#a7e0533ce20f3c090bdf24cc750916edb" title="Directory for plugins to be loaded from.">CFG_DAT_DIR_OBJ</a>, file, <a class="code" href="config_8h.xhtml#aec22aee0979a918423c5743237a25d81" title="File extension for files after they are compiled.">CFG_PLG_BUILD_EXT_OUT</a> ) );
 
     <span class="comment">// Ensure there is a valid file to open</span>
     <span class="keywordflow">if</span> ( !<a class="code" href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b">Utils::iFile</a>( path ) )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Command::Load()-&gt;Utils::iFile()-&gt; returned false for path: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( path ) );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Command::New()-&gt;Utils::iFile()-&gt; returned false for path: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( path ) );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
-    cmd.open( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( path ), ifstream::in );
-    <span class="keywordflow">while</span>( cmd.is_open() &amp;&amp; cmd.good() &amp;&amp; getline( cmd, line ) )
+    <span class="keywordflow">if</span> ( ( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a> = ::dlopen( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( path ), RTLD_LAZY | RTLD_GLOBAL ) ) == NULL )
     {
-        <span class="comment">// Find the key = value split</span>
-        <span class="keywordflow">if</span> ( !<a class="code" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">Utils::KeyValue</a>( key, value, line ) )
-        {
-            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Command::Load()-&gt;getline()-&gt; invalid line format: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( line ) );
-            <span class="keywordflow">continue</span>;
-        }
-
-        <span class="comment">// If the contents of arg3 == arg4 then assign arg5 == arg6</span>
-        <span class="keywordflow">for</span> ( ;; )
-        {
-            found = <span class="keyword">false</span>;
-
-            <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">Utils::KeySet</a>( <span class="keyword">true</span>, found, key, <span class="stringliteral">&quot;Level&quot;</span>,   value, <a class="code" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">m_level</a>   );
-            <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">Utils::KeySet</a>( <span class="keyword">true</span>, found, key, <span class="stringliteral">&quot;Name&quot;</span>,    value, <a class="code" href="classCommand.xhtml#af0105dd32ef8d8e0035631fc3a6ba9b6">m_name</a>    );
-            <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">Utils::KeySet</a>( <span class="keyword">true</span>, found, key, <span class="stringliteral">&quot;Preempt&quot;</span>, value, <a class="code" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">m_preempt</a> );
-
-            <span class="keywordflow">if</span> ( !found )
-                <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Command::Load()-&gt;Utils::KeySet()-&gt; key not found: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( key ) );
-
-            <span class="keywordflow">break</span>;
-        }
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Command::New()-&gt;dlopen returned error: %s&quot;</span>, ::dlerror() );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+    <span class="keywordflow">else</span>
+    {
+        <a class="code" href="classCommand.xhtml#a36486a6c14b75c248ec5d013d04c2343">m_plg_delete</a> = (<a class="code" href="plugin_8h.xhtml#aa8da93bcd88aad2b45497818180f3706">DeletePlugin</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;Delete&quot;</span> );
+        <a class="code" href="classCommand.xhtml#a9a9e429c1d38868f4029cdf8cf3f3ab5">m_plg_new</a> = (<a class="code" href="plugin_8h.xhtml#a2b24a1886d94b64c6bf8b35303fbf47a">NewPlugin</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;New&quot;</span> );
+        <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a> = <a class="code" href="classCommand.xhtml#a9a9e429c1d38868f4029cdf8cf3f3ab5">m_plg_new</a>();
     }
 
-    <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.insert( pair&lt;const char,Command*&gt;( <a class="code" href="classCommand.xhtml#af0105dd32ef8d8e0035631fc3a6ba9b6">m_name</a>[0], <span class="keyword">this</span> ) );
+    <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )
+        <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.insert( pair&lt;const char,Command*&gt;( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Utils::Lower</a>( <a class="code" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">gName</a>() )[0], <span class="keyword">this</span> ) );
+    <span class="keywordflow">else</span>
+        <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.insert( pair&lt;const char,Command*&gt;( <a class="code" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">gName</a>()[0], <span class="keyword">this</span> ) );
 
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a6b8eed27f76619d07effd72372a4be48_cgraph.svg" width="299" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a6b8eed27f76619d07effd72372a4be48_cgraph.svg" width="491" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
-<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a6b8eed27f76619d07effd72372a4be48_icgraph.svg" width="635" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aba79a0926881e530fda8a848bc5e9501"></a><!-- doxytag: member="Command::Run" ref="aba79a0926881e530fda8a848bc5e9501" args="(SocketClient *client=NULL) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void <a class="el" href="classCommand.xhtml#aba79a0926881e530fda8a848bc5e9501">Command::Run</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
+          <td class="paramname"><em>client</em> = <code>NULL</code></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00038">38</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<div class="fragment"><pre class="fragment">{ <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#a033532442d50d8f4f79401d0d90ea45d">Run</a>( client ); <span class="keywordflow">return</span>; }
+</pre></div>
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_aba79a0926881e530fda8a848bc5e9501_cgraph.svg" width="270" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -302,22 +387,67 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00048">48</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00054">54</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af0105dd32ef8d8e0035631fc3a6ba9b6"></a><!-- doxytag: member="Command::m_name" ref="af0105dd32ef8d8e0035631fc3a6ba9b6" args="" -->
+<a class="anchor" id="abd48e43fb50d5265df8ea9fca53361d9"></a><!-- doxytag: member="Command::m_plg" ref="abd48e43fb50d5265df8ea9fca53361d9" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string <a class="el" href="classCommand.xhtml#af0105dd32ef8d8e0035631fc3a6ba9b6">Command::m_name</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="classPlugin.xhtml">Plugin</a>* <a class="el" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">Command::m_plg</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00049">49</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00055">55</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36486a6c14b75c248ec5d013d04c2343"></a><!-- doxytag: member="Command::m_plg_delete" ref="a36486a6c14b75c248ec5d013d04c2343" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="plugin_8h.xhtml#aa8da93bcd88aad2b45497818180f3706">DeletePlugin</a>* <a class="el" href="classCommand.xhtml#a36486a6c14b75c248ec5d013d04c2343">Command::m_plg_delete</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00056">56</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a17fe740c7721098073d4b4f02ae3dc37"></a><!-- doxytag: member="Command::m_plg_handle" ref="a17fe740c7721098073d4b4f02ae3dc37" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* <a class="el" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">Command::m_plg_handle</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00057">57</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a9e429c1d38868f4029cdf8cf3f3ab5"></a><!-- doxytag: member="Command::m_plg_new" ref="a9a9e429c1d38868f4029cdf8cf3f3ab5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="plugin_8h.xhtml#a2b24a1886d94b64c6bf8b35303fbf47a">NewPlugin</a>* <a class="el" href="classCommand.xhtml#a9a9e429c1d38868f4029cdf8cf3f3ab5">Command::m_plg_new</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00058">58</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -332,7 +462,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00050">50</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00059">59</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -358,7 +488,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

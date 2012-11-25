@@ -111,8 +111,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00034"></a>00034         <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="Unload a server&#39;s socket from memory that was previously loaded via SocketServer::New().">Delete</a>();
 <a name="l00035"></a>00035         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" title="Listen for new connections on an established socket.">Listen</a>();
 <a name="l00036"></a>00036         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="Build a socket for a server and set all attributes.">New</a>();
-<a name="l00037"></a>00037         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546" title="Spawns a new Thread of SocketServer::Update() to process client updates.">Thread</a>();
-<a name="l00038"></a>00038         <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code" href="classSocketServer.xhtml#abf0a57a793cb3cf9ad308c238329b690" title="Operates all other looping functions within a SocketServer object, such as directing clients to proce...">Update</a>( <span class="keywordtype">void</span>* data ); 
+<a name="l00037"></a>00037         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a613401f64ca4c185e0a90dd2ae57b546">Thread</a>();
+<a name="l00038"></a>00038         <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code" href="classSocketServer.xhtml#abb93749604a5b7ee5608d5216cf6289c">Update</a>( <span class="keywordtype">void</span>* data ); 
 <a name="l00042"></a><a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">00042</a>         <a class="code" href="classServer.xhtml">Server</a>* <a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">gServer</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>; } 
 <a name="l00046"></a>00046         <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classSocketServer.xhtml#a89cde9791b2f0ce928329c55a9ad21e7" title="Set the owning server object that the socket is actually connected to.">sServer</a>( <a class="code" href="classServer.xhtml">Server</a>* server ); 
 <a name="l00050"></a>00050         <a class="code" href="classSocketServer.xhtml#ad7fde891ef174c336b46299c8ace88f4" title="Constructor for the SocketServer class.">SocketServer</a>( <a class="code" href="classServer.xhtml">Server</a>* server, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>&amp; descriptor );
@@ -140,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

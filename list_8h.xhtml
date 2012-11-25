@@ -100,7 +100,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="list_8h__dep__incl.svg" width="546" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="list_8h__dep__incl.svg" width="650" height="427"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="list_8h_source.xhtml">Go to the source code of this file.</a></p>
@@ -113,8 +114,6 @@ Variables</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">All <a class="el" href="classSocketClient.xhtml">SocketClient</a> objects connected to the server.  <a href="#a0a518fc6607b121546a40295adc8c06b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classSocketServer.xhtml">SocketServer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a2545f37b44cab86c6aa83abf4489b18b">socket_server_list</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">All <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects listening for new client connections.  <a href="#a2545f37b44cab86c6aa83abf4489b18b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">map&lt; pthread_t, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#ac358631acaeaf160b1da80cac988471b">thread_list</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">All active threads within the server.  <a href="#ac358631acaeaf160b1da80cac988471b"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>All lists-type objects that are global in scope are referenced via this file. These are usually, but not always, containers that reference pointer objects to ensure proper tracking and memory cleanup later. </p>
@@ -185,28 +184,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac358631acaeaf160b1da80cac988471b"></a><!-- doxytag: member="list.h::thread_list" ref="ac358631acaeaf160b1da80cac988471b" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">map&lt;pthread_t,string&gt; <a class="el" href="list_8h.xhtml#ac358631acaeaf160b1da80cac988471b">thread_list</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pthread_t</td><td>The number of the thread as generated during pthread_create(). </td></tr>
-    <tr><td class="paramname">string</td><td>The name of the function being executed within the thread. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00059">59</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -225,7 +202,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 19 2012 10:35:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 08:13:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
