@@ -77,8 +77,8 @@ const bool Command::New( const string& file )
         LOGFMT( flags, "Command::New()->Utils::iFile()-> returned false for path: %s", CSTR( path ) );
         return false;
     }
-    path = "/home/matt/muds/active/nams/obj/h/help.so";
-    if ( ( m_plg_handle = ::dlopen( CSTR( path ), RTLD_NOW | RTLD_GLOBAL ) ) == NULL )
+
+    if ( ( m_plg_handle = ::dlopen( CSTR( path ), RTLD_LAZY | RTLD_GLOBAL ) ) == NULL )
     {
         LOGFMT( flags, "Command::New()->dlopen returned error: %s", ::dlerror() );
         return false;
@@ -88,46 +88,12 @@ const bool Command::New( const string& file )
         m_plg_delete = (DeletePlugin*) ::dlsym( m_plg_handle, "Delete" );
         m_plg_new = (NewPlugin*) ::dlsym( m_plg_handle, "New" );
         m_plg = m_plg_new();
-        m_plg->Run();
     }
 
     command_list.insert( pair<const char,Command*>( gName()[0], this ) );
 
     return true;
 }
-/*
-const bool Command::New( const string& file )
-{
-    cmd.open( CSTR( path ), ifstream::in );
-    while( cmd.is_open() && cmd.good() && getline( cmd, line ) )
-    {
-        // Find the key = value split
-        if ( !Utils::KeyValue( key, value, line ) )
-        {
-            LOGFMT( flags, "Command::New()->getline()-> invalid line format: %s", CSTR( line ) );
-            continue;
-        }
-
-        // If the contents of arg3 == arg4 then assign arg5 == arg6
-        for ( ;; )
-        {
-            found = false;
-
-            Utils::KeySet( true, found, key, "Level",   value, m_level   );
-            Utils::KeySet( true, found, key, "Name",    value, m_name    );
-            Utils::KeySet( true, found, key, "Preempt", value, m_preempt );
-
-            if ( !found )
-                LOGFMT( flags, "Command::New()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
-
-            break;
-        }
-    }
-
-    command_list.insert( pair<const char,Command*>( m_name[0], this ) );
-
-    return true;
-}*/
 /**@}*/
 
 /** @name Query */
