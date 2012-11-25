@@ -31,21 +31,28 @@ G_FILES = $(patsubst h/%.h,h/%.h.gch,$(H_FILES))
 DEPS = o/dependencies.d
 VERS =  $(shell grep 'define CFG_STR_VERSION' h/config.h | cut -d\" -f2)
 
+CMD_C_FILES = $(wildcard ../command/*.cpp)
+CMD_O_FILES = $(patsubst ../command/%.cpp,../obj/%.so,$(CMD_C_FILES))
+PLG_O_FILES = $(CMD_O_FILES)
+PLG_OPT = -I../src/h -fpic -ldl -rdynamic -shared
+
 # Trickery to run a script on the -first ever- compile and re-create a directory
 # structure that may be missing due to Git not tracking empty directories.
 $(shell if [ -x ./.dirbuild ]; then ./.dirbuild; rm -f ./.dirbuild; fi )
 
-.PHONY: help $(PROG) clean depend cbuild
-.SILENT: help $(PROG) clean depend cbuild $(G_FILES) $(O_FILES)
+.PHONY: help $(PROG) clean commands depend doxygen cbuild pclean plugins
+.SILENT: help $(PROG) clean commands depend doxygen cbuild pclean plugins $(G_FILES) $(O_FILES) $(PLG_O_FILES)
 
 help:
 	echo -e "\n### $(VERS) Makefile Options ###"
 	echo -e "    help     Displays this help menu."
 	echo -e "    $(PROG)     Compiles the game into binary file $(PROG)."
 	echo -e "    cbuild   Equivalent to: make clean && make depend && make $(PROG)"
-	echo -e "    clean    Removes files: $(PROG) o/* d/* ../report/core"
+	echo -e "    clean    Removes files: $(PROG) o/* d/* ../report/core ../obj/*"
 	echo -e "    depend   Generate dependencies for all source code."
-	echo -e "    doxygen  Generate Doxygen output in ../etc/gh-pages\n"
+	echo -e "    doxygen  Generate Doxygen output in ../etc/gh-pages"
+	echo -e "    pclean   Removes files: ../obj/*"
+	echo -e "    plugins  Compiles all available plugins.\n"
 
 $(PROG): $(G_FILES) $(O_FILES)
 	$(RM) $(PROG)
@@ -54,7 +61,10 @@ $(PROG): $(G_FILES) $(O_FILES)
 	chmod +x $(PROG)
 
 clean:
-	$(RM) $(O_FILES) $(G_FILES) $(DEPS) $(PROG) ../report/core
+	$(RM) $(O_FILES) $(G_FILES) $(DEPS) $(PROG) ../report/core $(PLG_O_FILES)
+
+commands: $(CMD_O_FILES)
+	echo "Finished building all command plugins."
 
 depend:
 	$(RM) $(DEPS)
@@ -68,6 +78,11 @@ cbuild:
 	$(MAKE) depend
 	$(MAKE) $(PROG)
 
+pclean:
+	$(RM) $(PLG_O_FILES)
+
+plugins: commands
+
 # pull in dependency info for *existing* .o files
 -include $(DEPS)
 
@@ -78,3 +93,7 @@ h/%.h.gch: h/%.h
 o/%.o: %.cpp
 	echo "Compiling `echo $@ | cut -c 3-` ...";
 	$(CXX) -c $(C_FLAGS) $(W_FLAGS) $< -o $@
+
+../obj/%.so: ../command/%.cpp
+	echo "Compiling `echo $@ | cut -c 8-` ... ";
+	$(CXX) -c $(PLG_OPT) $< -o $@
