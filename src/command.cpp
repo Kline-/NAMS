@@ -90,8 +90,8 @@ const bool Command::New( const string& file )
     }
     else
     {
-        m_plg_delete = (DeletePlugin*) ::dlsym( m_plg_handle, "Delete" );
-        m_plg_new = (NewPlugin*) ::dlsym( m_plg_handle, "New" );
+        m_plg_delete = (PluginDelete*) ::dlsym( m_plg_handle, "Delete" );
+        m_plg_new = (PluginNew*) ::dlsym( m_plg_handle, "New" );
         m_plg = m_plg_new();
     }
 

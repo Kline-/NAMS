@@ -57,7 +57,7 @@ class Plugin {
         uint_t m_uint_t[CFG_PLG_MAX_ARR];
 };
 
-typedef Plugin* NewPlugin();
-typedef void DeletePlugin( Plugin* );
+typedef Plugin* PluginNew();
+typedef void PluginDelete( Plugin* );
 
 #endif

@@ -53,12 +53,12 @@ class Command {
         /**@}*/
 
     private:
-        uint_t m_level;
+        uint_t m_level;             /**<Security level required to execute the Command. */
         Plugin* m_plg;              /**<Pointer to the associated Plugin. */
-        DeletePlugin* m_plg_delete; /**<Pointer to the DeletePlugin object within the associated Plugin. */
+        PluginDelete* m_plg_delete; /**<Pointer to the PluginDelete object within the associated Plugin. */
         void* m_plg_handle;         /**<Pointer to the file handle of the associated Plugin. */
-        NewPlugin* m_plg_new;       /**<Pointer to the NewPlugin object within the associated Plugin. */
-        bool m_preempt;
+        PluginNew* m_plg_new;       /**<Pointer to the PluginNew object within the associated Plugin. */
+        bool m_preempt;             /**<If true, the Command will process ahead of any other queued commands from a Socket. */
 };
 
 #endif
