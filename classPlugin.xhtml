@@ -87,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="Plugin" -->
-<p>Functions that indepdently built and loaded to extend the server core via an API.  
+<p>Functions that are indepdently built and loaded to extend the server core via an API.  
 </p>
 
 <p><code>#include &quot;<a class="el" href="plugin_8h_source.xhtml">plugin.h</a>&quot;</code></p>
@@ -111,9 +111,9 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the name of the object.  <a href="#af031147ea2e2d7e7f73f7edb9a5921ae"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a3bf3ac47f4c7ad4a24629e487115a986">Plugin</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> class.  <a href="#a3bf3ac47f4c7ad4a24629e487115a986"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> class.  <a href="#a3bf3ac47f4c7ad4a24629e487115a986"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#aee4cc1864a2afa84a9ad935153f3fe39">~Plugin</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> class.  <a href="#aee4cc1864a2afa84a9ad935153f3fe39"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> class.  <a href="#aee4cc1864a2afa84a9ad935153f3fe39"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">m_bool</a> [<a class="el" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660">CFG_PLG_MAX_ARR</a>]</td></tr>
@@ -152,8 +152,8 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of the class implemented by the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The <a class="el" href="enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bd">PLG_TYPE</a> of the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> to assist in the API implementation for specific object types. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of the class implemented by the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The <a class="el" href="enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bd">PLG_TYPE</a> of the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> to assist in the API implementation for specific object types. </td></tr>
   </table>
   </dd>
 </dl>
@@ -249,7 +249,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>If called from a <a class="el" href="classSocketClient.xhtml">SocketClient</a>, the caller is passed through to the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> for reference. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>If called from a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>, the caller is passed through to the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> for reference. </td></tr>
   </table>
   </dd>
 </dl>
@@ -298,7 +298,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>The name of the class the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
+<p>The name of the class the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
 
 <p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00059">59</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
@@ -330,7 +330,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>The <a class="el" href="enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bd">PLG_TYPE</a> of the class the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
+<p>The <a class="el" href="enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bd">PLG_TYPE</a> of the class the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
 
 <p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00061">61</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
@@ -374,7 +374,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 20:24:26 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -48,7 +48,7 @@ var sectionId = 'dynsection-8';
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" target="_top" xlink:title="Build a socket for a new client connection and set all attributes.">
+<a xlink:href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" target="_top" xlink:title="Build a SocketClient for a new client connection and set all attributes.">
 <polygon fill="white" stroke="black" points="391.5,-116.5 391.5,-137.5 494.5,-137.5 494.5,-116.5 391.5,-116.5"/>
 <text text-anchor="middle" x="443" y="-124.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::New</text>
 </a>
@@ -84,7 +84,7 @@ var sectionId = 'dynsection-8';
 </g>
 <!-- Node11 -->
 <g id="node25" class="node"><title>Node11</title>
-<a xlink:href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2" target="_top" xlink:title="SocketClient::tResolveHostname">
+<a xlink:href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2" target="_top" xlink:title="Resolve the hostname of the client. Threaded to avoid locking on long resolutions.">
 <polygon fill="white" stroke="black" points="148.5,-19.5 148.5,-40.5 321.5,-40.5 321.5,-19.5 148.5,-19.5"/>
 <text text-anchor="middle" x="235" y="-27.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::tResolveHostname</text>
 </a>
@@ -188,7 +188,7 @@ var sectionId = 'dynsection-8';
 </g>
 <!-- Node12 -->
 <g id="node27" class="node"><title>Node12</title>
-<a xlink:href="classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1" target="_top" xlink:title="SocketClient::ResolveHostname">
+<a xlink:href="classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1" target="_top" xlink:title="A wrapper to SocketClient::tResolveHostname(). Necessary for threading a member function.">
 <polygon fill="white" stroke="black" points="358.5,-0.5 358.5,-21.5 527.5,-21.5 527.5,-0.5 358.5,-0.5"/>
 <text text-anchor="middle" x="443" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::ResolveHostname</text>
 </a>

@@ -87,6 +87,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="SocketClient" --><!-- doxytag: inherits="Socket" -->
+<p>Client / remote host specific functions that extend the <a class="el" href="classSocket.xhtml" title="Functions and interfaces that are common to both SocketClient and SocketServer.">Socket</a> class.  
+</p>
+
 <p><code>#include &quot;<a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>&quot;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for SocketClient:</div>
@@ -109,9 +112,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad">Delete</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a client's socket from memory that was previously loaded via <a class="el" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes.">SocketClient::New()</a>.  <a href="#af09328648d18ae943c8866cf744e5aad"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a client's socket from memory that was previously loaded via <a class="el" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a SocketClient for a new client connection and set all attributes.">SocketClient::New()</a>.  <a href="#af09328648d18ae943c8866cf744e5aad"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607">New</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a socket for a new client connection and set all attributes.  <a href="#a6b296c5002caa1229e7d7b9be6f08607"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> for a new client connection and set all attributes.  <a href="#a6b296c5002caa1229e7d7b9be6f08607"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d">PendingCommand</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a">PendingOutput</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f">ProcessCommand</a> ()</td></tr>
@@ -123,6 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d">Recv</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive data from the client and append it to a receive buffer.  <a href="#a9ee09f452d900e288b2aa187561ef05d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1">ResolveHostname</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper to <a class="el" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2" title="Resolve the hostname of the client. Threaded to avoid locking on long resolutions.">SocketClient::tResolveHostname()</a>. Necessary for threading a member function.  <a href="#afd723bd898217b3c41e29a02f43ec9e1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80">Send</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Process data from the client's send buffer and transmit it via the socket.  <a href="#a6268f3d184970ec0076da657c39d2e80"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a">Send</a> (const string &amp;msg)</td></tr>
@@ -133,9 +137,9 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385">gState</a> () const </td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a72bb9c02dbe7894b91feb4b94e2eea55">SocketClient</a> (<a class="el" href="classServer.xhtml">Server</a> *server, const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;descriptor)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classSocketClient.xhtml">SocketClient</a> class.  <a href="#a72bb9c02dbe7894b91feb4b94e2eea55"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> class.  <a href="#a72bb9c02dbe7894b91feb4b94e2eea55"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#af4ecba63b08737b5be4fef324cef1df6">~SocketClient</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classSocketClient.xhtml">SocketClient</a> class.  <a href="#af4ecba63b08737b5be4fef324cef1df6"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> class.  <a href="#af4ecba63b08737b5be4fef324cef1df6"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">deque&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a></td></tr>
@@ -153,10 +157,11 @@ Manipulate</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4">sState</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;state)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the connection state value of the socket.  <a href="#ab5e6737c8acd4aaa21268e10c1a050b4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">tResolveHostname</a> (void *data)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve the hostname of the client. Threaded to avoid locking on long resolutions.  <a href="#a3cfd5a085d8df5b4fed5166afe7578b2"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00035">35</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00038">38</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a72bb9c02dbe7894b91feb4b94e2eea55"></a><!-- doxytag: member="SocketClient::SocketClient" ref="a72bb9c02dbe7894b91feb4b94e2eea55" args="(Server *server, const sint_t &amp;descriptor)" -->
 <div class="memitem">
@@ -190,7 +195,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00529">529</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00542">542</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                     : <a class="code" href="classSocket.xhtml#aab53cde845a88cec27192ad7ec8c8869" title="Constructor for the Socket class.">Socket</a>( server, descriptor )
 {
     <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.clear();
@@ -231,7 +236,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00547">547</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00560">560</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -261,11 +266,11 @@ Manipulate</h2></td></tr>
 
 <p>Implements <a class="el" href="classSocket.xhtml#ac7a9c8cef7e70fa1cfa5d4512db2adea">Socket</a>.</p>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00033">33</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00037">37</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
         <span class="keywordflow">return</span>;
 
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">sSocketClose</a>( <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed...">gSocketClose</a>() + 1 ) )
@@ -311,7 +316,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00052">52</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00055">55</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocketClient.xhtml#aa3da4ed0f9760c3dd0c39c048f9e99ac">m_idle</a>; }
 </pre></div>
 <p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -339,7 +344,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00053">53</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00056">56</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>; }
 </pre></div>
 </div>
@@ -358,7 +363,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00054">54</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00057">57</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a>; }
 </pre></div>
 </div>
@@ -386,7 +391,7 @@ Manipulate</h2></td></tr>
 
 <p>Implements <a class="el" href="classSocket.xhtml#a6c74362c2411c96aff10a875772021f2">Socket</a>.</p>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00054">54</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00058">58</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> error = 0;
@@ -394,13 +399,13 @@ Manipulate</h2></td></tr>
     socklen_t size = <span class="keyword">static_cast&lt;</span>socklen_t<span class="keyword">&gt;</span>( <span class="keyword">sizeof</span>( sin ) );
     <span class="keywordtype">char</span> hostname[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>], service[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>];
 
-    <span class="keywordflow">if</span> ( ::fcntl( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), F_SETFL, O_NONBLOCK ) &lt; 0 )
+    <span class="keywordflow">if</span> ( ::fcntl( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>(), F_SETFL, O_NONBLOCK ) &lt; 0 )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;fcntl()-&gt;&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
-    <span class="keywordflow">if</span> ( ::getpeername( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), &amp;size ) &lt; 0 )
+    <span class="keywordflow">if</span> ( ::getpeername( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), &amp;size ) &lt; 0 )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::New()-&gt;getpeername()-&gt;&quot;</span> );
 
@@ -430,7 +435,7 @@ Manipulate</h2></td></tr>
             <span class="keywordflow">return</span> <span class="keyword">false</span>;
         }
 
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;SocketClient::New()-&gt; %s:%lu (%lu)&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ), <a class="code" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">gPort</a>(), <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;SocketClient::New()-&gt; %s:%lu (%lu)&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket.">gHostname</a>() ), <a class="code" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c" title="Returns the port associated to the Socket.">gPort</a>(), <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() );
     }
 
     <span class="comment">// negotiate telopts, send login message</span>
@@ -483,7 +488,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00040">40</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00043">43</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> !<a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.empty(); }
 </pre></div>
 <p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -511,7 +516,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00041">41</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00044">44</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 <div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> !<a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.empty(); }
 </pre></div>
 <p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -546,7 +551,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00122">122</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00126">126</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     pair&lt;multimap&lt;const char,Command*&gt;::iterator,multimap&lt;const char,Command*&gt;::iterator&gt; cmd_list;
@@ -554,9 +559,9 @@ Manipulate</h2></td></tr>
     <span class="keywordtype">string</span> cmd;
     <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessCommand()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessCommand()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -575,7 +580,7 @@ Manipulate</h2></td></tr>
             cmd_list = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.equal_range( cmd[0] );
 
         <span class="keywordflow">if</span> ( cmd_list.first == cmd_list.second )
-            <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <span class="stringliteral">&quot;Invalid command.&quot;</span> <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> );
+            <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );
         <span class="keywordflow">else</span>
         {
             <span class="keywordflow">for</span> ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
@@ -596,7 +601,7 @@ Manipulate</h2></td></tr>
                 <span class="keywordflow">if</span> ( found )
                     mi-&gt;second-&gt;Run( <span class="keyword">this</span> );
                 <span class="keywordflow">else</span>
-                    <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <span class="stringliteral">&quot;Invalid command.&quot;</span> <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> );
+                    <a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );
             }
         }
     }
@@ -645,16 +650,16 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00185">185</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00189">189</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     vector&lt;string&gt; commands;
     <span class="keywordtype">string</span> command;
     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <span class="keywordtype">string</span>, vi );
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessInput()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ProcessInput()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -720,13 +725,13 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00223">223</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00227">227</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::QueueCommand()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::QueueCommand()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -776,15 +781,15 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00243">243</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00247">247</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     ssize_t amount = 0;
     <span class="keywordtype">char</span> buf[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>] = {<span class="charliteral">&#39;\0&#39;</span>};
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -794,11 +799,11 @@ Manipulate</h2></td></tr>
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
-    <span class="keywordflow">if</span> ( ( amount = ::recv( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), buf, <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> - 1, 0 ) ) &lt; 1 )
+    <span class="keywordflow">if</span> ( ( amount = ::recv( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>(), buf, <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> - 1, 0 ) ) &lt; 1 )
     {
         <span class="keywordflow">if</span> ( amount == 0 )
         {
-            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;recv()-&gt; broken pipe encountered on recv from: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ) );
+            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;recv()-&gt; broken pipe encountered on recv from: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket.">gHostname</a>() ) );
             <span class="keywordflow">return</span> <span class="keyword">false</span>;
         }
         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( errno != EAGAIN &amp;&amp; errno != EWOULDBLOCK )
@@ -810,13 +815,13 @@ Manipulate</h2></td></tr>
 
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd" title="Increment the total count of bytes received by the socket.">aBytesRecvd</a>( amount ) )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;Server::gSocket()-&gt;Server::aBytesRecvd()-&gt; value %ld returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002">gBytesRecvd</a>() + amount );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;Server::gSocket()-&gt;Server::aBytesRecvd()-&gt; value %ld returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002" title="Returns the number of bytes received by the Socket.">gBytesRecvd</a>() + amount );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#aec278bc5096a3087a7bb6a1ed06d7ddd" title="Increment the total count of bytes received by the socket.">aBytesRecvd</a>( amount ) )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::aBytesRecvd()-&gt; value %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002">gBytesRecvd</a>() + amount );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Recv()-&gt;SocketClient::aBytesRecvd()-&gt; value %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002" title="Returns the number of bytes received by the Socket.">gBytesRecvd</a>() + amount );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -864,16 +869,22 @@ Manipulate</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00298">298</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00306">306</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     pthread_t res_thread;
     pthread_attr_t res_attr;
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() );
         <span class="keywordflow">return</span>;
     }
 
@@ -889,7 +900,7 @@ Manipulate</h2></td></tr>
         <span class="keywordflow">return</span>;
     }
 
-    <span class="keywordflow">if</span> ( ::pthread_create( &amp;res_thread, &amp;res_attr, &amp;<a class="code" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">SocketClient::tResolveHostname</a>, <span class="keyword">this</span> ) != 0 )
+    <span class="keywordflow">if</span> ( ::pthread_create( &amp;res_thread, &amp;res_attr, &amp;<a class="code" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2" title="Resolve the hostname of the client. Threaded to avoid locking on long resolutions.">SocketClient::tResolveHostname</a>, <span class="keyword">this</span> ) != 0 )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt;pthread_create()-&gt;&quot;</span> );
         <span class="keywordflow">return</span>;
@@ -909,7 +920,8 @@ Manipulate</h2></td></tr>
 <div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-18-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketClient_afd723bd898217b3c41e29a02f43ec9e1_cgraph.svg" width="100%" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketClient_afd723bd898217b3c41e29a02f43ec9e1_cgraph.svg" width="100%" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -936,14 +948,14 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00342">342</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00350">350</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     ssize_t amount = 0;
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -951,11 +963,11 @@ Manipulate</h2></td></tr>
     <span class="keywordflow">if</span> ( <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.empty() )
         <span class="keywordflow">return</span> <span class="keyword">true</span>;
 
-    <span class="keywordflow">if</span> ( ( amount = ::send( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a> ), <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.length(), 0 ) ) &lt; 1 )
+    <span class="keywordflow">if</span> ( ( amount = ::send( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>(), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a> ), <a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.length(), 0 ) ) &lt; 1 )
     {
         <span class="keywordflow">if</span> ( amount == 0 )
         {
-            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;send()-&gt; broken pipe encountered on send to: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ) );
+            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;send()-&gt; broken pipe encountered on send to: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket.">gHostname</a>() ) );
             <span class="keywordflow">return</span> <span class="keyword">false</span>;
         }
         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( errno != EAGAIN &amp;&amp; errno != EWOULDBLOCK )
@@ -967,13 +979,13 @@ Manipulate</h2></td></tr>
 
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket.">aBytesSent</a>( amount ) )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;Server::gSocket()-&gt;Server::aBytesSent()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c">gBytesSent</a>() + amount );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;Server::gSocket()-&gt;Server::aBytesSent()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">gSocket</a>()-&gt;<a class="code" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket.">gBytesSent</a>() + amount );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket.">aBytesSent</a>( amount ) )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::aBytesSent()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c">gBytesSent</a>() + amount );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::aBytesSent()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket.">gBytesSent</a>() + amount );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -1030,13 +1042,13 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00394">394</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00402">402</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() );
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::Send()-&gt;SocketClient::Valid()-&gt; descriptor %ld returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -1092,7 +1104,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00426">426</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00434">434</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1146,7 +1158,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00481">481</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00494">494</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1215,7 +1227,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00508">508</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00521">521</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1255,11 +1267,23 @@ Manipulate</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>A self-reference passed via this to use for callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00441">441</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00454">454</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-    <a class="code" href="classSocketClient.xhtml">SocketClient</a>* socket_client = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classSocketClient.xhtml">SocketClient</a>*<span class="keyword">&gt;</span>( data );
+    <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* socket_client = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>*<span class="keyword">&gt;</span>( data );
     <span class="keyword">static</span> sockaddr_in6 sa_zero;
     sockaddr_in6 sa = sa_zero;
     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> error = 0;
@@ -1267,7 +1291,7 @@ Manipulate</h2></td></tr>
 
     sa.sin6_family = AF_INET;
 
-    <span class="keywordflow">if</span> ( ( error = ::inet_pton( AF_INET6, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( socket_client-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ), &amp;sa.sin6_addr ) ) != 1 )
+    <span class="keywordflow">if</span> ( ( error = ::inet_pton( AF_INET6, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( socket_client-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket.">gHostname</a>() ), &amp;sa.sin6_addr ) ) != 1 )
     {
         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketClient::tResolveHostname()-&gt;inet_pton()-&gt; returned errno %d: %s&quot;</span>, error, gai_strerror( error ) );
         ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_FAILURE ) );
@@ -1285,7 +1309,7 @@ Manipulate</h2></td></tr>
         ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_FAILURE ) );
     }
 
-    <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt; %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( socket_client-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() ) );
+    <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( 0, <span class="stringliteral">&quot;SocketClient::ResolveHostname()-&gt; %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( socket_client-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket.">gHostname</a>() ) );
 
     ::pthread_exit( reinterpret_cast&lt;void*&gt;( EXIT_SUCCESS ) );
 }
@@ -1304,7 +1328,8 @@ Manipulate</h2></td></tr>
 <div id="dynsection-27-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-27-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketClient_a3cfd5a085d8df5b4fed5166afe7578b2_icgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketClient_a3cfd5a085d8df5b4fed5166afe7578b2_icgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -1322,7 +1347,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00070">70</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00073">73</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
 </div>
 </div>
@@ -1337,7 +1362,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00071">71</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00074">74</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
 </div>
 </div>
@@ -1352,7 +1377,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00072">72</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00075">75</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
 </div>
 </div>
@@ -1367,7 +1392,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00073">73</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00076">76</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
 </div>
 </div>
@@ -1382,7 +1407,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00074">74</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00077">77</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
 </div>
 </div>
@@ -1397,7 +1422,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00075">75</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00078">78</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
 </div>
 </div>
@@ -1423,7 +1448,7 @@ Manipulate</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 20:24:26 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

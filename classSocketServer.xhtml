@@ -100,7 +100,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer__coll__graph.svg" width="100%" height="584"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer__coll__graph.svg" width="100%" height="584"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classSocketServer-members.xhtml">List of all members.</a></p>
@@ -212,7 +213,8 @@ Core</h2></td></tr>
 <p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00242">242</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
-}</pre></div>
+}
+</pre></div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -242,29 +244,29 @@ Core</h2></td></tr>
     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> descriptor = 0;
     sockaddr_storage sin;
     socklen_t size = <span class="keyword">static_cast&lt;</span>socklen_t<span class="keyword">&gt;</span>( <span class="keyword">sizeof</span>( sin ) );
-    <a class="code" href="classSocketClient.xhtml">SocketClient</a>* socket_client;
+    <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* socket_client;
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Accept()-&gt; called with invalid socket&quot;</span> );
         <span class="keywordflow">return</span>;
     }
 
-    <span class="keywordflow">if</span> ( ::getsockname( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), &amp;size ) &lt; 0 )
+    <span class="keywordflow">if</span> ( ::getsockname( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), &amp;size ) &lt; 0 )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketServer::Accept()-&gt;getsockname()-&gt;&quot;</span> );
         <span class="keywordflow">return</span>;
     }
 
-    <span class="keywordflow">if</span> ( ( descriptor = ::accept( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), &amp;size ) ) &lt; 0 )
+    <span class="keywordflow">if</span> ( ( descriptor = ::accept( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sin ), &amp;size ) ) &lt; 0 )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketServer::Accept()-&gt;accept()-&gt;&quot;</span> );
         <span class="keywordflow">return</span>;
     }
 
-    socket_client = <span class="keyword">new</span> <a class="code" href="classSocketClient.xhtml">SocketClient</a>( <a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">gServer</a>(), descriptor );
+    socket_client = <span class="keyword">new</span> <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>( <a class="code" href="classSocketServer.xhtml#a659e5775db60e3f8d29b70f2fdd317e7">gServer</a>(), descriptor );
 
-    <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes.">New</a>() )
+    <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a SocketClient for a new client connection and set all attributes.">New</a>() )
     {
         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Accept()-&gt;SocketClient::New()-&gt; returned false&quot;</span> );
         socket_client-&gt;<a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">Delete</a>();
@@ -340,7 +342,7 @@ Core</h2></td></tr>
     <span class="keyword">static</span> sockaddr_in6 sa_zero;
     sockaddr_in6 sa = sa_zero;
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Bind()-&gt; called with invalid socket&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -356,13 +358,13 @@ Core</h2></td></tr>
     sa.sin6_port = htons( port );
     inet_pton( AF_INET6, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( addr ), &amp;sa.sin6_addr );
 
-    <span class="keywordflow">if</span> ( ::setsockopt( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), SOL_SOCKET, SO_REUSEADDR, reinterpret_cast&lt;const char*&gt;( &amp;enable ), <span class="keyword">sizeof</span>( enable ) ) &lt; 0 )
+    <span class="keywordflow">if</span> ( ::setsockopt( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>(), SOL_SOCKET, SO_REUSEADDR, reinterpret_cast&lt;const char*&gt;( &amp;enable ), <span class="keyword">sizeof</span>( enable ) ) &lt; 0 )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketServer::Bind()-&gt;setsockopt()-&gt;&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
-    <span class="keywordflow">if</span> ( ::bind( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sa ), <span class="keyword">sizeof</span>( sa ) ) &lt; 0 )
+    <span class="keywordflow">if</span> ( ::bind( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>(), reinterpret_cast&lt;sockaddr*&gt;( &amp;sa ), <span class="keyword">sizeof</span>( sa ) ) &lt; 0 )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketServer::Bind()-&gt;bind()-&gt;&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -417,7 +419,7 @@ Core</h2></td></tr>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
         <span class="keywordflow">return</span>;
 
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">sSocketClose</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed...">gSocketClose</a>() + 1 ) )
@@ -493,13 +495,13 @@ Core</h2></td></tr>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() )
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
     {
         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Listen()-&gt; called with invalid socket&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
-    <span class="keywordflow">if</span> ( ::listen( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>(), <a class="code" href="config_8h.xhtml#aa0e8c6d702ecb6118b49483584524db1" title="The maximum number of pending connections to allow in the listen backlog.">CFG_SOC_MAX_PENDING</a> ) &lt; 0 )
+    <span class="keywordflow">if</span> ( ::listen( <a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>(), <a class="code" href="config_8h.xhtml#aa0e8c6d702ecb6118b49483584524db1" title="The maximum number of pending connections to allow in the listen backlog.">CFG_SOC_MAX_PENDING</a> ) &lt; 0 )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;SocketServer::Listen()-&gt;listen()-&gt;&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -736,7 +738,7 @@ Core</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 20:24:26 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

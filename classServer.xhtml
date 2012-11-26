@@ -96,7 +96,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer__coll__graph.svg" width="100%" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer__coll__graph.svg" width="100%" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classServer-members.xhtml">List of all members.</a></p>
@@ -105,13 +106,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a45782df02e28df1c52c2a8edb90264e1">BuildPlugin</a> (const string &amp;file, const bool &amp;force=false)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile a <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> file.  <a href="#a45782df02e28df1c52c2a8edb90264e1"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile a <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> file.  <a href="#a45782df02e28df1c52c2a8edb90264e1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5">LoadCommands</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Search all subfolders of <a class="el" href="config_8h.xhtml#af2e75e297c4447df28b526dff66734ce" title="Directory for commands to be loaded from.">CFG_DAT_DIR_COMMAND</a> and call <a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ.">Command::New()</a> to load each file found to memory.  <a href="#ac2e1d14caee54a38a89c2394abe6e5a5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c">PollSockets</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Poll all <a class="el" href="classSocketClient.xhtml">SocketClient</a> objects that are communicating with the associated <a class="el" href="classSocketServer.xhtml">SocketServer</a> object.  <a href="#a39dbe16fdc8c5f6fbd678c6540fbcd6c"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Poll all <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects that are communicating with the associated <a class="el" href="classSocketServer.xhtml">SocketServer</a> object.  <a href="#a39dbe16fdc8c5f6fbd678c6540fbcd6c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae">ProcessInput</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes input from all active <a class="el" href="classSocketClient.xhtml">SocketClient</a> objects.  <a href="#a2b4cec469bb99c2a45e49de5ba74d1ae"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes input from all active <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects.  <a href="#a2b4cec469bb99c2a45e49de5ba74d1ae"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea">Running</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> is shutdown or not.  <a href="#ae3d4d866381050c00f383248872877ea"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a">Startup</a> ()</td></tr>
@@ -128,18 +129,18 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSocketServer.xhtml">SocketServer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71">gSocket</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classSocketServer.xhtml">SocketServer</a> associated with the current <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> instance.  <a href="#a686505fb3a2ee84bdac3f42710341b71"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the combined number of <a class="el" href="classSocketClient.xhtml">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been destroyed.  <a href="#a01c4cacfdade91bc99d6c8911ca33a54"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the combined number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been destroyed.  <a href="#a01c4cacfdade91bc99d6c8911ca33a54"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503">gSocketOpen</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the combined number of <a class="el" href="classSocketClient.xhtml">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been created.  <a href="#a0c8164b5ed4b2c6efd0ecbd2a8c8a503"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the combined number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been created.  <a href="#a0c8164b5ed4b2c6efd0ecbd2a8c8a503"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8">gStatus</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Display miscellaneous data about the NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>, such as total data transfered, objects in memory, etc.  <a href="#aed2e8d1792f3ee019c859c19bfd187e8"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244">sPort</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;port)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the port of a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a89c8ebfdaa4826583f6b53c62b86b244"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a">sSocketClose</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the amount of subordinate <a class="el" href="classSocketClient.xhtml">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been closed on a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a1e68e32745cdfe194e0af388d9d5244a"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the amount of subordinate <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been closed on a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a1e68e32745cdfe194e0af388d9d5244a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a">sSocketOpen</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the amount of subordinate <a class="el" href="classSocketClient.xhtml">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been opened on a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a2b261b9b308edee58ec6191966bd019a"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the amount of subordinate <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been opened on a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a2b261b9b308edee58ec6191966bd019a"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ad5ec9462b520e59f7ea831e157ee5e59">Server</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> class.  <a href="#ad5ec9462b520e59f7ea831e157ee5e59"></a><br/></td></tr>
@@ -250,7 +251,7 @@ Private Attributes</h2></td></tr>
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
     <tr><td class="paramname">false</td><td>Returned if a fault is experienced trying to build the plugin. </td></tr>
-    <tr><td class="paramname">true</td><td>Returned if the <a class="el" href="classPlugin.xhtml" title="Functions that indepdently built and loaded to extend the server core via an API.">Plugin</a> builds successfully. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> builds successfully. </td></tr>
   </table>
   </dd>
 </dl>
@@ -640,7 +641,7 @@ Private Attributes</h2></td></tr>
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
     <tr><td class="paramname">false</td><td>Returned if the file descriptor of the <a class="el" href="classSocketServer.xhtml">SocketServer</a> is invalid and no further processing can take place. </td></tr>
-    <tr><td class="paramname">true</td><td>Returned if the file descriptor of the <a class="el" href="classSocketServer.xhtml">SocketServer</a> is valid and all <a class="el" href="classSocketClient.xhtml">SocketClient</a> objects were polled successfully. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the file descriptor of the <a class="el" href="classSocketServer.xhtml">SocketServer</a> is valid and all <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects were polled successfully. </td></tr>
   </table>
   </dd>
 </dl>
@@ -652,15 +653,15 @@ Private Attributes</h2></td></tr>
     fd_set exc_set;
     fd_set in_set;
     fd_set out_set;
-    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml">SocketClient</a>*, si );
-    <a class="code" href="classSocketClient.xhtml">SocketClient</a>* socket_client;
+    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>*, si );
+    <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* socket_client;
     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> client_desc = 0, max_desc = 0, server_desc = 0;
 
     FD_ZERO( &amp;exc_set );
     FD_ZERO( &amp;in_set );
     FD_ZERO( &amp;out_set );
 
-    <span class="keywordflow">if</span> ( ( server_desc = <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+    <span class="keywordflow">if</span> ( ( server_desc = <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
     {
         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketServer::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, server_desc );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -674,7 +675,7 @@ Private Attributes</h2></td></tr>
     {
         socket_client = *si;
 
-        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
         {
             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
             socket_client-&gt;<a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">Delete</a>();
@@ -707,7 +708,7 @@ Private Attributes</h2></td></tr>
         socket_client = *si;
         <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = ++si;
 
-        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
         {
             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
             socket_client-&gt;<a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">Delete</a>();
@@ -730,7 +731,7 @@ Private Attributes</h2></td></tr>
         socket_client = *si;
         <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = ++si;
 
-        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
         {
             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
             <span class="comment">// todo: save character</span>
@@ -777,7 +778,7 @@ Private Attributes</h2></td></tr>
         socket_client = *si;
         <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = ++si;
 
-        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
         {
             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
             <span class="comment">// todo: save character</span>
@@ -855,8 +856,8 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00309">309</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml">SocketClient</a>*, si );
-    <a class="code" href="classSocketClient.xhtml">SocketClient</a>* socket_client;
+    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>*, si );
+    <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* socket_client;
     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> client_desc = 0;
 
     <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> )
@@ -864,7 +865,7 @@ Private Attributes</h2></td></tr>
         socket_client = *si;
         <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = ++si;
 
-        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
         {
             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::ProcessInput()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
             <span class="comment">// todo: save character</span>
@@ -1414,7 +1415,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Used as the next iterator in all loops dealing with <a class="el" href="classSocketClient.xhtml">SocketClient</a> objects to prevent nested processing loop problems. </p>
+<p>Used as the next iterator in all loops dealing with <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects to prevent nested processing loop problems. </p>
 
 <p>Definition at line <a class="el" href="server_8h_source.xhtml#l00078">78</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
@@ -1430,7 +1431,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Total number of <a class="el" href="classSocketClient.xhtml">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects closed by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
+<p>Total number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects closed by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
 
 <p>Definition at line <a class="el" href="server_8h_source.xhtml#l00079">79</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
@@ -1446,7 +1447,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Total number of <a class="el" href="classSocketClient.xhtml">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects opened by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
+<p>Total number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects opened by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
 
 <p>Definition at line <a class="el" href="server_8h_source.xhtml#l00080">80</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
@@ -1506,7 +1507,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 20:24:26 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

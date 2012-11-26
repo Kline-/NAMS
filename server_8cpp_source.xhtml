@@ -196,15 +196,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00142"></a>00142     fd_set exc_set;
 <a name="l00143"></a>00143     fd_set in_set;
 <a name="l00144"></a>00144     fd_set out_set;
-<a name="l00145"></a>00145     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml">SocketClient</a>*, si );
-<a name="l00146"></a>00146     <a class="code" href="classSocketClient.xhtml">SocketClient</a>* socket_client;
+<a name="l00145"></a>00145     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>*, si );
+<a name="l00146"></a>00146     <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* socket_client;
 <a name="l00147"></a>00147     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> client_desc = 0, max_desc = 0, server_desc = 0;
 <a name="l00148"></a>00148 
 <a name="l00149"></a>00149     FD_ZERO( &amp;exc_set );
 <a name="l00150"></a>00150     FD_ZERO( &amp;in_set );
 <a name="l00151"></a>00151     FD_ZERO( &amp;out_set );
 <a name="l00152"></a>00152 
-<a name="l00153"></a>00153     <span class="keywordflow">if</span> ( ( server_desc = <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+<a name="l00153"></a>00153     <span class="keywordflow">if</span> ( ( server_desc = <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
 <a name="l00154"></a>00154     {
 <a name="l00155"></a>00155         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketServer::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, server_desc );
 <a name="l00156"></a>00156         <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -218,7 +218,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00164"></a>00164     {
 <a name="l00165"></a>00165         socket_client = *si;
 <a name="l00166"></a>00166 
-<a name="l00167"></a>00167         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+<a name="l00167"></a>00167         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
 <a name="l00168"></a>00168         {
 <a name="l00169"></a>00169             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
 <a name="l00170"></a>00170             socket_client-&gt;<a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">Delete</a>();
@@ -251,7 +251,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00197"></a>00197         socket_client = *si;
 <a name="l00198"></a>00198         <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = ++si;
 <a name="l00199"></a>00199 
-<a name="l00200"></a>00200         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+<a name="l00200"></a>00200         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
 <a name="l00201"></a>00201         {
 <a name="l00202"></a>00202             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
 <a name="l00203"></a>00203             socket_client-&gt;<a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">Delete</a>();
@@ -274,7 +274,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00220"></a>00220         socket_client = *si;
 <a name="l00221"></a>00221         <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = ++si;
 <a name="l00222"></a>00222 
-<a name="l00223"></a>00223         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+<a name="l00223"></a>00223         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
 <a name="l00224"></a>00224         {
 <a name="l00225"></a>00225             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
 <a name="l00226"></a>00226             <span class="comment">// todo: save character</span>
@@ -321,7 +321,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00267"></a>00267         socket_client = *si;
 <a name="l00268"></a>00268         <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = ++si;
 <a name="l00269"></a>00269 
-<a name="l00270"></a>00270         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+<a name="l00270"></a>00270         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
 <a name="l00271"></a>00271         {
 <a name="l00272"></a>00272             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
 <a name="l00273"></a>00273             <span class="comment">// todo: save character</span>
@@ -359,8 +359,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00309"></a><a class="code" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae">00309</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Processes input from all active SocketClient objects.">Server::ProcessInput</a>()
 <a name="l00310"></a>00310 {
 <a name="l00311"></a>00311     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00312"></a>00312     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml">SocketClient</a>*, si );
-<a name="l00313"></a>00313     <a class="code" href="classSocketClient.xhtml">SocketClient</a>* socket_client;
+<a name="l00312"></a>00312     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>*, si );
+<a name="l00313"></a>00313     <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* socket_client;
 <a name="l00314"></a>00314     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> client_desc = 0;
 <a name="l00315"></a>00315 
 <a name="l00316"></a>00316     <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> )
@@ -368,7 +368,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00318"></a>00318         socket_client = *si;
 <a name="l00319"></a>00319         <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = ++si;
 <a name="l00320"></a>00320 
-<a name="l00321"></a>00321         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() ) &lt; 1 )
+<a name="l00321"></a>00321         <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )
 <a name="l00322"></a>00322         {
 <a name="l00323"></a>00323             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::ProcessInput()-&gt;SocketClient::gDescriptor()-&gt; returned invalid descriptor: %ld&quot;</span>, client_desc );
 <a name="l00324"></a>00324             <span class="comment">// todo: save character</span>
@@ -627,7 +627,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 12:26:06 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 25 2012 20:24:26 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

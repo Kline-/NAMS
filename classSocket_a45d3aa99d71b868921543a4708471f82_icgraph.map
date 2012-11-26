@@ -1,13 +1,13 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" title="Poll all SocketClient objects that are communicating with the associated SocketServer object..." alt="" coords="961,282,1105,311"/>
 <area shape="rect" id="node9" href="$classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Processes input from all active SocketClient objects." alt="" coords="755,126,909,155"/>
-<area shape="rect" id="node12" href="$classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a socket for a new client connection and set all attributes." alt="" coords="523,307,659,337"/>
+<area shape="rect" id="node12" href="$classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607" title="Build a SocketClient for a new client connection and set all attributes." alt="" coords="523,307,659,337"/>
 <area shape="rect" id="node14" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="752,307,912,337"/>
 <area shape="rect" id="node17" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="477,153,704,182"/>
 <area shape="rect" id="node20" href="$classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" title="Process data from the client&#39;s receive buffer and split it into commands to queue as necessary..." alt="" coords="495,99,687,129"/>
 <area shape="rect" id="node23" href="$classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" title="Append a command to the back of the queue." alt="" coords="207,102,425,131"/>
 <area shape="rect" id="node26" href="$classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d" title="Receive data from the client and append it to a receive buffer." alt="" coords="763,373,901,402"/>
-<area shape="rect" id="node29" href="$classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1" title="SocketClient::ResolveHostname" alt="" coords="204,569,428,598"/>
+<area shape="rect" id="node29" href="$classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1" title="A wrapper to SocketClient::tResolveHostname(). Necessary for threading a member function." alt="" coords="204,569,428,598"/>
 <area shape="rect" id="node31" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="245,257,387,286"/>
 <area shape="rect" id="node37" href="$classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address." alt="" coords="244,462,388,491"/>
 <area shape="rect" id="node44" href="$classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" title="Listen for new connections on an established socket." alt="" coords="239,515,393,545"/>
