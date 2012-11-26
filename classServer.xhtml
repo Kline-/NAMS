@@ -110,13 +110,13 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5">LoadCommands</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Search all subfolders of <a class="el" href="config_8h.xhtml#af2e75e297c4447df28b526dff66734ce" title="Directory for commands to be loaded from.">CFG_DAT_DIR_COMMAND</a> and call <a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ.">Command::New()</a> to load each file found to memory.  <a href="#ac2e1d14caee54a38a89c2394abe6e5a5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c">PollSockets</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Poll all <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects that are communicating with the associated <a class="el" href="classSocketServer.xhtml">SocketServer</a> object.  <a href="#a39dbe16fdc8c5f6fbd678c6540fbcd6c"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Poll all <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects that are communicating with the associated <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> object.  <a href="#a39dbe16fdc8c5f6fbd678c6540fbcd6c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae">ProcessInput</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes input from all active <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects.  <a href="#a2b4cec469bb99c2a45e49de5ba74d1ae"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea">Running</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> is shutdown or not.  <a href="#ae3d4d866381050c00f383248872877ea"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a">Startup</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. Responsible for calling all critical boot-time functions such as <a class="el" href="classSocketServer.xhtml">SocketServer</a> initialization, <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> loading, etc.  <a href="#a84ed4b0103f83fe0ece0a89983d0787a"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. Responsible for calling all critical boot-time functions such as <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> initialization, <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> loading, etc.  <a href="#a84ed4b0103f83fe0ece0a89983d0787a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762">Shutdown</a> (const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;status)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a clean shutdown of the NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> providing a chance to complete disk writes and free all memory to verify there are no leaks.  <a href="#a9b7082bbc9faca6eb84180f856116762"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990">Update</a> ()</td></tr>
@@ -125,22 +125,22 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052">gHostname</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the hostname of the machine that NAMS is running on.  <a href="#a49dcdc5d378b3c12c46b80788c986052"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">gPort</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the port that any <a class="el" href="classSocketServer.xhtml">SocketServer</a> should bind to. Defaults to <a class="el" href="config_8h.xhtml#a5f105c04f494daec2a03ed9a85eb092b" title="Port number to listen on if not specified on the command line.">CFG_SOC_PORTNUM</a>.  <a href="#a307ecabcbab896360450e2b06b22a411"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the port that any <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> should bind to. Defaults to <a class="el" href="config_8h.xhtml#a5f105c04f494daec2a03ed9a85eb092b" title="Port number to listen on if not specified on the command line.">CFG_SOC_PORTNUM</a>.  <a href="#a307ecabcbab896360450e2b06b22a411"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSocketServer.xhtml">SocketServer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71">gSocket</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classSocketServer.xhtml">SocketServer</a> associated with the current <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> instance.  <a href="#a686505fb3a2ee84bdac3f42710341b71"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> associated with the current <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> instance.  <a href="#a686505fb3a2ee84bdac3f42710341b71"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the combined number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been destroyed.  <a href="#a01c4cacfdade91bc99d6c8911ca33a54"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the combined number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> objects that have been destroyed.  <a href="#a01c4cacfdade91bc99d6c8911ca33a54"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503">gSocketOpen</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the combined number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been created.  <a href="#a0c8164b5ed4b2c6efd0ecbd2a8c8a503"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the combined number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> objects that have been created.  <a href="#a0c8164b5ed4b2c6efd0ecbd2a8c8a503"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8">gStatus</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Display miscellaneous data about the NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>, such as total data transfered, objects in memory, etc.  <a href="#aed2e8d1792f3ee019c859c19bfd187e8"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244">sPort</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;port)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the port of a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a89c8ebfdaa4826583f6b53c62b86b244"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a">sSocketClose</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the amount of subordinate <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been closed on a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a1e68e32745cdfe194e0af388d9d5244a"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the amount of subordinate <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> objects that have been closed on a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a1e68e32745cdfe194e0af388d9d5244a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a">sSocketOpen</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;amount)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the amount of subordinate <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects that have been opened on a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a2b261b9b308edee58ec6191966bd019a"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the amount of subordinate <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> objects that have been opened on a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a2b261b9b308edee58ec6191966bd019a"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ad5ec9462b520e59f7ea831e157ee5e59">Server</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> class.  <a href="#ad5ec9462b520e59f7ea831e157ee5e59"></a><br/></td></tr>
@@ -380,7 +380,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
-    <tr><td class="paramname">uint_t</td><td>The port for a <a class="el" href="classSocketServer.xhtml">SocketServer</a> to bind to. </td></tr>
+    <tr><td class="paramname">uint_t</td><td>The port for a <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> to bind to. </td></tr>
   </table>
   </dd>
 </dl>
@@ -416,7 +416,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
-    <tr><td class="paramname"><a class="el" href="classSocketServer.xhtml">SocketServer</a></td><td>A pointer to the <a class="el" href="classSocketServer.xhtml">SocketServer</a> object spanwed by this object. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a></td><td>A pointer to the <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> object spanwed by this object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -640,8 +640,8 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
-    <tr><td class="paramname">false</td><td>Returned if the file descriptor of the <a class="el" href="classSocketServer.xhtml">SocketServer</a> is invalid and no further processing can take place. </td></tr>
-    <tr><td class="paramname">true</td><td>Returned if the file descriptor of the <a class="el" href="classSocketServer.xhtml">SocketServer</a> is valid and all <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects were polled successfully. </td></tr>
+    <tr><td class="paramname">false</td><td>Returned if the file descriptor of the <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> is invalid and no further processing can take place. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the file descriptor of the <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> is valid and all <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects were polled successfully. </td></tr>
   </table>
   </dd>
 </dl>
@@ -762,9 +762,9 @@ Private Attributes</h2></td></tr>
         }
         <span class="keywordflow">else</span>
         {
-            <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket.">sIdle</a>( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">gIdle</a>() + 1 ) )
+            <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket.">sIdle</a>( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb" title="Returns the amount of time the client has been idle.">gIdle</a>() + 1 ) )
             {
-                <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::sIdle()-&gt; descriptor %ld returned false setting idle: %lu&quot;</span>, client_desc, socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">gIdle</a>() + 1 );
+                <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::sIdle()-&gt; descriptor %ld returned false setting idle: %lu&quot;</span>, client_desc, socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb" title="Returns the amount of time the client has been idle.">gIdle</a>() + 1 );
                 <span class="comment">// todo: save character</span>
                 socket_client-&gt;<a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">Delete</a>();
                 <span class="keywordflow">continue</span>;
@@ -787,7 +787,7 @@ Private Attributes</h2></td></tr>
         }
 
         <span class="comment">// Disconnect sockets that have been idle for too long</span>
-        <span class="keywordflow">if</span> ( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">gIdle</a>() &gt;= <a class="code" href="config_8h.xhtml#a9e1bbc3ba39f67dbf7398220cdca6441" title="(Minutes / tick rate) before disconneting an idle socket. Approx 30 minutes.">CFG_SOC_MAX_IDLE</a> )
+        <span class="keywordflow">if</span> ( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb" title="Returns the amount of time the client has been idle.">gIdle</a>() &gt;= <a class="code" href="config_8h.xhtml#a9e1bbc3ba39f67dbf7398220cdca6441" title="(Minutes / tick rate) before disconneting an idle socket. Approx 30 minutes.">CFG_SOC_MAX_IDLE</a> )
         {
             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gIdle()-&gt; disconnecting idle descriptor: %ld&quot;</span>, client_desc );
             socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#a8e2bae4932d5625144ae9f3bfc8c3fb0" title="String sent on disconnecting an idle socket.">CFG_STR_IDLE</a> );
@@ -797,7 +797,7 @@ Private Attributes</h2></td></tr>
         }
 
         <span class="comment">// Found an active socket in the output list</span>
-        <span class="keywordflow">if</span> ( FD_ISSET( client_desc, &amp;out_set ) &amp;&amp; socket_client-&gt;<a class="code" href="classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a">PendingOutput</a>() )
+        <span class="keywordflow">if</span> ( FD_ISSET( client_desc, &amp;out_set ) &amp;&amp; socket_client-&gt;<a class="code" href="classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a" title="Tests if there is any output to be processed.">PendingOutput</a>() )
         {
             <span class="comment">// Send output, save game character and disconnect socket if unable to</span>
             <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>() )
@@ -818,7 +818,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a39dbe16fdc8c5f6fbd678c6540fbcd6c_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a39dbe16fdc8c5f6fbd678c6540fbcd6c_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -881,7 +882,7 @@ Private Attributes</h2></td></tr>
             <span class="keywordflow">continue</span>;
         }
 
-        <span class="keywordflow">if</span> ( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d">PendingCommand</a>() )
+        <span class="keywordflow">if</span> ( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d" title="Tests if there are any commands in the queue to be processed.">PendingCommand</a>() )
         {
             <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue.">ProcessCommand</a>() )
             {
@@ -901,7 +902,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a2b4cec469bb99c2a45e49de5ba74d1ae_cgraph.svg" width="100%" height="466"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a2b4cec469bb99c2a45e49de5ba74d1ae_cgraph.svg" width="100%" height="466"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -1034,7 +1036,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>The port number to have a <a class="el" href="classSocketServer.xhtml">SocketServer</a> instance listen for new connections on. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>The port number to have a <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> instance listen for new connections on. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1201,7 +1203,7 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00398">398</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-    <a class="code" href="classSocketServer.xhtml">SocketServer</a>* socket_server;
+    <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* socket_server;
     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> descriptor = 0;
     <a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">m_shutdown</a> = <span class="keyword">false</span>;
 
@@ -1214,7 +1216,7 @@ Private Attributes</h2></td></tr>
         <a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
     }
 
-    socket_server = <span class="keyword">new</span> <a class="code" href="classSocketServer.xhtml">SocketServer</a>( <span class="keyword">this</span>, descriptor );
+    socket_server = <span class="keyword">new</span> <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>( <span class="keyword">this</span>, descriptor );
     <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a> = socket_server;
 
     <span class="keywordflow">if</span> ( !socket_server-&gt;<a class="code" href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="Build a socket for a server and set all attributes.">New</a>() )
@@ -1309,7 +1311,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-21-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a50b81aa91d8fdaee6f52c5c5ec987990_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_a50b81aa91d8fdaee6f52c5c5ec987990_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -1367,7 +1370,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Port number to be passed to the associated <a class="el" href="classSocketServer.xhtml">SocketServer</a>. </p>
+<p>Port number to be passed to the associated <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>. </p>
 
 <p>Definition at line <a class="el" href="server_8h_source.xhtml#l00075">75</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
@@ -1399,7 +1402,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Pointer to the associated <a class="el" href="classSocketServer.xhtml">SocketServer</a> object. </p>
+<p>Pointer to the associated <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> object. </p>
 
 <p>Definition at line <a class="el" href="server_8h_source.xhtml#l00077">77</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
@@ -1431,7 +1434,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Total number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects closed by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
+<p>Total number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> objects closed by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
 
 <p>Definition at line <a class="el" href="server_8h_source.xhtml#l00079">79</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
@@ -1447,7 +1450,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Total number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml">SocketServer</a> objects opened by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
+<p>Total number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> objects opened by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
 
 <p>Definition at line <a class="el" href="server_8h_source.xhtml#l00080">80</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
@@ -1507,7 +1510,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 20:24:26 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 26 2012 17:11:51 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

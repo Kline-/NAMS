@@ -103,7 +103,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketClient__coll__graph.svg" width="100%" height="588"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketClient__coll__graph.svg" width="100%" height="588"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classSocketClient-members.xhtml">List of all members.</a></p>
@@ -116,7 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607">New</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> for a new client connection and set all attributes.  <a href="#a6b296c5002caa1229e7d7b9be6f08607"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d">PendingCommand</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if there are any commands in the queue to be processed.  <a href="#aa46590f5ac09115d9888fdb7c600ef1d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a">PendingOutput</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if there is any output to be processed.  <a href="#ad887231d8188cf23b88b6dad24b9408a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f">ProcessCommand</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpret the command at the front of the queue.  <a href="#ad4f63c7d906310dc56a1217136047d7f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b">ProcessInput</a> ()</td></tr>
@@ -133,8 +136,11 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Append data to an output buffer in preparation of being sent to the client.  <a href="#a472a64c9b811361791c107498eebf57a"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">gIdle</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a074944c7006f994646ed22cb2c955dc9">gServer</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of time the client has been idle.  <a href="#a9c982fdda7a3daa5b153eada40a3b6fb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5">gServer</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object associated to this <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>.  <a href="#abb055f2dc275dd975ac9465a8e5b19e5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385">gState</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the connection state of the client from <a class="el" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7">SOC_STATE</a>.  <a href="#aa0badca8f614127e98281995c02cb385"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketClient.xhtml#a72bb9c02dbe7894b91feb4b94e2eea55">SocketClient</a> (<a class="el" href="classServer.xhtml">Server</a> *server, const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;descriptor)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> class.  <a href="#a72bb9c02dbe7894b91feb4b94e2eea55"></a><br/></td></tr>
@@ -195,7 +201,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00542">542</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00587">587</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                     : <a class="code" href="classSocket.xhtml#aab53cde845a88cec27192ad7ec8c8869" title="Constructor for the Socket class.">Socket</a>( server, descriptor )
 {
     <a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.clear();
@@ -236,7 +242,7 @@ Manipulate</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00560">560</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00605">605</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -310,14 +316,22 @@ Manipulate</h2></td></tr>
           <td class="memname">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> <a class="el" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">SocketClient::gIdle</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">uint_t</td><td>The number of seconds the client has been idle. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00055">55</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocketClient.xhtml#aa3da4ed0f9760c3dd0c39c048f9e99ac">m_idle</a>; }
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00449">449</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classSocketClient.xhtml#aa3da4ed0f9760c3dd0c39c048f9e99ac">m_idle</a>;
+}
 </pre></div>
 <p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -330,22 +344,30 @@ Manipulate</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a074944c7006f994646ed22cb2c955dc9"></a><!-- doxytag: member="SocketClient::gServer" ref="a074944c7006f994646ed22cb2c955dc9" args="() const " -->
+<a class="anchor" id="abb055f2dc275dd975ac9465a8e5b19e5"></a><!-- doxytag: member="SocketClient::gServer" ref="abb055f2dc275dd975ac9465a8e5b19e5" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classServer.xhtml">Server</a>* <a class="el" href="classSocketClient.xhtml#a074944c7006f994646ed22cb2c955dc9">SocketClient::gServer</a> </td>
+          <td class="memname"><a class="el" href="classServer.xhtml">Server</a> * <a class="el" href="classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5">SocketClient::gServer</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname"><a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a></td><td>Pointer to the associated <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00056">56</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>; }
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00458">458</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a>;
+}
 </pre></div>
 </div>
 </div>
@@ -357,14 +379,22 @@ Manipulate</h2></td></tr>
           <td class="memname">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> <a class="el" href="classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385">SocketClient::gState</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">uint_t</td><td>The current connection state of the client. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00057">57</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> <a class="code" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a>; }
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00467">467</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a>;
+}
 </pre></div>
 </div>
 </div>
@@ -482,14 +512,23 @@ Manipulate</h2></td></tr>
           <td class="memname">const bool <a class="el" href="classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d">SocketClient::PendingCommand</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the command queue is empty. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the command queue is not empty. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00043">43</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> !<a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.empty(); }
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00126">126</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> !<a class="code" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">m_command_queue</a>.empty();
+}
 </pre></div>
 <p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -510,14 +549,23 @@ Manipulate</h2></td></tr>
           <td class="memname">const bool <a class="el" href="classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a">SocketClient::PendingOutput</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the output buffer is empty. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the output buffer is not empty. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00044">44</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keywordflow">return</span> !<a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.empty(); }
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00136">136</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> !<a class="code" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a>.empty();
+}
 </pre></div>
 <p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -551,7 +599,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00126">126</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00145">145</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     pair&lt;multimap&lt;const char,Command*&gt;::iterator,multimap&lt;const char,Command*&gt;::iterator&gt; cmd_list;
@@ -650,7 +698,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00189">189</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00208">208</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     vector&lt;string&gt; commands;
@@ -725,7 +773,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00227">227</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00246">246</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -781,7 +829,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00247">247</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00266">266</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     ssize_t amount = 0;
@@ -876,7 +924,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00306">306</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00325">325</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     pthread_t res_thread;
@@ -920,8 +968,7 @@ Manipulate</h2></td></tr>
 <div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-18-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketClient_afd723bd898217b3c41e29a02f43ec9e1_cgraph.svg" width="100%" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketClient_afd723bd898217b3c41e29a02f43ec9e1_cgraph.svg" width="100%" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -948,7 +995,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00350">350</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00369">369</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     ssize_t amount = 0;
@@ -1042,7 +1089,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00402">402</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00421">421</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1104,7 +1151,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00434">434</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00479">479</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1158,7 +1205,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00494">494</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00539">539</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1227,7 +1274,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00521">521</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00566">566</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1280,7 +1327,7 @@ Manipulate</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00454">454</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketclient_8cpp_source.xhtml#l00499">499</a> of file <a class="el" href="socketclient_8cpp_source.xhtml">socketclient.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* socket_client = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>*<span class="keyword">&gt;</span>( data );
@@ -1328,8 +1375,7 @@ Manipulate</h2></td></tr>
 <div id="dynsection-27-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-27-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketClient_a3cfd5a085d8df5b4fed5166afe7578b2_icgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketClient_a3cfd5a085d8df5b4fed5166afe7578b2_icgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -1346,6 +1392,7 @@ Manipulate</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>FIFO queue for commands unless the command specifies preempt. </p>
 
 <p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00073">73</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
@@ -1361,6 +1408,7 @@ Manipulate</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Amount of time since data was last received from the client. </p>
 
 <p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00074">74</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
@@ -1376,6 +1424,7 @@ Manipulate</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Data received from the client that hasn't been processed yet. </p>
 
 <p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00075">75</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
@@ -1391,6 +1440,7 @@ Manipulate</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Data buffered for sending to the client. </p>
 
 <p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00076">76</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
@@ -1406,6 +1456,7 @@ Manipulate</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>The <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object associated to this client. </p>
 
 <p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00077">77</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
@@ -1421,6 +1472,7 @@ Manipulate</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Connection state of the client from <a class="el" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7">SOC_STATE</a>. </p>
 
 <p>Definition at line <a class="el" href="socketclient_8h_source.xhtml#l00078">78</a> of file <a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>.</p>
 
@@ -1448,7 +1500,7 @@ Manipulate</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 20:24:26 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 26 2012 17:11:51 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

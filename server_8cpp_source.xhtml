@@ -305,9 +305,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00251"></a>00251         }
 <a name="l00252"></a>00252         <span class="keywordflow">else</span>
 <a name="l00253"></a>00253         {
-<a name="l00254"></a>00254             <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket.">sIdle</a>( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">gIdle</a>() + 1 ) )
+<a name="l00254"></a>00254             <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293" title="Set the idle timer value of the socket.">sIdle</a>( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb" title="Returns the amount of time the client has been idle.">gIdle</a>() + 1 ) )
 <a name="l00255"></a>00255             {
-<a name="l00256"></a>00256                 <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::sIdle()-&gt; descriptor %ld returned false setting idle: %lu&quot;</span>, client_desc, socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">gIdle</a>() + 1 );
+<a name="l00256"></a>00256                 <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::sIdle()-&gt; descriptor %ld returned false setting idle: %lu&quot;</span>, client_desc, socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb" title="Returns the amount of time the client has been idle.">gIdle</a>() + 1 );
 <a name="l00257"></a>00257                 <span class="comment">// todo: save character</span>
 <a name="l00258"></a>00258                 socket_client-&gt;<a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">Delete</a>();
 <a name="l00259"></a>00259                 <span class="keywordflow">continue</span>;
@@ -330,7 +330,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00276"></a>00276         }
 <a name="l00277"></a>00277 
 <a name="l00278"></a>00278         <span class="comment">// Disconnect sockets that have been idle for too long</span>
-<a name="l00279"></a>00279         <span class="keywordflow">if</span> ( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">gIdle</a>() &gt;= <a class="code" href="config_8h.xhtml#a9e1bbc3ba39f67dbf7398220cdca6441" title="(Minutes / tick rate) before disconneting an idle socket. Approx 30 minutes.">CFG_SOC_MAX_IDLE</a> )
+<a name="l00279"></a>00279         <span class="keywordflow">if</span> ( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb" title="Returns the amount of time the client has been idle.">gIdle</a>() &gt;= <a class="code" href="config_8h.xhtml#a9e1bbc3ba39f67dbf7398220cdca6441" title="(Minutes / tick rate) before disconneting an idle socket. Approx 30 minutes.">CFG_SOC_MAX_IDLE</a> )
 <a name="l00280"></a>00280         {
 <a name="l00281"></a>00281             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::PollSockets()-&gt;SocketClient::gIdle()-&gt; disconnecting idle descriptor: %ld&quot;</span>, client_desc );
 <a name="l00282"></a>00282             socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#a8e2bae4932d5625144ae9f3bfc8c3fb0" title="String sent on disconnecting an idle socket.">CFG_STR_IDLE</a> );
@@ -340,7 +340,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00286"></a>00286         }
 <a name="l00287"></a>00287 
 <a name="l00288"></a>00288         <span class="comment">// Found an active socket in the output list</span>
-<a name="l00289"></a>00289         <span class="keywordflow">if</span> ( FD_ISSET( client_desc, &amp;out_set ) &amp;&amp; socket_client-&gt;<a class="code" href="classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a">PendingOutput</a>() )
+<a name="l00289"></a>00289         <span class="keywordflow">if</span> ( FD_ISSET( client_desc, &amp;out_set ) &amp;&amp; socket_client-&gt;<a class="code" href="classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a" title="Tests if there is any output to be processed.">PendingOutput</a>() )
 <a name="l00290"></a>00290         {
 <a name="l00291"></a>00291             <span class="comment">// Send output, save game character and disconnect socket if unable to</span>
 <a name="l00292"></a>00292             <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>() )
@@ -384,7 +384,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00334"></a>00334             <span class="keywordflow">continue</span>;
 <a name="l00335"></a>00335         }
 <a name="l00336"></a>00336 
-<a name="l00337"></a>00337         <span class="keywordflow">if</span> ( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d">PendingCommand</a>() )
+<a name="l00337"></a>00337         <span class="keywordflow">if</span> ( socket_client-&gt;<a class="code" href="classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d" title="Tests if there are any commands in the queue to be processed.">PendingCommand</a>() )
 <a name="l00338"></a>00338         {
 <a name="l00339"></a>00339             <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue.">ProcessCommand</a>() )
 <a name="l00340"></a>00340             {
@@ -434,7 +434,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00398"></a><a class="code" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a">00398</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" title="Start the NAMS Server. Responsible for calling all critical boot-time functions such as SocketServer ...">Server::Startup</a>()
 <a name="l00399"></a>00399 {
 <a name="l00400"></a>00400     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00401"></a>00401     <a class="code" href="classSocketServer.xhtml">SocketServer</a>* socket_server;
+<a name="l00401"></a>00401     <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* socket_server;
 <a name="l00402"></a>00402     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> descriptor = 0;
 <a name="l00403"></a>00403     <a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">m_shutdown</a> = <span class="keyword">false</span>;
 <a name="l00404"></a>00404 
@@ -447,7 +447,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00411"></a>00411         <a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
 <a name="l00412"></a>00412     }
 <a name="l00413"></a>00413 
-<a name="l00414"></a>00414     socket_server = <span class="keyword">new</span> <a class="code" href="classSocketServer.xhtml">SocketServer</a>( <span class="keyword">this</span>, descriptor );
+<a name="l00414"></a>00414     socket_server = <span class="keyword">new</span> <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>( <span class="keyword">this</span>, descriptor );
 <a name="l00415"></a>00415     <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a> = socket_server;
 <a name="l00416"></a>00416 
 <a name="l00417"></a>00417     <span class="keywordflow">if</span> ( !socket_server-&gt;<a class="code" href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="Build a socket for a server and set all attributes.">New</a>() )
@@ -522,7 +522,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00499"></a>00499     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a>;
 <a name="l00500"></a>00500 }
 <a name="l00501"></a>00501 
-<a name="l00506"></a><a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71">00506</a> <a class="code" href="classSocketServer.xhtml">SocketServer</a>* <a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">Server::gSocket</a>()<span class="keyword"> const</span>
+<a name="l00506"></a><a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71">00506</a> <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* <a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">Server::gSocket</a>()<span class="keyword"> const</span>
 <a name="l00507"></a>00507 <span class="keyword"></span>{
 <a name="l00508"></a>00508     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>;
 <a name="l00509"></a>00509 }
@@ -627,7 +627,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 25 2012 20:24:26 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 26 2012 17:11:51 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
