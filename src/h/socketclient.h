@@ -19,7 +19,7 @@
  * @file socketclient.h
  * @brief The SocketClient class.
  *
- *  This file contains the SocketClient class, templates, and trivial member functions.
+ *  This file contains the SocketClient class and template functions.
  */
 #ifndef DEC_SOCKETCLIENT_H
 #define DEC_SOCKETCLIENT_H
@@ -32,6 +32,9 @@
 
 using namespace std;
 
+/**
+ * @brief Client / remote host specific functions that extend the Socket class.
+ */
 class SocketClient : public Socket {
     public:
         /** @name Core */ /**@{*/

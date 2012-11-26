@@ -29,7 +29,7 @@
 using namespace std;
 
 /**
- * @brief Functions that indepdently built and loaded to extend the server core via an API.
+ * @brief Functions that are indepdently built and loaded to extend the server core via an API.
  */
 class Plugin {
     public:

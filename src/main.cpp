@@ -36,7 +36,7 @@
 
 #include "h/server.h"
 
-/** @name Core */ /**@{*/
+/* Core */
 /**
  * @brief The default function required to execute the server.
  * @param[in] argc The numbers of arguments the server was started with, including 0 as itself.
@@ -71,14 +71,10 @@ int main( const int argc, const char* argv[] )
 
     _server.Shutdown( EXIT_SUCCESS );
 }
-/**@}*/
 
-/** @name Query */ /**@{*/
-/**@}*/
+/* Query */
 
-/** @name Manipulate */ /**@{*/
-/**@}*/
+/* Manipulate */
 
-/** @name Internal */
-/**@}*/
+/* Internal */
 

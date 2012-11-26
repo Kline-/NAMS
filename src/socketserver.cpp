@@ -23,8 +23,8 @@
 #include "h/class.h"
 
 #include "h/socketserver.h"
-#include "h/server.h"
 #include "h/list.h"
+#include "h/server.h"
 
 /* Core */
 /**

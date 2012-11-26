@@ -18,6 +18,10 @@
 /**
  * @file socket.cpp
  * @brief All non-template member functions of the Socket class.
+ *
+ * The Socket class is the base class for both the SocketClient and SocketServer
+ * classes. Common parts of both classes are implemented within this class when
+ * possible for efficiency and ease of future maintenance.
  */
 #include "h/includes.h"
 #include "h/class.h"
@@ -25,8 +29,61 @@
 #include "h/socket.h"
 
 /* Core */
+/**
+ * @brief Return if the Socket is valid for use.
+ * @retval false Returned if the file descriptor associated to the Socket is < 1.
+ * @retval true Returned if the file descriptor associated to the Socket is > 0.
+ */
+const bool Socket::Valid() const
+{
+    return m_descriptor > 0;
+}
 
 /* Query */
+/**
+ * @brief Returns the number of bytes received by the Socket.
+ * @retval uint_t The number of bytes received by the Socket.
+ */
+const uint_t Socket::gBytesRecvd() const
+{
+    return m_bytes_recvd;
+}
+
+/**
+ * @brief Returns the number of bytes sent by the Socket.
+ * @retval uint_t The number of bytes sent by the Socket.
+ */
+const uint_t Socket::gBytesSent() const
+{
+    return m_bytes_sent;
+}
+
+/**
+ * @brief Returns the file descriptor associated to the Socket.
+ * @retval sint_t The file descriptor associated to the Socket.
+ */
+const sint_t Socket::gDescriptor() const
+{
+    return m_descriptor;
+}
+
+/**
+ * @brief Returns the hostname associated to the Socket.
+ * @retval string The hostname associated to the Socket.
+ */
+const string Socket::gHostname() const
+{
+    return m_hostname;
+}
+
+/**
+ * @brief Returns the port associated to the Socket.
+ * @retval uint_t The port associated to the Socket.
+ */
+const uint_t Socket::gPort() const
+{
+    return m_port;
+}
 
 /* Manipulate */
 /**

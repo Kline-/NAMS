@@ -17,7 +17,11 @@
  ***************************************************************************/
 /**
  * @file socketclient.cpp
- * @brief All non-trivial member functions of the SocketClient class.
+ * @brief All non-template member functions of the SocketClient class.
+ *
+ * SocketClient implements client-side / remote-host functions on top of the Socket
+ * class. A new SocketClient is created for every connection to the listening
+ * SocketServer.
  */
 #include "h/includes.h"
 #include "h/class.h"
@@ -47,7 +51,7 @@ const void SocketClient::Delete()
 }
 
 /**
- * @brief Build a socket for a new client connection and set all attributes.
+ * @brief Build a SocketClient for a new client connection and set all attributes.
  * @retval false Returned if there is an error in connecting the client.
  * @retval true Returned if the client is successfully connected.
  */
@@ -295,6 +299,10 @@ const bool SocketClient::Recv()
     return true;
 }
 
+/**
+ * @brief A wrapper to SocketClient::tResolveHostname(). Necessary for threading a member function.
+ * @retval void
+ */
 const void SocketClient::ResolveHostname()
 {
     UFLAGS_DE( flags );
@@ -438,6 +446,11 @@ const bool SocketClient::sIdle( const uint_t& idle )
     return true;
 }
 
+/**
+ * @brief Resolve the hostname of the client. Threaded to avoid locking on long resolutions.
+ * @param[in] data A self-reference passed via this to use for callback.
+ * @retval void
+ */
 void* SocketClient::tResolveHostname( void* data )
 {
     UFLAGS_DE( flags );

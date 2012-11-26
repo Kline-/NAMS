@@ -26,20 +26,32 @@
 
 using namespace std;
 
+/**
+ * @brief Functions and interfaces that are common to both SocketClient and SocketServer.
+ */
 class Socket {
     public:
         /** @name Core */ /**@{*/
+        /**
+         * @brief Destroy a Socket previously created via Socket::New().
+         * @retval void
+         */
         virtual const void Delete() = 0;
+        /**
+         * @brief Build a Socket for either a new SocketClient or SocketServer.
+         * @retval false Returned if there is an error in creating the Socket.
+         * @retval true Returned if the Socket is successfully created.
+         */
         virtual const bool New() = 0;
-        const bool Valid() const { return m_descriptor > 0; }
+        const bool Valid() const;
         /**@}*/
 
         /** @name Query */ /**@{*/
-        const uint_t gBytesRecvd() const { return m_bytes_recvd; }
-        const uint_t gBytesSent() const { return m_bytes_sent; }
-        const sint_t gDescriptor() const { return m_descriptor; }
-        const string gHostname() const { return m_hostname; }
-        const uint_t gPort() const { return m_port; }
+        const uint_t gBytesRecvd() const;
+        const uint_t gBytesSent() const;
+        const sint_t gDescriptor() const;
+        const string gHostname() const;
+        const uint_t gPort() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -56,11 +68,11 @@ class Socket {
         /**@}*/
 
     private:
-        uint_t  m_bytes_recvd;
-        uint_t  m_bytes_sent;
-        sint_t  m_descriptor;
-        string  m_hostname;
-        uint_t  m_port;
+        uint_t m_bytes_recvd;   /**<Number of bytes received. */
+        uint_t m_bytes_sent;    /**<Number of bytes sent. */
+        sint_t m_descriptor;    /**<File descriptor assigned from the host OS. */
+        string m_hostname;      /**<Hostname of the host OS or remote client. */
+        uint_t m_port;          /**<Port number being used. */
 };
 
 #endif
