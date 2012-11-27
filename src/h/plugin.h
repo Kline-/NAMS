@@ -45,10 +45,16 @@ class Plugin {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        const bool gBool( const uint_t& pos ) const;
         const string gName() const;
+        const string gString( const uint_t& pos ) const;
+        const uint_t gUint( const uint_t& pos ) const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sBool( const uint_t& pos, const bool& val );
+        const bool sString( const uint_t& pos, const string& val );
+        const bool sUint( const uint_t& pos, const uint_t& val );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -61,7 +67,7 @@ class Plugin {
         string m_name;                      /**< The name of the class the Plugin implements. */
         string m_string[CFG_PLG_MAX_ARR];   /**< Any string that needs to be tied back to the parent object member variables. */
         uint_t m_type;                      /**< The #PLG_TYPE of the class the Plugin implements. */
-        uint_t m_uint_t[CFG_PLG_MAX_ARR];   /**< Any #uint_t that needs to be tied back to the parent object member variables. */
+        uint_t m_uint[CFG_PLG_MAX_ARR];     /**< Any #uint_t that needs to be tied back to the parent object member variables. */
 };
 
 /**

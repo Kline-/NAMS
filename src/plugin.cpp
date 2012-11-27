@@ -35,6 +35,24 @@
 
 /* Query */
 /**
+ * @brief Return a bool value to tie into other object types.
+ * @param[in] pos The array position to be returned.
+ * @retval bool The value of m_bool[pos].
+ */
+const bool Plugin::gBool( const uint_t& pos ) const
+{
+    UFLAGS_DE( flags );
+
+    if ( pos < uintmin_t || pos >= CFG_PLG_MAX_ARR )
+    {
+        LOGFMT( flags, "Plugin::gBool()-> called with invalid pos: %lu", pos );
+        return false;
+    }
+
+    return m_bool[pos];
+}
+
+/**
  * @brief Return the name of the object.
  * @retval string A string containing the name of the object.
  */
@@ -43,7 +61,114 @@ const string Plugin::gName() const
     return m_name;
 }
 
+/**
+ * @brief Return a string value to tie into other object types.
+ * @param[in] pos The array position to be returned.
+ * @retval string The value of m_string[pos].
+ */
+const string Plugin::gString( const uint_t& pos ) const
+{
+    UFLAGS_DE( flags );
+
+    if ( pos < uintmin_t || pos >= CFG_PLG_MAX_ARR )
+    {
+        LOGFMT( flags, "Plugin::gString()-> called with invalid pos: %lu", pos );
+        return string();
+    }
+
+    return m_string[pos];
+}
+
+/**
+ * @brief Return a uint_t value to tie into other object types.
+ * @param[in] pos The array position to be returned.
+ * @retval uint_t The value of m_uint[pos].
+ */
+const uint_t Plugin::gUint( const uint_t& pos ) const
+{
+    UFLAGS_DE( flags );
+
+    if ( pos < uintmin_t || pos >= CFG_PLG_MAX_ARR )
+    {
+        LOGFMT( flags, "Plugin::gUint()-> called with invalid pos: %lu", pos );
+        return uintmin_t;
+    }
+
+    return m_uint[pos];
+}
+
 /* Manipulate */
+/**
+ * @brief Sets a bool value to tie into other object types.
+ * @param[in] pos The array position to be assigned val.
+ * @param[in val The value to assign pos.
+ * @retval false Returned if pos is out of range or an error occurs.
+ * @retval true Returned if pos was successfully set to val.
+ */
+const bool Plugin::sBool( const uint_t& pos, const bool& val )
+{
+    UFLAGS_DE( flags );
+
+    if ( pos < uintmin_t || pos >= CFG_PLG_MAX_ARR )
+    {
+        LOGFMT( flags, "Plugin::sBool()-> called with invalid pos: %lu", pos );
+        return false;
+    }
+
+    m_bool[pos] = val;
+
+    return true;
+}
+
+/**
+ * @brief Sets a string value to tie into other object types.
+ * @param[in] pos The array position to be assigned val.
+ * @param[in val The value to assign pos.
+ * @retval false Returned if pos is out of range or an error occurs.
+ * @retval true Returned if pos was successfully set to val.
+ */
+const bool Plugin::sString( const uint_t& pos, const string& val )
+{
+    UFLAGS_DE( flags );
+
+    if ( pos < uintmin_t || pos >= CFG_PLG_MAX_ARR )
+    {
+        LOGFMT( flags, "Plugin::sString()-> called with invalid pos: %lu", pos );
+        return false;
+    }
+
+    m_string[pos] = val;
+
+    return true;
+}
+
+/**
+ * @brief Sets a uint_t value to tie into other object types.
+ * @param[in] pos The array position to be assigned val.
+ * @param[in val The value to assign pos.
+ * @retval false Returned if pos is out of range or an error occurs.
+ * @retval true Returned if pos was successfully set to val.
+ */
+const bool Plugin::sUint( const uint_t& pos, const uint_t& val )
+{
+    UFLAGS_DE( flags );
+
+    if ( pos < uintmin_t || pos >= CFG_PLG_MAX_ARR )
+    {
+        LOGFMT( flags, "Plugin::sUint()-> called with invalid pos: %lu", pos );
+        return false;
+    }
+
+    if ( val < uintmin_t || val >= uintmax_t )
+    {
+        LOGFMT( flags, "Plugin::sUint()-> callue with invalid val: %lu", val );
+        return false;
+    }
+
+    m_uint[pos] = val;
+
+    return true;
+}
 
 /* Internal */
 /**
@@ -62,7 +187,7 @@ Plugin::Plugin( const string& name, const uint_t& type )
         m_string[i].clear();
     m_type = type;
     for ( i = 0; i < CFG_PLG_MAX_ARR; i++ )
-        m_uint_t[i] = uintmin_t;
+        m_uint[i] = uintmin_t;
 
     return;
 }

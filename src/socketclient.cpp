@@ -306,13 +306,13 @@ const bool SocketClient::Recv()
 
     if ( !m_server->gSocket()->aBytesRecvd( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Recv()->Server::gSocket()->Server::aBytesRecvd()-> value %ld returned false", m_server->gSocket()->gBytesRecvd() + amount );
+        LOGFMT( flags, "SocketClient::Recv()->Server::gSocket()->Server::aBytesRecvd()-> value %lu returned false", m_server->gSocket()->gBytesRecvd() + amount );
         return false;
     }
 
     if ( !aBytesRecvd( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Recv()->SocketClient::aBytesRecvd()-> value %ld returned false", gBytesRecvd() + amount );
+        LOGFMT( flags, "SocketClient::Recv()->SocketClient::aBytesRecvd()-> value %lu returned false", gBytesRecvd() + amount );
         return false;
     }
 
@@ -489,9 +489,9 @@ const bool SocketClient::sIdle( const uint_t& idle )
 {
     UFLAGS_DE( flags );
 
-    if ( idle < 0 || idle > CFG_SOC_MAX_IDLE )
+    if ( idle < uintmin_t || idle > CFG_SOC_MAX_IDLE )
     {
-        LOGFMT( flags, "SocketClient::sIdle()-> called with invalid idle: %ld", idle );
+        LOGFMT( flags, "SocketClient::sIdle()-> called with invalid idle: %lu", idle );
         return false;
     }
 
@@ -599,6 +599,7 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
     m_idle = 0;
     m_input.clear();
     m_output.clear();
+    m_security = SOC_SECURITY_NONE;
     sServer( server );
     m_state = SOC_STATE_DISCONNECTED;
 

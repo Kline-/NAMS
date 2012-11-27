@@ -70,12 +70,13 @@ class SocketClient : public Socket {
         /**@}*/
 
     private:
-        deque< pair<string,string> > m_command_queue; /**< FIFO queue for commands unless the command specifies preempt. */
-        uint_t m_idle;                              /**< Amount of time since data was last received from the client. */
-        string m_input;                             /**< Data received from the client that hasn't been processed yet. */
-        string m_output;                            /**< Data buffered for sending to the client. */
-        Server* m_server;                           /**< The Server object associated to this client. */
-        uint_t m_state;                             /**< Connection state of the client from #SOC_STATE. */
+        deque< pair<string,string> > m_command_queue;   /**< FIFO queue for commands unless the command specifies preempt. */
+        uint_t m_idle;                                  /**< Amount of time since data was last received from the client. */
+        string m_input;                                 /**< Data received from the client that hasn't been processed yet. */
+        string m_output;                                /**< Data buffered for sending to the client. */
+        uint_t m_security;                              /**< Security level for commands and restricted access. */
+        Server* m_server;                               /**< The Server object associated to this client. */
+        uint_t m_state;                                 /**< Connection state of the client from #SOC_STATE. */
 };
 
 #endif

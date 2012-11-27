@@ -42,6 +42,14 @@ enum PLG_TYPE_COMMAND_BOOL {
     PLG_TYPE_COMMAND_BOOL_PREEMPT = 0,  /**< Ties to Command->m_preempt. */
     MAX_PLG_TYPE_COMMAND_BOOL     = 1   /**< Safety limit for looping. */
 };
+
+/**
+ * @enum PLG_TYPE_COMMAND_UINT
+ */
+enum PLG_TYPE_COMMAND_UINT {
+    PLG_TYPE_COMMAND_UINT_SECURITY = 0, /**< Ties to Command->m_security. */
+    MAX_PLG_TYPE_COMMAND_UINT      = 1  /**< Safety limit for looping. */
+};
 /**@}*/
 
 /** @name Socket */ /**@{*/
@@ -53,6 +61,18 @@ enum SOC_STATE {
     SOC_STATE_LOGIN_SCREEN = 1,     /**< A Socket waiting at the login screen. */
     SOC_STATE_PLAYING      = 100,   /**< A Socket fully within the game world and actively playing. */
     MAX_SOC_STATE          = 101    /**< Safety limit for looping. */
+};
+/**@}*/
+
+/** @name SocketClient */ /**@{*/
+/**
+ * @enum SOC_SECURITY
+ */
+enum SOC_SECURITY {
+    SOC_SECURITY_NONE      = 0, /**< A SocketClient that has not logged in. Login screen commands. */
+    SOC_SECURITY_AUTH_USER = 1, /**< A SocketClient that has logged in as a normal user account. */
+    SOC_SECURITY_ADMIN     = 2, /**< A SocketClient that has logged in as an admin account. */
+    MAX_SOC_SECURITY       = 3  /**< Safety limit for looping. */
 };
 /**@}*/
 

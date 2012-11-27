@@ -80,6 +80,11 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
     return true;
 }
 
+const bool Server::FindCommand( const string& cmd, SocketClient* client ) const
+{
+    return true;
+}
+
 /**
  * @brief Search all subfolders of #CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memory.
  * @retval false Returned if a fault is experienced trying to obtain a directory listing to process.
@@ -568,7 +573,7 @@ const bool Server::sSocketClose( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
-    if ( amount < 0 || amount >= uintmax_t )
+    if ( amount < uintmin_t || amount >= uintmax_t )
     {
         LOGFMT( flags, "Server::sSocketClose()-> called with m_socket_close overflow: %lu + %lu", m_socket_close, amount );
         return false;
@@ -589,7 +594,7 @@ const bool Server::sSocketOpen( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
-    if ( amount < 0 || amount >= uintmax_t )
+    if ( amount < uintmin_t || amount >= uintmax_t )
     {
         LOGFMT( flags, "Server::sSocketOpen()-> called with m_socket_open overflow: %lu + %lu", m_socket_open, amount );
         return false;

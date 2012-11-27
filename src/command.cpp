@@ -136,13 +136,13 @@ const string Command::gName() const
  */
 Command::Command()
 {
-    m_level = uintmin_t;
     m_plg = NULL;
     m_plg_delete = NULL;
     m_plg_file.clear();
     m_plg_handle = NULL;
     m_plg_new = NULL;
     m_preempt = false;
+    m_security = SOC_SECURITY_NONE;
 
     return;
 }
