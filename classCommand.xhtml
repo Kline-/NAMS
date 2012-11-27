@@ -326,7 +326,7 @@ Private Attributes</h2></td></tr>
     }
 
     <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )
-        <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.insert( pair&lt;const char,Command*&gt;( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Utils::Lower</a>( <a class="code" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object.">gName</a>() )[0], <span class="keyword">this</span> ) );
+        <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.insert( pair&lt;const char,Command*&gt;( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters.">Utils::Lower</a>( <a class="code" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object.">gName</a>() )[0], <span class="keyword">this</span> ) );
     <span class="keywordflow">else</span>
         <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.insert( pair&lt;const char,Command*&gt;( <a class="code" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object.">gName</a>()[0], <span class="keyword">this</span> ) );
 
@@ -517,7 +517,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 26 2012 17:11:51 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 26 2012 18:07:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

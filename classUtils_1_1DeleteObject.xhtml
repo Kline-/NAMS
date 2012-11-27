@@ -107,6 +107,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="Utils::DeleteObject" -->
+<p>The <a class="el" href="classUtils_1_1DeleteObject.xhtml" title="The DeleteObject class implements only operator() to be used in easily deleteing lists of pointers or...">DeleteObject</a> class implements only operator() to be used in easily deleteing lists of pointers or other objects.  
+</p>
+
 <p><code>#include &quot;<a class="el" href="utils_8h_source.xhtml">utils.h</a>&quot;</code></p>
 
 <p><a href="classUtils_1_1DeleteObject-members.xhtml">List of all members.</a></p>
@@ -115,10 +118,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classUtils_1_1DeleteObject.xhtml#a89315a95b06d363275626abb137a4b6e">operator()</a> (const T *ptr) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a pointer.  <a href="#a89315a95b06d363275626abb137a4b6e"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00067">67</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00119">119</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a89315a95b06d363275626abb137a4b6e"></a><!-- doxytag: member="Utils::DeleteObject::operator()" ref="a89315a95b06d363275626abb137a4b6e" args="(const T *ptr) const " -->
 <div class="memitem">
@@ -136,9 +140,23 @@ template&lt;class T &gt; </div>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptr</td><td>The pointer to be deleted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00070">70</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keyword">delete</span> ptr; }
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00127">127</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<div class="fragment"><pre class="fragment">            {
+                <span class="keyword">delete</span> ptr;
+            }
 </pre></div>
 </div>
 </div>
@@ -163,7 +181,7 @@ template&lt;class T &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 26 2012 17:11:51 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 26 2012 18:07:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

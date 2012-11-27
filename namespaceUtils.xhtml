@@ -84,21 +84,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Utils Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="namespaceUtils.xhtml" title="The Utils namespace contains all general purpose, multi-use, and non-class functions.">Utils</a> namespace contains all general purpose, multi-use, and non-class functions.  
+</p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtils_1_1DeleteObject.xhtml">DeleteObject</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classUtils_1_1DeleteObject.xhtml" title="The DeleteObject class implements only operator() to be used in easily deleteing lists of pointers or...">DeleteObject</a> class implements only operator() to be used in easily deleteing lists of pointers or other objects.  <a href="classUtils_1_1DeleteObject.xhtml#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a35029e6e20697c4fef5121040892e144">DelSpaces</a> (const T &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string with all whitespace characters removed.  <a href="#a35029e6e20697c4fef5121040892e144"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Lower</a> (const T &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string converted to all lowercase letters.  <a href="#a9b70f9dd0af906c806695b35488e778f"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a817d26eb6a3427ad3742fb3cb788d30e">Upper</a> (const T &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string converted to all uppercase letters.  <a href="#a817d26eb6a3427ad3742fb3cb788d30e"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a594756861a60d256d31db7bb34ea70de">String</a> (const T &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string object from any data type: bool, int, char, etc.  <a href="#a594756861a60d256d31db7bb34ea70de"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const timeval&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">CurrentTime</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current system time.  <a href="#adbb91eecf7e80e6e97b3ebe38123cc12"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee">DiffTime</a> (const timeval &amp;prev, const timeval &amp;current, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;granularity)</td></tr>
@@ -131,10 +139,13 @@ Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V , class I &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">KeyValue</a> (K &amp;key, V &amp;val, const I &amp;item)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a string in the format of key=value. Retains any whitespace in the value.  <a href="#a4a4d3dfd2ddb691bc5bcff82252c058b"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">KeySet</a> (const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const string &amp;item, string &amp;loc)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If the contents of keyd == valu, assigns loc = item.  <a href="#aba8fca9daa0f767d7f5af5e2b1d6b81d"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V , class I , class L &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a0aff3514e06faae8ed026c673efe002b">KeySet</a> (const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const I &amp;item, L &amp;loc)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If the contents of keyd == valu, assigns loc = item.  <a href="#a0aff3514e06faae8ed026c673efe002b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const multimap&lt; bool, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a014607a95c6d01ee99564479b3620ee7">ListDirectory</a> (const string &amp;dir, const bool &amp;recursive, multimap&lt; bool, string &gt; &amp;output, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_close, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_open)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a multimap of a specified directory tree on disk.  <a href="#a014607a95c6d01ee99564479b3620ee7"></a><br/></td></tr>
 </table>
@@ -198,7 +209,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00123">123</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00130">130</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
     va_list args;
@@ -322,7 +333,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00095">95</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00102">102</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
     va_list args;
@@ -412,7 +423,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000003">Todo:</a></b></dt><dd>Add monitor channel support </dd></dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00177">177</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00184">184</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
     va_list args;
@@ -496,12 +507,12 @@ Functions</h2></td></tr>
 <div class="memdoc">
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
-    <tr><td class="paramname">timeval</td><td></td></tr>
+    <tr><td class="paramname">timeval</td><td>A timeval struct filled with the current system time. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00030">30</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00037">37</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     timeval now;
@@ -542,9 +553,27 @@ template&lt;class T &gt; </div>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>Any type of string to remove whitespace from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string with all whitespace characters removed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00041">41</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keywordtype">string</span> output( t ); output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); <span class="keywordflow">return</span> output; }
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00049">49</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<div class="fragment"><pre class="fragment">    {
+        <span class="keywordtype">string</span> output( t );
+
+        output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() );
+
+        <span class="keywordflow">return</span> output;
+    }
 </pre></div>
 </div>
 </div>
@@ -593,7 +622,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00051">51</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00058">58</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">switch</span> ( granularity )
     {
@@ -660,7 +689,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00069">69</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00076">76</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordtype">string</span> path( directory );
 
@@ -716,7 +745,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00343">343</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00350">350</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keyword">struct </span>stat dir_info;
@@ -772,7 +801,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00366">366</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00373">373</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keyword">struct </span>stat dir_info;
@@ -828,7 +857,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00389">389</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00396">396</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = 0;
@@ -885,7 +914,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00413">413</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00420">420</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     ifstream ifile;
@@ -964,8 +993,25 @@ template&lt;class K , class V &gt; </div>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">igncase</td><td>If true, performs case-insensitive matching. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">found</td><td>For loop control. If keyd == valu, set to true, otherwise false. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyd</td><td>A string or number that valu must match. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">valu</td><td>A string or number that is checked for a match against keyd. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>A string to be copied to to loc if keyd == valu. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">loc</td><td>A string to be assigned the value of item if keyd == valu. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00088">88</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00166">166</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">string</span> key( keyd );
         <span class="keywordtype">string</span> val( valu );
@@ -1039,8 +1085,25 @@ template&lt;class K , class V , class I , class L &gt; </div>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">igncase</td><td>If true, performs case-insensitive matching. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">found</td><td>For loop control. If keyd == valu, set to true, otherwise false. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyd</td><td>A string or number that valu must match. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">valu</td><td>A string or number that is checked for a match against keyd. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>Any string, digit, etc to be copied to to loc if keyd == valu. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">loc</td><td>Any string, digit, etc to be assigned the value of item if keyd == valu. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00109">109</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00197">197</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">string</span> key( keyd );
         <span class="keywordtype">string</span> val( valu );
@@ -1106,8 +1169,23 @@ template&lt;class K , class V , class I &gt; </div>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>The object to be populated with the key extracted from item. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>The object to be populated with the value extracted from item. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>A char or string in the form of key=value to extract data from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if item does not contain an equal sign. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if data was successfully extracted from item. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00072">72</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00140">140</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">size_t</span> loc = 0;
 
@@ -1185,7 +1263,7 @@ template&lt;class K , class V , class I &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00441">441</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00448">448</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     DIR* directory = NULL;
@@ -1267,9 +1345,27 @@ template&lt;class T &gt; </div>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>Any type of string to convert to lowercase. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string converted to all lowercase letters. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00042">42</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keywordtype">string</span> output( t ); transform( output.begin(), output.end(), output.begin(), ::tolower ); <span class="keywordflow">return</span> output; }
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00062">62</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<div class="fragment"><pre class="fragment">    {
+        <span class="keywordtype">string</span> output( t );
+
+        transform( output.begin(), output.end(), output.begin(), ::tolower );
+
+        <span class="keywordflow">return</span> output;
+    }
 </pre></div>
 <p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -1320,7 +1416,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00243">243</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00250">250</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> amount = 0, i = 0;
@@ -1365,9 +1461,25 @@ template&lt;class T &gt; </div>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>Any type of data that can be represented as an alphanumeric string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string containing the converted data. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00044">44</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ stringstream ss( t ); <span class="keywordflow">return</span> ss.str(); }
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00088">88</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<div class="fragment"><pre class="fragment">    {
+        stringstream ss( t );
+
+        <span class="keywordflow">return</span> ss.str();
+    }
 </pre></div>
 </div>
 </div>
@@ -1398,7 +1510,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00266">266</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00273">273</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1461,7 +1573,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00296">296</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00303">303</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keywordtype">string</span> output;
@@ -1516,7 +1628,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00318">318</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00325">325</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1561,9 +1673,27 @@ template&lt;class T &gt; </div>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>Any type of string to convert to uppercase. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string converted to all uppercase letters. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00043">43</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
-<div class="fragment"><pre class="fragment">{ <span class="keywordtype">string</span> output( t ); transform( output.begin(), output.end(), output.begin(), ::toupper ); <span class="keywordflow">return</span> output; }
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00075">75</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<div class="fragment"><pre class="fragment">    {
+        <span class="keywordtype">string</span> output( t );
+
+        transform( output.begin(), output.end(), output.begin(), ::toupper );
+
+        <span class="keywordflow">return</span> output;
+    }
 </pre></div>
 </div>
 </div>
@@ -1585,7 +1715,7 @@ template&lt;class T &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 26 2012 17:11:51 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 26 2012 18:07:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
