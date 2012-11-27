@@ -91,6 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
@@ -120,12 +121,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Accept()
 : <a class="el" href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63">SocketServer</a>
 </li>
+<li>Authorized()
+: <a class="el" href="classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b">Command</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
 <li>Bind()
 : <a class="el" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8">SocketServer</a>
+</li>
+<li>Broadcast()
+: <a class="el" href="classServer.xhtml#ae1bb8d3c7c71119bae6dd4205fd6c0cc">Server</a>
 </li>
 <li>BuildPlugin()
 : <a class="el" href="classServer.xhtml#a45782df02e28df1c52c2a8edb90264e1">Server</a>
@@ -150,15 +157,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 
 
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>FindCommand()
+: <a class="el" href="classServer.xhtml#acf928ad938e32e6342c0cdd278e793bc">Server</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>gBool()
+: <a class="el" href="classPlugin.xhtml#a669870333a99490518fdd59054deaade">Plugin</a>
+</li>
 <li>gBytesRecvd()
 : <a class="el" href="classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002">Socket</a>
 </li>
 <li>gBytesSent()
 : <a class="el" href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c">Socket</a>
 </li>
+<li>gCaller()
+: <a class="el" href="classCommand.xhtml#a0763aba641a70e0085116b05bcfd632c">Command</a>
+, <a class="el" href="classPlugin.xhtml#abab79e7ca874fe2f6e4f5e02a40b8878">Plugin</a>
+</li>
 <li>gDescriptor()
 : <a class="el" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">Socket</a>
+</li>
+<li>gFile()
+: <a class="el" href="classCommand.xhtml#a63b8f3fc40a0cc9e02fcaa2ea2329c40">Command</a>
 </li>
 <li>gHostname()
 : <a class="el" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052">Server</a>
@@ -168,12 +192,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">SocketClient</a>
 </li>
 <li>gName()
-: <a class="el" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">Plugin</a>
-, <a class="el" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">Command</a>
+: <a class="el" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">Command</a>
+, <a class="el" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">Plugin</a>
 </li>
 <li>gPort()
 : <a class="el" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">Server</a>
 , <a class="el" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">Socket</a>
+</li>
+<li>gSecurity()
+: <a class="el" href="classSocketClient.xhtml#a55449717f16faaa0f3375610b9f3dfe3">SocketClient</a>
 </li>
 <li>gServer()
 : <a class="el" href="classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5">SocketClient</a>
@@ -193,6 +220,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>gStatus()
 : <a class="el" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8">Server</a>
+</li>
+<li>gString()
+: <a class="el" href="classPlugin.xhtml#a254c795a324dab944aa3a3f127414a87">Plugin</a>
+</li>
+<li>gUint()
+: <a class="el" href="classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43">Plugin</a>
 </li>
 </ul>
 
@@ -217,8 +250,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_bytes_sent
 : <a class="el" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">Socket</a>
 </li>
+<li>m_caller
+: <a class="el" href="classPlugin.xhtml#ae688b96325fbf7a90cce90eda4687bbd">Plugin</a>
+</li>
 <li>m_command_queue
-: <a class="el" href="classSocketClient.xhtml#a98cc38c56777e6cb98aeff151ece7e51">SocketClient</a>
+: <a class="el" href="classSocketClient.xhtml#a3c51b2f60fefcc90bfa5ed710e0eb96f">SocketClient</a>
 </li>
 <li>m_descriptor
 : <a class="el" href="classSocket.xhtml#ad3472404a4a16e143e90dbfb45ddced5">Socket</a>
@@ -238,9 +274,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_input
 : <a class="el" href="classSocketClient.xhtml#afb9f8fd3659c27bd154c1d1e0f39f09a">SocketClient</a>
 </li>
-<li>m_level
-: <a class="el" href="classCommand.xhtml#a2c51a583e6a514d0a038a7822fcc8dc0">Command</a>
-</li>
 <li>m_name
 : <a class="el" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">Plugin</a>
 </li>
@@ -253,6 +286,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_plg_delete
 : <a class="el" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">Command</a>
 </li>
+<li>m_plg_file
+: <a class="el" href="classCommand.xhtml#a9d64316428b105c231cb7196f8a0a728">Command</a>
+</li>
 <li>m_plg_handle
 : <a class="el" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">Command</a>
 </li>
@@ -260,11 +296,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">Command</a>
 </li>
 <li>m_port
-: <a class="el" href="classSocket.xhtml#a5df79ab7d50cced90646c94dc479e278">Socket</a>
-, <a class="el" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">Server</a>
+: <a class="el" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">Server</a>
+, <a class="el" href="classSocket.xhtml#a5df79ab7d50cced90646c94dc479e278">Socket</a>
 </li>
 <li>m_preempt
 : <a class="el" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">Command</a>
+</li>
+<li>m_quitting
+: <a class="el" href="classSocketClient.xhtml#a84ede1902642e34c0389adaa0e718f96">SocketClient</a>
+</li>
+<li>m_security
+: <a class="el" href="classCommand.xhtml#a2e5ca0ee4ca16710e1f4b78cac9d94d3">Command</a>
+, <a class="el" href="classSocketClient.xhtml#ad7686955be45c6ccf7a18a1ac45484b4">SocketClient</a>
 </li>
 <li>m_server
 : <a class="el" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">SocketClient</a>
@@ -300,8 +343,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_type
 : <a class="el" href="classPlugin.xhtml#a4fecbf827fa745b458c416340d609e34">Plugin</a>
 </li>
-<li>m_uint_t
-: <a class="el" href="classPlugin.xhtml#a6ec3d0115316ffc283e9ee3a7c019195">Plugin</a>
+<li>m_uint
+: <a class="el" href="classPlugin.xhtml#a8aa271a6826da6bdfa2a70638cb7539e">Plugin</a>
 </li>
 </ul>
 
@@ -350,6 +393,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>QueueCommand()
 : <a class="el" href="classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6">SocketClient</a>
 </li>
+<li>Quit()
+: <a class="el" href="classSocketClient.xhtml#ad8ab017dd47d5e8b20ad30f72773a759">SocketClient</a>
+</li>
+<li>Quitting()
+: <a class="el" href="classSocketClient.xhtml#a92a268dc450fb7f42df61de1105a0416">SocketClient</a>
+</li>
 </ul>
 
 
@@ -361,8 +410,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1">SocketClient</a>
 </li>
 <li>Run()
-: <a class="el" href="classPlugin.xhtml#a033532442d50d8f4f79401d0d90ea45d">Plugin</a>
-, <a class="el" href="classCommand.xhtml#a98748287d2679cc93d5d7fbbc17c57c1">Command</a>
+: <a class="el" href="classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d">Plugin</a>
+, <a class="el" href="classCommand.xhtml#a1cac0232492ece9e3316c75fa85e5e1a">Command</a>
 </li>
 <li>Running()
 : <a class="el" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea">Server</a>
@@ -371,6 +420,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>sBool()
+: <a class="el" href="classPlugin.xhtml#ad677e15fe0ce01a5306fbc74683dae85">Plugin</a>
+</li>
+<li>sCaller()
+: <a class="el" href="classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859">Plugin</a>
+</li>
 <li>sDescriptor()
 : <a class="el" href="classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a">Socket</a>
 </li>
@@ -406,6 +461,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classSocketServer.xhtml#a89cde9791b2f0ce928329c55a9ad21e7">SocketServer</a>
 , <a class="el" href="classSocketClient.xhtml#aa3e0896a5e763ae0a7b250396d722084">SocketClient</a>
 </li>
+<li>sSocketClientNext()
+: <a class="el" href="classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354">Server</a>
+</li>
 <li>sSocketClose()
 : <a class="el" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a">Server</a>
 </li>
@@ -415,8 +473,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>sState()
 : <a class="el" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4">SocketClient</a>
 </li>
+<li>sString()
+: <a class="el" href="classPlugin.xhtml#a663e073408a8eed98fad1d76142c3353">Plugin</a>
+</li>
 <li>Startup()
 : <a class="el" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a">Server</a>
+</li>
+<li>sUint()
+: <a class="el" href="classPlugin.xhtml#ad40c46018ad9822b1c910b3f3b26d14c">Plugin</a>
 </li>
 </ul>
 
@@ -480,7 +544,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 26 2012 18:07:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 27 2012 15:05:04 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

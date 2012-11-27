@@ -96,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPlugin__coll__graph.svg" width="342" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlugin__coll__graph.svg" width="423" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classPlugin-members.xhtml">List of all members.</a></p>
@@ -104,11 +104,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a033532442d50d8f4f79401d0d90ea45d">Run</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client=NULL) const =0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the primary function of the implemented class.  <a href="#a033532442d50d8f4f79401d0d90ea45d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d">Run</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the primary function of the implemented class.  <a href="#a34515b5310b349069dfd9f34ca144b2d"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a669870333a99490518fdd59054deaade">gBool</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a bool value to tie into other object types.  <a href="#a669870333a99490518fdd59054deaade"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#abab79e7ca874fe2f6e4f5e02a40b8878">gCaller</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the object that initialized this <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>.  <a href="#abab79e7ca874fe2f6e4f5e02a40b8878"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">gName</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the name of the object.  <a href="#af031147ea2e2d7e7f73f7edb9a5921ae"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a254c795a324dab944aa3a3f127414a87">gString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a string value to tie into other object types.  <a href="#a254c795a324dab944aa3a3f127414a87"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43">gUint</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a uint_t value to tie into other object types.  <a href="#aaabc3015bb64b744ac26c14318b9cb43"></a><br/></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#ad677e15fe0ce01a5306fbc74683dae85">sBool</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos, const bool &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a bool value to tie into other object types.  <a href="#ad677e15fe0ce01a5306fbc74683dae85"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859">sCaller</a> (void *caller)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a pointer to the object that initialized this <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>.  <a href="#af51cf34cdaa8ce00ec838b26b465f859"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a663e073408a8eed98fad1d76142c3353">sString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos, const string &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a string value to tie into other object types.  <a href="#a663e073408a8eed98fad1d76142c3353"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#ad40c46018ad9822b1c910b3f3b26d14c">sUint</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a uint_t value to tie into other object types.  <a href="#ad40c46018ad9822b1c910b3f3b26d14c"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a3bf3ac47f4c7ad4a24629e487115a986">Plugin</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> class.  <a href="#a3bf3ac47f4c7ad4a24629e487115a986"></a><br/></td></tr>
@@ -117,10 +134,11 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">m_bool</a> [<a class="el" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660">CFG_PLG_MAX_ARR</a>]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#ae688b96325fbf7a90cce90eda4687bbd">m_caller</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">m_name</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#ad0402ff90752f7c96d5d30e9d68b0026">m_string</a> [<a class="el" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660">CFG_PLG_MAX_ARR</a>]</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a4fecbf827fa745b458c416340d609e34">m_type</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a6ec3d0115316ffc283e9ee3a7c019195">m_uint_t</a> [<a class="el" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660">CFG_PLG_MAX_ARR</a>]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a8aa271a6826da6bdfa2a70638cb7539e">m_uint</a> [<a class="el" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660">CFG_PLG_MAX_ARR</a>]</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -158,18 +176,19 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00054">54</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00209">209</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = 0;
 
     <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a>; i++ )
         <a class="code" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">m_bool</a>[i] = <span class="keyword">false</span>;
+    <a class="code" href="classPlugin.xhtml#ae688b96325fbf7a90cce90eda4687bbd">m_caller</a> = NULL;
     <a class="code" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">m_name</a> = name;
     <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a>; i++ )
         <a class="code" href="classPlugin.xhtml#ad0402ff90752f7c96d5d30e9d68b0026">m_string</a>[i].clear();
     <a class="code" href="classPlugin.xhtml#a4fecbf827fa745b458c416340d609e34">m_type</a> = type;
     <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a>; i++ )
-        <a class="code" href="classPlugin.xhtml#a6ec3d0115316ffc283e9ee3a7c019195">m_uint_t</a>[i] = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+        <a class="code" href="classPlugin.xhtml#a8aa271a6826da6bdfa2a70638cb7539e">m_uint</a>[i] = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
 
     <span class="keywordflow">return</span>;
 }
@@ -190,13 +209,100 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00073">73</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00229">229</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }</pre></div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a669870333a99490518fdd59054deaade"></a><!-- doxytag: member="Plugin::gBool" ref="a669870333a99490518fdd59054deaade" args="(const uint_t &amp;pos) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classPlugin.xhtml#a669870333a99490518fdd59054deaade">Plugin::gBool</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The array position to be returned. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">bool</td><td>The value of m_bool[pos]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00042">42</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Plugin::gBool()-&gt; called with invalid pos: %lu&quot;</span>, pos );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">return</span> <a class="code" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">m_bool</a>[pos];
+}
+</pre></div>
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_a669870333a99490518fdd59054deaade_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abab79e7ca874fe2f6e4f5e02a40b8878"></a><!-- doxytag: member="Plugin::gCaller" ref="abab79e7ca874fe2f6e4f5e02a40b8878" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * <a class="el" href="classPlugin.xhtml#abab79e7ca874fe2f6e4f5e02a40b8878">Plugin::gCaller</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void*</td><td>A pointer to the object that initialized this <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00059">59</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classPlugin.xhtml#ae688b96325fbf7a90cce90eda4687bbd">m_caller</a>;
+}
+</pre></div>
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlugin_abab79e7ca874fe2f6e4f5e02a40b8878_icgraph.svg" width="312" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="af031147ea2e2d7e7f73f7edb9a5921ae"></a><!-- doxytag: member="Plugin::gName" ref="af031147ea2e2d7e7f73f7edb9a5921ae" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -217,32 +323,141 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00041">41</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00068">68</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">m_name</a>;
 }
 </pre></div>
-<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_af031147ea2e2d7e7f73f7edb9a5921ae_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_af031147ea2e2d7e7f73f7edb9a5921ae_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a033532442d50d8f4f79401d0d90ea45d"></a><!-- doxytag: member="Plugin::Run" ref="a033532442d50d8f4f79401d0d90ea45d" args="(SocketClient *client=NULL) const =0" -->
+<a class="anchor" id="a254c795a324dab944aa3a3f127414a87"></a><!-- doxytag: member="Plugin::gString" ref="a254c795a324dab944aa3a3f127414a87" args="(const uint_t &amp;pos) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const void <a class="el" href="classPlugin.xhtml#a033532442d50d8f4f79401d0d90ea45d">Plugin::Run</a> </td>
+          <td class="memname">const string <a class="el" href="classPlugin.xhtml#a254c795a324dab944aa3a3f127414a87">Plugin::gString</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The array position to be returned. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>The value of m_string[pos]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00078">78</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Plugin::gString()-&gt; called with invalid pos: %lu&quot;</span>, pos );
+        <span class="keywordflow">return</span> string();
+    }
+
+    <span class="keywordflow">return</span> <a class="code" href="classPlugin.xhtml#ad0402ff90752f7c96d5d30e9d68b0026">m_string</a>[pos];
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aaabc3015bb64b744ac26c14318b9cb43"></a><!-- doxytag: member="Plugin::gUint" ref="aaabc3015bb64b744ac26c14318b9cb43" args="(const uint_t &amp;pos) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> <a class="el" href="classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43">Plugin::gUint</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The array position to be returned. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">uint_t</td><td>The value of m_uint[pos]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00096">96</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Plugin::gUint()-&gt; called with invalid pos: %lu&quot;</span>, pos );
+        <span class="keywordflow">return</span> <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+    }
+
+    <span class="keywordflow">return</span> <a class="code" href="classPlugin.xhtml#a8aa271a6826da6bdfa2a70638cb7539e">m_uint</a>[pos];
+}
+</pre></div>
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_aaabc3015bb64b744ac26c14318b9cb43_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a34515b5310b349069dfd9f34ca144b2d"></a><!-- doxytag: member="Plugin::Run" ref="a34515b5310b349069dfd9f34ca144b2d" args="(SocketClient *client=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const void <a class="el" href="classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d">Plugin::Run</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
-          <td class="paramname"><em>client</em> = <code>NULL</code></td><td>)</td>
-          <td> const<code> [pure virtual]</code></td>
+          <td class="paramname"><em>client</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>arg</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -250,6 +465,8 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>If called from a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>, the caller is passed through to the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> for reference. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>If called from a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>, the command from the client is passed through. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">arg</td><td>If called from a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>, the arguments from the client are passed through. </td></tr>
   </table>
   </dd>
 </dl>
@@ -260,15 +477,243 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPlugin_a033532442d50d8f4f79401d0d90ea45d_icgraph.svg" width="270" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_a34515b5310b349069dfd9f34ca144b2d_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
+</div>
+</div>
+<a class="anchor" id="ad677e15fe0ce01a5306fbc74683dae85"></a><!-- doxytag: member="Plugin::sBool" ref="ad677e15fe0ce01a5306fbc74683dae85" args="(const uint_t &amp;pos, const bool &amp;val)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classPlugin.xhtml#ad677e15fe0ce01a5306fbc74683dae85">Plugin::sBool</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The array position to be assigned val. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>The value to assign pos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if pos is out of range or an error occurs. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if pos was successfully set to val. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00117">117</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Plugin::sBool()-&gt; called with invalid pos: %lu&quot;</span>, pos );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">m_bool</a>[pos] = val;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="af51cf34cdaa8ce00ec838b26b465f859"></a><!-- doxytag: member="Plugin::sCaller" ref="af51cf34cdaa8ce00ec838b26b465f859" args="(void *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859">Plugin::sCaller</a> </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>caller</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">caller</td><td>A pointer to the object that initialized this <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if caller is NULL. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if caller is not NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00138">138</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( !caller )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Plugin::sCaller()-&gt; called with NULL caller&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classPlugin.xhtml#ae688b96325fbf7a90cce90eda4687bbd">m_caller</a> = caller;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_af51cf34cdaa8ce00ec838b26b465f859_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a663e073408a8eed98fad1d76142c3353"></a><!-- doxytag: member="Plugin::sString" ref="a663e073408a8eed98fad1d76142c3353" args="(const uint_t &amp;pos, const string &amp;val)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classPlugin.xhtml#a663e073408a8eed98fad1d76142c3353">Plugin::sString</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The array position to be assigned val. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>The value to assign pos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if pos is out of range or an error occurs. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if pos was successfully set to val. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00160">160</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Plugin::sString()-&gt; called with invalid pos: %lu&quot;</span>, pos );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classPlugin.xhtml#ad0402ff90752f7c96d5d30e9d68b0026">m_string</a>[pos] = val;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ad40c46018ad9822b1c910b3f3b26d14c"></a><!-- doxytag: member="Plugin::sUint" ref="ad40c46018ad9822b1c910b3f3b26d14c" args="(const uint_t &amp;pos, const uint_t &amp;val)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classPlugin.xhtml#ad40c46018ad9822b1c910b3f3b26d14c">Plugin::sUint</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The array position to be assigned val. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>The value to assign pos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if pos is out of range or an error occurs. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if pos was successfully set to val. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="plugin_8cpp_source.xhtml#l00182">182</a> of file <a class="el" href="plugin_8cpp_source.xhtml">plugin.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660" title="The maximum number of elements for each data type array in a plugin.">CFG_PLG_MAX_ARR</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Plugin::sUint()-&gt; called with invalid pos: %lu&quot;</span>, pos );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">if</span> ( val &lt; uintmin_t || val &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Plugin::sUint()-&gt; called with invalid val: %lu&quot;</span>, val );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classPlugin.xhtml#a8aa271a6826da6bdfa2a70638cb7539e">m_uint</a>[pos] = val;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
@@ -284,7 +729,23 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Any bool that needs to be tied back to the parent object member variables. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00058">58</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00068">68</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae688b96325fbf7a90cce90eda4687bbd"></a><!-- doxytag: member="Plugin::m_caller" ref="ae688b96325fbf7a90cce90eda4687bbd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* <a class="el" href="classPlugin.xhtml#ae688b96325fbf7a90cce90eda4687bbd">Plugin::m_caller</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Pointer back to the object that initially loaded the plugin. </p>
+
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00069">69</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -300,7 +761,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The name of the class the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00059">59</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00070">70</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -316,7 +777,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Any string that needs to be tied back to the parent object member variables. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00060">60</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00071">71</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -332,23 +793,23 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The <a class="el" href="enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bd">PLG_TYPE</a> of the class the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00061">61</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00072">72</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6ec3d0115316ffc283e9ee3a7c019195"></a><!-- doxytag: member="Plugin::m_uint_t" ref="a6ec3d0115316ffc283e9ee3a7c019195" args="[CFG_PLG_MAX_ARR]" -->
+<a class="anchor" id="a8aa271a6826da6bdfa2a70638cb7539e"></a><!-- doxytag: member="Plugin::m_uint" ref="a8aa271a6826da6bdfa2a70638cb7539e" args="[CFG_PLG_MAX_ARR]" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> <a class="el" href="classPlugin.xhtml#a6ec3d0115316ffc283e9ee3a7c019195">Plugin::m_uint_t</a>[<a class="el" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660">CFG_PLG_MAX_ARR</a>]<code> [private]</code></td>
+          <td class="memname"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> <a class="el" href="classPlugin.xhtml#a8aa271a6826da6bdfa2a70638cb7539e">Plugin::m_uint</a>[<a class="el" href="config_8h.xhtml#a52790e6995c0615283bfe5bfbe0b8660">CFG_PLG_MAX_ARR</a>]<code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>Any <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> that needs to be tied back to the parent object member variables. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00062">62</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00073">73</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -374,7 +835,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 26 2012 18:07:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 27 2012 15:05:04 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

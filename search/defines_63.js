@@ -24,6 +24,8 @@ var searchData=
   ['cfg_5fstr_5fidle',['CFG_STR_IDLE',['../config_8h.xhtml#a8e2bae4932d5625144ae9f3bfc8c3fb0',1,'config.h']]],
   ['cfg_5fstr_5flogin',['CFG_STR_LOGIN',['../config_8h.xhtml#a8d29374ea9db48916be70f6c809e148c',1,'config.h']]],
   ['cfg_5fstr_5fmax_5fbuflen',['CFG_STR_MAX_BUFLEN',['../config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456',1,'config.h']]],
+  ['cfg_5fstr_5fquit',['CFG_STR_QUIT',['../config_8h.xhtml#a86385c70f9df717bcbe95fa445ba34c4',1,'config.h']]],
+  ['cfg_5fstr_5fshutdown',['CFG_STR_SHUTDOWN',['../config_8h.xhtml#ac4f506b4cbf175bd5fd4539fe3cafdea',1,'config.h']]],
   ['cfg_5fstr_5futils_5ferror',['CFG_STR_UTILS_ERROR',['../config_8h.xhtml#ab1422261ac78a78462c06713ccb88155',1,'config.h']]],
   ['cfg_5fstr_5futils_5finfo',['CFG_STR_UTILS_INFO',['../config_8h.xhtml#aa5d991baf2e5165be5c3f1a1a53eacd6',1,'config.h']]],
   ['cfg_5fstr_5futils_5fsocket',['CFG_STR_UTILS_SOCKET',['../config_8h.xhtml#ac38f0f1beed2da9e2c6e0210da5ba57f',1,'config.h']]],

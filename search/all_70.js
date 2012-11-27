@@ -6,6 +6,8 @@ var searchData=
   ['plg_5ftype_5fcommand',['PLG_TYPE_COMMAND',['../enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bda45e5cb968a067894ca30d54003667a12',1,'enum.h']]],
   ['plg_5ftype_5fcommand_5fbool',['PLG_TYPE_COMMAND_BOOL',['../enum_8h.xhtml#a9e809214b0ad67d9044895314e175965',1,'enum.h']]],
   ['plg_5ftype_5fcommand_5fbool_5fpreempt',['PLG_TYPE_COMMAND_BOOL_PREEMPT',['../enum_8h.xhtml#a9e809214b0ad67d9044895314e175965a3fa52c5654e850d3aa34fc612e73f4e4',1,'enum.h']]],
+  ['plg_5ftype_5fcommand_5fuint',['PLG_TYPE_COMMAND_UINT',['../enum_8h.xhtml#a2aa8b97e4bda341633582982c640bf11',1,'enum.h']]],
+  ['plg_5ftype_5fcommand_5fuint_5fsecurity',['PLG_TYPE_COMMAND_UINT_SECURITY',['../enum_8h.xhtml#a2aa8b97e4bda341633582982c640bf11a882b699beec64e0b686305216ef80f0a',1,'enum.h']]],
   ['plugin',['Plugin',['../classPlugin.xhtml',1,'Plugin'],['../classPlugin.xhtml#a3bf3ac47f4c7ad4a24629e487115a986',1,'Plugin::Plugin()']]],
   ['plugin_2ecpp',['plugin.cpp',['../plugin_8cpp.xhtml',1,'']]],
   ['plugin_2eh',['plugin.h',['../plugin_8h.xhtml',1,'']]],

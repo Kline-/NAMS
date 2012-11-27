@@ -152,6 +152,10 @@ Defines</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String to write to log on EXIT_FAILURE.  <a href="#ac890497fb16954e976eabed51b23b1dd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#ac53ab4c77c45a5e739a054086eec42fa">CFG_STR_EXIT_SUCCESS</a>&#160;&#160;&#160;&quot;Normal termination of server.&quot;</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String to write to log on EXIT_SUCCESS.  <a href="#ac53ab4c77c45a5e739a054086eec42fa"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#a86385c70f9df717bcbe95fa445ba34c4">CFG_STR_QUIT</a>&#160;&#160;&#160;&quot;Goodbye.&quot; CRLF</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String sent to the client when they quit.  <a href="#a86385c70f9df717bcbe95fa445ba34c4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#ac4f506b4cbf175bd5fd4539fe3cafdea">CFG_STR_SHUTDOWN</a>&#160;&#160;&#160;&quot;Server shutting down.&quot; CRLF</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String broadcast to all clients when the server is shutting down.  <a href="#ac4f506b4cbf175bd5fd4539fe3cafdea"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#ab1422261ac78a78462c06713ccb88155">CFG_STR_UTILS_ERROR</a>&#160;&#160;&#160;&quot;[ERROR] &quot;</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String to prepend to logs flagged UTILS_TYPE_ERROR.  <a href="#ab1422261ac78a78462c06713ccb88155"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#aa5d991baf2e5165be5c3f1a1a53eacd6">CFG_STR_UTILS_INFO</a>&#160;&#160;&#160;&quot;[INFO  ] &quot;</td></tr>
@@ -550,6 +554,38 @@ Defines</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a86385c70f9df717bcbe95fa445ba34c4"></a><!-- doxytag: member="config.h::CFG_STR_QUIT" ref="a86385c70f9df717bcbe95fa445ba34c4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="config_8h.xhtml#a86385c70f9df717bcbe95fa445ba34c4">CFG_STR_QUIT</a>&#160;&#160;&#160;&quot;Goodbye.&quot; CRLF</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Default: "Goodbye." CRLF</b></dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00236">236</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac4f506b4cbf175bd5fd4539fe3cafdea"></a><!-- doxytag: member="config.h::CFG_STR_SHUTDOWN" ref="ac4f506b4cbf175bd5fd4539fe3cafdea" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="config_8h.xhtml#ac4f506b4cbf175bd5fd4539fe3cafdea">CFG_STR_SHUTDOWN</a>&#160;&#160;&#160;&quot;Server shutting down.&quot; CRLF</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Default: "Server shutting down." CRLF</b></dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00243">243</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ab1422261ac78a78462c06713ccb88155"></a><!-- doxytag: member="config.h::CFG_STR_UTILS_ERROR" ref="ab1422261ac78a78462c06713ccb88155" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -562,7 +598,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "[ERROR ] "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00236">236</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00250">250</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -578,7 +614,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "[INFO  ] "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00243">243</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00257">257</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -594,7 +630,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "[SOCKET] "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00250">250</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00264">264</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -610,7 +646,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "NAMS Development 0.0.0"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00257">257</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00271">271</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -632,7 +668,7 @@ Defines</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 26 2012 18:07:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 27 2012 15:05:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

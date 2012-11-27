@@ -1,24 +1,33 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time." alt="" coords="409,5,545,35"/>
-<area shape="rect" id="node5" href="$classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m..." alt="" coords="411,272,544,301"/>
-<area shape="rect" id="node7" href="$classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="Build a socket for a server and set all attributes." alt="" coords="192,379,333,408"/>
-<area shape="rect" id="node26" href="$classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5" title="Search all subfolders of CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memor..." alt="" coords="175,139,351,168"/>
-<area shape="rect" id="node9" href="$classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address." alt="" coords="405,539,549,568"/>
-<area shape="rect" id="node15" href="$classServer.xhtml#a307ecabcbab896360450e2b06b22a411" title="Returns the port that any SocketServer should bind to. Defaults to CFG_SOC_PORTNUM." alt="" coords="424,325,531,355"/>
-<area shape="rect" id="node18" href="$classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket." alt="" coords="404,379,551,408"/>
-<area shape="rect" id="node20" href="$classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" title="Gets the hostname of the machine that NAMS is running on." alt="" coords="404,432,551,461"/>
-<area shape="rect" id="node22" href="$classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" title="Listen for new connections on an established socket." alt="" coords="400,485,555,515"/>
-<area shape="rect" id="node11" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="625,485,729,515"/>
-<area shape="rect" id="node13" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="604,539,751,568"/>
-<area shape="rect" id="node29" href="$namespaceUtils.xhtml#a014607a95c6d01ee99564479b3620ee7" title="Return a multimap of a specified directory tree on disk." alt="" coords="408,112,547,141"/>
-<area shape="rect" id="node33" href="$classServer.xhtml#a45782df02e28df1c52c2a8edb90264e1" title="Compile a Plugin file." alt="" coords="407,165,548,195"/>
-<area shape="rect" id="node39" href="$classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ." alt="" coords="416,219,539,248"/>
-<area shape="rect" id="node50" href="$namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee" title="Calculates the different between two timeval variables." alt="" coords="423,59,532,88"/>
-<area shape="rect" id="node31" href="$namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e" title="Determines if a file path is a directory or file on disk." alt="" coords="619,59,736,88"/>
-<area shape="rect" id="node35" href="$namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc" title="Determines if a file is readable." alt="" coords="619,112,736,141"/>
-<area shape="rect" id="node37" href="$namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Returns a string consisting of directory/file.ext." alt="" coords="625,165,729,195"/>
-<area shape="rect" id="node42" href="$namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b" title="Determines if a file path is a file or directory on disk." alt="" coords="637,219,717,248"/>
-<area shape="rect" id="node44" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="631,272,724,301"/>
-<area shape="rect" id="node46" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="605,325,749,355"/>
-<area shape="rect" id="node48" href="$classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object." alt="" coords="800,325,915,355"/>
+<area shape="rect" id="node3" href="$namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12" title="Returns the current system time." alt="" coords="407,5,543,35"/>
+<area shape="rect" id="node5" href="$classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m..." alt="" coords="408,352,541,381"/>
+<area shape="rect" id="node23" href="$classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231" title="Build a socket for a server and set all attributes." alt="" coords="192,459,333,488"/>
+<area shape="rect" id="node40" href="$classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5" title="Search all subfolders of CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memor..." alt="" coords="175,139,351,168"/>
+<area shape="rect" id="node7" href="$classServer.xhtml#ae1bb8d3c7c71119bae6dd4205fd6c0cc" title="Sends a message to all clients connected to the Server." alt="" coords="601,512,737,541"/>
+<area shape="rect" id="node9" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="796,511,937,540"/>
+<area shape="rect" id="node11" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="1015,564,1119,593"/>
+<area shape="rect" id="node13" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="993,617,1140,647"/>
+<area shape="rect" id="node15" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="992,457,1141,487"/>
+<area shape="rect" id="node17" href="$classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance." alt="" coords="1005,511,1128,540"/>
+<area shape="rect" id="node19" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="993,351,1140,380"/>
+<area shape="rect" id="node21" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="993,404,1140,433"/>
+<area shape="rect" id="node25" href="$classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address." alt="" coords="795,564,939,593"/>
+<area shape="rect" id="node29" href="$classServer.xhtml#a307ecabcbab896360450e2b06b22a411" title="Returns the port that any SocketServer should bind to. Defaults to CFG_SOC_PORTNUM." alt="" coords="421,405,528,435"/>
+<area shape="rect" id="node32" href="$classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket." alt="" coords="401,459,548,488"/>
+<area shape="rect" id="node34" href="$classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" title="Gets the hostname of the machine that NAMS is running on." alt="" coords="401,512,548,541"/>
+<area shape="rect" id="node36" href="$classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" title="Listen for new connections on an established socket." alt="" coords="789,617,944,647"/>
+<area shape="rect" id="node43" href="$namespaceUtils.xhtml#a014607a95c6d01ee99564479b3620ee7" title="Return a multimap of a specified directory tree on disk." alt="" coords="405,112,544,141"/>
+<area shape="rect" id="node47" href="$classServer.xhtml#a45782df02e28df1c52c2a8edb90264e1" title="Compile a Plugin file." alt="" coords="404,165,545,195"/>
+<area shape="rect" id="node53" href="$classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ." alt="" coords="413,272,536,301"/>
+<area shape="rect" id="node70" href="$namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee" title="Calculates the different between two timeval variables." alt="" coords="420,59,529,88"/>
+<area shape="rect" id="node45" href="$namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e" title="Determines if a file path is a directory or file on disk." alt="" coords="611,32,728,61"/>
+<area shape="rect" id="node49" href="$namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc" title="Determines if a file is readable." alt="" coords="611,85,728,115"/>
+<area shape="rect" id="node51" href="$namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Returns a string consisting of directory/file.ext." alt="" coords="617,139,721,168"/>
+<area shape="rect" id="node56" href="$namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b" title="Determines if a file path is a file or directory on disk." alt="" coords="629,352,709,381"/>
+<area shape="rect" id="node58" href="$classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859" title="Sets a pointer to the object that initialized this Plugin." alt="" coords="615,405,724,435"/>
+<area shape="rect" id="node60" href="$classPlugin.xhtml#a669870333a99490518fdd59054deaade" title="Return a bool value to tie into other object types." alt="" coords="617,459,721,488"/>
+<area shape="rect" id="node62" href="$classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43" title="Return a uint_t value to tie into other object types." alt="" coords="619,192,720,221"/>
+<area shape="rect" id="node64" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="623,245,716,275"/>
+<area shape="rect" id="node66" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="597,299,741,328"/>
+<area shape="rect" id="node68" href="$classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object." alt="" coords="809,299,924,328"/>
 </map>

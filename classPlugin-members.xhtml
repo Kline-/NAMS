@@ -85,14 +85,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 This is the complete list of members for <a class="el" href="classPlugin.xhtml">Plugin</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a669870333a99490518fdd59054deaade">gBool</a>(const uint_t &amp;pos) const </td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#abab79e7ca874fe2f6e4f5e02a40b8878">gCaller</a>() const </td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae">gName</a>() const </td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a254c795a324dab944aa3a3f127414a87">gString</a>(const uint_t &amp;pos) const </td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43">gUint</a>(const uint_t &amp;pos) const </td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a7cdd8e10107ce364f5c3f50e45493878">m_bool</a></td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#ae688b96325fbf7a90cce90eda4687bbd">m_caller</a></td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#ac59709f3ed595d8e26cb40131afe5541">m_name</a></td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#ad0402ff90752f7c96d5d30e9d68b0026">m_string</a></td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a4fecbf827fa745b458c416340d609e34">m_type</a></td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a6ec3d0115316ffc283e9ee3a7c019195">m_uint_t</a></td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a8aa271a6826da6bdfa2a70638cb7539e">m_uint</a></td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a3bf3ac47f4c7ad4a24629e487115a986">Plugin</a>(const string &amp;name, const uint_t &amp;type)</td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a033532442d50d8f4f79401d0d90ea45d">Run</a>(SocketClient *client=NULL) const =0</td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d">Run</a>(SocketClient *client=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const =0</td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#ad677e15fe0ce01a5306fbc74683dae85">sBool</a>(const uint_t &amp;pos, const bool &amp;val)</td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859">sCaller</a>(void *caller)</td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#a663e073408a8eed98fad1d76142c3353">sString</a>(const uint_t &amp;pos, const string &amp;val)</td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#ad40c46018ad9822b1c910b3f3b26d14c">sUint</a>(const uint_t &amp;pos, const uint_t &amp;val)</td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classPlugin.xhtml#aee4cc1864a2afa84a9ad935153f3fe39">~Plugin</a>()</td><td><a class="el" href="classPlugin.xhtml">Plugin</a></td><td></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
@@ -112,7 +121,7 @@ This is the complete list of members for <a class="el" href="classPlugin.xhtml">
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 26 2012 18:07:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 27 2012 15:05:04 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
