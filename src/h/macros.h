@@ -93,10 +93,14 @@ using namespace std;
 #define _caller_ __FILE__ ":" SX(__LINE__)
 
 /**
- * @def FNAME
- * @brief Get function's name wrapped in a string.
+ * @def BSET
+ * @brief Define a bitset variable (name) with values (value) already set.
+ * @param[in] name  The name to use for declaring a local variable of bitset<#CFG_MEM_MAX_BITSET>.
+ * @param[in] value Values from #UTILS_OPTS to be enabled on name.
  */
-#define FNAME string( __PRETTY_FUNCTION__ )
+#define BSET( name, value ) \
+        bitset<CFG_MEM_MAX_BITSET> name; \
+        name.set( value )
 
 /**
  * @def CRLF
@@ -112,14 +116,10 @@ using namespace std;
 #define CSTR( str ) ( str ).c_str()
 
 /**
- * @def BSET
- * @brief Define a bitset variable (name) with values (value) already set.
- * @param[in] name  The name to use for declaring a local variable of bitset<#CFG_MEM_MAX_BITSET>.
- * @param[in] value Values from #UTILS_OPTS to be enabled on name.
+ * @def FNAME
+ * @brief Get function's name wrapped in a string.
  */
-#define BSET( name, value ) \
-        bitset<CFG_MEM_MAX_BITSET> name; \
-        name.set( value )
+#define FNAME string( __PRETTY_FUNCTION__ )
 
 /**
  * @def ITER
@@ -129,23 +129,6 @@ using namespace std;
  * @param[in] name The name to use for declaring a local variable of container<type>::iterator.
  */
 #define ITER( container, type, name ) container<type>::iterator name
-
-/**
- * @def MITER
- * @brief Define an iterator variable (name) of (type1,type2) using (container).
- * @param[in] container Type of STL container to create: map, multimap, etc.
- * @param[in] type1 The first object type in pair (type1,type2) to hold within the container.
- * @param[in] type2 The second object type in pair (type1,type2) to hold within the container.
- * @param[in] name The name to use for declaring a local variable of container<type1,type2>::iterator.
- */
-#define MITER( container, type1, type2, name ) container<type1,type2>::iterator name
-
-/**
- * @def UFLAGS_DE
- * @brief Define a bitset variable (name) with #UTILS_DEBUG and #UTILS_TYPE_ERROR already enabled.
- * @param[in] name The name to use for declaring a local variable of bitset<#CFG_MEM_MAX_BITSET>.
- */
-#define UFLAGS_DE( name ) BSET( name, UTILS_DEBUG & UTILS_TYPE_ERROR )
 
 /**
  * @def LOGSTR
@@ -171,6 +154,23 @@ using namespace std;
  * @param[in] message Any string that contains printf style format variables.
  */
 #define LOGERRNO( flags, message ) LOGFMT( flags, message " returned errno %d: %s", errno, strerror( errno ) )
+
+/**
+ * @def MITER
+ * @brief Define an iterator variable (name) of (type1,type2) using (container).
+ * @param[in] container Type of STL container to create: map, multimap, etc.
+ * @param[in] type1 The first object type in pair (type1,type2) to hold within the container.
+ * @param[in] type2 The second object type in pair (type1,type2) to hold within the container.
+ * @param[in] name The name to use for declaring a local variable of container<type1,type2>::iterator.
+ */
+#define MITER( container, type1, type2, name ) container<type1,type2>::iterator name
+
+/**
+ * @def UFLAGS_DE
+ * @brief Define a bitset variable (name) with #UTILS_DEBUG and #UTILS_TYPE_ERROR already enabled.
+ * @param[in] name The name to use for declaring a local variable of bitset<#CFG_MEM_MAX_BITSET>.
+ */
+#define UFLAGS_DE( name ) BSET( name, UTILS_DEBUG & UTILS_TYPE_ERROR )
 
 /**
  * @def USLEEP_MAX

@@ -22,7 +22,7 @@
  * The Utils namespace contains all general purpose, multi-use, and non-class
  * functions. Classes that are implemented to extend default operators or
  * designed to be used in a utility sense, rather than actual objects, are also
- * conttained within this namespace.
+ * contained within this namespace.
  */
 #include "h/includes.h"
 #include "h/class.h"
