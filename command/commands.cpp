@@ -41,7 +41,10 @@ const void Commands::Run( SocketClient* client, const string& cmd, const string&
         client->Send( "Available commands:" CRLF "    " );
 
         for ( mi = command_list.begin(); mi != command_list.end(); mi++ )
-            output.push_back( mi->second->gName() );
+        {
+            if ( mi->second->Authorized( client->gSecurity() ) )
+                output.push_back( mi->second->gName() );
+        }
 
         output.sort();
 
@@ -68,7 +71,7 @@ const void Commands::Run( SocketClient* client, const string& cmd, const string&
 Commands::Commands( const string& name = "commands", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
-    sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_NONE );
+    sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_AUTH_USER );
 
     return;
 }

@@ -36,6 +36,22 @@
 
 /* Core */
 /**
+ * @brief Check if sec is >= m_security for permission to call Command::Run().
+ * @param[in] sec The security level of the caller.
+ * @retval false Returned if sec < m_security.
+ * @retval true Returned if sec >= m_security.
+ */
+const bool Command::Authorized( const uint_t& sec ) const
+{
+    if ( sec < m_security )
+        return false;
+
+    /** @todo Consider adding logging here to catch denials. */
+
+    return true;
+}
+
+/**
  * @brief Unload a command from memory that was previously loaded via Command::New().
  * @retval void
  */
@@ -90,10 +106,15 @@ const bool Command::New( const string& file )
     }
     else
     {
+        // Register the handlers and create a new instance of the Plugin's class
         m_plg_delete = (PluginDelete*) ::dlsym( m_plg_handle, "Delete" );
         m_plg_file = file;
         m_plg_new = (PluginNew*) ::dlsym( m_plg_handle, "New" );
         m_plg = m_plg_new();
+
+        // Set specific values unique to a Command object that the Plugin can specify
+        m_preempt = m_plg->gBool( PLG_TYPE_COMMAND_BOOL_PREEMPT );
+        m_security = m_plg->gUint( PLG_TYPE_COMMAND_UINT_SECURITY );
     }
 
     if ( CFG_GAM_CMD_IGNORE_CASE )

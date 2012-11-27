@@ -53,6 +53,7 @@ class SocketClient : public Socket {
 
         /** @name Query */ /**@{*/
         const uint_t gIdle() const;
+        const uint_t gSecurity() const;
         Server* gServer() const;
         const uint_t gState() const;
         /**@}*/

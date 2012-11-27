@@ -80,9 +80,47 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
     return true;
 }
 
-const bool Server::FindCommand( const string& cmd, SocketClient* client ) const
+const Command* Server::FindCommand( const string& name ) const
 {
-    return true;
+    Command* cmd = NULL;
+    bool found = false;
+    pair<multimap<const char,Command*>::iterator,multimap<const char,Command*>::iterator> cmd_list;
+    MITER( multimap, const char,Command*, mi );
+
+    if ( CFG_GAM_CMD_IGNORE_CASE )
+        cmd_list = command_list.equal_range( Utils::Lower( name )[0] );
+    else
+        cmd_list = command_list.equal_range( name[0] );
+
+    if ( cmd_list.first == cmd_list.second )
+        cmd = NULL;
+    else
+    {
+        for ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
+        {
+            found = false;
+            cmd = mi->second;
+
+            if ( CFG_GAM_CMD_IGNORE_CASE )
+            {
+                if ( Utils::Lower( cmd->gName() ).find( Utils::Lower( name ) ) == 0 )
+                    found = true;
+            }
+            else
+            {
+                if ( cmd->gName().find( name ) == 0 )
+                    found = true;
+            }
+
+            if ( found )
+                break;
+        }
+
+        if ( !found )
+            cmd = NULL;
+    }
+
+    return cmd;
 }
 
 /**

@@ -146,10 +146,8 @@ const bool SocketClient::PendingOutput() const
 const bool SocketClient::ProcessCommand()
 {
     UFLAGS_DE( flags );
-    pair<multimap<const char,Command*>::iterator,multimap<const char,Command*>::iterator> cmd_list;
-    MITER( multimap, const char,Command*, mi );
     pair<string,string> cmd;
-    bool found = false;
+    const Command* command = NULL;
 
     if ( !Valid() )
     {
@@ -166,39 +164,15 @@ const bool SocketClient::ProcessCommand()
         cmd = m_command_queue.front();
         m_command_queue.pop_front();
 
-        if ( CFG_GAM_CMD_IGNORE_CASE )
-            cmd_list = command_list.equal_range( Utils::Lower( cmd.first )[0] );
-        else
-            cmd_list = command_list.equal_range( cmd.first[0] );
-
-        if ( cmd_list.first == cmd_list.second )
-            Send( CFG_STR_CMD_INVALID );
-        else
+        if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
         {
-            for ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
-            {
-                found = false;
-
-                if ( CFG_GAM_CMD_IGNORE_CASE )
-                {
-                    if ( Utils::Lower( mi->second->gName() ).find( Utils::Lower( cmd.first ) ) == 0 )
-                        found = true;
-                }
-                else
-                {
-                    if ( mi->second->gName().find( cmd.first ) == 0 )
-                        found = true;
-                }
-
-                if ( found )
-                    break;
-            }
-
-            if ( found )
-                mi->second->Run( this, cmd.first, cmd.second );
+            if ( command->Authorized( gSecurity() ) )
+                command->Run( this, cmd.first, cmd.second );
             else
                 Send( CFG_STR_CMD_INVALID );
         }
+        else
+            Send( CFG_STR_CMD_INVALID );
     }
 
     return true;
@@ -458,6 +432,15 @@ const bool SocketClient::Send( const string& msg )
 const uint_t SocketClient::gIdle() const
 {
     return m_idle;
+}
+
+/**
+ * @brief Returns the authorized security level of the client.
+ * @retval uint_t The authorized security level of the client.
+ */
+const uint_t SocketClient::gSecurity() const
+{
+    return m_security;
 }
 
 /**

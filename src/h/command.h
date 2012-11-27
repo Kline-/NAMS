@@ -38,6 +38,7 @@ using namespace std;
 class Command {
     public:
         /** @name Core */ /**@{*/
+        const bool Authorized( const uint_t& sec ) const;
         const void Delete();
         const bool New( const string& file );
         const void Run( SocketClient* cliet = NULL, const string& cmd = "", const string& arg = "" ) const;
