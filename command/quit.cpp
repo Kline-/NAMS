@@ -34,7 +34,8 @@ const void Quit::Run( SocketClient* client, const string& cmd, const string& arg
     {
         client->Send( CFG_STR_QUIT );
         client->Send();
-        client->Delete();
+        LOGFMT( 0, "SocketClient::Quit()-> %s:%lu (%lu)", CSTR( client->gHostname() ), client->gPort(), client->gDescriptor() );
+        client->Quit();
     }
 
     return;
@@ -42,8 +43,8 @@ const void Quit::Run( SocketClient* client, const string& cmd, const string& arg
 
 Quit::Quit( const string& name = "quit", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
-    sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, false );
-    sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_AUTH_USER );
+    Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, false );
+    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_AUTH_USER );
 
     return;
 }

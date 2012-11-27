@@ -40,8 +40,8 @@ const void Help::Run( SocketClient* client, const string& cmd, const string& arg
 
 Help::Help( const string& name = "help", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
-    sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
-    sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_NONE );
+    Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
+    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_NONE );
 
     return;
 }

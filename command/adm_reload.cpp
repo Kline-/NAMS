@@ -77,8 +77,8 @@ const void AdmReload::Run( SocketClient* client, const string& cmd, const string
 
 AdmReload::AdmReload( const string& name = "::reload", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
-    sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
-    sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_ADMIN );
+    Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
+    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_ADMIN );
 
     return;
 }
