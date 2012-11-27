@@ -40,8 +40,8 @@ class SocketClient : public Socket {
         /** @name Core */ /**@{*/
         const void Delete();
         const bool New();
-        const bool PendingCommand() const { return !m_command_queue.empty(); }
-        const bool PendingOutput() const { return !m_output.empty(); }
+        const bool PendingCommand() const;
+        const bool PendingOutput() const;
         const bool ProcessCommand();
         const bool ProcessInput();
         const bool QueueCommand( const string& command );
@@ -52,9 +52,9 @@ class SocketClient : public Socket {
         /**@}*/
 
         /** @name Query */ /**@{*/
-        const uint_t gIdle() const { return m_idle; }
-        Server* gServer() const { return m_server; }
-        const uint_t gState() const { return m_state; }
+        const uint_t gIdle() const;
+        Server* gServer() const;
+        const uint_t gState() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -70,12 +70,12 @@ class SocketClient : public Socket {
         /**@}*/
 
     private:
-        deque<string> m_command_queue;
-        uint_t  m_idle;
-        string  m_input;
-        string  m_output;
-        Server* m_server;
-        uint_t  m_state;
+        deque<string> m_command_queue;  /**< FIFO queue for commands unless the command specifies preempt. */
+        uint_t m_idle;                  /**< Amount of time since data was last received from the client. */
+        string m_input;                 /**< Data received from the client that hasn't been processed yet. */
+        string m_output;                /**< Data buffered for sending to the client. */
+        Server* m_server;               /**< The Server object associated to this client. */
+        uint_t m_state;                 /**< Connection state of the client from #SOC_STATE. */
 };
 
 #endif

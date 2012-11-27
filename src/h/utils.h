@@ -19,7 +19,7 @@
  * @file utils.h
  * @brief The Utils namespace.
  *
- *  This file contains the Utils namespace, templates, and trivial member functions.
+ *  This file contains the Utils namespace and template functions.
  */
 #ifndef DEC_UTILS_H
 #define DEC_UTILS_H
@@ -36,12 +36,61 @@
 
 using namespace std;
 
+/**
+ * @brief The Utils namespace contains all general purpose, multi-use, and non-class functions.
+ */
 namespace Utils {
     /** @name Core */ /**@{*/
-    template <class T> inline const string DelSpaces( const T& t ) { string output( t ); output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() ); return output; }
-    template <class T> inline const string Lower( const T& t ) { string output( t ); transform( output.begin(), output.end(), output.begin(), ::tolower ); return output; }
-    template <class T> inline const string Upper( const T& t ) { string output( t ); transform( output.begin(), output.end(), output.begin(), ::toupper ); return output; }
-    template <class T> inline const string String( const T& t ) { stringstream ss( t ); return ss.str(); }
+    /**
+     * @brief Returns a string with all whitespace characters removed.
+     * @param[in] t Any type of string to remove whitespace from.
+     * @retval string A string with all whitespace characters removed.
+     */
+    template <class T> inline const string DelSpaces( const T& t )
+    {
+        string output( t );
+
+        output.erase( remove_if( output.begin(), output.end(), ::isspace ), output.end() );
+
+        return output;
+    }
+    /**
+     * @brief Returns a string converted to all lowercase letters.
+     * @param[in] t Any type of string to convert to lowercase.
+     * @retval string A string converted to all lowercase letters.
+     */
+    template <class T> inline const string Lower( const T& t )
+    {
+        string output( t );
+
+        transform( output.begin(), output.end(), output.begin(), ::tolower );
+
+        return output;
+    }
+    /**
+     * @brief Returns a string converted to all uppercase letters.
+     * @param[in] t Any type of string to convert to uppercase.
+     * @retval string A string converted to all uppercase letters.
+     */
+    template <class T> inline const string Upper( const T& t )
+    {
+        string output( t );
+
+        transform( output.begin(), output.end(), output.begin(), ::toupper );
+
+        return output;
+    }
+    /**
+     * @brief Returns a string object from any data type: bool, int, char, etc.
+     * @param[in] t Any type of data that can be represented as an alphanumeric string.
+     * @retval string A string containing the converted data.
+     */
+    template <class T> inline const string String( const T& t )
+    {
+        stringstream ss( t );
+
+        return ss.str();
+    }
     const timeval CurrentTime();
     const uint_t DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity );
     const string DirPath( const string& directory, const string& file, const string& ext = "" );
@@ -64,11 +113,30 @@ namespace Utils {
     /**@}*/
 
     /** @name Manipulate */ /**@{*/
+    /**
+     * @brief The DeleteObject class implements only operator() to be used in easily deleteing lists of pointers or other objects.
+     */
     class DeleteObject
     {
         public:
-            template <class T> inline const void operator() ( const T* ptr ) const { delete ptr; }
+            /**
+             * @brief Deletes a pointer.
+             * @param[in] ptr The pointer to be deleted.
+             * @retval void
+             */
+            template <class T> inline const void operator() ( const T* ptr ) const
+            {
+                delete ptr;
+            }
     };
+    /**
+     * @brief Splits a string in the format of key=value. Retains any whitespace in the value.
+     * @param[in] key The object to be populated with the key extracted from item.
+     * @param[in] val The object to be populated with the value extracted from item.
+     * @param[in] item A char or string in the form of key=value to extract data from.
+     * @retval false Returned if item does not contain an equal sign.
+     * @retval true Returned if data was successfully extracted from item.
+     */
     template <class K, class V, class I> inline const bool KeyValue( K& key, V& val, const I& item )
     {
         size_t loc = 0;
@@ -85,6 +153,16 @@ namespace Utils {
 
         return true;
     }
+    /**
+     * @brief If the contents of keyd == valu, assigns loc = item.
+     * @param[in] igncase If true, performs case-insensitive matching.
+     * @param[in] found For loop control. If keyd == valu, set to true, otherwise false.
+     * @param[in] keyd A string or number that valu must match.
+     * @param[in] valu A string or number that is checked for a match against keyd.
+     * @param[in] item A string to be copied to to loc if keyd == valu.
+     * @param[in] loc A string to be assigned the value of item if keyd == valu.
+     * @retval void
+     */
     template <class K, class V> inline const void KeySet( const bool& igncase, bool& found, const K& keyd, const V& valu, const string& item, string& loc )
     {
         string key( keyd );
@@ -106,6 +184,16 @@ namespace Utils {
 
         return;
     }
+   /**
+     * @brief If the contents of keyd == valu, assigns loc = item.
+     * @param[in] igncase If true, performs case-insensitive matching.
+     * @param[in] found For loop control. If keyd == valu, set to true, otherwise false.
+     * @param[in] keyd A string or number that valu must match.
+     * @param[in] valu A string or number that is checked for a match against keyd.
+     * @param[in] item Any string, digit, etc to be copied to to loc if keyd == valu.
+     * @param[in] loc Any string, digit, etc to be assigned the value of item if keyd == valu.
+     * @retval void
+     */
     template <class K, class V, class I, class L> inline const void KeySet( const bool& igncase, bool& found, const K& keyd, const V& valu, const I& item, L& loc )
     {
         string key( keyd );

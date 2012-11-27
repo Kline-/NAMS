@@ -17,7 +17,10 @@
  ***************************************************************************/
 /**
  * @file socketserver.cpp
- * @brief All non-trivial member functions of the SocketServer class.
+ * @brief All non-template member functions of the SocketServer class.
+ *
+ * SocketServer extends the Socket class to implement server-side features
+ * that have no use on the client end such as accept and bind.
  */
 #include "h/includes.h"
 #include "h/class.h"
@@ -189,6 +192,14 @@ const bool SocketServer::New()
 }
 
 /* Query */
+/**
+ * @brief Returns the Server object associated to this SocketServer.
+ * @retval Server Pointer to the associated Server object.
+ */
+Server* SocketServer::gServer() const
+{
+    return m_server;
+}
 
 /* Manipulate */
 /**

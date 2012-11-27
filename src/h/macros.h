@@ -75,12 +75,14 @@ using namespace std;
 /**
  * @def STR
  * @brief Stringify the calling function's file and line number for debugging.
+ * @param[in] x An item to be stringified.
  */
 #define STR(x) #x
 
 /**
  * @def SX
  * @brief Stringify the calling function's file and line number for debugging.
+ * @parampin] x An item to be stringified.
  */
 #define SX(x) STR(x)
 
@@ -105,7 +107,7 @@ using namespace std;
 /**
  * @def CSTR
  * @brief Output std::string to const char*.
- * @param[in] str Any string object.
+ * @param[in] str A std::string object.
  */
 #define CSTR( str ) ( str ).c_str()
 
@@ -123,8 +125,8 @@ using namespace std;
  * @def ITER
  * @brief Define an iterator variable (name) of (type) using (container).
  * @param[in] container Type of STL container to create: list, vector, etc.
- * @param[in] type      The type of object to hold within container, bool, SocketClient, etc.
- * @param[in] name      The name to use for declaring a local variable of container<type>::iterator.
+ * @param[in] type The type of object to hold within container, bool, SocketClient, etc.
+ * @param[in] name The name to use for declaring a local variable of container<type>::iterator.
  */
 #define ITER( container, type, name ) container<type>::iterator name
 
@@ -132,9 +134,9 @@ using namespace std;
  * @def MITER
  * @brief Define an iterator variable (name) of (type1,type2) using (container).
  * @param[in] container Type of STL container to create: map, multimap, etc.
- * @param[in] type1     The first object type in pair (type1,type2) to hold within the container.
- * @param[in] type2     The second object type in pair (type1,type2) to hold within the container.
- * @param[in] name      The name to use for declaring a local variable of container<type1,type2>::iterator.
+ * @param[in] type1 The first object type in pair (type1,type2) to hold within the container.
+ * @param[in] type2 The second object type in pair (type1,type2) to hold within the container.
+ * @param[in] name The name to use for declaring a local variable of container<type1,type2>::iterator.
  */
 #define MITER( container, type1, type2, name ) container<type1,type2>::iterator name
 
@@ -148,7 +150,7 @@ using namespace std;
 /**
  * @def LOGSTR
  * @brief Wrap Utils::Logger() for brevity and ease of future maintenance.
- * @param[in] flags   A local variable name of type bitset<#CFG_MEM_MAX_BITSET> with #UTILS_OPTS enabled as appropriate. 0 may be used if no options are needed.
+ * @param[in] flags A local variable name of type bitset<#CFG_MEM_MAX_BITSET> with #UTILS_OPTS enabled as appropriate. 0 may be used if no options are needed.
  * @param[in] message Any string, char, const char, numeric value, etc. This message will be written to log.
  */
 #define LOGSTR( flags, message ) Utils::Logger( flags, message )
@@ -156,16 +158,16 @@ using namespace std;
 /**
  * @def LOGFMT
  * @brief Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.
- * @param[in] flags   A local variable name of type bitset<#CFG_MEM_MAX_BITSET> with #UTILS_OPTS enabled as appropriate. 0 may be used if no options are needed.
+ * @param[in] flags A local variable name of type bitset<#CFG_MEM_MAX_BITSET> with #UTILS_OPTS enabled as appropriate. 0 may be used if no options are needed.
  * @param[in] message Any string that contains printf style format variables.
- * @param[in] ...     The list of arguments to format into message.
+ * @param[in] ... The list of arguments to format into message.
  */
 #define LOGFMT( flags, message, ... ) LOGSTR( flags, Utils::FormatString( flags, message, __VA_ARGS__ ) )
 
 /**
  * @def LOGERRNO
  * @brief Wrap Utils::Logger() based on a locally generated errno value from system functions.
- * @param[in] flags   A local variable name of type bitset<#CFG_MEM_MAX_BITSET> with #UTILS_OPTS enabled as appropriate. 0 may be used if no options are needed.
+ * @param[in] flags A local variable name of type bitset<#CFG_MEM_MAX_BITSET> with #UTILS_OPTS enabled as appropriate. 0 may be used if no options are needed.
  * @param[in] message Any string that contains printf style format variables.
  */
 #define LOGERRNO( flags, message ) LOGFMT( flags, message " returned errno %d: %s", errno, strerror( errno ) )

@@ -17,15 +17,22 @@
  ***************************************************************************/
 /**
  * @file utils.cpp
- * @brief All non-trivial member functions of the Utils namespace.
+ * @brief All non-template member functions of the Utils namespace.
+ *
+ * The Utils namespace contains all general purpose, multi-use, and non-class
+ * functions. Classes that are implemented to extend default operators or
+ * designed to be used in a utility sense, rather than actual objects, are also
+ * conttained within this namespace.
  */
 #include "h/includes.h"
 #include "h/class.h"
 
+#include "h/utils.h"
+
 /* Core */
 /**
  * @brief Returns the current system time.
- * @retval timeval
+ * @retval timeval A timeval struct filled with the current system time.
  */
 const timeval Utils::CurrentTime()
 {

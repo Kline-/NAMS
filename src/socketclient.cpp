@@ -119,6 +119,25 @@ const bool SocketClient::New()
 }
 
 /**
+ * @brief Tests if there are any commands in the queue to be processed.
+ * @retval false Returned if the command queue is empty.
+ * @retval true Returned if the command queue is not empty.
+ */
+const bool SocketClient::PendingCommand() const
+{
+    return !m_command_queue.empty();
+}
+
+/**
+ * @brief Tests if there is any output to be processed.
+ * @retval false Returned if the output buffer is empty.
+ * @retval true Returned if the output buffer is not empty.
+ */
+const bool SocketClient::PendingOutput() const
+{
+    return !m_output.empty();
+}
+/**
  * @brief Interpret the command at the front of the queue.
  * @retval false Returned if the socket is invalid or if a critical fault occurs during interpreting.
  * @retval true Returned if the queue is empty or there were no errors interpreting the command.
@@ -423,6 +442,32 @@ const bool SocketClient::Send( const string& msg )
 }
 
 /* Query */
+/**
+ * @brief Returns the amount of time the client has been idle.
+ * @retval uint_t The number of seconds the client has been idle.
+ */
+const uint_t SocketClient::gIdle() const
+{
+    return m_idle;
+}
+
+/**
+ * @brief Returns the Server object associated to this SocketClient.
+ * @retval Server Pointer to the associated Server object.
+ */
+Server* SocketClient::gServer() const
+{
+    return m_server;
+}
+
+/**
+ * @brief Returns the connection state of the client from #SOC_STATE.
+ * @retval uint_t The current connection state of the client.
+ */
+const uint_t SocketClient::gState() const
+{
+    return m_state;
+}
 
 /* Manipulate */
 /**

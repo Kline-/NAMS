@@ -19,7 +19,7 @@
  * @file socketserver.h
  * @brief The SocketServer class.
  *
- *  This file contains the SocketServer class, templates, and trivial member functions.
+ *  This file contains the SocketServer class and template functions.
  */
 #ifndef DEC_SOCKETSERVER_H
 #define DEC_SOCKETSERVER_H
@@ -28,6 +28,9 @@
 
 using namespace std;
 
+/**
+ * @brief SocketServer extends the Socket class to implement server-side socket functions.
+ */
 class SocketServer : public Socket {
     public:
         /** @name Core */ /**@{*/
@@ -36,12 +39,10 @@ class SocketServer : public Socket {
         const void Delete();
         const bool Listen();
         const bool New();
-        const bool Thread();
-        static void* Update( void* data );
         /**@}*/
 
         /** @name Query */ /**@{*/
-        Server* gServer() const { return m_server; }
+        Server* gServer() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -54,7 +55,7 @@ class SocketServer : public Socket {
         /**@}*/
 
     private:
-        Server* m_server;
+        Server* m_server;   /**< The Server object associated to this server-side socket. */
 };
 
 #endif

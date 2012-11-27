@@ -19,6 +19,10 @@
  * @file main.cpp
  * @brief Initial server entry point.
  *
+ * This file contains only the initial program entry point. This may change in
+ * the future if the sever design changes to support running multiple isolated
+ * instances under a single process.
+ *
  * @mainpage
  * @section sec_about About
  *  NAMS is a C++ MUD server with the primary goals of a safe, modular design and a\n

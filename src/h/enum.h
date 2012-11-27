@@ -39,8 +39,8 @@ enum PLG_TYPE {
  * @enum PLG_TYPE_COMMAND_BOOL
  */
 enum PLG_TYPE_COMMAND_BOOL {
-    PLG_TYPE_COMMAND_BOOL_PREEMPT = 0,
-    MAX_PLG_TYPE_COMMAND_BOOL     = 1
+    PLG_TYPE_COMMAND_BOOL_PREEMPT = 0,  /**< Ties to Command->m_preempt. */
+    MAX_PLG_TYPE_COMMAND_BOOL     = 1   /**< Safety limit for looping. */
 };
 /**@}*/
 
