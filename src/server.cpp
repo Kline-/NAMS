@@ -36,6 +36,28 @@
 
 /* Core */
 /**
+ * @brief Sends a message to all clients connected to the Server.
+ * @param[in] msg The message to be sent.
+ * @retval void
+ */
+const void Server::Broadcast( const string& msg )
+{
+    SocketClient *client = NULL;
+    ITER( list, SocketClient*, si );
+
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
+    {
+        client = *si;
+        m_socket_client_next = ++si;
+
+        client->Send( msg );
+        client->Send();
+    }
+
+    return;
+}
+
+/**
  * @brief Compile a Plugin file.
  * @param[in] file The file to be compiled. The file extension should end in #CFG_PLG_BUILD_EXT_IN.
  * @param[in] force Force a rebuild even if the output file already exists.

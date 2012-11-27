@@ -236,6 +236,13 @@
 #define CFG_STR_QUIT            "Goodbye." CRLF
 
 /**
+ * @def CFG_STR_SHUTDWN
+ * @brief String broadcast to all clients when the server is shutting down.
+ * @par Default: "Server shutting down." CRLF
+ */
+#define CFG_STR_SHUTDOWN        "Server shutting down." CRLF
+
+/**
  * @def CFG_STR_UTILS_ERROR
  * @brief String to prepend to logs flagged UTILS_TYPE_ERROR.
  * @par Default: "[ERROR ] "

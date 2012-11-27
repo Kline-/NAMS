@@ -38,6 +38,7 @@ const void AdmShutdown::Run( SocketClient* client, const string& cmd, const stri
             return;
         }
 
+        client->gServer()->Broadcast( CFG_STR_SHUTDOWN );
         client->gServer()->Shutdown( EXIT_SUCCESS );
     }
 
