@@ -191,10 +191,13 @@ const bool SocketClient::ProcessCommand()
                 }
 
                 if ( found )
-                    mi->second->Run( this, cmd.first, cmd.second );
-                else
-                    Send( CFG_STR_CMD_INVALID );
+                    break;
             }
+
+            if ( found )
+                mi->second->Run( this, cmd.first, cmd.second );
+            else
+                Send( CFG_STR_CMD_INVALID );
         }
     }
 
@@ -247,6 +250,7 @@ const bool SocketClient::ProcessInput()
 const bool SocketClient::QueueCommand( const string& command )
 {
     UFLAGS_DE( flags );
+    string cmd, arg;
 
     if ( !Valid() )
     {
@@ -254,7 +258,11 @@ const bool SocketClient::QueueCommand( const string& command )
         return false;
     }
 
-    m_command_queue.push_back( pair<string,string>( command.substr( 0, command.find_first_of( " " ) ), command.substr( command.find_first_of( " " ) + 1 ) ) );
+    cmd = command.substr( 0, command.find_first_of( " " ) );
+    if ( command.find_first_of( " " ) != string::npos )
+        arg = command.substr( command.find_first_of( " " ) + 1 );
+
+    m_command_queue.push_back( pair<string,string>( cmd, arg ) );
 
     return true;
 }

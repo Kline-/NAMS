@@ -91,6 +91,7 @@ const bool Command::New( const string& file )
     else
     {
         m_plg_delete = (PluginDelete*) ::dlsym( m_plg_handle, "Delete" );
+        m_plg_file = file;
         m_plg_new = (PluginNew*) ::dlsym( m_plg_handle, "New" );
         m_plg = m_plg_new();
     }
@@ -138,6 +139,7 @@ Command::Command()
     m_level = uintmin_t;
     m_plg = NULL;
     m_plg_delete = NULL;
+    m_plg_file.clear();
     m_plg_handle = NULL;
     m_plg_new = NULL;
     m_preempt = false;

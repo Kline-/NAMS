@@ -20,15 +20,15 @@
 #include "class.h"
 #include "plugin.h"
 
-class Shutdown : public Plugin {
+class AdmShutdown : public Plugin {
     public:
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
-        Shutdown( const string& name, const uint_t& type );
-        ~Shutdown();
+        AdmShutdown( const string& name, const uint_t& type );
+        ~AdmShutdown();
 };
 
-const void Shutdown::Run( SocketClient* client, const string& cmd, const string& arg ) const
+const void AdmShutdown::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     if ( client )
     {
@@ -44,16 +44,16 @@ const void Shutdown::Run( SocketClient* client, const string& cmd, const string&
     return;
 }
 
-Shutdown::Shutdown( const string& name = "::shutdown", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+AdmShutdown::AdmShutdown( const string& name = "::shutdown", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     return;
 }
 
-Shutdown::~Shutdown()
+AdmShutdown::~AdmShutdown()
 {
 }
 
 extern "C" {
-    Plugin* New() { return new Shutdown(); }
+    Plugin* New() { return new AdmShutdown(); }
     void Delete( Plugin* p ) { delete p; }
 }
