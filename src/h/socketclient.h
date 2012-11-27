@@ -45,6 +45,8 @@ class SocketClient : public Socket {
         const bool ProcessCommand();
         const bool ProcessInput();
         const bool QueueCommand( const string& command );
+        const void Quit();
+        const bool Quitting() const;
         const bool Recv();
         const void ResolveHostname();
         const bool Send();
@@ -75,6 +77,7 @@ class SocketClient : public Socket {
         uint_t m_idle;                                  /**< Amount of time since data was last received from the client. */
         string m_input;                                 /**< Data received from the client that hasn't been processed yet. */
         string m_output;                                /**< Data buffered for sending to the client. */
+        bool m_quitting;                                /**< Flag the client as quitting to escape nested loops. */
         uint_t m_security;                              /**< Security level for commands and restricted access. */
         Server* m_server;                               /**< The Server object associated to this client. */
         uint_t m_state;                                 /**< Connection state of the client from #SOC_STATE. */

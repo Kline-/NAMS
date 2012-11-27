@@ -44,7 +44,7 @@ const void SocketClient::Delete()
     if ( !m_server->sSocketClose( m_server->gSocketClose() + 1 ) )
         LOGFMT( flags, "SocketClient::Disconnect()->Server::sSocketClose()-> value %lu returned false", m_server->gSocketClose() + 1 );
 
-    socket_client_list.remove( this );
+    gServer()->sSocketClientNext( socket_client_list.erase( find( socket_client_list.begin(), socket_client_list.end(), this ) ) );
     delete this;
 
     return;
@@ -239,6 +239,26 @@ const bool SocketClient::QueueCommand( const string& command )
     m_command_queue.push_back( pair<string,string>( cmd, arg ) );
 
     return true;
+}
+
+/**
+ * @brief Flags a client as quitting to break out of nested loops.
+ * @retval void
+ */
+const void SocketClient::Quit()
+{
+    m_quitting = true;
+
+    return;
+}
+
+/**
+ * @brief Checks if a client is marked as quitting.
+ * @retval bool The value of m_quitting.
+ */
+const bool SocketClient::Quitting() const
+{
+    return m_quitting;
 }
 
 /**
@@ -582,6 +602,7 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
     m_idle = 0;
     m_input.clear();
     m_output.clear();
+    m_quitting = false;
     m_security = SOC_SECURITY_ADMIN;
     sServer( server );
     m_state = SOC_STATE_DISCONNECTED;

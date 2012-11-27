@@ -206,6 +206,7 @@ const bool Server::PollSockets()
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
     {
         socket_client = *si;
+        m_socket_client_next = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -214,7 +215,12 @@ const bool Server::PollSockets()
             continue;
         }
 
-        m_socket_client_next = ++si;
+        if ( socket_client->Quitting() )
+        {
+            socket_client->Delete();
+            continue;
+        }
+
         max_desc = max( server_desc, client_desc );
 
         // Populate lists of: exceptions, pending input, pending output
@@ -590,8 +596,6 @@ const string Server::gStatus() const
  */
 const bool Server::sPort( const uint_t& port )
 {
-    UFLAGS_DE( flags );
-
     // No logger output; this should only be called pre-boot
     if ( port <= CFG_SOC_MIN_PORTNUM || port >= CFG_SOC_MAX_PORTNUM )
         return false;
@@ -599,6 +603,18 @@ const bool Server::sPort( const uint_t& port )
     m_port = port;
 
     return true;
+}
+
+/**
+ * @brief Sets the Server's globally referenced next iterator for SocketClient objects.
+ * @param[in] next The next SocketClient in socket_client_list after removing an element.
+ * @retval void
+ */
+const void Server::sSocketClientNext( list<SocketClient*>::iterator next )
+{
+    m_socket_client_next = next;
+
+    return;
 }
 
 /**

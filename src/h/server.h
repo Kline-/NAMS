@@ -61,6 +61,7 @@ class Server {
 
         /** @name Manipulate */ /**@{*/
         const bool sPort( const uint_t& port );
+        const void sSocketClientNext( list<SocketClient*>::iterator next );
         const bool sSocketClose( const uint_t& amount );
         const bool sSocketOpen( const uint_t& amount );
         /**@}*/
