@@ -22,13 +22,13 @@
 
 class Help : public Plugin {
     public:
-        virtual const void Run( SocketClient* client = NULL ) const;
+        virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
         Help( const string& name, const uint_t& type );
         ~Help();
 };
 
-const void Help::Run( SocketClient* client ) const
+const void Help::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     if ( client )
         client->Send( "Help!" CRLF );
@@ -38,7 +38,7 @@ const void Help::Run( SocketClient* client ) const
     return;
 }
 
-Help::Help( const string& name = "Help", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+Help::Help( const string& name = "help", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     return;
 }

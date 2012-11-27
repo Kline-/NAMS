@@ -137,6 +137,7 @@ const bool SocketClient::PendingOutput() const
 {
     return !m_output.empty();
 }
+
 /**
  * @brief Interpret the command at the front of the queue.
  * @retval false Returned if the socket is invalid or if a critical fault occurs during interpreting.
@@ -147,7 +148,7 @@ const bool SocketClient::ProcessCommand()
     UFLAGS_DE( flags );
     pair<multimap<const char,Command*>::iterator,multimap<const char,Command*>::iterator> cmd_list;
     MITER( multimap, const char,Command*, mi );
-    string cmd;
+    pair<string,string> cmd;
     bool found = false;
 
     if ( !Valid() )
@@ -166,9 +167,9 @@ const bool SocketClient::ProcessCommand()
         m_command_queue.pop_front();
 
         if ( CFG_GAM_CMD_IGNORE_CASE )
-            cmd_list = command_list.equal_range( Utils::Lower( cmd )[0] );
+            cmd_list = command_list.equal_range( Utils::Lower( cmd.first )[0] );
         else
-            cmd_list = command_list.equal_range( cmd[0] );
+            cmd_list = command_list.equal_range( cmd.first[0] );
 
         if ( cmd_list.first == cmd_list.second )
             Send( CFG_STR_CMD_INVALID );
@@ -180,17 +181,17 @@ const bool SocketClient::ProcessCommand()
 
                 if ( CFG_GAM_CMD_IGNORE_CASE )
                 {
-                    if ( Utils::Lower( mi->second->gName() ).find( Utils::Lower( cmd ) ) == 0 )
+                    if ( Utils::Lower( mi->second->gName() ).find( Utils::Lower( cmd.first ) ) == 0 )
                         found = true;
                 }
                 else
                 {
-                    if ( mi->second->gName().find( cmd ) == 0 )
+                    if ( mi->second->gName().find( cmd.first ) == 0 )
                         found = true;
                 }
 
                 if ( found )
-                    mi->second->Run( this );
+                    mi->second->Run( this, cmd.first, cmd.second );
                 else
                     Send( CFG_STR_CMD_INVALID );
             }
@@ -253,7 +254,7 @@ const bool SocketClient::QueueCommand( const string& command )
         return false;
     }
 
-    m_command_queue.push_back( command );
+    m_command_queue.push_back( pair<string,string>( command.substr( 0, command.find_first_of( " " ) ), command.substr( command.find_first_of( " " ) + 1 ) ) );
 
     return true;
 }

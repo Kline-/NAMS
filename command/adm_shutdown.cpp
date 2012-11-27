@@ -22,21 +22,29 @@
 
 class Shutdown : public Plugin {
     public:
-        virtual const void Run( SocketClient* client = NULL ) const;
+        virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
         Shutdown( const string& name, const uint_t& type );
         ~Shutdown();
 };
 
-const void Shutdown::Run( SocketClient* client ) const
+const void Shutdown::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     if ( client )
+    {
+        if ( Utils::Lower( cmd ).compare( gName() ) != 0 )
+        {
+            client->Send( "If you wish to shutdown you must enter the complete command." CRLF );
+            return;
+        }
+
         client->gServer()->Shutdown( EXIT_SUCCESS );
+    }
 
     return;
 }
 
-Shutdown::Shutdown( const string& name = "Shutdown", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+Shutdown::Shutdown( const string& name = "::shutdown", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     return;
 }

@@ -37,9 +37,11 @@ class Plugin {
         /**
          * @brief Execute the primary function of the implemented class.
          * @param[in] client If called from a SocketClient, the caller is passed through to the Plugin for reference.
+         * @param[in] cmd If called from a SocketClient, the command from the client is passed through.
+         * @param[in] arg If called from a SocketClient, the arguments from the client are passed through.
          * @retval void
          */
-        virtual const void Run( SocketClient* client = NULL ) const = 0;
+        virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const = 0;
         /**@}*/
 
         /** @name Query */ /**@{*/

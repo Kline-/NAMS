@@ -40,7 +40,7 @@ class Command {
         /** @name Core */ /**@{*/
         const void Delete();
         const bool New( const string& file );
-        const void Run( SocketClient* cliet = NULL ) const;
+        const void Run( SocketClient* cliet = NULL, const string& cmd = "", const string& arg = "" ) const;
         /**@}*/
 
         /** @name Query */ /**@{*/
