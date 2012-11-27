@@ -468,33 +468,43 @@ const void Server::Shutdown( const sint_t& status )
  * @brief Start the NAMS Server. Responsible for calling all critical boot-time functions such as SocketServer initialization, Command loading, etc.
  * @retval void
  */
-const void Server::Startup()
+const void Server::Startup( const sint_t& desc )
 {
     UFLAGS_DE( flags );
     SocketServer* socket_server;
     sint_t descriptor = 0;
+    bool reboot = false;
     m_shutdown = false;
 
     LOGFMT( 0, "%s started.", CFG_STR_VERSION );
     m_time_boot = Utils::CurrentTime();
 
-    if ( ( descriptor = ::socket( AF_INET6, SOCK_STREAM, 0 ) ) < 0 )
+    // Fresh boot, otherwise it would already be assigned during a reboot
+    if ( desc == 0 )
     {
-        LOGERRNO( flags, "Server::Startup()->socket()->" );
-        Shutdown( EXIT_FAILURE );
+        if ( ( descriptor = ::socket( AF_INET6, SOCK_STREAM, 0 ) ) < 0 )
+        {
+            LOGERRNO( flags, "Server::Startup()->socket()->" );
+            Shutdown( EXIT_FAILURE );
+        }
+    }
+    else
+    {
+        descriptor = desc;
+        reboot = true;
     }
 
     socket_server = new SocketServer( this, descriptor );
     m_socket = socket_server;
 
-    if ( !socket_server->New() )
+    if ( !socket_server->New( reboot ) )
     {
         LOGSTR( flags, "Server::Startup()->SocketServer::New()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
 
     // Bump ourselves to the root folder for file paths
-    if ( ::chdir( ".." ) < 0 )
+    if ( !reboot && ::chdir( ".." ) < 0 )
     {
         LOGERRNO( flags, "Server::Startup()->chdir()->" );
         Shutdown( EXIT_FAILURE );
@@ -579,6 +589,15 @@ const uint_t Server::gPort() const
 SocketServer* Server::gSocket() const
 {
     return m_socket;
+}
+
+/**
+ * @brief Returns the Server's globally referenced next iterator for SocketClient objects.
+ * @retval SocketClient* The Server's globally referenced next iterator for SocketClient objects.
+ */
+list<SocketClient*>::iterator Server::gSocketClientNext() const
+{
+    return m_socket_client_next;
 }
 
 /**

@@ -51,6 +51,7 @@
 int main( const int argc, const char* argv[] )
 {
     BSET( flags, UTILS_RAW );
+    sint_t desc = 0;
     Server _server;
 
     if ( argc > 1 )
@@ -65,11 +66,15 @@ int main( const int argc, const char* argv[] )
             LOGFMT( flags, "Port number must be between %d and %d.", CFG_SOC_MIN_PORTNUM, CFG_SOC_MAX_PORTNUM );
             _server.Shutdown( EXIT_FAILURE );
         }
+
+        // Must be rebooting
+        if ( argc > 2 )
+            desc = atoi( argv[2] );
     }
     else
         _server.sPort( CFG_SOC_PORTNUM );
 
-    _server.Startup();
+    _server.Startup( desc );
     while( _server.Running() )
         _server.Update();
 

@@ -52,10 +52,11 @@ const void SocketClient::Delete()
 
 /**
  * @brief Build a SocketClient for a new client connection and set all attributes.
+ * @param[in] reboot Mark if the server is undergoing a reboot or not.
  * @retval false Returned if there is an error in connecting the client.
  * @retval true Returned if the client is successfully connected.
  */
-const bool SocketClient::New()
+const bool SocketClient::New( const bool& reboot )
 {
     UFLAGS_DE( flags );
     sint_t error = 0;
@@ -603,7 +604,7 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
     m_input.clear();
     m_output.clear();
     m_quitting = false;
-    m_security = SOC_SECURITY_ADMIN;
+    m_security = SOC_SECURITY_ADMIN; /** @todo Reset this to SOC_SECURITY_NONE once accounts are established. */
     sServer( server );
     m_state = SOC_STATE_DISCONNECTED;
 

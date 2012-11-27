@@ -39,7 +39,7 @@ class SocketClient : public Socket {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New();
+        const bool New( const bool& reboot = false );
         const bool PendingCommand() const;
         const bool PendingOutput() const;
         const bool ProcessCommand();

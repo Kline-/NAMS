@@ -163,29 +163,33 @@ const bool SocketServer::Listen()
 
 /**
  * @brief Build a socket for a server and set all attributes.
+ * @param[in] reboot Mark if the server is undergoing a reboot or not.
  * @retval false Returned if any errors are encountered during binding, setting hostname, or listening.
  * @retval true Returned if the socket is able to successfully bind, set hostname, and listen for new connections.
  */
-const bool SocketServer::New()
+const bool SocketServer::New( const bool& reboot )
 {
     UFLAGS_DE( flags );
 
-    if ( !Bind( m_server->gPort(), CFG_SOC_BIND_ADDR ) )
+    if ( !reboot )
     {
-        LOGSTR( flags, "SocketServer::New()->SocketServer::Bind()-> returned false" );
-        m_server->Shutdown( EXIT_FAILURE );
-    }
+        if ( !Bind( m_server->gPort(), CFG_SOC_BIND_ADDR ) )
+        {
+            LOGSTR( flags, "SocketServer::New()->SocketServer::Bind()-> returned false" );
+            m_server->Shutdown( EXIT_FAILURE );
+        }
 
-    if ( !sHostname( m_server->gHostname() ) )
-    {
-        LOGFMT( flags, "SocketServer::New()->SocketServer::sHostname()-> hostname %s returned false", CSTR( m_server->gHostname() ) );
-        m_server->Shutdown( EXIT_FAILURE );
-    }
+        if ( !sHostname( m_server->gHostname() ) )
+        {
+            LOGFMT( flags, "SocketServer::New()->SocketServer::sHostname()-> hostname %s returned false", CSTR( m_server->gHostname() ) );
+            m_server->Shutdown( EXIT_FAILURE );
+        }
 
-    if ( !Listen() )
-    {
-        LOGSTR( flags, "SocketServer::New()->SocketServer::Listen()-> returned false" );
-        m_server->Shutdown( EXIT_FAILURE );
+        if ( !Listen() )
+        {
+            LOGSTR( flags, "SocketServer::New()->SocketServer::Listen()-> returned false" );
+            m_server->Shutdown( EXIT_FAILURE );
+        }
     }
 
     return true;
@@ -240,6 +244,7 @@ SocketServer::SocketServer( Server* server, const sint_t& descriptor ) : Socket(
     UFLAGS_DE( flags );
 
     sServer( server );
+    sPort( server->gPort() );
 
     m_server->sSocketOpen( m_server->gSocketOpen() + 1 );
     socket_server_list.push_back( this );

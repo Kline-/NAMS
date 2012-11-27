@@ -38,7 +38,7 @@ class SocketServer : public Socket {
         const bool Bind( const uint_t& port, const string& addr );
         const void Delete();
         const bool Listen();
-        const bool New();
+        const bool New( const bool& reboot = false );
         /**@}*/
 
         /** @name Query */ /**@{*/

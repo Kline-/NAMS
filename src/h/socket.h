@@ -39,10 +39,11 @@ class Socket {
         virtual const void Delete() = 0;
         /**
          * @brief Build a Socket for either a new SocketClient or SocketServer.
+         * @param[in] reboot Mark if the server is undergoing a reboot or not.
          * @retval false Returned if there is an error in creating the Socket.
          * @retval true Returned if the Socket is successfully created.
          */
-        virtual const bool New() = 0;
+        virtual const bool New( const bool& reboot = false ) = 0;
         const bool Valid() const;
         /**@}*/
 

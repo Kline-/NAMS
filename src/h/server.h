@@ -46,7 +46,7 @@ class Server {
         const bool PollSockets();
         const void ProcessInput();
         const bool Running() const;
-        const void Startup();
+        const void Startup( const sint_t& desc = 0 );
         const void Shutdown( const sint_t& status );
         const void Update();
         /**@}*/
@@ -55,6 +55,7 @@ class Server {
         const string gHostname() const;
         const uint_t gPort() const;
         SocketServer* gSocket() const;
+        list<SocketClient*>::iterator gSocketClientNext() const;
         const uint_t gSocketClose() const;
         const uint_t gSocketOpen() const;
         const string gStatus() const;

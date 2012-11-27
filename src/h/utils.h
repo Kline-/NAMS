@@ -87,7 +87,9 @@ namespace Utils {
      */
     template <class T> inline const string String( const T& t )
     {
-        stringstream ss( t );
+        stringstream ss;
+
+        ss << t;
 
         return ss.str();
     }
