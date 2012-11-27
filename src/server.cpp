@@ -438,6 +438,8 @@ const bool Server::Running() const
 const void Server::Shutdown( const sint_t& status )
 {
     bool was_running = !m_shutdown;
+
+    Broadcast( CFG_STR_SHUTDOWN );
     m_shutdown = true;
 
     // Cleanup commands
