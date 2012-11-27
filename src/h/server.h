@@ -40,7 +40,7 @@ class Server {
     public:
         /** @name Core */ /**@{*/
         const bool BuildPlugin( const string& file, const bool& force = false );
-        const Command* FindCommand( const string& name ) const;
+        Command* FindCommand( const string& name ) const;
         const bool LoadCommands();
         const bool PollSockets();
         const void ProcessInput();

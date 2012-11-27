@@ -53,6 +53,15 @@ const bool Plugin::gBool( const uint_t& pos ) const
 }
 
 /**
+ * @brief Return a pointer to the object that initialized this Plugin.
+ * @retval void* A pointer to the object that initialized this Plugin.
+ */
+void* Plugin::gCaller() const
+{
+    return m_caller;
+}
+
+/**
  * @brief Return the name of the object.
  * @retval string A string containing the name of the object.
  */
@@ -121,6 +130,27 @@ const bool Plugin::sBool( const uint_t& pos, const bool& val )
 }
 
 /**
+ * @brief Sets a pointer to the object that initialized this Plugin.
+ * @param[in] caller A pointer to the object that initialized this Plugin.
+ * @retval false Returned if caller is NULL.
+ * @retval true Returned if caller is not NULL.
+ */
+const bool Plugin::sCaller( void* caller )
+{
+    UFLAGS_DE( flags );
+
+    if ( !caller )
+    {
+        LOGSTR( flags, "Plugin::sCaller()-> called with NULL caller" );
+        return false;
+    }
+
+    m_caller = caller;
+
+    return true;
+}
+
+/**
  * @brief Sets a string value to tie into other object types.
  * @param[in] pos The array position to be assigned val.
  * @param[in val The value to assign pos.
@@ -161,7 +191,7 @@ const bool Plugin::sUint( const uint_t& pos, const uint_t& val )
 
     if ( val < uintmin_t || val >= uintmax_t )
     {
-        LOGFMT( flags, "Plugin::sUint()-> callue with invalid val: %lu", val );
+        LOGFMT( flags, "Plugin::sUint()-> called with invalid val: %lu", val );
         return false;
     }
 
@@ -182,6 +212,7 @@ Plugin::Plugin( const string& name, const uint_t& type )
 
     for ( i = 0; i < CFG_PLG_MAX_ARR; i++ )
         m_bool[i] = false;
+    m_caller = NULL;
     m_name = name;
     for ( i = 0; i < CFG_PLG_MAX_ARR; i++ )
         m_string[i].clear();

@@ -101,7 +101,7 @@ const bool Command::New( const string& file )
 
     if ( ( m_plg_handle = ::dlopen( CSTR( path ), RTLD_LAZY | RTLD_GLOBAL ) ) == NULL )
     {
-        LOGFMT( flags, "Command::New()->dlopen returned error: %s", ::dlerror() );
+        LOGFMT( flags, "Command::New()->dlopen() returned error: %s", ::dlerror() );
         return false;
     }
     else
@@ -111,6 +111,7 @@ const bool Command::New( const string& file )
         m_plg_file = file;
         m_plg_new = (PluginNew*) ::dlsym( m_plg_handle, "New" );
         m_plg = m_plg_new();
+        m_plg->sCaller( this );
 
         // Set specific values unique to a Command object that the Plugin can specify
         m_preempt = m_plg->gBool( PLG_TYPE_COMMAND_BOOL_PREEMPT );
@@ -140,6 +141,24 @@ const void Command::Run( SocketClient* client, const string& cmd, const string& 
 }
 
 /* Query */
+/**
+ * @brief Return a pointer back to a Command object associated with the loaded Plugin.
+ * @retval void* A pointer back to a Command object associated with the loaded Plugin.
+ */
+void* Command::gCaller() const
+{
+    return m_plg->gCaller();
+}
+
+/**
+ * @brief Return the filename of the associated Plugin object.
+ * @retval string A string containing the filename of the associated Plugin object.
+ */
+const string Command::gFile() const
+{
+    return m_plg_file;
+}
+
 /**
  * @brief Return the name of the associated Plugin object.
  * @retval string A string containing the name of the associated Plugin object.

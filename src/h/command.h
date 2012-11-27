@@ -45,6 +45,8 @@ class Command {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        void* gCaller() const;
+        const string gFile() const;
         const string gName() const;
         /**@}*/
 

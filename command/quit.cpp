@@ -20,74 +20,39 @@
 #include "class.h"
 #include "plugin.h"
 
-#include "command.h"
-
-class AdmReload : public Plugin {
+class Quit : public Plugin {
     public:
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
-        AdmReload( const string& name, const uint_t& type );
-        ~AdmReload();
+        Quit( const string& name, const uint_t& type );
+        ~Quit();
 };
 
-const void AdmReload::Run( SocketClient* client, const string& cmd, const string& arg ) const
+const void Quit::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
-    Command* newcmd = NULL;
-    Command* oldcmd = NULL;
-    string file;
-    UFLAGS_DE( flags );
-
     if ( client )
     {
-        if ( arg.empty() )
-        {
-            client->Send( "Reload -which- command?" CRLF );
-            return;
-        }
-
-        if ( ( oldcmd = client->gServer()->FindCommand( arg ) ) != NULL )
-        {
-            if ( oldcmd->gCaller() == gCaller() )
-            {
-                client->Send( "Now that would be pointless, wouldn't it?" CRLF );
-                return;
-            }
-
-            if ( oldcmd->Authorized( client->gSecurity() ) )
-            {
-                file = oldcmd->gFile();
-                oldcmd->Delete();
-
-                newcmd = new Command();
-                if ( !newcmd->New( file ) )
-                {
-                    LOGFMT( flags, "AdmReload::Run()->Command::New()-> command %s returned false", CSTR( file ) );
-                    delete newcmd;
-                }
-
-                client->Send( "Command successfully reloaded." CRLF );
-            }
-        }
-        else
-            client->Send( "That command doesn't exist." CRLF );
+        client->Send( CFG_STR_QUIT );
+        client->Send();
+        client->Delete();
     }
 
     return;
 }
 
-AdmReload::AdmReload( const string& name = "::reload", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+Quit::Quit( const string& name = "quit", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
-    sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
-    sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_ADMIN );
+    sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, false );
+    sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_AUTH_USER );
 
     return;
 }
 
-AdmReload::~AdmReload()
+Quit::~Quit()
 {
 }
 
 extern "C" {
-    Plugin* New() { return new AdmReload(); }
+    Plugin* New() { return new Quit(); }
     void Delete( Plugin* p ) { delete p; }
 }

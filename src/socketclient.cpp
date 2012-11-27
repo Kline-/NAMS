@@ -147,7 +147,7 @@ const bool SocketClient::ProcessCommand()
 {
     UFLAGS_DE( flags );
     pair<string,string> cmd;
-    const Command* command = NULL;
+    Command* command = NULL;
 
     if ( !Valid() )
     {
@@ -582,7 +582,7 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
     m_idle = 0;
     m_input.clear();
     m_output.clear();
-    m_security = SOC_SECURITY_NONE;
+    m_security = SOC_SECURITY_ADMIN;
     sServer( server );
     m_state = SOC_STATE_DISCONNECTED;
 

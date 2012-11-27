@@ -80,7 +80,7 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
     return true;
 }
 
-const Command* Server::FindCommand( const string& name ) const
+Command* Server::FindCommand( const string& name ) const
 {
     Command* cmd = NULL;
     bool found = false;

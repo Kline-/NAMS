@@ -46,6 +46,7 @@ class Plugin {
 
         /** @name Query */ /**@{*/
         const bool gBool( const uint_t& pos ) const;
+        void* gCaller() const;
         const string gName() const;
         const string gString( const uint_t& pos ) const;
         const uint_t gUint( const uint_t& pos ) const;
@@ -53,6 +54,7 @@ class Plugin {
 
         /** @name Manipulate */ /**@{*/
         const bool sBool( const uint_t& pos, const bool& val );
+        const bool sCaller( void* caller );
         const bool sString( const uint_t& pos, const string& val );
         const bool sUint( const uint_t& pos, const uint_t& val );
         /**@}*/
@@ -64,6 +66,7 @@ class Plugin {
 
     private:
         bool m_bool[CFG_PLG_MAX_ARR];       /**< Any bool that needs to be tied back to the parent object member variables. */
+        void* m_caller;                     /**< Pointer back to the object that initially loaded the plugin. */
         string m_name;                      /**< The name of the class the Plugin implements. */
         string m_string[CFG_PLG_MAX_ARR];   /**< Any string that needs to be tied back to the parent object member variables. */
         uint_t m_type;                      /**< The #PLG_TYPE of the class the Plugin implements. */
