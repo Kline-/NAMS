@@ -110,7 +110,7 @@ const uint_t Plugin::gUint( const uint_t& pos ) const
 /**
  * @brief Sets a bool value to tie into other object types.
  * @param[in] pos The array position to be assigned val.
- * @param[in val The value to assign pos.
+ * @param[in] val The value to assign pos.
  * @retval false Returned if pos is out of range or an error occurs.
  * @retval true Returned if pos was successfully set to val.
  */
@@ -153,7 +153,7 @@ const bool Plugin::sCaller( void* caller )
 /**
  * @brief Sets a string value to tie into other object types.
  * @param[in] pos The array position to be assigned val.
- * @param[in val The value to assign pos.
+ * @param[in] val The value to assign pos.
  * @retval false Returned if pos is out of range or an error occurs.
  * @retval true Returned if pos was successfully set to val.
  */
@@ -175,7 +175,7 @@ const bool Plugin::sString( const uint_t& pos, const string& val )
 /**
  * @brief Sets a uint_t value to tie into other object types.
  * @param[in] pos The array position to be assigned val.
- * @param[in val The value to assign pos.
+ * @param[in] val The value to assign pos.
  * @retval false Returned if pos is out of range or an error occurs.
  * @retval true Returned if pos was successfully set to val.
  */

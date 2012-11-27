@@ -82,7 +82,7 @@ using namespace std;
 /**
  * @def SX
  * @brief Stringify the calling function's file and line number for debugging.
- * @parampin] x An item to be stringified.
+ * @param[in] x An item to be stringified.
  */
 #define SX(x) STR(x)
 
