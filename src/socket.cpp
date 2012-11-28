@@ -96,7 +96,7 @@ const bool Socket::aBytesRecvd( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
-    if ( amount < 1 || ( ( m_bytes_recvd + amount ) >= uintmax_t ) )
+    if ( amount < uintmin_t || ( ( m_bytes_recvd + amount ) >= uintmax_t ) )
     {
         LOGFMT( flags, "Socket::aBytesRecvd()-> called with m_bytes_recvd overflow: %lu + %lu", m_bytes_recvd, amount );
         return false;
@@ -117,7 +117,7 @@ const bool Socket::aBytesSent( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
-    if ( amount < 1 || ( ( m_bytes_sent + amount ) >= uintmax_t ) )
+    if ( amount < uintmin_t || ( ( m_bytes_sent + amount ) >= uintmax_t ) )
     {
         LOGFMT( flags, "Socket::sBytesSent()-> called with m_bytes_sent overflow: %lu + %lu", m_bytes_sent, amount );
         return false;
