@@ -63,6 +63,7 @@ class SocketClient : public Socket {
         /** @name Manipulate */ /**@{*/
         const bool sIdle( const uint_t& idle );
         static void* tResolveHostname( void* data );
+        const bool sSecurity( const uint_t& security );
         const bool sServer( Server* server );
         const bool sState( const uint_t& state );
         /**@}*/

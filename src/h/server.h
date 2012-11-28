@@ -45,6 +45,7 @@ class Server {
         const bool LoadCommands();
         const bool PollSockets();
         const void ProcessInput();
+        const void RebootRecovery( const bool& reboot );
         const bool Running() const;
         const void Startup( const sint_t& desc = 0 );
         const void Shutdown( const sint_t& status );

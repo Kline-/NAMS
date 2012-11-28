@@ -35,13 +35,20 @@ const void AdmReboot::Run( SocketClient* client, const string& cmd, const string
     string desc, port;
     ofstream ofs;
 
-    ofs.open( "../socket.dat", ios::binary );
+    ofs.open( "socket.dat" );
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = client->gServer()->gSocketClientNext() )
     {
         socket_client = *si;
         client->gServer()->sSocketClientNext( ++si );
 
-        ofs << socket_client;
+        ofs << "desc = " << socket_client->gDescriptor() << endl;
+        ofs << "port = " << socket_client->gPort() << endl;
+        ofs << "host = " << socket_client->gHostname() << endl;
+        ofs << "recv = " << socket_client->gBytesRecvd() << endl;
+        ofs << "sent = " << socket_client->gBytesSent() << endl;
+        ofs << "idle = " << socket_client->gIdle() << endl;
+        ofs << "secu = " << socket_client->gSecurity() << endl;
+        ofs << "stat = " << socket_client->gState() << endl;
     }
     ofs.close();
 

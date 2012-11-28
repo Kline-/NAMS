@@ -421,6 +421,51 @@ const void Server::ProcessInput()
 }
 
 /**
+ * @brief Recovers the server state and re-connects client sockets after a reboot.
+ * @param[in] reboot True if the server was started via a reboot. Must be true for this to run.
+ * @retval void
+ */
+const void Server::RebootRecovery( const bool& reboot )
+{
+    ifstream recovery;
+    string key, value, line;
+    SocketClient *client = NULL;
+
+    if ( reboot )
+    {
+        recovery.open( "socket.dat", ifstream::in );
+
+        while ( recovery.is_open() && recovery.good() && getline( recovery, line ) )
+        {
+            if ( !Utils::KeyValue( key, value, line) )
+            {
+                cout << "Error reading line " << line << endl;
+                continue;
+            }
+            cout << "key={" << key << "} && value={" << value << "}" << endl;
+            if ( key.compare( "desc" ) == 0 )
+                client = new SocketClient( this, atoi( CSTR( value ) ) );
+            if ( key.compare( "port" ) == 0 )
+                client->sPort( atoi( CSTR( value ) ) );
+            if ( key.compare( "host" ) == 0 )
+                client->sHostname( value );
+            if ( key.compare( "recv" ) == 0 )
+                client->aBytesRecvd( atoi( CSTR( value ) ) );
+            if ( key.compare( "sent" ) == 0 )
+                client->aBytesSent( atoi( CSTR( value ) ) );
+            if ( key.compare( "idle" ) == 0 )
+                client->sIdle( atoi( CSTR( value ) ) );
+            if ( key.compare( "secu" ) == 0 )
+                client->sSecurity( atoi( CSTR( value ) ) );
+            if ( key.compare( "stat" ) == 0 )
+                client->sState( atoi( CSTR( value ) ) );
+        }
+    }
+
+    return;
+}
+
+/**
  * @brief Returns if the Server is shutdown or not.
  * @retval false Returned if the server is inactive and is shutdown.
  * @retval true Returned if the server is active and not shutdown.
@@ -515,6 +560,8 @@ const void Server::Startup( const sint_t& desc )
         LOGSTR( flags, "Server::Startup()->Server::LoadCommands()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
+
+    RebootRecovery( reboot );
 
     LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, m_port );
     LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );

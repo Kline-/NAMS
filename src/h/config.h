@@ -38,6 +38,13 @@
 #define CFG_DAT_DIR_COMMAND     "command"
 
 /**
+ * @def CFG_DAT_DIR_ETC
+ * @brief Directory for misc files to be written to and loaded from.
+ * @par Default: "etc"
+ */
+#define CFG_DAT_DIR_ETC         "etc"
+
+/**
  * @def CFG_DAT_DIR_LOG
  * @brief Directory for logfiles to be written to.
  * @par Default: "log"
@@ -50,6 +57,13 @@
  * @par Default: "obj"
  */
 #define CFG_DAT_DIR_OBJ         "obj"
+
+/**
+ * @def CFG_DAT_FILE_REBOOT
+ * @brief File for reboot data to be temporarily stored in.
+ * @par Default: CFG_DAT_DIR_ETC "/reboot.dat"
+ */
+#define CFG_DAT_FILE_REBOOT      CFG_DAT_DIR_ETC "/reboot.dat"
 /**@}*/
 
 /***************************************************************************

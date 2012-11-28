@@ -64,58 +64,60 @@ const bool SocketClient::New( const bool& reboot )
     socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
     char hostname[CFG_STR_MAX_BUFLEN], service[CFG_STR_MAX_BUFLEN];
 
-    if ( ::fcntl( gDescriptor(), F_SETFL, O_NONBLOCK ) < 0 )
+    if ( !reboot )
     {
-        LOGERRNO( flags, "SocketClient::New()->fcntl()->" );
-        return false;
-    }
-
-    if ( ::getpeername( gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
-    {
-        LOGERRNO( flags, "SocketClient::New()->getpeername()->" );
-
-        if ( !sHostname( "(unknown)" ) )
+        if ( ::fcntl( gDescriptor(), F_SETFL, O_NONBLOCK ) < 0 )
         {
-            LOGSTR( flags, "SocketClient::New()->SocketClient::sHostname()-> hostname (unknown) returned false" );
-            return false;
-        }
-    }
-    else
-    {
-        if ( ( error = ::getnameinfo( reinterpret_cast<sockaddr*>( &sin ), size, hostname, sizeof( hostname ), service, sizeof( service ), NI_NUMERICSERV) ) != 0 )
-        {
-            LOGFMT( flags, "SocketClient::New()->getnameinfo()-> returned errno %d:%s", error, gai_strerror( error ) );
+            LOGERRNO( flags, "SocketClient::New()->fcntl()->" );
             return false;
         }
 
-        if ( !sHostname( hostname ) )
+        if ( ::getpeername( gDescriptor(), reinterpret_cast<sockaddr*>( &sin ), &size ) < 0 )
         {
-            LOGFMT( flags, "SocketClient::New()->SocketClient::sHostname()-> hostname %s returned false", hostname );
+            LOGERRNO( flags, "SocketClient::New()->getpeername()->" );
+
+            if ( !sHostname( "(unknown)" ) )
+            {
+                LOGSTR( flags, "SocketClient::New()->SocketClient::sHostname()-> hostname (unknown) returned false" );
+                return false;
+            }
+        }
+        else
+        {
+            if ( ( error = ::getnameinfo( reinterpret_cast<sockaddr*>( &sin ), size, hostname, sizeof( hostname ), service, sizeof( service ), NI_NUMERICSERV) ) != 0 )
+            {
+                LOGFMT( flags, "SocketClient::New()->getnameinfo()-> returned errno %d:%s", error, gai_strerror( error ) );
+                return false;
+            }
+
+            if ( !sHostname( hostname ) )
+            {
+                LOGFMT( flags, "SocketClient::New()->SocketClient::sHostname()-> hostname %s returned false", hostname );
+                return false;
+            }
+
+            if ( !sPort( atol( service ) ) )
+            {
+                LOGFMT( flags, "SocketClient::New()->SocketClient::sPort()-> port %lu returned false", atol( service ) );
+                return false;
+            }
+
+            LOGFMT( 0, "SocketClient::New()-> %s:%lu (%lu)", CSTR( gHostname() ), gPort(), gDescriptor() );
+        }
+
+        // negotiate telopts, send login message
+        if ( !Send( CFG_STR_LOGIN ) )
+        {
+            LOGSTR( flags, "SocketClient::New()->SocketClient::Send()-> msg CFG_STR_LOGIN returned false" );
             return false;
         }
 
-        if ( !sPort( atol( service ) ) )
+        if ( !sState( SOC_STATE_LOGIN_SCREEN ) )
         {
-            LOGFMT( flags, "SocketClient::New()->SocketClient::sPort()-> port %lu returned false", atol( service ) );
+            LOGFMT( flags, "SocketClient::New()->SocketClient::sState()-> state %lu returned false", SOC_STATE_LOGIN_SCREEN );
             return false;
         }
-
-        LOGFMT( 0, "SocketClient::New()-> %s:%lu (%lu)", CSTR( gHostname() ), gPort(), gDescriptor() );
     }
-
-    // negotiate telopts, send login message
-    if ( !Send( CFG_STR_LOGIN ) )
-    {
-        LOGSTR( flags, "SocketClient::New()->SocketClient::Send()-> msg CFG_STR_LOGIN returned false" );
-        return false;
-    }
-
-    if ( !sState( SOC_STATE_LOGIN_SCREEN ) )
-    {
-        LOGFMT( flags, "SocketClient::New()->SocketClient::sState()-> state %lu returned false", SOC_STATE_LOGIN_SCREEN );
-        return false;
-    }
-
     return true;
 }
 
@@ -541,6 +543,27 @@ void* SocketClient::tResolveHostname( void* data )
     LOGFMT( 0, "SocketClient::ResolveHostname()-> %s", CSTR( socket_client->gHostname() ) );
 
     ::pthread_exit( reinterpret_cast<void*>( EXIT_SUCCESS ) );
+}
+
+/**
+ * @brief Set the security level of the socket.
+ * @param[in] security The level to set the security of the socket to. From #SOC_SECURITY.
+ * @retval false Returned if the security level is invalid.
+ * @retval true Returned if the security level is valid.
+ */
+const bool SocketClient::sSecurity( const uint_t& security )
+{
+    UFLAGS_DE( flags );
+
+    if ( security < SOC_SECURITY_NONE || security >= MAX_SOC_SECURITY )
+    {
+        LOGFMT( flags, "SocketClient::sSecurity()-> called with invalid security level: %lu ", security );
+        return false;
+    }
+
+    m_security = security;
+
+    return true;
 }
 
 /**
