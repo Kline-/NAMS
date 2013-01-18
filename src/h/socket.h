@@ -44,6 +44,7 @@ class Socket {
          * @retval true Returned if the Socket is successfully created.
          */
         virtual const bool New( const bool& reboot = false ) = 0;
+        virtual const string Serialize() const = 0;
         const bool Valid() const;
         /**@}*/
 

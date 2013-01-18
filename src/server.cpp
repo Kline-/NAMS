@@ -374,6 +374,18 @@ const bool Server::PollSockets()
 }
 
 /**
+ * @brief Process any scheduled events tied to the Server.
+ * @retval void
+ */
+const void Server::ProcessEvents()
+{
+    /** @todo Write this entire system. Also add ScheduleEvent() or something.
+     *        Maybe write it as a class that everything inherits? Not sure yet.
+     */
+    return;
+}
+
+/**
  * @brief Processes input from all active SocketClient objects.
  * @retval void
  */
@@ -433,7 +445,7 @@ const void Server::RebootRecovery( const bool& reboot )
 
     if ( reboot )
     {
-        recovery.open( "socket.dat", ifstream::in );
+        recovery.open( CFG_DAT_FILE_REBOOT, ifstream::in );
 
         while ( recovery.is_open() && recovery.good() && getline( recovery, line ) )
         {
@@ -460,6 +472,9 @@ const void Server::RebootRecovery( const bool& reboot )
             if ( key.compare( "stat" ) == 0 )
                 client->sState( atoi( CSTR( value ) ) );
         }
+
+        recovery.close();
+        ::unlink( CFG_DAT_FILE_REBOOT );
     }
 
     return;
@@ -588,6 +603,9 @@ const void Server::Update()
 
     // Process any input received
     ProcessInput();
+
+    // Process any scheduled events
+    ProcessEvents();
 
     // Sleep to control game pacing
     ::usleep( USLEEP_MAX / CFG_GAM_PULSE_RATE );

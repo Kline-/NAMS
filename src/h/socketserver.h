@@ -39,6 +39,7 @@ class SocketServer : public Socket {
         const void Delete();
         const bool Listen();
         const bool New( const bool& reboot = false );
+        const string Serialize() const;
         /**@}*/
 
         /** @name Query */ /**@{*/

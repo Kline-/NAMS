@@ -35,7 +35,7 @@ const void AdmReboot::Run( SocketClient* client, const string& cmd, const string
     string desc, port;
     ofstream ofs;
 
-    ofs.open( "socket.dat" );
+    ofs.open( CFG_DAT_FILE_REBOOT );
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = client->gServer()->gSocketClientNext() )
     {
         socket_client = *si;

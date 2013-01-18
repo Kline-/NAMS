@@ -63,7 +63,7 @@
  * @brief File for reboot data to be temporarily stored in.
  * @par Default: CFG_DAT_DIR_ETC "/reboot.dat"
  */
-#define CFG_DAT_FILE_REBOOT      CFG_DAT_DIR_ETC "/reboot.dat"
+#define CFG_DAT_FILE_REBOOT     CFG_DAT_DIR_ETC "/reboot.dat"
 /**@}*/
 
 /***************************************************************************

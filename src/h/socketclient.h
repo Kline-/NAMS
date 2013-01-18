@@ -51,6 +51,7 @@ class SocketClient : public Socket {
         const void ResolveHostname();
         const bool Send();
         const bool Send( const string& msg );
+        const string Serialize() const;
         /**@}*/
 
         /** @name Query */ /**@{*/

@@ -447,6 +447,16 @@ const bool SocketClient::Send( const string& msg )
     return true;
 }
 
+/**
+ * @brief Serializes the object for writing to disk to be later reloaded.
+ * @retval string A serialized string of all object data.
+ * @todo Write this function.
+ */
+const string SocketClient::Serialize() const
+{
+    return string();
+}
+
 /* Query */
 /**
  * @brief Returns the amount of time the client has been idle.

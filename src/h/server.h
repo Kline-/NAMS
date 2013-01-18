@@ -44,6 +44,7 @@ class Server {
         Command* FindCommand( const string& name ) const;
         const bool LoadCommands();
         const bool PollSockets();
+        const void ProcessEvents();
         const void ProcessInput();
         const void RebootRecovery( const bool& reboot );
         const bool Running() const;
