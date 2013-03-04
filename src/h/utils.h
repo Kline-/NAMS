@@ -116,7 +116,7 @@ namespace Utils {
 
     /** @name Manipulate */ /**@{*/
     /**
-     * @brief The DeleteObject class implements only operator() to be used in easily deleteing lists of pointers or other objects.
+     * @brief The DeleteObject class implements only operator() to be used in easily deleting lists of pointers or other objects.
      */
     class DeleteObject
     {
