@@ -28,6 +28,7 @@
 
 #include "h/socketclient.h"
 #include "h/command.h"
+#include "h/list.h"
 
 /* Core */
 /**

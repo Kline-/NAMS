@@ -20,7 +20,7 @@
  * @brief All non-template member functions of the Plugin class.
  *
  * Plugin objects provide an API to interface with the NAMS server in
- * different ways. Each Plugin is compiled and loaded as an indepdendent shared
+ * different ways. Each Plugin is compiled and loaded as an independent shared
  * object that implements a new class.
  *
  * Server::BuildPlugin() will automatically compile any plugins at boot time

@@ -20,6 +20,8 @@
 #include "class.h"
 #include "plugin.h"
 
+#include "list.h"
+
 class AdmReboot : public Plugin {
     public:
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;

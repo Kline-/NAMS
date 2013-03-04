@@ -37,6 +37,13 @@
 multimap<const char,Command*> command_list;
 
 /**
+ * @var event_list
+ * @brief All events pending execution.
+ * @param Event* A pointer to an Event object in memory.
+ */
+forward_list<Event*> event_list;
+
+/**
  * @var socket_client_list
  * @brief All SocketClient objects connected to the server.
  * @param SocketClient* A pointer to a SocketClient object in memory.

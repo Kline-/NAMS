@@ -26,6 +26,7 @@
 #ifndef DEC_LIST_H
 #define DEC_LIST_H
 
+#include <forward_list>
 #include <list>
 
 using namespace std;
@@ -34,9 +35,16 @@ using namespace std;
  * @var command_list
  * @brief All commands loaded into memory.
  * @param "const char" The first letter of the value contained within Command->m_name.
- * @param Command*     A pointer to a Command object in memory.
+ * @param Command* A pointer to a Command object in memory.
  */
 extern multimap<const char,Command*> command_list;
+
+/**
+ * @var event_list
+ * @brief All events pending execution.
+ * @param Event* A pointer to an Event object in memory.
+ */
+extern forward_list<Event*> event_list;
 
 /**
  * @var socket_client_list

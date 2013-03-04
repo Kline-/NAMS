@@ -21,6 +21,7 @@
 #include "plugin.h"
 
 #include "command.h"
+#include "list.h"
 
 class Commands : public Plugin {
     public:

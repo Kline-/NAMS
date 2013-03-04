@@ -25,11 +25,10 @@
 #define DEC_SERVER_H
 
 #include <fcntl.h>
+#include <list>
 
-#include "list.h"
 #include "socketclient.h"
 #include "socketserver.h"
-
 
 using namespace std;
 
