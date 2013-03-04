@@ -74,7 +74,7 @@ commands: $(CMD_O_FILES)
 depend:
 	$(RM) $(DEPS)
 	echo "Generating dependencies for $(VERS) ... "
-	$(CXX) -MM $(C_FLAGS) $(C_FILES) > $(DEPS)
+	$(CXX) -MM $(CXX_FLAGS) $(C_FILES) > $(DEPS)
 	perl -pi -e 's.^([a-z]).o/$$1.g' $(DEPS)
 	echo "Finished writing dependencies to $(DEPS)"
 
