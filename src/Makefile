@@ -34,7 +34,7 @@ VERS =  $(shell grep 'define CFG_STR_VERSION' h/config.h | cut -d\" -f2)
 CMD_C_FILES = $(wildcard ../command/*.cpp)
 CMD_O_FILES = $(patsubst ../command/%.cpp,../obj/%.so,$(CMD_C_FILES))
 PLG_O_FILES = $(CMD_O_FILES)
-PLG_CXX_FLAGS = -I../src/h -fpic -ldl -rdynamic -shared
+PLG_CXX_FLAGS = -I../src/h -fpic -ldl -rdynamic -shared -std=c++0x
 
 # Trickery to run a script on the -first ever- compile and re-create a directory
 # structure that may be missing due to Git not tracking empty directories.
