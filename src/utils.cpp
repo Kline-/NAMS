@@ -439,16 +439,17 @@ const bool Utils::iReadable( const string& file )
 const string Utils::Argument( string& input )
 {
     UFLAGS_DE( flags );
+    string output;
     uint_t pos;
 
     if ( input.empty() )
     {
         LOGSTR( flags, "Utils::Argument() called with empty input" );
-        return string();
+        return output;
     }
 
     pos = input.find_first_of( " " );
-    string output( input.substr( 0, pos ) );
+    output = input.substr( 0, pos );
     input.erase( 0, pos + 1 );
 
     return output;

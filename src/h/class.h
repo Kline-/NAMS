@@ -26,6 +26,7 @@
 #ifndef DEC_CLASS_H
 #define DEC_CLASS_H
 
+class Account;
 class Command;
 class Event;
 class Plugin;
