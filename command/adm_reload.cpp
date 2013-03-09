@@ -21,6 +21,7 @@
 #include "plugin.h"
 
 #include "command.h"
+#include "event.h"
 
 class AdmReload : public Plugin {
     public:
@@ -32,8 +33,8 @@ class AdmReload : public Plugin {
 
 const void AdmReload::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
-    Command* newcmd = NULL;
-    Command* oldcmd = NULL;
+    Command* command = NULL;
+    Event* event = NULL;
     string file;
     UFLAGS_DE( flags );
 
@@ -45,27 +46,18 @@ const void AdmReload::Run( SocketClient* client, const string& cmd, const string
             return;
         }
 
-        if ( ( oldcmd = client->gServer()->FindCommand( arg ) ) != NULL )
+        if ( ( command = client->gServer()->FindCommand( arg ) ) != NULL )
         {
-            if ( oldcmd->gCaller() == gCaller() )
+            if ( command->Authorized( client->gSecurity() ) )
             {
-                client->Send( "Now that would be pointless, wouldn't it?" CRLF );
-                return;
-            }
-
-            if ( oldcmd->Authorized( client->gSecurity() ) )
-            {
-                file = oldcmd->gFile();
-                oldcmd->Delete();
-
-                newcmd = new Command();
-                if ( !newcmd->New( file ) )
+                event = new Event();
+                if ( !event->New( NULL, arg, client->gServer(), EVENT_TYPE_RELOAD, 100 ) )
                 {
-                    LOGFMT( flags, "AdmReload::Run()->Command::New()-> command %s returned false", CSTR( file ) );
-                    delete newcmd;
+                    LOGSTR( flags, "AdmReload::Run()->Event::New()-> returned false" );
+                    delete event;
                 }
-
-                client->Send( "Command successfully reloaded." CRLF );
+                else
+                    client->Send( "Command successfully reloaded." CRLF );
             }
         }
         else
