@@ -27,6 +27,26 @@
 #include "h/account.h"
 
 /* Core */
+/**
+ * @brief Unload an account from memory that was previously loaded via Account::New().
+ * @retval void
+ */
+const void Account::Delete()
+{
+    return;
+}
+
+/**
+ * @brief Create a new account.
+ * @param client The SocketClient requesting an account.
+ * @param name The name of the account to be created.
+ * @retval false Returned if a new Account was successfully created.
+ * @retval true Returned if a new Account was unable to be created.
+ */
+const bool Account::New( SocketClient* client, const string& name )
+{
+    return true;
+}
 
 /* Query */
 
@@ -38,6 +58,8 @@
  */
 Account::Account()
 {
+    m_name.clear();
+
     return;
 }
 

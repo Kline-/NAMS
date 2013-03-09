@@ -32,6 +32,7 @@
 #include "h/class.h"
 
 #include "h/server.h"
+#include "h/account.h"
 #include "h/command.h"
 #include "h/event.h"
 #include "h/list.h"
@@ -446,6 +447,27 @@ const void Server::ProcessInput()
 
 const void Server::ProcessLogin( SocketClient* client, const string& cmd, const string& args )
 {
+    UFLAGS_DE( flags );
+    Account* account = NULL;
+    Command* command = NULL;
+
+    switch ( client->gState() )
+    {
+        case SOC_STATE_LOGIN_SCREEN:
+            if ( ( command = FindCommand( cmd ) ) != NULL && command->Authorized( client->gSecurity() ) )
+                command->Run( client, cmd, args );
+            else
+            {
+                account = new Account();
+                if ( !account->New( client, cmd ) )
+                    account->Delete();
+            }
+        break;
+
+        default:
+        break;
+    }
+
     return;
 }
 

@@ -32,6 +32,8 @@ using namespace std;
 class Account {
     public:
         /** @name Core */ /**@{*/
+        const void Delete();
+        const bool New( SocketClient* client, const string& name );
         /**@}*/
 
         /** @name Query */ /**@{*/
@@ -46,6 +48,7 @@ class Account {
         /**@}*/
 
     private:
+        string m_name; /**< The name of the account. */
 };
 
 #endif
