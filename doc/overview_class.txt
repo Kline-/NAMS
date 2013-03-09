@@ -8,6 +8,15 @@ Namespace
     Utils       Currently all non-member functions are kept within this namespace.
 
 Class
+    Account
+        Inherits: None
+        Children: None
+
+        An account is a unique file on disk. An account may have multiple
+        associated files as characters. Accounts are the first objects
+        loaded once a SocketClient is fully connected, and all characters
+        inherit permissions based on the account security and role.
+
     Command
         Inherits: None
         Children: None
@@ -16,6 +25,14 @@ Class
         from disk at boot time. Once fully implemented, command logic is
         intended to run either natively compiled into the server or
         via a yet-to-be determined scripting language (TCL, Ruby, etc).
+
+    Event
+        Inherits: None
+        Children: None
+
+        An action set to execute after a set delay. Events can be scheduled
+        by a Server, SocketClient, and other objects. Events are polled
+        during each Server update loop.
 
     Plugin
         Inherits: None

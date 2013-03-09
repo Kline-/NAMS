@@ -83,8 +83,14 @@ are also grouped here.
     included after this and then subsequently followed by any other classes or
     headers it depends on.
 
+    account.cpp
+        Contains all non-template member functions of the Account class.
+
     command.cpp
         Contains all non-template member functions of the Command class.
+
+    event.cpp
+        Contains all non-template member functions of the Event class.
 
     list.cpp
         Contains all globally referenced list / map / vector types.
@@ -121,6 +127,9 @@ are also grouped here.
     not used in declaring member functions or variables of individual classes
     for easier visual reference and to also aid Doxygen.
 
+    account.h
+        Contains the Account class and templates.
+
     class.h
         Contains declarations of all classes. Indented to denote inheritance.
         This is the second file included within every NAMS .cpp file.
@@ -139,6 +148,9 @@ are also grouped here.
         denote the class or namespace they are significant to. Any specific
         member variables that rely on values here are also specified within
         the comments.
+
+    event.h
+        Contains the Event class and templates.
 
     includes.h
         This is the first file included within every NAMS .cpp file. It
