@@ -216,21 +216,27 @@ const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>&
                     post.append( caller );
                     post.append( "]" );
                 break;
+
                 case UTILS_RAW: //no extraneous data applied
                     pre.clear();
                     post.clear();
                     i = MAX_UTILS;
                 break;
+
                 case UTILS_TYPE_ERROR: //so fancy!
                     pre.append( CFG_STR_UTILS_ERROR );
                 break;
+
                 case UTILS_TYPE_INFO: //so fancy!
                     pre.append( CFG_STR_UTILS_INFO );
                 break;
+
                 case UTILS_TYPE_SOCKET: //so fancy!
                     pre.append( CFG_STR_UTILS_SOCKET );
                 break;
-                default: break;
+
+                default:
+                break;
             }
         }
     }
