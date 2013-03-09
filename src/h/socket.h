@@ -70,11 +70,11 @@ class Socket {
         /**@}*/
 
     private:
-        uint_t m_bytes_recvd;   /**< Number of bytes received. */
-        uint_t m_bytes_sent;    /**< Number of bytes sent. */
-        sint_t m_descriptor;    /**< File descriptor assigned from the host OS. */
-        string m_hostname;      /**< Hostname of the host OS or remote client. */
-        uint_t m_port;          /**< Port number being used. */
+        uint_t m_bytes_recvd; /**< Number of bytes received. */
+        uint_t m_bytes_sent; /**< Number of bytes sent. */
+        sint_t m_descriptor; /**< File descriptor assigned from the host OS. */
+        string m_hostname; /**< Hostname of the host OS or remote client. */
+        uint_t m_port; /**< Port number being used. */
 };
 
 #endif

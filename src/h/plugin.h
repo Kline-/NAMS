@@ -65,12 +65,12 @@ class Plugin {
         /**@}*/
 
     private:
-        bool m_bool[CFG_PLG_MAX_ARR];       /**< Any bool that needs to be tied back to the parent object member variables. */
-        void* m_caller;                     /**< Pointer back to the object that initially loaded the plugin. */
-        string m_name;                      /**< The name of the class the Plugin implements. */
-        string m_string[CFG_PLG_MAX_ARR];   /**< Any string that needs to be tied back to the parent object member variables. */
-        uint_t m_type;                      /**< The #PLG_TYPE of the class the Plugin implements. */
-        uint_t m_uint[CFG_PLG_MAX_ARR];     /**< Any #uint_t that needs to be tied back to the parent object member variables. */
+        bool m_bool[CFG_PLG_MAX_ARR]; /**< Any bool that needs to be tied back to the parent object member variables. */
+        void* m_caller; /**< Pointer back to the object that initially loaded the plugin. */
+        string m_name; /**< The name of the class the Plugin implements. */
+        string m_string[CFG_PLG_MAX_ARR]; /**< Any string that needs to be tied back to the parent object member variables. */
+        uint_t m_type; /**< The #PLG_TYPE of the class the Plugin implements. */
+        uint_t m_uint[CFG_PLG_MAX_ARR]; /**< Any #uint_t that needs to be tied back to the parent object member variables. */
 };
 
 /**

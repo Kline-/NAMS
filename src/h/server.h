@@ -25,6 +25,7 @@
 #define DEC_SERVER_H
 
 #include <fcntl.h>
+#include <forward_list>
 #include <list>
 
 #include "socketclient.h"
@@ -36,6 +37,12 @@ using namespace std;
  * @brief The core of the game server.
  */
 class Server {
+    class Config {
+        public:
+        private:
+            forward_list<string> m_account_prohibited_names; /**< Names that are illegal to use an as account name. */
+    };
+
     public:
         /** @name Core */ /**@{*/
         const void Broadcast( const string& msg );
@@ -77,16 +84,17 @@ class Server {
         /**@}*/
 
     private:
-        uint_t  m_dir_close;                                /**< Total number of directories closed by the Server. */
-        uint_t  m_dir_open;                                 /**< Total number of directories opened by the Server. */
-        uint_t  m_port;                                     /**< Port number to be passed to the associated SocketServer. */
-        bool    m_shutdown;                                 /**< Shutdown state of the Server. */
-        SocketServer* m_socket;                             /**< Pointer to the associated SocketServer object. */
+        Config* m_config; /**< Server-specific dynamic configuration settings. */
+        uint_t m_dir_close; /**< Total number of directories closed by the Server. */
+        uint_t m_dir_open; /**< Total number of directories opened by the Server. */
+        uint_t m_port; /**< Port number to be passed to the associated SocketServer. */
+        bool m_shutdown; /**< Shutdown state of the Server. */
+        SocketServer* m_socket; /**< Pointer to the associated SocketServer object. */
         list<SocketClient*>::iterator m_socket_client_next; /**< Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
-        uint_t  m_socket_close;                             /**< Total number of SocketClient and SocketServer objects closed by the Server. */
-        uint_t  m_socket_open;                              /**< Total number of SocketClient and SocketServer objects opened by the Server. */
-        timeval m_time_boot;                                /**< Time the Server was first booted. */
-        timeval m_time_current;                             /**< Current time from the host OS. */
+        uint_t m_socket_close; /**< Total number of SocketClient and SocketServer objects closed by the Server. */
+        uint_t m_socket_open; /**< Total number of SocketClient and SocketServer objects opened by the Server. */
+        timeval m_time_boot; /**< Time the Server was first booted. */
+        timeval m_time_current; /**< Current time from the host OS. */
 };
 
 #endif

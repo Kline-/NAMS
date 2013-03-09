@@ -56,7 +56,7 @@ class SocketServer : public Socket {
         /**@}*/
 
     private:
-        Server* m_server;   /**< The Server object associated to this server-side socket. */
+        Server* m_server; /**< The Server object associated to this server-side socket. */
 };
 
 #endif

@@ -55,12 +55,12 @@ class Event {
         /**@}*/
 
     private:
-        string m_args;   /**< Any arguments to be passed to the function. */
-        string m_cmd;   /**< The string used to locate the actual command. Needed for some admin commands. */
+        string m_args; /**< Any arguments to be passed to the function. */
+        string m_cmd; /**< The string used to locate the actual command. Needed for some admin commands. */
         SocketClient* m_client; /**< The client who initiated the Event. */
         Command* m_command; /**< Command to execute. */
         Server* m_server; /**< Server to execute the event on. */
-        uint_t m_time;  /**< Amount of time to wait before executing. Based on #CFG_GAM_PULSE_RATE. */
+        uint_t m_time; /**< Amount of time to wait before executing. Based on #CFG_GAM_PULSE_RATE. */
         uint_t m_type; /**< The type of function to be called. */
 };
 
