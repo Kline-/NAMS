@@ -440,16 +440,15 @@ const string Utils::Argument( string& input )
 {
     UFLAGS_DE( flags );
     uint_t pos;
-    string output;
 
     if ( input.empty() )
     {
         LOGSTR( flags, "Utils::Argument() called with empty input" );
-        return output;
+        return string();
     }
 
     pos = input.find_first_of( " " );
-    output = input.substr( 0, pos );
+    string output( input.substr( 0, pos ) );
     input.erase( 0, pos + 1 );
 
     return output;

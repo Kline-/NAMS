@@ -228,7 +228,7 @@ const bool SocketClient::ProcessInput()
 const bool SocketClient::QueueCommand( const string& command )
 {
     UFLAGS_DE( flags );
-    string cmd, arg;
+    string args, cmd;
 
     if ( !Valid() )
     {
@@ -236,11 +236,10 @@ const bool SocketClient::QueueCommand( const string& command )
         return false;
     }
 
-    cmd = command.substr( 0, command.find_first_of( " " ) );
-    if ( command.find_first_of( " " ) != string::npos )
-        arg = command.substr( command.find_first_of( " " ) + 1 );
+    args = command;
+    cmd = Utils::Argument( args );
 
-    m_command_queue.push_back( pair<string,string>( cmd, arg ) );
+    m_command_queue.push_back( pair<string,string>( cmd, args ) );
 
     return true;
 }

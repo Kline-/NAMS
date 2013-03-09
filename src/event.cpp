@@ -68,6 +68,58 @@ const bool Event::New( const string& args, Server* server, const uint_t& type, c
     m_args = args;
     m_time = time;
     m_type = type;
+    m_server = server;
+
+    event_list.push_front( this );
+
+    return true;
+}
+
+/**
+ * @brief Create a new Event for a SocketClient to execute a Command on a delay.
+ * @param[in] cmd The string used to locate the actual command. Needed for some admin commands.
+ * @param[in] args The arguments to be passed to the function.
+ * @param[in] client The client who initiated the function.
+ * @param[in] command The command to execute.
+ * @param[in] type The type of Event.
+ * @param[in] time How long to wait before executing Event::Run().
+ * @retval false Returned if the event is unable to be created.
+ * @retval true Returned if the event was successfully created.
+ */
+const bool Event::New( const string& cmd, const string& args, SocketClient* client, Command* command, const uint_t& type, const uint_t& time )
+{
+    UFLAGS_DE( flags );
+
+    if ( args.empty() )
+    {
+        LOGSTR( flags, "Event::New() called with empty args" );
+        return false;
+    }
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Event::New() called with NULL server" );
+        return false;
+    }
+
+    if ( type == EVENT_TYPE_RELOAD )
+    {
+        LOGSTR( flags, "Event::New() called with invalid type" );
+        return false;
+    }
+
+    if ( time < uintmin_t )
+    {
+        LOGSTR( flags, "Event::New() called with invalid time" );
+        return false;
+    }
+
+    m_args = args;
+    m_cmd = cmd;
+    m_client = client;
+    m_command = command;
+    m_time = time;
+    m_type = type;
 
     event_list.push_front( this );
 
@@ -82,6 +134,10 @@ const void Event::Run()
 {
     switch ( m_type )
     {
+        case EVENT_TYPE_COMMAND:
+            m_command->Run( m_client, m_cmd, m_args );
+        break;
+
         case EVENT_TYPE_RELOAD:
             m_server->ReloadCommand( m_args );
         break;
@@ -127,6 +183,9 @@ const uint_t Event::gTime() const
 Event::Event()
 {
     m_args.clear();
+    m_cmd.clear();
+    m_client = NULL;
+    m_command = NULL;
     m_server = NULL;
     m_time = uintmin_t;
     m_type = uintmin_t;
