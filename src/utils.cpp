@@ -436,6 +436,25 @@ const bool Utils::iReadable( const string& file )
 }
 
 /* Manipulate */
+const string Utils::Argument( string& input )
+{
+    UFLAGS_DE( flags );
+    uint_t pos;
+    string output;
+
+    if ( input.empty() )
+    {
+        LOGSTR( flags, "Utils::Argument() called with empty input" );
+        return output;
+    }
+
+    pos = input.find_first_of( " " );
+    output = input.substr( 0, pos );
+    input.erase( 0, pos + 1 );
+
+    return output;
+}
+
 /**
  * @brief Return a multimap of a specified directory tree on disk.
  * @param[in] dir The filesystem path to search.

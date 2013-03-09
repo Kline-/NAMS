@@ -115,6 +115,7 @@ namespace Utils {
     /**@}*/
 
     /** @name Manipulate */ /**@{*/
+    const string Argument( string& input );
     /**
      * @brief The DeleteObject class implements only operator() to be used in easily deleting lists of pointers or other objects.
      */
