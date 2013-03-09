@@ -16,24 +16,107 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 /**
- * @file plugin.cpp
- * @brief All non-template member functions of the Plugin class.
+ * @file event.cpp
+ * @brief All non-template member functions of the Event class.
  *
- * Plugin objects provide an API to interface with the NAMS server in
- * different ways. Each Plugin is compiled and loaded as an indepdendent shared
- * object that implements a new class.
- *
- * Server::BuildPlugin() will automatically compile any plugins at boot time
- * unless an existing shared object file is already found in #CFG_DAT_DIR_OBJ.
+ * Event objects will execute a function after a specified delay.
  */
 #include "h/includes.h"
 #include "h/class.h"
 
 #include "h/event.h"
+#include "h/list.h"
 
 /* Core */
+/**
+ * @brief Create a new Event. This is a special use-case to create an Event on a server, for things such as Server::ReloadCommand.
+ * @param[in] args The arguments to be passed to the function.
+ * @param[in] server The server to execute the function on.
+ * @param[in] type The type of Event.
+ * @param[in] time How long to wait before executing Event::Run().
+ * @retval false Returned if the event is unable to be created.
+ * @retval true Returned if the event was successfully created.
+ */
+const bool Event::New( const string& args, Server* server, const uint_t& type, const uint_t& time )
+{
+    UFLAGS_DE( flags );
+
+    if ( args.empty() )
+    {
+        LOGSTR( flags, "Event::New() called with empty args" );
+        return false;
+    }
+
+    if ( server == NULL )
+    {
+        LOGSTR( flags, "Event::New() called with NULL server" );
+        return false;
+    }
+
+    if ( type != EVENT_TYPE_RELOAD )
+    {
+        LOGSTR( flags, "Event::New() called with invalid type" );
+        return false;
+    }
+
+    if ( time < uintmin_t )
+    {
+        LOGSTR( flags, "Event::New() called with invalid time" );
+        return false;
+    }
+
+    m_args = args;
+    m_time = time;
+    m_type = type;
+
+    event_list.push_front( this );
+
+    return true;
+}
+
+/**
+ * @brief Execute the function stored within the Event object.
+ * @retval void
+ */
+const void Event::Run()
+{
+    switch ( m_type )
+    {
+        case EVENT_TYPE_RELOAD:
+            m_server->ReloadCommand( m_args );
+        break;
+
+        default:
+        break;
+    }
+
+    event_list.remove( this );
+
+    return;
+}
+
+/**
+ * @brief Updates the Event by decrementing the remaining time.
+ * @retval false Returned once m_time reaches #uintmin_t and the Event can no longer update.
+ * @retval true Returned if m_time is greater than #uintmin_t and the Event can still update.
+ */
+const bool Event::Update()
+{
+    if ( --m_time > uintmin_t )
+        return true;
+    else
+        return false;
+}
 
 /* Query */
+/**
+ * @brief  Returns the amount of time remaining.
+ * @retval uint_t The amount of time remaining.
+ */
+const uint_t Event::gTime() const
+{
+    return m_time;
+}
 
 /* Manipulate */
 
@@ -43,6 +126,11 @@
  */
 Event::Event()
 {
+    m_args.clear();
+    m_server = NULL;
+    m_time = uintmin_t;
+    m_type = uintmin_t;
+
     return;
 }
 

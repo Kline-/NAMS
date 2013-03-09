@@ -24,6 +24,9 @@
 #ifndef DEC_EVENT_H
 #define DEC_EVENT_H
 
+#include "command.h"
+#include "server.h"
+
 using namespace std;
 
 /**
@@ -32,9 +35,13 @@ using namespace std;
 class Event {
     public:
         /** @name Core */ /**@{*/
+        const bool New( const string& args, Server* server, const uint_t& type, const uint_t& time );
+        const void Run();
+        const bool Update();
         /**@}*/
 
         /** @name Query */ /**@{*/
+        const uint_t gTime() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -46,6 +53,10 @@ class Event {
         /**@}*/
 
     private:
+        string m_args;   /**< Any arguments to be passed to the function. */
+        Server* m_server; /**< Server to execute the event on. */
+        uint_t m_time;  /**< Amount of time to wait before executing. Based on #CFG_GAM_PULSE_RATE. */
+        uint_t m_type; /**< The type of function to be called. */
 };
 
 #endif
