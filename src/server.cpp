@@ -24,7 +24,7 @@
  * core of NAMS.
  *
  * During its boot sequence, the Server will spawn a SocketServer to listen for
- * incomming SocketClient connections, compile and load any Plugin objects,
+ * incoming SocketClient connections, compile and load any Plugin objects,
  * and then indefinitely loop and process game logic until it receives a shutdown
  * notification.
  */
@@ -33,6 +33,8 @@
 
 #include "h/server.h"
 #include "h/command.h"
+#include "h/event.h"
+#include "h/list.h"
 
 /* Core */
 /**
@@ -379,9 +381,19 @@ const bool Server::PollSockets()
  */
 const void Server::ProcessEvents()
 {
-    /** @todo Write this entire system. Also add ScheduleEvent() or something.
-     *        Maybe write it as a class that everything inherits? Not sure yet.
-     */
+    ITER( forward_list, Event*, ei );
+    ITER( forward_list, Event*, ei_next );
+    Event* event;
+
+    for ( ei = event_list.begin(); ei != event_list.end(); ei = ei_next )
+    {
+        event = *ei;
+        ei_next = ++ei;
+
+        if ( !event->Update() )
+            event->Run();
+    }
+
     return;
 }
 
@@ -478,6 +490,40 @@ const void Server::RebootRecovery( const bool& reboot )
     }
 
     return;
+}
+
+/**
+ * @brief Reloads a Command Plugin.
+ * @param[in] name The name of the Command to be reloaded.
+ * @retval false Returned if the command is unable to be reloaded.
+ * @retval true Returned if the command was successfully reloaded.
+ */
+const bool Server::ReloadCommand( const string& name )
+{
+    UFLAGS_DE( flags );
+    Command* command = NULL;
+    string file;
+
+    command = FindCommand( name );
+
+    if ( command == NULL )
+    {
+        LOGFMT( flags, "Server::ReloadCommand()->Server::FindCommand()-> command %s returned NULL", CSTR( name ) );
+        return false;
+    }
+
+    file = command->gFile();
+    command->Delete();
+    command = new Command();
+
+    if ( !command->New( file ) )
+    {
+        LOGFMT( flags, "Server::ReloadCommand()->Command::New()-> command %s returned false", CSTR( file ) );
+        delete command;
+        return false;
+    }
+
+    return true;
 }
 
 /**

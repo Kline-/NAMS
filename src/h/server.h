@@ -46,6 +46,7 @@ class Server {
         const void ProcessEvents();
         const void ProcessInput();
         const void RebootRecovery( const bool& reboot );
+        const bool ReloadCommand( const string& name );
         const bool Running() const;
         const void Startup( const sint_t& desc = 0 );
         const void Shutdown( const sint_t& status );

@@ -26,6 +26,16 @@
 #ifndef DEC_ENUM_H
 #define DEC_ENUM_H
 
+/** @name Event */ /**@{*/
+/**
+ * @enum EVENT_TYPE
+ */
+enum EVENT_TYPE {
+    EVENT_TYPE_RELOAD = 0,  /**< An Event to reload a game command. */
+    MAX_EVENT_TYPE    = 1   /**< Safety limit for looping. */
+};
+/**@}*/
+
 /** @name Plugin */ /**@{*/
 /**
  * @enum PLG_TYPE
