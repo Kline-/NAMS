@@ -168,6 +168,16 @@ const string Command::gName() const
     return m_plg->gName();
 }
 
+/**
+ * @brief Return the preempt status of the associated Plugin object.
+ * @retval false Returned if the associated Plugin doesn't preempt.
+ * @retval true Returned if the associated Plugin does preempt.
+ */
+const bool Command::gPreempt() const
+{
+    return m_preempt;
+}
+
 /* Manipulate */
 
 /* Internal */

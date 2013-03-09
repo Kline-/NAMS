@@ -48,6 +48,7 @@ class Command {
         void* gCaller() const;
         const string gFile() const;
         const string gName() const;
+        const bool gPreempt() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/

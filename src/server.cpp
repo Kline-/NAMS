@@ -444,10 +444,16 @@ const void Server::ProcessInput()
     return;
 }
 
+const void Server::ProcessLogin( SocketClient* client, const string& cmd, const string& args )
+{
+    return;
+}
+
 /**
  * @brief Recovers the server state and re-connects client sockets after a reboot.
  * @param[in] reboot True if the server was started via a reboot. Must be true for this to run.
  * @retval void
+ * @todo Clean this up.
  */
 const void Server::RebootRecovery( const bool& reboot )
 {

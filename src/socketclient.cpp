@@ -168,7 +168,17 @@ const bool SocketClient::ProcessCommand()
         cmd = m_command_queue.front();
         m_command_queue.pop_front();
 
-        if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
+        if ( gState() == SOC_STATE_LOGIN_SCREEN )
+        {
+            if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
+            {
+                if ( command->Authorized( gSecurity() ) )
+                    command->Run( this, cmd.first, cmd.second );
+                else
+                    gServer()->ProcessLogin( this, cmd.first, cmd.second );
+            }
+        }
+        else if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
         {
             if ( command->Authorized( gSecurity() ) )
                 command->Run( this, cmd.first, cmd.second );
@@ -229,6 +239,7 @@ const bool SocketClient::QueueCommand( const string& command )
 {
     UFLAGS_DE( flags );
     string args, cmd;
+    Command* search = NULL;
 
     if ( !Valid() )
     {
@@ -239,8 +250,15 @@ const bool SocketClient::QueueCommand( const string& command )
     args = command;
     cmd = Utils::Argument( args );
 
-    m_command_queue.push_back( pair<string,string>( cmd, args ) );
-
+    // Check to see if the command can preempt and go to the front of the queue
+    if ( ( search = gServer()->FindCommand( cmd ) ) != NULL )
+    {
+        if ( search->gPreempt() )
+            m_command_queue.push_front( pair<string,string>( cmd, args ) );
+        else
+            m_command_queue.push_back( pair<string,string>( cmd, args ) );
+    }
+    
     return true;
 }
 
