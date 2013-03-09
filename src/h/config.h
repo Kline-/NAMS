@@ -27,9 +27,28 @@
 #define DEC_CONFIG_H
 
 /***************************************************************************
+ *                             ACCOUNT OPTIONS                             *
+ ***************************************************************************/
+/** @name Account Options */ /**@{*/
+/**
+ * @def CFG_ACNT_MAX_NAME_LEN
+ * @brief The maximum allowable length for an account name.
+ * @par Default: 32
+ */
+#define CFG_ACNT_MAX_NAME_LEN   32
+/**@}*/
+
+/***************************************************************************
  *                              DATA OPTIONS                               *
  ***************************************************************************/
 /** @name Data Options */ /**@{*/
+/**
+ * @def CFG_DAT_DIR_ACCOUNT
+ * @brief Directory for accounts to be loaded from.
+ * @par Default: "account"
+ */
+#define CFG_DAT_DIR_ACCOUNT     "account"
+
 /**
  * @def CFG_DAT_DIR_COMMAND
  * @brief Directory for commands to be loaded from.
