@@ -31,42 +31,6 @@
 
 /* Core */
 /**
- * @brief Returns the current system time.
- * @retval timeval A timeval struct filled with the current system time.
- */
-const timeval Utils::CurrentTime()
-{
-    UFLAGS_DE( flags );
-    timeval now;
-
-    if ( ::gettimeofday( &now, NULL ) < 0 )
-    {
-        LOGERRNO( flags, "Utils::CurrentTime()->" );
-        return timeval();
-    }
-
-    return now;
-}
-
-/**
- * @brief Calculates the different between two timeval variables.
- * @param[in] prev A timeval of the beginning time.
- * @param[in] current A timeval of the current, or end time.
- * @param[in] granularity A #uint_t variable specified as a UTILS_TIME value from #UTILS_OPTS.
- * @retval uint_t The difference between prev and current in units granularity.
- */
-const uint_t Utils::DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity )
-{
-    switch ( granularity )
-    {
-        case  UTILS_TIME_S: return ( current.tv_sec - prev.tv_sec );
-        case UTILS_TIME_MS: return ( current.tv_usec - prev.tv_usec ) / 1000;
-        case UTILS_TIME_US:
-                   default: return ( current.tv_usec - prev.tv_usec );
-    }
-}
-
-/**
 * @brief Returns a string consisting of directory/file.ext.
 * @param[in] directory The top level directory build the path from.
 * @param[in] file The file to build the path from.
@@ -187,6 +151,7 @@ const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>&
     va_list args;
     string pre, post, output;
     uint_t i = 0;
+    chrono::high_resolution_clock::time_point tt;
 
     if ( fmt.empty() )
     {
@@ -202,7 +167,8 @@ const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>&
         return;
 
     // prepend timestamp
-    pre = StrTime( CurrentTime() );
+    tt = chrono::high_resolution_clock::now();
+    pre = StrTime( chrono::high_resolution_clock::to_time_t( tt ) );
     pre.append( " :: " );
 
     for ( i = 0; i < MAX_UTILS; i++ )
@@ -303,15 +269,15 @@ const vector<string> Utils::StrNewlines( const string& input )
 
 /**
  * @brief Returns a given time as a string.
- * @param[in] now A timeval to be formatted into a string.
+ * @param[in] now A time_t to be formatted into a string.
  * @retval string A string value containing the human readable form of the contents of now.
  */
-const string Utils::StrTime( const timeval& now )
+const string Utils::StrTime( const time_t& now )
 {
     UFLAGS_DE( flags );
     string output;
 
-    if ( ( output = ::ctime( &now.tv_sec ) ).empty() )
+    if ( ( output = ::ctime( &now ) ).empty() )
     {
         LOGSTR( flags, "Utils::CurrentTime()->ctime()-> returned NULL" );
         return output;
@@ -574,6 +540,34 @@ const bool Utils::FileClose( ifstream& ifs )
     if ( ifs.fail() )
     {
         LOGSTR( flags, "Utils::FileClose()-> error closing ifs" );
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * @brief Completes a write from a file.
+ * @param[in] ofs The ofstream to close.
+ * @retval false Returned if there is an error closing the file.
+ * @retval true Returned if file is successfully closed.
+ */
+const bool Utils::FileClose( ofstream& ofs )
+{
+    UFLAGS_DE( flags );
+
+    if ( !ofs.is_open() )
+    {
+        LOGSTR( flags, "Utils::FileClose()-> called with closed ofs" );
+        return false;
+    }
+
+    ofs.clear();
+    ofs.close();
+
+    if ( ofs.fail() )
+    {
+        LOGSTR( flags, "Utils::FileClose()-> error closing ofs" );
         return false;
     }
 

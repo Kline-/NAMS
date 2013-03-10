@@ -258,7 +258,7 @@ const bool SocketClient::QueueCommand( const string& command )
         else
             m_command_queue.push_back( pair<string,string>( cmd, args ) );
     }
-    
+
     return true;
 }
 
@@ -655,7 +655,7 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
     m_input.clear();
     m_output.clear();
     m_quitting = false;
-    m_security = SOC_SECURITY_ADMIN; /** @todo Reset this to SOC_SECURITY_NONE once accounts are established. */
+    m_security = SOC_SECURITY_NONE;
     sServer( server );
     m_state = SOC_STATE_DISCONNECTED;
 

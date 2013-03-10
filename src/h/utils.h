@@ -110,8 +110,6 @@ namespace Utils {
 
         return ss.str();
     }
-    const timeval CurrentTime();
-    const uint_t DiffTime( const timeval& prev, const timeval& current, const uint_t& granularity );
     const string DirPath( const string& directory, const string& file, const string& ext = "" );
     const string _FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... );
     const string __FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val );
@@ -120,7 +118,7 @@ namespace Utils {
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     const uint_t NumChar( const string& input, const string& item );
     const vector<string> StrNewlines( const string& input );
-    const string StrTime( const timeval& now );
+    const string StrTime( const time_t& now );
     const vector<string> StrTokens( const string& input );
     /**@}*/
 
@@ -137,6 +135,7 @@ namespace Utils {
     const bool FileOpen( ofstream& ofs, const string& file );
     const bool FileOpen( ifstream& ifs, const string& dir, const string& file );
     const bool FileClose( ifstream& ifs );
+    const bool FileClose( ofstream& ofs );
     const bool FileClose( ofstream& ofs, const string& dir, const string& file );
     /**
      * @brief Splits a string in the format of key=value. Retains any whitespace in the value.

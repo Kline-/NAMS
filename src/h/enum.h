@@ -97,10 +97,7 @@ enum UTILS_OPTS {
     UTILS_TYPE_ERROR  = 2,  /**< Indicates an error and prepends #CFG_STR_UTILS_ERROR to Utils::_Logger() output. */
     UTILS_TYPE_INFO   = 3,  /**< Indicates an info message and prepends #CFG_STR_UTILS_INFO to Utils::_Logger() output. */
     UTILS_TYPE_SOCKET = 4,  /**< Indicates a socket related message and prepends #CFG_STR_UTILS_SOCKET to Utils::_Logger() output. */
-    UTILS_TIME_S      = 5,  /**< Will return time as @a seconds from Utils::DiffTime(). */
-    UTILS_TIME_MS     = 6,  /**< Will return time as @a milliseconds from Utils::DiffTime(). */
-    UTILS_TIME_US     = 7,  /**< Will return time as @a microseconds from Utils::DiffTime(). */
-    MAX_UTILS         = 8   /**< Safety limit for looping. */
+    MAX_UTILS         = 5   /**< Safety limit for looping. */
 };
 
 /**

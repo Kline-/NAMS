@@ -37,7 +37,7 @@ const void AdmReboot::Run( SocketClient* client, const string& cmd, const string
     string desc, port;
     ofstream ofs;
 
-    ofs.open( CFG_DAT_DIR_VAR "/" CFG_DAT_FILE_REBOOT );
+    Utils::FileOpen( ofs, CFG_DAT_FILE_REBOOT );
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = client->gServer()->gSocketClientNext() )
     {
         socket_client = *si;
@@ -52,7 +52,7 @@ const void AdmReboot::Run( SocketClient* client, const string& cmd, const string
         ofs << "secu = " << socket_client->gSecurity() << endl;
         ofs << "stat = " << socket_client->gState() << endl;
     }
-    ofs.close();
+    Utils::FileClose( ofs );
 
     port = Utils::String( client->gServer()->gSocket()->gPort() );
     desc = Utils::String( client->gServer()->gSocket()->gDescriptor() );

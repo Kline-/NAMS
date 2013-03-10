@@ -112,8 +112,8 @@ class Server {
         list<SocketClient*>::iterator m_socket_client_next; /**< Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
         uint_t m_socket_close; /**< Total number of SocketClient and SocketServer objects closed by the Server. */
         uint_t m_socket_open; /**< Total number of SocketClient and SocketServer objects opened by the Server. */
-        timeval m_time_boot; /**< Time the Server was first booted. */
-        timeval m_time_current; /**< Current time from the host OS. */
+        chrono::high_resolution_clock::time_point m_time_boot; /**< Time the Server was first booted. */
+        chrono::high_resolution_clock::time_point m_time_current; /**< Current time from the host OS. */
 };
 
 #endif

@@ -239,12 +239,13 @@ Command* Server::FindCommand( const string& name ) const
 const bool Server::LoadCommands()
 {
     UFLAGS_DE( flags );
-    timeval start, finish;
+    chrono::high_resolution_clock::time_point start, finish;
+    double duration = uintmin_t;
     Command* cmd = NULL;
     multimap<bool,string> files;
     MITER( multimap, bool,string, mi );
 
-    start = Utils::CurrentTime();
+    start = chrono::high_resolution_clock::now();
     LOGSTR( 0, CFG_STR_FILE_COMMAND_READ );
 
     // Populate the multimap with a recursive listing of the commands folder
@@ -275,8 +276,11 @@ const bool Server::LoadCommands()
         }
     }
 
-    finish = Utils::CurrentTime();
-    LOGFMT( 0, "Loaded %lu commands in %lums.", command_list.size(), Utils::DiffTime( start, finish, UTILS_TIME_MS ) );
+    finish = chrono::high_resolution_clock::now();
+    if ( ( duration = chrono::duration_cast<chrono::milliseconds>( finish - start ).count() ) > 1000 )
+        LOGFMT( 0, "Loaded %lu commands in %1.2fs.", command_list.size(), ( duration / 1000 ) );
+    else
+        LOGFMT( 0, "Loaded %lu commands in %1.0fms.", command_list.size(), duration );
 
     return true;
 }
@@ -704,7 +708,7 @@ const void Server::Startup( const sint_t& desc )
     m_shutdown = false;
 
     LOGFMT( 0, "%s started.", CFG_STR_VERSION );
-    m_time_boot = Utils::CurrentTime();
+    m_time_boot = chrono::high_resolution_clock::now();
 
     // Fresh boot, otherwise it would already be assigned during a reboot
     if ( desc == 0 )
@@ -768,7 +772,7 @@ const void Server::Update()
 {
     UFLAGS_DE( flags );
 
-    m_time_current = Utils::CurrentTime();
+    m_time_current = chrono::high_resolution_clock::now();
 
     // Poll all sockets for changes
     if ( !PollSockets() )
@@ -976,8 +980,8 @@ Server::Server()
     m_socket_client_next = socket_client_list.begin();
     m_socket_close = 0;
     m_socket_open = 0;
-    m_time_boot = timeval();
-    m_time_current = timeval();
+    m_time_boot = chrono::high_resolution_clock::now();
+    m_time_current = chrono::high_resolution_clock::now();
 
     return;
 }

@@ -27,12 +27,12 @@
 #define DEC_SYSINCLUDES_H
 
 #include <algorithm>
+#include <chrono>
 #include <map>
 #include <vector>
 
 #include <arpa/inet.h>
 #include <errno.h>
 #include <memory.h>
-#include <sys/time.h>
 
 #endif
