@@ -292,15 +292,17 @@ const string Utils::StrTime( const time_t& now )
 /**
  * @brief Returns a vector of strings split at spaces based on input.
  * @param[in] input A string to split on space characters.
+ * @param[in] quiet If true, don't output error messages on fail.
  * @retval vector<string> A vector of strings that were split on the spaces detected from input.
  */
-const vector<string> Utils::StrTokens( const string& input )
+const vector<string> Utils::StrTokens( const string& input, const bool& quiet )
 {
     UFLAGS_DE( flags );
 
     if ( input.empty() )
     {
-        LOGSTR( flags, "Utils::StrTokens()-> called with empty input" );
+        if ( !quiet )
+            LOGSTR( flags, "Utils::StrTokens()-> called with empty input" );
         return vector<string>();
     }
 
@@ -633,7 +635,7 @@ const bool Utils::FileClose( ofstream& ofs, const string& dir, const string& fil
     }
 
     // Move the new copy over
-    if ( ::rename( CSTR( oldfi ), CSTR( newfi ) ) < 0 )
+    if ( ::rename( CSTR( newfi ), CSTR( oldfi ) ) < 0 )
     {
         LOGERRNO( flags, "Utils::FileClose()->rename()->" );
         return false;

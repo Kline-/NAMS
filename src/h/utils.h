@@ -119,7 +119,7 @@ namespace Utils {
     const uint_t NumChar( const string& input, const string& item );
     const vector<string> StrNewlines( const string& input );
     const string StrTime( const time_t& now );
-    const vector<string> StrTokens( const string& input );
+    const vector<string> StrTokens( const string& input, const bool& quiet = false );
     /**@}*/
 
     /** @name Query */ /**@{*/

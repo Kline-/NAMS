@@ -62,12 +62,17 @@ const bool Server::Config::Serialize() const
 
     KEY( ofs, "account_prohibited_names" );
     {
-        for ( li = m_account_prohibited_names.begin(); li != m_account_prohibited_names.end(); li++ )
-            line << *li << " ";
+        if ( !m_account_prohibited_names.empty() )
+        {
+            for ( li = m_account_prohibited_names.begin(); li != m_account_prohibited_names.end(); li++ )
+                line << *li << " ";
 
-        value = line.str();
-        value.erase( value.end() - 1 );
-        ofs << value << endl;
+            value = line.str();
+            value.erase( value.end() - 1 );
+            ofs << value << endl;
+        }
+        else
+            ofs << endl;
     }
 
     Utils::FileClose( ofs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
@@ -108,7 +113,7 @@ const bool Server::Config::Unserialize()
 
         if ( key.compare( "account_prohibited_names" ) == 0 )
         {
-            token = Utils::StrTokens( value );
+            token = Utils::StrTokens( value, true );
             for ( ti = token.begin(); ti != token.end(); ti++ )
                 m_account_prohibited_names.push_front( *ti );
             m_account_prohibited_names.reverse();
