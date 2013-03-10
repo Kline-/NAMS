@@ -81,6 +81,15 @@ enum SOC_STATE {
 
 /** @name SocketClient */ /**@{*/
 /**
+ * @enum SOC_LOGIN
+ */
+enum SOC_LOGIN {
+    SOC_LOGIN_CMD = 0, /**< Command received from the socket during the login process. */
+    SOC_LOGIN_ARG = 1, /**< Any arguments received from the socket during the login process. */
+    MAX_SOC_LOGIN = 2  /**< Safety limit for looping. */
+};
+
+/**
  * @enum SOC_SECURITY
  */
 enum SOC_SECURITY {

@@ -56,6 +56,7 @@ class SocketClient : public Socket {
 
         /** @name Query */ /**@{*/
         const uint_t gIdle() const;
+        const string gLogin( const uint_t& key ) const;
         const uint_t gSecurity() const;
         Server* gServer() const;
         const uint_t gState() const;
@@ -63,6 +64,7 @@ class SocketClient : public Socket {
 
         /** @name Manipulate */ /**@{*/
         const bool sIdle( const uint_t& idle );
+        const bool sLogin( const uint_t& key, const string& val);
         static void* tResolveHostname( void* data );
         const bool sSecurity( const uint_t& security );
         const bool sServer( Server* server );
@@ -78,6 +80,7 @@ class SocketClient : public Socket {
         deque< pair<string,string> > m_command_queue; /**< FIFO queue for commands unless the command specifies preempt. */
         uint_t m_idle; /**< Amount of time since data was last received from the client. */
         string m_input; /**< Data received from the client that hasn't been processed yet. */
+        string m_login[MAX_SOC_LOGIN]; /**< Used to pass login process commands and arguments between handler functions. */
         string m_output; /**< Data buffered for sending to the client. */
         bool m_quitting; /**< Flag the client as quitting to escape nested loops. */
         uint_t m_security; /**< Security level for commands and restricted access. */

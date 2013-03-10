@@ -494,6 +494,24 @@ const uint_t SocketClient::gIdle() const
 }
 
 /**
+ * @brief Returns the value of a #SOC_LOGIN key.
+ * @param[in] key The key position to retrieve.
+ * @retval string The string stored within the key position, or an empty string if key is outside the proper range.
+ */
+const string SocketClient::gLogin( const uint_t& key ) const
+{
+    UFLAGS_DE( flags );
+
+    if ( key < uintmin_t || key >= MAX_SOC_LOGIN )
+    {
+        LOGFMT( flags, "SocketClient::gLogin()-> called with invalid key: %lu", key );
+        return string();
+    }
+
+    return m_login[key];
+}
+
+/**
  * @brief Returns the authorized security level of the client.
  * @retval uint_t The authorized security level of the client.
  */
@@ -538,6 +556,28 @@ const bool SocketClient::sIdle( const uint_t& idle )
     }
 
     m_idle = idle;
+
+    return true;
+}
+
+/**
+ * @brief Set the login command or arguments to be passed between handler functions.
+ * @param[in] key A value from #SOC_LOGIN.
+ * @param[in] val The value to set key to.
+ * @retval false Returned if the key value is outside the proper range.
+ * @retval true Returned if the key value was successfully set.
+ */
+const bool SocketClient::sLogin( const uint_t& key, const string& val )
+{
+    UFLAGS_DE( flags );
+
+    if ( key < uintmin_t || key >= MAX_SOC_LOGIN )
+    {
+        LOGFMT( flags, "SocketClient::sLogin()-> called with invalid key: %lu", key );
+        return false;
+    }
+
+    m_login[key] = val;
 
     return true;
 }
@@ -658,9 +698,13 @@ const bool SocketClient::sState( const uint_t& state )
  */
 SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket( server, descriptor )
 {
+    uint_t i = uintmin_t;
+
     m_command_queue.clear();
     m_idle = 0;
     m_input.clear();
+    for ( i = 0; i < MAX_SOC_LOGIN; i++ )
+        m_login[i].clear();
     m_output.clear();
     m_quitting = false;
     m_security = SOC_SECURITY_NONE;
