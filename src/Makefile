@@ -27,7 +27,6 @@ L_FLAGS = -lcrypt -ldl -lm -lpthread -L`pwd` -rdynamic
 C_FILES = $(wildcard *.c *.cpp)
 O_FILES = $(patsubst %.cpp,o/%.o,$(C_FILES))
 H_FILES = $(wildcard h/includes.h)
-G_FILES = $(patsubst h/%.h,h/%.h.gch,$(H_FILES))
 DEPS = o/dependencies.d
 VERS =  $(shell grep 'define CFG_STR_VERSION' h/config.h | cut -d\" -f2)
 
@@ -53,7 +52,7 @@ help:
 	echo -e "    pclean   Removes files: ../obj/*"
 	echo -e "    plugins  Compiles all available plugins.\n"
 
-$(PROG): $(G_FILES) $(O_FILES)
+$(PROG): $(O_FILES)
 	$(RM) $(PROG)
 	$(CXX) -o $(PROG) $(O_FILES) $(L_FLAGS)
 	echo "Finished building $(VERS) ($(MODE))."
@@ -66,7 +65,7 @@ cbuild:
 	$(MAKE) plugins
 
 clean:
-	$(RM) $(O_FILES) $(G_FILES) $(DEPS) $(PROG) ../report/core $(PLG_O_FILES)
+	$(RM) $(O_FILES) $(DEPS) $(PROG) ../report/core $(PLG_O_FILES)
 
 commands: $(CMD_O_FILES)
 	echo "Finished building all command plugins."
@@ -88,10 +87,6 @@ plugins: commands
 
 # pull in dependency info for *existing* .o files
 -include $(DEPS)
-
-h/%.h.gch: h/%.h
-	echo "Compiling `echo $@ | cut -c 3-` ... ";
-	$(CXX) -c $(CXX_FLAGS) $(W_FLAGS) $< -o $@
 
 o/%.o: %.cpp
 	echo "Compiling `echo $@ | cut -c 3-` ...";
