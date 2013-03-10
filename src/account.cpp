@@ -41,13 +41,12 @@ const void Account::Delete()
  * @brief Create a new account.
  * @param[in] client The SocketClient requesting an account.
  * @param[in] name The name of the account to be created.
- * @retval false Returned if a new Account was successfully created.
+ * @retval false Returned if a new Account was successfully created or loaded.
  * @retval true Returned if a new Account was unable to be created.
  */
 const bool Account::New( SocketClient* client, const string& name )
 {
     UFLAGS_DE( flags );
-    stringstream file;
     string comp;
     ITER( forward_list, string, fi );
     forward_list<string> search;
@@ -74,27 +73,6 @@ const bool Account::New( SocketClient* client, const string& name )
             client->Send( CFG_STR_ACT_INVALID );
             return false;
         }
-    }
-
-    file << CFG_DAT_DIR_ACCOUNT << "/" << name;
-    switch ( Utils::DirExists( file.str() ) )
-    {
-        case UTILS_RET_FALSE:
-            client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM_NAME, CSTR( name ) ) );
-            client->sState( SOC_STATE_CONFIRM_ACCOUNT );
-        break;
-
-        case UTILS_RET_TRUE:
-            client->Send( CFG_STR_ACT_GET_PASSWORD );
-            client->sState( SOC_STATE_GET_OLD_PASSWORD );
-        break;
-
-        case UTILS_RET_ERROR:
-        default:
-            client->Send( CFG_STR_ACT_INVALID );
-            LOGFMT( flags, "Account::New()->Utils::DirExists()-> returned UTILS_RET_ERROR for name: %s", CSTR( name ) );
-            return false;
-        break;
     }
 
     return true;

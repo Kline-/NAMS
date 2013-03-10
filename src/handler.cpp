@@ -79,7 +79,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
 {
     UFLAGS_DE( flags );
     Command* command = NULL;
-    Account* account = NULL;
+    stringstream file;
 
     if ( client == NULL )
     {
@@ -98,9 +98,25 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
         command->Run( client, cmd, args );
     else
     {
-        account = new Account();
-        if ( !account->New( client, cmd ) )
-            account->Delete();
+        file << CFG_DAT_DIR_ACCOUNT << "/" << cmd;
+        switch ( Utils::DirExists( file.str() ) )
+        {
+            case UTILS_RET_FALSE:
+                client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM_NAME, CSTR( cmd ) ) );
+                client->sState( SOC_STATE_CONFIRM_ACCOUNT );
+            break;
+
+            case UTILS_RET_TRUE:
+                client->Send( CFG_STR_ACT_GET_PASSWORD );
+                client->sState( SOC_STATE_GET_OLD_PASSWORD );
+            break;
+
+            case UTILS_RET_ERROR:
+            default:
+                client->Send( CFG_STR_ACT_INVALID );
+                LOGFMT( flags, "Handler::LoginScreen()->Utils::DirExists()-> returned UTILS_RET_ERROR for name: %s", CSTR( cmd ) );
+            break;
+        }
     }
 
     // Return to the primary handler
