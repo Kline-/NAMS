@@ -80,9 +80,9 @@
 /**
  * @def CFG_DAT_FILE_EXT_TMP
  * @brief The extension to append to a filename while writing.
- * @par Default: ".tmp"
+ * @par Default: "tmp"
  */
-#define CFG_DAT_FILE_EXT_TMP ".tmp"
+#define CFG_DAT_FILE_EXT_TMP "tmp"
 
 /**
  * @def CFG_DAT_FILE_REBOOT

@@ -52,7 +52,7 @@ const bool Server::Config::Serialize() const
     CITER( forward_list, string, li );
 
     LOGSTR( 0, CFG_STR_FILE_SETTINGS_WRITE );
-    ofs.open( CFG_DAT_FILE_SETTINGS CFG_DAT_FILE_EXT_TMP );
+    ofs.open( CFG_DAT_FILE_SETTINGS "." CFG_DAT_FILE_EXT_TMP );
 
     if ( !ofs.good() )
     {
@@ -736,6 +736,9 @@ const void Server::Startup( const sint_t& desc )
         LOGERRNO( flags, "Server::Startup()->chdir()->" );
         Shutdown( EXIT_FAILURE );
     }
+
+    // Cleanup any leftovers from a hard crash mid-write
+    Utils::CleanupTemp( CFG_DAT_DIR_ETC, m_dir_close, m_dir_open );
 
     if ( !m_config->Unserialize() )
     {

@@ -442,6 +442,11 @@ const bool Utils::iReadable( const string& file )
 }
 
 /* Manipulate */
+/**
+ * @brief Returns the first space separated argument from input and then erases it from input.
+ * @param[in] input A space separated string of items.
+ * @retval string A string containing the first argument from input.
+ */
 const string Utils::Argument( string& input )
 {
     UFLAGS_DE( flags );
@@ -462,12 +467,38 @@ const string Utils::Argument( string& input )
 }
 
 /**
+ * @brief Unlinks any temp files leftover from a failed write.
+ * @param[in] dir The directory to scan for cleanup.
+ * @param[in,out] dir_close A #uint_t to store the total directory opened count.
+ * @param[in,out] dir_open A #uint_t to store the total directory closed count.
+ * @retval void
+ */
+const void Utils::CleanupTemp( const string& dir, uint_t& dir_close, uint_t& dir_open )
+{
+    UFLAGS_DE( flags );
+    multimap<bool,string> files;
+    MITER( multimap, bool,string, mi );
+
+    ListDirectory( dir, false, files, dir_close, dir_open );
+
+    if ( files.empty() )
+        return;
+
+    for ( mi = files.begin(); mi != files.end(); mi++ )
+        if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ).compare( CFG_DAT_FILE_EXT_TMP ) == 0 ) )
+            if ( ::unlink( CSTR( DirPath( dir, mi->second ) ) ) < 0 )
+                LOGERRNO( flags, "Utils::CleanupTemp()->" );
+
+    return;
+}
+
+/**
  * @brief Return a multimap of a specified directory tree on disk.
  * @param[in] dir The filesystem path to search.
- * @param[in] recursive If tue, the function will continue to recursively list folders multi-layers deep rather than top level only.
+ * @param[in] recursive If true, the function will continue to recursively list folders multi-layers deep rather than top level only.
  * @param[in,out] output A multimap<bool,string> consisting of a boolean value denoting either #UTILS_IS_DIRECTORY or #UTILS_IS_FILE. If recursive, this will be updated on each pass.
- * @param[in,out] dir_close A #uint_t pointing to the total directory opened count on a Server object.
- * @param[in,out] dir_open A #uint_t pointing to the total directory closed count on a Server object.
+ * @param[in,out] dir_close A #uint_t to store the total directory opened count.
+ * @param[in,out] dir_open A #uint_t to store the total directory closed count.
  * @retval multimap<bool,string> A multimap<bool,string> consisting of a boolean value denoting either #UTILS_IS_DIRECTORY or #UTILS_IS_FILE. If recursive, this will be updated on each pass.
  */
 const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
