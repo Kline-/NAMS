@@ -43,6 +43,8 @@ namespace Handler {
     /**@}*/
 
     /** @name Internal */ /**@{*/
+    const void ConfirmAccount( SocketClient* client, const string& cmd, const string& args );
+    const void GetOldPassword( SocketClient* client, const string& cmd, const string& args );
     const void LoginScreen( SocketClient* client, const string& cmd, const string& args );
     /**@}*/
 };

@@ -57,10 +57,14 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
         break;
 
         case SOC_STATE_GET_OLD_PASSWORD:
+            GetOldPassword( client, cmd, args );
         break;
 
         case SOC_STATE_CONFIRM_ACCOUNT:
+            ConfirmAccount( client, cmd, args );
+        break;
 
+        case SOC_STATE_NEW_ACCOUNT:
         break;
 
         default:
@@ -75,6 +79,75 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
 /* Manipulate */
 
 /* Internal */
+/**
+ * @brief Confirm a new account name.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::ConfirmAccount( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::ConfirmAccount()-> called with NULL client" );
+        return;
+    }
+
+    if ( cmd.empty() )
+        return;
+
+    if ( Utils::Upper( cmd ).compare( "Y" ) == 0 )
+    {
+        client->sState( SOC_STATE_NEW_ACCOUNT );
+    }
+    else if ( Utils::Upper( cmd ).compare( "N" ) == 0 )
+    {
+    }
+    else
+        client->Send( CFG_STR_SEL_INVALID );
+
+    // Return to the primary handler
+    ProcessLogin( client );
+
+    return;
+}
+
+/**
+ * @brief Compare a received password against an existing account.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::GetOldPassword( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::GetOldPassword()-> called with NULL client" );
+        return;
+    }
+
+    if ( cmd.empty() )
+        return;
+
+    // Return to the primary handler
+    ProcessLogin( client );
+
+    return;
+}
+
+/**
+ * @brief Send initial greeting and request for account name.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
 const void Handler::LoginScreen( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
@@ -90,8 +163,8 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     // Initial connection with no input yet received or previous name was invalid
     if ( cmd.empty() && args.empty() )
     {
-            client->Send( CFG_STR_ACT_GET_NAME );
-            return;
+        client->Send( CFG_STR_ACT_GET_NAME );
+        return;
     }
 
     if ( ( command = client->gServer()->FindCommand( cmd ) ) != NULL && command->Authorized( client->gSecurity() ) )
@@ -99,7 +172,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     else
     {
         file << CFG_DAT_DIR_ACCOUNT << "/" << cmd;
-        switch ( Utils::DirExists( file.str() ) )
+        switch (  Utils::DirExists( file.str() ) )
         {
             case UTILS_RET_FALSE:
                 client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM_NAME, CSTR( cmd ) ) );

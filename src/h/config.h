@@ -346,6 +346,13 @@
 #define CFG_STR_QUIT "Goodbye." CRLF
 
 /**
+ * @def CFG_STR_SEL_INVALID
+ * @brief String send to the client after an invalid selection is made during an input request.
+ * @par Default: "Invalid selection." CRLF
+ */
+#define CFG_STR_SEL_INVALID "Invalid selection." CRLF
+
+/**
  * @def CFG_STR_SHUTDOWN
  * @brief String broadcast to all clients when the server is shutting down.
  * @par Default: "Server shutting down." CRLF

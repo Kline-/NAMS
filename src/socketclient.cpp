@@ -171,7 +171,8 @@ const bool SocketClient::ProcessCommand()
         cmd = m_command_queue.front();
         m_command_queue.pop_front();
 
-        if ( gState() == SOC_STATE_LOGIN_SCREEN )
+        // Redirect if not fully logged in yet
+        if ( gState() < SOC_STATE_PLAYING )
         {
             if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
             {
