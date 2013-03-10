@@ -26,8 +26,6 @@
 #ifndef DEC_INCLUDES_H
 #define DEC_INCLUDES_H
 
-using namespace std;
-
 #include "sysincludes.h"
 #include "limits.h"
 #include "macros.h"
