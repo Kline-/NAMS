@@ -88,13 +88,16 @@ This is the complete list of members for <a class="el" href="classServer.xhtml">
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#ae1bb8d3c7c71119bae6dd4205fd6c0cc">Broadcast</a>(const string &amp;msg)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a45782df02e28df1c52c2a8edb90264e1">BuildPlugin</a>(const string &amp;file, const bool &amp;force=false)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#acf928ad938e32e6342c0cdd278e793bc">FindCommand</a>(const string &amp;name) const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58">gConfig</a>() const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052">gHostname</a>() const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">gPort</a>() const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71">gSocket</a>() const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a94d4152506da23d153a6070af7e72009">gSocketClientNext</a>() const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">gSocketClose</a>() const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503">gSocketOpen</a>() const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8">gStatus</a>() const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5">LoadCommands</a>()</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a1747867dad63252314aa7083b0084e2b">m_dir_close</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#ad14d47d1da6c22097a242519709e960c">m_dir_open</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
@@ -103,10 +106,14 @@ This is the complete list of members for <a class="el" href="classServer.xhtml">
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classServer.xhtml#ab31b9d2584a9bdcae78154fb7ed37915">m_time_boot</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a8f5d1702652eae5aa8602fd7b24d4b5c">m_time_current</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a3c414ed05d5f52b181f91d7b317aba2c">m_time_boot</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a2b6f037a67bc8e4f3c6dadb324915627">m_time_current</a></td><td><a class="el" href="classServer.xhtml">Server</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c">PollSockets</a>()</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a266931bde9b1955346955140986d2b00">ProcessEvents</a>()</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae">ProcessInput</a>()</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#af7c4b4e6fe763a8f07984365af7640f7">ProcessLogin</a>(SocketClient *client, const string &amp;cmd, const string &amp;args)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a16ea0639731dee10e1a253375b508a02">RebootRecovery</a>(const bool &amp;reboot)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729">ReloadCommand</a>(const string &amp;name)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea">Running</a>() const </td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#ad5ec9462b520e59f7ea831e157ee5e59">Server</a>()</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762">Shutdown</a>(const sint_t &amp;status)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
@@ -114,7 +121,7 @@ This is the complete list of members for <a class="el" href="classServer.xhtml">
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354">sSocketClientNext</a>(list&lt; SocketClient * &gt;::iterator next)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a">sSocketClose</a>(const uint_t &amp;amount)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a">sSocketOpen</a>(const uint_t &amp;amount)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a">Startup</a>()</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classServer.xhtml#a19a1e493e1fb50a56d9c77332543d565">Startup</a>(const sint_t &amp;desc=0)</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990">Update</a>()</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classServer.xhtml#a4b3aa2579cb1c8cd1d069582c14d0fa6">~Server</a>()</td><td><a class="el" href="classServer.xhtml">Server</a></td><td></td></tr>
 </table></div><!-- contents -->
@@ -135,7 +142,7 @@ This is the complete list of members for <a class="el" href="classServer.xhtml">
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 27 2012 15:05:04 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 9 2013 23:59:16 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

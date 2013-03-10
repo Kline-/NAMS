@@ -32,7 +32,7 @@
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 794;
+var viewWidth = 968;
 var viewHeight = 146;
 var sectionId = 'dynsection-1';
 </script>
@@ -40,136 +40,160 @@ var sectionId = 'dynsection-1';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>G</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-142 791,-142 791,5 -4,5"/>
+<polygon fill="white" stroke="white" points="-4,5 -4,-142 965,-142 965,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="494,-116.5 494,-137.5 548,-137.5 548,-116.5 494,-116.5"/>
-<text text-anchor="middle" x="521" y="-124.5" font-family="FreeSans.ttf" font-size="10.00">h/utils.h</text>
+<polygon fill="#bfbfbf" stroke="black" points="605,-116.5 605,-137.5 659,-137.5 659,-116.5 605,-116.5"/>
+<text text-anchor="middle" x="632" y="-124.5" font-family="FreeSans.ttf" font-size="10.00">h/utils.h</text>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
 <a xlink:href="includes_8h.xhtml" target="_top" xlink:title="All non&#45;system includes that need to be within each .cpp file.">
-<polygon fill="white" stroke="black" points="370,-58.5 370,-79.5 444,-79.5 444,-58.5 370,-58.5"/>
-<text text-anchor="middle" x="407" y="-66.5" font-family="FreeSans.ttf" font-size="10.00">h/includes.h</text>
+<polygon fill="white" stroke="black" points="460,-58.5 460,-79.5 534,-79.5 534,-58.5 460,-58.5"/>
+<text text-anchor="middle" x="497" y="-66.5" font-family="FreeSans.ttf" font-size="10.00">h/includes.h</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M491.383,-111.932C471.456,-101.793 445.671,-88.6748 427.876,-79.6212"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="489.856,-115.081 500.355,-116.497 493.03,-108.843 489.856,-115.081"/>
+<path fill="none" stroke="midnightblue" d="M598.202,-112.479C574.438,-102.269 543.176,-88.8386 521.722,-79.6212"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="596.983,-115.765 607.553,-116.497 599.746,-109.333 596.983,-115.765"/>
 </g>
-<!-- Node11 -->
-<g id="node21" class="node"><title>Node11</title>
+<!-- Node13 -->
+<g id="node25" class="node"><title>Node13</title>
 <a xlink:href="utils_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Utils namespace.">
-<polygon fill="white" stroke="black" points="730,-0.5 730,-21.5 786,-21.5 786,-0.5 730,-0.5"/>
-<text text-anchor="middle" x="758" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">utils.cpp</text>
+<polygon fill="white" stroke="black" points="904,-0.5 904,-21.5 960,-21.5 960,-0.5 904,-0.5"/>
+<text text-anchor="middle" x="932" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">utils.cpp</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node11 -->
-<g id="edge22" class="edge"><title>Node1&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M552.012,-111.821C600.84,-87.9222 694.408,-42.1251 736.524,-21.5117"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="550.315,-108.755 542.872,-116.295 553.392,-115.042 550.315,-108.755"/>
+<!-- Node1&#45;&gt;Node13 -->
+<g id="edge26" class="edge"><title>Node1&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M668.765,-112.784C729.783,-89.1907 850.598,-42.4756 904.693,-21.5587"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="667.217,-109.63 659.152,-116.501 669.741,-116.159 667.217,-109.63"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="command_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Command class.">
-<polygon fill="white" stroke="black" points="0,-0.5 0,-21.5 86,-21.5 86,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="43" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">command.cpp</text>
+<a xlink:href="account_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Account class.">
+<polygon fill="white" stroke="black" points="-0.5,-0.5 -0.5,-21.5 74.5,-21.5 74.5,-0.5 -0.5,-0.5"/>
+<text text-anchor="middle" x="37" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">account.cpp</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M359.777,-62.7693C298.542,-54.4877 188.502,-38.9171 95,-22 92.0944,-21.4743 89.1026,-20.9081 86.0917,-20.3199"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="359.524,-66.2668 369.902,-64.1323 360.458,-59.3294 359.524,-66.2668"/>
+<path fill="none" stroke="midnightblue" d="M449.603,-65.5069C372.394,-59.3944 214.838,-45.1582 83,-22 80.2503,-21.517 77.4195,-20.9683 74.5778,-20.3798"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="449.711,-69.0259 459.953,-66.3155 450.256,-62.0472 449.711,-69.0259"/>
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="list_8cpp.xhtml" target="_top" xlink:title="All globally referenced list / map / vector types.">
-<polygon fill="white" stroke="black" points="104,-0.5 104,-21.5 154,-21.5 154,-0.5 104,-0.5"/>
-<text text-anchor="middle" x="129" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">list.cpp</text>
+<a xlink:href="command_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Command class.">
+<polygon fill="white" stroke="black" points="92,-0.5 92,-21.5 178,-21.5 178,-0.5 92,-0.5"/>
+<text text-anchor="middle" x="135" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">command.cpp</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node4 -->
 <g id="edge6" class="edge"><title>Node2&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M359.824,-61.6771C310.396,-53.5943 230.677,-39.396 163,-22 160.116,-21.2586 157.118,-20.4086 154.15,-19.5166"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="359.466,-65.1646 369.897,-63.308 360.585,-58.2546 359.466,-65.1646"/>
+<path fill="none" stroke="midnightblue" d="M449.583,-62.682C388.645,-54.3628 279.655,-38.8093 187,-22 184.095,-21.4729 181.103,-20.9057 178.092,-20.3167"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="449.284,-66.1734 459.664,-64.052 450.226,-59.2372 449.284,-66.1734"/>
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
-<a xlink:href="main_8cpp.xhtml" target="_top" xlink:title="Initial server entry point.">
-<polygon fill="white" stroke="black" points="171.5,-0.5 171.5,-21.5 232.5,-21.5 232.5,-0.5 171.5,-0.5"/>
-<text text-anchor="middle" x="202" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">main.cpp</text>
+<a xlink:href="event_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Event class.">
+<polygon fill="white" stroke="black" points="196,-0.5 196,-21.5 260,-21.5 260,-0.5 196,-0.5"/>
+<text text-anchor="middle" x="228" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">event.cpp</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node5 -->
 <g id="edge8" class="edge"><title>Node2&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M360.024,-55.7092C320.856,-44.6275 266.196,-29.1627 232.503,-19.6301"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="359.301,-59.142 369.876,-58.4966 361.207,-52.4064 359.301,-59.142"/>
+<path fill="none" stroke="midnightblue" d="M449.702,-60.0925C403.465,-51.1865 331.154,-36.7305 269,-22 266.132,-21.3202 263.159,-20.5842 260.184,-19.8263"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="449.25,-63.5694 459.73,-62.0157 450.568,-56.6947 449.25,-63.5694"/>
 </g>
 <!-- Node6 -->
 <g id="node11" class="node"><title>Node6</title>
-<a xlink:href="plugin_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Plugin class.">
-<polygon fill="white" stroke="black" points="249.5,-0.5 249.5,-21.5 314.5,-21.5 314.5,-0.5 249.5,-0.5"/>
-<text text-anchor="middle" x="282" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">plugin.cpp</text>
+<a xlink:href="list_8cpp.xhtml" target="_top" xlink:title="All globally referenced list / map / vector types.">
+<polygon fill="white" stroke="black" points="278,-0.5 278,-21.5 328,-21.5 328,-0.5 278,-0.5"/>
+<text text-anchor="middle" x="303" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">list.cpp</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node6 -->
 <g id="edge10" class="edge"><title>Node2&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M375.117,-54.2064C353.188,-44.031 324.579,-30.7567 304.891,-21.6212"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="373.819,-57.4625 384.363,-58.4966 376.766,-51.1127 373.819,-57.4625"/>
+<path fill="none" stroke="midnightblue" d="M450.101,-55.5872C418.156,-46.3621 374.943,-33.7084 337,-22 334.154,-21.1219 331.181,-20.1864 328.227,-19.2459"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="449.478,-59.0499 460.056,-58.4564 451.416,-52.3237 449.478,-59.0499"/>
 </g>
 <!-- Node7 -->
 <g id="node13" class="node"><title>Node7</title>
-<a xlink:href="server_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Server class.">
-<polygon fill="white" stroke="black" points="332,-0.5 332,-21.5 398,-21.5 398,-0.5 332,-0.5"/>
-<text text-anchor="middle" x="365" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">server.cpp</text>
+<a xlink:href="main_8cpp.xhtml" target="_top" xlink:title="Initial server entry point.">
+<polygon fill="white" stroke="black" points="345.5,-0.5 345.5,-21.5 406.5,-21.5 406.5,-0.5 345.5,-0.5"/>
+<text text-anchor="middle" x="376" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">main.cpp</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node7 -->
 <g id="edge12" class="edge"><title>Node2&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M393.423,-50.2504C386.543,-40.75 378.444,-29.5651 372.655,-21.5707"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="390.597,-52.3153 399.297,-58.3619 396.266,-48.2097 390.597,-52.3153"/>
+<path fill="none" stroke="midnightblue" d="M465.851,-54.0693C444.661,-43.9121 417.131,-30.7157 398.158,-21.6212"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="464.557,-57.3303 475.088,-58.4966 467.583,-51.018 464.557,-57.3303"/>
 </g>
 <!-- Node8 -->
 <g id="node15" class="node"><title>Node8</title>
-<a xlink:href="socket_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Socket class.">
-<polygon fill="white" stroke="black" points="416,-0.5 416,-21.5 484,-21.5 484,-0.5 416,-0.5"/>
-<text text-anchor="middle" x="450" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">socket.cpp</text>
+<a xlink:href="plugin_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Plugin class.">
+<polygon fill="white" stroke="black" points="423.5,-0.5 423.5,-21.5 488.5,-21.5 488.5,-0.5 423.5,-0.5"/>
+<text text-anchor="middle" x="456" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">plugin.cpp</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node8 -->
 <g id="edge14" class="edge"><title>Node2&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M420.901,-50.2504C427.944,-40.75 436.236,-29.5651 442.163,-21.5707"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="418.031,-48.2443 414.887,-58.3619 423.654,-52.4132 418.031,-48.2443"/>
+<path fill="none" stroke="midnightblue" d="M483.54,-49.9591C476.869,-40.522 469.066,-29.4835 463.472,-21.5707"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="480.85,-52.2165 489.48,-58.3619 486.566,-48.1758 480.85,-52.2165"/>
 </g>
 <!-- Node9 -->
 <g id="node17" class="node"><title>Node9</title>
-<a xlink:href="socketclient_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the SocketClient class.">
-<polygon fill="white" stroke="black" points="502,-0.5 502,-21.5 596,-21.5 596,-0.5 502,-0.5"/>
-<text text-anchor="middle" x="549" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">socketclient.cpp</text>
+<a xlink:href="server_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Server class.">
+<polygon fill="white" stroke="black" points="506,-0.5 506,-21.5 572,-21.5 572,-0.5 506,-0.5"/>
+<text text-anchor="middle" x="539" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">server.cpp</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node9 -->
 <g id="edge16" class="edge"><title>Node2&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M442.218,-54.6153C467.255,-44.3889 500.329,-30.8796 522.996,-21.6212"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="440.649,-51.4752 432.715,-58.4966 443.296,-57.9555 440.649,-51.4752"/>
+<path fill="none" stroke="midnightblue" d="M510.577,-50.2504C517.457,-40.75 525.556,-29.5651 531.345,-21.5707"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="507.734,-48.2097 504.703,-58.3619 513.403,-52.3153 507.734,-48.2097"/>
 </g>
 <!-- Node10 -->
 <g id="node19" class="node"><title>Node10</title>
-<a xlink:href="socketserver_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the SocketServer class.">
-<polygon fill="white" stroke="black" points="614,-0.5 614,-21.5 712,-21.5 712,-0.5 614,-0.5"/>
-<text text-anchor="middle" x="663" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">socketserver.cpp</text>
+<a xlink:href="socket_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the Socket class.">
+<polygon fill="white" stroke="black" points="590,-0.5 590,-21.5 658,-21.5 658,-0.5 590,-0.5"/>
+<text text-anchor="middle" x="624" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">socket.cpp</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node10 -->
 <g id="edge18" class="edge"><title>Node2&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M454.006,-58.3501C500.29,-47.8641 570.552,-31.9452 616.618,-21.5084"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="453.204,-54.9431 444.225,-60.5663 454.751,-61.7701 453.204,-54.9431"/>
+<path fill="none" stroke="midnightblue" d="M529.393,-54.2064C551.673,-44.031 580.74,-30.7567 600.743,-21.6212"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="527.641,-51.1587 519.999,-58.4966 530.549,-57.5261 527.641,-51.1587"/>
+</g>
+<!-- Node11 -->
+<g id="node21" class="node"><title>Node11</title>
+<a xlink:href="socketclient_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the SocketClient class.">
+<polygon fill="white" stroke="black" points="676,-0.5 676,-21.5 770,-21.5 770,-0.5 676,-0.5"/>
+<text text-anchor="middle" x="723" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">socketclient.cpp</text>
+</a>
 </g>
 <!-- Node2&#45;&gt;Node11 -->
 <g id="edge20" class="edge"><title>Node2&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M454.26,-64.0223C516.042,-57.0379 627.409,-42.8086 721,-22 723.878,-21.36 726.86,-20.6151 729.825,-19.8202"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="453.598,-60.5743 444.048,-65.1616 454.374,-67.5311 453.598,-60.5743"/>
+<path fill="none" stroke="midnightblue" d="M543.998,-56.9385C584.639,-46.5087 642.816,-31.5782 681.698,-21.5996"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="542.882,-53.6114 534.066,-59.4874 544.622,-60.3917 542.882,-53.6114"/>
+</g>
+<!-- Node12 -->
+<g id="node23" class="node"><title>Node12</title>
+<a xlink:href="socketserver_8cpp.xhtml" target="_top" xlink:title="All non&#45;template member functions of the SocketServer class.">
+<polygon fill="white" stroke="black" points="788,-0.5 788,-21.5 886,-21.5 886,-0.5 788,-0.5"/>
+<text text-anchor="middle" x="837" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">socketserver.cpp</text>
+</a>
+</g>
+<!-- Node2&#45;&gt;Node12 -->
+<g id="edge22" class="edge"><title>Node2&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M544.445,-61.4235C600.531,-52.3905 696.658,-36.6683 779,-22 781.926,-21.4787 784.934,-20.9344 787.966,-20.379"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="543.768,-57.9873 534.45,-63.0306 544.879,-64.8985 543.768,-57.9873"/>
+</g>
+<!-- Node2&#45;&gt;Node13 -->
+<g id="edge24" class="edge"><title>Node2&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M544.164,-66.058C619.104,-60.7962 769.714,-47.8224 895,-22 897.888,-21.4048 900.876,-20.6892 903.845,-19.9122"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="543.838,-62.572 534.102,-66.7498 544.319,-69.5555 543.838,-62.572"/>
 </g>
 </g>
 </svg>

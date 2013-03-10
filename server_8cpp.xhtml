@@ -88,19 +88,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &quot;<a class="el" href="includes_8h_source.xhtml">h/includes.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="class_8h_source.xhtml">h/class.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="server_8h_source.xhtml">h/server.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="account_8h_source.xhtml">h/account.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="command_8h_source.xhtml">h/command.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="event_8h_source.xhtml">h/event.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="list_8h_source.xhtml">h/list.h</a>&quot;</code><br/>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for server.cpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="server_8cpp__incl.svg" width="100%" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="server_8cpp__incl.svg" width="100%" height="360"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </div>
 <p><a href="server_8cpp_source.xhtml">Go to the source code of this file.</a></p>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object is created from <a class="el" href="main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server.">main()</a> when NAMS is first started. The <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object handles all further interfacing with the host OS and is the central core of NAMS.</p>
-<p>During its boot sequence, the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> will spawn a <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> to listen for incomming <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> connections, compile and load any <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> objects, and then indefinitely loop and process game logic until it receives a shutdown notification. </p>
+<p>During its boot sequence, the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> will spawn a <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> to listen for incoming <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> connections, compile and load any <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> objects, and then indefinitely loop and process game logic until it receives a shutdown notification. </p>
 
 <p>Definition in file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 </div></div><!-- contents -->
@@ -121,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 27 2012 15:05:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

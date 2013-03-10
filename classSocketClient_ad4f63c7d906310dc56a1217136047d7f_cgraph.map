@@ -1,14 +1,27 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="521,5,625,35"/>
-<area shape="rect" id="node5" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="500,59,647,88"/>
-<area shape="rect" id="node7" href="$classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5" title="Returns the Server object associated to this SocketClient." alt="" coords="285,165,445,195"/>
-<area shape="rect" id="node9" href="$classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run()." alt="" coords="283,219,448,248"/>
-<area shape="rect" id="node11" href="$classSocketClient.xhtml#a55449717f16faaa0f3375610b9f3dfe3" title="Returns the authorized security level of the client." alt="" coords="280,272,451,301"/>
-<area shape="rect" id="node13" href="$classCommand.xhtml#a1cac0232492ece9e3316c75fa85e5e1a" title="Execute a Plugin object&#39;s primary function." alt="" coords="305,325,425,355"/>
-<area shape="rect" id="node17" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="295,112,436,141"/>
-<area shape="rect" id="node15" href="$classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d" title="Execute the primary function of the implemented class." alt="" coords="528,325,619,355"/>
-<area shape="rect" id="node21" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="499,165,648,195"/>
-<area shape="rect" id="node23" href="$classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance." alt="" coords="512,219,635,248"/>
-<area shape="rect" id="node25" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="500,272,647,301"/>
-<area shape="rect" id="node27" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="500,112,647,141"/>
+<area shape="rect" id="node3" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="1065,5,1169,35"/>
+<area shape="rect" id="node5" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="1044,59,1191,88"/>
+<area shape="rect" id="node7" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="495,215,647,244"/>
+<area shape="rect" id="node9" href="$classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5" title="Returns the Server object associated to this SocketClient." alt="" coords="769,165,929,195"/>
+<area shape="rect" id="node11" href="$classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run()." alt="" coords="488,268,653,297"/>
+<area shape="rect" id="node13" href="$classSocketClient.xhtml#a55449717f16faaa0f3375610b9f3dfe3" title="Returns the authorized security level of the client." alt="" coords="485,481,656,511"/>
+<area shape="rect" id="node15" href="$classCommand.xhtml#a6448d432978113719bfdfa3783da5106" title="Execute a Plugin object&#39;s primary function." alt="" coords="511,535,631,564"/>
+<area shape="rect" id="node19" href="$classServer.xhtml#af7c4b4e6fe763a8f07984365af7640f7" title="Handle SocketClient objects who have not fully logged into the game yet." alt="" coords="281,335,436,364"/>
+<area shape="rect" id="node40" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="779,112,920,141"/>
+<area shape="rect" id="node17" href="$classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d" title="Execute the primary function of the implemented class." alt="" coords="804,539,895,568"/>
+<area shape="rect" id="node22" href="$classServer.xhtml#acf928ad938e32e6342c0cdd278e793bc" title="Server::FindCommand" alt="" coords="489,375,652,404"/>
+<area shape="rect" id="node33" href="$classAccount.xhtml#a1e12e66ca5fdd8ebbc741d4f037c806b" title="Create a new account." alt="" coords="516,321,625,351"/>
+<area shape="rect" id="node58" href="$classAccount.xhtml#aa82e62e930fb3a8ac58a4592f323db75" title="Unload an account from memory that was previously loaded via Account::New()." alt="" coords="509,428,632,457"/>
+<area shape="rect" id="node24" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="803,432,896,461"/>
+<area shape="rect" id="node26" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="777,485,921,515"/>
+<area shape="rect" id="node28" href="$classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object." alt="" coords="1060,485,1175,515"/>
+<area shape="rect" id="node36" href="$classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58" title="Gets the runtime configuration of the server." alt="" coords="789,379,909,408"/>
+<area shape="rect" id="node38" href="$classServer_1_1Config.xhtml#ae93688e4861753dd11a8b537e092ab77" title="Returns an a copy of the account prohibited names list." alt="" coords="704,219,995,248"/>
+<area shape="rect" id="node52" href="$namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file." alt="" coords="793,272,905,301"/>
+<area shape="rect" id="node56" href="$namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file." alt="" coords="793,325,905,355"/>
+<area shape="rect" id="node44" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="1043,112,1192,141"/>
+<area shape="rect" id="node46" href="$classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance." alt="" coords="1056,165,1179,195"/>
+<area shape="rect" id="node48" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="1044,219,1191,248"/>
+<area shape="rect" id="node50" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="1044,272,1191,301"/>
+<area shape="rect" id="node54" href="$namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Returns a string consisting of directory/file.ext." alt="" coords="1065,325,1169,355"/>
 </map>

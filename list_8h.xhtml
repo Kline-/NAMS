@@ -87,20 +87,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>All globally referenced list / map / vector types.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;list&gt;</code><br/>
+<div class="textblock"><code>#include &lt;forward_list&gt;</code><br/>
+<code>#include &lt;list&gt;</code><br/>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for list.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="list_8h__incl.svg" width="75" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="list_8h__incl.svg" width="168" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="list_8h__dep__incl.svg" width="650" height="427"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="list_8h__dep__incl.svg" width="100%" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </div>
 <p><a href="list_8h_source.xhtml">Go to the source code of this file.</a></p>
@@ -109,6 +112,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">multimap&lt; const char, <a class="el" href="classCommand.xhtml">Command</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a82a4f4375bf789a81d7ef1a01ea83943">command_list</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">All commands loaded into memory.  <a href="#a82a4f4375bf789a81d7ef1a01ea83943"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">forward_list&lt; <a class="el" href="classEvent.xhtml">Event</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#ad6193b63fb1a04ccad88807abbf8c1b7">event_list</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">All events pending execution.  <a href="#ad6193b63fb1a04ccad88807abbf8c1b7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classSocketClient.xhtml">SocketClient</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a0a518fc6607b121546a40295adc8c06b">socket_client_list</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">All <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects connected to the server.  <a href="#a0a518fc6607b121546a40295adc8c06b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classSocketServer.xhtml">SocketServer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a2545f37b44cab86c6aa83abf4489b18b">socket_server_list</a></td></tr>
@@ -141,6 +146,27 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad6193b63fb1a04ccad88807abbf8c1b7"></a><!-- doxytag: member="list.h::event_list" ref="ad6193b63fb1a04ccad88807abbf8c1b7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">forward_list&lt;<a class="el" href="classEvent.xhtml">Event</a>*&gt; <a class="el" href="list_8h.xhtml#ad6193b63fb1a04ccad88807abbf8c1b7">event_list</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Event*</td><td>A pointer to an <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a> object in memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00044">44</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a0a518fc6607b121546a40295adc8c06b"></a><!-- doxytag: member="list.h::socket_client_list" ref="a0a518fc6607b121546a40295adc8c06b" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -158,7 +184,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00044">44</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00051">51</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
 
 </div>
 </div>
@@ -179,7 +205,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00051">51</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00058">58</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
 
 </div>
 </div>
@@ -201,7 +227,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 27 2012 15:05:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

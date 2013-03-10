@@ -108,37 +108,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00051"></a><a class="code" href="main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967">00051</a> <span class="keywordtype">int</span> <a class="code" href="main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server.">main</a>( <span class="keyword">const</span> <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>* argv[] )
 <a name="l00052"></a>00052 {
 <a name="l00053"></a>00053     <a class="code" href="macros_8h.xhtml#aa1be0ce59bc9d78fa526b8f2157c444b" title="Define a bitset variable (name) with values (value) already set.">BSET</a>( flags, <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a7d4a5f7891869a8964c9f3be6ad4fb03">UTILS_RAW</a> );
-<a name="l00054"></a>00054     <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a> _server;
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056     <span class="keywordflow">if</span> ( argc &gt; 1 )
-<a name="l00057"></a>00057     {
-<a name="l00058"></a>00058         <span class="keywordflow">if</span> ( !<a class="code" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442" title="Determines if a string is only a string of numerical values.">Utils::iNumber</a>( argv[1] ) )
-<a name="l00059"></a>00059         {
-<a name="l00060"></a>00060             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Usage: %s [port #]&quot;</span>, argv[0] );
-<a name="l00061"></a>00061             _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
-<a name="l00062"></a>00062         }
-<a name="l00063"></a>00063         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( !_server.<a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" title="Set the port of a NAMS Server object.">sPort</a>( atoi( argv[1] ) ) )
-<a name="l00064"></a>00064         {
-<a name="l00065"></a>00065             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Port number must be between %d and %d.&quot;</span>, <a class="code" href="config_8h.xhtml#ae5e151c935c7bb282e854ef030390695" title="The listening server socket must be above this port.">CFG_SOC_MIN_PORTNUM</a>, <a class="code" href="config_8h.xhtml#a234e78c07d081a99b72af652cfa37cb8" title="The listening server socket must be below this port.">CFG_SOC_MAX_PORTNUM</a> );
-<a name="l00066"></a>00066             _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
-<a name="l00067"></a>00067         }
-<a name="l00068"></a>00068     }
-<a name="l00069"></a>00069     <span class="keywordflow">else</span>
-<a name="l00070"></a>00070         _server.<a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" title="Set the port of a NAMS Server object.">sPort</a>( <a class="code" href="config_8h.xhtml#a5f105c04f494daec2a03ed9a85eb092b" title="Port number to listen on if not specified on the command line.">CFG_SOC_PORTNUM</a> );
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072     _server.<a class="code" href="classServer.xhtml#a84ed4b0103f83fe0ece0a89983d0787a" title="Start the NAMS Server. Responsible for calling all critical boot-time functions such as SocketServer ...">Startup</a>();
-<a name="l00073"></a>00073     <span class="keywordflow">while</span>( _server.<a class="code" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea" title="Returns if the Server is shutdown or not.">Running</a>() )
-<a name="l00074"></a>00074         _server.<a class="code" href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">Update</a>();
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076     _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_SUCCESS );
-<a name="l00077"></a>00077 }
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 <span class="comment">/* Query */</span>
+<a name="l00054"></a>00054     <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> desc = 0;
+<a name="l00055"></a>00055     <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a> _server;
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057     <span class="keywordflow">if</span> ( argc &gt; 1 )
+<a name="l00058"></a>00058     {
+<a name="l00059"></a>00059         <span class="keywordflow">if</span> ( !<a class="code" href="namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442" title="Determines if a string is only a string of numerical values.">Utils::iNumber</a>( argv[1] ) )
+<a name="l00060"></a>00060         {
+<a name="l00061"></a>00061             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Usage: %s [port #]&quot;</span>, argv[0] );
+<a name="l00062"></a>00062             _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
+<a name="l00063"></a>00063         }
+<a name="l00064"></a>00064         <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( !_server.<a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" title="Set the port of a NAMS Server object.">sPort</a>( atoi( argv[1] ) ) )
+<a name="l00065"></a>00065         {
+<a name="l00066"></a>00066             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Port number must be between %d and %d.&quot;</span>, <a class="code" href="config_8h.xhtml#ae5e151c935c7bb282e854ef030390695" title="The listening server socket must be above this port.">CFG_SOC_MIN_PORTNUM</a>, <a class="code" href="config_8h.xhtml#a234e78c07d081a99b72af652cfa37cb8" title="The listening server socket must be below this port.">CFG_SOC_MAX_PORTNUM</a> );
+<a name="l00067"></a>00067             _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
+<a name="l00068"></a>00068         }
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="comment">// Must be rebooting</span>
+<a name="l00071"></a>00071         <span class="keywordflow">if</span> ( argc &gt; 2 )
+<a name="l00072"></a>00072             desc = atoi( argv[2] );
+<a name="l00073"></a>00073     }
+<a name="l00074"></a>00074     <span class="keywordflow">else</span>
+<a name="l00075"></a>00075         _server.<a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" title="Set the port of a NAMS Server object.">sPort</a>( <a class="code" href="config_8h.xhtml#a5f105c04f494daec2a03ed9a85eb092b" title="Port number to listen on if not specified on the command line.">CFG_SOC_PORTNUM</a> );
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077     _server.<a class="code" href="classServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" title="Start the NAMS Server. Responsible for calling all critical boot-time functions such as SocketServer ...">Startup</a>( desc );
+<a name="l00078"></a>00078     <span class="keywordflow">while</span>( _server.<a class="code" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea" title="Returns if the Server is shutdown or not.">Running</a>() )
+<a name="l00079"></a>00079         _server.<a class="code" href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">Update</a>();
 <a name="l00080"></a>00080 
-<a name="l00081"></a>00081 <span class="comment">/* Manipulate */</span>
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083 <span class="comment">/* Internal */</span>
-<a name="l00084"></a>00084 
+<a name="l00081"></a>00081     _server.<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_SUCCESS );
+<a name="l00082"></a>00082 }
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 <span class="comment">/* Query */</span>
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="comment">/* Manipulate */</span>
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="comment">/* Internal */</span>
+<a name="l00089"></a>00089 
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -157,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 27 2012 15:05:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

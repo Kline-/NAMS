@@ -109,7 +109,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="utils_8h__dep__incl.svg" width="100%" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="utils_8h__dep__incl.svg" width="100%" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </div>
 <p><a href="utils_8h_source.xhtml">Go to the source code of this file.</a></p>
@@ -117,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtils_1_1DeleteObject.xhtml">Utils::DeleteObject</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classUtils_1_1DeleteObject.xhtml" title="The DeleteObject class implements only operator() to be used in easily deleteing lists of pointers or...">DeleteObject</a> class implements only operator() to be used in easily deleteing lists of pointers or other objects.  <a href="classUtils_1_1DeleteObject.xhtml#details">More...</a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classUtils_1_1DeleteObject.xhtml" title="The DeleteObject class implements only operator() to be used in easily deleting lists of pointers or ...">DeleteObject</a> class implements only operator() to be used in easily deleting lists of pointers or other objects.  <a href="classUtils_1_1DeleteObject.xhtml#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml">Utils</a></td></tr>
@@ -135,6 +136,20 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc">Utils::iReadable</a> (const string &amp;file)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a file is readable.  <a href="#a158e1deb611937a6313e8683fe7db3fc"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#ae279da38c52b15cc8cb01aea4081f288">Utils::Argument</a> (string &amp;input)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first space separated argument from input and then erases it from input.  <a href="#ae279da38c52b15cc8cb01aea4081f288"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a57b7c6b0c6ea6f1498129d9c9a16d8a8">Utils::CleanupTemp</a> (<a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_close, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_open)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlinks any temp files leftover from a failed write.  <a href="#a57b7c6b0c6ea6f1498129d9c9a16d8a8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b">Utils::FileOpen</a> (ofstream &amp;ofs, const string &amp;file)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a write to a temporary file that is intended to replace a live file.  <a href="#a67fd451200ee8a3cc646aeba5cb9513b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aab9c793c373168f93284240cd870462f">Utils::FileOpen</a> (ifstream &amp;ifs, const string &amp;dir, const string &amp;file, const bool &amp;quiet=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a read from a file.  <a href="#aab9c793c373168f93284240cd870462f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e">Utils::FileClose</a> (ifstream &amp;ifs, const bool &amp;quiet=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Completes a read from a file.  <a href="#a7008f8effca71806721305d1834bde1e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a2e9eaa30b811a49ea71003ca3e54fc3c">Utils::FileClose</a> (ofstream &amp;ofs)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Completes a write from a file.  <a href="#a2e9eaa30b811a49ea71003ca3e54fc3c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a795e3185f741a3e0ee5025c4266afcd3">Utils::FileClose</a> (ofstream &amp;ofs, const string &amp;dir, const string &amp;file)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlinks file and replaces it with the temp copy after a successful write.  <a href="#a795e3185f741a3e0ee5025c4266afcd3"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V , class I &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b">Utils::KeyValue</a> (K &amp;key, V &amp;val, const I &amp;item)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a string in the format of key=value. Retains any whitespace in the value.  <a href="#a4a4d3dfd2ddb691bc5bcff82252c058b"></a><br/></td></tr>
@@ -162,10 +177,6 @@ Core</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a594756861a60d256d31db7bb34ea70de">Utils::String</a> (const T &amp;t)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string object from any data type: bool, int, char, etc.  <a href="#a594756861a60d256d31db7bb34ea70de"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const timeval&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#adbb91eecf7e80e6e97b3ebe38123cc12">Utils::CurrentTime</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current system time.  <a href="#adbb91eecf7e80e6e97b3ebe38123cc12"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a405af6e04f92e289f5be1f8ae24a78ee">Utils::DiffTime</a> (const timeval &amp;prev, const timeval &amp;current, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;granularity)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the different between two timeval variables.  <a href="#a405af6e04f92e289f5be1f8ae24a78ee"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107">Utils::DirPath</a> (const string &amp;directory, const string &amp;file, const string &amp;ext=&quot;&quot;)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string consisting of directory/file.ext.  <a href="#addb4a550d4405e6351e52a275fae8107"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a33e08ea185b71aab494d83322ad3cd53">Utils::_FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
@@ -178,10 +189,10 @@ Core</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of a specific character in a given string.  <a href="#afaf029667f299587a52ba9c8de11edfa"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a8c70e85acdb1549aa4cd3a16b8d8d9cf">Utils::StrNewlines</a> (const string &amp;input)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector of strings split at linebreaks based on input.  <a href="#a8c70e85acdb1549aa4cd3a16b8d8d9cf"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aa3855eafe3e4898c743bc47cdc962a4a">Utils::StrTime</a> (const timeval &amp;now)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a given time as a string.  <a href="#aa3855eafe3e4898c743bc47cdc962a4a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a498e31ec51c129ae9b68a20aa4e05c57">Utils::StrTokens</a> (const string &amp;input)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector of strings split at spaces based on input.  <a href="#a498e31ec51c129ae9b68a20aa4e05c57"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a53f3c68439fa30795904574e03b4da50">Utils::StrTime</a> (const time_t &amp;now)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a given time as a string.  <a href="#a53f3c68439fa30795904574e03b4da50"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a402a36406edb7938330204e83b1abe83">Utils::StrTokens</a> (const string &amp;input, const bool &amp;quiet=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector of strings split at spaces based on input.  <a href="#a402a36406edb7938330204e83b1abe83"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This file contains the <a class="el" href="namespaceUtils.xhtml" title="The Utils namespace contains all general purpose, multi-use, and non-class functions.">Utils</a> namespace and template functions. </p>
@@ -219,7 +230,7 @@ Core</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00099">99</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00116">116</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 
 </div>
 </div>
@@ -254,7 +265,7 @@ Core</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00101">101</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00118">118</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 
 </div>
 </div>
@@ -276,7 +287,7 @@ Core</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 27 2012 15:05:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

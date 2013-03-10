@@ -112,9 +112,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#ac7a9c8cef7e70fa1cfa5d4512db2adea">Delete</a> ()=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a <a class="el" href="classSocket.xhtml" title="Functions and interfaces that are common to both SocketClient and SocketServer.">Socket</a> previously created via <a class="el" href="classSocket.xhtml#a6c74362c2411c96aff10a875772021f2" title="Build a Socket for either a new SocketClient or SocketServer.">Socket::New()</a>.  <a href="#ac7a9c8cef7e70fa1cfa5d4512db2adea"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a6c74362c2411c96aff10a875772021f2">New</a> ()=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a <a class="el" href="classSocket.xhtml" title="Functions and interfaces that are common to both SocketClient and SocketServer.">Socket</a> for either a new <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> or <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>.  <a href="#a6c74362c2411c96aff10a875772021f2"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a <a class="el" href="classSocket.xhtml" title="Functions and interfaces that are common to both SocketClient and SocketServer.">Socket</a> previously created via <a class="el" href="classSocket.xhtml#a0e563ae9651177d3126f58ac36252067" title="Build a Socket for either a new SocketClient or SocketServer.">Socket::New()</a>.  <a href="#ac7a9c8cef7e70fa1cfa5d4512db2adea"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a0e563ae9651177d3126f58ac36252067">New</a> (const bool &amp;reboot=false)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a <a class="el" href="classSocket.xhtml" title="Functions and interfaces that are common to both SocketClient and SocketServer.">Socket</a> for either a new <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> or <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>.  <a href="#a0e563ae9651177d3126f58ac36252067"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a2f38fa86bcb79d7b2d6139331fd95436">Serialize</a> () const =0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if the <a class="el" href="classSocket.xhtml" title="Functions and interfaces that are common to both SocketClient and SocketServer.">Socket</a> is valid for use.  <a href="#a508457b48e6296d1e86c7cc72af65948"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
@@ -269,7 +270,7 @@ Private Attributes</h2></td></tr>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <span class="keywordflow">if</span> ( amount &lt; 1 || ( ( <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a> + amount ) &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> ) )
+    <span class="keywordflow">if</span> ( amount &lt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> || ( ( <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a> + amount ) &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> ) )
     {
         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Socket::aBytesRecvd()-&gt; called with m_bytes_recvd overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a>, amount );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -285,7 +286,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_aec278bc5096a3087a7bb6a1ed06d7ddd_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_aec278bc5096a3087a7bb6a1ed06d7ddd_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -323,7 +325,7 @@ Private Attributes</h2></td></tr>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <span class="keywordflow">if</span> ( amount &lt; 1 || ( ( <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a> + amount ) &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> ) )
+    <span class="keywordflow">if</span> ( amount &lt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> || ( ( <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a> + amount ) &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> ) )
     {
         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Socket::sBytesSent()-&gt; called with m_bytes_sent overflow: %lu + %lu&quot;</span>, <a class="code" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a>, amount );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -339,7 +341,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a688f0d2182f7ca098de3f76156efad0a_icgraph.svg" width="100%" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a688f0d2182f7ca098de3f76156efad0a_icgraph.svg" width="100%" height="312"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -435,7 +438,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a3bb9f40d6e5f32cfa960a86323322c0c_icgraph.svg" width="100%" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a3bb9f40d6e5f32cfa960a86323322c0c_icgraph.svg" width="100%" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -471,7 +475,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a45d3aa99d71b868921543a4708471f82_icgraph.svg" width="100%" height="529"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a45d3aa99d71b868921543a4708471f82_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -507,7 +512,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_adc72a37934a4f2d10f6ae8fc94bb4ca7_icgraph.svg" width="100%" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_adc72a37934a4f2d10f6ae8fc94bb4ca7_icgraph.svg" width="100%" height="306"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -543,25 +549,33 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_accd94dbf518b30cdd878a9710d3c481c_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_accd94dbf518b30cdd878a9710d3c481c_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a6c74362c2411c96aff10a875772021f2"></a><!-- doxytag: member="Socket::New" ref="a6c74362c2411c96aff10a875772021f2" args="()=0" -->
+<a class="anchor" id="a0e563ae9651177d3126f58ac36252067"></a><!-- doxytag: member="Socket::New" ref="a0e563ae9651177d3126f58ac36252067" args="(const bool &amp;reboot=false)=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const bool <a class="el" href="classSocket.xhtml#a6c74362c2411c96aff10a875772021f2">Socket::New</a> </td>
+          <td class="memname">virtual const bool <a class="el" href="classSocket.xhtml#a0e563ae9651177d3126f58ac36252067">Socket::New</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>reboot</em> = <code>false</code></td><td>)</td>
           <td><code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reboot</td><td>Mark if the server is undergoing a reboot or not. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
     <tr><td class="paramname">false</td><td>Returned if there is an error in creating the <a class="el" href="classSocket.xhtml" title="Functions and interfaces that are common to both SocketClient and SocketServer.">Socket</a>. </td></tr>
@@ -570,7 +584,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classSocketClient.xhtml#a6b296c5002caa1229e7d7b9be6f08607">SocketClient</a>, and <a class="el" href="classSocketServer.xhtml#a276e17da8bbf562313bce8edfd32e231">SocketServer</a>.</p>
+<p>Implemented in <a class="el" href="classSocketClient.xhtml#a553658a2c076ea71ddcd1758fc64a925">SocketClient</a>, and <a class="el" href="classSocketServer.xhtml#a72918e73dd56b8986a15678c2cfb5a48">SocketServer</a>.</p>
 
 </div>
 </div>
@@ -628,6 +642,24 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2f38fa86bcb79d7b2d6139331fd95436"></a><!-- doxytag: member="Socket::Serialize" ref="a2f38fa86bcb79d7b2d6139331fd95436" args="() const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const string <a class="el" href="classSocket.xhtml#a2f38fa86bcb79d7b2d6139331fd95436">Socket::Serialize</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="classSocketClient.xhtml#ae1cc85ca3320df2f78727f76e40fc5a3">SocketClient</a>, and <a class="el" href="classSocketServer.xhtml#a340c4c7856273cbe7760b4552ecb323f">SocketServer</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a14e5e2493abcae97043297dd170e7a39"></a><!-- doxytag: member="Socket::sHostname" ref="a14e5e2493abcae97043297dd170e7a39" args="(const string &amp;hostname)" -->
 <div class="memitem">
 <div class="memproto">
@@ -676,7 +708,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a14e5e2493abcae97043297dd170e7a39_icgraph.svg" width="100%" height="150"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a14e5e2493abcae97043297dd170e7a39_icgraph.svg" width="100%" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -730,7 +763,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a24c8132ced233add89f4fda68284e578_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a24c8132ced233add89f4fda68284e578_icgraph.svg" width="100%" height="150"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -767,7 +801,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a508457b48e6296d1e86c7cc72af65948_icgraph.svg" width="100%" height="508"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocket_a508457b48e6296d1e86c7cc72af65948_icgraph.svg" width="100%" height="558"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -786,7 +821,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Number of bytes received. </p>
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00071">71</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00073">73</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -802,7 +837,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Number of bytes sent. </p>
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00072">72</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00074">74</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -818,7 +853,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>File descriptor assigned from the host OS. </p>
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00073">73</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00075">75</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -834,7 +869,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Hostname of the host OS or remote client. </p>
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00074">74</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00076">76</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -850,7 +885,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Port number being used. </p>
 
-<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00075">75</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
+<p>Definition at line <a class="el" href="socket_8h_source.xhtml#l00077">77</a> of file <a class="el" href="socket_8h_source.xhtml">socket.h</a>.</p>
 
 </div>
 </div>
@@ -876,7 +911,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 27 2012 15:05:04 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 9 2013 23:59:16 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

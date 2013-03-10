@@ -105,13 +105,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b">Authorized</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;sec) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if sec is &gt;= m_security for permission to call <a class="el" href="classCommand.xhtml#a1cac0232492ece9e3316c75fa85e5e1a" title="Execute a Plugin object&#39;s primary function.">Command::Run()</a>.  <a href="#a1ccef73405910cf3e44943a3244b645b"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if sec is &gt;= m_security for permission to call <a class="el" href="classCommand.xhtml#a6448d432978113719bfdfa3783da5106" title="Execute a Plugin object&#39;s primary function.">Command::Run()</a>.  <a href="#a1ccef73405910cf3e44943a3244b645b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#afc0d482427309deb78e094fa787d1477">Delete</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a command from memory that was previously loaded via <a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ.">Command::New()</a>.  <a href="#afc0d482427309deb78e094fa787d1477"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48">New</a> (const string &amp;file)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a plugin command from <a class="el" href="config_8h.xhtml#a7e0533ce20f3c090bdf24cc750916edb" title="Directory for plugins to be loaded from.">CFG_DAT_DIR_OBJ</a>.  <a href="#a6b8eed27f76619d07effd72372a4be48"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a1cac0232492ece9e3316c75fa85e5e1a">Run</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *cliet=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> object's primary function.  <a href="#a1cac0232492ece9e3316c75fa85e5e1a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a6448d432978113719bfdfa3783da5106">Run</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> object's primary function.  <a href="#a6448d432978113719bfdfa3783da5106"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a0763aba641a70e0085116b05bcfd632c">gCaller</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer back to a <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> object associated with the loaded <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>.  <a href="#a0763aba641a70e0085116b05bcfd632c"></a><br/></td></tr>
@@ -119,6 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the filename of the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> object.  <a href="#a63b8f3fc40a0cc9e02fcaa2ea2329c40"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021">gName</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the name of the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> object.  <a href="#a7e591e2b82f59fd73d9b25daaa192021"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a24702b444e22d28a7566b539a0d15b90">gPreempt</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the preempt status of the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> object.  <a href="#a24702b444e22d28a7566b539a0d15b90"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a18df2d81039392daeb0b78c346a70537">Command</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> class.  <a href="#a18df2d81039392daeb0b78c346a70537"></a><br/></td></tr>
@@ -152,7 +154,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00177">177</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00187">187</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a> = NULL;
     <a class="code" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">m_plg_delete</a> = NULL;
@@ -181,7 +183,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00193">193</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00203">203</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }</pre></div>
@@ -230,7 +232,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a1ccef73405910cf3e44943a3244b645b_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a1ccef73405910cf3e44943a3244b645b_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -282,6 +285,16 @@ Private Attributes</h2></td></tr>
    <span class="keywordflow">return</span>;
 }
 </pre></div>
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_afc0d482427309deb78e094fa787d1477_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a0763aba641a70e0085116b05bcfd632c"></a><!-- doxytag: member="Command::gCaller" ref="a0763aba641a70e0085116b05bcfd632c" args="() const " -->
@@ -309,11 +322,11 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#abab79e7ca874fe2f6e4f5e02a40b8878" title="Return a pointer to the object that initialized this Plugin.">gCaller</a>();
 }
 </pre></div>
-<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a0763aba641a70e0085116b05bcfd632c_cgraph.svg" width="312" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -345,6 +358,16 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#a9d64316428b105c231cb7196f8a0a728">m_plg_file</a>;
 }
 </pre></div>
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a63b8f3fc40a0cc9e02fcaa2ea2329c40_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a7e591e2b82f59fd73d9b25daaa192021"></a><!-- doxytag: member="Command::gName" ref="a7e591e2b82f59fd73d9b25daaa192021" args="() const " -->
@@ -372,21 +395,60 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object.">gName</a>();
 }
 </pre></div>
-<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a7e591e2b82f59fd73d9b25daaa192021_cgraph.svg" width="318" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a7e591e2b82f59fd73d9b25daaa192021_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a7e591e2b82f59fd73d9b25daaa192021_icgraph.svg" width="100%" height="150"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a24702b444e22d28a7566b539a0d15b90"></a><!-- doxytag: member="Command::gPreempt" ref="a24702b444e22d28a7566b539a0d15b90" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classCommand.xhtml#a24702b444e22d28a7566b539a0d15b90">Command::gPreempt</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> doesn't preempt. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> does preempt. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00176">176</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">m_preempt</a>;
+}
+</pre></div>
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a24702b444e22d28a7566b539a0d15b90_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -459,32 +521,33 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a6b8eed27f76619d07effd72372a4be48_cgraph.svg" width="491" height="360"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a6b8eed27f76619d07effd72372a4be48_icgraph.svg" width="635" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a6b8eed27f76619d07effd72372a4be48_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a1cac0232492ece9e3316c75fa85e5e1a"></a><!-- doxytag: member="Command::Run" ref="a1cac0232492ece9e3316c75fa85e5e1a" args="(SocketClient *cliet=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const " -->
+<a class="anchor" id="a6448d432978113719bfdfa3783da5106"></a><!-- doxytag: member="Command::Run" ref="a6448d432978113719bfdfa3783da5106" args="(SocketClient *client=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const void <a class="el" href="classCommand.xhtml#a1cac0232492ece9e3316c75fa85e5e1a">Command::Run</a> </td>
+          <td class="memname">const void <a class="el" href="classCommand.xhtml#a6448d432978113719bfdfa3783da5106">Command::Run</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
           <td class="paramname"><em>client</em> = <code>NULL</code>, </td>
@@ -531,21 +594,23 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span>;
 }
 </pre></div>
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a1cac0232492ece9e3316c75fa85e5e1a_cgraph.svg" width="270" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a6448d432978113719bfdfa3783da5106_cgraph.svg" width="270" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a1cac0232492ece9e3316c75fa85e5e1a_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a6448d432978113719bfdfa3783da5106_icgraph.svg" width="100%" height="123"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -564,7 +629,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Pointer to the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00062">62</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00063">63</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -580,7 +645,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Pointer to the PluginDelete object within the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00063">63</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00064">64</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -596,7 +661,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Filename of the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> object for reloading later. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00064">64</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00065">65</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -612,7 +677,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Pointer to the file handle of the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00065">65</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00066">66</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -628,7 +693,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Pointer to the PluginNew object within the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00066">66</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00067">67</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -644,7 +709,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>If true, the <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> will process ahead of any other queued commands from a <a class="el" href="classSocket.xhtml" title="Functions and interfaces that are common to both SocketClient and SocketServer.">Socket</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00067">67</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00068">68</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -660,7 +725,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Security level required to execute the <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00068">68</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00069">69</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -686,7 +751,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 27 2012 15:05:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

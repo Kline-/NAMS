@@ -1,23 +1,38 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="753,144,900,173"/>
-<area shape="rect" id="node5" href="$classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New()." alt="" coords="247,613,399,642"/>
-<area shape="rect" id="node17" href="$classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" title="Process data from the client&#39;s receive buffer and split it into commands to queue as necessary..." alt="" coords="227,144,419,173"/>
-<area shape="rect" id="node27" href="$classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d" title="Tests if there are any commands in the queue to be processed." alt="" coords="209,666,436,696"/>
-<area shape="rect" id="node29" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="209,402,436,432"/>
-<area shape="rect" id="node7" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="775,349,879,378"/>
-<area shape="rect" id="node9" href="$classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S..." alt="" coords="516,666,673,696"/>
-<area shape="rect" id="node11" href="$classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed..." alt="" coords="516,720,673,749"/>
-<area shape="rect" id="node13" href="$classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5" title="Returns the Server object associated to this SocketClient." alt="" coords="515,613,675,642"/>
-<area shape="rect" id="node15" href="$classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354" title="Sets the Server&#39;s globally referenced next iterator for SocketClient objects." alt="" coords="500,773,689,802"/>
-<area shape="rect" id="node21" href="$namespaceUtils.xhtml#a8c70e85acdb1549aa4cd3a16b8d8d9cf" title="Returns a vector of strings split at linebreaks based on input." alt="" coords="528,40,661,69"/>
-<area shape="rect" id="node23" href="$classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" title="Append a command to the back of the queue." alt="" coords="485,144,704,173"/>
-<area shape="rect" id="node34" href="$classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run()." alt="" coords="512,402,677,432"/>
-<area shape="rect" id="node36" href="$classSocketClient.xhtml#a55449717f16faaa0f3375610b9f3dfe3" title="Returns the authorized security level of the client." alt="" coords="509,298,680,328"/>
-<area shape="rect" id="node38" href="$classCommand.xhtml#a1cac0232492ece9e3316c75fa85e5e1a" title="Execute a Plugin object&#39;s primary function." alt="" coords="535,560,655,589"/>
-<area shape="rect" id="node42" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="524,506,665,536"/>
-<area shape="rect" id="node40" href="$classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d" title="Execute the primary function of the implemented class." alt="" coords="781,616,872,645"/>
-<area shape="rect" id="node46" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="752,562,901,592"/>
-<area shape="rect" id="node48" href="$classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance." alt="" coords="765,402,888,432"/>
-<area shape="rect" id="node50" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="753,456,900,485"/>
-<area shape="rect" id="node52" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="753,509,900,538"/>
+<area shape="rect" id="node3" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="1291,420,1437,449"/>
+<area shape="rect" id="node5" href="$classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New()." alt="" coords="1000,59,1152,88"/>
+<area shape="rect" id="node17" href="$classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b" title="Process data from the client&#39;s receive buffer and split it into commands to queue as necessary..." alt="" coords="691,164,883,193"/>
+<area shape="rect" id="node32" href="$classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d" title="Tests if there are any commands in the queue to be processed." alt="" coords="209,369,436,399"/>
+<area shape="rect" id="node34" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="209,547,436,576"/>
+<area shape="rect" id="node7" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="1312,165,1416,195"/>
+<area shape="rect" id="node9" href="$classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S..." alt="" coords="1285,5,1443,35"/>
+<area shape="rect" id="node11" href="$classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed..." alt="" coords="1285,59,1443,88"/>
+<area shape="rect" id="node13" href="$classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5" title="Returns the Server object associated to this SocketClient." alt="" coords="1284,325,1444,355"/>
+<area shape="rect" id="node15" href="$classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354" title="Sets the Server&#39;s globally referenced next iterator for SocketClient objects." alt="" coords="1269,112,1459,141"/>
+<area shape="rect" id="node21" href="$namespaceUtils.xhtml#a8c70e85acdb1549aa4cd3a16b8d8d9cf" title="Returns a vector of strings split at linebreaks based on input." alt="" coords="1009,112,1143,141"/>
+<area shape="rect" id="node23" href="$classSocketClient.xhtml#aa3c0d7886b8fede981c73031cfaf17c6" title="Append a command to the back of the queue." alt="" coords="967,267,1185,296"/>
+<area shape="rect" id="node27" href="$namespaceUtils.xhtml#ae279da38c52b15cc8cb01aea4081f288" title="Returns the first space separated argument from input and then erases it from input." alt="" coords="1303,272,1425,301"/>
+<area shape="rect" id="node30" href="$classCommand.xhtml#a24702b444e22d28a7566b539a0d15b90" title="Return the preempt status of the associated Plugin object." alt="" coords="1284,219,1444,248"/>
+<area shape="rect" id="node38" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="711,521,863,551"/>
+<area shape="rect" id="node41" href="$classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run()." alt="" coords="704,575,869,604"/>
+<area shape="rect" id="node43" href="$classSocketClient.xhtml#a55449717f16faaa0f3375610b9f3dfe3" title="Returns the authorized security level of the client." alt="" coords="701,788,872,817"/>
+<area shape="rect" id="node45" href="$classCommand.xhtml#a6448d432978113719bfdfa3783da5106" title="Execute a Plugin object&#39;s primary function." alt="" coords="727,841,847,871"/>
+<area shape="rect" id="node49" href="$classServer.xhtml#af7c4b4e6fe763a8f07984365af7640f7" title="Handle SocketClient objects who have not fully logged into the game yet." alt="" coords="487,641,641,671"/>
+<area shape="rect" id="node70" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="1005,893,1147,923"/>
+<area shape="rect" id="node47" href="$classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d" title="Execute the primary function of the implemented class." alt="" coords="1031,947,1121,976"/>
+<area shape="rect" id="node52" href="$classServer.xhtml#acf928ad938e32e6342c0cdd278e793bc" title="Server::FindCommand" alt="" coords="705,681,868,711"/>
+<area shape="rect" id="node63" href="$classAccount.xhtml#a1e12e66ca5fdd8ebbc741d4f037c806b" title="Create a new account." alt="" coords="732,735,841,764"/>
+<area shape="rect" id="node88" href="$classAccount.xhtml#aa82e62e930fb3a8ac58a4592f323db75" title="Unload an account from memory that was previously loaded via Account::New()." alt="" coords="725,628,848,657"/>
+<area shape="rect" id="node54" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="1029,523,1123,552"/>
+<area shape="rect" id="node56" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="1004,627,1148,656"/>
+<area shape="rect" id="node58" href="$classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object." alt="" coords="1307,627,1421,656"/>
+<area shape="rect" id="node66" href="$classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58" title="Gets the runtime configuration of the server." alt="" coords="1016,787,1136,816"/>
+<area shape="rect" id="node68" href="$classServer_1_1Config.xhtml#ae93688e4861753dd11a8b537e092ab77" title="Returns an a copy of the account prohibited names list." alt="" coords="931,680,1221,709"/>
+<area shape="rect" id="node82" href="$namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file." alt="" coords="1020,840,1132,869"/>
+<area shape="rect" id="node86" href="$namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file." alt="" coords="1020,733,1132,763"/>
+<area shape="rect" id="node74" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="1289,893,1439,923"/>
+<area shape="rect" id="node76" href="$classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance." alt="" coords="1303,947,1425,976"/>
+<area shape="rect" id="node78" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="1291,1000,1437,1029"/>
+<area shape="rect" id="node80" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="1291,840,1437,869"/>
+<area shape="rect" id="node84" href="$namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Returns a string consisting of directory/file.ext." alt="" coords="1312,787,1416,816"/>
 </map>

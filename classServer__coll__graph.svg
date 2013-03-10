@@ -32,7 +32,7 @@
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 1043;
+var viewWidth = 1132;
 var viewHeight = 388;
 var sectionId = 'dynsection-0';
 </script>
@@ -40,245 +40,269 @@ var sectionId = 'dynsection-0';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>G</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-384 1040,-384 1040,5 -4,5"/>
+<polygon fill="white" stroke="white" points="-4,5 -4,-384 1129,-384 1129,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="105,-153.5 105,-174.5 153,-174.5 153,-153.5 105,-153.5"/>
-<text text-anchor="middle" x="129" y="-161.5" font-family="FreeSans.ttf" font-size="10.00">Server</text>
+<polygon fill="#bfbfbf" stroke="black" points="824,-153.5 824,-174.5 872,-174.5 872,-153.5 824,-153.5"/>
+<text text-anchor="middle" x="848" y="-161.5" font-family="FreeSans.ttf" font-size="10.00">Server</text>
 </g>
 <!-- Node3 -->
 <g id="node4" class="node"><title>Node3</title>
 <a xlink:href="classSocketClient.xhtml" target="_top" xlink:title="Client / remote host specific functions that extend the Socket class.">
-<polygon fill="white" stroke="black" points="433.5,-72.5 433.5,-93.5 510.5,-93.5 510.5,-72.5 433.5,-72.5"/>
-<text text-anchor="middle" x="472" y="-80.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient</text>
+<polygon fill="white" stroke="black" points="560.5,-72.5 560.5,-93.5 637.5,-93.5 637.5,-72.5 560.5,-72.5"/>
+<text text-anchor="middle" x="599" y="-80.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge16" class="edge"><title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M162.631,-151.929C180.82,-145.023 203.49,-135.8 223,-126 233.694,-120.629 234.707,-115.959 246,-112 279.69,-100.188 378.225,-90.616 433.414,-85.9972"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="161.178,-148.736 153.036,-155.516 163.629,-155.293 161.178,-148.736"/>
-<text text-anchor="middle" x="270.5" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> m_server</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M814.386,-151.15C807.663,-148.693 800.629,-146.203 794,-144 767.175,-135.086 760.015,-134.319 733,-126 698.091,-115.25 658.256,-102.391 631.153,-93.5526"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="813.337,-154.494 823.93,-154.688 815.77,-147.931 813.337,-154.494"/>
+<text text-anchor="middle" x="757.5" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> m_server</text>
 </g>
-<!-- Node16 -->
-<g id="node36" class="node"><title>Node16</title>
+<!-- Node18 -->
+<g id="node40" class="node"><title>Node18</title>
 <a xlink:href="classSocketServer.xhtml" target="_top" xlink:title="SocketServer extends the Socket class to implement server&#45;side socket functions.">
-<polygon fill="white" stroke="black" points="191.5,-72.5 191.5,-93.5 272.5,-93.5 272.5,-72.5 191.5,-72.5"/>
-<text text-anchor="middle" x="232" y="-80.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer</text>
+<polygon fill="white" stroke="black" points="751.5,-72.5 751.5,-93.5 832.5,-93.5 832.5,-72.5 751.5,-72.5"/>
+<text text-anchor="middle" x="792" y="-80.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node16 -->
-<g id="edge46" class="edge"><title>Node1&#45;&gt;Node16</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M142.425,-145.063C150.661,-134.401 161.921,-121.385 174,-112 183.512,-104.609 195.205,-98.3304 205.594,-93.5252"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="139.432,-143.223 136.268,-153.334 145.047,-147.403 139.432,-143.223"/>
-<text text-anchor="middle" x="198.5" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> m_server</text>
+<!-- Node1&#45;&gt;Node18 -->
+<g id="edge50" class="edge"><title>Node1&#45;&gt;Node18</title>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M814.922,-150.462C804.749,-144.545 794.73,-136.507 789,-126 783.554,-116.014 785.632,-102.727 788.22,-93.5797"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="813.318,-153.573 823.798,-155.125 816.573,-147.376 813.318,-153.573"/>
+<text text-anchor="middle" x="813.5" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> m_server</text>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<polygon fill="white" stroke="#bfbfbf" points="401,-0.5 401,-21.5 543,-21.5 543,-0.5 401,-0.5"/>
-<text text-anchor="middle" x="472" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">std::list&lt; SocketClient * &gt;</text>
+<polygon fill="white" stroke="#bfbfbf" points="528,-0.5 528,-21.5 670,-21.5 670,-0.5 528,-0.5"/>
+<text text-anchor="middle" x="599" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">std::list&lt; SocketClient * &gt;</text>
 </g>
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge2" class="edge"><title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M390.523,-17.9207C280.618,-28.0934 96.2019,-48.4479 76,-72 53.5581,-98.1635 92.1824,-135.194 114.634,-153.254"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="390.952,-21.3961 400.591,-16.9979 390.313,-14.4253 390.952,-21.3961"/>
-<text text-anchor="middle" x="129.5" y="-80.5" font-family="FreeSans.ttf" font-size="10.00"> m_socket_client_next</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M670.618,-23.4658C752.7,-39.5684 878.806,-70.5308 901,-112 910.185,-129.162 890.095,-144.169 872.07,-153.594"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="671.07,-19.9885 660.588,-21.5288 669.743,-26.8615 671.07,-19.9885"/>
+<text text-anchor="middle" x="934.5" y="-80.5" font-family="FreeSans.ttf" font-size="10.00"> m_socket_client_next</text>
 </g>
 <!-- Node3&#45;&gt;Node2 -->
 <g id="edge4" class="edge"><title>Node3&#45;&gt;Node2</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M472,-62.2348C472,-48.969 472,-32.3188 472,-21.6674"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="468.5,-62.3761 472,-72.3762 475.5,-62.3762 468.5,-62.3761"/>
-<text text-anchor="middle" x="496.5" y="-44.5" font-family="FreeSans.ttf" font-size="10.00"> elements</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M599,-62.2348C599,-48.969 599,-32.3188 599,-21.6674"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="595.5,-62.3761 599,-72.3762 602.5,-62.3762 595.5,-62.3761"/>
+<text text-anchor="middle" x="623.5" y="-44.5" font-family="FreeSans.ttf" font-size="10.00"> elements</text>
 </g>
 <!-- Node4 -->
 <g id="node6" class="node"><title>Node4</title>
 <a xlink:href="classSocket.xhtml" target="_top" xlink:title="Functions and interfaces that are common to both SocketClient and SocketServer.">
-<polygon fill="white" stroke="black" points="502,-153.5 502,-174.5 552,-174.5 552,-153.5 502,-153.5"/>
-<text text-anchor="middle" x="527" y="-161.5" font-family="FreeSans.ttf" font-size="10.00">Socket</text>
+<polygon fill="white" stroke="black" points="515,-153.5 515,-174.5 565,-174.5 565,-153.5 515,-153.5"/>
+<text text-anchor="middle" x="540" y="-161.5" font-family="FreeSans.ttf" font-size="10.00">Socket</text>
 </a>
 </g>
 <!-- Node4&#45;&gt;Node3 -->
 <g id="edge6" class="edge"><title>Node4&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M514.043,-144.638C507.467,-134.839 499.337,-122.768 492,-112 487.868,-105.935 483.215,-99.1837 479.437,-93.7224"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="511.321,-146.862 519.796,-153.22 517.135,-142.965 511.321,-146.862"/>
+<path fill="none" stroke="midnightblue" d="M553.647,-145.265C565.334,-129.22 581.743,-106.691 591.285,-93.5919"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="550.772,-143.267 547.713,-153.411 556.43,-147.388 550.772,-143.267"/>
 </g>
-<!-- Node4&#45;&gt;Node16 -->
-<g id="edge44" class="edge"><title>Node4&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M499.352,-148.803C495.598,-147.042 491.747,-145.384 488,-144 414.285,-116.767 324.062,-98.5919 272.79,-89.5966"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="497.858,-151.969 508.37,-153.295 500.979,-145.703 497.858,-151.969"/>
+<!-- Node4&#45;&gt;Node18 -->
+<g id="edge48" class="edge"><title>Node4&#45;&gt;Node18</title>
+<path fill="none" stroke="midnightblue" d="M574.613,-152.778C607.208,-142.22 657.403,-125.987 701,-112 720.104,-105.871 741.479,-99.0568 758.71,-93.5748"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="573.523,-149.452 565.089,-155.863 575.681,-156.111 573.523,-149.452"/>
 </g>
 <!-- Node5 -->
 <g id="node8" class="node"><title>Node5</title>
-<polygon fill="white" stroke="#bfbfbf" points="430.5,-286.5 430.5,-307.5 493.5,-307.5 493.5,-286.5 430.5,-286.5"/>
-<text text-anchor="middle" x="462" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">signed int</text>
+<polygon fill="white" stroke="#bfbfbf" points="418.5,-286.5 418.5,-307.5 481.5,-307.5 481.5,-286.5 418.5,-286.5"/>
+<text text-anchor="middle" x="450" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">signed int</text>
 </g>
 <!-- Node5&#45;&gt;Node4 -->
 <g id="edge8" class="edge"><title>Node5&#45;&gt;Node4</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M456.773,-276.667C452.735,-256.34 449.807,-224.895 463,-202 465.532,-197.605 489.03,-184.309 506.825,-174.682"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="453.361,-277.447 458.971,-286.435 460.191,-275.91 453.361,-277.447"/>
-<text text-anchor="middle" x="496.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> m_descriptor</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M446.18,-276.504C443.499,-255.802 442.72,-223.843 458,-202 471.131,-183.229 495.956,-173.509 514.865,-168.622"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="442.731,-277.108 447.727,-286.451 449.648,-276.032 442.731,-277.108"/>
+<text text-anchor="middle" x="491.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> m_descriptor</text>
 </g>
 <!-- Node6 -->
 <g id="node10" class="node"><title>Node6</title>
 <a xlink:title="STL class.">
-<polygon fill="white" stroke="#bfbfbf" points="575.5,-286.5 575.5,-307.5 640.5,-307.5 640.5,-286.5 575.5,-286.5"/>
-<text text-anchor="middle" x="608" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">std::string</text>
+<polygon fill="white" stroke="#bfbfbf" points="314.5,-286.5 314.5,-307.5 379.5,-307.5 379.5,-286.5 314.5,-286.5"/>
+<text text-anchor="middle" x="347" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">std::string</text>
 </a>
 </g>
 <!-- Node6&#45;&gt;Node3 -->
 <g id="edge28" class="edge"><title>Node6&#45;&gt;Node3</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M617.478,-276.926C618.519,-273.989 619.413,-270.956 620,-268 625.717,-239.229 631.341,-229.052 620,-202 596.991,-147.117 532.852,-110.468 497.022,-93.6252"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="614.189,-275.723 613.609,-286.302 620.659,-278.393 614.189,-275.723"/>
-<text text-anchor="middle" x="634" y="-168" font-family="FreeSans.ttf" font-size="10.00"> m_output</text>
-<text text-anchor="middle" x="634" y="-155" font-family="FreeSans.ttf" font-size="10.00">m_input</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M340.283,-276.537C334.893,-256.108 330.261,-224.586 344,-202 390.588,-125.409 501.406,-97.4765 560.438,-87.7982"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="336.991,-277.747 343.161,-286.36 343.708,-275.779 336.991,-277.747"/>
+<text text-anchor="middle" x="424" y="-168" font-family="FreeSans.ttf" font-size="10.00"> m_output</text>
+<text text-anchor="middle" x="424" y="-155" font-family="FreeSans.ttf" font-size="10.00">m_input</text>
 </g>
 <!-- Node6&#45;&gt;Node4 -->
 <g id="edge10" class="edge"><title>Node6&#45;&gt;Node4</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M568.555,-281.555C562.688,-277.846 557.208,-273.364 553,-268 541.512,-253.358 532.105,-198.117 528.539,-174.65"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="566.887,-284.633 577.325,-286.449 570.298,-278.52 566.887,-284.633"/>
-<text text-anchor="middle" x="586.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> m_hostname</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M347.065,-276.314C348.295,-254.7 353.67,-221.302 374,-202 394.047,-182.967 473.382,-171.464 514.692,-166.646"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="343.564,-276.3 346.742,-286.406 350.56,-276.523 343.564,-276.3"/>
+<text text-anchor="middle" x="407.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> m_hostname</text>
 </g>
 <!-- Node7 -->
 <g id="node12" class="node"><title>Node7</title>
 <a xlink:title="STL class.">
-<polygon fill="white" stroke="#bfbfbf" points="539,-358.5 539,-379.5 677,-379.5 677,-358.5 539,-358.5"/>
-<text text-anchor="middle" x="608" y="-366.5" font-family="FreeSans.ttf" font-size="10.00">std::basic_string&lt; char &gt;</text>
+<polygon fill="white" stroke="#bfbfbf" points="278,-358.5 278,-379.5 416,-379.5 416,-358.5 278,-358.5"/>
+<text text-anchor="middle" x="347" y="-366.5" font-family="FreeSans.ttf" font-size="10.00">std::basic_string&lt; char &gt;</text>
 </a>
 </g>
 <!-- Node7&#45;&gt;Node6 -->
 <g id="edge12" class="edge"><title>Node7&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M608,-348.235C608,-334.969 608,-318.319 608,-307.667"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="604.5,-348.376 608,-358.376 611.5,-348.376 604.5,-348.376"/>
+<path fill="none" stroke="midnightblue" d="M347,-348.235C347,-334.969 347,-318.319 347,-307.667"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="343.5,-348.376 347,-358.376 350.5,-348.376 343.5,-348.376"/>
 </g>
 <!-- Node8 -->
 <g id="node14" class="node"><title>Node8</title>
-<polygon fill="white" stroke="#bfbfbf" points="183.5,-286.5 183.5,-307.5 258.5,-307.5 258.5,-286.5 183.5,-286.5"/>
-<text text-anchor="middle" x="221" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">unsigned int</text>
+<polygon fill="white" stroke="#bfbfbf" points="590.5,-286.5 590.5,-307.5 665.5,-307.5 665.5,-286.5 590.5,-286.5"/>
+<text text-anchor="middle" x="628" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">unsigned int</text>
 </g>
 <!-- Node8&#45;&gt;Node1 -->
-<g id="edge40" class="edge"><title>Node8&#45;&gt;Node1</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M173.301,-287.163C154.309,-282.199 135.619,-275.611 130,-268 109.302,-239.964 119.244,-195.09 125.391,-174.702"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="172.645,-290.606 183.193,-289.608 174.325,-283.811 172.645,-290.606"/>
-<text text-anchor="middle" x="168.5" y="-258.5" font-family="FreeSans.ttf" font-size="10.00"> m_dir_close</text>
-<text text-anchor="middle" x="168.5" y="-245.5" font-family="FreeSans.ttf" font-size="10.00">m_socket_close</text>
-<text text-anchor="middle" x="168.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00">m_port</text>
-<text text-anchor="middle" x="168.5" y="-219.5" font-family="FreeSans.ttf" font-size="10.00">m_dir_open</text>
-<text text-anchor="middle" x="168.5" y="-206.5" font-family="FreeSans.ttf" font-size="10.00">m_socket_open</text>
+<g id="edge44" class="edge"><title>Node8&#45;&gt;Node1</title>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M637.999,-277.242C651.027,-252.289 673.813,-211.455 688,-202 727.764,-175.5 747.838,-196.352 794,-184 803.947,-181.338 814.632,-177.581 823.85,-174.04"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="634.837,-275.737 633.369,-286.23 641.06,-278.942 634.837,-275.737"/>
+<text text-anchor="middle" x="726.5" y="-258.5" font-family="FreeSans.ttf" font-size="10.00"> m_dir_close</text>
+<text text-anchor="middle" x="726.5" y="-245.5" font-family="FreeSans.ttf" font-size="10.00">m_socket_close</text>
+<text text-anchor="middle" x="726.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00">m_port</text>
+<text text-anchor="middle" x="726.5" y="-219.5" font-family="FreeSans.ttf" font-size="10.00">m_dir_open</text>
+<text text-anchor="middle" x="726.5" y="-206.5" font-family="FreeSans.ttf" font-size="10.00">m_socket_open</text>
 </g>
 <!-- Node8&#45;&gt;Node3 -->
 <g id="edge30" class="edge"><title>Node8&#45;&gt;Node3</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M218.843,-276.183C217.806,-255.447 219.343,-223.66 235,-202 283.145,-135.395 379.375,-103.817 433.226,-90.8023"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="215.374,-276.721 219.612,-286.432 222.354,-276.198 215.374,-276.721"/>
-<text text-anchor="middle" x="326.5" y="-174.5" font-family="FreeSans.ttf" font-size="10.00"> m_idle</text>
-<text text-anchor="middle" x="326.5" y="-161.5" font-family="FreeSans.ttf" font-size="10.00">m_security</text>
-<text text-anchor="middle" x="326.5" y="-148.5" font-family="FreeSans.ttf" font-size="10.00">m_state</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M625.209,-276.402C619.158,-231.751 605.011,-127.354 600.447,-93.6763"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="621.751,-276.948 626.562,-286.388 628.687,-276.008 621.751,-276.948"/>
+<text text-anchor="middle" x="639.5" y="-174.5" font-family="FreeSans.ttf" font-size="10.00"> m_idle</text>
+<text text-anchor="middle" x="639.5" y="-161.5" font-family="FreeSans.ttf" font-size="10.00">m_security</text>
+<text text-anchor="middle" x="639.5" y="-148.5" font-family="FreeSans.ttf" font-size="10.00">m_state</text>
 </g>
 <!-- Node8&#45;&gt;Node4 -->
 <g id="edge14" class="edge"><title>Node8&#45;&gt;Node4</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M228.892,-276.834C229.976,-273.885 231.043,-270.874 232,-268 241.643,-239.039 227.325,-221.268 251,-202 291.965,-168.659 437.164,-198.334 488,-184 495.617,-181.852 503.481,-178.149 510.135,-174.508"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="225.563,-275.742 225.287,-286.333 232.108,-278.226 225.563,-275.742"/>
-<text text-anchor="middle" x="287.5" y="-245.5" font-family="FreeSans.ttf" font-size="10.00"> m_bytes_sent</text>
-<text text-anchor="middle" x="287.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00">m_port</text>
-<text text-anchor="middle" x="287.5" y="-219.5" font-family="FreeSans.ttf" font-size="10.00">m_bytes_recvd</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M580.667,-286.441C563.104,-281.49 546.179,-275.113 541,-268 520.488,-239.827 530.336,-195.023 536.425,-174.677"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="579.855,-289.846 590.419,-289.04 581.658,-283.082 579.855,-289.846"/>
+<text text-anchor="middle" x="577.5" y="-245.5" font-family="FreeSans.ttf" font-size="10.00"> m_bytes_sent</text>
+<text text-anchor="middle" x="577.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00">m_port</text>
+<text text-anchor="middle" x="577.5" y="-219.5" font-family="FreeSans.ttf" font-size="10.00">m_bytes_recvd</text>
 </g>
 <!-- Node9 -->
 <g id="node17" class="node"><title>Node9</title>
-<polygon fill="white" stroke="#bfbfbf" points="739.5,-153.5 739.5,-174.5 930.5,-174.5 930.5,-153.5 739.5,-153.5"/>
-<text text-anchor="middle" x="835" y="-161.5" font-family="FreeSans.ttf" font-size="10.00">std::deque&lt; pair&lt; string, string &gt; &gt;</text>
+<polygon fill="white" stroke="#bfbfbf" points="89.5,-153.5 89.5,-174.5 280.5,-174.5 280.5,-153.5 89.5,-153.5"/>
+<text text-anchor="middle" x="185" y="-161.5" font-family="FreeSans.ttf" font-size="10.00">std::deque&lt; pair&lt; string, string &gt; &gt;</text>
 </g>
 <!-- Node9&#45;&gt;Node3 -->
 <g id="edge18" class="edge"><title>Node9&#45;&gt;Node3</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M830.356,-143.282C826.735,-132.144 820.496,-119.244 810,-112 785.825,-95.3142 594.06,-87.023 510.592,-84.1759"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="827.051,-144.466 833.078,-153.179 833.801,-142.609 827.051,-144.466"/>
-<text text-anchor="middle" x="873.5" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> m_command_queue</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M189.614,-143.238C193.224,-132.085 199.464,-119.185 210,-112 238.464,-92.5878 467.484,-85.7128 560.221,-83.7095"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="186.164,-142.583 186.903,-153.152 192.916,-144.429 186.164,-142.583"/>
+<text text-anchor="middle" x="261.5" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> m_command_queue</text>
 </g>
 <!-- Node10 -->
 <g id="node19" class="node"><title>Node10</title>
-<polygon fill="white" stroke="#bfbfbf" points="739.5,-286.5 739.5,-307.5 856.5,-307.5 856.5,-286.5 739.5,-286.5"/>
-<text text-anchor="middle" x="798" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">pair&lt; string, string &gt;</text>
+<polygon fill="white" stroke="#bfbfbf" points="54.5,-286.5 54.5,-307.5 171.5,-307.5 171.5,-286.5 54.5,-286.5"/>
+<text text-anchor="middle" x="113" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">pair&lt; string, string &gt;</text>
 </g>
 <!-- Node10&#45;&gt;Node9 -->
 <g id="edge20" class="edge"><title>Node10&#45;&gt;Node9</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M803.472,-276.669C808.675,-257.417 816.761,-227.712 824,-202 826.606,-192.745 829.651,-182.248 831.876,-174.635"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="800.061,-275.876 800.835,-286.443 806.819,-277.699 800.061,-275.876"/>
-<text text-anchor="middle" x="848.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> elements</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M110.173,-276.204C108.476,-255.731 108.887,-224.366 123,-202 130.815,-189.615 144.278,-180.652 156.665,-174.552"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="106.713,-276.762 111.259,-286.332 113.673,-276.015 106.713,-276.762"/>
+<text text-anchor="middle" x="147.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> elements</text>
 </g>
 <!-- Node11 -->
 <g id="node21" class="node"><title>Node11</title>
 <a xlink:title="STL class.">
-<polygon fill="white" stroke="#bfbfbf" points="873.5,-286.5 873.5,-307.5 968.5,-307.5 968.5,-286.5 873.5,-286.5"/>
-<text text-anchor="middle" x="921" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">std::deque&lt; T &gt;</text>
+<polygon fill="white" stroke="#bfbfbf" points="188.5,-286.5 188.5,-307.5 283.5,-307.5 283.5,-286.5 188.5,-286.5"/>
+<text text-anchor="middle" x="236" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">std::deque&lt; T &gt;</text>
 </a>
 </g>
 <!-- Node11&#45;&gt;Node9 -->
 <g id="edge22" class="edge"><title>Node11&#45;&gt;Node9</title>
-<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M913.142,-277.08C904.77,-257.107 890.348,-225.963 873,-202 865.669,-191.873 855.601,-181.936 847.67,-174.765"/>
-<polygon fill="orange" stroke="orange" points="909.93,-278.474 916.951,-286.409 916.411,-275.828 909.93,-278.474"/>
-<text text-anchor="middle" x="971.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> &lt; pair&lt; string, string &gt; &gt;</text>
+<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M197.672,-280.725C193.026,-277.195 188.904,-272.986 186,-268 168.551,-238.043 176.713,-194.521 181.885,-174.633"/>
+<polygon fill="orange" stroke="orange" points="196.147,-283.905 206.452,-286.366 199.931,-278.016 196.147,-283.905"/>
+<text text-anchor="middle" x="249.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> &lt; pair&lt; string, string &gt; &gt;</text>
 </g>
 <!-- Node12 -->
 <g id="node23" class="node"><title>Node12</title>
-<polygon fill="white" stroke="#bfbfbf" points="723.5,-358.5 723.5,-379.5 752.5,-379.5 752.5,-358.5 723.5,-358.5"/>
-<text text-anchor="middle" x="738" y="-366.5" font-family="FreeSans.ttf" font-size="10.00">T</text>
+<polygon fill="white" stroke="#bfbfbf" points="65.5,-358.5 65.5,-379.5 94.5,-379.5 94.5,-358.5 65.5,-358.5"/>
+<text text-anchor="middle" x="80" y="-366.5" font-family="FreeSans.ttf" font-size="10.00">T</text>
 </g>
 <!-- Node12&#45;&gt;Node11 -->
 <g id="edge24" class="edge"><title>Node12&#45;&gt;Node11</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M762.315,-359.433C796.48,-345.991 858.482,-321.597 894.027,-307.612"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="760.691,-356.311 752.666,-363.23 763.253,-362.825 760.691,-356.311"/>
-<text text-anchor="middle" x="869.5" y="-330.5" font-family="FreeSans.ttf" font-size="10.00"> elements</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M103.909,-357.965C133.649,-344.239 184.057,-320.974 213.248,-307.501"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="102.289,-354.858 94.6761,-362.226 105.222,-361.214 102.289,-354.858"/>
+<text text-anchor="middle" x="196.5" y="-330.5" font-family="FreeSans.ttf" font-size="10.00"> elements</text>
 </g>
 <!-- Node14 -->
 <g id="node29" class="node"><title>Node14</title>
 <a xlink:title="STL class.">
-<polygon fill="white" stroke="#bfbfbf" points="672.5,-224.5 672.5,-245.5 751.5,-245.5 751.5,-224.5 672.5,-224.5"/>
-<text text-anchor="middle" x="712" y="-232.5" font-family="FreeSans.ttf" font-size="10.00">std::list&lt; T &gt;</text>
+<polygon fill="white" stroke="#bfbfbf" points="-0.5,-224.5 -0.5,-245.5 78.5,-245.5 78.5,-224.5 -0.5,-224.5"/>
+<text text-anchor="middle" x="39" y="-232.5" font-family="FreeSans.ttf" font-size="10.00">std::list&lt; T &gt;</text>
 </a>
 </g>
 <!-- Node12&#45;&gt;Node14 -->
 <g id="edge34" class="edge"><title>Node12&#45;&gt;Node14</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M733.983,-348.296C728.382,-319.428 718.428,-268.127 714.103,-245.838"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="730.619,-349.335 735.96,-358.485 737.491,-348.002 730.619,-349.335"/>
-<text text-anchor="middle" x="755.5" y="-330.5" font-family="FreeSans.ttf" font-size="10.00"> elements</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M66.704,-349.992C59.3037,-338.402 50.6672,-322.979 46,-308 39.3343,-286.607 38.5253,-260.125 38.6707,-245.664"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="63.8279,-351.987 72.2745,-358.383 69.6599,-348.116 63.8279,-351.987"/>
+<text text-anchor="middle" x="85.5" y="-330.5" font-family="FreeSans.ttf" font-size="10.00"> elements</text>
 </g>
 <!-- Node13 -->
 <g id="node25" class="node"><title>Node13</title>
-<polygon fill="white" stroke="#bfbfbf" points="353.5,-286.5 353.5,-307.5 390.5,-307.5 390.5,-286.5 353.5,-286.5"/>
-<text text-anchor="middle" x="372" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">bool</text>
+<polygon fill="white" stroke="#bfbfbf" points="750.5,-286.5 750.5,-307.5 787.5,-307.5 787.5,-286.5 750.5,-286.5"/>
+<text text-anchor="middle" x="769" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">bool</text>
 </g>
 <!-- Node13&#45;&gt;Node1 -->
 <g id="edge38" class="edge"><title>Node13&#45;&gt;Node1</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M357.245,-278.275C354.982,-274.956 352.803,-271.455 351,-268 336.627,-240.462 351.515,-222.297 328,-202 321.377,-196.283 204.802,-176.492 153.218,-167.962"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="354.507,-280.46 363.231,-286.473 360.161,-276.333 354.507,-280.46"/>
-<text text-anchor="middle" x="383" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> m_shutdown</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M768.296,-276.085C768.609,-255.52 771.875,-224.087 787,-202 795.953,-188.926 811.036,-179.472 823.963,-173.263"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="764.797,-276.289 768.37,-286.264 771.797,-276.238 764.797,-276.289"/>
+<text text-anchor="middle" x="819" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> m_shutdown</text>
 </g>
 <!-- Node13&#45;&gt;Node3 -->
 <g id="edge26" class="edge"><title>Node13&#45;&gt;Node3</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M399.586,-283.155C405.471,-279.023 411.085,-273.97 415,-268 445.737,-221.128 418.994,-196.73 438,-144 444.742,-125.294 456.8,-105.521 464.595,-93.7245"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="397.568,-280.289 390.935,-288.55 401.272,-286.228 397.568,-280.289"/>
-<text text-anchor="middle" x="465.5" y="-161.5" font-family="FreeSans.ttf" font-size="10.00"> m_quitting</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M765.928,-276.465C762.146,-256.193 754.256,-224.978 739,-202 706.182,-152.569 647.148,-112.148 617.317,-93.7388"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="762.503,-277.207 767.626,-286.481 769.405,-276.036 762.503,-277.207"/>
+<text text-anchor="middle" x="752.5" y="-161.5" font-family="FreeSans.ttf" font-size="10.00"> m_quitting</text>
 </g>
 <!-- Node14&#45;&gt;Node2 -->
 <g id="edge32" class="edge"><title>Node14&#45;&gt;Node2</title>
-<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M704.155,-214.849C695.898,-195.324 681.528,-165.58 663,-144 613.12,-85.9043 532.428,-40.9405 493.872,-21.5006"/>
-<polygon fill="orange" stroke="orange" points="700.984,-216.343 708.004,-224.279 707.466,-213.698 700.984,-216.343"/>
-<text text-anchor="middle" x="692" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> &lt; SocketClient * &gt;</text>
+<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M42.9639,-214.279C49.5264,-186.121 65.5112,-136.484 100,-112 168.02,-63.7122 407.002,-31.7246 527.868,-18.2509"/>
+<polygon fill="orange" stroke="orange" points="39.5008,-213.736 40.8273,-224.248 46.3454,-215.203 39.5008,-213.736"/>
+<text text-anchor="middle" x="147" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> &lt; SocketClient * &gt;</text>
 </g>
 <!-- Node15 -->
 <g id="node32" class="node"><title>Node15</title>
-<polygon fill="white" stroke="#bfbfbf" points="0,-286.5 0,-307.5 52,-307.5 52,-286.5 0,-286.5"/>
-<text text-anchor="middle" x="26" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">timeval</text>
+<polygon fill="white" stroke="#bfbfbf" points="839,-286.5 839,-307.5 907,-307.5 907,-286.5 839,-286.5"/>
+<text text-anchor="middle" x="873" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">time_point</text>
 </g>
 <!-- Node15&#45;&gt;Node1 -->
 <g id="edge36" class="edge"><title>Node15&#45;&gt;Node1</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M21.9409,-276.332C19.0706,-255.494 18.1416,-223.427 34,-202 50.5913,-179.583 82.5631,-170.37 104.81,-166.596"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="18.5126,-277.054 23.5905,-286.353 25.4196,-275.917 18.5126,-277.054"/>
-<text text-anchor="middle" x="74" y="-239" font-family="FreeSans.ttf" font-size="10.00"> m_time_current</text>
-<text text-anchor="middle" x="74" y="-226" font-family="FreeSans.ttf" font-size="10.00">m_time_boot</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M869.037,-275.919C863.626,-247.132 854.128,-196.598 850.004,-174.663"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="865.667,-276.935 870.954,-286.116 872.546,-275.642 865.667,-276.935"/>
+<text text-anchor="middle" x="906" y="-239" font-family="FreeSans.ttf" font-size="10.00"> m_time_current</text>
+<text text-anchor="middle" x="906" y="-226" font-family="FreeSans.ttf" font-size="10.00">m_time_boot</text>
+</g>
+<!-- Node16 -->
+<g id="node35" class="node"><title>Node16</title>
+<a xlink:href="classServer_1_1Config.xhtml" target="_top" xlink:title="Runtime settings.">
+<polygon fill="white" stroke="black" points="934,-286.5 934,-307.5 1018,-307.5 1018,-286.5 934,-286.5"/>
+<text text-anchor="middle" x="976" y="-294.5" font-family="FreeSans.ttf" font-size="10.00">Server::Config</text>
+</a>
 </g>
 <!-- Node16&#45;&gt;Node1 -->
-<g id="edge42" class="edge"><title>Node16&#45;&gt;Node1</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M181.148,-93.5045C144.898,-101.112 102.333,-110.34 101,-112 90.6012,-124.953 104.576,-142.336 116.241,-153.355"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="182.094,-96.8825 191.166,-91.4095 180.661,-90.0307 182.094,-96.8825"/>
-<text text-anchor="middle" x="126" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> m_socket</text>
+<g id="edge40" class="edge"><title>Node16&#45;&gt;Node1</title>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M975.616,-276.212C974.132,-255.017 968.681,-222.432 950,-202 929.725,-179.825 895.288,-170.537 872.102,-166.682"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="972.128,-276.57 976.085,-286.398 979.121,-276.248 972.128,-276.57"/>
+<text text-anchor="middle" x="997.5" y="-232.5" font-family="FreeSans.ttf" font-size="10.00"> m_config</text>
+</g>
+<!-- Node17 -->
+<g id="node37" class="node"><title>Node17</title>
+<polygon fill="white" stroke="#bfbfbf" points="916,-358.5 916,-379.5 1036,-379.5 1036,-358.5 916,-358.5"/>
+<text text-anchor="middle" x="976" y="-366.5" font-family="FreeSans.ttf" font-size="10.00">forward_list&lt; string &gt;</text>
+</g>
+<!-- Node17&#45;&gt;Node16 -->
+<g id="edge42" class="edge"><title>Node17&#45;&gt;Node16</title>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M976,-348.235C976,-334.969 976,-318.319 976,-307.667"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="972.5,-348.376 976,-358.376 979.5,-348.376 972.5,-348.376"/>
+<text text-anchor="middle" x="1050" y="-330.5" font-family="FreeSans.ttf" font-size="10.00"> m_account_prohibited_names</text>
+</g>
+<!-- Node18&#45;&gt;Node1 -->
+<g id="edge46" class="edge"><title>Node18&#45;&gt;Node1</title>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M829.032,-98.9578C834.071,-102.573 838.653,-106.892 842,-112 850.069,-124.314 850.328,-141.867 849.431,-153.097"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="830.599,-95.8114 820.254,-93.5215 826.913,-101.763 830.599,-95.8114"/>
+<text text-anchor="middle" x="872" y="-116.5" font-family="FreeSans.ttf" font-size="10.00"> m_socket</text>
 </g>
 </g>
 </svg>
