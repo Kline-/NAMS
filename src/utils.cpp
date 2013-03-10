@@ -486,9 +486,164 @@ const void Utils::CleanupTemp( uint_t& dir_close, uint_t& dir_open )
     for ( mi = files.begin(); mi != files.end(); mi++ )
         if ( mi->first == UTILS_IS_FILE )
             if ( ::unlink( CSTR( DirPath( CFG_DAT_DIR_VAR, mi->second ) ) ) < 0 )
-                LOGERRNO( flags, "Utils::CleanupTemp()->" );
+                LOGERRNO( flags, "Utils::CleanupTemp()->unlink()->" );
 
     return;
+}
+
+/**
+ * @brief Begins a write to a temporary file that is intended to replace a live file.
+ * @param[in] ofs The ofstream to open for writing.
+ * @param[in] file The filename to replace.
+ * @retval false Returned if there is an error replacing file.
+ * @retval true Returned if file is successfully replaced.
+ */
+const bool Utils::FileOpen( ofstream& ofs, const string& file )
+{
+    UFLAGS_DE( flags );
+    stringstream path;
+
+    if ( ofs.is_open() )
+    {
+        LOGSTR( flags, "Utils::FileOpen()-> called with open ofs" );
+        return false;
+    }
+
+    path << CFG_DAT_DIR_VAR << "/" << file;
+    ofs.open( CSTR( path.str() ) );
+
+    if ( ofs.fail() )
+    {
+        LOGSTR( flags, "Utils::FileOpen()-> error opening ofs" );
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * @brief Begins a read from a file.
+ * @param[in] ifs The ifstream to open for reading.
+ * @param[in] dir The directory the file resides in.
+ * @param[in] file The filename to read from.
+ * @retval false Returned if there is an error reading the file.
+ * @retval true Returned if file is successfully read.
+ */
+const bool Utils::FileOpen( ifstream& ifs, const string& dir, const string& file )
+{
+    UFLAGS_DE( flags );
+    stringstream path;
+
+    if ( ifs.is_open() )
+    {
+        LOGSTR( flags, "Utils::FileOpen()-> called with open ifs" );
+        return false;
+    }
+
+    path << dir << "/" << file;
+    ifs.open( CSTR( path.str() ) );
+
+    if ( ifs.fail() )
+    {
+        LOGSTR( flags, "Utils::FileOpen()-> error opening ifs" );
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * @brief Completes a read from a file.
+ * @param[in] ifs The ifstream to close.
+ * @retval false Returned if there is an error closing the file.
+ * @retval true Returned if file is successfully closed.
+ */
+const bool Utils::FileClose( ifstream& ifs )
+{
+    UFLAGS_DE( flags );
+
+    if ( !ifs.is_open() )
+    {
+        LOGSTR( flags, "Utils::FileClose()-> called with closed ifs" );
+        return false;
+    }
+
+    ifs.clear();
+    ifs.close();
+
+    if ( ifs.fail() )
+    {
+        LOGSTR( flags, "Utils::FileClose()-> error closing ifs" );
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * @brief Unlinks file and replaces it with the temp copy after a successful write.
+ * @param[in] ofs The ofstream to close upon completion.
+ * @param[in] dir The directory the file resides in.
+ * @param[in] file The filename to replace.
+ * @retval false Returned if there is an error replacing file.
+ * @retval true Returned if file is successfully replaced.
+ */
+const bool Utils::FileClose( ofstream& ofs, const string& dir, const string& file )
+{
+    UFLAGS_DE( flags );
+    stringstream oldfi, newfi;
+
+    if ( !ofs.is_open() )
+    {
+        LOGSTR( flags, "Utils::FileClose()-> called with closed ofs" );
+        return false;
+    }
+
+    ofs.clear();
+    ofs.close();
+
+    if ( ofs.fail() )
+    {
+        LOGSTR( flags, "Utils::FileClose()-> error closing ofs" );
+        return false;
+    }
+
+    if ( dir.empty() )
+    {
+        LOGSTR( flags, "Utils::FileClose()-> called with empty dir" );
+        return false;
+    }
+
+    if ( file.empty() )
+    {
+        LOGSTR( flags, "Utils::FileClose()-> called with empty file" );
+        return false;
+    }
+
+    // Ensure the copy to move from temp exists and we have permissions before unlinking the live file
+    newfi << CFG_DAT_DIR_VAR << "/" << file;
+    if ( ::access( CSTR( newfi.str() ), R_OK | W_OK ) < 0 )
+    {
+        LOGERRNO( flags, "Utils::FileClose()->access()->" );
+        return false;
+    }
+
+    // Remove the live copy
+    oldfi << dir << "/" << file;
+    if ( ::unlink( CSTR( oldfi.str() ) ) < 0 )
+    {
+        LOGERRNO( flags, "Utils::FileClose()->unlink()->" );
+        return false;
+    }
+
+    // Move the new copy over
+    if ( ::rename( CSTR( oldfi.str() ), CSTR( newfi.str() ) ) < 0 )
+    {
+        LOGERRNO( flags, "Utils::FileClose()->rename()->" );
+        return false;
+    }
+
+    return true;
 }
 
 /**
@@ -550,19 +705,6 @@ const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool&
         dir_close++;
 
     return output;
-}
-
-/**
- * @brief Unlinks file and replaces it with the temp copy after a successful write.
- * @param[in] file The filename to replace.
- * @retval false Returned if there is an error replacing file.
- * @retval true Returned if file is successfully replaced.
- */
-const bool Utils::WriteComplete( const string& file )
-{
-    UFLAGS_DE( flags );
-
-    return true;
 }
 
 /* Internal */

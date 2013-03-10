@@ -52,7 +52,7 @@ const bool Server::Config::Serialize() const
     CITER( forward_list, string, li );
 
     LOGSTR( 0, CFG_STR_FILE_SETTINGS_WRITE );
-    ofs.open( CFG_DAT_DIR_VAR "/" CFG_DAT_FILE_SETTINGS );
+    Utils::FileOpen( ofs, CFG_DAT_FILE_SETTINGS );
 
     if ( !ofs.good() )
     {
@@ -70,7 +70,7 @@ const bool Server::Config::Serialize() const
         ofs << value << endl;
     }
 
-    ofs.close();
+    Utils::FileClose( ofs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
     LOGSTR( 0, CFG_STR_FILE_DONE );
 
     return true;
@@ -90,7 +90,7 @@ const bool Server::Config::Unserialize()
     ITER( vector, string, ti );
 
     LOGSTR( 0, CFG_STR_FILE_SETTINGS_READ );
-    ifs.open( CFG_DAT_FILE_SETTINGS );
+    Utils::FileOpen( ifs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
 
     if ( !ifs.good() )
     {
@@ -115,7 +115,7 @@ const bool Server::Config::Unserialize()
         }
     }
 
-    ifs.close();
+    Utils::FileClose( ifs );
     LOGSTR( 0, CFG_STR_FILE_DONE );
 
     return true;

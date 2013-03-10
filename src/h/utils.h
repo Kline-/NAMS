@@ -40,6 +40,23 @@ using namespace std;
  * @brief The Utils namespace contains all general purpose, multi-use, and non-class functions.
  */
 namespace Utils {
+    /**
+     * @brief The DeleteObject class implements only operator() to be used in easily deleting lists of pointers or other objects.
+     */
+    class DeleteObject
+    {
+        public:
+            /**
+             * @brief Deletes a pointer.
+             * @param[in] ptr The pointer to be deleted.
+             * @retval void
+             */
+            template <class T> inline const void operator() ( const T* ptr ) const
+            {
+                delete ptr;
+            }
+    };
+
     /** @name Core */ /**@{*/
     /**
      * @brief Returns a string with all whitespace characters removed.
@@ -117,22 +134,10 @@ namespace Utils {
     /** @name Manipulate */ /**@{*/
     const string Argument( string& input );
     const void CleanupTemp( uint_t& dir_close, uint_t& dir_open );
-    /**
-     * @brief The DeleteObject class implements only operator() to be used in easily deleting lists of pointers or other objects.
-     */
-    class DeleteObject
-    {
-        public:
-            /**
-             * @brief Deletes a pointer.
-             * @param[in] ptr The pointer to be deleted.
-             * @retval void
-             */
-            template <class T> inline const void operator() ( const T* ptr ) const
-            {
-                delete ptr;
-            }
-    };
+    const bool FileOpen( ofstream& ofs, const string& file );
+    const bool FileOpen( ifstream& ifs, const string& dir, const string& file );
+    const bool FileClose( ifstream& ifs );
+    const bool FileClose( ofstream& ofs, const string& dir, const string& file );
     /**
      * @brief Splits a string in the format of key=value. Retains any whitespace in the value.
      * @param[in] key The object to be populated with the key extracted from item.
@@ -230,7 +235,6 @@ namespace Utils {
         return;
     }
     const multimap<bool,string> ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open );
-    const bool WriteComplete( const string& file );
     /**@}*/
 
     /** @name Internal */ /**@{*/
