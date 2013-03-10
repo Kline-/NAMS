@@ -187,7 +187,7 @@ using namespace std;
  * @brief Define a bitset variable (name) with #UTILS_DEBUG and #UTILS_TYPE_ERROR already enabled.
  * @param[in] name The name to use for declaring a local variable of bitset<#CFG_MEM_MAX_BITSET>.
  */
-#define UFLAGS_DE( name ) BSET( name, UTILS_DEBUG & UTILS_TYPE_ERROR )
+#define UFLAGS_DE( name ) BSET( name, UTILS_DEBUG | UTILS_TYPE_ERROR )
 
 /**
  * @def USLEEP_MAX
