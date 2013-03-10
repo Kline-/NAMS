@@ -339,8 +339,17 @@ const string Utils::Argument( string& input )
     }
 
     pos = input.find_first_of( " " );
-    output = input.substr( 0, pos );
-    input.erase( 0, pos + 1 );
+
+    if ( pos == string::npos )
+    {
+        output = input;
+        input.clear();
+    }
+    else
+    {
+        output = input.substr( 0, pos );
+        input.erase( 0, pos + 1 );
+    }
 
     return output;
 }
