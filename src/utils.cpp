@@ -152,6 +152,33 @@ const vector<string> Utils::StrNewlines( const string& input )
 }
 
 /**
+ * @brief Returns if string s1 is a prefix of string s2.
+ * @param[in] s1 The string to check against s2.
+ * @param[in] s2 The string s1 is checked against.
+ * @param[in] igncase If true, will perform a case-insensitive comparison.
+ * @retval false Returned if s1 is not a prefix of s2.
+ * @retval true Returned if s1 is a prefix of s2.
+ */
+const bool Utils::StrPrefix( const string& s1, const string& s2, const bool& igncase )
+{
+    pair<string::iterator,string::iterator> si;
+    string _s1( s1 ), _s2( s2 );
+
+    if ( igncase )
+    {
+        _s1 = Utils::Lower( _s1 );
+        _s2 = Utils::Lower( _s2 );
+    }
+
+    si = mismatch( _s1.begin(), _s1.end(), _s2.begin() );
+
+    if ( si.first == _s1.end() )
+        return true;
+
+    return false;
+}
+
+/**
  * @brief Returns a given time as a string.
  * @param[in] now A time_t to be formatted into a string.
  * @retval string A string value containing the human readable form of the contents of now.

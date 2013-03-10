@@ -99,18 +99,15 @@ const void Handler::ConfirmAccount( SocketClient* client, const string& cmd, con
     if ( cmd.empty() )
         return;
 
-    if ( Utils::Upper( cmd ).compare( "Y" ) == 0 )
-    {
+    if ( Utils::StrPrefix( cmd, "yes", true ) )
         client->sState( SOC_STATE_NEW_ACCOUNT );
-    }
-    else if ( Utils::Upper( cmd ).compare( "N" ) == 0 )
+    else if ( Utils::StrPrefix( cmd, "no", true ) )
     {
+        client->Send( CFG_STR_ACT_GET_NAME );
+        client->sState( SOC_STATE_LOGIN_SCREEN );
     }
     else
         client->Send( CFG_STR_SEL_INVALID );
-
-    // Return to the primary handler
-    ProcessLogin( client );
 
     return;
 }
@@ -134,9 +131,6 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
 
     if ( cmd.empty() )
         return;
-
-    // Return to the primary handler
-    ProcessLogin( client );
 
     return;
 }
@@ -191,9 +185,6 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
             break;
         }
     }
-
-    // Return to the primary handler
-    ProcessLogin( client );
 
     return;
 }
