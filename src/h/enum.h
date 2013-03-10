@@ -68,10 +68,13 @@ enum PLG_TYPE_COMMAND_UINT {
  * @enum SOC_STATE
  */
 enum SOC_STATE {
-    SOC_STATE_DISCONNECTED = 0,     /**< A Socket in a disconnected state. */
-    SOC_STATE_LOGIN_SCREEN = 1,     /**< A Socket waiting at the login screen. */
-    SOC_STATE_PLAYING      = 100,   /**< A Socket fully within the game world and actively playing. */
-    MAX_SOC_STATE          = 101    /**< Safety limit for looping. */
+    SOC_STATE_DISCONNECTED     = 0,   /**< A Socket in a disconnected state. */
+    SOC_STATE_LOGIN_SCREEN     = 1,   /**< A Socket waiting at the login screen. */
+    SOC_STATE_GET_OLD_PASSWORD = 2,   /**< A Socket using an existing account entering the password. */
+    SOC_STATE_CONFIRM_ACCOUNT  = 3,   /**< A Socket confiming a new account name. */
+
+    SOC_STATE_PLAYING          = 100, /**< A Socket fully within the game world and actively playing. */
+    MAX_SOC_STATE              = 101  /**< Safety limit for looping. */
 };
 /**@}*/
 

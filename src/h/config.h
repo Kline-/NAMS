@@ -241,6 +241,20 @@
  ***************************************************************************/
 /** @name String Options */ /**@{*/
 /**
+ * @def CFG_STR_ACT_CONFIRM
+ * @brief String sent to request the user confirms their new account name.
+ * @par Default: "Do you wish to create a new account named %s (Y/N)? "
+ */
+#define CFG_STR_ACT_CONFIRM "Do you wish to create a new account named %s (Y/N)? "
+
+/**
+ * @def CFG_STR_ACT_GET_PASSWORD
+ * @brief String sent to request the user inputs their password.
+ * @par Default: "Password: "
+ */
+#define CFG_STR_ACT_GET_PASSWORD "Password: "
+
+/**
  * @def CFG_STR_ACT_INVALID
  * @brief String sent when an invalid account name is received.
  * @par Default: "Invalid account name." CRLF "Please enter your account name: "

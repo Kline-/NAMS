@@ -79,9 +79,16 @@ const bool Account::New( SocketClient* client, const string& name )
 
     file << name << CFG_DAT_FILE_ACT_EXT;
     if ( !Utils::FileOpen( ifs, CFG_DAT_DIR_ACCOUNT, file.str(), true ) )
-        cout << "not found" << endl;
+    {
+        client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM, CSTR( name ) ) );
+        client->sState( SOC_STATE_CONFIRM_ACCOUNT );
+    }
     else
-        cout << "found" << endl;
+    {
+        client->Send( CFG_STR_ACT_GET_PASSWORD );
+        client->sState( SOC_STATE_GET_OLD_PASSWORD );
+    }
+
     Utils::FileClose( ifs, true );
 
     return true;

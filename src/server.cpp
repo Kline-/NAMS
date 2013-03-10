@@ -563,6 +563,12 @@ const void Server::ProcessLogin( SocketClient* client, const string& cmd, const 
             }
         break;
 
+        case SOC_STATE_GET_OLD_PASSWORD:
+        break;
+
+        case SOC_STATE_CONFIRM_ACCOUNT:
+        break;
+
         default:
         break;
     }
