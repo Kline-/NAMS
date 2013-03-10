@@ -467,7 +467,6 @@ const void Utils::CleanupTemp( uint_t& dir_close, uint_t& dir_open )
 const bool Utils::FileOpen( ofstream& ofs, const string& file )
 {
     UFLAGS_DE( flags );
-    stringstream path;
 
     if ( ofs.is_open() )
     {
@@ -475,8 +474,7 @@ const bool Utils::FileOpen( ofstream& ofs, const string& file )
         return false;
     }
 
-    path << CFG_DAT_DIR_VAR << "/" << file;
-    ofs.open( CSTR( path.str() ) );
+    ofs.open( CSTR( DirPath( CFG_DAT_DIR_VAR, file ) ) );
 
     if ( ofs.fail() )
     {
@@ -498,7 +496,6 @@ const bool Utils::FileOpen( ofstream& ofs, const string& file )
 const bool Utils::FileOpen( ifstream& ifs, const string& dir, const string& file )
 {
     UFLAGS_DE( flags );
-    stringstream path;
 
     if ( ifs.is_open() )
     {
@@ -506,8 +503,7 @@ const bool Utils::FileOpen( ifstream& ifs, const string& dir, const string& file
         return false;
     }
 
-    path << dir << "/" << file;
-    ifs.open( CSTR( path.str() ) );
+    ifs.open( CSTR( DirPath( dir, file ) ) );
 
     if ( ifs.fail() )
     {
@@ -585,7 +581,7 @@ const bool Utils::FileClose( ofstream& ofs )
 const bool Utils::FileClose( ofstream& ofs, const string& dir, const string& file )
 {
     UFLAGS_DE( flags );
-    stringstream oldfi, newfi;
+    string oldfi, newfi;
 
     if ( !ofs.is_open() )
     {
@@ -615,23 +611,23 @@ const bool Utils::FileClose( ofstream& ofs, const string& dir, const string& fil
     }
 
     // Ensure the copy to move from temp exists and we have permissions before unlinking the live file
-    newfi << CFG_DAT_DIR_VAR << "/" << file;
-    if ( ::access( CSTR( newfi.str() ), R_OK | W_OK ) < 0 )
+    newfi = DirPath( CFG_DAT_DIR_VAR, file );
+    if ( ::access( CSTR( newfi ), R_OK | W_OK ) < 0 )
     {
         LOGERRNO( flags, "Utils::FileClose()->access()->" );
         return false;
     }
 
     // Remove the live copy
-    oldfi << dir << "/" << file;
-    if ( ::unlink( CSTR( oldfi.str() ) ) < 0 )
+    oldfi = DirPath( dir, file );
+    if ( ::unlink( CSTR( oldfi ) ) < 0 )
     {
         LOGERRNO( flags, "Utils::FileClose()->unlink()->" );
         return false;
     }
 
     // Move the new copy over
-    if ( ::rename( CSTR( oldfi.str() ), CSTR( newfi.str() ) ) < 0 )
+    if ( ::rename( CSTR( oldfi ), CSTR( newfi ) ) < 0 )
     {
         LOGERRNO( flags, "Utils::FileClose()->rename()->" );
         return false;
