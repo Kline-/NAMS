@@ -55,165 +55,6 @@ const string Utils::DirPath( const string& directory, const string& file, const 
 }
 
 /**
- * @brief This is a nested wrapper for Utils::__FormatString and should not be called directly.
- * @param[in] narg A #uint_t variable of the total number of arguments passed. Handled automatically.
- * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
- * @param[in] caller A string value containing the calling function. Handled automatically.
- * @param[in] fmt A string value containing a printf-style format string.
- * @param[in] ... A variable arguments list to populate fmt with.
- * @retval string A printf-style formatted string.
- */
-const string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
-{
-    UFLAGS_DE( uflags );
-    va_list args;
-    string output;
-
-    if ( fmt.empty() )
-    {
-        LOGSTR( uflags, "Utils::_FormatString()-> called with empty fmt" );
-        return output;
-    }
-
-    va_start( args, fmt );
-    output = __FormatString( narg, flags, caller, fmt, args );
-    va_end( args );
-
-    return output;
-}
-
-/**
- * @brief This is the printf-style string formatter. It should not be invoked directly, but rather by using Utils::FormatString() to ensure proper argument count and caller passing.
- * @param[in] narg A #uint_t variable of the total number of arguments passed. Handled automatically.
- * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
- * @param[in] caller A string value containing the calling function. Handled automatically.
- * @param[in] fmt A string value containing a printf-style format string.
- * @param[in] val A variable arguments list to populate fmt with.
- * @retval string A printf-style formatted string.
- */
-const string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val ) // Thanks go to Darien @ MudBytes.net for the start of this
-{
-    UFLAGS_DE( uflags );
-    va_list args;
-    vector<string> arguments;
-    ITER( vector, string, si );
-    vector<char> buf;
-    string output, token;
-    sint_t size = 0;
-
-    if ( fmt.empty() )
-    {
-        LOGSTR( uflags, "Utils::__FormatString()-> called with empty fmt" );
-        return output;
-    }
-
-    arguments = StrTokens( fmt );
-    for ( si = arguments.begin(); si != arguments.end(); si++ )
-    {
-        token = *si;
-        if ( token.find( "%" ) != string::npos ) // not foolproof, but it should catch some worst cases by attempting
-            size++;                              // to ensure a matching narg : format specifier count
-    }
-
-    if ( narg != 1 && narg != static_cast<uint_t>( size ) && narg != NumChar( fmt, "%" ) ) // if narg == 1 invocation was func( flags, string )
-    {
-        bitset<CFG_MEM_MAX_BITSET> eflags;
-
-        eflags.set( UTILS_TYPE_ERROR );
-        Logger( eflags, "Number of arguments (%lu) did not match number of format specifiers (%lu) at: %s", narg, size, CSTR( caller ) );
-        return output = "";
-    }
-
-    va_copy( args, val );
-    size = vsnprintf( NULL, 0, CSTR( fmt ), args );
-    va_end( args );
-
-    va_copy( args, val );
-    buf.resize( size + 1 );
-    vsnprintf( &buf[0], ( size + 1 ), CSTR( fmt ), args );
-    va_end( args );
-
-    return output = &buf[0];
-}
-
-/**
- * @brief This is the logging output engine. It should not be invoked directly, but rather by calling Utils::Logger() to ensure proper argument count and caller passing.
- * @param[in] narg A #uint_t variable of the total number of arguments passed. Handled automatically.
- * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
- * @param[in] caller A string value containing the calling function. Handled automatically.
- * @param[in] fmt A string value containing a printf-style format string.
- * @param[in] ... A variable arguments list to populate fmt with.
- * @retval string A printf-style formatted string.
- */
-const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
-{
-    UFLAGS_DE( uflags );
-    va_list args;
-    string pre, post, output;
-    uint_t i = 0;
-    chrono::high_resolution_clock::time_point tt;
-
-    if ( fmt.empty() )
-    {
-        LOGSTR( uflags, "Utils::_Logger()-> called with empty fmt" );
-        return;
-    }
-
-    va_start( args, fmt );
-    output = __FormatString( narg, flags, caller, fmt, args );
-    va_end( args );
-
-    if ( output.empty() )
-        return;
-
-    // prepend timestamp
-    tt = chrono::high_resolution_clock::now();
-    pre = StrTime( chrono::high_resolution_clock::to_time_t( tt ) );
-    pre.append( " :: " );
-
-    for ( i = 0; i < MAX_UTILS; i++ )
-    {
-        if ( flags.test( i ) )
-        {
-            switch( i )
-            {
-                case UTILS_DEBUG: //output caller
-                    post.append( " [" );
-                    post.append( caller );
-                    post.append( "]" );
-                break;
-
-                case UTILS_RAW: //no extraneous data applied
-                    pre.clear();
-                    post.clear();
-                    i = MAX_UTILS;
-                break;
-
-                case UTILS_TYPE_ERROR: //so fancy!
-                    pre.append( CFG_STR_UTILS_ERROR );
-                break;
-
-                case UTILS_TYPE_INFO: //so fancy!
-                    pre.append( CFG_STR_UTILS_INFO );
-                break;
-
-                case UTILS_TYPE_SOCKET: //so fancy!
-                    pre.append( CFG_STR_UTILS_SOCKET );
-                break;
-
-                default:
-                break;
-            }
-        }
-    }
-
-    clog << pre << output << post << endl;
-    /** @todo Add monitor channel support */
-
-    return;
-}
-
-/**
  * @brief Returns the number of a specific character in a given string.
  * @param[in] input A string value to search.
  * @param[in] item The character to search for within input.
@@ -706,3 +547,161 @@ const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool&
 }
 
 /* Internal */
+/**
+ * @brief This is a nested wrapper for Utils::__FormatString and should not be called directly.
+ * @param[in] narg A #uint_t variable of the total number of arguments passed. Handled automatically.
+ * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
+ * @param[in] caller A string value containing the calling function. Handled automatically.
+ * @param[in] fmt A string value containing a printf-style format string.
+ * @param[in] ... A variable arguments list to populate fmt with.
+ * @retval string A printf-style formatted string.
+ */
+const string Utils::_FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
+{
+    UFLAGS_DE( uflags );
+    va_list args;
+    string output;
+
+    if ( fmt.empty() )
+    {
+        LOGSTR( uflags, "Utils::_FormatString()-> called with empty fmt" );
+        return output;
+    }
+
+    va_start( args, fmt );
+    output = __FormatString( narg, flags, caller, fmt, args );
+    va_end( args );
+
+    return output;
+}
+
+/**
+ * @brief This is the printf-style string formatter. It should not be invoked directly, but rather by using Utils::FormatString() to ensure proper argument count and caller passing.
+ * @param[in] narg A #uint_t variable of the total number of arguments passed. Handled automatically.
+ * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
+ * @param[in] caller A string value containing the calling function. Handled automatically.
+ * @param[in] fmt A string value containing a printf-style format string.
+ * @param[in] val A variable arguments list to populate fmt with.
+ * @retval string A printf-style formatted string.
+ */
+const string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, va_list& val ) // Thanks go to Darien @ MudBytes.net for the start of this
+{
+    UFLAGS_DE( uflags );
+    va_list args;
+    vector<string> arguments;
+    ITER( vector, string, si );
+    vector<char> buf;
+    string output, token;
+    sint_t size = 0;
+
+    if ( fmt.empty() )
+    {
+        LOGSTR( uflags, "Utils::__FormatString()-> called with empty fmt" );
+        return output;
+    }
+
+    arguments = StrTokens( fmt );
+    for ( si = arguments.begin(); si != arguments.end(); si++ )
+    {
+        token = *si;
+        if ( token.find( "%" ) != string::npos ) // not foolproof, but it should catch some worst cases by attempting
+            size++;                              // to ensure a matching narg : format specifier count
+    }
+
+    if ( narg != 1 && narg != static_cast<uint_t>( size ) && narg != NumChar( fmt, "%" ) ) // if narg == 1 invocation was func( flags, string )
+    {
+        bitset<CFG_MEM_MAX_BITSET> eflags;
+
+        eflags.set( UTILS_TYPE_ERROR );
+        Logger( eflags, "Number of arguments (%lu) did not match number of format specifiers (%lu) at: %s", narg, size, CSTR( caller ) );
+        return output = "";
+    }
+
+    va_copy( args, val );
+    size = vsnprintf( NULL, 0, CSTR( fmt ), args );
+    va_end( args );
+
+    va_copy( args, val );
+    buf.resize( size + 1 );
+    vsnprintf( &buf[0], ( size + 1 ), CSTR( fmt ), args );
+    va_end( args );
+
+    return output = &buf[0];
+}
+
+/**
+ * @brief This is the logging output engine. It should not be invoked directly, but rather by calling Utils::Logger() to ensure proper argument count and caller passing.
+ * @param[in] narg A #uint_t variable of the total number of arguments passed. Handled automatically.
+ * @param[in] flags Any number of flags from #UTILS_OPTS to control output formatting and options.
+ * @param[in] caller A string value containing the calling function. Handled automatically.
+ * @param[in] fmt A string value containing a printf-style format string.
+ * @param[in] ... A variable arguments list to populate fmt with.
+ * @retval string A printf-style formatted string.
+ */
+const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>& flags, const string& caller, const string& fmt, ... )
+{
+    UFLAGS_DE( uflags );
+    va_list args;
+    string pre, post, output;
+    uint_t i = 0;
+    chrono::high_resolution_clock::time_point tt;
+
+    if ( fmt.empty() )
+    {
+        LOGSTR( uflags, "Utils::_Logger()-> called with empty fmt" );
+        return;
+    }
+
+    va_start( args, fmt );
+    output = __FormatString( narg, flags, caller, fmt, args );
+    va_end( args );
+
+    if ( output.empty() )
+        return;
+
+    // prepend timestamp
+    tt = chrono::high_resolution_clock::now();
+    pre = StrTime( chrono::high_resolution_clock::to_time_t( tt ) );
+    pre.append( " :: " );
+
+    for ( i = 0; i < MAX_UTILS; i++ )
+    {
+        if ( flags.test( i ) )
+        {
+            switch( i )
+            {
+                case UTILS_DEBUG: //output caller
+                    post.append( " [" );
+                    post.append( caller );
+                    post.append( "]" );
+                break;
+
+                case UTILS_RAW: //no extraneous data applied
+                    pre.clear();
+                    post.clear();
+                    i = MAX_UTILS;
+                break;
+
+                case UTILS_TYPE_ERROR: //so fancy!
+                    pre.append( CFG_STR_UTILS_ERROR );
+                break;
+
+                case UTILS_TYPE_INFO: //so fancy!
+                    pre.append( CFG_STR_UTILS_INFO );
+                break;
+
+                case UTILS_TYPE_SOCKET: //so fancy!
+                    pre.append( CFG_STR_UTILS_SOCKET );
+                break;
+
+                default:
+                break;
+            }
+        }
+    }
+
+    clog << pre << output << post << endl;
+    /** @todo Add monitor channel support */
+
+    return;
+}
