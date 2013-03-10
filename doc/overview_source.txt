@@ -92,6 +92,9 @@ are also grouped here.
     event.cpp
         Contains all non-template member functions of the Event class.
 
+    handler.cpp
+        Contains all functions within the Handler namespace.
+
     list.cpp
         Contains all globally referenced list / map / vector types.
 
@@ -152,9 +155,12 @@ are also grouped here.
     event.h
         Contains the Event class and templates.
 
+    handler.h
+        Contains the Handler namespace, templates, and trivial member functions.
+
     includes.h
         This is the first file included within every NAMS .cpp file. It
-        is one of two header files that only serve as a "header of headers"
+        is one of three header files that only serve as a "header of headers"
         designed for brevity within the .cpp files.
 
     limits.h
@@ -174,6 +180,10 @@ are also grouped here.
         Macros are also used for standardization of common, simple tasks
         such as outputting the value of errno and it's string meaning.
 
+    namespace.h
+        This is the second "header of headers" within NAMS. All headers
+        that implement a namespace are included within this file.
+
     plugin.h
         Contains the Plugin class and templates.
 
@@ -190,7 +200,7 @@ are also grouped here.
         Contains the SocketServer class and templates.
 
     sysincludes.h
-        This is the second of two "header of headers" files within
+        This is the third of two "header of headers" files within
         NAMS. All system include files that are required by more than
         two .cpp or header files are moved within this header for
         easier management and readability.

@@ -33,6 +33,6 @@ using namespace std;
 #include "macros.h"
 #include "enum.h"
 #include "config.h"
-#include "utils.h"
+#include "namespace.h"
 
 #endif
