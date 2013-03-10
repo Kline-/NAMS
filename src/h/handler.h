@@ -24,6 +24,8 @@
 #ifndef DEC_HANDLER_H
 #define DEC_HANDLER_H
 
+#include "class.h"
+
 using namespace std;
 
 /**
@@ -31,6 +33,7 @@ using namespace std;
  */
 namespace Handler {
     /** @name Core */ /**@{*/
+    const void LoginScreen( SocketClient* client, const string& cmd, const string& args );
     /**@}*/
 
     /** @name Query */ /**@{*/

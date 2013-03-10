@@ -30,6 +30,10 @@
 #include "h/handler.h"
 
 /* Core */
+const void Handler::LoginScreen( SocketClient* client, const string& cmd, const string& args )
+{
+    return;
+}
 
 /* Query */
 
