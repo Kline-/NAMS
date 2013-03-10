@@ -119,6 +119,7 @@ const bool SocketClient::New( const bool& reboot )
             return false;
         }
     }
+
     return true;
 }
 
@@ -177,6 +178,8 @@ const bool SocketClient::ProcessCommand()
                 else
                     gServer()->ProcessLogin( this, cmd.first, cmd.second );
             }
+            else
+                gServer()->ProcessLogin( this, cmd.first, cmd.second );
         }
         else if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
         {
@@ -258,6 +261,8 @@ const bool SocketClient::QueueCommand( const string& command )
         else
             m_command_queue.push_back( pair<string,string>( cmd, args ) );
     }
+    else
+        m_command_queue.push_back( pair<string,string>( cmd, args ) );
 
     return true;
 }

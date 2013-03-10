@@ -133,8 +133,8 @@ namespace Utils {
     const string Argument( string& input );
     const void CleanupTemp( uint_t& dir_close, uint_t& dir_open );
     const bool FileOpen( ofstream& ofs, const string& file );
-    const bool FileOpen( ifstream& ifs, const string& dir, const string& file );
-    const bool FileClose( ifstream& ifs );
+    const bool FileOpen( ifstream& ifs, const string& dir, const string& file, const bool& quiet = false );
+    const bool FileClose( ifstream& ifs, const bool& quiet = false );
     const bool FileClose( ofstream& ofs );
     const bool FileClose( ofstream& ofs, const string& dir, const string& file );
     /**

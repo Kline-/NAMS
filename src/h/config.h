@@ -31,11 +31,11 @@
  ***************************************************************************/
 /** @name Account Options */ /**@{*/
 /**
- * @def CFG_ACNT_MAX_NAME_LEN
+ * @def CFG_ACT_MAX_NAME_LEN
  * @brief The maximum allowable length for an account name.
  * @par Default: 32
  */
-#define CFG_ACNT_MAX_NAME_LEN 32
+#define CFG_ACT_MAX_NAME_LEN 32
 /**@}*/
 
 /***************************************************************************
@@ -83,6 +83,13 @@
  * @par Default: "var"
  */
 #define CFG_DAT_DIR_VAR "var"
+
+/**
+ * @def CFG_DAT_FILE_ACT_EXT
+ * @brief File extension for accounts.
+ * @par Default: "act"
+ */
+#define CFG_DAT_FILE_ACT_EXT "act"
 
 /**
  * @def CFG_DAT_FILE_REBOOT
@@ -234,18 +241,11 @@
  ***************************************************************************/
 /** @name String Options */ /**@{*/
 /**
- * @def CFG_STR_IDLE
- * @brief String sent on disconnecting an idle socket.
- * @par Default: CRLF "Idle limit reached. Goodbye." CRLF
+ * @def CFG_STR_ACT_INVALID
+ * @brief String sent when an invalid account name is received.
+ * @par Default: "Invalid account name." CRLF "Please enter your account name: "
  */
-#define CFG_STR_IDLE CRLF "Idle limit reached. Goodbye." CRLF
-
-/**
- * @def CFG_STR_LOGIN
- * @brief String sent on initial socket connection.
- * @par Default: "For a list of commands type 'help'." CRLF "Please enter your name: "
- */
-#define CFG_STR_LOGIN "For a list of commands type 'help'." CRLF "Please enter your name: "
+#define CFG_STR_ACT_INVALID "Invalid account name." CRLF "Please enter your account name: "
 
 /**
  * @def CFG_STR_CMD_INVALID
@@ -295,6 +295,20 @@
  * @par Default: "Saving settings..."
  */
 #define CFG_STR_FILE_SETTINGS_WRITE "Saving settings..."
+
+/**
+ * @def CFG_STR_IDLE
+ * @brief String sent on disconnecting an idle socket.
+ * @par Default: CRLF "Idle limit reached. Goodbye." CRLF
+ */
+#define CFG_STR_IDLE CRLF "Idle limit reached. Goodbye." CRLF
+
+/**
+ * @def CFG_STR_LOGIN
+ * @brief String sent on initial socket connection.
+ * @par Default: "For a list of commands type 'help'." CRLF "Please enter your account name: "
+ */
+#define CFG_STR_LOGIN "For a list of commands type 'help'." CRLF "Please enter your account name: "
 
 /**
  * @def CFG_STR_MAX_BUFLEN

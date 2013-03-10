@@ -795,6 +795,24 @@ const void Server::Update()
 
 /* Query */
 /**
+ * @brief Returns an a copy of the account prohibited names list.
+ * @retval forward_list<string> A copy of the account prohibited names list.
+ */
+forward_list<string> Server::Config::gAccountProhibitedNames() const
+{
+    return m_account_prohibited_names;
+}
+
+/**
+ * @brief Gets the runtime configuration of the server.
+ * @retval Server::Config A pointer to the runtime configuration.
+ */
+Server::Config* Server::gConfig() const
+{
+    return m_config;
+}
+
+/**
  * @brief Gets the hostname of the machine that NAMS is running on.
  * @retval string A string is returned containing either "(unknown)" or the machine hostname.
  * @todo Move this to Server::sHostname() and redo this func as a simple getter. Don't need to query the host server multiple times.

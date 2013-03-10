@@ -48,6 +48,7 @@ class Server {
             /**@}*/
 
             /** @name Query */ /**@{*/
+            forward_list<string> gAccountProhibitedNames() const;
             /**@}*/
 
             /** @name Manipulate */ /**@{*/
@@ -81,6 +82,7 @@ class Server {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        Server::Config* gConfig() const;
         const string gHostname() const;
         const uint_t gPort() const;
         SocketServer* gSocket() const;
@@ -103,7 +105,7 @@ class Server {
         /**@}*/
 
     private:
-        Config* m_config; /**< Runtime configuration settings. */
+        Server::Config* m_config; /**< Runtime configuration settings. */
         uint_t m_dir_close; /**< Total number of directories closed by the Server. */
         uint_t m_dir_open; /**< Total number of directories opened by the Server. */
         uint_t m_port; /**< Port number to be passed to the associated SocketServer. */

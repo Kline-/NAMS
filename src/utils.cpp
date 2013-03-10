@@ -490,16 +490,18 @@ const bool Utils::FileOpen( ofstream& ofs, const string& file )
  * @param[in] ifs The ifstream to open for reading.
  * @param[in] dir The directory the file resides in.
  * @param[in] file The filename to read from.
+ * @param[in] quiet If true, don't output error messages on fail.
  * @retval false Returned if there is an error reading the file.
  * @retval true Returned if file is successfully read.
  */
-const bool Utils::FileOpen( ifstream& ifs, const string& dir, const string& file )
+const bool Utils::FileOpen( ifstream& ifs, const string& dir, const string& file, const bool& quiet )
 {
     UFLAGS_DE( flags );
 
     if ( ifs.is_open() )
     {
-        LOGSTR( flags, "Utils::FileOpen()-> called with open ifs" );
+        if ( !quiet )
+            LOGSTR( flags, "Utils::FileOpen()-> called with open ifs" );
         return false;
     }
 
@@ -507,7 +509,8 @@ const bool Utils::FileOpen( ifstream& ifs, const string& dir, const string& file
 
     if ( ifs.fail() )
     {
-        LOGSTR( flags, "Utils::FileOpen()-> error opening ifs" );
+        if ( !quiet )
+            LOGSTR( flags, "Utils::FileOpen()-> error opening ifs" );
         return false;
     }
 
@@ -517,16 +520,18 @@ const bool Utils::FileOpen( ifstream& ifs, const string& dir, const string& file
 /**
  * @brief Completes a read from a file.
  * @param[in] ifs The ifstream to close.
+ * @param[in] quiet If true, don't output error messages on fail.
  * @retval false Returned if there is an error closing the file.
  * @retval true Returned if file is successfully closed.
  */
-const bool Utils::FileClose( ifstream& ifs )
+const bool Utils::FileClose( ifstream& ifs, const bool& quiet )
 {
     UFLAGS_DE( flags );
 
     if ( !ifs.is_open() )
     {
-        LOGSTR( flags, "Utils::FileClose()-> called with closed ifs" );
+        if ( !quiet )
+            LOGSTR( flags, "Utils::FileClose()-> called with closed ifs" );
         return false;
     }
 
@@ -535,7 +540,8 @@ const bool Utils::FileClose( ifstream& ifs )
 
     if ( ifs.fail() )
     {
-        LOGSTR( flags, "Utils::FileClose()-> error closing ifs" );
+        if ( !quiet )
+            LOGSTR( flags, "Utils::FileClose()-> error closing ifs" );
         return false;
     }
 
