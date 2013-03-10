@@ -72,7 +72,6 @@ class Server {
         const bool PollSockets();
         const void ProcessEvents();
         const void ProcessInput();
-        const void ProcessLogin( SocketClient* client, const string& cmd, const string& args );
         const void RebootRecovery( const bool& reboot );
         const bool ReloadCommand( const string& name );
         const bool Running() const;

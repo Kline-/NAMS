@@ -28,10 +28,45 @@
 #include "h/class.h"
 
 #include "h/handler.h"
+#include "h/account.h"
+#include "h/command.h"
+#include "h/server.h"
 
 /* Core */
-const void Handler::LoginScreen( SocketClient* client, const string& cmd, const string& args )
+/**
+ * @brief Handle SocketClient objects who have not fully logged into the game yet.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const string& args )
 {
+    UFLAGS_DE( flags );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::ProcessLogin()-> called with NULL client" );
+        return;
+    }
+
+    switch ( client->gState() )
+    {
+        case SOC_STATE_LOGIN_SCREEN:
+            LoginScreen( client, cmd, args );
+        break;
+
+        case SOC_STATE_GET_OLD_PASSWORD:
+        break;
+
+        case SOC_STATE_CONFIRM_ACCOUNT:
+
+        break;
+
+        default:
+        break;
+    }
+
     return;
 }
 
@@ -40,3 +75,36 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
 /* Manipulate */
 
 /* Internal */
+const void Handler::LoginScreen( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+    Command* command = NULL;
+    Account* account = NULL;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::LoginScreen()-> called with NULL client" );
+        return;
+    }
+
+    // Initial connection with no input yet received or previous name was invalid
+    if ( cmd.empty() && args.empty() )
+    {
+            client->Send( CFG_STR_ACT_GET_NAME );
+            return;
+    }
+
+    if ( ( command = client->gServer()->FindCommand( cmd ) ) != NULL && command->Authorized( client->gSecurity() ) )
+        command->Run( client, cmd, args );
+    else
+    {
+        account = new Account();
+        if ( !account->New( client, cmd ) )
+            account->Delete();
+    }
+
+    // Return to the primary handler
+    ProcessLogin( client );
+
+    return;
+}

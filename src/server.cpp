@@ -538,46 +538,6 @@ const void Server::ProcessInput()
 }
 
 /**
- * @brief Handle SocketClient objects who have not fully logged into the game yet.
- * @param[in] client The SocketClient to process a login request for.
- * @param[in] cmd The command sent by the SocketClient.
- * @param[in] args Any arguments to the command.
- * @retval void
- */
-const void Server::ProcessLogin( SocketClient* client, const string& cmd, const string& args )
-{
-    UFLAGS_DE( flags );
-    Account* account = NULL;
-    Command* command = NULL;
-
-    switch ( client->gState() )
-    {
-        case SOC_STATE_LOGIN_SCREEN:
-            if ( ( command = FindCommand( cmd ) ) != NULL && command->Authorized( client->gSecurity() ) )
-                command->Run( client, cmd, args );
-            else
-            {
-                account = new Account();
-                if ( !account->New( client, cmd ) )
-                    account->Delete();
-            }
-        break;
-
-        case SOC_STATE_GET_OLD_PASSWORD:
-        break;
-
-        case SOC_STATE_CONFIRM_ACCOUNT:
-
-        break;
-
-        default:
-        break;
-    }
-
-    return;
-}
-
-/**
  * @brief Recovers the server state and re-connects client sockets after a reboot.
  * @param[in] reboot True if the server was started via a reboot. Must be true for this to run.
  * @retval void

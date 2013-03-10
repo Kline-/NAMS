@@ -47,7 +47,6 @@ const void Account::Delete()
 const bool Account::New( SocketClient* client, const string& name )
 {
     UFLAGS_DE( flags );
-    ifstream ifs;
     stringstream file;
     string comp;
     ITER( forward_list, string, fi );
@@ -77,19 +76,26 @@ const bool Account::New( SocketClient* client, const string& name )
         }
     }
 
-    file << name << CFG_DAT_FILE_ACT_EXT;
-    if ( !Utils::FileOpen( ifs, CFG_DAT_DIR_ACCOUNT, file.str(), true ) )
+    file << CFG_DAT_DIR_ACCOUNT << "/" << name;
+    switch ( Utils::DirExists( file.str() ) )
     {
-        client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM, CSTR( name ) ) );
-        client->sState( SOC_STATE_CONFIRM_ACCOUNT );
-    }
-    else
-    {
-        client->Send( CFG_STR_ACT_GET_PASSWORD );
-        client->sState( SOC_STATE_GET_OLD_PASSWORD );
-    }
+        case UTILS_RET_FALSE:
+            client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM_NAME, CSTR( name ) ) );
+            client->sState( SOC_STATE_CONFIRM_ACCOUNT );
+        break;
 
-    Utils::FileClose( ifs, true );
+        case UTILS_RET_TRUE:
+            client->Send( CFG_STR_ACT_GET_PASSWORD );
+            client->sState( SOC_STATE_GET_OLD_PASSWORD );
+        break;
+
+        case UTILS_RET_ERROR:
+        default:
+            client->Send( CFG_STR_ACT_INVALID );
+            LOGFMT( flags, "Account::New()->Utils::DirExists()-> returned UTILS_RET_ERROR for name: %s", CSTR( name ) );
+            return false;
+        break;
+    }
 
     return true;
 }

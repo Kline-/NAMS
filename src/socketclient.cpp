@@ -118,6 +118,8 @@ const bool SocketClient::New( const bool& reboot )
             LOGFMT( flags, "SocketClient::New()->SocketClient::sState()-> state %lu returned false", SOC_STATE_LOGIN_SCREEN );
             return false;
         }
+
+        Handler::ProcessLogin( this, "", "" );
     }
 
     return true;
@@ -176,10 +178,10 @@ const bool SocketClient::ProcessCommand()
                 if ( command->Authorized( gSecurity() ) )
                     command->Run( this, cmd.first, cmd.second );
                 else
-                    gServer()->ProcessLogin( this, cmd.first, cmd.second );
+                    Handler::ProcessLogin( this, cmd.first, cmd.second );
             }
             else
-                gServer()->ProcessLogin( this, cmd.first, cmd.second );
+                Handler::ProcessLogin( this, cmd.first, cmd.second );
         }
         else if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
         {

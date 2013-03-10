@@ -33,7 +33,7 @@ using namespace std;
  */
 namespace Handler {
     /** @name Core */ /**@{*/
-    const void LoginScreen( SocketClient* client, const string& cmd, const string& args );
+    const void ProcessLogin( SocketClient* client, const string& cmd = "", const string& args = "" );
     /**@}*/
 
     /** @name Query */ /**@{*/
@@ -43,6 +43,7 @@ namespace Handler {
     /**@}*/
 
     /** @name Internal */ /**@{*/
+    const void LoginScreen( SocketClient* client, const string& cmd, const string& args );
     /**@}*/
 };
 

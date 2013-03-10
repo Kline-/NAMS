@@ -31,27 +31,70 @@
 
 /* Core */
 /**
+ * @brief Determines if a directory exists on disk.
+ * @param[in] dir The name of the directory to check for.
+ * @retval uint_t A uint_t of either #UTILS_RET_ERROR, #UTILS_RET_FALSE, or #UTILS_RET_TRUE.
+ */
+const uint_t Utils::DirExists( const string& dir )
+{
+    UFLAGS_DE( flags );
+    struct stat status;
+
+    if ( dir.empty() )
+    {
+        LOGSTR( flags, "Utils::DirExists()-> called with empty dir" );
+        return UTILS_RET_ERROR;
+    }
+
+    if ( ::access( CSTR( dir ), F_OK ) < 0 && errno != ENOENT )
+    {
+        LOGERRNO( flags, "Utils::DirExists()->access()->" );
+        return UTILS_RET_ERROR;
+    }
+
+    if ( ::stat( CSTR( dir ), &status ) < 0 && errno != ENOENT )
+    {
+        LOGERRNO( flags, "Utils::DirExists()->stat()->" );
+        return UTILS_RET_ERROR;
+    }
+
+    if ( status.st_mode & S_IFDIR )
+        return UTILS_RET_TRUE;
+
+    return UTILS_RET_FALSE;
+}
+
+/**
 * @brief Returns a string consisting of directory/file.ext.
-* @param[in] directory The top level directory build the path from.
+* @param[in] dir The top level directory build the path from.
 * @param[in] file The file to build the path from.
 * @param[in] ext Optionally replaces the file extension with this.
 * @retval string A string consisting of directory/file.ext.
 */
-const string Utils::DirPath( const string& directory, const string& file, const string& ext )
+const string Utils::DirPath( const string& dir, const string& file, const string& ext )
 {
-    string path( directory );
+    UFLAGS_DE( flags );
+    stringstream output;
 
-    path.append( "/" );
+    if ( dir.empty() )
+    {
+        LOGSTR( flags, "Utils::DirPath()-> called with empty dir" );
+        return output.str();
+    }
+
+    if ( file.empty() )
+    {
+        LOGSTR( flags, "Utils::DirPath()-> called with empty file" );
+        return output.str();
+    }
+    output << dir << "/";
 
     if ( !ext.empty() )
-    {
-        path.append( file.substr( 0, file.find_last_of( "." ) + 1 ) );
-        path.append( ext );
-    }
+        output << file.substr( 0, file.find_last_of( "." ) + 1 ) << ext;
     else
-        path.append( file );
+        output << file;
 
-    return path;
+    return output.str();
 }
 
 /**

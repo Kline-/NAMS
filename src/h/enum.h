@@ -95,12 +95,15 @@ enum SOC_SECURITY {
  * @enum UTILS_OPTS
  */
 enum UTILS_OPTS {
-    UTILS_DEBUG       = 0,  /**< Enables debugging output in Utils::_Logger(). This typically includes the calling function's file and line number. */
-    UTILS_RAW         = 1,  /**< Raw data output. Skips prepending / appending anything on Utils::_Logger writes (no timestamp, etc). */
-    UTILS_TYPE_ERROR  = 2,  /**< Indicates an error and prepends #CFG_STR_UTILS_ERROR to Utils::_Logger() output. */
-    UTILS_TYPE_INFO   = 3,  /**< Indicates an info message and prepends #CFG_STR_UTILS_INFO to Utils::_Logger() output. */
-    UTILS_TYPE_SOCKET = 4,  /**< Indicates a socket related message and prepends #CFG_STR_UTILS_SOCKET to Utils::_Logger() output. */
-    MAX_UTILS         = 5   /**< Safety limit for looping. */
+    UTILS_DEBUG       = 0, /**< Enables debugging output in Utils::_Logger(). This typically includes the calling function's file and line number. */
+    UTILS_RAW         = 1, /**< Raw data output. Skips prepending / appending anything on Utils::_Logger writes (no timestamp, etc). */
+    UTILS_TYPE_ERROR  = 2, /**< Indicates an error and prepends #CFG_STR_UTILS_ERROR to Utils::_Logger() output. */
+    UTILS_TYPE_INFO   = 3, /**< Indicates an info message and prepends #CFG_STR_UTILS_INFO to Utils::_Logger() output. */
+    UTILS_TYPE_SOCKET = 4, /**< Indicates a socket related message and prepends #CFG_STR_UTILS_SOCKET to Utils::_Logger() output. */
+    UTILS_RET_ERROR   = 5, /**< Returned to indicate an error that the calling function should handle. */
+    UTILS_RET_FALSE   = 6, /**< Returned to indicate a false value that the calling function should handle. */
+    UTILS_RET_TRUE    = 7, /**< Returned to indicate a true value that the calling function should handle. */
+    MAX_UTILS         = 8  /**< Safety limit for looping. */
 };
 
 /**

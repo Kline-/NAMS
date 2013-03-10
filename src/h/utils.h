@@ -110,7 +110,8 @@ namespace Utils {
 
         return ss.str();
     }
-    const string DirPath( const string& directory, const string& file, const string& ext = "" );
+    const uint_t DirExists( const string& dir );
+    const string DirPath( const string& dir, const string& file, const string& ext = "" );
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     const uint_t NumChar( const string& input, const string& item );

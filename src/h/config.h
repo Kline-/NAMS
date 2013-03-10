@@ -241,11 +241,18 @@
  ***************************************************************************/
 /** @name String Options */ /**@{*/
 /**
- * @def CFG_STR_ACT_CONFIRM
+ * @def CFG_STR_ACT_CONFIRM_NAME
  * @brief String sent to request the user confirms their new account name.
  * @par Default: "Do you wish to create a new account named %s (Y/N)? "
  */
-#define CFG_STR_ACT_CONFIRM "Do you wish to create a new account named %s (Y/N)? "
+#define CFG_STR_ACT_CONFIRM_NAME "Do you wish to create a new account named %s (Y/N)? "
+
+/**
+ * @def CFG_STR_ACT_GET_NAME
+ * @brief String sent to request the user enters their account name.
+ * @par Default: "Please enter your account name: "
+ */
+#define CFG_STR_ACT_GET_NAME "Please enter your account name: "
 
 /**
  * @def CFG_STR_ACT_GET_PASSWORD
@@ -257,9 +264,9 @@
 /**
  * @def CFG_STR_ACT_INVALID
  * @brief String sent when an invalid account name is received.
- * @par Default: "Invalid account name." CRLF "Please enter your account name: "
+ * @par Default: "Invalid account name." CRLF
  */
-#define CFG_STR_ACT_INVALID "Invalid account name." CRLF "Please enter your account name: "
+#define CFG_STR_ACT_INVALID "Invalid account name." CRLF
 
 /**
  * @def CFG_STR_CMD_INVALID
@@ -320,9 +327,9 @@
 /**
  * @def CFG_STR_LOGIN
  * @brief String sent on initial socket connection.
- * @par Default: "For a list of commands type 'help'." CRLF "Please enter your account name: "
+ * @par Default: "For a list of commands type 'help'." CRLF
  */
-#define CFG_STR_LOGIN "For a list of commands type 'help'." CRLF "Please enter your account name: "
+#define CFG_STR_LOGIN "For a list of commands type 'help'." CRLF
 
 /**
  * @def CFG_STR_MAX_BUFLEN
