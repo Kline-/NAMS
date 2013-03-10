@@ -46,7 +46,7 @@ help:
 	echo -e "    help     Displays this help menu."
 	echo -e "    $(PROG)     Compiles the game into binary file $(PROG)."
 	echo -e "    cbuild   Equivalent to: make clean && make depend && make $(PROG) && make plugins"
-	echo -e "    clean    Removes files: $(PROG) o/* d/* ../report/core ../obj/*"
+	echo -e "    clean    Removes files: $(PROG) o/* ../report/core ../obj/*"
 	echo -e "    depend   Generate dependencies for all source code."
 	echo -e "    doxygen  Generate Doxygen output in ../etc/gh-pages."
 	echo -e "    pclean   Removes files: ../obj/*"
