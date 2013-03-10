@@ -116,7 +116,7 @@ namespace Utils {
 
     /** @name Manipulate */ /**@{*/
     const string Argument( string& input );
-    const void CleanupTemp( const string& dir, uint_t& dir_close, uint_t& dir_open );
+    const void CleanupTemp( uint_t& dir_close, uint_t& dir_open );
     /**
      * @brief The DeleteObject class implements only operator() to be used in easily deleting lists of pointers or other objects.
      */
@@ -230,6 +230,7 @@ namespace Utils {
         return;
     }
     const multimap<bool,string> ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open );
+    const bool WriteComplete( const string& file );
     /**@}*/
 
     /** @name Internal */ /**@{*/

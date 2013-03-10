@@ -78,25 +78,25 @@
 #define CFG_DAT_DIR_OBJ "obj"
 
 /**
- * @def CFG_DAT_FILE_EXT_TMP
- * @brief The extension to append to a filename while writing.
- * @par Default: "tmp"
+ * @def CFG_DAT_DIR_VAR
+ * @brief Directory for temporary files.
+ * @par Default: "var"
  */
-#define CFG_DAT_FILE_EXT_TMP "tmp"
+#define CFG_DAT_DIR_VAR "var"
 
 /**
  * @def CFG_DAT_FILE_REBOOT
  * @brief File for reboot data to be temporarily stored in.
- * @par Default: CFG_DAT_DIR_ETC "/reboot.dat"
+ * @par Default: "reboot.dat"
  */
-#define CFG_DAT_FILE_REBOOT CFG_DAT_DIR_ETC "/reboot.dat"
+#define CFG_DAT_FILE_REBOOT "reboot.dat"
 
 /**
  * @def CFG_DAT_FILE_SETTINGS
  * @brief File for runtime settings.
- * @par Default: CFG_DAT_DIR_ETC "/settings.dat"
+ * @par Default: "settings.dat"
  */
-#define CFG_DAT_FILE_SETTINGS CFG_DAT_DIR_ETC "/settings.dat"
+#define CFG_DAT_FILE_SETTINGS "settings.dat"
 /**@}*/
 
 /***************************************************************************

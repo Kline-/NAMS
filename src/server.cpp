@@ -52,7 +52,7 @@ const bool Server::Config::Serialize() const
     CITER( forward_list, string, li );
 
     LOGSTR( 0, CFG_STR_FILE_SETTINGS_WRITE );
-    ofs.open( CFG_DAT_FILE_SETTINGS "." CFG_DAT_FILE_EXT_TMP );
+    ofs.open( CFG_DAT_DIR_VAR "/" CFG_DAT_FILE_SETTINGS );
 
     if ( !ofs.good() )
     {
@@ -575,7 +575,7 @@ const void Server::RebootRecovery( const bool& reboot )
 
     if ( reboot )
     {
-        recovery.open( CFG_DAT_FILE_REBOOT, ifstream::in );
+        recovery.open( CFG_DAT_DIR_VAR "/" CFG_DAT_FILE_REBOOT, ifstream::in );
 
         while ( recovery.is_open() && recovery.good() && getline( recovery, line ) )
         {
@@ -604,7 +604,7 @@ const void Server::RebootRecovery( const bool& reboot )
         }
 
         recovery.close();
-        ::unlink( CFG_DAT_FILE_REBOOT );
+        ::unlink( CFG_DAT_DIR_VAR "/" CFG_DAT_FILE_REBOOT );
     }
 
     return;
@@ -738,7 +738,7 @@ const void Server::Startup( const sint_t& desc )
     }
 
     // Cleanup any leftovers from a hard crash mid-write
-    Utils::CleanupTemp( CFG_DAT_DIR_ETC, m_dir_close, m_dir_open );
+    Utils::CleanupTemp( m_dir_close, m_dir_open );
 
     if ( !m_config->Unserialize() )
     {

@@ -468,25 +468,24 @@ const string Utils::Argument( string& input )
 
 /**
  * @brief Unlinks any temp files leftover from a failed write.
- * @param[in] dir The directory to scan for cleanup.
  * @param[in,out] dir_close A #uint_t to store the total directory opened count.
  * @param[in,out] dir_open A #uint_t to store the total directory closed count.
  * @retval void
  */
-const void Utils::CleanupTemp( const string& dir, uint_t& dir_close, uint_t& dir_open )
+const void Utils::CleanupTemp( uint_t& dir_close, uint_t& dir_open )
 {
     UFLAGS_DE( flags );
     multimap<bool,string> files;
     MITER( multimap, bool,string, mi );
 
-    ListDirectory( dir, false, files, dir_close, dir_open );
+    ListDirectory( CFG_DAT_DIR_VAR, false, files, dir_close, dir_open );
 
     if ( files.empty() )
         return;
 
     for ( mi = files.begin(); mi != files.end(); mi++ )
-        if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ).compare( CFG_DAT_FILE_EXT_TMP ) == 0 ) )
-            if ( ::unlink( CSTR( DirPath( dir, mi->second ) ) ) < 0 )
+        if ( mi->first == UTILS_IS_FILE )
+            if ( ::unlink( CSTR( DirPath( CFG_DAT_DIR_VAR, mi->second ) ) ) < 0 )
                 LOGERRNO( flags, "Utils::CleanupTemp()->" );
 
     return;
@@ -507,6 +506,12 @@ const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool&
     DIR* directory = NULL;
     dirent* entry = NULL;
     string ifile, idir;
+
+    if ( dir.empty() )
+    {
+        LOGSTR( flags, "Utils::OpenDirectory()-> called with empty dir" );
+        return output;
+    }
 
     if ( ( directory = ::opendir( CSTR( dir ) ) ) == NULL )
     {
@@ -545,6 +550,19 @@ const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool&
         dir_close++;
 
     return output;
+}
+
+/**
+ * @brief Unlinks file and replaces it with the temp copy after a successful write.
+ * @param[in] file The filename to replace.
+ * @retval false Returned if there is an error replacing file.
+ * @retval true Returned if file is successfully replaced.
+ */
+const bool Utils::WriteComplete( const string& file )
+{
+    UFLAGS_DE( flags );
+
+    return true;
 }
 
 /* Internal */
