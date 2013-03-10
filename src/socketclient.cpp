@@ -172,7 +172,7 @@ const bool SocketClient::ProcessCommand()
         m_command_queue.pop_front();
 
         // Redirect if not fully logged in yet
-        if ( gState() < SOC_STATE_PLAYING )
+        if ( m_state < SOC_STATE_PLAYING )
         {
             if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
             {
@@ -462,7 +462,7 @@ const bool SocketClient::Send( const string& msg )
 
     // Prepend a CRLF to ensure output lands on a newline.
     // Make this client configurable in the future.
-    if ( m_output.empty() && m_state > SOC_STATE_LOGIN_SCREEN )
+    if ( m_output.empty() && m_state == SOC_STATE_PLAYING )
     {
         m_output.append( CRLF );
         m_output.append( msg );
