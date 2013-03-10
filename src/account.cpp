@@ -38,8 +38,8 @@ const void Account::Delete()
 
 /**
  * @brief Create a new account.
- * @param client The SocketClient requesting an account.
- * @param name The name of the account to be created.
+ * @param[in] client The SocketClient requesting an account.
+ * @param[in] name The name of the account to be created.
  * @retval false Returned if a new Account was successfully created.
  * @retval true Returned if a new Account was unable to be created.
  */

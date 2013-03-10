@@ -35,7 +35,7 @@
  * @brief The maximum allowable length for an account name.
  * @par Default: 32
  */
-#define CFG_ACNT_MAX_NAME_LEN   32
+#define CFG_ACNT_MAX_NAME_LEN 32
 /**@}*/
 
 /***************************************************************************
@@ -47,42 +47,56 @@
  * @brief Directory for accounts to be loaded from.
  * @par Default: "account"
  */
-#define CFG_DAT_DIR_ACCOUNT     "account"
+#define CFG_DAT_DIR_ACCOUNT "account"
 
 /**
  * @def CFG_DAT_DIR_COMMAND
  * @brief Directory for commands to be loaded from.
  * @par Default: "command"
  */
-#define CFG_DAT_DIR_COMMAND     "command"
+#define CFG_DAT_DIR_COMMAND "command"
 
 /**
  * @def CFG_DAT_DIR_ETC
  * @brief Directory for misc files to be written to and loaded from.
  * @par Default: "etc"
  */
-#define CFG_DAT_DIR_ETC         "etc"
+#define CFG_DAT_DIR_ETC "etc"
 
 /**
  * @def CFG_DAT_DIR_LOG
  * @brief Directory for logfiles to be written to.
  * @par Default: "log"
  */
-#define CFG_DAT_DIR_LOG         "log"
+#define CFG_DAT_DIR_LOG "log"
 
 /**
  * @def CFG_DAT_DIR_OBJ
  * @brief Directory for plugins to be loaded from.
  * @par Default: "obj"
  */
-#define CFG_DAT_DIR_OBJ         "obj"
+#define CFG_DAT_DIR_OBJ "obj"
+
+/**
+ * @def CFG_DAT_FILE_EXT_TMP
+ * @brief The extension to append to a filename while writing.
+ * @par Default: ".tmp"
+ */
+#define CFG_DAT_FILE_EXT_TMP ".tmp"
 
 /**
  * @def CFG_DAT_FILE_REBOOT
  * @brief File for reboot data to be temporarily stored in.
  * @par Default: CFG_DAT_DIR_ETC "/reboot.dat"
  */
-#define CFG_DAT_FILE_REBOOT     CFG_DAT_DIR_ETC "/reboot.dat"
+#define CFG_DAT_FILE_REBOOT CFG_DAT_DIR_ETC "/reboot.dat"
+
+/**
+ * @def CFG_DAT_FILE_SETTINGS
+ * @brief File for runtime settings.
+ * @par Default: CFG_DAT_DIR_ETC "/settings.dat"
+ */
+#define CFG_DAT_FILE_SETTINGS CFG_DAT_DIR_ETC "/settings.dat"
 /**@}*/
 
 /***************************************************************************
@@ -101,7 +115,7 @@
  * @brief How many cycles per second should be processed.
  * @par Default: 100
  */
-#define CFG_GAM_PULSE_RATE      100
+#define CFG_GAM_PULSE_RATE 100
 /**@}*/
 
 /***************************************************************************
@@ -113,7 +127,7 @@
  * @brief Default log for boot / shutdown and general information.
  * @par Default: "server.log"
  */
-#define CFG_LOG_SERVER          "server.log"
+#define CFG_LOG_SERVER "server.log"
 /**@}*/
 
 /***************************************************************************
@@ -125,35 +139,35 @@
  * @brief The compiler command to use when building plugins.
  * @par Default: "g++"
  */
-#define CFG_PLG_BUILD_CMD       "g++"
+#define CFG_PLG_BUILD_CMD "g++"
 
 /**
  * @def CFG_PLG_BUILD_OPT
  * @brief All build options passed during compiling a plugin.
- * @par Default: "-Isrc/h -fpic -ldl -rdynamic -shared 2>&1"
+ * @par Default: "-std=c++0x -Isrc/h -fpic -ldl -rdynamic -shared 2>&1"
  */
-#define CFG_PLG_BUILD_OPT       "-Isrc/h -fpic -ldl -rdynamic -shared 2>&1"
+#define CFG_PLG_BUILD_OPT "-std=c++0x -Isrc/h -fpic -ldl -rdynamic -shared 2>&1"
 
 /**
  * @def CFG_PLG_BUILD_EXT_IN
  * @brief File extension for files to be compiled.
  * @par Default: "cpp"
  */
-#define CFG_PLG_BUILD_EXT_IN    "cpp"
+#define CFG_PLG_BUILD_EXT_IN "cpp"
 
 /**
  * @def CFG_PLG_BUILD_EXT_OUT
  * @brief File extension for files after they are compiled.
  * @par Default: "so"
  */
-#define CFG_PLG_BUILD_EXT_OUT   "so"
+#define CFG_PLG_BUILD_EXT_OUT "so"
 
 /**
  * @def CFG_PLG_MAX_ARR
  * @brief The maximum number of elements for each data type array in a plugin.
  * @par Default: 5
  */
-#define CFG_PLG_MAX_ARR         5
+#define CFG_PLG_MAX_ARR 5
 /**@}*/
 
 /***************************************************************************
@@ -165,7 +179,7 @@
  * @brief Maximum size of all bitset elements within the server.
  * @par Default: 128
  */
-#define CFG_MEM_MAX_BITSET      128
+#define CFG_MEM_MAX_BITSET 128
 /**@}*/
 
 /***************************************************************************
@@ -177,42 +191,42 @@
  * @brief IP address to bind the listening server socket to.
  * @par Default: "::"
  */
-#define CFG_SOC_BIND_ADDR       "::"
+#define CFG_SOC_BIND_ADDR "::"
 
 /**
  * @def CFG_SOC_MIN_PORTNUM
  * @brief The listening server socket must be above this port.
  * @par Default: 1024
  */
-#define CFG_SOC_MIN_PORTNUM     1024
+#define CFG_SOC_MIN_PORTNUM 1024
 
 /**
  * @def CFG_SOC_MAX_IDLE
  * @brief (Minutes / tick rate) before disconneting an idle socket. Approx 30 minutes.
  * @par Default: ( ( 30 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )
  */
-#define CFG_SOC_MAX_IDLE        ( ( 30 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )
+#define CFG_SOC_MAX_IDLE ( ( 30 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )
 
 /**
  * @def CFG_SOC_MAX_PENDING
  * @brief The maximum number of pending connections to allow in the listen backlog.
  * @par Default: 5
  */
-#define CFG_SOC_MAX_PENDING     5
+#define CFG_SOC_MAX_PENDING 5
 
 /**
  * @def CFG_SOC_MAX_PORTNUM
  * @brief The listening server socket must be below this port.
  * @par Default: 65536
  */
-#define CFG_SOC_MAX_PORTNUM     65536
+#define CFG_SOC_MAX_PORTNUM 65536
 
 /**
  * @def CFG_SOC_PORTNUM
  * @brief Port number to listen on if not specified on the command line.
  * @par Default: 4321
  */
-#define CFG_SOC_PORTNUM         4321
+#define CFG_SOC_PORTNUM 4321
 /**@}*/
 
 /***************************************************************************
@@ -224,84 +238,112 @@
  * @brief String sent on disconnecting an idle socket.
  * @par Default: CRLF "Idle limit reached. Goodbye." CRLF
  */
-#define CFG_STR_IDLE            CRLF "Idle limit reached. Goodbye." CRLF
+#define CFG_STR_IDLE CRLF "Idle limit reached. Goodbye." CRLF
 
 /**
  * @def CFG_STR_LOGIN
  * @brief String sent on initial socket connection.
  * @par Default: "For a list of commands type 'help'." CRLF "Please enter your name: "
  */
-#define CFG_STR_LOGIN           "For a list of commands type 'help'." CRLF "Please enter your name: "
+#define CFG_STR_LOGIN "For a list of commands type 'help'." CRLF "Please enter your name: "
 
 /**
  * @def CFG_STR_CMD_INVALID
  * @brief String sent when an invalid command is received.
  * @par Default: "Invalid command." CRLF
  */
-#define CFG_STR_CMD_INVALID     "Invalid command." CRLF
-
-/**
- * @def CFG_STR_MAX_BUFLEN
- * @brief Maximum length of all char type buffers.
- * @par Default: 16384
- */
-#define CFG_STR_MAX_BUFLEN      16384
+#define CFG_STR_CMD_INVALID "Invalid command." CRLF
 
 /**
  * @def CFG_STR_EXIT_FAILURE
  * @brief String to write to log on EXIT_FAILURE.
  * @par Default: "Server terminated."
  */
-#define CFG_STR_EXIT_FAILURE    "Server terminated."
+#define CFG_STR_EXIT_FAILURE "Server terminated."
 
 /**
  * @def CFG_STR_EXIT_SUCCESS
  * @brief String to write to log on EXIT_SUCCESS.
  * @par Default: "Normal termination of server."
  */
-#define CFG_STR_EXIT_SUCCESS    "Normal termination of server."
+#define CFG_STR_EXIT_SUCCESS "Normal termination of server."
+
+/**
+ * @def CFG_STR_FILE_COMMAND_READ
+ * @brief String to output prior to loading command plugins.
+ * @par Default: "Loading commands..."
+ */
+#define CFG_STR_FILE_COMMAND_READ "Loading commands..."
+
+/**
+ * @def CFG_STR_FILE_DONE
+ * @brief String to output after file read/write operations are complete.
+ * @par Default: "Done."
+ */
+#define CFG_STR_FILE_DONE "Done."
+
+/**
+ * @def CFG_STR_FILE_SETTINGS_READ
+ * @brief String to output prior to loading settings files.
+ * @par Default: "Loading settings..."
+ */
+#define CFG_STR_FILE_SETTINGS_READ "Loading settings..."
+
+/**
+ * @def CFG_STR_FILE_SETTINGS_WRITE
+ * @brief String to output prior to writing settings files.
+ * @par Default: "Saving settings..."
+ */
+#define CFG_STR_FILE_SETTINGS_WRITE "Saving settings..."
+
+/**
+ * @def CFG_STR_MAX_BUFLEN
+ * @brief Maximum length of all char type buffers.
+ * @par Default: 16384
+ */
+#define CFG_STR_MAX_BUFLEN 16384
 
 /**
  * @def CFG_STR_QUIT
  * @brief String sent to the client when they quit.
  * @par Default: "Goodbye." CRLF
  */
-#define CFG_STR_QUIT            "Goodbye." CRLF
+#define CFG_STR_QUIT "Goodbye." CRLF
 
 /**
  * @def CFG_STR_SHUTDOWN
  * @brief String broadcast to all clients when the server is shutting down.
  * @par Default: "Server shutting down." CRLF
  */
-#define CFG_STR_SHUTDOWN        "Server shutting down." CRLF
+#define CFG_STR_SHUTDOWN "Server shutting down." CRLF
 
 /**
  * @def CFG_STR_UTILS_ERROR
  * @brief String to prepend to logs flagged UTILS_TYPE_ERROR.
  * @par Default: "[ERROR ] "
  */
-#define CFG_STR_UTILS_ERROR     "[ERROR] "
+#define CFG_STR_UTILS_ERROR "[ERROR] "
 
 /**
  * @def CFG_STR_UTILS_INFO
  * @brief String to prepend to logs flagged UTILS_TYPE_INFO.
  * @par Default: "[INFO  ] "
  */
-#define CFG_STR_UTILS_INFO      "[INFO  ] "
+#define CFG_STR_UTILS_INFO "[INFO  ] "
 
 /**
  * @def CFG_STR_UTILS_SOCKET
  * @brief String to prepend to logs flagged UTILS_TYPE_SOCKET.
  * @par Default: "[SOCKET] "
  */
-#define CFG_STR_UTILS_SOCKET    "[SOCKET] "
+#define CFG_STR_UTILS_SOCKET "[SOCKET] "
 
 /**
  * @def CFG_STR_VERSION
  * @brief The current server version.
  * @par Default: "NAMS Development 0.0.0"
  */
-#define CFG_STR_VERSION         "NAMS Development 0.0.0"
+#define CFG_STR_VERSION "NAMS Development 0.0.0"
 /**@}*/
 
 #endif

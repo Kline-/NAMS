@@ -37,8 +37,27 @@ using namespace std;
  * @brief The core of the game server.
  */
 class Server {
+    /**
+     * @brief Runtime settings.
+     */
     class Config {
         public:
+            /** @name Core */ /**@{*/
+            const bool Serialize() const;
+            const bool Unserialize();
+            /**@}*/
+
+            /** @name Query */ /**@{*/
+            /**@}*/
+
+            /** @name Manipulate */ /**@{*/
+            /**@}*/
+
+            /** @name Internal */ /**@{*/
+            Config();
+            ~Config();
+            /**@}*/
+
         private:
             forward_list<string> m_account_prohibited_names; /**< Names that are illegal to use an as account name. */
     };
@@ -84,7 +103,7 @@ class Server {
         /**@}*/
 
     private:
-        Config* m_config; /**< Server-specific dynamic configuration settings. */
+        Config* m_config; /**< Runtime configuration settings. */
         uint_t m_dir_close; /**< Total number of directories closed by the Server. */
         uint_t m_dir_open; /**< Total number of directories opened by the Server. */
         uint_t m_port; /**< Port number to be passed to the associated SocketServer. */

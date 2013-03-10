@@ -103,6 +103,15 @@ using namespace std;
         name.set( value )
 
 /**
+ * @def CITER
+ * @brief Define a const iterator variable (name) of (type) using (container).
+ * @param[in] container Type of STL container to create: list, vector, etc.
+ * @param[in] type The type of object to hold within container, bool, SocketClient, etc.
+ * @param[in] name The name to use for declaring a local variable of container<type>::iterator.
+ */
+#define CITER( container, type, name ) container<type>::const_iterator name
+
+/**
  * @def CRLF
  * @brief Output a carriage return \ line feed.
  */
@@ -129,6 +138,14 @@ using namespace std;
  * @param[in] name The name to use for declaring a local variable of container<type>::iterator.
  */
 #define ITER( container, type, name ) container<type>::iterator name
+
+/**
+ * @def KEY
+ * @brief Begins writing (name) to (stream) in key:value format.
+ * @param[in] stream The filestream to use for a key:value pair.
+ * @param[in] name The name to use for a key:value pair.
+ */
+#define KEY( stream, name ) stream << name " = "
 
 /**
  * @def LOGSTR

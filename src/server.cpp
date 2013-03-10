@@ -39,6 +39,89 @@
 
 /* Core */
 /**
+ * @brief Serialize runtime configuration settings and write them to #CFG_DAT_FILE_SETTINGS.
+ * @retval false Returned if there was an error serializing settings.
+ * @retval true Returned if settings were serialized successfully.
+ */
+const bool Server::Config::Serialize() const
+{
+    UFLAGS_DE( flags );
+    ofstream ofs;
+    string value;
+    stringstream line;
+    CITER( forward_list, string, li );
+
+    LOGSTR( 0, CFG_STR_FILE_SETTINGS_WRITE );
+    ofs.open( CFG_DAT_FILE_SETTINGS CFG_DAT_FILE_EXT_TMP );
+
+    if ( !ofs.good() )
+    {
+        LOGFMT( flags, "Server::Config::Serialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
+        return false;
+    }
+
+    KEY( ofs, "account_prohibited_names" );
+    {
+        for ( li = m_account_prohibited_names.begin(); li != m_account_prohibited_names.end(); li++ )
+            line << *li << " ";
+
+        value = line.str();
+        value.erase( value.end() - 1 );
+        ofs << value << endl;
+    }
+
+    ofs.close();
+    LOGSTR( 0, CFG_STR_FILE_DONE );
+
+    return true;
+}
+
+/**
+ * @brief Unserialize runtime configuration settings from #CFG_DAT_FILE_SETTINGS.
+ * @retval false Returned if there was an error unserializing settings.
+ * @retval true Returned if settings were unserialized successfully.
+ */
+const bool Server::Config::Unserialize()
+{
+    UFLAGS_DE( flags );
+    ifstream ifs;
+    string key, value, line;
+    vector<string> token;
+    ITER( vector, string, ti );
+
+    LOGSTR( 0, CFG_STR_FILE_SETTINGS_READ );
+    ifs.open( CFG_DAT_FILE_SETTINGS );
+
+    if ( !ifs.good() )
+    {
+        LOGFMT( flags, "Server::Config::Unserialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
+        return false;
+    }
+
+    while ( getline( ifs, line ) )
+    {
+        if ( !Utils::KeyValue( key, value, line) )
+        {
+            LOGFMT( flags, "Server::Config::Unserialize()-> error reading line: %s", CSTR( line ) );
+            continue;
+        }
+
+        if ( key.compare( "account_prohibited_names" ) == 0 )
+        {
+            token = Utils::StrTokens( value );
+            for ( ti = token.begin(); ti != token.end(); ti++ )
+                m_account_prohibited_names.push_front( *ti );
+            m_account_prohibited_names.reverse();
+        }
+    }
+
+    ifs.close();
+    LOGSTR( 0, CFG_STR_FILE_DONE );
+
+    return true;
+}
+
+/**
  * @brief Sends a message to all clients connected to the Server.
  * @param[in] msg The message to be sent.
  * @retval void
@@ -162,7 +245,7 @@ const bool Server::LoadCommands()
     MITER( multimap, bool,string, mi );
 
     start = Utils::CurrentTime();
-    LOGSTR( 0, "Loading commands..." );
+    LOGSTR( 0, CFG_STR_FILE_COMMAND_READ );
 
     // Populate the multimap with a recursive listing of the commands folder
     Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, files, m_dir_close, m_dir_open );
@@ -445,6 +528,13 @@ const void Server::ProcessInput()
     return;
 }
 
+/**
+ * @brief Handle SocketClient objects who have not fully logged into the game yet.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
 const void Server::ProcessLogin( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
@@ -576,6 +666,9 @@ const void Server::Shutdown( const sint_t& status )
     Broadcast( CFG_STR_SHUTDOWN );
     m_shutdown = true;
 
+    // Write runtime settings
+    m_config->Serialize();
+
     // Cleanup commands
     while ( !command_list.empty() )
         command_list.begin()->second->Delete();
@@ -605,7 +698,7 @@ const void Server::Shutdown( const sint_t& status )
 const void Server::Startup( const sint_t& desc )
 {
     UFLAGS_DE( flags );
-    SocketServer* socket_server;
+    SocketServer* socket_server = NULL;
     sint_t descriptor = 0;
     bool reboot = false;
     m_shutdown = false;
@@ -641,6 +734,12 @@ const void Server::Startup( const sint_t& desc )
     if ( !reboot && ::chdir( ".." ) < 0 )
     {
         LOGERRNO( flags, "Server::Startup()->chdir()->" );
+        Shutdown( EXIT_FAILURE );
+    }
+
+    if ( !m_config->Unserialize() )
+    {
+        LOGSTR( flags, "Server::Config::Unserialize()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
 
@@ -843,10 +942,29 @@ const bool Server::sSocketOpen( const uint_t& amount )
 
 /* Internal */
 /**
+ * @brief Constructor for the Server::Config class.
+ */
+Server::Config::Config()
+{
+    m_account_prohibited_names.clear();
+
+    return;
+}
+
+/**
+ * @brief Destructor for the Server::Config class.
+ */
+Server::Config::~Config()
+{
+    return;
+}
+
+/**
  * @brief Constructor for the Server class.
  */
 Server::Server()
 {
+    m_config = new Server::Config();
     m_dir_close = 0;
     m_dir_open = 0;
     m_port = 0;
@@ -866,5 +984,7 @@ Server::Server()
  */
 Server::~Server()
 {
+    delete m_config;
+
     return;
 }

@@ -132,7 +132,7 @@ const string Utils::__FormatString( const uint_t& narg, const bitset<CFG_MEM_MAX
     UFLAGS_DE( uflags );
     va_list args;
     vector<string> arguments;
-    vector<string>::iterator si;
+    ITER( vector, string, si );
     vector<char> buf;
     string output, token;
     sint_t size = 0;
