@@ -36,6 +36,13 @@
  * @par Default: 32
  */
 #define CFG_ACT_MAX_NAME_LEN 32
+
+/**
+ * @def CFG_ACT_MIN_NAME_LEN
+ * @brief The minimum allowable length for an account name.
+ * @par Default: 4
+ */
+#define CFG_ACT_MIN_NAME_LEN 4
 /**@}*/
 
 /***************************************************************************
@@ -267,6 +274,13 @@
  * @par Default: "Invalid account name." CRLF
  */
 #define CFG_STR_ACT_INVALID "Invalid account name." CRLF
+
+/**
+ * @def CFG_STR_ACT_LENGTH
+ * @brief String additionally sent when an account name is invalid due to length.
+ * @par Default: "Account name must be between " SX( CFG_ACT_MIN_NAME_LEN ) " and " SX( CFG_ACT_MAX_NAME_LEN ) " characters." CRLF
+ */
+#define CFG_STR_ACT_LENGTH "Account name must be between " SX( CFG_ACT_MIN_NAME_LEN ) " and " SX( CFG_ACT_MAX_NAME_LEN ) " characters." CRLF
 
 /**
  * @def CFG_STR_CMD_INVALID

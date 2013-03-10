@@ -50,6 +50,7 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
         return;
     }
 
+    cout << "state={" << client->gState() << "} cmd={" << cmd << "} args={" << args << "}" << endl;
     switch ( client->gState() )
     {
         case SOC_STATE_LOGIN_SCREEN:
@@ -61,7 +62,8 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
         break;
 
         case SOC_STATE_CONFIRM_ACCOUNT:
-            ConfirmAccount( client, cmd, args );
+            //Pass the requested account name as args so it can be re-used for output messages
+            ConfirmAccount( client, cmd, client->gLogin( SOC_LOGIN_CMD ) );
         break;
 
         case SOC_STATE_NEW_ACCOUNT:
@@ -96,18 +98,22 @@ const void Handler::ConfirmAccount( SocketClient* client, const string& cmd, con
         return;
     }
 
-    if ( cmd.empty() )
+    //Initial entry or an invalid selection
+    if ( cmd.empty() && !args.empty() )
+    {
+        client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM_NAME, CSTR( args ) ) );
         return;
+    }
 
     if ( Utils::StrPrefix( cmd, "yes", true ) )
         client->sState( SOC_STATE_NEW_ACCOUNT );
     else if ( Utils::StrPrefix( cmd, "no", true ) )
-    {
-        client->Send( CFG_STR_ACT_GET_NAME );
         client->sState( SOC_STATE_LOGIN_SCREEN );
-    }
     else
         client->Send( CFG_STR_SEL_INVALID );
+
+    //Return to the main handler
+    ProcessLogin( client );
 
     return;
 }
@@ -129,8 +135,15 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
         return;
     }
 
+    //Initial hit prompting for password
     if ( cmd.empty() )
+    {
+        client->Send( CFG_STR_ACT_GET_PASSWORD );
         return;
+    }
+
+    //Return to the main handler
+    ProcessLogin( client );
 
     return;
 }
@@ -163,18 +176,21 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
 
     if ( ( command = client->gServer()->FindCommand( cmd ) ) != NULL && command->Authorized( client->gSecurity() ) )
         command->Run( client, cmd, args );
+    else if ( cmd.length() < CFG_ACT_MIN_NAME_LEN || cmd.length() > CFG_ACT_MAX_NAME_LEN )
+    {
+        client->Send( CFG_STR_ACT_INVALID );
+        client->Send( CFG_STR_ACT_LENGTH );
+    }
     else
     {
         file << CFG_DAT_DIR_ACCOUNT << "/" << cmd;
         switch (  Utils::DirExists( file.str() ) )
         {
             case UTILS_RET_FALSE:
-                client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM_NAME, CSTR( cmd ) ) );
                 client->sState( SOC_STATE_CONFIRM_ACCOUNT );
             break;
 
             case UTILS_RET_TRUE:
-                client->Send( CFG_STR_ACT_GET_PASSWORD );
                 client->sState( SOC_STATE_GET_OLD_PASSWORD );
             break;
 
@@ -185,6 +201,10 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
             break;
         }
     }
+
+    //Return to the main handler
+    client->sLogin( SOC_LOGIN_CMD, cmd );
+    ProcessLogin( client );
 
     return;
 }
