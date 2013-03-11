@@ -37,6 +37,7 @@ class Account {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        const string gName() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/

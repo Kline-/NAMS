@@ -86,10 +86,9 @@ enum SOC_STATE {
  * @enum SOC_LOGIN
  */
 enum SOC_LOGIN {
-    SOC_LOGIN_CMD = 0, /**< Command received from the socket during the login process. */
-    SOC_LOGIN_ARG = 1, /**< Any arguments received from the socket during the login process. */
-    SOC_LOGIN_PWD = 2, /**< Initial password to match against when creating a new account. */
-    MAX_SOC_LOGIN = 3  /**< Safety limit for looping. */
+    SOC_LOGIN_NAME     = 0, /**< Name received from the socket during the login process. */
+    SOC_LOGIN_PASSWORD = 1, /**< Password received from the socket during the login process. */
+    MAX_SOC_LOGIN      = 2  /**< Safety limit for looping. */
 };
 
 /**

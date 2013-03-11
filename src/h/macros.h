@@ -192,6 +192,20 @@ using namespace std;
     name.set( UTILS_TYPE_ERROR )
 
 /**
+ * @def UFLAGS_I
+ * @brief Define a bitset variable (name) with #UTILS_TYPE_INFO already enabled.
+ * @param[in] name The name to use for declaring a local variable of bitset<#CFG_MEM_MAX_BITSET>.
+ */
+#define UFLAGS_I( name ) BSET( name, UTILS_TYPE_INFO )
+
+/**
+ * @def UFLAGS_S
+ * @brief Define a bitset variable (name) with #UTILS_TYPE_SOCKET already enabled.
+ * @param[in] name The name to use for declaring a local variable of bitset<#CFG_MEM_MAX_BITSET>.
+ */
+#define UFLAGS_S( name ) BSET( name, UTILS_TYPE_SOCKET )
+
+/**
  * @def USLEEP_MAX
  * @brief This is the maximum value usleep will take per man (3) usleep -- 1 second.
  *

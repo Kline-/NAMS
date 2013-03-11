@@ -27,6 +27,7 @@
 #include <deque>
 #include <netdb.h>
 
+#include "account.h"
 #include "socket.h"
 #include "server.h"
 
@@ -55,6 +56,7 @@ class SocketClient : public Socket {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        Account* gAccount() const;
         const uint_t gIdle() const;
         const string gLogin( const uint_t& key ) const;
         const uint_t gSecurity() const;
@@ -77,6 +79,7 @@ class SocketClient : public Socket {
         /**@}*/
 
     private:
+        Account* m_account; /**< The account associated with the client. */
         deque< pair<string,string> > m_command_queue; /**< FIFO queue for commands unless the command specifies preempt. */
         uint_t m_idle; /**< Amount of time since data was last received from the client. */
         string m_input; /**< Data received from the client that hasn't been processed yet. */

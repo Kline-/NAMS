@@ -485,6 +485,15 @@ const string SocketClient::Serialize() const
 
 /* Query */
 /**
+ * @brief Returns the Account object associated to this SocketClient.
+ * @retval Account Pointer to the associated Account object.
+ */
+Account* SocketClient::gAccount() const
+{
+    return m_account;
+}
+
+/**
  * @brief Returns the amount of time the client has been idle.
  * @retval uint_t The number of seconds the client has been idle.
  */
@@ -700,6 +709,7 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
 {
     uint_t i = uintmin_t;
 
+    m_account = NULL;
     m_command_queue.clear();
     m_idle = 0;
     m_input.clear();

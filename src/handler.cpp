@@ -30,9 +30,45 @@
 #include "h/handler.h"
 #include "h/account.h"
 #include "h/command.h"
+#include "h/list.h"
 #include "h/server.h"
 
 /* Core */
+/**
+ * @brief Check to see if the current account is already playing.
+ * @retval false Returned if the account is not playing or is playing but in a state greater than or equal to #SOC_ACCOUNT_MENU.
+ * @retval true Returned if the account is playing and in a state less than #SOC_ACCOUNT_MENU.
+ */
+const bool Handler::CheckPlaying( SocketClient* client, const string& name )
+{
+    UFLAGS_S( flags );
+    ITER( list, SocketClient*, si );
+    SocketClient* socket_client;
+
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = client->gServer()->gSocketClientNext() )
+    {
+        socket_client = *si;
+        client->gServer()->sSocketClientNext( ++si );
+
+        if ( socket_client->gAccount() == NULL )
+            continue;
+
+        if ( socket_client->gAccount()->gName().empty() )
+            continue;
+
+        if ( socket_client->gState() >= SOC_STATE_ACCOUNT_MENU )
+            continue;
+
+        if ( name.compare( socket_client->gAccount()->gName() ) == 0 )
+        {
+            LOGFMT( flags, "Handler::CheckPlaying()-> player from site %s attempted to login as %s (already playing)", CSTR( client->gHostname() ), CSTR( name ) );
+            return true;
+        }
+    }
+
+    return false;
+}
+
 /**
  * @brief Handle SocketClient objects who have not fully logged into the game yet.
  * @param[in] client The SocketClient to process a login request for.
@@ -62,12 +98,11 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
         break;
 
         case SOC_STATE_GET_NEW_ACCOUNT:
-            //Pass the requested account name as args so it can be re-used for output messages
-            GetNewAccount( client, cmd, client->gLogin( SOC_LOGIN_ARG ) );
+            GetNewAccount( client, cmd, args );
         break;
 
         case SOC_STATE_GET_NEW_PASSWORD:
-            GetNewPassword( client, cmd, client->gLogin( SOC_LOGIN_PWD ) );
+            GetNewPassword( client, cmd, args );
         break;
 
         case SOC_STATE_CREATE_ACCOUNT:
@@ -116,17 +151,26 @@ const void Handler::GetNewAccount( SocketClient* client, const string& cmd, cons
         return;
     }
 
-    //Initial entry or an invalid selection
-    if ( cmd.empty() && !args.empty() )
+    //Prevent two new accounts being created with the same name
+    if ( Handler::CheckPlaying( client, cmd ) )
     {
-        client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM_NAME, CSTR( args ) ) );
+
+    }
+
+    //Initial entry or an invalid selection
+    if ( cmd.empty() && !client->gLogin( SOC_LOGIN_NAME ).empty() )
+    {
+        client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM_NAME, CSTR( client->gLogin( SOC_LOGIN_NAME ) ) ) );
         return;
     }
 
     if ( Utils::StrPrefix( cmd, "yes", true ) )
         client->sState( SOC_STATE_GET_NEW_PASSWORD );
     else if ( Utils::StrPrefix( cmd, "no", true ) )
+    {
+        client->sLogin( SOC_LOGIN_NAME, "" );
         client->sState( SOC_STATE_LOGIN_SCREEN );
+    }
     else
         client->Send( CFG_STR_SEL_INVALID );
 
@@ -154,7 +198,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
     }
 
     //Initial entry
-    if ( cmd.empty() && args.empty() )
+    if ( cmd.empty() )
     {
         client->Send( CFG_STR_ACT_NEW );
         client->Send( CFG_STR_ACT_GET_PASSWORD );
@@ -169,18 +213,18 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
         return;
     }
 
-    if ( client->gLogin( SOC_LOGIN_PWD ).empty() )
+    if ( client->gLogin( SOC_LOGIN_PASSWORD ).empty() )
     {
-        client->sLogin( SOC_LOGIN_PWD, cmd );
+        client->sLogin( SOC_LOGIN_PASSWORD, cmd );
         client->Send( CFG_STR_ACT_CONFIRM_PASSWORD );
         return;
     }
 
-    if ( cmd.compare( client->gLogin( SOC_LOGIN_PWD ) ) == 0 )
+    if ( cmd.compare( client->gLogin( SOC_LOGIN_PASSWORD ) ) == 0 )
         client->sState( SOC_STATE_CREATE_ACCOUNT );
     else
     {
-        client->sLogin( SOC_LOGIN_PWD, "" );
+        client->sLogin( SOC_LOGIN_PASSWORD, "" );
         client->Send( CFG_STR_ACT_PASSWORD_MISMATCH );
         client->Send( CFG_STR_ACT_GET_PASSWORD );
         return;
@@ -241,7 +285,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     }
 
     // Initial connection with no input yet received or previous name was invalid
-    if ( cmd.empty() && args.empty() )
+    if ( cmd.empty() )
     {
         client->Send( CFG_STR_ACT_GET_NAME );
         return;
@@ -252,9 +296,12 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
         client->Send( CFG_STR_ACT_INVALID_NAME );
         client->Send( CFG_STR_ACT_LENGTH_NAME );
     }
-    else
+
+    if ( client->gLogin( SOC_LOGIN_NAME ).empty() )
     {
+        client->sLogin( SOC_LOGIN_NAME, cmd );
         account << CFG_DAT_DIR_ACCOUNT << "/" << cmd;
+
         switch (  Utils::DirExists( account.str() ) )
         {
             case UTILS_RET_FALSE:
@@ -274,7 +321,6 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     }
 
     //Return to the main handler
-    client->sLogin( SOC_LOGIN_ARG, cmd );
     ProcessLogin( client );
 
     return;

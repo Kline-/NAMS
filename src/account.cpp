@@ -79,6 +79,14 @@ const bool Account::New( SocketClient* client, const string& name )
 }
 
 /* Query */
+/**
+ * @brief Returns the name of the account.
+ * @retval string A string with the name of the account.
+ */
+const string Account::gName() const
+{
+    return m_name;
+}
 
 /* Manipulate */
 
