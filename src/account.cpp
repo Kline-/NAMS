@@ -70,7 +70,7 @@ const bool Account::New( SocketClient* client, const string& name )
         comp = *fi;
         if ( comp.compare( name ) == 0 )
         {
-            client->Send( CFG_STR_ACT_INVALID );
+            client->Send( CFG_STR_ACT_INVALID_NAME );
             return false;
         }
     }

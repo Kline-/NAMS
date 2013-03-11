@@ -61,12 +61,17 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
             GetOldPassword( client, cmd, args );
         break;
 
-        case SOC_STATE_CONFIRM_ACCOUNT:
+        case SOC_STATE_GET_NEW_ACCOUNT:
             //Pass the requested account name as args so it can be re-used for output messages
-            ConfirmAccount( client, cmd, client->gLogin( SOC_LOGIN_CMD ) );
+            GetNewAccount( client, cmd, client->gLogin( SOC_LOGIN_ARG ) );
         break;
 
-        case SOC_STATE_NEW_ACCOUNT:
+        case SOC_STATE_GET_NEW_PASSWORD:
+            GetNewPassword( client, cmd, client->gLogin( SOC_LOGIN_PWD ) );
+        break;
+
+        case SOC_STATE_CREATE_ACCOUNT:
+            CreateAccount( client, cmd, args );
         break;
 
         default:
@@ -82,19 +87,32 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
 
 /* Internal */
 /**
- * @brief Confirm a new account name.
+ * @brief Create a new account object with a name and password.
  * @param[in] client The SocketClient to process a login request for.
  * @param[in] cmd The command sent by the SocketClient.
  * @param[in] args Any arguments to the command.
  * @retval void
  */
-const void Handler::ConfirmAccount( SocketClient* client, const string& cmd, const string& args )
+const void Handler::CreateAccount( SocketClient* client, const string& cmd, const string& args )
+{
+    client->Send( "And we danced!" CRLF );
+    return;
+}
+
+/**
+ * @brief Select a new account name.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::GetNewAccount( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
 
     if ( client == NULL )
     {
-        LOGSTR( flags, "Handler::ConfirmAccount()-> called with NULL client" );
+        LOGSTR( flags, "Handler::GetNewAccount()-> called with NULL client" );
         return;
     }
 
@@ -106,11 +124,67 @@ const void Handler::ConfirmAccount( SocketClient* client, const string& cmd, con
     }
 
     if ( Utils::StrPrefix( cmd, "yes", true ) )
-        client->sState( SOC_STATE_NEW_ACCOUNT );
+        client->sState( SOC_STATE_GET_NEW_PASSWORD );
     else if ( Utils::StrPrefix( cmd, "no", true ) )
         client->sState( SOC_STATE_LOGIN_SCREEN );
     else
         client->Send( CFG_STR_SEL_INVALID );
+
+    //Return to the main handler
+    ProcessLogin( client );
+
+    return;
+}
+
+/**
+ * @brief Create a new account.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::GetNewPassword( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::GetNewPassword()-> called with NULL client" );
+        return;
+    }
+
+    //Initial entry
+    if ( cmd.empty() && args.empty() )
+    {
+        client->Send( CFG_STR_ACT_NEW );
+        client->Send( CFG_STR_ACT_GET_PASSWORD );
+        return;
+    }
+
+    if ( cmd.length() < CFG_ACT_MIN_PASSWORD_LEN || cmd.length() > CFG_ACT_MAX_PASSWORD_LEN )
+    {
+        client->Send( CFG_STR_ACT_INVALID_PASSWORD );
+        client->Send( CFG_STR_ACT_LENGTH_PASSWORD );
+        client->Send( CFG_STR_ACT_GET_PASSWORD );
+        return;
+    }
+
+    if ( client->gLogin( SOC_LOGIN_PWD ).empty() )
+    {
+        client->sLogin( SOC_LOGIN_PWD, cmd );
+        client->Send( CFG_STR_ACT_CONFIRM_PASSWORD );
+        return;
+    }
+
+    if ( cmd.compare( client->gLogin( SOC_LOGIN_PWD ) ) == 0 )
+        client->sState( SOC_STATE_CREATE_ACCOUNT );
+    else
+    {
+        client->sLogin( SOC_LOGIN_PWD, "" );
+        client->Send( CFG_STR_ACT_PASSWORD_MISMATCH );
+        client->Send( CFG_STR_ACT_GET_PASSWORD );
+        return;
+    }
 
     //Return to the main handler
     ProcessLogin( client );
@@ -158,8 +232,7 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
 const void Handler::LoginScreen( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
-    Command* command = NULL;
-    stringstream file;
+    stringstream account;
 
     if ( client == NULL )
     {
@@ -174,20 +247,18 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
         return;
     }
 
-    if ( ( command = client->gServer()->FindCommand( cmd ) ) != NULL && command->Authorized( client->gSecurity() ) )
-        command->Run( client, cmd, args );
-    else if ( cmd.length() < CFG_ACT_MIN_NAME_LEN || cmd.length() > CFG_ACT_MAX_NAME_LEN )
+    if ( cmd.length() < CFG_ACT_MIN_NAME_LEN || cmd.length() > CFG_ACT_MAX_NAME_LEN )
     {
-        client->Send( CFG_STR_ACT_INVALID );
-        client->Send( CFG_STR_ACT_LENGTH );
+        client->Send( CFG_STR_ACT_INVALID_NAME );
+        client->Send( CFG_STR_ACT_LENGTH_NAME );
     }
     else
     {
-        file << CFG_DAT_DIR_ACCOUNT << "/" << cmd;
-        switch (  Utils::DirExists( file.str() ) )
+        account << CFG_DAT_DIR_ACCOUNT << "/" << cmd;
+        switch (  Utils::DirExists( account.str() ) )
         {
             case UTILS_RET_FALSE:
-                client->sState( SOC_STATE_CONFIRM_ACCOUNT );
+                client->sState( SOC_STATE_GET_NEW_ACCOUNT );
             break;
 
             case UTILS_RET_TRUE:
@@ -196,14 +267,14 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
 
             case UTILS_RET_ERROR:
             default:
-                client->Send( CFG_STR_ACT_INVALID );
+                client->Send( CFG_STR_ACT_INVALID_NAME );
                 LOGFMT( flags, "Handler::LoginScreen()->Utils::DirExists()-> returned UTILS_RET_ERROR for name: %s", CSTR( cmd ) );
             break;
         }
     }
 
     //Return to the main handler
-    client->sLogin( SOC_LOGIN_CMD, cmd );
+    client->sLogin( SOC_LOGIN_ARG, cmd );
     ProcessLogin( client );
 
     return;
