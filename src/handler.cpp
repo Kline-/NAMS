@@ -164,13 +164,13 @@ const void Handler::GetNewAccount( SocketClient* client, const string& cmd, cons
         return;
     }
 
-    if ( Utils::StrPrefix( cmd, "yes", true ) )
-        client->sState( SOC_STATE_GET_NEW_PASSWORD );
-    else if ( Utils::StrPrefix( cmd, "no", true ) )
+    if ( Utils::StrPrefix( cmd, "no", true ) )
     {
         client->sLogin( SOC_LOGIN_NAME, "" );
         client->sState( SOC_STATE_LOGIN_SCREEN );
     }
+    else if ( Utils::StrPrefix( cmd, "yes", true ) )
+        client->sState( SOC_STATE_GET_NEW_PASSWORD );
     else
         client->Send( CFG_STR_SEL_INVALID );
 
@@ -215,12 +215,12 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
 
     if ( client->gLogin( SOC_LOGIN_PASSWORD ).empty() )
     {
-        client->sLogin( SOC_LOGIN_PASSWORD, cmd );
+        client->sLogin( SOC_LOGIN_PASSWORD, crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) );
         client->Send( CFG_STR_ACT_CONFIRM_PASSWORD );
         return;
     }
 
-    if ( cmd.compare( client->gLogin( SOC_LOGIN_PASSWORD ) ) == 0 )
+    if ( Utils::String( crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) ).compare( client->gLogin( SOC_LOGIN_PASSWORD ) ) == 0 )
         client->sState( SOC_STATE_CREATE_ACCOUNT );
     else
     {

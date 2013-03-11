@@ -31,6 +31,20 @@
  ***************************************************************************/
 /** @name Account Options */ /**@{*/
 /**
+ * @def CFG_ACT_CRYPT_METHOD
+ * @brief The algorithm to use with crypt(). See man 3 crypt for details.
+ * @par Default: 6
+ */
+#define CFG_ACT_CRYPT_METHOD 6
+
+/**
+ * @def CFG_ACT_CRYPT_SALT
+ * @brief The initial salt string to use with crypt(). The remainder is the account name.
+ * @par Default: "$" CFG_ACT_CRYPT_METHOD "$"
+ */
+#define CFG_ACT_CRYPT_SALT "$" SX( CFG_ACT_CRYPT_METHOD ) "$"
+
+/**
  * @def CFG_ACT_MAX_NAME_LEN
  * @brief The maximum allowable length for an account name.
  * @par Default: 32

@@ -122,6 +122,20 @@ const uint_t Utils::NumChar( const string& input, const string& item )
 }
 
 /**
+ * @brief Returns a salt value for use with crypt.
+ * @param[in] A value to append to #CFG_ACT_CRYPT_SALT to be used as a salt.
+ * @retval string A salt value to use with crypt.
+ */
+const string Utils::Salt( const string& input )
+{
+    stringstream output;
+
+    output << CFG_ACT_CRYPT_SALT << input;
+
+    return output.str();
+}
+
+/**
  * @brief Returns a vector of strings split at linebreaks based on input.
  * @param[in] input A string to split on newline characters.
  * @retval vector<string> A vector of strings that were split on the linebreaks detected from input.

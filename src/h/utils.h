@@ -115,6 +115,7 @@ namespace Utils {
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     const uint_t NumChar( const string& input, const string& item );
+    const string Salt( const string& input );
     const vector<string> StrNewlines( const string& input );
     const bool StrPrefix( const string& s1, const string& s2, const bool& igncase = false );
     const string StrTime( const time_t& now );
