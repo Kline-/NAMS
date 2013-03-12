@@ -120,13 +120,6 @@
 #define CFG_DAT_DIR_VAR "var"
 
 /**
- * @def CFG_DAT_FILE_ACT_EXT
- * @brief File extension for accounts.
- * @par Default: "act"
- */
-#define CFG_DAT_FILE_ACT_EXT "act"
-
-/**
  * @def CFG_DAT_FILE_REBOOT
  * @brief File for reboot data to be temporarily stored in.
  * @par Default: "reboot.dat"
@@ -135,7 +128,7 @@
 
 /**
  * @def CFG_DAT_FILE_SETTINGS
- * @brief File for runtime settings.
+ * @brief File for runtime and account settings.
  * @par Default: "settings.dat"
  */
 #define CFG_DAT_FILE_SETTINGS "settings.dat"
@@ -316,6 +309,13 @@
  * @par Default: "New account." CRLF
  */
 #define CFG_STR_ACT_NEW "New account." CRLF
+
+/**
+ * @def CFG_STR_ACT_NEW_ERROR
+ * @brief String sent if an error occurs when first creating a new account.
+ * @par Default: "An error occured while attempting to create that account." CRLF
+ */
+#define CFG_STR_ACT_NEW_ERROR "An error occured while attempting to create that account." CRLF
 
 /**
  * @def CFG_STR_ACT_PASSWORD_CONFIRM

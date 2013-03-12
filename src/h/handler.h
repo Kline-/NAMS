@@ -33,19 +33,20 @@ using namespace std;
  */
 namespace Handler {
     /** @name Core */ /**@{*/
-    const bool CheckCreating( SocketClient* client, const string& name );
-    const bool CheckProhibited( SocketClient* client, const string& name );
+    const void AccountMenu( SocketClient* client, const string& cmd, const string& args );
     const void ProcessLogin( SocketClient* client, const string& cmd = "", const string& args = "" );
     /**@}*/
 
     /** @name Query */ /**@{*/
+    const bool CheckCreating( SocketClient* client, const string& name );
+    const bool CheckProhibited( SocketClient* client, const string& name );
     /**@}*/
 
     /** @name Manipulate */ /**@{*/
+    const void CreateAccount( SocketClient* client, const string& cmd, const string& args );
     /**@}*/
 
     /** @name Internal */ /**@{*/
-    const void CreateAccount( SocketClient* client, const string& cmd, const string& args );
     const void GetNewAccount( SocketClient* client, const string& cmd, const string& args );
     const void GetNewPassword( SocketClient* client, const string& cmd, const string& args );
     const void GetOldPassword( SocketClient* client, const string& cmd, const string& args );

@@ -40,23 +40,16 @@ const void Account::Delete()
 /**
  * @brief Create a new account.
  * @param[in] client The SocketClient requesting an account.
- * @param[in] name The name of the account to be created.
  * @retval false Returned if a new Account was successfully created or loaded.
  * @retval true Returned if a new Account was unable to be created.
  */
-const bool Account::New( SocketClient* client, const string& name )
+const bool Account::New( SocketClient* client )
 {
     UFLAGS_DE( flags );
 
     if ( client == NULL )
     {
         LOGSTR( flags, "Account::New()-> called with NULL client" );
-        return false;
-    }
-
-    if ( name.empty() )
-    {
-        LOGSTR( flags, "Account::New()-> called with empty name" );
         return false;
     }
 

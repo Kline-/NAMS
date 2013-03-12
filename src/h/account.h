@@ -33,7 +33,7 @@ class Account {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New( SocketClient* client, const string& name );
+        const bool New( SocketClient* client );
         /**@}*/
 
         /** @name Query */ /**@{*/
