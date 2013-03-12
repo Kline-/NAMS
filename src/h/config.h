@@ -332,6 +332,13 @@
 #define CFG_STR_ACT_LENGTH_PASSWORD "Account password must be between " SX( CFG_ACT_MIN_PASSWORD_LEN ) " and " SX( CFG_ACT_MAX_PASSWORD_LEN ) " characters." CRLF
 
 /**
+ * @def CFG_STR_ACT_NAME_PROHIBITED
+ * @brief String additionally sent when an account name matches the prohibited names list.
+ * @par Default: "That account name has been prohibited from use." CRLF
+ */
+#define CFG_STR_ACT_NAME_PROHIBITED "That account name has been prohibited from use." CRLF
+
+/**
  * @def CFG_STR_ACT_NEW
  * @brief String sent when a new account will be created.
  * @par Default: "New account." CRLF

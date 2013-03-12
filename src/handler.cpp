@@ -35,11 +35,13 @@
 
 /* Core */
 /**
- * @brief Check to see if the current account is already playing.
+ * @brief Check to see if the current account is already being created.
+ * @param[in] client The SocketClient to check against active connections.
+ * @param[in] name The Account name to check against active connections.
  * @retval false Returned if the account is not playing or is playing but in a state greater than or equal to #SOC_ACCOUNT_MENU.
  * @retval true Returned if the account is playing and in a state less than #SOC_ACCOUNT_MENU.
  */
-const bool Handler::CheckPlaying( SocketClient* client, const string& name )
+const bool Handler::CheckCreating( SocketClient* client, const string& name )
 {
     UFLAGS_S( flags );
     ITER( list, SocketClient*, si );
@@ -50,20 +52,42 @@ const bool Handler::CheckPlaying( SocketClient* client, const string& name )
         socket_client = *si;
         client->gServer()->sSocketClientNext( ++si );
 
-        if ( socket_client->gAccount() == NULL )
-            continue;
-
-        if ( socket_client->gAccount()->gName().empty() )
+        if ( socket_client == client )
             continue;
 
         if ( socket_client->gState() >= SOC_STATE_ACCOUNT_MENU )
             continue;
 
-        if ( name.compare( socket_client->gAccount()->gName() ) == 0 )
+        if ( name.compare( socket_client->gLogin( SOC_LOGIN_NAME ) ) == 0 )
         {
-            LOGFMT( flags, "Handler::CheckPlaying()-> player from site %s attempted to login as %s (already playing)", CSTR( client->gHostname() ), CSTR( name ) );
+            LOGFMT( flags, "Handler::CheckPlaying()-> player from site %s attempted to login as %s (in creation)", CSTR( client->gHostname() ), CSTR( name ) );
             return true;
         }
+    }
+
+    return false;
+}
+
+/**
+ * @brief Checks to see if a name is on the server's prohibited list.
+ * @param[in] client The SocketClient to requesting to use the name.
+ * @param[in] name The Account name to check against the prohibited list.
+ * @retval false Returned if the name is not prohibited.
+ * @retval true Returned if the name is prohibited.
+ */
+const bool Handler::CheckProhibited( SocketClient* client, const string& name )
+{
+    ITER( forward_list, string, fi );
+    forward_list<string> search;
+    string comp;
+
+    // Search for prohibited names
+    search = client->gServer()->gConfig()->gAccountProhibitedNames();
+    for ( fi = search.begin(); fi != search.end(); fi++ )
+    {
+        comp = *fi;
+        if ( comp.compare( name ) == 0 )
+            return true;
     }
 
     return false;
@@ -151,12 +175,6 @@ const void Handler::GetNewAccount( SocketClient* client, const string& cmd, cons
         return;
     }
 
-    //Prevent two new accounts being created with the same name
-    if ( Handler::CheckPlaying( client, cmd ) )
-    {
-
-    }
-
     //Initial entry or an invalid selection
     if ( cmd.empty() && !client->gLogin( SOC_LOGIN_NAME ).empty() )
     {
@@ -174,7 +192,7 @@ const void Handler::GetNewAccount( SocketClient* client, const string& cmd, cons
     else
         client->Send( CFG_STR_SEL_INVALID );
 
-    //Return to the main handler
+    //Generate the next input prompt
     ProcessLogin( client );
 
     return;
@@ -202,6 +220,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
     {
         client->Send( CFG_STR_ACT_NEW );
         client->Send( CFG_STR_ACT_GET_PASSWORD );
+
         return;
     }
 
@@ -210,6 +229,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
         client->Send( CFG_STR_ACT_INVALID_PASSWORD );
         client->Send( CFG_STR_ACT_LENGTH_PASSWORD );
         client->Send( CFG_STR_ACT_GET_PASSWORD );
+
         return;
     }
 
@@ -217,6 +237,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
     {
         client->sLogin( SOC_LOGIN_PASSWORD, crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) );
         client->Send( CFG_STR_ACT_CONFIRM_PASSWORD );
+
         return;
     }
 
@@ -227,10 +248,11 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
         client->sLogin( SOC_LOGIN_PASSWORD, "" );
         client->Send( CFG_STR_ACT_PASSWORD_MISMATCH );
         client->Send( CFG_STR_ACT_GET_PASSWORD );
+
         return;
     }
 
-    //Return to the main handler
+    //Generate the next input prompt
     ProcessLogin( client );
 
     return;
@@ -260,7 +282,7 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
         return;
     }
 
-    //Return to the main handler
+    //Generate the next input prompt
     ProcessLogin( client );
 
     return;
@@ -288,6 +310,26 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     if ( cmd.empty() )
     {
         client->Send( CFG_STR_ACT_GET_NAME );
+        return;
+    }
+
+    //Prevent prohibited names based on Server runtime configuration
+    if ( Handler::CheckProhibited( client, cmd ) )
+    {
+        client->Send( CFG_STR_ACT_INVALID_NAME );
+        client->Send( CFG_STR_ACT_NAME_PROHIBITED );
+        ProcessLogin( client );
+
+        return;
+    }
+
+    //Prevent two new accounts being created with the same name
+    if ( Handler::CheckCreating( client, cmd ) )
+    {
+        client->Send( CFG_STR_ACT_INVALID_NAME );
+        client->Send( CFG_STR_ACT_NAME_PROHIBITED );
+        ProcessLogin( client );
+
         return;
     }
 
@@ -320,7 +362,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
         }
     }
 
-    //Return to the main handler
+    //Generate the next input prompt
     ProcessLogin( client );
 
     return;

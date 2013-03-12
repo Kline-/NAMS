@@ -47,9 +47,6 @@ const void Account::Delete()
 const bool Account::New( SocketClient* client, const string& name )
 {
     UFLAGS_DE( flags );
-    string comp;
-    ITER( forward_list, string, fi );
-    forward_list<string> search;
 
     if ( client == NULL )
     {
@@ -61,18 +58,6 @@ const bool Account::New( SocketClient* client, const string& name )
     {
         LOGSTR( flags, "Account::New()-> called with empty name" );
         return false;
-    }
-
-    // Search for prohibited names
-    search = client->gServer()->gConfig()->gAccountProhibitedNames();
-    for ( fi = search.begin(); fi != search.end(); fi++ )
-    {
-        comp = *fi;
-        if ( comp.compare( name ) == 0 )
-        {
-            client->Send( CFG_STR_ACT_INVALID_NAME );
-            return false;
-        }
     }
 
     return true;
