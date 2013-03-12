@@ -178,7 +178,7 @@ const void Handler::GetNewAccount( SocketClient* client, const string& cmd, cons
     //Initial entry or an invalid selection
     if ( cmd.empty() && !client->gLogin( SOC_LOGIN_NAME ).empty() )
     {
-        client->Send( Utils::FormatString( 0, CFG_STR_ACT_CONFIRM_NAME, CSTR( client->gLogin( SOC_LOGIN_NAME ) ) ) );
+        client->Send( Utils::FormatString( 0, CFG_STR_ACT_NAME_CONFIRM, CSTR( client->gLogin( SOC_LOGIN_NAME ) ) ) );
         return;
     }
 
@@ -219,16 +219,16 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
     if ( cmd.empty() )
     {
         client->Send( CFG_STR_ACT_NEW );
-        client->Send( CFG_STR_ACT_GET_PASSWORD );
+        client->Send( CFG_STR_ACT_PASSWORD_GET );
 
         return;
     }
 
     if ( cmd.length() < CFG_ACT_MIN_PASSWORD_LEN || cmd.length() > CFG_ACT_MAX_PASSWORD_LEN )
     {
-        client->Send( CFG_STR_ACT_INVALID_PASSWORD );
-        client->Send( CFG_STR_ACT_LENGTH_PASSWORD );
-        client->Send( CFG_STR_ACT_GET_PASSWORD );
+        client->Send( CFG_STR_ACT_PASSWORD_INVALID );
+        client->Send( CFG_STR_ACT_PASSWORD_LENGTH );
+        client->Send( CFG_STR_ACT_PASSWORD_GET );
 
         return;
     }
@@ -236,7 +236,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
     if ( client->gLogin( SOC_LOGIN_PASSWORD ).empty() )
     {
         client->sLogin( SOC_LOGIN_PASSWORD, crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) );
-        client->Send( CFG_STR_ACT_CONFIRM_PASSWORD );
+        client->Send( CFG_STR_ACT_PASSWORD_CONFIRM );
 
         return;
     }
@@ -247,7 +247,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
     {
         client->sLogin( SOC_LOGIN_PASSWORD, "" );
         client->Send( CFG_STR_ACT_PASSWORD_MISMATCH );
-        client->Send( CFG_STR_ACT_GET_PASSWORD );
+        client->Send( CFG_STR_ACT_PASSWORD_GET );
 
         return;
     }
@@ -278,7 +278,7 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
     //Initial hit prompting for password
     if ( cmd.empty() )
     {
-        client->Send( CFG_STR_ACT_GET_PASSWORD );
+        client->Send( CFG_STR_ACT_PASSWORD_GET );
         return;
     }
 
@@ -309,14 +309,14 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     // Initial connection with no input yet received or previous name was invalid
     if ( cmd.empty() )
     {
-        client->Send( CFG_STR_ACT_GET_NAME );
+        client->Send( CFG_STR_ACT_NAME_GET );
         return;
     }
 
     //Prevent prohibited names based on Server runtime configuration
     if ( Handler::CheckProhibited( client, cmd ) )
     {
-        client->Send( CFG_STR_ACT_INVALID_NAME );
+        client->Send( CFG_STR_ACT_NAME_INVALID );
         client->Send( CFG_STR_ACT_NAME_PROHIBITED );
         ProcessLogin( client );
 
@@ -326,7 +326,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     //Prevent two new accounts being created with the same name
     if ( Handler::CheckCreating( client, cmd ) )
     {
-        client->Send( CFG_STR_ACT_INVALID_NAME );
+        client->Send( CFG_STR_ACT_NAME_INVALID );
         client->Send( CFG_STR_ACT_NAME_PROHIBITED );
         ProcessLogin( client );
 
@@ -335,8 +335,8 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
 
     if ( cmd.length() < CFG_ACT_MIN_NAME_LEN || cmd.length() > CFG_ACT_MAX_NAME_LEN )
     {
-        client->Send( CFG_STR_ACT_INVALID_NAME );
-        client->Send( CFG_STR_ACT_LENGTH_NAME );
+        client->Send( CFG_STR_ACT_NAME_INVALID );
+        client->Send( CFG_STR_ACT_NAME_LENGTH );
     }
 
     if ( client->gLogin( SOC_LOGIN_NAME ).empty() )
@@ -356,7 +356,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
 
             case UTILS_RET_ERROR:
             default:
-                client->Send( CFG_STR_ACT_INVALID_NAME );
+                client->Send( CFG_STR_ACT_NAME_INVALID );
                 LOGFMT( flags, "Handler::LoginScreen()->Utils::DirExists()-> returned UTILS_RET_ERROR for name: %s", CSTR( cmd ) );
             break;
         }

@@ -276,60 +276,32 @@
  ***************************************************************************/
 /** @name String Options */ /**@{*/
 /**
- * @def CFG_STR_ACT_CONFIRM_NAME
+ * @def CFG_STR_ACT_NAME_CONFIRM
  * @brief String sent to request the user confirms their new account name.
  * @par Default: "Do you wish to create a new account named %s (Y/N)? "
  */
-#define CFG_STR_ACT_CONFIRM_NAME "Do you wish to create a new account named %s (Y/N)? "
+#define CFG_STR_ACT_NAME_CONFIRM "Do you wish to create a new account named %s (Y/N)? "
 
 /**
- * @def CFG_STR_ACT_CONFIRM_PASSWORD
- * @brief String sent to request the user confirms their new account password.
- * @par Default: "Please confirm password: "
- */
-#define CFG_STR_ACT_CONFIRM_PASSWORD "Please confirm password: "
-
-/**
- * @def CFG_STR_ACT_GET_NAME
+ * @def CFG_STR_ACT_NAME_GET
  * @brief String sent to request the user enters their account name.
  * @par Default: "Please enter your account name: "
  */
-#define CFG_STR_ACT_GET_NAME "Please enter your account name: "
+#define CFG_STR_ACT_NAME_GET "Please enter your account name: "
 
 /**
- * @def CFG_STR_ACT_GET_PASSWORD
- * @brief String sent to request the user inputs their password.
- * @par Default: "Password: "
- */
-#define CFG_STR_ACT_GET_PASSWORD "Password: "
-
-/**
- * @def CFG_STR_ACT_INVALID_NAME
+ * @def CFG_STR_ACT_NAME_INVALID
  * @brief String sent when an invalid account name is received.
  * @par Default: "Invalid account name." CRLF
  */
-#define CFG_STR_ACT_INVALID_NAME "Invalid account name." CRLF
+#define CFG_STR_ACT_NAME_INVALID "Invalid account name." CRLF
 
 /**
- * @def CFG_STR_ACT_INVALID_PASSWORD
- * @brief String sent when an invalid account password is received.
- * @par Default: "Invalid account password." CRLF
- */
-#define CFG_STR_ACT_INVALID_PASSWORD "Invalid account password." CRLF
-
-/**
- * @def CFG_STR_ACT_LENGTH_NAME
+ * @def CFG_STR_ACT_NAME_LENGTH
  * @brief String additionally sent when an account name is invalid due to length.
  * @par Default: "Account name must be between " SX( CFG_ACT_MIN_NAME_LEN ) " and " SX( CFG_ACT_MAX_NAME_LEN ) " characters." CRLF
  */
-#define CFG_STR_ACT_LENGTH_NAME "Account name must be between " SX( CFG_ACT_MIN_NAME_LEN ) " and " SX( CFG_ACT_MAX_NAME_LEN ) " characters." CRLF
-
-/**
- * @def CFG_STR_ACT_LENGTH_PASSWORD
- * @brief String additionally sent when an account password is invalid due to length.
- * @par Default: "Account password must be between " SX( CFG_ACT_MIN_PASSWORD_LEN ) " and " SX( CFG_ACT_MAX_PASSWORD_LEN ) " characters." CRLF
- */
-#define CFG_STR_ACT_LENGTH_PASSWORD "Account password must be between " SX( CFG_ACT_MIN_PASSWORD_LEN ) " and " SX( CFG_ACT_MAX_PASSWORD_LEN ) " characters." CRLF
+#define CFG_STR_ACT_NAME_LENGTH "Account name must be between " SX( CFG_ACT_MIN_NAME_LEN ) " and " SX( CFG_ACT_MAX_NAME_LEN ) " characters." CRLF
 
 /**
  * @def CFG_STR_ACT_NAME_PROHIBITED
@@ -344,6 +316,34 @@
  * @par Default: "New account." CRLF
  */
 #define CFG_STR_ACT_NEW "New account." CRLF
+
+/**
+ * @def CFG_STR_ACT_PASSWORD_CONFIRM
+ * @brief String sent to request the user confirms their new account password.
+ * @par Default: "Please confirm password: "
+ */
+#define CFG_STR_ACT_PASSWORD_CONFIRM "Please confirm password: "
+
+/**
+ * @def CFG_STR_ACT_PASSWORD_GET
+ * @brief String sent to request the user inputs their password.
+ * @par Default: "Password: "
+ */
+#define CFG_STR_ACT_PASSWORD_GET "Password: "
+
+/**
+ * @def CFG_STR_ACT_PASSWORD_INVALID
+ * @brief String sent when an invalid account password is received.
+ * @par Default: "Invalid account password." CRLF
+ */
+#define CFG_STR_ACT_PASSWORD_INVALID "Invalid account password." CRLF
+
+/**
+ * @def CFG_STR_ACT_PASSWORD_LENGTH
+ * @brief String additionally sent when an account password is invalid due to length.
+ * @par Default: "Account password must be between " SX( CFG_ACT_MIN_PASSWORD_LEN ) " and " SX( CFG_ACT_MAX_PASSWORD_LEN ) " characters." CRLF
+ */
+#define CFG_STR_ACT_PASSWORD_LENGTH "Account password must be between " SX( CFG_ACT_MIN_PASSWORD_LEN ) " and " SX( CFG_ACT_MAX_PASSWORD_LEN ) " characters." CRLF
 
 /**
  * @def CFG_STR_ACT_PASSWORD_MISMATCH
