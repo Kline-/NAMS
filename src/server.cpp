@@ -39,94 +39,6 @@
 
 /* Core */
 /**
- * @brief Serialize runtime configuration settings and write them to #CFG_DAT_FILE_SETTINGS.
- * @retval false Returned if there was an error serializing settings.
- * @retval true Returned if settings were serialized successfully.
- */
-const bool Server::Config::Serialize() const
-{
-    UFLAGS_DE( flags );
-    ofstream ofs;
-    string value;
-    stringstream line;
-    CITER( forward_list, string, li );
-
-    LOGSTR( 0, CFG_STR_FILE_SETTINGS_WRITE );
-    Utils::FileOpen( ofs, CFG_DAT_FILE_SETTINGS );
-
-    if ( !ofs.good() )
-    {
-        LOGFMT( flags, "Server::Config::Serialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
-        return false;
-    }
-
-    KEY( ofs, "account_prohibited_names" );
-    {
-        if ( !m_account_prohibited_names.empty() )
-        {
-            for ( li = m_account_prohibited_names.begin(); li != m_account_prohibited_names.end(); li++ )
-                line << *li << " ";
-
-            value = line.str();
-            value.erase( value.end() - 1 );
-            ofs << value << endl;
-        }
-        else
-            ofs << endl;
-    }
-
-    Utils::FileClose( ofs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
-    LOGSTR( 0, CFG_STR_FILE_DONE );
-
-    return true;
-}
-
-/**
- * @brief Unserialize runtime configuration settings from #CFG_DAT_FILE_SETTINGS.
- * @retval false Returned if there was an error unserializing settings.
- * @retval true Returned if settings were unserialized successfully.
- */
-const bool Server::Config::Unserialize()
-{
-    UFLAGS_DE( flags );
-    ifstream ifs;
-    string key, value, line;
-    vector<string> token;
-    ITER( vector, string, ti );
-
-    LOGSTR( 0, CFG_STR_FILE_SETTINGS_READ );
-    Utils::FileOpen( ifs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
-
-    if ( !ifs.good() )
-    {
-        LOGFMT( flags, "Server::Config::Unserialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
-        return false;
-    }
-
-    while ( getline( ifs, line ) )
-    {
-        if ( !Utils::KeyValue( key, value, line) )
-        {
-            LOGFMT( flags, "Server::Config::Unserialize()-> error reading line: %s", CSTR( line ) );
-            continue;
-        }
-
-        if ( key.compare( "account_prohibited_names" ) == 0 )
-        {
-            token = Utils::StrTokens( value, true );
-            for ( ti = token.begin(); ti != token.end(); ti++ )
-                m_account_prohibited_names.push_front( *ti );
-            m_account_prohibited_names.reverse();
-        }
-    }
-
-    Utils::FileClose( ifs );
-    LOGSTR( 0, CFG_STR_FILE_DONE );
-
-    return true;
-}
-
-/**
  * @brief Sends a message to all clients connected to the Server.
  * @param[in] msg The message to be sent.
  * @retval void
@@ -866,6 +778,94 @@ const string Server::gStatus() const
 }
 
 /* Manipulate */
+/**
+ * @brief Serialize runtime configuration settings and write them to #CFG_DAT_FILE_SETTINGS.
+ * @retval false Returned if there was an error serializing settings.
+ * @retval true Returned if settings were serialized successfully.
+ */
+const bool Server::Config::Serialize() const
+{
+    UFLAGS_DE( flags );
+    ofstream ofs;
+    string value;
+    stringstream line;
+    CITER( forward_list, string, li );
+
+    LOGSTR( 0, CFG_STR_FILE_SETTINGS_WRITE );
+    Utils::FileOpen( ofs, CFG_DAT_FILE_SETTINGS );
+
+    if ( !ofs.good() )
+    {
+        LOGFMT( flags, "Server::Config::Serialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
+        return false;
+    }
+
+    KEY( ofs, "account_prohibited_names" );
+    {
+        if ( !m_account_prohibited_names.empty() )
+        {
+            for ( li = m_account_prohibited_names.begin(); li != m_account_prohibited_names.end(); li++ )
+                line << *li << " ";
+
+            value = line.str();
+            value.erase( value.end() - 1 );
+            ofs << value << endl;
+        }
+        else
+            ofs << endl;
+    }
+
+    Utils::FileClose( ofs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
+    LOGSTR( 0, CFG_STR_FILE_DONE );
+
+    return true;
+}
+
+/**
+ * @brief Unserialize runtime configuration settings from #CFG_DAT_FILE_SETTINGS.
+ * @retval false Returned if there was an error unserializing settings.
+ * @retval true Returned if settings were unserialized successfully.
+ */
+const bool Server::Config::Unserialize()
+{
+    UFLAGS_DE( flags );
+    ifstream ifs;
+    string key, value, line;
+    vector<string> token;
+    ITER( vector, string, ti );
+
+    LOGSTR( 0, CFG_STR_FILE_SETTINGS_READ );
+    Utils::FileOpen( ifs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
+
+    if ( !ifs.good() )
+    {
+        LOGFMT( flags, "Server::Config::Unserialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
+        return false;
+    }
+
+    while ( getline( ifs, line ) )
+    {
+        if ( !Utils::KeyValue( key, value, line) )
+        {
+            LOGFMT( flags, "Server::Config::Unserialize()-> error reading line: %s", CSTR( line ) );
+            continue;
+        }
+
+        if ( key.compare( "account_prohibited_names" ) == 0 )
+        {
+            token = Utils::StrTokens( value, true );
+            for ( ti = token.begin(); ti != token.end(); ti++ )
+                m_account_prohibited_names.push_front( *ti );
+            m_account_prohibited_names.reverse();
+        }
+    }
+
+    Utils::FileClose( ifs );
+    LOGSTR( 0, CFG_STR_FILE_DONE );
+
+    return true;
+}
+
 /**
  * @brief Set the port of a NAMS Server object.
  * @param[in] port The port number to have a SocketServer instance listen for new connections on.

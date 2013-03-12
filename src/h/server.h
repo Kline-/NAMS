@@ -43,8 +43,6 @@ class Server {
     class Config {
         public:
             /** @name Core */ /**@{*/
-            const bool Serialize() const;
-            const bool Unserialize();
             /**@}*/
 
             /** @name Query */ /**@{*/
@@ -52,6 +50,8 @@ class Server {
             /**@}*/
 
             /** @name Manipulate */ /**@{*/
+            const bool Serialize() const;
+            const bool Unserialize();
             /**@}*/
 
             /** @name Internal */ /**@{*/
