@@ -800,7 +800,7 @@ const bool Server::Config::Serialize() const
         return false;
     }
 
-    KEY( ofs, "account_prohibited_names" );
+    KEYLIST( ofs, "account_prohibited_names" );
     {
         if ( !m_account_prohibited_names.empty() )
         {

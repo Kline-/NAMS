@@ -31,46 +31,32 @@
  ***************************************************************************/
 /** @name Account Options */ /**@{*/
 /**
- * @def CFG_ACT_CRYPT_METHOD
- * @brief The algorithm to use with crypt(). See man 3 crypt for details.
- * @par Default: 6
- */
-#define CFG_ACT_CRYPT_METHOD 6
-
-/**
- * @def CFG_ACT_CRYPT_SALT
- * @brief The initial salt string to use with crypt(). The remainder is the account name.
- * @par Default: "$" CFG_ACT_CRYPT_METHOD "$"
- */
-#define CFG_ACT_CRYPT_SALT "$" SX( CFG_ACT_CRYPT_METHOD ) "$"
-
-/**
- * @def CFG_ACT_MAX_NAME_LEN
+ * @def CFG_ACT_NAME_MAX_LEN
  * @brief The maximum allowable length for an account name.
  * @par Default: 32
  */
-#define CFG_ACT_MAX_NAME_LEN 32
+#define CFG_ACT_NAME_MAX_LEN 32
 
 /**
- * @def CFG_ACT_MIN_NAME_LEN
+ * @def CFG_ACT_NAME_MIN_LEN
  * @brief The minimum allowable length for an account name.
  * @par Default: 4
  */
-#define CFG_ACT_MIN_NAME_LEN 4
+#define CFG_ACT_NAME_MIN_LEN 4
 
 /**
- * @def CFG_ACT_MAX_PASSWORD_LEN
+ * @def CFG_ACT_PASSWORD_MAX_LEN
  * @brief The maximum allowable length for an account password.
  * @par Default: 32
  */
-#define CFG_ACT_MAX_PASSWORD_LEN 32
+#define CFG_ACT_PASSWORD_MAX_LEN 32
 
 /**
- * @def CFG_ACT_MIN_PASSWORD_LEN
+ * @def CFG_ACT_PASSWORD_MIN_LEN
  * @brief The minimum allowable length for an account password.
  * @par Default: 4
  */
-#define CFG_ACT_MIN_PASSWORD_LEN 4
+#define CFG_ACT_PASSWORD_MIN_LEN 4
 /**@}*/
 
 /***************************************************************************
@@ -118,6 +104,13 @@
  * @par Default: "var"
  */
 #define CFG_DAT_DIR_VAR "var"
+
+/**
+ * @def CFG_DAT_FILE_ACT_EXT
+ * @brief File extension to use for account setting files.
+ * @par Default: "act"
+ */
+#define CFG_DAT_FILE_ACT_EXT "act"
 
 /**
  * @def CFG_DAT_FILE_REBOOT
@@ -218,6 +211,32 @@
 /**@}*/
 
 /***************************************************************************
+ *                            SECURITY OPTIONS                             *
+ ***************************************************************************/
+/** @name Security Options */ /**@{*/
+/**
+ * @def CFG_SEC_CRYPT_METHOD
+ * @brief The algorithm to use with crypt(). See man 3 crypt for details.
+ * @par Default: 6
+ */
+#define CFG_SEC_CRYPT_METHOD 6
+
+/**
+ * @def CFG_SEC_CRYPT_SALT
+ * @brief The initial salt string to use with crypt().
+ * @par Default: "$" CFG_SEC_CRYPT_METHOD "$"
+ */
+#define CFG_SEC_CRYPT_SALT "$" SX( CFG_SEC_CRYPT_METHOD ) "$"
+
+/**
+ * @def CFG_SEC_FILE_MODE
+ * @brief The chmod mode to set on directories (accounts) created by the server.
+ * @par Default: 0755
+ */
+#define CFG_SEC_DIR_MODE 0755
+/**@}*/
+
+/***************************************************************************
  *                              SOCKET OPTIONS                             *
  ***************************************************************************/
 /** @name Socket Options */ /**@{*/
@@ -268,6 +287,13 @@
  *                              STRING OPTIONS                             *
  ***************************************************************************/
 /** @name String Options */ /**@{*/
+/**
+ * @def CFG_STR_ACT_NAME_ALNUM
+ * @brief String additionally sent if an account name is invalid due to non-alphanumeric characters.
+ * @par Default: "Account name must be alphanumeric characters only." CRLF
+ */
+#define CFG_STR_ACT_NAME_ALNUM "Account name must be alphanumeric characters only." CRLF
+
 /**
  * @def CFG_STR_ACT_NAME_CONFIRM
  * @brief String sent to request the user confirms their new account name.

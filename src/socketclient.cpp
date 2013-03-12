@@ -549,6 +549,27 @@ const uint_t SocketClient::gState() const
 
 /* Manipulate */
 /**
+ * @brief Associates an Account object to the SocketClient.
+ * @param[in] account A pointer to the Account object to be associated.
+ * @retval false Returned if the account pointer is NULL.
+ * @retval true Returned if the account is successfully associated.
+ */
+const bool SocketClient::sAccount( Account* account )
+{
+    UFLAGS_DE( flags );
+
+    if ( account == NULL )
+    {
+        LOGSTR( flags, "SocketClient::sAccount()-> called with NULL account" );
+        return false;
+    }
+
+    m_account = account;
+
+    return true;
+}
+
+/**
  * @brief Set the idle timer value of the socket.
  * @param[in] idle A #uint_t value ranging from 0 to #CFG_SOC_MAX_IDLE.
  * @retval false Returned if the idle value is outside the proper range.
@@ -732,5 +753,8 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
  */
 SocketClient::~SocketClient()
 {
+    if ( m_account != NULL )
+        m_account->Delete();
+
     return;
 }

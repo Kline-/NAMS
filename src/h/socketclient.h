@@ -65,6 +65,7 @@ class SocketClient : public Socket {
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sAccount( Account* account );
         const bool sIdle( const uint_t& idle );
         const bool sLogin( const uint_t& key, const string& val);
         static void* tResolveHostname( void* data );

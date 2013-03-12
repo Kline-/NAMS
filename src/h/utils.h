@@ -123,6 +123,21 @@ namespace Utils {
     /**@}*/
 
     /** @name Query */ /**@{*/
+    template <class T> inline const bool iAlNum( const T& t )
+    {
+        uint_t i = uintmin_t;
+        string input( t );
+
+        while( i < input.length() )
+        {
+            if ( !::isalnum( input[i] ) )
+                return false;
+
+            ++i;
+        }
+
+        return true;
+    }
     const bool iDirectory( const string& dir );
     const bool iFile( const string& file );
     const bool iNumber( const string& input );

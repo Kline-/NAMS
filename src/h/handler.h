@@ -33,7 +33,7 @@ using namespace std;
  */
 namespace Handler {
     /** @name Core */ /**@{*/
-    const void AccountMenu( SocketClient* client, const string& cmd, const string& args );
+    const void AccountMenu( SocketClient* client, const string& cmd = "", const string& args = "" );
     const void ProcessLogin( SocketClient* client, const string& cmd = "", const string& args = "" );
     /**@}*/
 

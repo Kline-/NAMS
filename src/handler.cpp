@@ -43,7 +43,27 @@
  */
 const void Handler::AccountMenu( SocketClient* client, const string& cmd, const string& args )
 {
-    client->Send( "And we danced!" CRLF );
+    UFLAGS_DE( flags );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::AccountMenu()-> called with NULL client" );
+        return;
+    }
+
+    if ( client->gAccount() == NULL )
+    {
+        LOGSTR( flags, "Handler::AccountMenu()-> called with NULL account" );
+        return;
+    }
+
+    client->Send( "And we danced!" );
+
+    switch ( client->gState() )
+    {
+        default:
+        break;
+    }
 
     return;
 }
@@ -85,10 +105,6 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
 
         case SOC_STATE_CREATE_ACCOUNT:
             CreateAccount( client, cmd, args );
-        break;
-
-        case SOC_STATE_ACCOUNT_MENU:
-            AccountMenu( client, cmd, args );
         break;
 
         default:
@@ -183,6 +199,10 @@ const void Handler::CreateAccount( SocketClient* client, const string& cmd, cons
         return;
     }
 
+    // All went well, off to the account menu
+    client->sState( SOC_STATE_ACCOUNT_MENU );
+    AccountMenu( client );
+
     return;
 }
 
@@ -253,7 +273,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
         return;
     }
 
-    if ( cmd.length() < CFG_ACT_MIN_PASSWORD_LEN || cmd.length() > CFG_ACT_MAX_PASSWORD_LEN )
+    if ( cmd.length() < CFG_ACT_PASSWORD_MIN_LEN || cmd.length() > CFG_ACT_PASSWORD_MAX_LEN )
     {
         client->Send( CFG_STR_ACT_PASSWORD_INVALID );
         client->Send( CFG_STR_ACT_PASSWORD_LENGTH );
@@ -342,6 +362,16 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
         return;
     }
 
+    // Only allow alphanumerics for the account name itself
+    if ( !Utils::iAlNum( cmd ) )
+    {
+        client->Send( CFG_STR_ACT_NAME_INVALID );
+        client->Send( CFG_STR_ACT_NAME_ALNUM );
+        ProcessLogin( client );
+
+        return;
+    }
+
     //Prevent prohibited names based on Server runtime configuration
     if ( Handler::CheckProhibited( client, cmd ) )
     {
@@ -362,7 +392,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
         return;
     }
 
-    if ( cmd.length() < CFG_ACT_MIN_NAME_LEN || cmd.length() > CFG_ACT_MAX_NAME_LEN )
+    if ( cmd.length() < CFG_ACT_NAME_MIN_LEN || cmd.length() > CFG_ACT_NAME_MAX_LEN )
     {
         client->Send( CFG_STR_ACT_NAME_INVALID );
         client->Send( CFG_STR_ACT_NAME_LENGTH );

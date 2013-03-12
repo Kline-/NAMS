@@ -130,7 +130,7 @@ const string Utils::Salt( const string& input )
 {
     stringstream output;
 
-    output << CFG_ACT_CRYPT_SALT << input;
+    output << CFG_SEC_CRYPT_SALT << input;
 
     return output.str();
 }
@@ -554,7 +554,7 @@ const bool Utils::FileClose( ofstream& ofs, const string& dir, const string& fil
 
     // Ensure the copy to move from temp exists and we have permissions before unlinking the live file
     newfi = DirPath( CFG_DAT_DIR_VAR, file );
-    if ( ::access( CSTR( newfi ), R_OK | W_OK ) < 0 )
+    if ( ::access( CSTR( newfi ), R_OK | W_OK ) < 0 && errno != ENOENT )
     {
         LOGERRNO( flags, "Utils::FileClose()->access()->" );
         return false;
@@ -562,7 +562,7 @@ const bool Utils::FileClose( ofstream& ofs, const string& dir, const string& fil
 
     // Remove the live copy
     oldfi = DirPath( dir, file );
-    if ( ::unlink( CSTR( oldfi ) ) < 0 )
+    if ( ::unlink( CSTR( oldfi ) ) < 0 && errno != ENOENT )
     {
         LOGERRNO( flags, "Utils::FileClose()->unlink()->" );
         return false;

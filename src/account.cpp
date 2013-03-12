@@ -53,6 +53,43 @@ const bool Account::New( SocketClient* client )
         return false;
     }
 
+    if ( client->gLogin( SOC_LOGIN_NAME ).empty() )
+    {
+        LOGSTR( flags, "Account::New()->SocketClient::gLogin()-> called with empty SOC_LOGIN_NAME" );
+        return false;
+    }
+
+    if ( client->gLogin( SOC_LOGIN_PASSWORD ).empty() )
+    {
+        LOGSTR( flags, "Account::New()->SocketClient::gLogin()-> called with empty SOC_LOGIN_PASSWORD" );
+        return false;
+    }
+
+    m_name = client->gLogin( SOC_LOGIN_NAME );
+    m_password = client->gLogin( SOC_LOGIN_PASSWORD );
+
+    if ( ::mkdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ) ), CFG_SEC_DIR_MODE ) < 0 )
+    {
+        LOGERRNO( flags, "Account::New()->mkdir()->" );
+        return false;
+    }
+
+    if ( !Serialize() )
+    {
+        LOGSTR( flags, "Account::New()->Account::Serialize()-> returned false" );
+
+        if ( ::rmdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ) ) ) < 0 )
+            LOGERRNO( flags, "Account::New()->rmdir->" );
+
+        return false;
+    }
+
+    if ( !client->sAccount( this ) )
+    {
+        LOGSTR( flags, "Account::New()->SocketClient::sAccount()-> returned false" );
+        return false;
+    }
+
     return true;
 }
 
@@ -67,6 +104,80 @@ const string Account::gName() const
 }
 
 /* Manipulate */
+/**
+ * @brief Serialize the account data and write them to #CFG_DAT_FILE_SETTINGS.
+ * @retval false Returned if there was an error serializing settings.
+ * @retval true Returned if settings were serialized successfully.
+ */
+const bool Account::Serialize() const
+{
+    UFLAGS_DE( flags );
+    ofstream ofs;
+    string value;
+    stringstream file;
+    CITER( forward_list, string, li );
+
+    file << m_name << "." << CFG_DAT_FILE_ACT_EXT;
+    Utils::FileOpen( ofs, file.str() );
+
+    if ( !ofs.good() )
+    {
+        LOGFMT( flags, "Account::Serialize()-> failed to open settings file: %s", CSTR( file.str() ) );
+        return false;
+    }
+
+    KEY( ofs, "name", m_name );
+    KEY( ofs, "password", m_password );
+
+    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ), CSTR( file.str() ) );
+
+    return true;
+}
+
+/**
+ * @brief Unserialize the account data from #CFG_DAT_FILE_SETTINGS.
+ * @retval false Returned if there was an error unserializing settings.
+ * @retval true Returned if settings were unserialized successfully.
+ */
+const bool Account::Unserialize()
+{/*
+    UFLAGS_DE( flags );
+    ifstream ifs;
+    string key, value, line;
+    vector<string> token;
+    ITER( vector, string, ti );
+
+    LOGSTR( 0, CFG_STR_FILE_SETTINGS_READ );
+    Utils::FileOpen( ifs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
+
+    if ( !ifs.good() )
+    {
+        LOGFMT( flags, "Server::Config::Unserialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
+        return false;
+    }
+
+    while ( getline( ifs, line ) )
+    {
+        if ( !Utils::KeyValue( key, value, line) )
+        {
+            LOGFMT( flags, "Server::Config::Unserialize()-> error reading line: %s", CSTR( line ) );
+            continue;
+        }
+
+        if ( key.compare( "account_prohibited_names" ) == 0 )
+        {
+            token = Utils::StrTokens( value, true );
+            for ( ti = token.begin(); ti != token.end(); ti++ )
+                m_account_prohibited_names.push_front( *ti );
+            m_account_prohibited_names.reverse();
+        }
+    }
+
+    Utils::FileClose( ifs );
+    LOGSTR( 0, CFG_STR_FILE_DONE );
+*/
+    return true;
+}
 
 /* Internal */
 /**
@@ -75,6 +186,7 @@ const string Account::gName() const
 Account::Account()
 {
     m_name.clear();
+    m_password.clear();
 
     return;
 }

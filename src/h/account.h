@@ -41,6 +41,8 @@ class Account {
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool Serialize() const;
+        const bool Unserialize();
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -50,6 +52,7 @@ class Account {
 
     private:
         string m_name; /**< The name of the account. */
+        string m_password; /**< The encrypted password of the account. */
 };
 
 #endif

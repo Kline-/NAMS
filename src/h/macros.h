@@ -141,11 +141,20 @@ using namespace std;
 
 /**
  * @def KEY
+ * @brief Write (name) and (value) to (stream) in key:value format.
+ * @param[in] stream The filestream to use for a key:value pair.
+ * @param[in] name The name to use for a key:value pair.
+ * @param[in] value The value to use for a key:value pair.
+ */
+#define KEY( stream, name, value ) stream << name " = " << value << endl
+
+/**
+ * @def KEYLIST
  * @brief Begins writing (name) to (stream) in key:value format.
  * @param[in] stream The filestream to use for a key:value pair.
  * @param[in] name The name to use for a key:value pair.
  */
-#define KEY( stream, name ) stream << name " = "
+#define KEYLIST( stream, name ) stream << name " = "
 
 /**
  * @def LOGSTR
