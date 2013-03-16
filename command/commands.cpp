@@ -36,14 +36,18 @@ const void Commands::Run( SocketClient* client, const string& cmd, const string&
     MITER( multimap, const char,Command*, mi );
     list<string> output;
     uint_t count = 0;
+    uint_t security = ACT_SECURITY_NONE;
 
     if ( client )
     {
+        if ( client->gAccount() )
+            security = client->gAccount()->gSecurity();
+
         client->Send( "Available commands:" CRLF "    " );
 
         for ( mi = command_list.begin(); mi != command_list.end(); mi++ )
         {
-            if ( mi->second->Authorized( client->gSecurity() ) )
+            if ( mi->second->Authorized( security ) )
                 output.push_back( mi->second->gName() );
         }
 

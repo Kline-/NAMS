@@ -33,10 +33,11 @@ class AdmReload : public Plugin {
 
 const void AdmReload::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
+    UFLAGS_DE( flags );
     Command* command = NULL;
     Event* event = NULL;
     string file;
-    UFLAGS_DE( flags );
+    uint_t security = ACT_SECURITY_NONE;
 
     if ( client )
     {
@@ -48,7 +49,10 @@ const void AdmReload::Run( SocketClient* client, const string& cmd, const string
 
         if ( ( command = client->gServer()->FindCommand( arg ) ) != NULL )
         {
-            if ( command->Authorized( client->gSecurity() ) )
+            if ( client->gAccount() )
+                security = client->gAccount()->gSecurity();
+
+            if ( command->Authorized( security ) )
             {
                 event = new Event();
                 if ( !event->New( arg, client->gServer(), EVENT_TYPE_RELOAD, 100 ) )

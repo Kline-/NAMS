@@ -46,11 +46,11 @@ LastLog::LastLog( const string& name = "lastlog", const uint_t& type = PLG_TYPE_
     return;
 }
 
-Help::~Help()
+LastLog::~LastLog()
 {
 }
 
 extern "C" {
-    Plugin* New() { return new Help(); }
+    Plugin* New() { return new LastLog(); }
     void Delete( Plugin* p ) { delete p; }
 }

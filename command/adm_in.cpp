@@ -33,12 +33,13 @@ class AdmIn : public Plugin {
 
 const void AdmIn::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
+    UFLAGS_DE( flags );
     Command* command = NULL;
     Event* event = NULL;
     string args, first, second, third;
     stringstream ss;
     uint_t time = 0;
-    UFLAGS_DE( flags );
+    uint_t security = ACT_SECURITY_NONE;
 
     if ( client )
     {
@@ -57,7 +58,10 @@ const void AdmIn::Run( SocketClient* client, const string& cmd, const string& ar
 
         if ( ( command = client->gServer()->FindCommand( second ) ) != NULL )
         {
-            if ( command->Authorized( client->gSecurity() ) )
+            if ( client->gAccount() )
+                security = client->gAccount()->gSecurity();
+
+            if ( command->Authorized( security ) )
             {
                 event = new Event();
                 if ( !event->New( second, third, client, command, EVENT_TYPE_COMMAND, time ) )
