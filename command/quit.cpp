@@ -44,7 +44,7 @@ const void Quit::Run( SocketClient* client, const string& cmd, const string& arg
 Quit::Quit( const string& name = "quit", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, false );
-    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, SOC_SECURITY_AUTH_USER );
+    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_AUTH_USER );
 
     return;
 }

@@ -59,7 +59,6 @@ class SocketClient : public Socket {
         Account* gAccount() const;
         const uint_t gIdle() const;
         const string gLogin( const uint_t& key ) const;
-        const uint_t gSecurity() const;
         Server* gServer() const;
         const uint_t gState() const;
         /**@}*/
@@ -69,7 +68,6 @@ class SocketClient : public Socket {
         const bool sIdle( const uint_t& idle );
         const bool sLogin( const uint_t& key, const string& val);
         static void* tResolveHostname( void* data );
-        const bool sSecurity( const uint_t& security );
         const bool sServer( Server* server );
         const bool sState( const uint_t& state );
         /**@}*/
@@ -87,7 +85,6 @@ class SocketClient : public Socket {
         string m_login[MAX_SOC_LOGIN]; /**< Used to pass login process commands and arguments between handler functions. */
         string m_output; /**< Data buffered for sending to the client. */
         bool m_quitting; /**< Flag the client as quitting to escape nested loops. */
-        uint_t m_security; /**< Security level for commands and restricted access. */
         Server* m_server; /**< The Server object associated to this client. */
         uint_t m_state; /**< Connection state of the client from #SOC_STATE. */
 };

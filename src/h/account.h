@@ -43,10 +43,12 @@ class Account {
         /** @name Query */ /**@{*/
         SocketClient* gClient() const;
         const string gName() const;
+        const uint_t gSecurity() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
         const bool aHost( const string& date, const string& name );
+        const bool sSecurity( const uint_t& security );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -59,6 +61,7 @@ class Account {
         list<pair<string,string>> m_host; /**< Date and hostname of previous logins. */
         string m_name; /**< The name of the account. */
         string m_password; /**< The encrypted password of the account. */
+        uint_t m_security; /**< Security level for commands and restricted access. */
 };
 
 #endif

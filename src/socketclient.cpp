@@ -155,6 +155,7 @@ const bool SocketClient::ProcessCommand()
     UFLAGS_DE( flags );
     pair<string,string> cmd;
     Command* command = NULL;
+    uint_t security = ACT_SECURITY_NONE;
 
     if ( !Valid() )
     {
@@ -166,6 +167,9 @@ const bool SocketClient::ProcessCommand()
     if ( m_command_queue.empty() )
         return true;
 
+    if ( m_account )
+        security = m_account->gSecurity();
+
     while ( !m_command_queue.empty() )
     {
         cmd = m_command_queue.front();
@@ -176,7 +180,7 @@ const bool SocketClient::ProcessCommand()
         {
             if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
             {
-                if ( command->Authorized( gSecurity() ) )
+                if ( command->Authorized( security ) )
                     command->Run( this, cmd.first, cmd.second );
                 else
                     Handler::ProcessLogin( this, cmd.first, cmd.second );
@@ -186,7 +190,7 @@ const bool SocketClient::ProcessCommand()
         }
         else if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
         {
-            if ( command->Authorized( gSecurity() ) )
+            if ( command->Authorized( security ) )
                 command->Run( this, cmd.first, cmd.second );
             else
                 Send( CFG_STR_CMD_INVALID );
@@ -521,15 +525,6 @@ const string SocketClient::gLogin( const uint_t& key ) const
 }
 
 /**
- * @brief Returns the authorized security level of the client.
- * @retval uint_t The authorized security level of the client.
- */
-const uint_t SocketClient::gSecurity() const
-{
-    return m_security;
-}
-
-/**
  * @brief Returns the Server object associated to this SocketClient.
  * @retval Server Pointer to the associated Server object.
  */
@@ -652,27 +647,6 @@ void* SocketClient::tResolveHostname( void* data )
 }
 
 /**
- * @brief Set the security level of the socket.
- * @param[in] security The level to set the security of the socket to. From #SOC_SECURITY.
- * @retval false Returned if the security level is invalid.
- * @retval true Returned if the security level is valid.
- */
-const bool SocketClient::sSecurity( const uint_t& security )
-{
-    UFLAGS_DE( flags );
-
-    if ( security < SOC_SECURITY_NONE || security >= MAX_SOC_SECURITY )
-    {
-        LOGFMT( flags, "SocketClient::sSecurity()-> called with invalid security level: %lu ", security );
-        return false;
-    }
-
-    m_security = security;
-
-    return true;
-}
-
-/**
  * @brief Set the owning server object that the socket is actually connected to.
  * @param[in] server A pointer to an instance of a Server object. By default this is the server instance which initially accepted the client connection.
  * @retval false Returned if the server is either invalid (NULL) or shutdown.
@@ -738,7 +712,6 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
         m_login[i].clear();
     m_output.clear();
     m_quitting = false;
-    m_security = SOC_SECURITY_NONE;
     sServer( server );
     m_state = SOC_STATE_DISCONNECTED;
 

@@ -485,8 +485,6 @@ const void Server::RebootRecovery( const bool& reboot )
                 client->aBytesSent( atoi( CSTR( value ) ) );
             if ( key.compare( "idle" ) == 0 )
                 client->sIdle( atoi( CSTR( value ) ) );
-            if ( key.compare( "secu" ) == 0 )
-                client->sSecurity( atoi( CSTR( value ) ) );
             if ( key.compare( "stat" ) == 0 )
                 client->sState( atoi( CSTR( value ) ) );
         }

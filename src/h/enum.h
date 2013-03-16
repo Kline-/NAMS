@@ -26,6 +26,18 @@
 #ifndef DEC_ENUM_H
 #define DEC_ENUM_H
 
+/** @name Account */ /**@{*/
+/**
+ * @enum ACT_SECURITY
+ */
+enum ACT_SECURITY {
+    ACT_SECURITY_NONE      = 0, /**< An Account that has not logged in. Login screen commands. */
+    ACT_SECURITY_AUTH_USER = 1, /**< An Account that has logged in as a normal user account. */
+    ACT_SECURITY_ADMIN     = 2, /**< An Account that has logged in as an admin account. */
+    MAX_ACT_SECURITY       = 3  /**< Safety limit for looping. */
+};
+/**@}*/
+
 /** @name Event */ /**@{*/
 /**
  * @enum EVENT_TYPE
@@ -90,16 +102,6 @@ enum SOC_LOGIN {
     SOC_LOGIN_NAME     = 0, /**< Name received from the socket during the login process. */
     SOC_LOGIN_PASSWORD = 1, /**< Password received from the socket during the login process. */
     MAX_SOC_LOGIN      = 2  /**< Safety limit for looping. */
-};
-
-/**
- * @enum SOC_SECURITY
- */
-enum SOC_SECURITY {
-    SOC_SECURITY_NONE      = 0, /**< A SocketClient that has not logged in. Login screen commands. */
-    SOC_SECURITY_AUTH_USER = 1, /**< A SocketClient that has logged in as a normal user account. */
-    SOC_SECURITY_ADMIN     = 2, /**< A SocketClient that has logged in as an admin account. */
-    MAX_SOC_SECURITY       = 3  /**< Safety limit for looping. */
 };
 /**@}*/
 

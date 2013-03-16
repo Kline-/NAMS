@@ -243,6 +243,15 @@ const string Account::gName() const
     return m_name;
 }
 
+/**
+ * @brief Returns the authorized security level of the account.
+ * @retval uint_t The authorized security level of the account.
+ */
+const uint_t Account::gSecurity() const
+{
+    return m_security;
+}
+
 /* Manipulate */
 /**
  * @brief Adds a hostname to the list of previous hosts. Bumps the oldest entry.
@@ -275,6 +284,27 @@ const bool Account::aHost( const string& date, const string& name )
     return true;
 }
 
+/**
+ * @brief Set the security level of the account.
+ * @param[in] security The level to set the security of the account to. From #ACT_SECURITY.
+ * @retval false Returned if the security level is invalid.
+ * @retval true Returned if the security level is valid.
+ */
+const bool Account::sSecurity( const uint_t& security )
+{
+    UFLAGS_DE( flags );
+
+    if ( security < ACT_SECURITY_NONE || security >= MAX_ACT_SECURITY )
+    {
+        LOGFMT( flags, "Account::sSecurity()-> called with invalid security level: %lu ", security );
+        return false;
+    }
+
+    m_security = security;
+
+    return true;
+}
+
 /* Internal */
 /**
  * @brief Constructor for the Account class.
@@ -285,6 +315,7 @@ Account::Account()
     m_host.clear();
     m_name.clear();
     m_password.clear();
+    m_security = ACT_SECURITY_NONE;
 
     return;
 }

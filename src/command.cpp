@@ -192,7 +192,7 @@ Command::Command()
     m_plg_handle = NULL;
     m_plg_new = NULL;
     m_preempt = false;
-    m_security = SOC_SECURITY_NONE;
+    m_security = ACT_SECURITY_NONE;
 
     return;
 }

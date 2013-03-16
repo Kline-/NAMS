@@ -20,66 +20,37 @@
 #include "class.h"
 #include "plugin.h"
 
-#include "command.h"
-#include "event.h"
-
-class AdmReload : public Plugin {
+class LastLog : public Plugin {
     public:
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
-        AdmReload( const string& name, const uint_t& type );
-        ~AdmReload();
+        LastLog( const string& name, const uint_t& type );
+        ~LastLog();
 };
 
-const void AdmReload::Run( SocketClient* client, const string& cmd, const string& arg ) const
+const void LastLog::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
-    Command* command = NULL;
-    Event* event = NULL;
-    string file;
-    UFLAGS_DE( flags );
-
     if ( client )
-    {
-        if ( arg.empty() )
-        {
-            client->Send( "Reload -which- command?" CRLF );
-            return;
-        }
-
-        if ( ( command = client->gServer()->FindCommand( arg ) ) != NULL )
-        {
-            if ( command->Authorized( client->gSecurity() ) )
-            {
-                event = new Event();
-                if ( !event->New( arg, client->gServer(), EVENT_TYPE_RELOAD, 100 ) )
-                {
-                    LOGSTR( flags, "AdmReload::Run()->Event::New()-> returned false" );
-                    delete event;
-                }
-                else
-                    client->Send( "Command successfully reloaded." CRLF );
-            }
-        }
-        else
-            client->Send( "That command doesn't exist." CRLF );
-    }
+        client->Send( "Help!" CRLF );
+    else
+        cout << "Help!" << endl;
 
     return;
 }
 
-AdmReload::AdmReload( const string& name = "::reload", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+LastLog::LastLog( const string& name = "lastlog", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
-    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_ADMIN );
+    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_NONE );
 
     return;
 }
 
-AdmReload::~AdmReload()
+Help::~Help()
 {
 }
 
 extern "C" {
-    Plugin* New() { return new AdmReload(); }
+    Plugin* New() { return new Help(); }
     void Delete( Plugin* p ) { delete p; }
 }
