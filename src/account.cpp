@@ -100,6 +100,9 @@ const bool Account::New( SocketClient* client, const bool& exists )
         }
     }
 
+    // Use the setter as it provides sanity checking and config constraints
+    aHost( Utils::StrTime(), m_client->gHostname() );
+
     if ( !client->sAccount( this ) )
     {
         LOGSTR( flags, "Account::New()->SocketClient::sAccount()-> returned false" );
@@ -119,8 +122,9 @@ const bool Account::Serialize() const
     UFLAGS_DE( flags );
     ofstream ofs;
     string value;
+    stringstream line;
     string file( Utils::FileExt( m_name, CFG_DAT_FILE_ACT_EXT ) );
-    CITER( forward_list, string, li );
+    list<pair<string,string>>::const_iterator li;
 
     Utils::FileOpen( ofs, file );
 
@@ -130,6 +134,20 @@ const bool Account::Serialize() const
         return false;
     }
 
+    KEYLIST( ofs, "host" );
+    {
+        if ( !m_host.empty() )
+        {
+            for ( li = m_host.begin(); li != m_host.end(); li++ )
+                line << Utils::MakePair( li->first, li->second ) << " ";
+
+            value = line.str();
+            value.erase( value.end() - 1 );
+            ofs << value << endl;
+        }
+        else
+            ofs << endl;
+    }
     KEY( ofs, "name", m_name );
     KEY( ofs, "password", m_password );
 
@@ -147,9 +165,10 @@ const bool Account::Unserialize()
 {
     UFLAGS_DE( flags );
     ifstream ifs;
-    string key, value, line;
-    string file( Utils::FileExt( m_client->gLogin( SOC_LOGIN_NAME ), CFG_DAT_FILE_ACT_EXT ) );
+    string key, value, line, token;
     bool found = false;
+    pair<string,string> item;
+    string file( Utils::FileExt( m_client->gLogin( SOC_LOGIN_NAME ), CFG_DAT_FILE_ACT_EXT ) );
 
     Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_client->gLogin( SOC_LOGIN_NAME ) ), file );
 
@@ -171,19 +190,29 @@ const bool Account::Unserialize()
         {
             found = false;
 
-             Utils::KeySet( true, found, key, "Name", value, m_name );
-             Utils::KeySet( true, found, key, "Password", value, m_password );
+            if ( key == "host" )
+            {
+                found = true;
+                while ( !value.empty() )
+                {
+                    token = Utils::Argument( value, "} " );
+                    item = Utils::ReadPair( token );
+                    m_host.push_back( pair<string,string>( item.first, item.second ) );
+                }
+            }
+            Utils::KeySet( true, found, key, "Name", value, m_name );
+            Utils::KeySet( true, found, key, "Password", value, m_password );
 
-             if ( !found )
-                 LOGFMT( flags, "Account::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+            if ( !found )
+                LOGFMT( flags, "Account::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
 
-             break;
+            break;
         }
     }
 
     Utils::FileClose( ifs );
 
-    if ( m_password.compare( gClient()->gLogin( SOC_LOGIN_PASSWORD ) ) == 0 )
+    if ( m_password == gClient()->gLogin( SOC_LOGIN_PASSWORD ) )
         return true;
     else
     {
@@ -215,6 +244,36 @@ const string Account::gName() const
 }
 
 /* Manipulate */
+/**
+ * @brief Adds a hostname to the list of previous hosts. Bumps the oldest entry.
+ * @param[in] date A string of the login time.
+ * @param[in] name The name to prepend to the list.
+ * @retval false Returned if there is an error adding the new entry.
+ * @retval true Returned if the new entry was successfully added.
+ */
+const bool Account::aHost( const string& date, const string& name )
+{
+    UFLAGS_DE( flags );
+
+    if ( date.empty() )
+    {
+        LOGSTR( flags, "Account::aHost()-> called with empty date" );
+        return false;
+    }
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Account::aHost()-> called with empty name" );
+        return false;
+    }
+
+    m_host.push_front( pair<string,string>( date, name ) );
+
+    if ( m_host.size() > CFG_ACT_HOST_MAX )
+        m_host.pop_back();
+
+    return true;
+}
 
 /* Internal */
 /**
@@ -223,6 +282,7 @@ const string Account::gName() const
 Account::Account()
 {
     m_client = NULL;
+    m_host.clear();
     m_name.clear();
     m_password.clear();
 
