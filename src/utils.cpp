@@ -38,7 +38,7 @@
 const uint_t Utils::DirExists( const string& dir )
 {
     UFLAGS_DE( flags );
-    struct stat status;
+    struct stat status = { 0 };
 
     if ( dir.empty() )
     {
