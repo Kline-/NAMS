@@ -104,7 +104,8 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
         break;
 
         case SOC_STATE_CREATE_ACCOUNT:
-            CreateAccount( client, cmd, args );
+        case SOC_STATE_LOAD_ACCOUNT:
+            AttachAccount( client, cmd, args );
         break;
 
         default:
@@ -176,25 +177,43 @@ const bool Handler::CheckProhibited( SocketClient* client, const string& name )
 
 /* Manipulate */
 /**
- * @brief Create a new account object with a name and password.
+ * @brief Create a new account object, or load an existing one, with a name and password.
  * @param[in] client The SocketClient to process a login request for.
  * @param[in] cmd The command sent by the SocketClient.
  * @param[in] args Any arguments to the command.
  * @retval void
  */
-const void Handler::CreateAccount( SocketClient* client, const string& cmd, const string& args )
+const void Handler::AttachAccount( SocketClient* client, const string& cmd, const string& args )
 {
+    UFLAGS_DE( flags );
     Account* account = NULL;
+    bool exists = false;
+
+    if ( client->gState() == SOC_STATE_CREATE_ACCOUNT )
+        exists = false;
+    else if ( client->gState() == SOC_STATE_LOAD_ACCOUNT )
+        exists = true;
+    else
+    {
+        LOGFMT( flags, "Handler::AttachAccount()-> called with invalid client state: %lu", client->gState() );
+        return;
+    }
 
     account = new Account();
-    if ( !account->New( client ) )
+    if ( !account->New( client, exists ) )
     {
         account->Delete();
-        client->sLogin( SOC_LOGIN_NAME, "" );
-        client->sLogin( SOC_LOGIN_PASSWORD, "" );
-        client->sState( SOC_STATE_LOGIN_SCREEN );
-        client->Send( CFG_STR_ACT_NEW_ERROR );
-        ProcessLogin( client );
+
+        if ( exists )
+            client->Quit();
+        else
+        {
+            client->sLogin( SOC_LOGIN_NAME, "" );
+            client->sLogin( SOC_LOGIN_PASSWORD, "" );
+            client->sState( SOC_STATE_LOGIN_SCREEN );
+            client->Send( CFG_STR_ACT_NEW_ERROR );
+            ProcessLogin( client );
+        }
 
         return;
     }
@@ -290,7 +309,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
         return;
     }
 
-    if ( Utils::String( crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) ).compare( client->gLogin( SOC_LOGIN_PASSWORD ) ) == 0 )
+    if ( CKPASSWORD( client->gLogin( SOC_LOGIN_NAME ), cmd, client->gLogin( SOC_LOGIN_PASSWORD ) ) )
         client->sState( SOC_STATE_CREATE_ACCOUNT );
     else
     {
@@ -330,6 +349,9 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
         client->Send( CFG_STR_ACT_PASSWORD_GET );
         return;
     }
+
+    client->sLogin( SOC_LOGIN_PASSWORD, crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) );
+    client->sState( SOC_STATE_LOAD_ACCOUNT );
 
     //Generate the next input prompt
     ProcessLogin( client );
@@ -396,6 +418,8 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     {
         client->Send( CFG_STR_ACT_NAME_INVALID );
         client->Send( CFG_STR_ACT_NAME_LENGTH );
+
+        return;
     }
 
     if ( client->gLogin( SOC_LOGIN_NAME ).empty() )

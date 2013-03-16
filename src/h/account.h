@@ -24,6 +24,8 @@
 #ifndef DEC_ACCOUNT_H
 #define DEC_ACCOUNT_H
 
+#include "socketclient.h"
+
 using namespace std;
 
 /**
@@ -33,16 +35,18 @@ class Account {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New( SocketClient* client );
+        const bool New( SocketClient* client, const bool& exists );
+        const bool Serialize() const;
+        const bool Unserialize();
         /**@}*/
 
         /** @name Query */ /**@{*/
+        SocketClient* gClient() const;
         const string gName() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
-        const bool Serialize() const;
-        const bool Unserialize();
+
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -51,6 +55,7 @@ class Account {
         /**@}*/
 
     private:
+        SocketClient* m_client; /**< The client attached to the account. */
         string m_name; /**< The name of the account. */
         string m_password; /**< The encrypted password of the account. */
 };

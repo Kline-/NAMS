@@ -112,6 +112,15 @@ using namespace std;
 #define CITER( container, type, name ) container<type>::const_iterator name
 
 /**
+ * @def CKPASSWORD
+ * @brief Compare two the value of (check) to (old) based on (salt).
+ * @param[in] salt The salt to pass to crypt().
+ * @param[in] check The new value to be crypted for comparison.
+ * @param[in] old The existing salted value.
+ */
+#define CKPASSWORD( salt, check, old ) Utils::String( crypt( CSTR( check ), CSTR( Utils::Salt( salt ) ) ) ).compare( old ) == 0
+
+/**
  * @def CRLF
  * @brief Output a carriage return \ line feed.
  */

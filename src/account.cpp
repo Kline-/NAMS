@@ -40,10 +40,11 @@ const void Account::Delete()
 /**
  * @brief Create a new account.
  * @param[in] client The SocketClient requesting an account.
+ * @param[in] exists True if the account should be loaded, false if a new one need be created.
  * @retval false Returned if a new Account was successfully created or loaded.
  * @retval true Returned if a new Account was unable to be created.
  */
-const bool Account::New( SocketClient* client )
+const bool Account::New( SocketClient* client, const bool& exists )
 {
     UFLAGS_DE( flags );
 
@@ -65,23 +66,36 @@ const bool Account::New( SocketClient* client )
         return false;
     }
 
-    m_name = client->gLogin( SOC_LOGIN_NAME );
-    m_password = client->gLogin( SOC_LOGIN_PASSWORD );
+    m_client = client;
 
-    if ( ::mkdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ) ), CFG_SEC_DIR_MODE ) < 0 )
+    if ( exists )
     {
-        LOGERRNO( flags, "Account::New()->mkdir()->" );
-        return false;
+        if ( !Unserialize() )
+        {
+            LOGSTR( flags, "Account::new()->Account::Unserialize()-> returned false" );
+            return false;
+        }
     }
-
-    if ( !Serialize() )
+    else
     {
-        LOGSTR( flags, "Account::New()->Account::Serialize()-> returned false" );
+        m_name = client->gLogin( SOC_LOGIN_NAME );
+        m_password = client->gLogin( SOC_LOGIN_PASSWORD );
 
-        if ( ::rmdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ) ) ) < 0 )
-            LOGERRNO( flags, "Account::New()->rmdir->" );
+        if ( ::mkdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ) ), CFG_SEC_DIR_MODE ) < 0 )
+        {
+            LOGERRNO( flags, "Account::New()->mkdir()->" );
+            return false;
+        }
 
-        return false;
+        if ( !Serialize() )
+        {
+            LOGSTR( flags, "Account::New()->Account::Serialize()-> returned false" );
+
+            if ( ::rmdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ) ) ) < 0 )
+                LOGERRNO( flags, "Account::New()->rmdir->" );
+
+            return false;
+        }
     }
 
     if ( !client->sAccount( this ) )
@@ -93,17 +107,6 @@ const bool Account::New( SocketClient* client )
     return true;
 }
 
-/* Query */
-/**
- * @brief Returns the name of the account.
- * @retval string A string with the name of the account.
- */
-const string Account::gName() const
-{
-    return m_name;
-}
-
-/* Manipulate */
 /**
  * @brief Serialize the account data and write them to #CFG_DAT_FILE_SETTINGS.
  * @retval false Returned if there was an error serializing settings.
@@ -140,19 +143,19 @@ const bool Account::Serialize() const
  * @retval true Returned if settings were unserialized successfully.
  */
 const bool Account::Unserialize()
-{/*
+{
     UFLAGS_DE( flags );
     ifstream ifs;
     string key, value, line;
-    vector<string> token;
-    ITER( vector, string, ti );
+    stringstream file;
+    bool found = false;
 
-    LOGSTR( 0, CFG_STR_FILE_SETTINGS_READ );
-    Utils::FileOpen( ifs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
+    file << m_client->gLogin( SOC_LOGIN_NAME ) << "." << CFG_DAT_FILE_ACT_EXT;
+    Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_client->gLogin( SOC_LOGIN_NAME ) ), file.str() );
 
     if ( !ifs.good() )
     {
-        LOGFMT( flags, "Server::Config::Unserialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
+        LOGFMT( flags, "Account::Unserialize()-> failed to open settings file: %s", CSTR( file.str() ) );
         return false;
     }
 
@@ -160,24 +163,58 @@ const bool Account::Unserialize()
     {
         if ( !Utils::KeyValue( key, value, line) )
         {
-            LOGFMT( flags, "Server::Config::Unserialize()-> error reading line: %s", CSTR( line ) );
+            LOGFMT( flags, "Account::Unserialize()-> error reading line: %s", CSTR( line ) );
             continue;
         }
 
-        if ( key.compare( "account_prohibited_names" ) == 0 )
+        for ( ;; )
         {
-            token = Utils::StrTokens( value, true );
-            for ( ti = token.begin(); ti != token.end(); ti++ )
-                m_account_prohibited_names.push_front( *ti );
-            m_account_prohibited_names.reverse();
+            found = false;
+
+             Utils::KeySet( true, found, key, "Name", value, m_name );
+             Utils::KeySet( true, found, key, "Password", value, m_password );
+
+             if ( !found )
+                 LOGFMT( flags, "Account::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+
+             break;
         }
     }
 
     Utils::FileClose( ifs );
-    LOGSTR( 0, CFG_STR_FILE_DONE );
-*/
-    return true;
+
+    if ( m_password.compare( gClient()->gLogin( SOC_LOGIN_PASSWORD ) ) == 0 )
+        return true;
+    else
+    {
+        gClient()->Send( CFG_STR_ACT_PASSWORD_INVALID );
+        // Ensure the output goes before the client gets dropped
+        gClient()->Send();
+
+        return false;
+    }
 }
+
+/* Query */
+/**
+ * @brief Returns the associated SocketClient.
+ * @retval SocketClient* A pointer to the associated SocketClient.
+ */
+SocketClient* Account::gClient() const
+{
+    return m_client;
+}
+
+/**
+ * @brief Returns the name of the account.
+ * @retval string A string with the name of the account.
+ */
+const string Account::gName() const
+{
+    return m_name;
+}
+
+/* Manipulate */
 
 /* Internal */
 /**
@@ -185,6 +222,7 @@ const bool Account::Unserialize()
  */
 Account::Account()
 {
+    m_client = NULL;
     m_name.clear();
     m_password.clear();
 
