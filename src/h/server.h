@@ -26,7 +26,6 @@
 
 #include <fcntl.h>
 #include <forward_list>
-#include <list>
 
 #include "socketclient.h"
 #include "socketserver.h"

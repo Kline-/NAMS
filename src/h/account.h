@@ -46,7 +46,7 @@ class Account {
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
-
+        const bool aHost( const string& date, const string& name );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -56,6 +56,7 @@ class Account {
 
     private:
         SocketClient* m_client; /**< The client attached to the account. */
+        list<pair<string,string>> m_host; /**< Date and hostname of previous logins. */
         string m_name; /**< The name of the account. */
         string m_password; /**< The encrypted password of the account. */
 };
