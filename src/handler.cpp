@@ -138,7 +138,7 @@ const bool Handler::CheckCreating( SocketClient* client, const string& name )
         if ( socket_client->gState() >= SOC_STATE_ACCOUNT_MENU )
             continue;
 
-        if ( name.compare( socket_client->gLogin( SOC_LOGIN_NAME ) ) == 0 )
+        if ( name == socket_client->gLogin( SOC_LOGIN_NAME ) )
         {
             LOGFMT( flags, "Handler::CheckPlaying()-> player from site %s attempted to login as %s (in creation)", CSTR( client->gHostname() ), CSTR( name ) );
             return true;
@@ -166,7 +166,7 @@ const bool Handler::CheckProhibited( SocketClient* client, const string& name )
     for ( fi = search.begin(); fi != search.end(); fi++ )
     {
         comp = *fi;
-        if ( comp.compare( name ) == 0 )
+        if ( comp == name )
             return true;
     }
 

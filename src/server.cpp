@@ -176,7 +176,7 @@ const bool Server::LoadCommands()
 
     for ( mi = files.begin(); mi != files.end(); mi++ )
     {
-        if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ).compare( CFG_PLG_BUILD_EXT_IN ) == 0 ) )
+        if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ) == CFG_PLG_BUILD_EXT_IN ) )
         {
             if ( !BuildPlugin( mi->second ) )
             {
@@ -852,7 +852,7 @@ const bool Server::Config::Unserialize()
             continue;
         }
 
-        if ( key.compare( "account_prohibited_names" ) == 0 )
+        if ( key == "account_prohibited_names" )
         {
             token = Utils::StrTokens( value, true );
             for ( ti = token.begin(); ti != token.end(); ti++ )

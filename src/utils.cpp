@@ -233,7 +233,7 @@ const string Utils::StrTime( const time_t& now )
 
     if ( ( output = ::ctime( &now ) ).empty() )
     {
-        LOGSTR( flags, "Utils::CurrentTime()->ctime()-> returned NULL" );
+        LOGSTR( flags, "Utils::StrTime()->ctime()-> returned NULL" );
         return output;
     }
 
@@ -647,7 +647,7 @@ const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool&
         ifile = entry->d_name;
 
         // Skip over the unwanteds
-        if ( ifile.compare( "." ) == 0 || ifile.compare( ".." ) == 0 )
+        if ( ifile == "." || ifile == ".." )
             continue;
 
         if ( iDirectory( idir + ifile ) )
