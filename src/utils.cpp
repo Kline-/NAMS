@@ -151,6 +151,31 @@ const uint_t Utils::NumChar( const string& input, const string& item )
 }
 
 /**
+ * @brief Returns a pair of type T,V after receiving an input string generated from Utils::MakePair().
+ * @param[in] input The string to read and parse.
+ * @retval pair<T,V> A pair consisting of <T,V>.
+ */
+const pair<string,string> Utils::ReadPair( const string& input )
+{
+    pair<string,string> output;
+    size_t pos = 0;
+
+    if ( input.compare( 0, 2, "{\"" ) != 0 )
+        return output;
+
+    if ( input.compare( input.length() - 3, 2, "\"}" ) != 0 )
+        return output;
+
+    if ( ( pos = input.find( "\":\"" ) ) == string::npos )
+        return output;
+
+    output.first = input.substr( 2, pos - 2 );
+    output.second = input.substr( pos + 3, input.length() - pos - 6 );
+
+    return output;
+}
+
+/**
  * @brief Returns a salt value for use with crypt.
  * @param[in] A value to append to #CFG_ACT_CRYPT_SALT to be used as a salt.
  * @retval string A salt value to use with crypt.

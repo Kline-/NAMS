@@ -115,15 +115,36 @@ namespace Utils {
     const string FileExt( const string& file, const string& ext );
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
+    /**
+     * @brief Generates a string from the pair of t and v.
+     * @param[in] t The first element to use in the pair.
+     * @param[in] v The second element to use in the pair.
+     * @retval string A string containing the pair of t and v.
+     */
+    template <class T, class V> inline const string MakePair( const T& t, const V& v )
+    {
+        stringstream output;
+
+        output << "{" << "\"" << t << "\":\"" << v << "\"} ";
+
+        return output.str();
+    }
     const uint_t NumChar( const string& input, const string& item );
+    const pair<string,string> ReadPair( const string& input );
     const string Salt( const string& input );
     const vector<string> StrNewlines( const string& input );
     const bool StrPrefix( const string& s1, const string& s2, const bool& igncase = false );
-    const string StrTime( const time_t& now );
+    const string StrTime( const time_t& now = chrono::high_resolution_clock::to_time_t( chrono::high_resolution_clock::now() ) );
     const vector<string> StrTokens( const string& input, const bool& quiet = false );
     /**@}*/
 
     /** @name Query */ /**@{*/
+    /**
+     * @brief Checks to ensure an input is entirely alphanumeric.
+     * @param[in] t The input to be checked.
+     * @retval false Returned if a non-alphanumeric is found.
+     * @retval true Returned if no alphanumerics are found.
+     */
     template <class T> inline const bool iAlNum( const T& t )
     {
         uint_t i = uintmin_t;
