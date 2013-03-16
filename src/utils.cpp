@@ -158,19 +158,22 @@ const uint_t Utils::NumChar( const string& input, const string& item )
 const pair<string,string> Utils::ReadPair( const string& input )
 {
     pair<string,string> output;
-    size_t pos = 0;
+    uint_t p1 = uintmin_t, p2 = uintmin_t;
 
     if ( input.compare( 0, 2, "{\"" ) != 0 )
         return output;
 
-    if ( input.compare( input.length() - 3, 2, "\"}" ) != 0 )
+    if ( input.compare( input.length() - 2, 2, "\"}" ) != 0 )
         return output;
 
-    if ( ( pos = input.find( "\":\"" ) ) == string::npos )
+    if ( ( p1 = input.find( "\":\"" ) ) == string::npos )
         return output;
 
-    output.first = input.substr( 2, pos - 2 );
-    output.second = input.substr( pos + 3, input.length() - pos - 6 );
+    if ( ( p2 = input.find( "\"}" ) ) == string::npos )
+        return output;
+
+    output.first = input.substr( 2, p1 - 2 );
+    output.second = input.substr( p1 + 3, p2 - p1 - 3 );
 
     return output;
 }
@@ -390,11 +393,12 @@ const bool Utils::iReadable( const string& file )
 
 /* Manipulate */
 /**
- * @brief Returns the first space separated argument from input and then erases it from input.
- * @param[in] input A space separated string of items.
+ * @brief Returns the first delimeter separated argument from input and then erases it from input.
+ * @param[in] input A delimeter separated string of items.
+ * @param[in] delim If specified, used as the delimeter. Defaults to space.
  * @retval string A string containing the first argument from input.
  */
-const string Utils::Argument( string& input )
+const string Utils::Argument( string& input, const string& delim )
 {
     UFLAGS_DE( flags );
     string output;
@@ -406,7 +410,7 @@ const string Utils::Argument( string& input )
         return output;
     }
 
-    pos = input.find_first_of( " " );
+    pos = input.find( delim );
 
     if ( pos == string::npos )
     {
@@ -415,8 +419,8 @@ const string Utils::Argument( string& input )
     }
     else
     {
-        output = input.substr( 0, pos );
-        input.erase( 0, pos + 1 );
+        output = input.substr( 0, pos + delim.length() - 1 );
+        input.erase( 0, pos + delim.length() );
     }
 
     return output;

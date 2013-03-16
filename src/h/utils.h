@@ -85,6 +85,20 @@ namespace Utils {
         return output;
     }
     /**
+     * @brief Generates a string from the pair of t and v.
+     * @param[in] t The first element to use in the pair.
+     * @param[in] v The second element to use in the pair.
+     * @retval string A string containing the pair of t and v.
+     */
+    template <class T, class V> inline const string MakePair( const T& t, const V& v )
+    {
+        stringstream output;
+
+        output << "{" << "\"" << t << "\":\"" << v << "\"}";
+
+        return output.str();
+    }
+    /**
      * @brief Returns a string converted to all uppercase letters.
      * @param[in] t Any type of string to convert to uppercase.
      * @retval string A string converted to all uppercase letters.
@@ -115,20 +129,6 @@ namespace Utils {
     const string FileExt( const string& file, const string& ext );
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
-    /**
-     * @brief Generates a string from the pair of t and v.
-     * @param[in] t The first element to use in the pair.
-     * @param[in] v The second element to use in the pair.
-     * @retval string A string containing the pair of t and v.
-     */
-    template <class T, class V> inline const string MakePair( const T& t, const V& v )
-    {
-        stringstream output;
-
-        output << "{" << "\"" << t << "\":\"" << v << "\"} ";
-
-        return output.str();
-    }
     const uint_t NumChar( const string& input, const string& item );
     const pair<string,string> ReadPair( const string& input );
     const string Salt( const string& input );
@@ -167,7 +167,7 @@ namespace Utils {
     /**@}*/
 
     /** @name Manipulate */ /**@{*/
-    const string Argument( string& input );
+    const string Argument( string& input, const string& delim = " " );
     const void CleanupTemp( uint_t& dir_close, uint_t& dir_open );
     const bool FileOpen( ofstream& ofs, const string& file );
     const bool FileOpen( ifstream& ifs, const string& dir, const string& file, const bool& quiet = false );
