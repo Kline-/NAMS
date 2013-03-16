@@ -34,6 +34,8 @@
  */
 const void Account::Delete()
 {
+    delete this;
+
     return;
 }
 

@@ -556,6 +556,7 @@ const void Server::Shutdown( const sint_t& status )
 
     // Write runtime settings
     m_config->Serialize();
+    delete m_config;
 
     // Cleanup commands
     while ( !command_list.empty() )
@@ -981,7 +982,5 @@ Server::Server()
  */
 Server::~Server()
 {
-    delete m_config;
-
     return;
 }
