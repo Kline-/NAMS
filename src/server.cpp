@@ -832,6 +832,7 @@ const bool Server::Config::Unserialize()
     UFLAGS_DE( flags );
     ifstream ifs;
     string key, value, line;
+    bool found = false;
     vector<string> token;
     ITER( vector, string, ti );
 
@@ -852,12 +853,23 @@ const bool Server::Config::Unserialize()
             continue;
         }
 
-        if ( key == "account_prohibited_names" )
+        for ( ;; )
         {
-            token = Utils::StrTokens( value, true );
-            for ( ti = token.begin(); ti != token.end(); ti++ )
-                m_account_prohibited_names.push_front( *ti );
-            m_account_prohibited_names.reverse();
+            found = false;
+
+            if ( key == "account_prohibited_names" )
+            {
+                found = true;
+                token = Utils::StrTokens( value, true );
+                for ( ti = token.begin(); ti != token.end(); ti++ )
+                    m_account_prohibited_names.push_front( *ti );
+                m_account_prohibited_names.reverse();
+            }
+
+            if ( !found )
+                LOGFMT( flags, "Server::Config::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+
+            break;
         }
     }
 
