@@ -118,7 +118,7 @@ using namespace std;
  * @param[in] check The new value to be crypted for comparison.
  * @param[in] old The existing salted value.
  */
-#define CKPASSWORD( salt, check, old ) Utils::String( crypt( CSTR( check ), CSTR( Utils::Salt( salt ) ) ) ).compare( old ) == 0
+#define CKPASSWORD( salt, check, old ) Utils::String( crypt( CSTR( check ), CSTR( Utils::Salt( salt ) ) ) ) == old
 
 /**
  * @def CRLF

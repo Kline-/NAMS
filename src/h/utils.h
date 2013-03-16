@@ -219,7 +219,7 @@ namespace Utils {
             transform( val.begin(), val.end(), val.begin(), ::tolower );
         }
 
-        if ( key.compare( val ) == 0 )
+        if ( key == val )
         {
             loc = item;
             found = true;
@@ -250,16 +250,16 @@ namespace Utils {
             transform( val.begin(), val.end(), val.begin(), ::tolower );
         }
 
-        if ( key.compare( val ) == 0 )
+        if ( key == val )
         {
             string tf( item );
 
             // Allow bools be any of: true / 1 or false / 0
             transform( tf.begin(), tf.end(), tf.begin(), ::tolower );
 
-            if ( tf.compare( "true" ) == 0 )
+            if ( tf == "true" )
                 loc = true;
-            else if ( tf.compare( "false" ) == 0 )
+            else if ( tf == "false" )
                 loc = false;
             else
                 stringstream( item ) >> loc;
