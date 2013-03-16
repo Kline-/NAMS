@@ -31,6 +31,13 @@
  ***************************************************************************/
 /** @name Account Options */ /**@{*/
 /**
+ * @def CFG_ACT_HOST_MAX
+ * @brief The number of previous hosts to track for login history.
+ * @par Default: 3
+ */
+#define CFG_ACT_HOST_MAX 3
+
+/**
  * @def CFG_ACT_NAME_MAX_LEN
  * @brief The maximum allowable length for an account name.
  * @par Default: 32
@@ -373,7 +380,7 @@
 
 /**
  * @def CFG_STR_ACT_PASSWORD_MISMATCH
- * @brief String sent when a new password confirmation failes.
+ * @brief String sent when a new password confirmation fails.
  * @par Default: "Passwords don't match." CRLF
  */
 #define CFG_STR_ACT_PASSWORD_MISMATCH "Passwords don't match." CRLF
