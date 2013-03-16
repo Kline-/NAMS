@@ -235,14 +235,18 @@ namespace Utils {
      * @param[in] found For loop control. If keyd == valu, set to true, otherwise false.
      * @param[in] keyd A string or number that valu must match.
      * @param[in] valu A string or number that is checked for a match against keyd.
-     * @param[in] item Any string, digit, etc to be copied to to loc if keyd == valu.
-     * @param[in] loc Any string, digit, etc to be assigned the value of item if keyd == valu.
+     * @param[in] item Any non-string to be copied to to loc if keyd == valu.
+     * @param[in] loc Any non-string to be assigned the value of item if keyd == valu.
+     * @param[in] maxv The maximum value to allow loc to be assigned. If value >= maxv, loc = maxv - 1.
+     * @param[in] maxb KeySet will set to true if value >= maxv, otherwise false. Allows logging from calling function.
      * @retval void
      */
-    template <class K, class V, class I, class L> inline const void KeySet( const bool& igncase, bool& found, const K& keyd, const V& valu, const I& item, L& loc )
+    template <class K, class V, class I, class L> inline const void KeySet( const bool& igncase, bool& found, const K& keyd, const V& valu, const I& item, L& loc, const uint_t& maxv, bool& maxb )
     {
+        UFLAGS_I( flags );
         string key( keyd );
         string val( valu );
+        L maxt;
 
         if ( igncase )
         {
@@ -262,7 +266,17 @@ namespace Utils {
             else if ( tf == "false" )
                 loc = false;
             else
-                stringstream( item ) >> loc;
+            {
+                stringstream( item ) >> maxt;
+
+                if ( maxt >= maxv )
+                {
+                    maxb = true;
+                    maxt = ( maxv - 1 );
+                }
+
+                loc = maxt;
+            }
             found = true;
 
             return;

@@ -134,6 +134,8 @@ const bool Account::Serialize() const
         return false;
     }
 
+    // First to ensure name is loaded for logging later
+    KEY( ofs, "name", m_name );
     KEYLIST( ofs, "host" );
     {
         if ( !m_host.empty() )
@@ -148,8 +150,8 @@ const bool Account::Serialize() const
         else
             ofs << endl;
     }
-    KEY( ofs, "name", m_name );
     KEY( ofs, "password", m_password );
+    KEY( ofs, "security", m_security );
 
     Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ), CSTR( file ) );
 
@@ -164,9 +166,10 @@ const bool Account::Serialize() const
 const bool Account::Unserialize()
 {
     UFLAGS_DE( flags );
+    UFLAGS_I( finfo );
     ifstream ifs;
     string key, value, line, token;
-    bool found = false;
+    bool found = false, maxb = false;
     pair<string,string> item;
     string file( Utils::FileExt( m_client->gLogin( SOC_LOGIN_NAME ), CFG_DAT_FILE_ACT_EXT ) );
 
@@ -190,6 +193,8 @@ const bool Account::Unserialize()
         {
             found = false;
 
+            // First to ensure name is loaded for logging later
+            Utils::KeySet( true, found, key, "name", value, m_name );
             if ( key == "host" )
             {
                 found = true;
@@ -200,11 +205,14 @@ const bool Account::Unserialize()
                     m_host.push_back( pair<string,string>( item.first, item.second ) );
                 }
             }
-            Utils::KeySet( true, found, key, "Name", value, m_name );
-            Utils::KeySet( true, found, key, "Password", value, m_password );
+            Utils::KeySet( true, found, key, "password", value, m_password );
+            Utils::KeySet( true, found, key, "security", value, m_security, MAX_ACT_SECURITY, maxb );
 
             if ( !found )
                 LOGFMT( flags, "Account::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+
+            if ( maxb )
+                LOGFMT( finfo, "Account::Unserialize()->Utils::KeySet()-> account %s, key %s has illegal value %s", CSTR( m_name ), CSTR( key ), CSTR( value ) );
 
             break;
         }
