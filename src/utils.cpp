@@ -87,12 +87,41 @@ const string Utils::DirPath( const string& dir, const string& file, const string
         LOGSTR( flags, "Utils::DirPath()-> called with empty file" );
         return output.str();
     }
+
     output << dir << "/";
 
     if ( !ext.empty() )
         output << file.substr( 0, file.find_last_of( "." ) + 1 ) << ext;
     else
         output << file;
+
+    return output.str();
+}
+
+/**
+* @brief Returns a string consisting of file.ext.
+* @param[in] file The file to build the path from.
+* @param[in] ext The extension to append.
+* @retval string A string consisting of file.ext.
+*/
+const string Utils::FileExt( const string& file, const string& ext )
+{
+    UFLAGS_DE( flags );
+    stringstream output;
+
+    if ( file.empty() )
+    {
+        LOGSTR( flags, "Utils::FileExt()-> called with empty file" );
+        return output.str();
+    }
+
+    if ( ext.empty() )
+    {
+        LOGSTR( flags, "Utils::FileExt()-> called with empty ext" );
+        return output.str();
+    }
+
+    output << file << "." << ext;
 
     return output.str();
 }

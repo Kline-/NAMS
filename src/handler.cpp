@@ -57,8 +57,6 @@ const void Handler::AccountMenu( SocketClient* client, const string& cmd, const 
         return;
     }
 
-    client->Send( "And we danced!" );
-
     switch ( client->gState() )
     {
         default:
@@ -369,7 +367,6 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
 const void Handler::LoginScreen( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
-    stringstream account;
 
     if ( client == NULL )
     {
@@ -425,9 +422,8 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     if ( client->gLogin( SOC_LOGIN_NAME ).empty() )
     {
         client->sLogin( SOC_LOGIN_NAME, cmd );
-        account << CFG_DAT_DIR_ACCOUNT << "/" << cmd;
 
-        switch (  Utils::DirExists( account.str() ) )
+        switch (  Utils::DirExists( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, cmd ) ) )
         {
             case UTILS_RET_FALSE:
                 client->sState( SOC_STATE_GET_NEW_ACCOUNT );

@@ -119,22 +119,21 @@ const bool Account::Serialize() const
     UFLAGS_DE( flags );
     ofstream ofs;
     string value;
-    stringstream file;
+    string file( Utils::FileExt( m_name, CFG_DAT_FILE_ACT_EXT ) );
     CITER( forward_list, string, li );
 
-    file << m_name << "." << CFG_DAT_FILE_ACT_EXT;
-    Utils::FileOpen( ofs, file.str() );
+    Utils::FileOpen( ofs, file );
 
     if ( !ofs.good() )
     {
-        LOGFMT( flags, "Account::Serialize()-> failed to open settings file: %s", CSTR( file.str() ) );
+        LOGFMT( flags, "Account::Serialize()-> failed to open settings file: %s", CSTR( file ) );
         return false;
     }
 
     KEY( ofs, "name", m_name );
     KEY( ofs, "password", m_password );
 
-    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ), CSTR( file.str() ) );
+    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ), CSTR( file ) );
 
     return true;
 }
@@ -149,15 +148,14 @@ const bool Account::Unserialize()
     UFLAGS_DE( flags );
     ifstream ifs;
     string key, value, line;
-    stringstream file;
+    string file( Utils::FileExt( m_client->gLogin( SOC_LOGIN_NAME ), CFG_DAT_FILE_ACT_EXT ) );
     bool found = false;
 
-    file << m_client->gLogin( SOC_LOGIN_NAME ) << "." << CFG_DAT_FILE_ACT_EXT;
-    Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_client->gLogin( SOC_LOGIN_NAME ) ), file.str() );
+    Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_client->gLogin( SOC_LOGIN_NAME ) ), file );
 
     if ( !ifs.good() )
     {
-        LOGFMT( flags, "Account::Unserialize()-> failed to open settings file: %s", CSTR( file.str() ) );
+        LOGFMT( flags, "Account::Unserialize()-> failed to open settings file: %s", CSTR( file ) );
         return false;
     }
 
