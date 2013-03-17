@@ -16,24 +16,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 /**
- * @file class.h
- * @brief All class declarations.
+ * @file thing.h
+ * @brief The Thing class.
  *
- *  This file contains declarations of all classes. Each declaration is
- *  indented to denote inheritance. This header file should be the second
- *  file included within every .cpp file.
+ *  This file contains the Thing class and template functions.
  */
-#ifndef DEC_CLASS_H
-#define DEC_CLASS_H
+#ifndef DEC_THING_H
+#define DEC_THING_H
 
-class Account;
-class Command;
-class Event;
-class Plugin;
-class Server;
-class Socket;
-    class SocketClient;
-    class SocketServer;
-class Thing
+using namespace std;
+
+/**
+ * @brief A generic "thing": creature, character, room, object, etc.
+ */
+class Thing {
+    public:
+        /** @name Core */ /**@{*/
+        /**@}*/
+
+        /** @name Query */ /**@{*/
+        /**@}*/
+
+        /** @name Manipulate */ /**@{*/
+        /**@}*/
+
+        /** @name Internal */ /**@{*/
+        Thing();
+        ~Thing();
+        /**@}*/
+
+    private:
+};
 
 #endif
