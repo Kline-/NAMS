@@ -64,6 +64,10 @@ const void Handler::AccountMenu( SocketClient* client, const string& cmd, const 
             MenuScreen( client, cmd, args );
         break;
 
+        case SOC_STATE_CHARACTER_CREATE_MENU:
+            CharacterCreate( client, cmd, args );
+        break;
+
         default:
         break;
     }
@@ -253,8 +257,6 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
 
     // All went well, off to the account menu
     client->sState( SOC_STATE_ACCOUNT_MENU );
-    client->Send( Telopt::opt_cursor_home );
-    client->Send( Telopt::opt_erase_screen );
     AccountMenu( client );
 
     return;
@@ -267,8 +269,51 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
  * @param[in] args Any arguments to the command.
  * @retval void
  */
-const void CharacterCreate( SocketClient* client, const string& cmd, const string& args )
+const void Handler::CharacterCreate( SocketClient* client, const string& cmd, const string& args )
 {
+    UFLAGS_DE( flags );
+    uint_t val = uintmin_t;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterCreate()-> called with NULL client" );
+        return;
+    }
+
+    if ( client->gAccount() == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterCreate()-> called with NULL account" );
+        return;
+    }
+
+    if ( cmd.empty() )
+    {
+        client->Send( Telopt::opt_cursor_home );
+        client->Send( Telopt::opt_erase_screen );
+        client->Send( "Account Menu > Create a new character" CRLF "Please select one of the following options:" CRLF );
+        client->Send( Utils::FormatString( 0, "     %d) Fill me in" CRLF, 1 ) );
+        client->Send( Utils::FormatString( 0, "    %d) Back" CRLF, ACT_MENU_CHARACTER_CREATE_BACK ) );
+        client->Send( "Option: " );
+        return;
+    }
+
+    // Safer than ::stoi(), will output 0 for anything invalid
+    stringstream( cmd ) >> val;
+
+    switch( val )
+    {
+         case ACT_MENU_CHARACTER_CREATE_BACK:
+            client->sState( SOC_STATE_ACCOUNT_MENU );
+            AccountMenu( client );
+        break;
+
+        case ACT_MENU_CHARACTER_CREATE_INVALID:
+        default:
+            client->Send( "Invalid selection." CRLF );
+            client->Send( "Option: " );
+        break;
+    }
+
     return;
 }
 
@@ -526,9 +571,11 @@ const void Handler::MenuScreen( SocketClient* client, const string& cmd, const s
 
     if ( cmd.empty() )
     {
-        client->Send( CFG_STR_VERSION " :: Account Menu" CRLF "Please select one of the following options:" CRLF );
-        client->Send( Utils::FormatString( 0, "     %d) Create a new character" CRLF, ACT_MENU_CHARACTER_CREATE ) );
-        client->Send( Utils::FormatString( 0, "    %d) Quit" CRLF, ACT_MENU_QUIT ) );
+        client->Send( Telopt::opt_cursor_home );
+        client->Send( Telopt::opt_erase_screen );
+        client->Send( "Account Menu" CRLF "Please select one of the following options:" CRLF );
+        client->Send( Utils::FormatString( 0, "     %d) Create a new character" CRLF, ACT_MENU_MAIN_CHARACTER_CREATE ) );
+        client->Send( Utils::FormatString( 0, "    %d) Quit" CRLF, ACT_MENU_MAIN_QUIT ) );
         client->Send( "Option: " );
         return;
     }
@@ -538,15 +585,16 @@ const void Handler::MenuScreen( SocketClient* client, const string& cmd, const s
 
     switch( val )
     {
-        case ACT_MENU_CHARACTER_CREATE:
-
+        case ACT_MENU_MAIN_CHARACTER_CREATE:
+            client->sState( SOC_STATE_CHARACTER_CREATE_MENU );
+            AccountMenu( client );
         break;
 
-        case ACT_MENU_QUIT:
+        case ACT_MENU_MAIN_QUIT:
             client->Quit();
         break;
 
-        case ACT_MENU_INVALID:
+        case ACT_MENU_MAIN_INVALID:
         default:
             client->Send( "Invalid selection." CRLF );
             client->Send( "Option: " );
