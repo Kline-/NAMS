@@ -166,6 +166,15 @@ using namespace std;
 #define KEYLIST( stream, name ) stream << name " = "
 
 /**
+ * @def KEYLISTLOOP
+ * @brief Begins writing (name)[iter] to (stream) in key:value format.
+ * @param[in] stream The filestream to use for a key:value pair.
+ * @param[in] name The name to use for a key:value pair.
+ * @param[in] iter The iterator to track through the loop.
+ */
+#define KEYLISTLOOP( stream, name, iter )
+
+/**
  * @def LOGSTR
  * @brief Wrap Utils::Logger() for brevity and ease of future maintenance.
  * @param[in] flags A local variable name of type bitset<#CFG_MEM_MAX_BITSET> with #UTILS_OPTS enabled as appropriate. 0 may be used if no options are needed.

@@ -28,6 +28,15 @@
 
 /** @name Account */ /**@{*/
 /**
+ * @enum ACT_LOGINS
+ */
+enum ACT_LOGIN {
+    ACT_LOGIN_FAILURE = 0, /**< Failed login attempts. */
+    ACT_LOGIN_SUCCESS = 1, /**< Successful login attempts. */
+    MAX_ACT_LOGIN     = 2 /**< Safety limit for looping. */
+};
+
+/**
  * @enum ACT_SECURITY
  */
 enum ACT_SECURITY {

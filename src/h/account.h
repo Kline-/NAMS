@@ -47,7 +47,7 @@ class Account {
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
-        const bool aHost( const string& date, const string& name );
+        const bool aLogin( const string& date, const string& name, const uint_t& type );
         const bool sSecurity( const uint_t& security );
         /**@}*/
 
@@ -58,7 +58,7 @@ class Account {
 
     private:
         SocketClient* m_client; /**< The client attached to the account. */
-        list<pair<string,string>> m_host; /**< Date and hostname of previous logins. */
+        list<pair<string,string>> m_logins[MAX_ACT_LOGIN]; /**< Date and hostname of previous login failures/successes. */
         string m_name; /**< The name of the account. */
         string m_password; /**< The encrypted password of the account. */
         uint_t m_security; /**< Security level for commands and restricted access. */

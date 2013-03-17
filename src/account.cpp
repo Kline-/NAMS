@@ -100,9 +100,6 @@ const bool Account::New( SocketClient* client, const bool& exists )
         }
     }
 
-    // Use the setter as it provides sanity checking and config constraints
-    aHost( Utils::StrTime(), m_client->gHostname() );
-
     if ( !client->sAccount( this ) )
     {
         LOGSTR( flags, "Account::New()->SocketClient::sAccount()-> returned false" );
@@ -123,6 +120,7 @@ const bool Account::Serialize() const
     ofstream ofs;
     string value;
     stringstream line;
+    uint_t i = uintmin_t;
     string file( Utils::FileExt( m_name, CFG_DAT_FILE_ACT_EXT ) );
     list<pair<string,string>>::const_iterator li;
 
@@ -136,19 +134,25 @@ const bool Account::Serialize() const
 
     // First to ensure name is loaded for logging later
     KEY( ofs, "name", m_name );
-    KEYLIST( ofs, "host" );
+    KEYLISTLOOP( ofs, "logins", i ); /** @todo Need to find a nicer way to do this */
     {
-        if ( !m_host.empty() )
+        for ( i = 0; i < MAX_ACT_LOGIN; i++ )
         {
-            for ( li = m_host.begin(); li != m_host.end(); li++ )
-                line << Utils::MakePair( li->first, li->second ) << " ";
+            ofs << "logins[" << i << "]" << " = ";
+            line.str( "" );
 
-            value = line.str();
-            value.erase( value.end() - 1 );
-            ofs << value << endl;
+            if ( !m_logins[i].empty() )
+            {
+                for ( li = m_logins[i].begin(); li != m_logins[i].end(); li++ )
+                    line << Utils::MakePair( li->first, li->second ) << " ";
+
+                value = line.str();
+                value.erase( value.end() - 1 );
+                ofs << value << endl;
+            }
+            else
+                ofs << endl;
         }
-        else
-            ofs << endl;
     }
     KEY( ofs, "password", m_password );
     KEY( ofs, "security", m_security );
@@ -169,8 +173,10 @@ const bool Account::Unserialize()
     UFLAGS_I( finfo );
     ifstream ifs;
     string key, value, line, token;
+    stringstream loop;
     bool found = false, maxb = false;
     pair<string,string> item;
+    uint_t i = uintmin_t;
     string file( Utils::FileExt( m_client->gLogin( SOC_LOGIN_NAME ), CFG_DAT_FILE_ACT_EXT ) );
 
     Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_client->gLogin( SOC_LOGIN_NAME ) ), file );
@@ -195,14 +201,25 @@ const bool Account::Unserialize()
 
             // First to ensure name is loaded for logging later
             Utils::KeySet( true, found, key, "name", value, m_name );
-            if ( key == "host" )
+            if ( Utils::StrPrefix( "logins", key ) ) /** @todo Need to find a nicer way to do this */
             {
-                found = true;
+                for ( ; i < MAX_ACT_LOGIN; i++ )
+                {
+                    loop.str( "" );
+                    loop << "logins[" << i << "]";
+
+                    if ( key == loop.str() )
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
                 while ( !value.empty() )
                 {
                     token = Utils::Argument( value, "} " );
                     item = Utils::ReadPair( token );
-                    m_host.push_back( pair<string,string>( item.first, item.second ) );
+                    m_logins[i].push_back( pair<string,string>( item.first, item.second ) );
                 }
             }
             Utils::KeySet( true, found, key, "password", value, m_password );
@@ -221,9 +238,16 @@ const bool Account::Unserialize()
     Utils::FileClose( ifs );
 
     if ( m_password == gClient()->gLogin( SOC_LOGIN_PASSWORD ) )
+    {
+        // Use the setter as it provides sanity checking and config constraints
+        aLogin( Utils::StrTime(), m_client->gHostname(), ACT_LOGIN_SUCCESS );
         return true;
+    }
     else
     {
+        // Track that there was a failure, force a save to ensure the data is retained
+        aLogin( Utils::StrTime(), m_client->gHostname(), ACT_LOGIN_FAILURE );
+        Serialize();
         gClient()->Send( CFG_STR_ACT_PASSWORD_INVALID );
         // Ensure the output goes before the client gets dropped
         gClient()->Send();
@@ -262,13 +286,14 @@ const uint_t Account::gSecurity() const
 
 /* Manipulate */
 /**
- * @brief Adds a hostname to the list of previous hosts. Bumps the oldest entry.
+ * @brief Adds a hostname to the list of previous successful logins. Bumps the oldest entry.
  * @param[in] date A string of the login time.
  * @param[in] name The name to prepend to the list.
+ * @param[in] type Value from #ACT_LOGIN.
  * @retval false Returned if there is an error adding the new entry.
  * @retval true Returned if the new entry was successfully added.
  */
-const bool Account::aHost( const string& date, const string& name )
+const bool Account::aLogin( const string& date, const string& name, const uint_t& type )
 {
     UFLAGS_DE( flags );
 
@@ -284,10 +309,16 @@ const bool Account::aHost( const string& date, const string& name )
         return false;
     }
 
-    m_host.push_front( pair<string,string>( date, name ) );
+    if ( type >= MAX_ACT_LOGIN )
+    {
+        LOGSTR( flags, "Account::aHost()-> called with invalid type" );
+        return false;
+    }
 
-    if ( m_host.size() > CFG_ACT_HOST_MAX )
-        m_host.pop_back();
+    while ( m_logins[type].size() >= CFG_ACT_HOST_MAX )
+        m_logins[type].pop_back();
+
+    m_logins[type].push_front( pair<string,string>( date, name ) );
 
     return true;
 }
@@ -319,8 +350,11 @@ const bool Account::sSecurity( const uint_t& security )
  */
 Account::Account()
 {
+    uint_t i = uintmin_t;
+
     m_client = NULL;
-    m_host.clear();
+    for ( i = 0; i < MAX_ACT_LOGIN; i++ )
+        m_logins[i].clear();
     m_name.clear();
     m_password.clear();
     m_security = ACT_SECURITY_NONE;
