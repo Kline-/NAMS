@@ -40,7 +40,8 @@ enum ACT_LOGIN {
  * @enum ACT_MENU
  */
 enum ACT_MENU {
-    ACT_MENU_CHARACTER_CREATE = 0,  /**< Create a new character associated to the account. */
+    ACT_MENU_INVALID          = 0,  /**< Must be 0 for stringstream extraction. */
+    ACT_MENU_CHARACTER_CREATE = 1,  /**< Create a new character associated to the account. */
     ACT_MENU_QUIT             = 99, /**< Disconnect from the server. */
     MAX_ACT_MENU              = 100 /**< Safety limit for looping. */
 };
