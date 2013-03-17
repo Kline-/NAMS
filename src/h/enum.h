@@ -33,7 +33,16 @@
 enum ACT_LOGIN {
     ACT_LOGIN_FAILURE = 0, /**< Failed login attempts. */
     ACT_LOGIN_SUCCESS = 1, /**< Successful login attempts. */
-    MAX_ACT_LOGIN     = 2 /**< Safety limit for looping. */
+    MAX_ACT_LOGIN     = 2  /**< Safety limit for looping. */
+};
+
+/**
+ * @enum ACT_MENU
+ */
+enum ACT_MENU {
+    ACT_MENU_CHARACTER_CREATE = 0,  /**< Create a new character associated to the account. */
+    ACT_MENU_QUIT             = 99, /**< Disconnect from the server. */
+    MAX_ACT_MENU              = 100 /**< Safety limit for looping. */
 };
 
 /**
@@ -54,7 +63,7 @@ enum ACT_SECURITY {
 enum EVENT_TYPE {
     EVENT_TYPE_COMMAND = 0,  /**< An Event to execute a game command. */
     EVENT_TYPE_RELOAD  = 1,  /**< An Event to reload a game command. */
-    MAX_EVENT_TYPE     = 1   /**< Safety limit for looping. */
+    MAX_EVENT_TYPE     = 2   /**< Safety limit for looping. */
 };
 /**@}*/
 

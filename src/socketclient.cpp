@@ -42,6 +42,9 @@ const void SocketClient::Delete()
     if ( !Valid() )
         return;
 
+    // Force anything out of the buffer
+    Send();
+
     if ( !m_server->sSocketClose( m_server->gSocketClose() + 1 ) )
         LOGFMT( flags, "SocketClient::Disconnect()->Server::sSocketClose()-> value %lu returned false", m_server->gSocketClose() + 1 );
 

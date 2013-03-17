@@ -51,6 +51,7 @@ namespace Handler {
     const void GetNewPassword( SocketClient* client, const string& cmd, const string& args );
     const void GetOldPassword( SocketClient* client, const string& cmd, const string& args );
     const void LoginScreen( SocketClient* client, const string& cmd, const string& args );
+    const void MenuScreen( SocketClient* client, const string& cmd, const string& args );
     /**@}*/
 };
 

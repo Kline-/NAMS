@@ -27,6 +27,7 @@
 #define DEC_NAMESPACE_H
 
 #include "handler.h"
+#include "telopt.h"
 #include "utils.h"
 
 using namespace std;

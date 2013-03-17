@@ -59,6 +59,10 @@ const void Handler::AccountMenu( SocketClient* client, const string& cmd, const 
 
     switch ( client->gState() )
     {
+        case SOC_STATE_ACCOUNT_MENU:
+            MenuScreen( client, cmd, args );
+        break;
+
         default:
         break;
     }
@@ -444,6 +448,58 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
 
     //Generate the next input prompt
     ProcessLogin( client );
+
+    return;
+}
+
+/**
+ * @brief Send initial account interface menu.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::MenuScreen( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::MenuScreen()-> called with NULL client" );
+        return;
+    }
+
+    if ( client->gAccount() == NULL )
+    {
+        LOGSTR( flags, "Handler::MenuScreen()-> called with NULL account" );
+        return;
+    }
+
+    if ( cmd.empty() )
+    {
+        client->Send( Telopt::opt_cursor_home );
+        client->Send( Telopt::opt_erase_screen );
+        client->Send( CFG_STR_VERSION " :: Account Menu" CRLF "Please select one of the following options:" CRLF );
+        client->Send( Utils::FormatString( 0, "     %d) Create a new character" CRLF, ACT_MENU_CHARACTER_CREATE ) );
+        client->Send( Utils::FormatString( 0, "    %d) Quit" CRLF, ACT_MENU_QUIT ) );
+        client->Send( "Option: " );
+        return;
+    }
+
+    switch( cmd[0] )
+    {
+        case 1:
+        break;
+
+        case 99:
+        break;
+
+        default:
+        break;
+    }
+
+    //Generate the next input prompt
+    AccountMenu( client );
 
     return;
 }

@@ -249,8 +249,6 @@ const bool Account::Unserialize()
         aLogin( Utils::StrTime(), m_client->gHostname(), ACT_LOGIN_FAILURE );
         Serialize();
         gClient()->Send( CFG_STR_ACT_PASSWORD_INVALID );
-        // Ensure the output goes before the client gets dropped
-        gClient()->Send();
 
         return false;
     }

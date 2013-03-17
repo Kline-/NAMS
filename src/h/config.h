@@ -31,6 +31,13 @@
  ***************************************************************************/
 /** @name Account Options */ /**@{*/
 /**
+ * @def CFG_ACT_CHARACTER_MAX
+ * @brief The maximum number of characters an account may have.
+ * @par Default: 10
+ */
+#define CFG_ACT_CHARACTER_MAX 10
+
+/**
  * @def CFG_ACT_LOGIN_MAX
  * @brief The number of previous hosts to track for login history.
  * @par Default: 3

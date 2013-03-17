@@ -17,14 +17,35 @@
  ***************************************************************************/
 /**
  * @file telopt.h
- * @brief All telnet negotiation options supported by NAMS.
+ * @brief The telopt namespace.
  *
- * This file contains all telnet negotiation sequences for different
- * terminal types and protocols that are understood by NAMS.
+ * This file contains the Telopt namespace and template functions.
  */
 #ifndef DEC_TELOPT_H
 #define DEC_TELOPT_H
 
-#define TELOPT_ESC "\e"
+#include <arpa/telnet.h>
+
+using namespace std;
+
+/**
+ * @brief The Telopt namespace contains telnet option negotiation functions.
+ */
+namespace Telopt {
+    /** @name Core */ /**@{*/
+    static const string opt_telopt_esc = "\e";
+    /**@}*/
+
+    /** @name Query */ /**@{*/
+    /**@}*/
+
+    /** @name Manipulate */ /**@{*/
+    static const string opt_cursor_home = opt_telopt_esc + "[H";
+    static const string opt_erase_screen = opt_telopt_esc + "[2J";
+    /**@}*/
+
+    /** @name Internal */ /**@{*/
+    /**@}*/
+};
 
 #endif
