@@ -66,14 +66,26 @@ enum ACT_SECURITY {
 };
 /**@}*/
 
+/** @name Character */ /**@{*/
+/**
+ * @enum CHR_SEX
+ */
+enum CHR_SEX {
+    CHR_SEX_NONE   = 0, /**< No sex specified / neutral. */
+    CHR_SEX_FEMALE = 1, /**< A female character. */
+    CHR_SEX_MALE   = 2, /**< A male character. */
+    MAX_CHR_SEX    = 3  /**< Safety limit for looping. */
+};
+/**@}*/
+
 /** @name Event */ /**@{*/
 /**
  * @enum EVENT_TYPE
  */
 enum EVENT_TYPE {
-    EVENT_TYPE_COMMAND = 0,  /**< An Event to execute a game command. */
-    EVENT_TYPE_RELOAD  = 1,  /**< An Event to reload a game command. */
-    MAX_EVENT_TYPE     = 2   /**< Safety limit for looping. */
+    EVENT_TYPE_COMMAND = 0, /**< An Event to execute a game command. */
+    EVENT_TYPE_RELOAD  = 1, /**< An Event to reload a game command. */
+    MAX_EVENT_TYPE     = 2  /**< Safety limit for looping. */
 };
 /**@}*/
 
@@ -82,16 +94,16 @@ enum EVENT_TYPE {
  * @enum PLG_TYPE
  */
 enum PLG_TYPE {
-    PLG_TYPE_COMMAND = 0,   /**< A Plugin that specifies a game command. */
-    MAX_PLG_TYPE     = 1    /**< Safety limit for looping. */
+    PLG_TYPE_COMMAND = 0, /**< A Plugin that specifies a game command. */
+    MAX_PLG_TYPE     = 1  /**< Safety limit for looping. */
 };
 
 /**
  * @enum PLG_TYPE_COMMAND_BOOL
  */
 enum PLG_TYPE_COMMAND_BOOL {
-    PLG_TYPE_COMMAND_BOOL_PREEMPT = 0,  /**< Ties to Command->m_preempt. */
-    MAX_PLG_TYPE_COMMAND_BOOL     = 1   /**< Safety limit for looping. */
+    PLG_TYPE_COMMAND_BOOL_PREEMPT = 0, /**< Ties to Command->m_preempt. */
+    MAX_PLG_TYPE_COMMAND_BOOL     = 1  /**< Safety limit for looping. */
 };
 
 /**

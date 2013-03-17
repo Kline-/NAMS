@@ -92,7 +92,7 @@ const bool Thing::sId( const string& id )
 
 /**
  * @brief Sets the name of this Thing.
- * @param[in] id A string containing the name this Thing should be set to.
+ * @param[in] name A string containing the name this Thing should be set to.
  * @param[in] system If true, denotes a system-level call (NPCs, etc) and will bypass length limits.
  * @retval false Returned if there was an error setting the name.
  * @retval true Returned if the name was set successfully.

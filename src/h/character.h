@@ -41,9 +41,11 @@ class Character : public Thing {
 
         /** @name Query */ /**@{*/
         Account* gAccount() const;
+        const uint_t gSex() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sSex( const uint_t& sex );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -53,6 +55,7 @@ class Character : public Thing {
 
     private:
         Account* m_account; /**< The associated Account, if any. */
+        uint_t m_sex; /**< The sex of the character. */
 };
 
 #endif

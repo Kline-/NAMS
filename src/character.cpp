@@ -54,6 +54,15 @@ const bool Character::New( Server* server, Account* account )
 
 /* Query */
 /**
+ * @brief Returns the sex of this character from #CHR_SEX.
+ * @retval uint_t A uint_t associated to #CHR_SEX.
+ */
+const uint_t Character::gSex() const
+{
+    return m_sex;
+}
+
+/**
  * @brief Returns the Account associated with this Character, if any.
  * @retval Account* A pointer to the associated account, or NULL if none.
  */
@@ -63,6 +72,26 @@ Account* Character::gAccount() const
 }
 
 /* Manipulate */
+/**
+ * @brief Sets the sex of this character from #CHR_SEX.
+ * @param[in] sex A value from #CHR_SEX.
+ * @retval false Returned if unable to set the sex of the character.
+ * @retval true Returned if the sex of the character was successfully set.
+ */
+const bool Character::sSex( const uint_t& sex )
+{
+    UFLAGS_DE( flags );
+
+    if ( sex < uintmin_t || sex >= MAX_CHR_SEX )
+    {
+        LOGFMT( flags, "Character::sSex()-> called with invalid sex %lu", sex );
+        return false;
+    }
+
+    m_sex = sex;
+
+    return true;
+}
 
 /* Internal */
 /**
