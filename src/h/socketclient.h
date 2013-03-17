@@ -46,10 +46,12 @@ class SocketClient : public Socket {
             /**@}*/
 
             /** @name Query */ /**@{*/
+            const bool gNegotiated( const uint_t& opt ) const;
             const bool gTelopt( const uint_t& opt ) const;
             /**@}*/
 
             /** @name Manipulate */ /**@{*/
+            const bool sNegotiated( const uint_t& opt, const bool& val );
             const bool sTelopt( const uint_t& opt, const bool& val );
             /**@}*/
 
@@ -59,7 +61,8 @@ class SocketClient : public Socket {
             /**@}*/
 
         private:
-            bool m_telopt[MAX_SOC_TELOPT]; /* Supported telnet options. */
+            bool m_negotiated[MAX_SOC_TELOPT]; /**< Telnet options that have been negotiated previously. */
+            bool m_telopt[MAX_SOC_TELOPT]; /**< Supported telnet options. */
     };
 
     public:

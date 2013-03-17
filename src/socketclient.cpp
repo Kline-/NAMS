@@ -487,6 +487,25 @@ const string SocketClient::Serialize() const
 
 /* Query */
 /**
+ * @brief Returns if a telopt has been previously negotiated.
+ * @param[in] opt The option position to retrieve from #SOC_TELOPT.
+ * @retval false Returned if the option is set to false.
+ * @retval true Returned if the option is set to true.
+ */
+const bool SocketClient::TermInfo::gNegotiated( const uint_t& opt ) const
+{
+    UFLAGS_DE( flags );
+
+    if ( opt < uintmin_t || opt >= MAX_SOC_TELOPT )
+    {
+        LOGFMT( flags, "SocketClient::TermInfo::gNegotiated()-> called with invalid opt: %lu", opt );
+        return false;
+    }
+
+    return m_negotiated[opt];
+}
+
+/**
  * @brief Returns the value of a telnet option.
  * @param[in] opt The option position to retrieve from #SOC_TELOPT.
  * @retval false Returned if the option is set to false.
@@ -569,6 +588,28 @@ SocketClient::TermInfo* SocketClient::gTermInfo() const
 }
 
 /* Manipulate */
+/**
+ * @brief Sets if a telopt has been previously negotiated.
+ * @param[in] opt The option position to set from #SOC_TELOPT.
+ * @param[in] val The value to set the option to.
+ * @retval false Returned if the option was unable to be set.
+ * @retval true Returned if the option was successfully set.
+ */
+const bool SocketClient::TermInfo::sNegotiated( const uint_t& opt, const bool& val )
+{
+    UFLAGS_DE( flags );
+
+    if ( opt < uintmin_t || opt >= MAX_SOC_TELOPT )
+    {
+        LOGFMT( flags, "SocketClient::TermInfo::sNegotiated()-> called with invalid opt: %lu", opt );
+        return false;
+    }
+
+    m_negotiated[opt] = val;
+
+    return true;
+}
+
 /**
  * @brief Sets the value of a telnet option.
  * @param[in] opt The option position to set from #SOC_TELOPT.
