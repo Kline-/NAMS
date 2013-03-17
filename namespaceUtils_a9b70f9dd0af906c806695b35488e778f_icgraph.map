@@ -1,26 +1,27 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ." alt="" coords="531,65,653,95"/>
-<area shape="rect" id="node20" href="$classServer.xhtml#acf928ad938e32e6342c0cdd278e793bc" title="Server::FindCommand" alt="" coords="511,144,673,173"/>
-<area shape="rect" id="node54" href="$namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a" title="Returns if string s1 is a prefix of string s2." alt="" coords="149,211,261,240"/>
-<area shape="rect" id="node5" href="$classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5" title="Search all subfolders of CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memor..." alt="" coords="725,5,901,35"/>
-<area shape="rect" id="node11" href="$classServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin." alt="" coords="723,65,904,95"/>
-<area shape="rect" id="node7" href="$classServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="1899,8,2019,37"/>
-<area shape="rect" id="node9" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="2249,89,2303,119"/>
-<area shape="rect" id="node13" href="$classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c" title="Execute the function stored within the Event object." alt="" coords="991,59,1079,88"/>
-<area shape="rect" id="node15" href="$classServer.xhtml#a266931bde9b1955346955140986d2b00" title="Process any scheduled events tied to the Server." alt="" coords="1433,80,1599,109"/>
-<area shape="rect" id="node17" href="$classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="2081,143,2199,172"/>
-<area shape="rect" id="node22" href="$namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" title="Create a new account object, or load an existing one, with a name and password." alt="" coords="727,211,900,240"/>
-<area shape="rect" id="node24" href="$namespaceHandler.xhtml#af650e47f3d4baf393b54376d1eaa1fa9" title="Handle SocketClient objects who have not fully logged into the game yet." alt="" coords="953,211,1116,240"/>
-<area shape="rect" id="node26" href="$namespaceHandler.xhtml#a142c6f0b9e36e54eba3d72f9db2dfe40" title="Redirect to the appropriate subsystem based on socket state." alt="" coords="1193,265,1327,295"/>
-<area shape="rect" id="node41" href="$namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" title="Select a new account name." alt="" coords="1169,319,1351,348"/>
-<area shape="rect" id="node44" href="$namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" title="Create a new account." alt="" coords="1165,105,1355,135"/>
-<area shape="rect" id="node47" href="$namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" title="Compare a received password against an existing account." alt="" coords="1169,159,1351,188"/>
-<area shape="rect" id="node50" href="$namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191" title="Send initial greeting and request for account name." alt="" coords="1181,212,1339,241"/>
-<area shape="rect" id="node28" href="$classSocketClient.xhtml#a553658a2c076ea71ddcd1758fc64a925" title="Build a SocketClient for a new client connection and set all attributes." alt="" coords="1448,185,1584,215"/>
-<area shape="rect" id="node35" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="1403,252,1629,281"/>
-<area shape="rect" id="node30" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="1677,180,1837,209"/>
-<area shape="rect" id="node32" href="$classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" title="Poll all SocketClient objects that are communicating with the associated SocketServer object..." alt="" coords="1887,171,2031,200"/>
-<area shape="rect" id="node37" href="$classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Processes input from all active SocketClient objects." alt="" coords="1680,240,1835,269"/>
-<area shape="rect" id="node56" href="$classAccount.xhtml#ae236325fef7b2269f54e9567577e0b92" title="Unserialize the account data from CFG_DAT_FILE_SETTINGS." alt="" coords="309,211,461,240"/>
-<area shape="rect" id="node58" href="$classAccount.xhtml#adc4545f17264112e532b5a48abe94baf" title="Create a new account." alt="" coords="537,211,647,240"/>
+<area shape="rect" id="node3" href="$classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ." alt="" coords="171,57,293,87"/>
+<area shape="rect" id="node20" href="$classServer.xhtml#acf928ad938e32e6342c0cdd278e793bc" title="Server::FindCommand" alt="" coords="151,111,313,140"/>
+<area shape="rect" id="node54" href="$namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a" title="Returns if string s1 is a prefix of string s2." alt="" coords="176,189,288,219"/>
+<area shape="rect" id="node5" href="$classServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5" title="Search all subfolders of CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memor..." alt="" coords="371,5,547,35"/>
+<area shape="rect" id="node11" href="$classServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin." alt="" coords="368,59,549,88"/>
+<area shape="rect" id="node7" href="$classServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="603,7,723,36"/>
+<area shape="rect" id="node9" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="2300,33,2353,63"/>
+<area shape="rect" id="node13" href="$classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c" title="Execute the function stored within the Event object." alt="" coords="815,59,903,88"/>
+<area shape="rect" id="node15" href="$classServer.xhtml#a266931bde9b1955346955140986d2b00" title="Process any scheduled events tied to the Server." alt="" coords="995,59,1160,88"/>
+<area shape="rect" id="node17" href="$classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="2132,84,2249,113"/>
+<area shape="rect" id="node22" href="$namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" title="Create a new account object, or load an existing one, with a name and password." alt="" coords="772,216,945,245"/>
+<area shape="rect" id="node24" href="$namespaceHandler.xhtml#af650e47f3d4baf393b54376d1eaa1fa9" title="Handle SocketClient objects who have not fully logged into the game yet." alt="" coords="996,216,1159,245"/>
+<area shape="rect" id="node26" href="$namespaceHandler.xhtml#a142c6f0b9e36e54eba3d72f9db2dfe40" title="Redirect to the appropriate subsystem based on socket state." alt="" coords="1236,163,1369,192"/>
+<area shape="rect" id="node41" href="$namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" title="Select a new account name." alt="" coords="1212,323,1393,352"/>
+<area shape="rect" id="node44" href="$namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" title="Create a new account." alt="" coords="1208,216,1397,245"/>
+<area shape="rect" id="node47" href="$namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" title="Compare a received password against an existing account." alt="" coords="1212,269,1393,299"/>
+<area shape="rect" id="node50" href="$namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191" title="Send initial greeting and request for account name." alt="" coords="1224,109,1381,139"/>
+<area shape="rect" id="node28" href="$classSocketClient.xhtml#a553658a2c076ea71ddcd1758fc64a925" title="Build a SocketClient for a new client connection and set all attributes." alt="" coords="1491,163,1627,192"/>
+<area shape="rect" id="node35" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="1445,109,1672,139"/>
+<area shape="rect" id="node30" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="1720,163,1880,192"/>
+<area shape="rect" id="node32" href="$classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" title="Poll all SocketClient objects that are communicating with the associated SocketServer object..." alt="" coords="1933,163,2077,192"/>
+<area shape="rect" id="node37" href="$classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Processes input from all active SocketClient objects." alt="" coords="1928,109,2083,139"/>
+<area shape="rect" id="node56" href="$classAccount.xhtml#ae236325fef7b2269f54e9567577e0b92" title="Unserialize the account data from CFG_DAT_FILE_SETTINGS." alt="" coords="383,216,535,245"/>
+<area shape="rect" id="node62" href="$classServer_1_1Config.xhtml#a54dba418bfd3365ccfb30bda37ccd461" title="Unserialize runtime configuration settings from CFG_DAT_FILE_SETTINGS." alt="" coords="364,163,553,192"/>
+<area shape="rect" id="node58" href="$classAccount.xhtml#adc4545f17264112e532b5a48abe94baf" title="Create a new account." alt="" coords="608,216,717,245"/>
 </map>

@@ -80,6 +80,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Thing Class Reference</div>  </div>
 </div><!--header-->
@@ -89,20 +91,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </p>
 
 <p><code>#include &quot;<a class="el" href="thing_8h_source.xhtml">thing.h</a>&quot;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for Thing:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classThing__inherit__graph.svg" width="96" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for Thing:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classThing__coll__graph.svg" width="195" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classThing-members.xhtml">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a89651e38dd04d9741d4a112606532211">Delete</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a thing from memory that was previously loaded via <a class="el" href="classThing.xhtml#a6ba8cdef3685ed564e6b549d0493e5eb" title="Create a new thing.">Thing::New()</a>.  <a href="#a89651e38dd04d9741d4a112606532211"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a6ba8cdef3685ed564e6b549d0493e5eb">New</a> (<a class="el" href="classServer.xhtml">Server</a> *server)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new thing.  <a href="#a6ba8cdef3685ed564e6b549d0493e5eb"></a><br/></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">gId</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aea5dad4f4241b325cdf64b232e84e602"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">gName</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3c3c40c996ff562baa335f2ded022578"></a><br/></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b">sId</a> (const string &amp;id)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a946fbf68bcd90ea5b26f4cce0b37132b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41">sName</a> (const string &amp;name, const bool &amp;system=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a69568f79edcdf1b0225f1b764a7ceb41"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43">Thing</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> class.  <a href="#a39968586a8e98dfef67c72ca54e00a43"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984">~Thing</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> class.  <a href="#ad4cc59aaae978053d0764b444d088984"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00032">32</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00034">34</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a39968586a8e98dfef67c72ca54e00a43"></a><!-- doxytag: member="Thing::Thing" ref="a39968586a8e98dfef67c72ca54e00a43" args="()" -->
 <div class="memitem">
@@ -118,8 +153,11 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00039">39</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00119">119</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
+    <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>.clear();
+    <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>.clear();
+
     <span class="keywordflow">return</span>;
 }
 </pre></div>
@@ -139,11 +177,266 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00047">47</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00130">130</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
 </pre></div>
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a89651e38dd04d9741d4a112606532211"></a><!-- doxytag: member="Thing::Delete" ref="a89651e38dd04d9741d4a112606532211" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void <a class="el" href="classThing.xhtml#a89651e38dd04d9741d4a112606532211">Thing::Delete</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53">Character</a>.</p>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00034">34</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keyword">delete</span> <span class="keyword">this</span>;
+
+    <span class="keywordflow">return</span>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aea5dad4f4241b325cdf64b232e84e602"></a><!-- doxytag: member="Thing::gId" ref="aea5dad4f4241b325cdf64b232e84e602" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">Thing::gId</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string containing the id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00057">57</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a3c3c40c996ff562baa335f2ded022578"></a><!-- doxytag: member="Thing::gName" ref="a3c3c40c996ff562baa335f2ded022578" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">Thing::gName</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string containing the name associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00066">66</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a6ba8cdef3685ed564e6b549d0493e5eb"></a><!-- doxytag: member="Thing::New" ref="a6ba8cdef3685ed564e6b549d0493e5eb" args="(Server *server)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classThing.xhtml#a6ba8cdef3685ed564e6b549d0493e5eb">Thing::New</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">server</td><td>The <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> the thing will exist within. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if a new <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> was successfully created or loaded. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if a new <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> was unable to be created. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00047">47</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a946fbf68bcd90ea5b26f4cce0b37132b"></a><!-- doxytag: member="Thing::sId" ref="a946fbf68bcd90ea5b26f4cce0b37132b" args="(const string &amp;id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b">Thing::sId</a> </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>A string containing the id this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> should be set to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error setting the id. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the id was set successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00078">78</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( <span class="keywordtype">id</span>.length() &lt; <a class="code" href="config_8h.xhtml#a2dd1dea84bf866ad4be32a846a797973" title="The minimum allowable length for a thing id.">CFG_THG_ID_MIN_LEN</a> || <span class="keywordtype">id</span>.length() &gt; <a class="code" href="config_8h.xhtml#a3b23cb3990bd9b345c232ce589da9fce" title="The maximum allowable length for a thing id.">CFG_THG_ID_MAX_LEN</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Thing::sId()-&gt; called with invalid id length %lu&quot;</span>, <span class="keywordtype">id</span>.length() );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a> = id;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a69568f79edcdf1b0225f1b764a7ceb41"></a><!-- doxytag: member="Thing::sName" ref="a69568f79edcdf1b0225f1b764a7ceb41" args="(const string &amp;name, const bool &amp;system=false)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41">Thing::sName</a> </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>system</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>A string containing the name this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> should be set to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">system</td><td>If true, denotes a system-level call (NPCs, etc) and will bypass length limits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error setting the name. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the name was set successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00100">100</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( ( name.length() &lt; <a class="code" href="config_8h.xhtml#a1bd78ab35ca3b3905154491d213bacee" title="The minimum allowable length for a thing name when the thing is associated to an account.">CFG_THG_NAME_MIN_LEN</a> || name.length() &gt; <a class="code" href="config_8h.xhtml#a3137447c34477fc0afc6ad3865a58c13" title="The maximum allowable length for a thing name when the thing is associated to an account.">CFG_THG_NAME_MAX_LEN</a> ) &amp;&amp; !system )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Thing::sName()-&gt; called with invalid name length %lu&quot;</span>, name.length() );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a> = name;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a72953c57b3abed7d9923e03283877d90"></a><!-- doxytag: member="Thing::m_id" ref="a72953c57b3abed7d9923e03283877d90" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string <a class="el" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">Thing::m_id</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>An identifier to denote ownership. For characters, id = account.name </p>
+
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00057">57</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d808b32cbeb76c0900b05cef6454abc"></a><!-- doxytag: member="Thing::m_name" ref="a5d808b32cbeb76c0900b05cef6454abc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string <a class="el" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">Thing::m_name</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The name of the thing. </p>
+
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00058">58</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -168,7 +461,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 16:00:36 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

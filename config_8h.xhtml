@@ -125,6 +125,8 @@ Defines</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Directory for temporary files.  <a href="#a139b7703e057cd102ea853e5999f39fd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#a06ca80b984aa3c3675dd3ac21f08b83d">CFG_DAT_FILE_ACT_EXT</a>&#160;&#160;&#160;&quot;act&quot;</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">File extension to use for account setting files.  <a href="#a06ca80b984aa3c3675dd3ac21f08b83d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#a2339c99068cee7dd8024d0097583cdee">CFG_DAT_FILE_PLR_EXT</a>&#160;&#160;&#160;&quot;plr&quot;</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">File extension to use for player character files.  <a href="#a2339c99068cee7dd8024d0097583cdee"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#a44e2e94d8914eab0940c8c13d064e2f6">CFG_DAT_FILE_REBOOT</a>&#160;&#160;&#160;&quot;reboot.dat&quot;</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">File for reboot data to be temporarily stored in.  <a href="#a44e2e94d8914eab0940c8c13d064e2f6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af">CFG_DAT_FILE_SETTINGS</a>&#160;&#160;&#160;&quot;settings.dat&quot;</td></tr>
@@ -232,6 +234,15 @@ Defines</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String to prepend to logs flagged UTILS_TYPE_SOCKET.  <a href="#ac38f0f1beed2da9e2c6e0210da5ba57f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#ae0189326402738016ca074f43606978f">CFG_STR_VERSION</a>&#160;&#160;&#160;&quot;NAMS Development 0.0.0&quot;</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The current server version.  <a href="#ae0189326402738016ca074f43606978f"></a><br/></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Thing Options</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#a3b23cb3990bd9b345c232ce589da9fce">CFG_THG_ID_MAX_LEN</a>&#160;&#160;&#160;128</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum allowable length for a thing id.  <a href="#a3b23cb3990bd9b345c232ce589da9fce"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#a2dd1dea84bf866ad4be32a846a797973">CFG_THG_ID_MIN_LEN</a>&#160;&#160;&#160;1</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum allowable length for a thing id.  <a href="#a2dd1dea84bf866ad4be32a846a797973"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#a3137447c34477fc0afc6ad3865a58c13">CFG_THG_NAME_MAX_LEN</a>&#160;&#160;&#160;16</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum allowable length for a thing name when the thing is associated to an account.  <a href="#a3137447c34477fc0afc6ad3865a58c13"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8h.xhtml#a1bd78ab35ca3b3905154491d213bacee">CFG_THG_NAME_MIN_LEN</a>&#160;&#160;&#160;4</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum allowable length for a thing name when the thing is associated to an account.  <a href="#a1bd78ab35ca3b3905154491d213bacee"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>All NAMS configuration options are kept within this file. This includes defines for specific folders, memory tuning, frequently used string messages, etc. </p>
@@ -446,6 +457,22 @@ Defines</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2339c99068cee7dd8024d0097583cdee"></a><!-- doxytag: member="config.h::CFG_DAT_FILE_PLR_EXT" ref="a2339c99068cee7dd8024d0097583cdee" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="config_8h.xhtml#a2339c99068cee7dd8024d0097583cdee">CFG_DAT_FILE_PLR_EXT</a>&#160;&#160;&#160;&quot;plr&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Default: "plr"</b></dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00134">134</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a44e2e94d8914eab0940c8c13d064e2f6"></a><!-- doxytag: member="config.h::CFG_DAT_FILE_REBOOT" ref="a44e2e94d8914eab0940c8c13d064e2f6" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -458,7 +485,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "reboot.dat"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00134">134</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00141">141</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -474,7 +501,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "settings.dat"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00141">141</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00148">148</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -490,7 +517,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: true</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00153">153</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00160">160</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -506,7 +533,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 100</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00160">160</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00167">167</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -522,7 +549,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "server.log"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00172">172</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00179">179</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -538,7 +565,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 128</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00224">224</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00231">231</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -554,7 +581,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "g++"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00184">184</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00191">191</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -570,7 +597,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "cpp"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00198">198</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00205">205</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -586,7 +613,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "so"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00205">205</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00212">212</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -602,7 +629,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "-std=c++0x -Isrc/h -fpic -ldl -rdynamic -shared 2&gt;&amp;1"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00191">191</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00198">198</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -618,7 +645,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 5</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00212">212</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00219">219</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -634,7 +661,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 6</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00236">236</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00243">243</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -650,7 +677,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "$" CFG_SEC_CRYPT_METHOD "$"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00243">243</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00250">250</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -666,7 +693,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 0755</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00250">250</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00257">257</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -682,7 +709,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "::"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00262">262</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00269">269</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -698,7 +725,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: ( ( 30 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00276">276</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00283">283</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -714,7 +741,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 5</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00283">283</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00290">290</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -730,7 +757,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 65536</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00290">290</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00297">297</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -746,7 +773,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 1024</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00269">269</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00276">276</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -762,7 +789,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 4321</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00297">297</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00304">304</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -778,7 +805,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Account name must be alphanumeric characters only." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00309">309</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00316">316</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -794,7 +821,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Do you wish to create a new account named %s (Y/N)? "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00316">316</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00323">323</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -810,7 +837,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Please enter your account name: "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00323">323</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00330">330</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -826,7 +853,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Invalid account name." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00330">330</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00337">337</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -842,7 +869,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Account name must be between %d and %d characters." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00337">337</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00344">344</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -858,7 +885,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "That account name has been prohibited from use." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00344">344</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00351">351</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -874,7 +901,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "New account." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00351">351</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00358">358</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -890,7 +917,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "An error occured while attempting to create that account." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00358">358</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00365">365</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -906,7 +933,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: CRLF "Please confirm password: "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00365">365</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00372">372</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -922,7 +949,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Password: "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00372">372</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00379">379</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -938,7 +965,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: CRLF "Invalid account password." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00379">379</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00386">386</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -954,7 +981,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Account password must be between %d and %d characters." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00386">386</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00393">393</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -970,7 +997,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: CRLF "Passwords don't match." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00393">393</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00400">400</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -986,7 +1013,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Invalid command." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00400">400</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00407">407</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1002,7 +1029,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Server terminated."</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00407">407</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00414">414</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1045,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Normal termination of server."</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00414">414</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00421">421</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1034,7 +1061,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Loading commands..."</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00421">421</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00428">428</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1050,7 +1077,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Done."</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00428">428</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00435">435</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1066,7 +1093,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Loading settings..."</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00435">435</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00442">442</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1082,7 +1109,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Saving settings..."</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00442">442</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00449">449</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1098,7 +1125,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: CRLF "Idle limit reached. Goodbye." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00449">449</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00456">456</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1114,7 +1141,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Welcome to " CFG_STR_VERSION CRLF "For a list of commands type 'help'." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00456">456</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00463">463</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1130,7 +1157,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: 16384</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00463">463</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00470">470</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1146,7 +1173,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Goodbye." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00470">470</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00477">477</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1162,7 +1189,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Invalid selection." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00477">477</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00484">484</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1178,7 +1205,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "Server shutting down." CRLF</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00484">484</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00491">491</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1194,7 +1221,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "[ERROR ] "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00491">491</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00498">498</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1210,7 +1237,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "[INFO  ] "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00498">498</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00505">505</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1226,7 +1253,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "[SOCKET] "</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00505">505</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00512">512</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1242,7 +1269,71 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Default: "NAMS Development 0.0.0"</b></dt><dd></dd></dl>
 
-<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00512">512</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00519">519</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b23cb3990bd9b345c232ce589da9fce"></a><!-- doxytag: member="config.h::CFG_THG_ID_MAX_LEN" ref="a3b23cb3990bd9b345c232ce589da9fce" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="config_8h.xhtml#a3b23cb3990bd9b345c232ce589da9fce">CFG_THG_ID_MAX_LEN</a>&#160;&#160;&#160;128</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Default: 128</b></dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00531">531</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2dd1dea84bf866ad4be32a846a797973"></a><!-- doxytag: member="config.h::CFG_THG_ID_MIN_LEN" ref="a2dd1dea84bf866ad4be32a846a797973" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="config_8h.xhtml#a2dd1dea84bf866ad4be32a846a797973">CFG_THG_ID_MIN_LEN</a>&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Default: 1</b></dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00538">538</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3137447c34477fc0afc6ad3865a58c13"></a><!-- doxytag: member="config.h::CFG_THG_NAME_MAX_LEN" ref="a3137447c34477fc0afc6ad3865a58c13" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="config_8h.xhtml#a3137447c34477fc0afc6ad3865a58c13">CFG_THG_NAME_MAX_LEN</a>&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Default: 16</b></dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00545">545</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1bd78ab35ca3b3905154491d213bacee"></a><!-- doxytag: member="config.h::CFG_THG_NAME_MIN_LEN" ref="a1bd78ab35ca3b3905154491d213bacee" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="config_8h.xhtml#a1bd78ab35ca3b3905154491d213bacee">CFG_THG_NAME_MIN_LEN</a>&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Default: 128</b></dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="config_8h_source.xhtml#l00552">552</a> of file <a class="el" href="config_8h_source.xhtml">config.h</a>.</p>
 
 </div>
 </div>
@@ -1264,7 +1355,7 @@ Defines</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 16:00:35 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

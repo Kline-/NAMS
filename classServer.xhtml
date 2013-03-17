@@ -135,6 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990">Update</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps for ( <a class="el" href="macros_8h.xhtml#a5fc45be6b0bb71dc5d4c6390d98bf3ee" title="This is the maximum value usleep will take per man (3) usleep -- 1 second.">USLEEP_MAX</a> / <a class="el" href="config_8h.xhtml#abf59791d9bc371bb841717a963babfc3" title="How many cycles per second should be processed.">CFG_GAM_PULSE_RATE</a> ) each cycle.  <a href="#a50b81aa91d8fdaee6f52c5c5ec987990"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classCharacter.xhtml">Character</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ae2c7940456fb52deaa1e103753cf7b5b">gCharacterNext</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>'s globally referenced next iterator for <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> objects.  <a href="#ae2c7940456fb52deaa1e103753cf7b5b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServer_1_1Config.xhtml">Server::Config</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58">gConfig</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the runtime configuration of the server.  <a href="#a2b5b372322a87cdfeb7f6f5e4a01fa58"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052">gHostname</a> () const </td></tr>
@@ -152,6 +154,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8">gStatus</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Display miscellaneous data about the NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>, such as total data transfered, objects in memory, etc.  <a href="#aed2e8d1792f3ee019c859c19bfd187e8"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a82fee111e14e3fcd3ea0658f092bed6e">sCharacterNext</a> (list&lt; <a class="el" href="classCharacter.xhtml">Character</a> * &gt;::iterator next)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>'s globally referenced next iterator for <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> objects.  <a href="#a82fee111e14e3fcd3ea0658f092bed6e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244">sPort</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;port)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the port of a NAMS <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object.  <a href="#a89c8ebfdaa4826583f6b53c62b86b244"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354">sSocketClientNext</a> (list&lt; <a class="el" href="classSocketClient.xhtml">SocketClient</a> * &gt;::iterator next)</td></tr>
@@ -167,6 +171,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> class.  <a href="#a4b3aa2579cb1c8cd1d069582c14d0fa6"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classCharacter.xhtml">Character</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#aa34889b0acf8da2b2fd59637a2a316c5">m_character_next</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServer_1_1Config.xhtml">Server::Config</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#a1747867dad63252314aa7083b0084e2b">m_dir_close</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer.xhtml#ad14d47d1da6c22097a242519709e960c">m_dir_open</a></td></tr>
@@ -197,8 +202,9 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00974">974</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01025">1025</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
+    <a class="code" href="classServer.xhtml#aa34889b0acf8da2b2fd59637a2a316c5">m_character_next</a> = <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.begin();
     <a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a> = <span class="keyword">new</span> <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a>();
     <a class="code" href="classServer.xhtml#a1747867dad63252314aa7083b0084e2b">m_dir_close</a> = 0;
     <a class="code" href="classServer.xhtml#ad14d47d1da6c22097a242519709e960c">m_dir_open</a> = 0;
@@ -230,7 +236,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00994">994</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01046">1046</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -477,6 +483,33 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae2c7940456fb52deaa1e103753cf7b5b"></a><!-- doxytag: member="Server::gCharacterNext" ref="ae2c7940456fb52deaa1e103753cf7b5b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list&lt; <a class="el" href="classCharacter.xhtml">Character</a> * &gt;::iterator <a class="el" href="classServer.xhtml#ae2c7940456fb52deaa1e103753cf7b5b">Server::gCharacterNext</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Character*</td><td>The <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>'s globally referenced next iterator for <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> objects. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00703">703</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#aa34889b0acf8da2b2fd59637a2a316c5">m_character_next</a>;
+}
+</pre></div>
+</div>
+</div>
 <a class="anchor" id="a2b5b372322a87cdfeb7f6f5e4a01fa58"></a><!-- doxytag: member="Server::gConfig" ref="a2b5b372322a87cdfeb7f6f5e4a01fa58" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -497,7 +530,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00694">694</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00712">712</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a>;
 }
@@ -534,7 +567,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000005">Todo:</a></b></dt><dd>Move this to Server::sHostname() and redo this func as a simple getter. Don't need to query the host server multiple times. </dd></dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00704">704</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00722">722</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keywordtype">string</span> output;
@@ -584,7 +617,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00727">727</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00745">745</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a>;
 }
@@ -620,7 +653,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00736">736</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00754">754</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>;
 }
@@ -656,7 +689,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00745">745</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00763">763</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a>;
 }
@@ -692,7 +725,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00754">754</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00772">772</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a>;
 }
@@ -728,7 +761,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00763">763</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00781">781</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a>;
 }
@@ -765,7 +798,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000006">Todo:</a></b></dt><dd>Write this entire function. </dd></dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00773">773</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00791">791</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordtype">string</span> output;
 
@@ -1422,6 +1455,42 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a82fee111e14e3fcd3ea0658f092bed6e"></a><!-- doxytag: member="Server::sCharacterNext" ref="a82fee111e14e3fcd3ea0658f092bed6e" args="(list&lt; Character * &gt;::iterator next)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void <a class="el" href="classServer.xhtml#a82fee111e14e3fcd3ea0658f092bed6e">Server::sCharacterNext</a> </td>
+          <td>(</td>
+          <td class="paramtype">list&lt; <a class="el" href="classCharacter.xhtml">Character</a> * &gt;::iterator&#160;</td>
+          <td class="paramname"><em>next</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">next</td><td>The next <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> in character_list after removing an element. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00922">922</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="classServer.xhtml#aa34889b0acf8da2b2fd59637a2a316c5">m_character_next</a> = next;
+
+    <span class="keywordflow">return</span>;
+}
+</pre></div>
+</div>
+</div>
 <a class="anchor" id="a9b7082bbc9faca6eb84180f856116762"></a><!-- doxytag: member="Server::Shutdown" ref="a9b7082bbc9faca6eb84180f856116762" args="(const sint_t &amp;status)" -->
 <div class="memitem">
 <div class="memproto">
@@ -1530,7 +1599,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00887">887</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00935">935</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="comment">// No logger output; this should only be called pre-boot</span>
     <span class="keywordflow">if</span> ( port &lt;= CFG_SOC_MIN_PORTNUM || port &gt;= <a class="code" href="config_8h.xhtml#a234e78c07d081a99b72af652cfa37cb8" title="The listening server socket must be below this port.">CFG_SOC_MAX_PORTNUM</a> )
@@ -1579,7 +1648,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00903">903</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00951">951</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = next;
 
@@ -1625,7 +1694,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00916">916</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00964">964</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1679,7 +1748,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00937">937</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00985">985</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1877,6 +1946,22 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="aa34889b0acf8da2b2fd59637a2a316c5"></a><!-- doxytag: member="Server::m_character_next" ref="aa34889b0acf8da2b2fd59637a2a316c5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list&lt;<a class="el" href="classCharacter.xhtml">Character</a>*&gt;::iterator <a class="el" href="classServer.xhtml#aa34889b0acf8da2b2fd59637a2a316c5">Server::m_character_next</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Used as the next iterator in all loops dealing with <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> objects to prevent nested processing loop problems. </p>
+
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00108">108</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a33d437db218d598288ea0d78bf14077b"></a><!-- doxytag: member="Server::m_config" ref="a33d437db218d598288ea0d78bf14077b" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -1889,7 +1974,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Runtime configuration settings. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00106">106</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00109">109</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -1905,7 +1990,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Total number of directories closed by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00107">107</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00110">110</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -1921,7 +2006,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Total number of directories opened by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00108">108</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00111">111</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -1937,7 +2022,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Port number to be passed to the associated <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00109">109</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00112">112</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -1953,7 +2038,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Shutdown state of the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00110">110</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00113">113</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -1969,7 +2054,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Pointer to the associated <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> object. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00111">111</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00114">114</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -1985,7 +2070,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Used as the next iterator in all loops dealing with <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects to prevent nested processing loop problems. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00112">112</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00115">115</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -2001,7 +2086,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Total number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> objects closed by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00113">113</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00116">116</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -2017,7 +2102,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Total number of <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> and <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> objects opened by the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a>. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00114">114</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00117">117</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -2033,7 +2118,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Time the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> was first booted. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00115">115</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00118">118</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -2049,7 +2134,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Current time from the host OS. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00116">116</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00119">119</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -2075,7 +2160,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 16:00:35 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

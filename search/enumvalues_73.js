@@ -12,5 +12,7 @@ var searchData=
   ['soc_5fstate_5fload_5faccount',['SOC_STATE_LOAD_ACCOUNT',['../enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7a0578d117dea969aded3b50085da44adf',1,'enum.h']]],
   ['soc_5fstate_5flogin_5fscreen',['SOC_STATE_LOGIN_SCREEN',['../enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7aa97346118bd6336de5373254e8cbd15f',1,'enum.h']]],
   ['soc_5fstate_5fplaying',['SOC_STATE_PLAYING',['../enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7a9461d3679b682710a261f18d7876a395',1,'enum.h']]],
-  ['soc_5ftelopt_5fecho',['SOC_TELOPT_ECHO',['../enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594',1,'enum.h']]]
+  ['soc_5ftelopt_5fecho',['SOC_TELOPT_ECHO',['../enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594',1,'enum.h']]],
+  ['svr_5fcfg_5fprohibited_5fnames_5faccount',['SVR_CFG_PROHIBITED_NAMES_ACCOUNT',['../enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7ace193a596bade4a7d0d31de31b2c563b',1,'enum.h']]],
+  ['svr_5fcfg_5fprohibited_5fnames_5fcharacter',['SVR_CFG_PROHIBITED_NAMES_CHARACTER',['../enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a0b97df46a200cf2a2446c483fad0c6c6',1,'enum.h']]]
 ];

@@ -104,6 +104,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#a9d26a3cae2d36c829a42cab3d5c9fe05">ClearCharacter</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This will set the m_character pointer to NULL, invalidating any references. This exists outside of <a class="el" href="classAccount.xhtml#a42914cf1147f5c5a480dbfcb9a0ff3fe" title="Sets the active Character associated with the account.">sCharacter()</a> to ensure that there is an explicit desire to invalidate the character pointer.  <a href="#a9d26a3cae2d36c829a42cab3d5c9fe05"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#aa82e62e930fb3a8ac58a4592f323db75">Delete</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload an account from memory that was previously loaded via <a class="el" href="classAccount.xhtml#adc4545f17264112e532b5a48abe94baf" title="Create a new account.">Account::New()</a>.  <a href="#aa82e62e930fb3a8ac58a4592f323db75"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#adc4545f17264112e532b5a48abe94baf">New</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const bool &amp;exists)</td></tr>
@@ -113,6 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#ae236325fef7b2269f54e9567577e0b92">Unserialize</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unserialize the account data from <a class="el" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a>.  <a href="#ae236325fef7b2269f54e9567577e0b92"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCharacter.xhtml">Character</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#a1d2b9eb6c351b9d43d16e649fa599466">gCharacter</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the associated <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>, if any.  <a href="#a1d2b9eb6c351b9d43d16e649fa599466"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9">gClient</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the associated <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>.  <a href="#a1314e9f054a5354c77c20f48e1c6d7f9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const list&lt; pair&lt; string, <br class="typebreak"/>
@@ -123,6 +127,8 @@ string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54">gSecurity</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the authorized security level of the account.  <a href="#a9a9ee5a78d3353c688c6418c2a88ba54"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#a42914cf1147f5c5a480dbfcb9a0ff3fe">sCharacter</a> (<a class="el" href="classCharacter.xhtml">Character</a> *character)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> associated with the account.  <a href="#a42914cf1147f5c5a480dbfcb9a0ff3fe"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#ae5536f896c11d85f4f948484dd70449a">aLogin</a> (const string &amp;date, const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a hostname to the list of previous successful logins. Bumps the oldest entry.  <a href="#ae5536f896c11d85f4f948484dd70449a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#a714070b95fbb57cb2f1a8e68046d92ef">sSecurity</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;security)</td></tr>
@@ -134,6 +140,8 @@ string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a> class.  <a href="#a569c9ef0e42b9157690b4ceb646daba8"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCharacter.xhtml">Character</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#af9e8554557e92e13ba37da963ca7c2d7">m_character</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">forward_list&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#aafeee8895a03153e8619e349acfa5374">m_characters</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#abaabaa011c36988830dfb36ee18d79c9">m_client</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">list&lt; pair&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">m_logins</a> [<a class="el" href="enum_8h.xhtml#a5ed7c456fadb6b481136921090268797a72df719bd3dcc79326c55af673f3f6f4">MAX_ACT_LOGIN</a>]</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">m_name</a></td></tr>
@@ -142,7 +150,7 @@ Private Attributes</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00034">34</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
+<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00035">35</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a366660970b5eeb5c17436062327f1b14"></a><!-- doxytag: member="Account::Account" ref="a366660970b5eeb5c17436062327f1b14" args="()" -->
 <div class="memitem">
@@ -158,10 +166,12 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00367">367</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00436">436</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
 
+    <a class="code" href="classAccount.xhtml#af9e8554557e92e13ba37da963ca7c2d7">m_character</a> = NULL;
+    <a class="code" href="classAccount.xhtml#aafeee8895a03153e8619e349acfa5374">m_characters</a>.clear();
     <a class="code" href="classAccount.xhtml#abaabaa011c36988830dfb36ee18d79c9">m_client</a> = NULL;
     <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a5ed7c456fadb6b481136921090268797a72df719bd3dcc79326c55af673f3f6f4">MAX_ACT_LOGIN</a>; i++ )
         <a class="code" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">m_logins</a>[i].clear();
@@ -188,7 +198,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00384">384</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00455">455</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -242,7 +252,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00312">312</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00381">381</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -283,6 +293,35 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9d26a3cae2d36c829a42cab3d5c9fe05"></a><!-- doxytag: member="Account::ClearCharacter" ref="a9d26a3cae2d36c829a42cab3d5c9fe05" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void <a class="el" href="classAccount.xhtml#a9d26a3cae2d36c829a42cab3d5c9fe05">Account::ClearCharacter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00034">34</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="classAccount.xhtml#af9e8554557e92e13ba37da963ca7c2d7">m_character</a> = NULL;
+
+    <span class="keywordflow">return</span>;
+}
+</pre></div>
+</div>
+</div>
 <a class="anchor" id="aa82e62e930fb3a8ac58a4592f323db75"></a><!-- doxytag: member="Account::Delete" ref="aa82e62e930fb3a8ac58a4592f323db75" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -303,7 +342,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00035">35</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00045">45</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keyword">delete</span> <span class="keyword">this</span>;
 
@@ -319,6 +358,33 @@ Private Attributes</h2></td></tr>
 </div>
 </p>
 
+</div>
+</div>
+<a class="anchor" id="a1d2b9eb6c351b9d43d16e649fa599466"></a><!-- doxytag: member="Account::gCharacter" ref="a1d2b9eb6c351b9d43d16e649fa599466" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCharacter.xhtml">Character</a> * <a class="el" href="classAccount.xhtml#a1d2b9eb6c351b9d43d16e649fa599466">Account::gCharacter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Character*</td><td>A pointer to the associated <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>, or NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00297">297</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classAccount.xhtml#af9e8554557e92e13ba37da963ca7c2d7">m_character</a>;
+}
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a1314e9f054a5354c77c20f48e1c6d7f9"></a><!-- doxytag: member="Account::gClient" ref="a1314e9f054a5354c77c20f48e1c6d7f9" args="() const " -->
@@ -341,7 +407,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00262">262</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00306">306</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classAccount.xhtml#abaabaa011c36988830dfb36ee18d79c9">m_client</a>;
 }
@@ -384,11 +450,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00272">272</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00316">316</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <span class="keywordflow">if</span> ( type &gt;= <a class="code" href="enum_8h.xhtml#a5ed7c456fadb6b481136921090268797a72df719bd3dcc79326c55af673f3f6f4">MAX_ACT_LOGIN</a> )
+    <span class="keywordflow">if</span> ( type &lt; uintmin_t || type &gt;= <a class="code" href="enum_8h.xhtml#a5ed7c456fadb6b481136921090268797a72df719bd3dcc79326c55af673f3f6f4">MAX_ACT_LOGIN</a> )
     {
         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Account::gLogins()-&gt; called with invalid type %lu&quot;</span>, type );
         <span class="keywordflow">return</span> list&lt;pair&lt;string,string&gt;&gt;();
@@ -419,7 +485,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00289">289</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00333">333</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">m_name</a>;
 }
@@ -446,7 +512,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00298">298</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00342">342</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classAccount.xhtml#a7d0c6fc3a665919f8cc292ad3c33aef9">m_security</a>;
 }
@@ -501,7 +567,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00049">49</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00059">59</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -584,6 +650,55 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a42914cf1147f5c5a480dbfcb9a0ff3fe"></a><!-- doxytag: member="Account::sCharacter" ref="a42914cf1147f5c5a480dbfcb9a0ff3fe" args="(Character *character)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classAccount.xhtml#a42914cf1147f5c5a480dbfcb9a0ff3fe">Account::sCharacter</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCharacter.xhtml">Character</a> *&#160;</td>
+          <td class="paramname"><em>character</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">character</td><td>A pointer to a <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> was unable to be associated to the account. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> was successfully associated to the account. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00354">354</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( character == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Account::sCharacter()-&gt; called with NULL character&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">if</span> ( <a class="code" href="classAccount.xhtml#af9e8554557e92e13ba37da963ca7c2d7">m_character</a> != NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Account::sCharacter()-&gt; called while m_character is not NULL&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+</div>
+</div>
 <a class="anchor" id="a87dfcb1fd6c275ea89ec6f279e7ee8ff"></a><!-- doxytag: member="Account::Serialize" ref="a87dfcb1fd6c275ea89ec6f279e7ee8ff" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -606,7 +721,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000001">Todo:</a></b></dt><dd>Need to find a nicer way to do this </dd></dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00117">117</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00127">127</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     ofstream ofs;
@@ -614,7 +729,8 @@ Private Attributes</h2></td></tr>
     stringstream line;
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
     <span class="keywordtype">string</span> file( <a class="code" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext.">Utils::FileExt</a>( <a class="code" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">m_name</a>, <a class="code" href="config_8h.xhtml#a06ca80b984aa3c3675dd3ac21f08b83d" title="File extension to use for account setting files.">CFG_DAT_FILE_ACT_EXT</a> ) );
-    list&lt;pair&lt;string,string&gt;&gt;::const_iterator li;
+    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( forward_list, <span class="keywordtype">string</span>, li );
+    list&lt;pair&lt;string,string&gt;&gt;::const_iterator pi;
 
     <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ofs, file );
 
@@ -626,6 +742,20 @@ Private Attributes</h2></td></tr>
 
     <span class="comment">// First to ensure name is loaded for logging later</span>
     <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;name&quot;</span>, <a class="code" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">m_name</a> );
+    <a class="code" href="macros_8h.xhtml#a820638a5bca755f5ec10ced9cd8e1a37" title="Begins writing (name) to (stream) in key:value format.">KEYLIST</a>( ofs, <span class="stringliteral">&quot;characters&quot;</span> );
+    {
+        <span class="keywordflow">if</span> ( !<a class="code" href="classAccount.xhtml#aafeee8895a03153e8619e349acfa5374">m_characters</a>.empty() )
+        {
+            <span class="keywordflow">for</span> ( li = <a class="code" href="classAccount.xhtml#aafeee8895a03153e8619e349acfa5374">m_characters</a>.begin(); li != <a class="code" href="classAccount.xhtml#aafeee8895a03153e8619e349acfa5374">m_characters</a>.end(); li++ )
+                line &lt;&lt; *li &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+
+            value = line.str();
+            value.erase( value.end() - 1 );
+            ofs &lt;&lt; value &lt;&lt; endl;
+        }
+        <span class="keywordflow">else</span>
+            ofs &lt;&lt; endl;
+    }
     <a class="code" href="macros_8h.xhtml#a56c55a4fe68d269a30a5dbddbb210b47" title="Begins writing (name)[iter] to (stream) in key:value format.">KEYLISTLOOP</a>( ofs, <span class="stringliteral">&quot;logins&quot;</span>, i ); 
     {
         <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a5ed7c456fadb6b481136921090268797a72df719bd3dcc79326c55af673f3f6f4">MAX_ACT_LOGIN</a>; i++ )
@@ -635,8 +765,8 @@ Private Attributes</h2></td></tr>
 
             <span class="keywordflow">if</span> ( !<a class="code" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">m_logins</a>[i].empty() )
             {
-                <span class="keywordflow">for</span> ( li = <a class="code" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">m_logins</a>[i].begin(); li != <a class="code" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">m_logins</a>[i].end(); li++ )
-                    line &lt;&lt; <a class="code" href="namespaceUtils.xhtml#a1cd33b86e538bb0c765d5c0bcde259e1" title="Generates a string from the pair of t and v.">Utils::MakePair</a>( li-&gt;first, li-&gt;second ) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+                <span class="keywordflow">for</span> ( pi = <a class="code" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">m_logins</a>[i].begin(); pi != <a class="code" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">m_logins</a>[i].end(); pi++ )
+                    line &lt;&lt; <a class="code" href="namespaceUtils.xhtml#a1cd33b86e538bb0c765d5c0bcde259e1" title="Generates a string from the pair of t and v.">Utils::MakePair</a>( pi-&gt;first, pi-&gt;second ) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
 
                 value = line.str();
                 value.erase( value.end() - 1 );
@@ -702,7 +832,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00348">348</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00417">417</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -741,15 +871,17 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000002">Todo:</a></b></dt><dd>Need to find a nicer way to do this </dd></dl>
 
-<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00170">170</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
+<p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00195">195</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="macros_8h.xhtml#a6e32552c1b3df78e64aa5205ddf6dae9" title="Define a bitset variable (name) with UTILS_TYPE_INFO already enabled.">UFLAGS_I</a>( finfo );
     ifstream ifs;
-    <span class="keywordtype">string</span> key, value, line, token;
+    <span class="keywordtype">string</span> key, value, line, arg;
     stringstream loop;
     <span class="keywordtype">bool</span> found = <span class="keyword">false</span>, maxb = <span class="keyword">false</span>;
     pair&lt;string,string&gt; item;
+    vector&lt;string&gt; token;
+    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <span class="keywordtype">string</span>, ti );
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
     <span class="keywordtype">string</span> file( <a class="code" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext.">Utils::FileExt</a>( <a class="code" href="classAccount.xhtml#abaabaa011c36988830dfb36ee18d79c9">m_client</a>-&gt;<a class="code" href="classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key.">gLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa2795241d82649418f379522adb32897a">SOC_LOGIN_NAME</a> ), <a class="code" href="config_8h.xhtml#a06ca80b984aa3c3675dd3ac21f08b83d" title="File extension to use for account setting files.">CFG_DAT_FILE_ACT_EXT</a> ) );
 
@@ -775,6 +907,14 @@ Private Attributes</h2></td></tr>
 
             <span class="comment">// First to ensure name is loaded for logging later</span>
             <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" title="If the contents of keyd == valu, assigns loc = item.">Utils::KeySet</a>( <span class="keyword">true</span>, found, key, <span class="stringliteral">&quot;name&quot;</span>, value, <a class="code" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">m_name</a> );
+            <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;characters&quot;</span> )
+            {
+                found = <span class="keyword">true</span>;
+                token = <a class="code" href="namespaceUtils.xhtml#a402a36406edb7938330204e83b1abe83" title="Returns a vector of strings split at spaces based on input.">Utils::StrTokens</a>( value, <span class="keyword">true</span> );
+                <span class="keywordflow">for</span> ( ti = token.begin(); ti != token.end(); ti++ )
+                    <a class="code" href="classAccount.xhtml#aafeee8895a03153e8619e349acfa5374">m_characters</a>.push_front( *ti );
+                <a class="code" href="classAccount.xhtml#aafeee8895a03153e8619e349acfa5374">m_characters</a>.reverse();
+            }
             <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a" title="Returns if string s1 is a prefix of string s2.">Utils::StrPrefix</a>( <span class="stringliteral">&quot;logins&quot;</span>, key ) ) 
             {
                 <span class="keywordflow">for</span> ( ; i &lt; <a class="code" href="enum_8h.xhtml#a5ed7c456fadb6b481136921090268797a72df719bd3dcc79326c55af673f3f6f4">MAX_ACT_LOGIN</a>; i++ )
@@ -791,8 +931,8 @@ Private Attributes</h2></td></tr>
 
                 <span class="keywordflow">while</span> ( !value.empty() )
                 {
-                    token = <a class="code" href="namespaceUtils.xhtml#af8586b5c4d77ae0617279186b2bfdb66" title="Returns the first delimeter separated argument from input and then erases it from input...">Utils::Argument</a>( value, <span class="stringliteral">&quot;} &quot;</span> );
-                    item = <a class="code" href="namespaceUtils.xhtml#a11bfe61c6e77603d59116397b1d3f580" title="Returns a pair of type T,V after receiving an input string generated from Utils::MakePair().">Utils::ReadPair</a>( token );
+                    arg = <a class="code" href="namespaceUtils.xhtml#af8586b5c4d77ae0617279186b2bfdb66" title="Returns the first delimeter separated argument from input and then erases it from input...">Utils::Argument</a>( value, <span class="stringliteral">&quot;} &quot;</span> );
+                    item = <a class="code" href="namespaceUtils.xhtml#a11bfe61c6e77603d59116397b1d3f580" title="Returns a pair of type T,V after receiving an input string generated from Utils::MakePair().">Utils::ReadPair</a>( arg );
                     <a class="code" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">m_logins</a>[i].push_back( pair&lt;string,string&gt;( item.first, item.second ) );
                 }
             }
@@ -849,6 +989,38 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="af9e8554557e92e13ba37da963ca7c2d7"></a><!-- doxytag: member="Account::m_character" ref="af9e8554557e92e13ba37da963ca7c2d7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCharacter.xhtml">Character</a>* <a class="el" href="classAccount.xhtml#af9e8554557e92e13ba37da963ca7c2d7">Account::m_character</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The active <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>, if any. </p>
+
+<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00065">65</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aafeee8895a03153e8619e349acfa5374"></a><!-- doxytag: member="Account::m_characters" ref="aafeee8895a03153e8619e349acfa5374" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">forward_list&lt;string&gt; <a class="el" href="classAccount.xhtml#aafeee8895a03153e8619e349acfa5374">Account::m_characters</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The names of all characters associated with the account. </p>
+
+<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00066">66</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="abaabaa011c36988830dfb36ee18d79c9"></a><!-- doxytag: member="Account::m_client" ref="abaabaa011c36988830dfb36ee18d79c9" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -861,7 +1033,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The client attached to the account. </p>
 
-<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00061">61</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
+<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00067">67</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
 
 </div>
 </div>
@@ -877,7 +1049,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Date and hostname of previous login failures/successes. </p>
 
-<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00062">62</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
+<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00068">68</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
 
 </div>
 </div>
@@ -893,7 +1065,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The name of the account. </p>
 
-<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00063">63</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
+<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00069">69</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
 
 </div>
 </div>
@@ -909,7 +1081,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The encrypted password of the account. </p>
 
-<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00064">64</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
+<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00070">70</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
 
 </div>
 </div>
@@ -925,7 +1097,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Security level for commands and restricted access. </p>
 
-<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00065">65</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
+<p>Definition at line <a class="el" href="account_8h_source.xhtml#l00071">71</a> of file <a class="el" href="account_8h_source.xhtml">account.h</a>.</p>
 
 </div>
 </div>
@@ -951,7 +1123,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 16:00:35 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

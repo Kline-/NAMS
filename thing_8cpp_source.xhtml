@@ -105,21 +105,73 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="thing_8h.xhtml" title="The Thing class.">h/thing.h</a>&quot;</span>
 <a name="l00028"></a>00028 
 <a name="l00029"></a>00029 <span class="comment">/* Core */</span>
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="comment">/* Query */</span>
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="comment">/* Manipulate */</span>
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="comment">/* Internal */</span>
-<a name="l00039"></a><a class="code" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43">00039</a> <a class="code" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43" title="Constructor for the Thing class.">Thing::Thing</a>()
-<a name="l00040"></a>00040 {
-<a name="l00041"></a>00041     <span class="keywordflow">return</span>;
-<a name="l00042"></a>00042 }
-<a name="l00043"></a>00043 
-<a name="l00047"></a><a class="code" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984">00047</a> <a class="code" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984" title="Destructor for the Thing class.">Thing::~Thing</a>()
+<a name="l00034"></a><a class="code" href="classThing.xhtml#a89651e38dd04d9741d4a112606532211">00034</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classThing.xhtml#a89651e38dd04d9741d4a112606532211" title="Unload a thing from memory that was previously loaded via Thing::New().">Thing::Delete</a>()
+<a name="l00035"></a>00035 {
+<a name="l00036"></a>00036     <span class="keyword">delete</span> <span class="keyword">this</span>;
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038     <span class="keywordflow">return</span>;
+<a name="l00039"></a>00039 }
+<a name="l00040"></a>00040 
+<a name="l00047"></a><a class="code" href="classThing.xhtml#a6ba8cdef3685ed564e6b549d0493e5eb">00047</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classThing.xhtml#a6ba8cdef3685ed564e6b549d0493e5eb" title="Create a new thing.">Thing::New</a>( <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>* server )
 <a name="l00048"></a>00048 {
-<a name="l00049"></a>00049     <span class="keywordflow">return</span>;
+<a name="l00049"></a>00049     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00050"></a>00050 }
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="comment">/* Query */</span>
+<a name="l00057"></a><a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">00057</a> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">Thing::gId</a>()<span class="keyword"> const</span>
+<a name="l00058"></a>00058 <span class="keyword"></span>{
+<a name="l00059"></a>00059     <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>;
+<a name="l00060"></a>00060 }
+<a name="l00061"></a>00061 
+<a name="l00066"></a><a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">00066</a> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">Thing::gName</a>()<span class="keyword"> const</span>
+<a name="l00067"></a>00067 <span class="keyword"></span>{
+<a name="l00068"></a>00068     <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>;
+<a name="l00069"></a>00069 }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="comment">/* Manipulate */</span>
+<a name="l00078"></a><a class="code" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b">00078</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b" title="Sets the id of this Thing.">Thing::sId</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span> )
+<a name="l00079"></a>00079 {
+<a name="l00080"></a>00080     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082     <span class="keywordflow">if</span> ( <span class="keywordtype">id</span>.length() &lt; <a class="code" href="config_8h.xhtml#a2dd1dea84bf866ad4be32a846a797973" title="The minimum allowable length for a thing id.">CFG_THG_ID_MIN_LEN</a> || <span class="keywordtype">id</span>.length() &gt; <a class="code" href="config_8h.xhtml#a3b23cb3990bd9b345c232ce589da9fce" title="The maximum allowable length for a thing id.">CFG_THG_ID_MAX_LEN</a> )
+<a name="l00083"></a>00083     {
+<a name="l00084"></a>00084         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Thing::sId()-&gt; called with invalid id length %lu&quot;</span>, <span class="keywordtype">id</span>.length() );
+<a name="l00085"></a>00085         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00086"></a>00086     }
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088     <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a> = id;
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00091"></a>00091 }
+<a name="l00092"></a>00092 
+<a name="l00100"></a><a class="code" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41">00100</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41" title="Sets the name of this Thing.">Thing::sName</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; system )
+<a name="l00101"></a>00101 {
+<a name="l00102"></a>00102     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104     <span class="keywordflow">if</span> ( ( name.length() &lt; <a class="code" href="config_8h.xhtml#a1bd78ab35ca3b3905154491d213bacee" title="The minimum allowable length for a thing name when the thing is associated to an account.">CFG_THG_NAME_MIN_LEN</a> || name.length() &gt; <a class="code" href="config_8h.xhtml#a3137447c34477fc0afc6ad3865a58c13" title="The maximum allowable length for a thing name when the thing is associated to an account.">CFG_THG_NAME_MAX_LEN</a> ) &amp;&amp; !system )
+<a name="l00105"></a>00105     {
+<a name="l00106"></a>00106         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Thing::sName()-&gt; called with invalid name length %lu&quot;</span>, name.length() );
+<a name="l00107"></a>00107         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00108"></a>00108     }
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110     <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a> = name;
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00113"></a>00113 }
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 <span class="comment">/* Internal */</span>
+<a name="l00119"></a><a class="code" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43">00119</a> <a class="code" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43" title="Constructor for the Thing class.">Thing::Thing</a>()
+<a name="l00120"></a>00120 {
+<a name="l00121"></a>00121     <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>.clear();
+<a name="l00122"></a>00122     <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>.clear();
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124     <span class="keywordflow">return</span>;
+<a name="l00125"></a>00125 }
+<a name="l00126"></a>00126 
+<a name="l00130"></a><a class="code" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984">00130</a> <a class="code" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984" title="Destructor for the Thing class.">Thing::~Thing</a>()
+<a name="l00131"></a>00131 {
+<a name="l00132"></a>00132     <span class="keywordflow">return</span>;
+<a name="l00133"></a>00133 }
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -138,7 +190,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 16:00:35 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

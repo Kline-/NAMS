@@ -689,240 +689,282 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00678"></a>00678 }
 <a name="l00679"></a>00679 
 <a name="l00680"></a>00680 <span class="comment">/* Query */</span>
-<a name="l00685"></a><a class="code" href="classServer_1_1Config.xhtml#ae93688e4861753dd11a8b537e092ab77">00685</a> forward_list&lt;string&gt; <a class="code" href="classServer_1_1Config.xhtml#ae93688e4861753dd11a8b537e092ab77" title="Returns an a copy of the account prohibited names list.">Server::Config::gAccountProhibitedNames</a>()<span class="keyword"> const</span>
-<a name="l00686"></a>00686 <span class="keyword"></span>{
-<a name="l00687"></a>00687     <span class="keywordflow">return</span> <a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>;
-<a name="l00688"></a>00688 }
+<a name="l00686"></a><a class="code" href="classServer_1_1Config.xhtml#a69c39210f0791ea8af97ee05c38efabc">00686</a> forward_list&lt;string&gt; <a class="code" href="classServer_1_1Config.xhtml#a69c39210f0791ea8af97ee05c38efabc" title="Returns an a copy of the prohibited names list using type from SVR_CFG_PROHIBITED_NAMES.">Server::Config::gProhibitedNames</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type )<span class="keyword"> const</span>
+<a name="l00687"></a>00687 <span class="keyword"></span>{
+<a name="l00688"></a>00688     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 <a name="l00689"></a>00689 
-<a name="l00694"></a><a class="code" href="classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58">00694</a> <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a>* <a class="code" href="classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58" title="Gets the runtime configuration of the server.">Server::gConfig</a>()<span class="keyword"> const</span>
-<a name="l00695"></a>00695 <span class="keyword"></span>{
-<a name="l00696"></a>00696     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a>;
+<a name="l00690"></a>00690     <span class="keywordflow">if</span> ( type &lt; uintmin_t || type &gt;= <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a> )
+<a name="l00691"></a>00691     {
+<a name="l00692"></a>00692         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::gProhibitedNames()-&gt; called with invalid type %lu&quot;</span>, type );
+<a name="l00693"></a>00693         <span class="keywordflow">return</span> forward_list&lt;string&gt;();
+<a name="l00694"></a>00694     }
+<a name="l00695"></a>00695 
+<a name="l00696"></a>00696     <span class="keywordflow">return</span> <a class="code" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">m_prohibited_names</a>[type];
 <a name="l00697"></a>00697 }
 <a name="l00698"></a>00698 
-<a name="l00704"></a><a class="code" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052">00704</a> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" title="Gets the hostname of the machine that NAMS is running on.">Server::gHostname</a>()<span class="keyword"> const</span>
-<a name="l00705"></a>00705 <span class="keyword"></span>{
-<a name="l00706"></a>00706     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00707"></a>00707     <span class="keywordtype">string</span> output;
-<a name="l00708"></a>00708     <span class="keywordtype">char</span> hostname[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>] = {<span class="charliteral">&#39;\0&#39;</span>};
-<a name="l00709"></a>00709 
-<a name="l00710"></a>00710     <span class="keywordflow">if</span> ( ::gethostname( hostname, <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> - 1 ) &lt; 0 )
-<a name="l00711"></a>00711     {
-<a name="l00712"></a>00712         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Server::gHostname()-&gt;gethostname()-&gt;&quot;</span> );
-<a name="l00713"></a>00713         output = <span class="stringliteral">&quot;(unknown)&quot;</span>;
-<a name="l00714"></a>00714 
-<a name="l00715"></a>00715         <span class="keywordflow">return</span> output;
-<a name="l00716"></a>00716     }
-<a name="l00717"></a>00717 
-<a name="l00718"></a>00718     output = hostname;
-<a name="l00719"></a>00719 
-<a name="l00720"></a>00720     <span class="keywordflow">return</span> output;
-<a name="l00721"></a>00721 }
-<a name="l00722"></a>00722 
-<a name="l00727"></a><a class="code" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">00727</a> <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411" title="Returns the port that any SocketServer should bind to. Defaults to CFG_SOC_PORTNUM.">Server::gPort</a>()<span class="keyword"> const</span>
-<a name="l00728"></a>00728 <span class="keyword"></span>{
-<a name="l00729"></a>00729     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a>;
-<a name="l00730"></a>00730 }
-<a name="l00731"></a>00731 
-<a name="l00736"></a><a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71">00736</a> <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* <a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">Server::gSocket</a>()<span class="keyword"> const</span>
-<a name="l00737"></a>00737 <span class="keyword"></span>{
-<a name="l00738"></a>00738     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>;
+<a name="l00703"></a><a class="code" href="classServer.xhtml#ae2c7940456fb52deaa1e103753cf7b5b">00703</a> list&lt;Character*&gt;::iterator <a class="code" href="classServer.xhtml#ae2c7940456fb52deaa1e103753cf7b5b" title="Returns the Server&#39;s globally referenced next iterator for Character objects.">Server::gCharacterNext</a>()<span class="keyword"> const</span>
+<a name="l00704"></a>00704 <span class="keyword"></span>{
+<a name="l00705"></a>00705     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#aa34889b0acf8da2b2fd59637a2a316c5">m_character_next</a>;
+<a name="l00706"></a>00706 }
+<a name="l00707"></a>00707 
+<a name="l00712"></a><a class="code" href="classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58">00712</a> <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a>* <a class="code" href="classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58" title="Gets the runtime configuration of the server.">Server::gConfig</a>()<span class="keyword"> const</span>
+<a name="l00713"></a>00713 <span class="keyword"></span>{
+<a name="l00714"></a>00714     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a>;
+<a name="l00715"></a>00715 }
+<a name="l00716"></a>00716 
+<a name="l00722"></a><a class="code" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052">00722</a> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" title="Gets the hostname of the machine that NAMS is running on.">Server::gHostname</a>()<span class="keyword"> const</span>
+<a name="l00723"></a>00723 <span class="keyword"></span>{
+<a name="l00724"></a>00724     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00725"></a>00725     <span class="keywordtype">string</span> output;
+<a name="l00726"></a>00726     <span class="keywordtype">char</span> hostname[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>] = {<span class="charliteral">&#39;\0&#39;</span>};
+<a name="l00727"></a>00727 
+<a name="l00728"></a>00728     <span class="keywordflow">if</span> ( ::gethostname( hostname, <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> - 1 ) &lt; 0 )
+<a name="l00729"></a>00729     {
+<a name="l00730"></a>00730         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Server::gHostname()-&gt;gethostname()-&gt;&quot;</span> );
+<a name="l00731"></a>00731         output = <span class="stringliteral">&quot;(unknown)&quot;</span>;
+<a name="l00732"></a>00732 
+<a name="l00733"></a>00733         <span class="keywordflow">return</span> output;
+<a name="l00734"></a>00734     }
+<a name="l00735"></a>00735 
+<a name="l00736"></a>00736     output = hostname;
+<a name="l00737"></a>00737 
+<a name="l00738"></a>00738     <span class="keywordflow">return</span> output;
 <a name="l00739"></a>00739 }
 <a name="l00740"></a>00740 
-<a name="l00745"></a><a class="code" href="classServer.xhtml#a94d4152506da23d153a6070af7e72009">00745</a> list&lt;SocketClient*&gt;::iterator <a class="code" href="classServer.xhtml#a94d4152506da23d153a6070af7e72009" title="Returns the Server&#39;s globally referenced next iterator for SocketClient objects.">Server::gSocketClientNext</a>()<span class="keyword"> const</span>
+<a name="l00745"></a><a class="code" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411">00745</a> <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411" title="Returns the port that any SocketServer should bind to. Defaults to CFG_SOC_PORTNUM.">Server::gPort</a>()<span class="keyword"> const</span>
 <a name="l00746"></a>00746 <span class="keyword"></span>{
-<a name="l00747"></a>00747     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a>;
+<a name="l00747"></a>00747     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a>;
 <a name="l00748"></a>00748 }
 <a name="l00749"></a>00749 
-<a name="l00754"></a><a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">00754</a> <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed...">Server::gSocketClose</a>()<span class="keyword"> const</span>
+<a name="l00754"></a><a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71">00754</a> <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* <a class="code" href="classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance.">Server::gSocket</a>()<span class="keyword"> const</span>
 <a name="l00755"></a>00755 <span class="keyword"></span>{
-<a name="l00756"></a>00756     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a>;
+<a name="l00756"></a>00756     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>;
 <a name="l00757"></a>00757 }
 <a name="l00758"></a>00758 
-<a name="l00763"></a><a class="code" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503">00763</a> <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503" title="Returns the combined number of SocketClient and SocketServer objects that have been created...">Server::gSocketOpen</a>()<span class="keyword"> const</span>
+<a name="l00763"></a><a class="code" href="classServer.xhtml#a94d4152506da23d153a6070af7e72009">00763</a> list&lt;SocketClient*&gt;::iterator <a class="code" href="classServer.xhtml#a94d4152506da23d153a6070af7e72009" title="Returns the Server&#39;s globally referenced next iterator for SocketClient objects.">Server::gSocketClientNext</a>()<span class="keyword"> const</span>
 <a name="l00764"></a>00764 <span class="keyword"></span>{
-<a name="l00765"></a>00765     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a>;
+<a name="l00765"></a>00765     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a>;
 <a name="l00766"></a>00766 }
 <a name="l00767"></a>00767 
-<a name="l00773"></a><a class="code" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8">00773</a> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8" title="Display miscellaneous data about the NAMS Server, such as total data transfered, objects in memory...">Server::gStatus</a>()<span class="keyword"> const</span>
-<a name="l00774"></a>00774 <span class="keyword"></span>{
-<a name="l00775"></a>00775     <span class="keywordtype">string</span> output;
+<a name="l00772"></a><a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54">00772</a> <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed...">Server::gSocketClose</a>()<span class="keyword"> const</span>
+<a name="l00773"></a>00773 <span class="keyword"></span>{
+<a name="l00774"></a>00774     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a>;
+<a name="l00775"></a>00775 }
 <a name="l00776"></a>00776 
-<a name="l00777"></a>00777     <span class="keywordflow">return</span> output;
-<a name="l00778"></a>00778 }
-<a name="l00779"></a>00779 
-<a name="l00780"></a>00780 <span class="comment">/* Manipulate */</span>
-<a name="l00786"></a><a class="code" href="classServer_1_1Config.xhtml#a2b99a2a519c260a79d53c489781321fc">00786</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer_1_1Config.xhtml#a2b99a2a519c260a79d53c489781321fc" title="Serialize runtime configuration settings and write them to CFG_DAT_FILE_SETTINGS.">Server::Config::Serialize</a>()<span class="keyword"> const</span>
-<a name="l00787"></a>00787 <span class="keyword"></span>{
-<a name="l00788"></a>00788     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00789"></a>00789     ofstream ofs;
-<a name="l00790"></a>00790     <span class="keywordtype">string</span> value;
-<a name="l00791"></a>00791     stringstream line;
-<a name="l00792"></a>00792     <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( forward_list, <span class="keywordtype">string</span>, li );
-<a name="l00793"></a>00793 
-<a name="l00794"></a>00794     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a0cf49ed4df3002f63ace602d113423b7" title="String to output prior to writing settings files.">CFG_STR_FILE_SETTINGS_WRITE</a> );
-<a name="l00795"></a>00795     <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ofs, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
-<a name="l00796"></a>00796 
-<a name="l00797"></a>00797     <span class="keywordflow">if</span> ( !ofs.good() )
-<a name="l00798"></a>00798     {
-<a name="l00799"></a>00799         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::Serialize()-&gt; failed to open settings file: %s&quot;</span>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
-<a name="l00800"></a>00800         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00801"></a>00801     }
-<a name="l00802"></a>00802 
-<a name="l00803"></a>00803     <a class="code" href="macros_8h.xhtml#a820638a5bca755f5ec10ced9cd8e1a37" title="Begins writing (name) to (stream) in key:value format.">KEYLIST</a>( ofs, <span class="stringliteral">&quot;account_prohibited_names&quot;</span> );
-<a name="l00804"></a>00804     {
-<a name="l00805"></a>00805         <span class="keywordflow">if</span> ( !m_account_prohibited_names.empty() )
-<a name="l00806"></a>00806         {
-<a name="l00807"></a>00807             <span class="keywordflow">for</span> ( li = m_account_prohibited_names.begin(); li != m_account_prohibited_names.end(); li++ )
-<a name="l00808"></a>00808                 line &lt;&lt; *li &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
-<a name="l00809"></a>00809 
-<a name="l00810"></a>00810             value = line.str();
-<a name="l00811"></a>00811             value.erase( value.end() - 1 );
-<a name="l00812"></a>00812             ofs &lt;&lt; value &lt;&lt; endl;
-<a name="l00813"></a>00813         }
-<a name="l00814"></a>00814         <span class="keywordflow">else</span>
-<a name="l00815"></a>00815             ofs &lt;&lt; endl;
-<a name="l00816"></a>00816     }
-<a name="l00817"></a>00817 
-<a name="l00818"></a>00818     <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ofs, <a class="code" href="config_8h.xhtml#abba93b5729f88761203292fb048c9f21" title="Directory for misc files to be written to and loaded from.">CFG_DAT_DIR_ETC</a>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
-<a name="l00819"></a>00819     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a02331f1e513a67a7b6574740502b9575" title="String to output after file read/write operations are complete.">CFG_STR_FILE_DONE</a> );
-<a name="l00820"></a>00820 
-<a name="l00821"></a>00821     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00822"></a>00822 }
-<a name="l00823"></a>00823 
-<a name="l00829"></a><a class="code" href="classServer_1_1Config.xhtml#a54dba418bfd3365ccfb30bda37ccd461">00829</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer_1_1Config.xhtml#a54dba418bfd3365ccfb30bda37ccd461" title="Unserialize runtime configuration settings from CFG_DAT_FILE_SETTINGS.">Server::Config::Unserialize</a>()
-<a name="l00830"></a>00830 {
-<a name="l00831"></a>00831     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00832"></a>00832     ifstream ifs;
-<a name="l00833"></a>00833     <span class="keywordtype">string</span> key, value, line;
-<a name="l00834"></a>00834     <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
-<a name="l00835"></a>00835     vector&lt;string&gt; token;
-<a name="l00836"></a>00836     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <span class="keywordtype">string</span>, ti );
-<a name="l00837"></a>00837 
-<a name="l00838"></a>00838     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a17c9f6780711319e53ae873b4201147a" title="String to output prior to loading settings files.">CFG_STR_FILE_SETTINGS_READ</a> );
-<a name="l00839"></a>00839     <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ifs, <a class="code" href="config_8h.xhtml#abba93b5729f88761203292fb048c9f21" title="Directory for misc files to be written to and loaded from.">CFG_DAT_DIR_ETC</a>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
-<a name="l00840"></a>00840 
-<a name="l00841"></a>00841     <span class="keywordflow">if</span> ( !ifs.good() )
-<a name="l00842"></a>00842     {
-<a name="l00843"></a>00843         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::Unserialize()-&gt; failed to open settings file: %s&quot;</span>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
-<a name="l00844"></a>00844         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00845"></a>00845     }
-<a name="l00846"></a>00846 
-<a name="l00847"></a>00847     <span class="keywordflow">while</span> ( getline( ifs, line ) )
-<a name="l00848"></a>00848     {
-<a name="l00849"></a>00849         <span class="keywordflow">if</span> ( !<a class="code" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b" title="Splits a string in the format of key=value. Retains any whitespace in the value.">Utils::KeyValue</a>( key, value, line) )
-<a name="l00850"></a>00850         {
-<a name="l00851"></a>00851             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::Unserialize()-&gt; error reading line: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( line ) );
-<a name="l00852"></a>00852             <span class="keywordflow">continue</span>;
-<a name="l00853"></a>00853         }
-<a name="l00854"></a>00854 
-<a name="l00855"></a>00855         <span class="keywordflow">for</span> ( ;; )
-<a name="l00856"></a>00856         {
-<a name="l00857"></a>00857             found = <span class="keyword">false</span>;
-<a name="l00858"></a>00858 
-<a name="l00859"></a>00859             <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;account_prohibited_names&quot;</span> )
-<a name="l00860"></a>00860             {
-<a name="l00861"></a>00861                 found = <span class="keyword">true</span>;
-<a name="l00862"></a>00862                 token = <a class="code" href="namespaceUtils.xhtml#a402a36406edb7938330204e83b1abe83" title="Returns a vector of strings split at spaces based on input.">Utils::StrTokens</a>( value, <span class="keyword">true</span> );
-<a name="l00863"></a>00863                 <span class="keywordflow">for</span> ( ti = token.begin(); ti != token.end(); ti++ )
-<a name="l00864"></a>00864                     m_account_prohibited_names.push_front( *ti );
-<a name="l00865"></a>00865                 m_account_prohibited_names.reverse();
-<a name="l00866"></a>00866             }
-<a name="l00867"></a>00867 
-<a name="l00868"></a>00868             <span class="keywordflow">if</span> ( !found )
-<a name="l00869"></a>00869                 <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::Unserialize()-&gt;Utils::KeySet()-&gt; key not found: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( key ) );
-<a name="l00870"></a>00870 
-<a name="l00871"></a>00871             <span class="keywordflow">break</span>;
-<a name="l00872"></a>00872         }
-<a name="l00873"></a>00873     }
-<a name="l00874"></a>00874 
-<a name="l00875"></a>00875     <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ifs );
-<a name="l00876"></a>00876     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a02331f1e513a67a7b6574740502b9575" title="String to output after file read/write operations are complete.">CFG_STR_FILE_DONE</a> );
-<a name="l00877"></a>00877 
-<a name="l00878"></a>00878     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00879"></a>00879 }
+<a name="l00781"></a><a class="code" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503">00781</a> <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503" title="Returns the combined number of SocketClient and SocketServer objects that have been created...">Server::gSocketOpen</a>()<span class="keyword"> const</span>
+<a name="l00782"></a>00782 <span class="keyword"></span>{
+<a name="l00783"></a>00783     <span class="keywordflow">return</span> <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a>;
+<a name="l00784"></a>00784 }
+<a name="l00785"></a>00785 
+<a name="l00791"></a><a class="code" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8">00791</a> <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8" title="Display miscellaneous data about the NAMS Server, such as total data transfered, objects in memory...">Server::gStatus</a>()<span class="keyword"> const</span>
+<a name="l00792"></a>00792 <span class="keyword"></span>{
+<a name="l00793"></a>00793     <span class="keywordtype">string</span> output;
+<a name="l00794"></a>00794 
+<a name="l00795"></a>00795     <span class="keywordflow">return</span> output;
+<a name="l00796"></a>00796 }
+<a name="l00797"></a>00797 
+<a name="l00798"></a>00798 <span class="comment">/* Manipulate */</span>
+<a name="l00804"></a><a class="code" href="classServer_1_1Config.xhtml#a2b99a2a519c260a79d53c489781321fc">00804</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer_1_1Config.xhtml#a2b99a2a519c260a79d53c489781321fc" title="Serialize runtime configuration settings and write them to CFG_DAT_FILE_SETTINGS.">Server::Config::Serialize</a>()<span class="keyword"> const</span>
+<a name="l00805"></a>00805 <span class="keyword"></span>{
+<a name="l00806"></a>00806     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00807"></a>00807     ofstream ofs;
+<a name="l00808"></a>00808     <span class="keywordtype">string</span> value;
+<a name="l00809"></a>00809     stringstream line;
+<a name="l00810"></a>00810     <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( forward_list, <span class="keywordtype">string</span>, li );
+<a name="l00811"></a>00811     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+<a name="l00812"></a>00812 
+<a name="l00813"></a>00813     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a0cf49ed4df3002f63ace602d113423b7" title="String to output prior to writing settings files.">CFG_STR_FILE_SETTINGS_WRITE</a> );
+<a name="l00814"></a>00814     <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ofs, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
+<a name="l00815"></a>00815 
+<a name="l00816"></a>00816     <span class="keywordflow">if</span> ( !ofs.good() )
+<a name="l00817"></a>00817     {
+<a name="l00818"></a>00818         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::Serialize()-&gt; failed to open settings file: %s&quot;</span>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
+<a name="l00819"></a>00819         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00820"></a>00820     }
+<a name="l00821"></a>00821     <a class="code" href="macros_8h.xhtml#a56c55a4fe68d269a30a5dbddbb210b47" title="Begins writing (name)[iter] to (stream) in key:value format.">KEYLISTLOOP</a>( ofs, <span class="stringliteral">&quot;prohibited_names&quot;</span>, i ); 
+<a name="l00822"></a>00822     {
+<a name="l00823"></a>00823         <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>; i++ )
+<a name="l00824"></a>00824         {
+<a name="l00825"></a>00825             ofs &lt;&lt; <span class="stringliteral">&quot;prohibited_names[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; <span class="stringliteral">&quot; = &quot;</span>;
+<a name="l00826"></a>00826             line.str( <span class="stringliteral">&quot;&quot;</span> );
+<a name="l00827"></a>00827 
+<a name="l00828"></a>00828             <span class="keywordflow">if</span> ( !m_prohibited_names[i].empty() )
+<a name="l00829"></a>00829             {
+<a name="l00830"></a>00830                 <span class="keywordflow">for</span> ( li = m_prohibited_names[i].begin(); li != m_prohibited_names[i].end(); li++ )
+<a name="l00831"></a>00831                     line &lt;&lt; *li &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+<a name="l00832"></a>00832 
+<a name="l00833"></a>00833                 value = line.str();
+<a name="l00834"></a>00834                 value.erase( value.end() - 1 );
+<a name="l00835"></a>00835                 ofs &lt;&lt; value &lt;&lt; endl;
+<a name="l00836"></a>00836             }
+<a name="l00837"></a>00837             <span class="keywordflow">else</span>
+<a name="l00838"></a>00838                 ofs &lt;&lt; endl;
+<a name="l00839"></a>00839         }
+<a name="l00840"></a>00840     }
+<a name="l00841"></a>00841 
+<a name="l00842"></a>00842     <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ofs, <a class="code" href="config_8h.xhtml#abba93b5729f88761203292fb048c9f21" title="Directory for misc files to be written to and loaded from.">CFG_DAT_DIR_ETC</a>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
+<a name="l00843"></a>00843     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a02331f1e513a67a7b6574740502b9575" title="String to output after file read/write operations are complete.">CFG_STR_FILE_DONE</a> );
+<a name="l00844"></a>00844 
+<a name="l00845"></a>00845     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00846"></a>00846 }
+<a name="l00847"></a>00847 
+<a name="l00853"></a><a class="code" href="classServer_1_1Config.xhtml#a54dba418bfd3365ccfb30bda37ccd461">00853</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer_1_1Config.xhtml#a54dba418bfd3365ccfb30bda37ccd461" title="Unserialize runtime configuration settings from CFG_DAT_FILE_SETTINGS.">Server::Config::Unserialize</a>()
+<a name="l00854"></a>00854 {
+<a name="l00855"></a>00855     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00856"></a>00856     ifstream ifs;
+<a name="l00857"></a>00857     <span class="keywordtype">string</span> key, value, line;
+<a name="l00858"></a>00858     <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
+<a name="l00859"></a>00859     vector&lt;string&gt; token;
+<a name="l00860"></a>00860     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <span class="keywordtype">string</span>, ti );
+<a name="l00861"></a>00861     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+<a name="l00862"></a>00862     stringstream loop;
+<a name="l00863"></a>00863 
+<a name="l00864"></a>00864     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a17c9f6780711319e53ae873b4201147a" title="String to output prior to loading settings files.">CFG_STR_FILE_SETTINGS_READ</a> );
+<a name="l00865"></a>00865     <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ifs, <a class="code" href="config_8h.xhtml#abba93b5729f88761203292fb048c9f21" title="Directory for misc files to be written to and loaded from.">CFG_DAT_DIR_ETC</a>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
+<a name="l00866"></a>00866 
+<a name="l00867"></a>00867     <span class="keywordflow">if</span> ( !ifs.good() )
+<a name="l00868"></a>00868     {
+<a name="l00869"></a>00869         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::Unserialize()-&gt; failed to open settings file: %s&quot;</span>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
+<a name="l00870"></a>00870         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00871"></a>00871     }
+<a name="l00872"></a>00872 
+<a name="l00873"></a>00873     <span class="keywordflow">while</span> ( getline( ifs, line ) )
+<a name="l00874"></a>00874     {
+<a name="l00875"></a>00875         <span class="keywordflow">if</span> ( !<a class="code" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b" title="Splits a string in the format of key=value. Retains any whitespace in the value.">Utils::KeyValue</a>( key, value, line) )
+<a name="l00876"></a>00876         {
+<a name="l00877"></a>00877             <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::Unserialize()-&gt; error reading line: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( line ) );
+<a name="l00878"></a>00878             <span class="keywordflow">continue</span>;
+<a name="l00879"></a>00879         }
 <a name="l00880"></a>00880 
-<a name="l00887"></a><a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244">00887</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" title="Set the port of a NAMS Server object.">Server::sPort</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; port )
-<a name="l00888"></a>00888 {
-<a name="l00889"></a>00889     <span class="comment">// No logger output; this should only be called pre-boot</span>
-<a name="l00890"></a>00890     <span class="keywordflow">if</span> ( port &lt;= CFG_SOC_MIN_PORTNUM || port &gt;= <a class="code" href="config_8h.xhtml#a234e78c07d081a99b72af652cfa37cb8" title="The listening server socket must be below this port.">CFG_SOC_MAX_PORTNUM</a> )
-<a name="l00891"></a>00891         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00892"></a>00892 
-<a name="l00893"></a>00893     <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a> = port;
-<a name="l00894"></a>00894 
-<a name="l00895"></a>00895     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00896"></a>00896 }
-<a name="l00897"></a>00897 
-<a name="l00903"></a><a class="code" href="classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354">00903</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354" title="Sets the Server&#39;s globally referenced next iterator for SocketClient objects.">Server::sSocketClientNext</a>( list&lt;SocketClient*&gt;::iterator next )
-<a name="l00904"></a>00904 {
-<a name="l00905"></a>00905     <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = next;
+<a name="l00881"></a>00881         <span class="keywordflow">for</span> ( ;; )
+<a name="l00882"></a>00882         {
+<a name="l00883"></a>00883             found = <span class="keyword">false</span>;
+<a name="l00884"></a>00884 
+<a name="l00885"></a>00885             <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a" title="Returns if string s1 is a prefix of string s2.">Utils::StrPrefix</a>( <span class="stringliteral">&quot;prohibited_names&quot;</span>, key ) ) 
+<a name="l00886"></a>00886             {
+<a name="l00887"></a>00887                 <span class="keywordflow">for</span> ( ; i &lt; <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>; i++ )
+<a name="l00888"></a>00888                 {
+<a name="l00889"></a>00889                     loop.str( <span class="stringliteral">&quot;&quot;</span> );
+<a name="l00890"></a>00890                     loop &lt;&lt; <span class="stringliteral">&quot;prohibited_names[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;
+<a name="l00891"></a>00891 
+<a name="l00892"></a>00892                     <span class="keywordflow">if</span> ( key == loop.str() )
+<a name="l00893"></a>00893                     {
+<a name="l00894"></a>00894                         found = <span class="keyword">true</span>;
+<a name="l00895"></a>00895                         token = <a class="code" href="namespaceUtils.xhtml#a402a36406edb7938330204e83b1abe83" title="Returns a vector of strings split at spaces based on input.">Utils::StrTokens</a>( value, <span class="keyword">true</span> );
+<a name="l00896"></a>00896                         <span class="keywordflow">for</span> ( ti = token.begin(); ti != token.end(); ti++ )
+<a name="l00897"></a>00897                             m_prohibited_names[i].push_front( *ti );
+<a name="l00898"></a>00898                         m_prohibited_names[i].reverse();
+<a name="l00899"></a>00899                         <span class="keywordflow">break</span>;
+<a name="l00900"></a>00900                     }
+<a name="l00901"></a>00901                 }
+<a name="l00902"></a>00902             }
+<a name="l00903"></a>00903 
+<a name="l00904"></a>00904             <span class="keywordflow">if</span> ( !found )
+<a name="l00905"></a>00905                 <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::Unserialize()-&gt;Utils::KeySet()-&gt; key not found: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( key ) );
 <a name="l00906"></a>00906 
-<a name="l00907"></a>00907     <span class="keywordflow">return</span>;
-<a name="l00908"></a>00908 }
-<a name="l00909"></a>00909 
-<a name="l00916"></a><a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a">00916</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">Server::sSocketClose</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; amount )
-<a name="l00917"></a>00917 {
-<a name="l00918"></a>00918     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00919"></a>00919 
-<a name="l00920"></a>00920     <span class="keywordflow">if</span> ( amount &lt; uintmin_t || amount &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> )
-<a name="l00921"></a>00921     {
-<a name="l00922"></a>00922         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::sSocketClose()-&gt; called with m_socket_close overflow: %lu + %lu&quot;</span>, <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a>, amount );
-<a name="l00923"></a>00923         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00924"></a>00924     }
+<a name="l00907"></a>00907             <span class="keywordflow">break</span>;
+<a name="l00908"></a>00908         }
+<a name="l00909"></a>00909     }
+<a name="l00910"></a>00910 
+<a name="l00911"></a>00911     <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ifs );
+<a name="l00912"></a>00912     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a02331f1e513a67a7b6574740502b9575" title="String to output after file read/write operations are complete.">CFG_STR_FILE_DONE</a> );
+<a name="l00913"></a>00913 
+<a name="l00914"></a>00914     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00915"></a>00915 }
+<a name="l00916"></a>00916 
+<a name="l00922"></a><a class="code" href="classServer.xhtml#a82fee111e14e3fcd3ea0658f092bed6e">00922</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classServer.xhtml#a82fee111e14e3fcd3ea0658f092bed6e" title="Sets the Server&#39;s globally referenced next iterator for Character objects.">Server::sCharacterNext</a>( list&lt;Character*&gt;::iterator next )
+<a name="l00923"></a>00923 {
+<a name="l00924"></a>00924     <a class="code" href="classServer.xhtml#aa34889b0acf8da2b2fd59637a2a316c5">m_character_next</a> = next;
 <a name="l00925"></a>00925 
-<a name="l00926"></a>00926     <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a> = amount;
-<a name="l00927"></a>00927 
-<a name="l00928"></a>00928     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00929"></a>00929 }
-<a name="l00930"></a>00930 
-<a name="l00937"></a><a class="code" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a">00937</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been opened on a NAMS S...">Server::sSocketOpen</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; amount )
-<a name="l00938"></a>00938 {
-<a name="l00939"></a>00939     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00926"></a>00926     <span class="keywordflow">return</span>;
+<a name="l00927"></a>00927 }
+<a name="l00928"></a>00928 
+<a name="l00935"></a><a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244">00935</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer.xhtml#a89c8ebfdaa4826583f6b53c62b86b244" title="Set the port of a NAMS Server object.">Server::sPort</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; port )
+<a name="l00936"></a>00936 {
+<a name="l00937"></a>00937     <span class="comment">// No logger output; this should only be called pre-boot</span>
+<a name="l00938"></a>00938     <span class="keywordflow">if</span> ( port &lt;= CFG_SOC_MIN_PORTNUM || port &gt;= <a class="code" href="config_8h.xhtml#a234e78c07d081a99b72af652cfa37cb8" title="The listening server socket must be below this port.">CFG_SOC_MAX_PORTNUM</a> )
+<a name="l00939"></a>00939         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00940"></a>00940 
-<a name="l00941"></a>00941     <span class="keywordflow">if</span> ( amount &lt; uintmin_t || amount &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> )
-<a name="l00942"></a>00942     {
-<a name="l00943"></a>00943         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::sSocketOpen()-&gt; called with m_socket_open overflow: %lu + %lu&quot;</span>, <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a>, amount );
-<a name="l00944"></a>00944         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00945"></a>00945     }
-<a name="l00946"></a>00946 
-<a name="l00947"></a>00947     <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a> = amount;
-<a name="l00948"></a>00948 
-<a name="l00949"></a>00949     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00950"></a>00950 }
-<a name="l00951"></a>00951 
-<a name="l00952"></a>00952 <span class="comment">/* Internal */</span>
-<a name="l00956"></a><a class="code" href="classServer_1_1Config.xhtml#a8fc5b25bc53ed28009c2405e4f55c7ba">00956</a> <a class="code" href="classServer_1_1Config.xhtml#a8fc5b25bc53ed28009c2405e4f55c7ba" title="Constructor for the Server::Config class.">Server::Config::Config</a>()
-<a name="l00957"></a>00957 {
-<a name="l00958"></a>00958     m_account_prohibited_names.clear();
-<a name="l00959"></a>00959 
-<a name="l00960"></a>00960     <span class="keywordflow">return</span>;
-<a name="l00961"></a>00961 }
-<a name="l00962"></a>00962 
-<a name="l00966"></a><a class="code" href="classServer_1_1Config.xhtml#a03f08c4efd61997ae6c6be516481a58c">00966</a> <a class="code" href="classServer_1_1Config.xhtml#a03f08c4efd61997ae6c6be516481a58c" title="Destructor for the Server::Config class.">Server::Config::~Config</a>()
-<a name="l00967"></a>00967 {
-<a name="l00968"></a>00968     <span class="keywordflow">return</span>;
-<a name="l00969"></a>00969 }
-<a name="l00970"></a>00970 
-<a name="l00974"></a><a class="code" href="classServer.xhtml#ad5ec9462b520e59f7ea831e157ee5e59">00974</a> <a class="code" href="classServer.xhtml#ad5ec9462b520e59f7ea831e157ee5e59" title="Constructor for the Server class.">Server::Server</a>()
-<a name="l00975"></a>00975 {
-<a name="l00976"></a>00976     <a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a> = <span class="keyword">new</span> <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a>();
-<a name="l00977"></a>00977     <a class="code" href="classServer.xhtml#a1747867dad63252314aa7083b0084e2b">m_dir_close</a> = 0;
-<a name="l00978"></a>00978     <a class="code" href="classServer.xhtml#ad14d47d1da6c22097a242519709e960c">m_dir_open</a> = 0;
-<a name="l00979"></a>00979     <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a> = 0;
-<a name="l00980"></a>00980     <a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">m_shutdown</a> = <span class="keyword">true</span>;
-<a name="l00981"></a>00981     <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a> = 0;
-<a name="l00982"></a>00982     <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin();
-<a name="l00983"></a>00983     <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a> = 0;
-<a name="l00984"></a>00984     <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a> = 0;
-<a name="l00985"></a>00985     <a class="code" href="classServer.xhtml#a3c414ed05d5f52b181f91d7b317aba2c">m_time_boot</a> = chrono::high_resolution_clock::now();
-<a name="l00986"></a>00986     <a class="code" href="classServer.xhtml#a2b6f037a67bc8e4f3c6dadb324915627">m_time_current</a> = chrono::high_resolution_clock::now();
-<a name="l00987"></a>00987 
-<a name="l00988"></a>00988     <span class="keywordflow">return</span>;
-<a name="l00989"></a>00989 }
-<a name="l00990"></a>00990 
-<a name="l00994"></a><a class="code" href="classServer.xhtml#a4b3aa2579cb1c8cd1d069582c14d0fa6">00994</a> <a class="code" href="classServer.xhtml#a4b3aa2579cb1c8cd1d069582c14d0fa6" title="Destructor for the Server class.">Server::~Server</a>()
-<a name="l00995"></a>00995 {
-<a name="l00996"></a>00996     <span class="keywordflow">return</span>;
-<a name="l00997"></a>00997 }
+<a name="l00941"></a>00941     <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a> = port;
+<a name="l00942"></a>00942 
+<a name="l00943"></a>00943     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00944"></a>00944 }
+<a name="l00945"></a>00945 
+<a name="l00951"></a><a class="code" href="classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354">00951</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354" title="Sets the Server&#39;s globally referenced next iterator for SocketClient objects.">Server::sSocketClientNext</a>( list&lt;SocketClient*&gt;::iterator next )
+<a name="l00952"></a>00952 {
+<a name="l00953"></a>00953     <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = next;
+<a name="l00954"></a>00954 
+<a name="l00955"></a>00955     <span class="keywordflow">return</span>;
+<a name="l00956"></a>00956 }
+<a name="l00957"></a>00957 
+<a name="l00964"></a><a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a">00964</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">Server::sSocketClose</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; amount )
+<a name="l00965"></a>00965 {
+<a name="l00966"></a>00966     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00967"></a>00967 
+<a name="l00968"></a>00968     <span class="keywordflow">if</span> ( amount &lt; uintmin_t || amount &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> )
+<a name="l00969"></a>00969     {
+<a name="l00970"></a>00970         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::sSocketClose()-&gt; called with m_socket_close overflow: %lu + %lu&quot;</span>, <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a>, amount );
+<a name="l00971"></a>00971         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00972"></a>00972     }
+<a name="l00973"></a>00973 
+<a name="l00974"></a>00974     <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a> = amount;
+<a name="l00975"></a>00975 
+<a name="l00976"></a>00976     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00977"></a>00977 }
+<a name="l00978"></a>00978 
+<a name="l00985"></a><a class="code" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a">00985</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been opened on a NAMS S...">Server::sSocketOpen</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; amount )
+<a name="l00986"></a>00986 {
+<a name="l00987"></a>00987     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00988"></a>00988 
+<a name="l00989"></a>00989     <span class="keywordflow">if</span> ( amount &lt; uintmin_t || amount &gt;= <a class="code" href="limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f" title="The maximum value of any uint_t variable.">uintmax_t</a> )
+<a name="l00990"></a>00990     {
+<a name="l00991"></a>00991         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::sSocketOpen()-&gt; called with m_socket_open overflow: %lu + %lu&quot;</span>, <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a>, amount );
+<a name="l00992"></a>00992         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00993"></a>00993     }
+<a name="l00994"></a>00994 
+<a name="l00995"></a>00995     <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a> = amount;
+<a name="l00996"></a>00996 
+<a name="l00997"></a>00997     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00998"></a>00998 }
+<a name="l00999"></a>00999 
+<a name="l01000"></a>01000 <span class="comment">/* Internal */</span>
+<a name="l01004"></a><a class="code" href="classServer_1_1Config.xhtml#a8fc5b25bc53ed28009c2405e4f55c7ba">01004</a> <a class="code" href="classServer_1_1Config.xhtml#a8fc5b25bc53ed28009c2405e4f55c7ba" title="Constructor for the Server::Config class.">Server::Config::Config</a>()
+<a name="l01005"></a>01005 {
+<a name="l01006"></a>01006     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+<a name="l01007"></a>01007 
+<a name="l01008"></a>01008     <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>; i++ )
+<a name="l01009"></a>01009         m_prohibited_names[i].clear();
+<a name="l01010"></a>01010 
+<a name="l01011"></a>01011     <span class="keywordflow">return</span>;
+<a name="l01012"></a>01012 }
+<a name="l01013"></a>01013 
+<a name="l01017"></a><a class="code" href="classServer_1_1Config.xhtml#a03f08c4efd61997ae6c6be516481a58c">01017</a> <a class="code" href="classServer_1_1Config.xhtml#a03f08c4efd61997ae6c6be516481a58c" title="Destructor for the Server::Config class.">Server::Config::~Config</a>()
+<a name="l01018"></a>01018 {
+<a name="l01019"></a>01019     <span class="keywordflow">return</span>;
+<a name="l01020"></a>01020 }
+<a name="l01021"></a>01021 
+<a name="l01025"></a><a class="code" href="classServer.xhtml#ad5ec9462b520e59f7ea831e157ee5e59">01025</a> <a class="code" href="classServer.xhtml#ad5ec9462b520e59f7ea831e157ee5e59" title="Constructor for the Server class.">Server::Server</a>()
+<a name="l01026"></a>01026 {
+<a name="l01027"></a>01027     <a class="code" href="classServer.xhtml#aa34889b0acf8da2b2fd59637a2a316c5">m_character_next</a> = <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.begin();
+<a name="l01028"></a>01028     <a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a> = <span class="keyword">new</span> <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a>();
+<a name="l01029"></a>01029     <a class="code" href="classServer.xhtml#a1747867dad63252314aa7083b0084e2b">m_dir_close</a> = 0;
+<a name="l01030"></a>01030     <a class="code" href="classServer.xhtml#ad14d47d1da6c22097a242519709e960c">m_dir_open</a> = 0;
+<a name="l01031"></a>01031     <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a> = 0;
+<a name="l01032"></a>01032     <a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">m_shutdown</a> = <span class="keyword">true</span>;
+<a name="l01033"></a>01033     <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a> = 0;
+<a name="l01034"></a>01034     <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a> = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin();
+<a name="l01035"></a>01035     <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a> = 0;
+<a name="l01036"></a>01036     <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a> = 0;
+<a name="l01037"></a>01037     <a class="code" href="classServer.xhtml#a3c414ed05d5f52b181f91d7b317aba2c">m_time_boot</a> = chrono::high_resolution_clock::now();
+<a name="l01038"></a>01038     <a class="code" href="classServer.xhtml#a2b6f037a67bc8e4f3c6dadb324915627">m_time_current</a> = chrono::high_resolution_clock::now();
+<a name="l01039"></a>01039 
+<a name="l01040"></a>01040     <span class="keywordflow">return</span>;
+<a name="l01041"></a>01041 }
+<a name="l01042"></a>01042 
+<a name="l01046"></a><a class="code" href="classServer.xhtml#a4b3aa2579cb1c8cd1d069582c14d0fa6">01046</a> <a class="code" href="classServer.xhtml#a4b3aa2579cb1c8cd1d069582c14d0fa6" title="Destructor for the Server class.">Server::~Server</a>()
+<a name="l01047"></a>01047 {
+<a name="l01048"></a>01048     <span class="keywordflow">return</span>;
+<a name="l01049"></a>01049 }
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -941,7 +983,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 16:00:35 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

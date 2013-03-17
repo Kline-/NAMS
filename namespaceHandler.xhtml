@@ -98,8 +98,8 @@ Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a120400154c1559acfc874fe8a0bfbf88">CheckCreating</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;name)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if the current account is already being created.  <a href="#a120400154c1559acfc874fe8a0bfbf88"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a4f2b4f0ba0aa42e2d348655a1bd2bc7e">CheckProhibited</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;name)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if a name is on the server's prohibited list.  <a href="#a4f2b4f0ba0aa42e2d348655a1bd2bc7e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a934fb4c3d6add91bc9e6e347b3270927">CheckProhibited</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if a name is on the server's prohibited list.  <a href="#a934fb4c3d6add91bc9e6e347b3270927"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0">AttachAccount</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new account object, or load an existing one, with a name and password.  <a href="#a33a19d69ead678af81fbe96907eceaf0"></a><br/></td></tr>
@@ -262,7 +262,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00221">221</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00222">222</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>* account = NULL;
@@ -371,7 +371,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00272">272</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00273">273</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> val = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
@@ -525,12 +525,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4f2b4f0ba0aa42e2d348655a1bd2bc7e"></a><!-- doxytag: member="Handler::CheckProhibited" ref="a4f2b4f0ba0aa42e2d348655a1bd2bc7e" args="(SocketClient *client, const string &amp;name)" -->
+<a class="anchor" id="a934fb4c3d6add91bc9e6e347b3270927"></a><!-- doxytag: member="Handler::CheckProhibited" ref="a934fb4c3d6add91bc9e6e347b3270927" args="(SocketClient *client, const string &amp;name, const uint_t &amp;type)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="namespaceHandler.xhtml#a4f2b4f0ba0aa42e2d348655a1bd2bc7e">Handler::CheckProhibited</a> </td>
+          <td class="memname">const bool <a class="el" href="namespaceHandler.xhtml#a934fb4c3d6add91bc9e6e347b3270927">Handler::CheckProhibited</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
           <td class="paramname"><em>client</em>, </td>
@@ -539,7 +539,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -552,7 +558,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>The <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> to requesting to use the name. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a> name to check against the prohibited list. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name to check against the prohibited list. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The type of prohibited names list to check. </td></tr>
   </table>
   </dd>
 </dl>
@@ -564,14 +571,14 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00195">195</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00196">196</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( forward_list, <span class="keywordtype">string</span>, fi );
     forward_list&lt;string&gt; search;
     <span class="keywordtype">string</span> comp;
 
     <span class="comment">// Search for prohibited names</span>
-    search = client-&gt;<a class="code" href="classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5" title="Returns the Server object associated to this SocketClient.">gServer</a>()-&gt;<a class="code" href="classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58" title="Gets the runtime configuration of the server.">gConfig</a>()-&gt;<a class="code" href="classServer_1_1Config.xhtml#ae93688e4861753dd11a8b537e092ab77" title="Returns an a copy of the account prohibited names list.">gAccountProhibitedNames</a>();
+    search = client-&gt;<a class="code" href="classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5" title="Returns the Server object associated to this SocketClient.">gServer</a>()-&gt;<a class="code" href="classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58" title="Gets the runtime configuration of the server.">gConfig</a>()-&gt;<a class="code" href="classServer_1_1Config.xhtml#a69c39210f0791ea8af97ee05c38efabc" title="Returns an a copy of the prohibited names list using type from SVR_CFG_PROHIBITED_NAMES.">gProhibitedNames</a>( type );
     <span class="keywordflow">for</span> ( fi = search.begin(); fi != search.end(); fi++ )
     {
         comp = *fi;
@@ -587,7 +594,7 @@ Functions</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a4f2b4f0ba0aa42e2d348655a1bd2bc7e_cgraph.svg" width="534" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a934fb4c3d6add91bc9e6e347b3270927_cgraph.svg" width="483" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -596,7 +603,7 @@ Functions</h2></td></tr>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a4f2b4f0ba0aa42e2d348655a1bd2bc7e_icgraph.svg" width="100%" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a934fb4c3d6add91bc9e6e347b3270927_icgraph.svg" width="100%" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -647,7 +654,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00328">328</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00329">329</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -745,7 +752,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00368">368</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00369">369</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -865,7 +872,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00430">430</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00431">431</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1043,7 +1050,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00464">464</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00465">465</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1071,7 +1078,7 @@ Functions</h2></td></tr>
     }
 
     <span class="comment">//Prevent prohibited names based on Server runtime configuration</span>
-    <span class="keywordflow">if</span> ( <a class="code" href="namespaceHandler.xhtml#a4f2b4f0ba0aa42e2d348655a1bd2bc7e" title="Checks to see if a name is on the server&#39;s prohibited list.">Handler::CheckProhibited</a>( client, cmd ) )
+    <span class="keywordflow">if</span> ( <a class="code" href="namespaceHandler.xhtml#a934fb4c3d6add91bc9e6e347b3270927" title="Checks to see if a name is on the server&#39;s prohibited list.">Handler::CheckProhibited</a>( client, cmd, <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7ace193a596bade4a7d0d31de31b2c563b">SVR_CFG_PROHIBITED_NAMES_ACCOUNT</a> ) )
     {
         client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#a7ec3d26e13cf58774ae45b8dd78d9ff3" title="String sent when an invalid account name is received.">CFG_STR_ACT_NAME_INVALID</a> );
         client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#aae9cb78e2deef0ffe39bdf49496fcec6" title="String additionally sent when an account name matches the prohibited names list.">CFG_STR_ACT_NAME_PROHIBITED</a> );
@@ -1192,7 +1199,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00555">555</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00556">556</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> val = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
@@ -1387,7 +1394,7 @@ Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 16:00:36 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

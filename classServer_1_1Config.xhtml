@@ -114,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config__coll__graph.svg" width="288" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config__coll__graph.svg" width="231" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classServer_1_1Config-members.xhtml">List of all members.</a></p>
@@ -122,8 +122,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">forward_list&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#ae93688e4861753dd11a8b537e092ab77">gAccountProhibitedNames</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an a copy of the account prohibited names list.  <a href="#ae93688e4861753dd11a8b537e092ab77"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">forward_list&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#a69c39210f0791ea8af97ee05c38efabc">gProhibitedNames</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an a copy of the prohibited names list using type from <a class="el" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7">SVR_CFG_PROHIBITED_NAMES</a>.  <a href="#a69c39210f0791ea8af97ee05c38efabc"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#a2b99a2a519c260a79d53c489781321fc">Serialize</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize runtime configuration settings and write them to <a class="el" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a>.  <a href="#a2b99a2a519c260a79d53c489781321fc"></a><br/></td></tr>
@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a> class.  <a href="#a03f08c4efd61997ae6c6be516481a58c"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">forward_list&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">forward_list&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">m_prohibited_names</a> [<a class="el" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>]</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -156,9 +156,12 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00956">956</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01004">1004</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>.clear();
+    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+
+    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>; i++ )
+        <a class="code" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">m_prohibited_names</a>[i].clear();
 
     <span class="keywordflow">return</span>;
 }
@@ -179,7 +182,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00966">966</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01017">1017</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -187,29 +190,44 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ae93688e4861753dd11a8b537e092ab77"></a><!-- doxytag: member="Server::Config::gAccountProhibitedNames" ref="ae93688e4861753dd11a8b537e092ab77" args="() const " -->
+<a class="anchor" id="a69c39210f0791ea8af97ee05c38efabc"></a><!-- doxytag: member="Server::Config::gProhibitedNames" ref="a69c39210f0791ea8af97ee05c38efabc" args="(const uint_t &amp;type) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">forward_list&lt; string &gt; <a class="el" href="classServer_1_1Config.xhtml#ae93688e4861753dd11a8b537e092ab77">Server::Config::gAccountProhibitedNames</a> </td>
+          <td class="memname">forward_list&lt; string &gt; <a class="el" href="classServer_1_1Config.xhtml#a69c39210f0791ea8af97ee05c38efabc">Server::Config::gProhibitedNames</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The specific prohibited names list to retrieve. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
-    <tr><td class="paramname">forward_list&lt;string&gt;</td><td>A copy of the account prohibited names list. </td></tr>
+    <tr><td class="paramname">forward_list&lt;string&gt;</td><td>A copy of the prohibited names list referenced by type. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00685">685</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00686">686</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <span class="keywordflow">return</span> <a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>;
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( type &lt; uintmin_t || type &gt;= <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::gProhibitedNames()-&gt; called with invalid type %lu&quot;</span>, type );
+        <span class="keywordflow">return</span> forward_list&lt;string&gt;();
+    }
+
+    <span class="keywordflow">return</span> <a class="code" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">m_prohibited_names</a>[type];
 }
 </pre></div>
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -217,7 +235,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config_ae93688e4861753dd11a8b537e092ab77_icgraph.svg" width="100%" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config_a69c39210f0791ea8af97ee05c38efabc_icgraph.svg" width="100%" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -243,14 +261,16 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000007">Todo:</a></b></dt><dd>Need to find a nicer way to do this </dd></dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00786">786</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00804">804</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     ofstream ofs;
     <span class="keywordtype">string</span> value;
     stringstream line;
     <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( forward_list, <span class="keywordtype">string</span>, li );
+    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
 
     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a0cf49ed4df3002f63ace602d113423b7" title="String to output prior to writing settings files.">CFG_STR_FILE_SETTINGS_WRITE</a> );
     <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ofs, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
@@ -260,20 +280,25 @@ Private Attributes</h2></td></tr>
         <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::Serialize()-&gt; failed to open settings file: %s&quot;</span>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
-
-    <a class="code" href="macros_8h.xhtml#a820638a5bca755f5ec10ced9cd8e1a37" title="Begins writing (name) to (stream) in key:value format.">KEYLIST</a>( ofs, <span class="stringliteral">&quot;account_prohibited_names&quot;</span> );
+    <a class="code" href="macros_8h.xhtml#a56c55a4fe68d269a30a5dbddbb210b47" title="Begins writing (name)[iter] to (stream) in key:value format.">KEYLISTLOOP</a>( ofs, <span class="stringliteral">&quot;prohibited_names&quot;</span>, i ); 
     {
-        <span class="keywordflow">if</span> ( !<a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>.empty() )
+        <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>; i++ )
         {
-            <span class="keywordflow">for</span> ( li = <a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>.begin(); li != <a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>.end(); li++ )
-                line &lt;&lt; *li &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+            ofs &lt;&lt; <span class="stringliteral">&quot;prohibited_names[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; <span class="stringliteral">&quot; = &quot;</span>;
+            line.str( <span class="stringliteral">&quot;&quot;</span> );
 
-            value = line.str();
-            value.erase( value.end() - 1 );
-            ofs &lt;&lt; value &lt;&lt; endl;
+            <span class="keywordflow">if</span> ( !<a class="code" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">m_prohibited_names</a>[i].empty() )
+            {
+                <span class="keywordflow">for</span> ( li = <a class="code" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">m_prohibited_names</a>[i].begin(); li != <a class="code" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">m_prohibited_names</a>[i].end(); li++ )
+                    line &lt;&lt; *li &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+
+                value = line.str();
+                value.erase( value.end() - 1 );
+                ofs &lt;&lt; value &lt;&lt; endl;
+            }
+            <span class="keywordflow">else</span>
+                ofs &lt;&lt; endl;
         }
-        <span class="keywordflow">else</span>
-            ofs &lt;&lt; endl;
     }
 
     <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ofs, <a class="code" href="config_8h.xhtml#abba93b5729f88761203292fb048c9f21" title="Directory for misc files to be written to and loaded from.">CFG_DAT_DIR_ETC</a>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
@@ -322,8 +347,9 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000008">Todo:</a></b></dt><dd>Need to find a nicer way to do this </dd></dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00829">829</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00853">853</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     ifstream ifs;
@@ -331,6 +357,8 @@ Private Attributes</h2></td></tr>
     <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;
     vector&lt;string&gt; token;
     <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <span class="keywordtype">string</span>, ti );
+    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+    stringstream loop;
 
     <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( 0, <a class="code" href="config_8h.xhtml#a17c9f6780711319e53ae873b4201147a" title="String to output prior to loading settings files.">CFG_STR_FILE_SETTINGS_READ</a> );
     <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ifs, <a class="code" href="config_8h.xhtml#abba93b5729f88761203292fb048c9f21" title="Directory for misc files to be written to and loaded from.">CFG_DAT_DIR_ETC</a>, <a class="code" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a> );
@@ -353,13 +381,23 @@ Private Attributes</h2></td></tr>
         {
             found = <span class="keyword">false</span>;
 
-            <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;account_prohibited_names&quot;</span> )
+            <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a" title="Returns if string s1 is a prefix of string s2.">Utils::StrPrefix</a>( <span class="stringliteral">&quot;prohibited_names&quot;</span>, key ) ) 
             {
-                found = <span class="keyword">true</span>;
-                token = <a class="code" href="namespaceUtils.xhtml#a402a36406edb7938330204e83b1abe83" title="Returns a vector of strings split at spaces based on input.">Utils::StrTokens</a>( value, <span class="keyword">true</span> );
-                <span class="keywordflow">for</span> ( ti = token.begin(); ti != token.end(); ti++ )
-                    <a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>.push_front( *ti );
-                <a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>.reverse();
+                <span class="keywordflow">for</span> ( ; i &lt; <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>; i++ )
+                {
+                    loop.str( <span class="stringliteral">&quot;&quot;</span> );
+                    loop &lt;&lt; <span class="stringliteral">&quot;prohibited_names[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;
+
+                    <span class="keywordflow">if</span> ( key == loop.str() )
+                    {
+                        found = <span class="keyword">true</span>;
+                        token = <a class="code" href="namespaceUtils.xhtml#a402a36406edb7938330204e83b1abe83" title="Returns a vector of strings split at spaces based on input.">Utils::StrTokens</a>( value, <span class="keyword">true</span> );
+                        <span class="keywordflow">for</span> ( ti = token.begin(); ti != token.end(); ti++ )
+                            <a class="code" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">m_prohibited_names</a>[i].push_front( *ti );
+                        <a class="code" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">m_prohibited_names</a>[i].reverse();
+                        <span class="keywordflow">break</span>;
+                    }
+                }
             }
 
             <span class="keywordflow">if</span> ( !found )
@@ -380,7 +418,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config_a54dba418bfd3365ccfb30bda37ccd461_cgraph.svg" width="523" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config_a54dba418bfd3365ccfb30bda37ccd461_cgraph.svg" width="523" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -396,17 +434,17 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a6c1ebe27e7b49d5c8a3060b188a5178e"></a><!-- doxytag: member="Server::Config::m_account_prohibited_names" ref="a6c1ebe27e7b49d5c8a3060b188a5178e" args="" -->
+<a class="anchor" id="a7aaafee45dca9a727e91bf7cbc5e86d1"></a><!-- doxytag: member="Server::Config::m_prohibited_names" ref="a7aaafee45dca9a727e91bf7cbc5e86d1" args="[MAX_SVR_CFG_PROHIBITED_NAMES]" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">forward_list&lt;string&gt; <a class="el" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">Server::Config::m_account_prohibited_names</a><code> [private]</code></td>
+          <td class="memname">forward_list&lt;string&gt; <a class="el" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">Server::Config::m_prohibited_names</a>[<a class="el" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>]<code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Names that are illegal to use an as account name. </p>
+<p>Names that are illegal to use as an account name. </p>
 
 <p>Definition at line <a class="el" href="server_8h_source.xhtml#l00062">62</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
@@ -434,7 +472,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 16:00:36 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
