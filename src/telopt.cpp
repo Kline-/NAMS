@@ -241,8 +241,8 @@ const void Telopt::Negotiate( SocketClient* client, const uint_t& opt, const boo
 /**
  * @brief Sends a formatted telnet negotiation command to the client.
  * @param[in] client The client to send data to.
+ * @param[in] cmd The command to be sent.
  * @param[in] opt The option to be sent.
- * @param[in] val The option value to be sent.
  * @retval void
  */
 const void Telopt::Send( SocketClient* client, const char& cmd, const char& opt )
