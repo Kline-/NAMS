@@ -31,11 +31,11 @@
  ***************************************************************************/
 /** @name Account Options */ /**@{*/
 /**
- * @def CFG_ACT_HOST_MAX
+ * @def CFG_ACT_LOGIN_MAX
  * @brief The number of previous hosts to track for login history.
  * @par Default: 3
  */
-#define CFG_ACT_HOST_MAX 3
+#define CFG_ACT_LOGIN_MAX 3
 
 /**
  * @def CFG_ACT_NAME_MAX_LEN
@@ -325,9 +325,9 @@
 /**
  * @def CFG_STR_ACT_NAME_LENGTH
  * @brief String additionally sent when an account name is invalid due to length.
- * @par Default: "Account name must be between " SX( CFG_ACT_MIN_NAME_LEN ) " and " SX( CFG_ACT_MAX_NAME_LEN ) " characters." CRLF
+ * @par Default: "Account name must be between %lu and %lu characters." CRLF
  */
-#define CFG_STR_ACT_NAME_LENGTH "Account name must be between " SX( CFG_ACT_MIN_NAME_LEN ) " and " SX( CFG_ACT_MAX_NAME_LEN ) " characters." CRLF
+#define CFG_STR_ACT_NAME_LENGTH "Account name must be between %lu and %lu characters." CRLF
 
 /**
  * @def CFG_STR_ACT_NAME_PROHIBITED
@@ -374,9 +374,9 @@
 /**
  * @def CFG_STR_ACT_PASSWORD_LENGTH
  * @brief String additionally sent when an account password is invalid due to length.
- * @par Default: "Account password must be between " SX( CFG_ACT_MIN_PASSWORD_LEN ) " and " SX( CFG_ACT_MAX_PASSWORD_LEN ) " characters." CRLF
+ * @par Default: "Account password must be between %lu and %lu characters." CRLF
  */
-#define CFG_STR_ACT_PASSWORD_LENGTH "Account password must be between " SX( CFG_ACT_MIN_PASSWORD_LEN ) " and " SX( CFG_ACT_MAX_PASSWORD_LEN ) " characters." CRLF
+#define CFG_STR_ACT_PASSWORD_LENGTH "Account password must be between %lu and %lu characters." CRLF
 
 /**
  * @def CFG_STR_ACT_PASSWORD_MISMATCH

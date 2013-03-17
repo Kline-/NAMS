@@ -42,6 +42,7 @@ class Account {
 
         /** @name Query */ /**@{*/
         SocketClient* gClient() const;
+        const list<pair<string,string>> gLogins( const uint_t& type ) const;
         const string gName() const;
         const uint_t gSecurity() const;
         /**@}*/

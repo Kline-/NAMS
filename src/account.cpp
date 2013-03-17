@@ -267,6 +267,24 @@ SocketClient* Account::gClient() const
 }
 
 /**
+ * @brief Returns a list of either login successes or failures based on #ACT_LOGIN.
+ * @param[in] type A value from #ACT_LOGIN.
+ * @retval list<pair<string,string>> A list of a string pair containing the login dates and times.
+ */
+const list<pair<string,string>> Account::gLogins( const uint_t& type ) const
+{
+    UFLAGS_DE( flags );
+
+    if ( type >= MAX_ACT_LOGIN )
+    {
+        LOGFMT( flags, "Account::gLogins()-> called with invalid type %lu", type );
+        return list<pair<string,string>>();
+    }
+
+    return m_logins[type];
+}
+
+/**
  * @brief Returns the name of the account.
  * @retval string A string with the name of the account.
  */
@@ -315,7 +333,7 @@ const bool Account::aLogin( const string& date, const string& name, const uint_t
         return false;
     }
 
-    while ( m_logins[type].size() >= CFG_ACT_HOST_MAX )
+    while ( m_logins[type].size() >= CFG_ACT_LOGIN_MAX )
         m_logins[type].pop_back();
 
     m_logins[type].push_front( pair<string,string>( date, name ) );
