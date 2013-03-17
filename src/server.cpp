@@ -246,6 +246,7 @@ const bool Server::PollSockets()
 
         if ( socket_client->Quitting() )
         {
+            socket_client->Send();
             socket_client->Delete();
             continue;
         }

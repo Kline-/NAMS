@@ -31,12 +31,7 @@ class Quit : public Plugin {
 const void Quit::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     if ( client )
-    {
-        client->Send( CFG_STR_QUIT );
-        client->Send();
-        LOGFMT( 0, "SocketClient::Quit()-> %s:%lu (%lu)", CSTR( client->gHostname() ), client->gPort(), client->gDescriptor() );
         client->Quit();
-    }
 
     return;
 }

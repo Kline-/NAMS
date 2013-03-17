@@ -184,12 +184,12 @@ const bool SocketClient::ProcessCommand()
             if ( command->Authorized( security ) )
                 command->Run( this, cmd.first, cmd.second );
             else if ( m_state < SOC_STATE_PLAYING )
-                Handler::ProcessLogin( this, cmd.first, cmd.second );
+                Handler::Interpret( this, cmd.first, cmd.second );
             else
                 Send( CFG_STR_CMD_INVALID );
         }
         else if ( m_state < SOC_STATE_PLAYING )
-            Handler::ProcessLogin( this, cmd.first, cmd.second );
+            Handler::Interpret( this, cmd.first, cmd.second );
         else
             Send( CFG_STR_CMD_INVALID );
     }
@@ -275,6 +275,9 @@ const bool SocketClient::QueueCommand( const string& command )
  */
 const void SocketClient::Quit()
 {
+    Send( CFG_STR_QUIT );
+    LOGFMT( 0, "SocketClient::Quit()-> %s:%lu (%lu)", CSTR( gHostname() ), gPort(), gDescriptor() );
+
     m_quitting = true;
 
     return;

@@ -57,6 +57,7 @@ const void Handler::AccountMenu( SocketClient* client, const string& cmd, const 
         return;
     }
 
+    cout << "state=[" << client->gState() << "} cmd={" << cmd << "} args={" << args <<"}" << endl;
     switch ( client->gState() )
     {
         case SOC_STATE_ACCOUNT_MENU:
@@ -66,6 +67,34 @@ const void Handler::AccountMenu( SocketClient* client, const string& cmd, const 
         default:
         break;
     }
+
+    return;
+}
+
+/**
+ * @brief Redirect to the appropriate subsystem based on socket state.
+ * @param[in] client The SocketClient to process a redirect request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::Interpret( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+    uint_t state = uintmin_t;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::Interpret()-> called with NULL client" );
+        return;
+    }
+
+    state = client->gState();
+
+    if ( state >= SOC_STATE_LOGIN_SCREEN && state <= SOC_STATE_LOAD_ACCOUNT )
+        ProcessLogin( client, cmd, args );
+    else if ( state >= SOC_STATE_ACCOUNT_MENU )
+        AccountMenu( client, cmd, args );
 
     return;
 }
@@ -207,7 +236,7 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
         account->Delete();
 
         if ( exists )
-            client->Quit();
+            client->gServer()->FindCommand( "quit" )->Run( client );
         else
         {
             client->sLogin( SOC_LOGIN_NAME, "" );
@@ -486,12 +515,14 @@ const void Handler::MenuScreen( SocketClient* client, const string& cmd, const s
         return;
     }
 
-    switch( cmd[0] )
+    switch( ::stoi( cmd ) )
     {
-        case 1:
+        case ACT_MENU_CHARACTER_CREATE:
         break;
 
-        case 99:
+        case ACT_MENU_QUIT:
+            client->Quit();
+            return;
         break;
 
         default:
