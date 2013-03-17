@@ -57,9 +57,6 @@ const void Handler::AccountMenu( SocketClient* client, const string& cmd, const 
         return;
     }
 
-    client->gAccount()->Serialize();
-    client->gServer()->Shutdown( EXIT_SUCCESS );
-
     switch ( client->gState() )
     {
         default:
