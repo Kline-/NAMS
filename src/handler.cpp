@@ -230,6 +230,8 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
         return;
     }
 
+    Telopt::Negotiate( client, SOC_TELOPT_ECHO, false );
+
     account = new Account();
     if ( !account->New( client, exists ) )
     {
@@ -251,6 +253,8 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
 
     // All went well, off to the account menu
     client->sState( SOC_STATE_ACCOUNT_MENU );
+    client->Send( Telopt::opt_cursor_home );
+    client->Send( Telopt::opt_erase_screen );
     AccountMenu( client );
 
     return;
@@ -329,6 +333,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
     //Initial entry
     if ( cmd.empty() )
     {
+        Telopt::Negotiate( client, SOC_TELOPT_ECHO, true );
         client->Send( CFG_STR_ACT_NEW );
         client->Send( CFG_STR_ACT_PASSWORD_GET );
 
@@ -337,6 +342,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
 
     if ( cmd.length() < CFG_ACT_PASSWORD_MIN_LEN || cmd.length() > CFG_ACT_PASSWORD_MAX_LEN )
     {
+        client->sLogin( SOC_LOGIN_PASSWORD, "" );
         client->Send( CFG_STR_ACT_PASSWORD_INVALID );
         client->Send( Utils::FormatString( 0, CFG_STR_ACT_PASSWORD_LENGTH, CFG_ACT_PASSWORD_MIN_LEN, CFG_ACT_PASSWORD_MAX_LEN ) );
         client->Send( CFG_STR_ACT_PASSWORD_GET );
@@ -389,6 +395,7 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
     //Initial hit prompting for password
     if ( cmd.empty() )
     {
+        Telopt::Negotiate( client, SOC_TELOPT_ECHO, true );
         client->Send( CFG_STR_ACT_PASSWORD_GET );
         return;
     }
@@ -503,6 +510,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
 const void Handler::MenuScreen( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
+    uint_t val = uintmin_t;
 
     if ( client == NULL )
     {
@@ -518,8 +526,6 @@ const void Handler::MenuScreen( SocketClient* client, const string& cmd, const s
 
     if ( cmd.empty() )
     {
-        client->Send( Telopt::opt_cursor_home );
-        client->Send( Telopt::opt_erase_screen );
         client->Send( CFG_STR_VERSION " :: Account Menu" CRLF "Please select one of the following options:" CRLF );
         client->Send( Utils::FormatString( 0, "     %d) Create a new character" CRLF, ACT_MENU_CHARACTER_CREATE ) );
         client->Send( Utils::FormatString( 0, "    %d) Quit" CRLF, ACT_MENU_QUIT ) );
@@ -527,22 +533,25 @@ const void Handler::MenuScreen( SocketClient* client, const string& cmd, const s
         return;
     }
 
-    switch( ::stoi( cmd ) )
+    // Safer than ::stoi(), will output 0 for anything invalid
+    stringstream( cmd ) >> val;
+
+    switch( val )
     {
         case ACT_MENU_CHARACTER_CREATE:
+
         break;
 
         case ACT_MENU_QUIT:
             client->Quit();
-            return;
         break;
 
+        case ACT_MENU_INVALID:
         default:
+            client->Send( "Invalid selection." CRLF );
+            client->Send( "Option: " );
         break;
     }
-
-    //Generate the next input prompt
-    AccountMenu( client );
 
     return;
 }

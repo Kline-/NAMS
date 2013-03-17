@@ -41,8 +41,8 @@ const bool Telopt::InitialNegotiation( SocketClient* client )
         return false;
     }
 
-    // send some options here, then send the login string
-    // Telopt::Send( client, DO, TELOPT_ECHO );
+    // negotiate some options here, then send the login string
+    Telopt::Negotiate( client, SOC_TELOPT_ECHO, false );
 
     if ( !client->Send( CFG_STR_LOGIN ) )
     {
@@ -92,7 +92,7 @@ const string Telopt::ProcessInput( SocketClient* client, const string& data )
                 case (char)DONT:
                 case (char)WILL:
                 case (char)WONT:
-                    BeginHandshake( client, data[i+1], data[i+2] );
+                    Handshake( client, data[i+1], data[i+2] );
                     i += 2; // data[i] == IAC, data[i+1] = cmd, data[i+2] = opt
                 break;
             }
@@ -148,13 +148,13 @@ const string Telopt::ProcessOutput( SocketClient* client, const string& data )
  * @param[in] opt The option following the command.
  * @retval void
  */
-const void Telopt::BeginHandshake( SocketClient* client, const char& cmd, const char& opt )
+const void Telopt::Handshake( SocketClient* client, const char& cmd, const char& opt )
 {
     UFLAGS_DE( flags );
 
     if ( client == NULL )
     {
-        LOGSTR( flags, "Telopt::BeginHandshake()-> called with NULL client" );
+        LOGSTR( flags, "Telopt::Handshake()-> called with NULL client" );
         return;
     }
 
@@ -162,13 +162,18 @@ const void Telopt::BeginHandshake( SocketClient* client, const char& cmd, const 
     {
         case (char)TELOPT_ECHO:
             if ( cmd == (char)DO )
-            {
-                EndHandshake( client, SOC_TELOPT_ECHO, true, true );
+            {   // PuTTY likes to send IAC DO ECHO on connect which doesn't play nicely with
+                // allowing the account name to echo then flipping it for the password
+                if ( client->gState() > SOC_STATE_LOGIN_SCREEN )
+                    Negotiate( client, SOC_TELOPT_ECHO, true, true );
+                else
+                    Negotiate( client, SOC_TELOPT_ECHO, false, true );
+
                 client->gTermInfo()->sTelopt( SOC_TELOPT_ECHO, true );
             }
             else if ( cmd == (char)DONT )
             {
-                EndHandshake( client, SOC_TELOPT_ECHO, false, client->gTermInfo()->gTelopt( SOC_TELOPT_ECHO ) );
+                Negotiate( client, SOC_TELOPT_ECHO, false, client->gTermInfo()->gTelopt( SOC_TELOPT_ECHO ) );
                 client->gTermInfo()->sTelopt( SOC_TELOPT_ECHO, false );
             }
             else if ( cmd == (char)WILL )
@@ -188,26 +193,26 @@ const void Telopt::BeginHandshake( SocketClient* client, const char& cmd, const 
 }
 
 /**
- * @brief Ends a telnet negotiation handshake for requested options.
+ * @brief Negotiate requested options.
  * @param[in] client The client requesting a negotiation.
  * @param[in] opt The option to check from #SOC_TELOPT.
  * @param[in] val The value to check the option for.
  * @param[in] reply If true, a reply will be sent upon completion.
  * @retval void
  */
-const void Telopt::EndHandshake( SocketClient* client, const uint_t& opt, const bool& val, const bool& reply )
+const void Telopt::Negotiate( SocketClient* client, const uint_t& opt, const bool& val, const bool& reply )
 {
     UFLAGS_DE( flags );
 
     if ( client == NULL )
     {
-        LOGSTR( flags, "Telopt::EndHandshake()-> called with NULL client" );
+        LOGSTR( flags, "Telopt::Negotiate()-> called with NULL client" );
         return;
     }
 
     if ( opt < uintmin_t || opt >= MAX_SOC_TELOPT )
     {
-        LOGFMT( flags, "Telopt::EndHandshake()-> called with invalid opt: %lu", opt );
+        LOGFMT( flags, "Telopt::Negotiate()-> called with invalid opt: %lu", opt );
         return;
     }
 

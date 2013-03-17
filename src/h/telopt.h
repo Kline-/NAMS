@@ -50,8 +50,8 @@ namespace Telopt {
     /**@}*/
 
     /** @name Internal */ /**@{*/
-    const void BeginHandshake( SocketClient* client, const char& cmd, const char& opt );
-    const void EndHandshake( SocketClient* client, const uint_t& opt, const bool& val, const bool& reply );
+    const void Handshake( SocketClient* client, const char& cmd, const char& opt );
+    const void Negotiate( SocketClient* client, const uint_t& opt, const bool& val, const bool& reply = true );
     const void Send( SocketClient* client, const char& cmd, const char& opt );
     /**@}*/
 };

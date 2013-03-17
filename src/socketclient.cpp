@@ -792,7 +792,10 @@ SocketClient::TermInfo::TermInfo()
     uint_t i = uintmin_t;
 
     for ( i = 0; i < MAX_SOC_TELOPT; i++ )
+    {
+        m_negotiated[i] = false;
         m_telopt[i] = false;
+    }
 
     return;
 }
