@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['help',['Help',['../classHelp.xhtml',1,'Help'],['../classHelp.xhtml#a62cbb2ae2a4b7abe72913dbf64dc616b',1,'Help::Help()']]],
-  ['help_2ecpp',['help.cpp',['../help_8cpp.xhtml',1,'']]]
+  ['handler',['Handler',['../namespaceHandler.xhtml',1,'']]],
+  ['handler_2ecpp',['handler.cpp',['../handler_8cpp.xhtml',1,'']]],
+  ['handler_2eh',['handler.h',['../handler_8h.xhtml',1,'']]]
 ];

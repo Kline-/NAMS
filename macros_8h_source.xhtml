@@ -140,29 +140,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00104"></a>00104 <span class="preprocessor"></span>
 <a name="l00112"></a><a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a">00112</a> <span class="preprocessor">#define CITER( container, type, name ) container&lt;type&gt;::const_iterator name</span>
 <a name="l00113"></a>00113 <span class="preprocessor"></span>
-<a name="l00118"></a><a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f">00118</a> <span class="preprocessor">#define CRLF &quot;\r\n&quot;</span>
-<a name="l00119"></a>00119 <span class="preprocessor"></span>
-<a name="l00125"></a><a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc">00125</a> <span class="preprocessor">#define CSTR( str ) ( str ).c_str()</span>
-<a name="l00126"></a>00126 <span class="preprocessor"></span>
-<a name="l00131"></a><a class="code" href="macros_8h.xhtml#afd7feb39acd312085566c208e35c2362">00131</a> <span class="preprocessor">#define FNAME string( __PRETTY_FUNCTION__ )</span>
-<a name="l00132"></a>00132 <span class="preprocessor"></span>
-<a name="l00140"></a><a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656">00140</a> <span class="preprocessor">#define ITER( container, type, name ) container&lt;type&gt;::iterator name</span>
+<a name="l00121"></a><a class="code" href="macros_8h.xhtml#ab8dd2a96f2d83fd315a460c2b0e7401c">00121</a> <span class="preprocessor">#define CKPASSWORD( salt, check, old ) Utils::String( crypt( CSTR( check ), CSTR( Utils::Salt( salt ) ) ) ) == old</span>
+<a name="l00122"></a>00122 <span class="preprocessor"></span>
+<a name="l00127"></a><a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f">00127</a> <span class="preprocessor">#define CRLF &quot;\r\n&quot;</span>
+<a name="l00128"></a>00128 <span class="preprocessor"></span>
+<a name="l00134"></a><a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc">00134</a> <span class="preprocessor">#define CSTR( str ) ( str ).c_str()</span>
+<a name="l00135"></a>00135 <span class="preprocessor"></span>
+<a name="l00140"></a><a class="code" href="macros_8h.xhtml#afd7feb39acd312085566c208e35c2362">00140</a> <span class="preprocessor">#define FNAME string( __PRETTY_FUNCTION__ )</span>
 <a name="l00141"></a>00141 <span class="preprocessor"></span>
-<a name="l00148"></a><a class="code" href="macros_8h.xhtml#a1867b52cc6ac60871687ed20868e7bed">00148</a> <span class="preprocessor">#define KEY( stream, name ) stream &lt;&lt; name &quot; = &quot;</span>
-<a name="l00149"></a>00149 <span class="preprocessor"></span>
-<a name="l00156"></a><a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598">00156</a> <span class="preprocessor">#define LOGSTR( flags, message ) Utils::Logger( flags, message )</span>
-<a name="l00157"></a>00157 <span class="preprocessor"></span>
-<a name="l00165"></a><a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da">00165</a> <span class="preprocessor">#define LOGFMT( flags, message, ... ) LOGSTR( flags, Utils::FormatString( flags, message, __VA_ARGS__ ) )</span>
-<a name="l00166"></a>00166 <span class="preprocessor"></span>
-<a name="l00173"></a><a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3">00173</a> <span class="preprocessor">#define LOGERRNO( flags, message ) LOGFMT( flags, message &quot; returned errno %d: %s&quot;, errno, strerror( errno ) )</span>
-<a name="l00174"></a>00174 <span class="preprocessor"></span>
-<a name="l00183"></a><a class="code" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504">00183</a> <span class="preprocessor">#define MITER( container, type1, type2, name ) container&lt;type1,type2&gt;::iterator name</span>
+<a name="l00149"></a><a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656">00149</a> <span class="preprocessor">#define ITER( container, type, name ) container&lt;type&gt;::iterator name</span>
+<a name="l00150"></a>00150 <span class="preprocessor"></span>
+<a name="l00158"></a><a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d">00158</a> <span class="preprocessor">#define KEY( stream, name, value ) stream &lt;&lt; name &quot; = &quot; &lt;&lt; value &lt;&lt; endl</span>
+<a name="l00159"></a>00159 <span class="preprocessor"></span>
+<a name="l00166"></a><a class="code" href="macros_8h.xhtml#a820638a5bca755f5ec10ced9cd8e1a37">00166</a> <span class="preprocessor">#define KEYLIST( stream, name ) stream &lt;&lt; name &quot; = &quot;</span>
+<a name="l00167"></a>00167 <span class="preprocessor"></span>
+<a name="l00175"></a><a class="code" href="macros_8h.xhtml#a56c55a4fe68d269a30a5dbddbb210b47">00175</a> <span class="preprocessor">#define KEYLISTLOOP( stream, name, iter )</span>
+<a name="l00176"></a>00176 <span class="preprocessor"></span>
+<a name="l00183"></a><a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598">00183</a> <span class="preprocessor">#define LOGSTR( flags, message ) Utils::Logger( flags, message )</span>
 <a name="l00184"></a>00184 <span class="preprocessor"></span>
-<a name="l00190"></a><a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502">00190</a> <span class="preprocessor">#define UFLAGS_DE( name ) BSET( name, UTILS_DEBUG | UTILS_TYPE_ERROR )</span>
-<a name="l00191"></a>00191 <span class="preprocessor"></span>
-<a name="l00201"></a><a class="code" href="macros_8h.xhtml#a5fc45be6b0bb71dc5d4c6390d98bf3ee">00201</a> <span class="preprocessor">#define USLEEP_MAX 1000000</span>
-<a name="l00202"></a>00202 <span class="preprocessor"></span>
-<a name="l00203"></a>00203 <span class="preprocessor">#endif</span>
+<a name="l00192"></a><a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da">00192</a> <span class="preprocessor">#define LOGFMT( flags, message, ... ) LOGSTR( flags, Utils::FormatString( flags, message, __VA_ARGS__ ) )</span>
+<a name="l00193"></a>00193 <span class="preprocessor"></span>
+<a name="l00200"></a><a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3">00200</a> <span class="preprocessor">#define LOGERRNO( flags, message ) LOGFMT( flags, message &quot; returned errno %d: %s&quot;, errno, strerror( errno ) )</span>
+<a name="l00201"></a>00201 <span class="preprocessor"></span>
+<a name="l00210"></a><a class="code" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504">00210</a> <span class="preprocessor">#define MITER( container, type1, type2, name ) container&lt;type1,type2&gt;::iterator name</span>
+<a name="l00211"></a>00211 <span class="preprocessor"></span>
+<a name="l00217"></a><a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502">00217</a> <span class="preprocessor">#define UFLAGS_DE( name ) \</span>
+<a name="l00218"></a>00218 <span class="preprocessor">    BSET( name, UTILS_DEBUG ); \</span>
+<a name="l00219"></a>00219 <span class="preprocessor">    name.set( UTILS_TYPE_ERROR )</span>
+<a name="l00220"></a>00220 <span class="preprocessor"></span>
+<a name="l00226"></a><a class="code" href="macros_8h.xhtml#a6e32552c1b3df78e64aa5205ddf6dae9">00226</a> <span class="preprocessor">#define UFLAGS_I( name ) BSET( name, UTILS_TYPE_INFO )</span>
+<a name="l00227"></a>00227 <span class="preprocessor"></span>
+<a name="l00233"></a><a class="code" href="macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1">00233</a> <span class="preprocessor">#define UFLAGS_S( name ) BSET( name, UTILS_TYPE_SOCKET )</span>
+<a name="l00234"></a>00234 <span class="preprocessor"></span>
+<a name="l00244"></a><a class="code" href="macros_8h.xhtml#a5fc45be6b0bb71dc5d4c6390d98bf3ee">00244</a> <span class="preprocessor">#define USLEEP_MAX 1000000</span>
+<a name="l00245"></a>00245 <span class="preprocessor"></span>
+<a name="l00246"></a>00246 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -181,7 +193,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 00:09:58 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

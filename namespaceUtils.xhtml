@@ -101,29 +101,39 @@ Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f">Lower</a> (const T &amp;t)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string converted to all lowercase letters.  <a href="#a9b70f9dd0af906c806695b35488e778f"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T , class V &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a1cd33b86e538bb0c765d5c0bcde259e1">MakePair</a> (const T &amp;t, const V &amp;v)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string from the pair of t and v.  <a href="#a1cd33b86e538bb0c765d5c0bcde259e1"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a817d26eb6a3427ad3742fb3cb788d30e">Upper</a> (const T &amp;t)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string converted to all uppercase letters.  <a href="#a817d26eb6a3427ad3742fb3cb788d30e"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a594756861a60d256d31db7bb34ea70de">String</a> (const T &amp;t)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string object from any data type: bool, int, char, etc.  <a href="#a594756861a60d256d31db7bb34ea70de"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107">DirPath</a> (const string &amp;directory, const string &amp;file, const string &amp;ext=&quot;&quot;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string consisting of directory/file.ext.  <a href="#addb4a550d4405e6351e52a275fae8107"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a33e08ea185b71aab494d83322ad3cd53">_FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a nested wrapper for <a class="el" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e" title="This is the printf-style string formatter. It should not be invoked directly, but rather by using Uti...">Utils::__FormatString</a> and should not be called directly.  <a href="#a33e08ea185b71aab494d83322ad3cd53"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">__FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt, va_list &amp;val)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the printf-style string formatter. It should not be invoked directly, but rather by using Utils::FormatString() to ensure proper argument count and caller passing.  <a href="#a070c642e01b4b1d2ded94e234d32f65e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aa2ac8bf1bb304bab8f29829ec30af243">_Logger</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the logging output engine. It should not be invoked directly, but rather by calling Utils::Logger() to ensure proper argument count and caller passing.  <a href="#aa2ac8bf1bb304bab8f29829ec30af243"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#ac41c505e3efccab8549238e6843b0d2e">DirExists</a> (const string &amp;dir)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a directory exists on disk.  <a href="#ac41c505e3efccab8549238e6843b0d2e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d">DirPath</a> (const string &amp;dir, const string &amp;file, const string &amp;ext=&quot;&quot;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string consisting of directory/file.ext.  <a href="#ad21617b756ef242fbc66e63dec3e4e4d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281">FileExt</a> (const string &amp;file, const string &amp;ext)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string consisting of file.ext.  <a href="#a3e236b07fd628bcaf2e7c5854dd2a281"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#afaf029667f299587a52ba9c8de11edfa">NumChar</a> (const string &amp;input, const string &amp;item)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of a specific character in a given string.  <a href="#afaf029667f299587a52ba9c8de11edfa"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const pair&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a11bfe61c6e77603d59116397b1d3f580">ReadPair</a> (const string &amp;input)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pair of type T,V after receiving an input string generated from <a class="el" href="namespaceUtils.xhtml#a1cd33b86e538bb0c765d5c0bcde259e1" title="Generates a string from the pair of t and v.">Utils::MakePair()</a>.  <a href="#a11bfe61c6e77603d59116397b1d3f580"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0">Salt</a> (const string &amp;input)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a salt value for use with crypt.  <a href="#adafa6fa32d5b637ea62db12aa35db6e0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a8c70e85acdb1549aa4cd3a16b8d8d9cf">StrNewlines</a> (const string &amp;input)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector of strings split at linebreaks based on input.  <a href="#a8c70e85acdb1549aa4cd3a16b8d8d9cf"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a53f3c68439fa30795904574e03b4da50">StrTime</a> (const time_t &amp;now)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a given time as a string.  <a href="#a53f3c68439fa30795904574e03b4da50"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a">StrPrefix</a> (const string &amp;s1, const string &amp;s2, const bool &amp;igncase=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if string s1 is a prefix of string s2.  <a href="#acf9ee675ffc2d73b7b2a2a71aa68e36a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a2b2dad8fa1999271cf613dc735f851d4">StrTime</a> (const time_t &amp;now=chrono::high_resolution_clock::to_time_t(chrono::high_resolution_clock::now()))</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a given time as a string.  <a href="#a2b2dad8fa1999271cf613dc735f851d4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a402a36406edb7938330204e83b1abe83">StrTokens</a> (const string &amp;input, const bool &amp;quiet=false)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector of strings split at spaces based on input.  <a href="#a402a36406edb7938330204e83b1abe83"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a36780f0aa565047ca0db53bda2aff5fc">iAlNum</a> (const T &amp;t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to ensure an input is entirely alphanumeric.  <a href="#a36780f0aa565047ca0db53bda2aff5fc"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e">iDirectory</a> (const string &amp;dir)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a file path is a directory or file on disk.  <a href="#a303e8afc983db3b483fb450a1c499c1e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b">iFile</a> (const string &amp;file)</td></tr>
@@ -133,8 +143,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc">iReadable</a> (const string &amp;file)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a file is readable.  <a href="#a158e1deb611937a6313e8683fe7db3fc"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#ae279da38c52b15cc8cb01aea4081f288">Argument</a> (string &amp;input)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first space separated argument from input and then erases it from input.  <a href="#ae279da38c52b15cc8cb01aea4081f288"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#af8586b5c4d77ae0617279186b2bfdb66">Argument</a> (string &amp;input, const string &amp;delim=&quot; &quot;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first delimeter separated argument from input and then erases it from input.  <a href="#af8586b5c4d77ae0617279186b2bfdb66"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a57b7c6b0c6ea6f1498129d9c9a16d8a8">CleanupTemp</a> (<a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_close, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_open)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlinks any temp files leftover from a failed write.  <a href="#a57b7c6b0c6ea6f1498129d9c9a16d8a8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b">FileOpen</a> (ofstream &amp;ofs, const string &amp;file)</td></tr>
@@ -154,10 +164,17 @@ Functions</h2></td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d">KeySet</a> (const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const string &amp;item, string &amp;loc)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If the contents of keyd == valu, assigns loc = item.  <a href="#aba8fca9daa0f767d7f5af5e2b1d6b81d"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V , class I , class L &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">const void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a0aff3514e06faae8ed026c673efe002b">KeySet</a> (const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const I &amp;item, L &amp;loc)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If the contents of keyd == valu, assigns loc = item.  <a href="#a0aff3514e06faae8ed026c673efe002b"></a><br/></td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">const void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a8def6be7e490b6d33b3b51d7fc39f517">KeySet</a> (const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const I &amp;item, L &amp;loc, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;maxv, bool &amp;maxb)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If the contents of keyd == valu, assigns loc = item.  <a href="#a8def6be7e490b6d33b3b51d7fc39f517"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const multimap&lt; bool, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a014607a95c6d01ee99564479b3620ee7">ListDirectory</a> (const string &amp;dir, const bool &amp;recursive, multimap&lt; bool, string &gt; &amp;output, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_close, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_open)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a multimap of a specified directory tree on disk.  <a href="#a014607a95c6d01ee99564479b3620ee7"></a><br/></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a33e08ea185b71aab494d83322ad3cd53">_FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a nested wrapper for <a class="el" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e" title="This is the printf-style string formatter. It should not be invoked directly, but rather by using Uti...">Utils::__FormatString</a> and should not be called directly.  <a href="#a33e08ea185b71aab494d83322ad3cd53"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e">__FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt, va_list &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the printf-style string formatter. It should not be invoked directly, but rather by using Utils::FormatString() to ensure proper argument count and caller passing.  <a href="#a070c642e01b4b1d2ded94e234d32f65e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aa2ac8bf1bb304bab8f29829ec30af243">_Logger</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the logging output engine. It should not be invoked directly, but rather by calling Utils::Logger() to ensure proper argument count and caller passing.  <a href="#aa2ac8bf1bb304bab8f29829ec30af243"></a><br/></td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a070c642e01b4b1d2ded94e234d32f65e"></a><!-- doxytag: member="Utils::__FormatString" ref="a070c642e01b4b1d2ded94e234d32f65e" args="(const uint_t &amp;narg, const bitset&lt; CFG_MEM_MAX_BITSET &gt; &amp;flags, const string &amp;caller, const string &amp;fmt, va_list &amp;val)" -->
@@ -219,7 +236,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00094">94</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00738">738</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
     va_list args;
@@ -269,8 +286,7 @@ Functions</h2></td></tr>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a070c642e01b4b1d2ded94e234d32f65e_cgraph.svg" width="336" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a070c642e01b4b1d2ded94e234d32f65e_cgraph.svg" width="336" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -344,7 +360,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00066">66</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00710">710</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
     va_list args;
@@ -368,8 +384,7 @@ Functions</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a33e08ea185b71aab494d83322ad3cd53_cgraph.svg" width="534" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a33e08ea185b71aab494d83322ad3cd53_cgraph.svg" width="534" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -433,9 +448,9 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000007">Todo:</a></b></dt><dd>Add monitor channel support </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000009">Todo:</a></b></dt><dd>Add monitor channel support </dd></dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00148">148</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00792">792</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( uflags );
     va_list args;
@@ -458,7 +473,7 @@ Functions</h2></td></tr>
 
     <span class="comment">// prepend timestamp</span>
     tt = chrono::high_resolution_clock::now();
-    pre = <a class="code" href="namespaceUtils.xhtml#a53f3c68439fa30795904574e03b4da50" title="Returns a given time as a string.">StrTime</a>( chrono::high_resolution_clock::to_time_t( tt ) );
+    pre = <a class="code" href="namespaceUtils.xhtml#a2b2dad8fa1999271cf613dc735f851d4" title="Returns a given time as a string.">StrTime</a>( chrono::high_resolution_clock::to_time_t( tt ) );
     pre.append( <span class="stringliteral">&quot; :: &quot;</span> );
 
     <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa435dc1cf64950a334aba3ae322dc7e3">MAX_UTILS</a>; i++ )
@@ -506,30 +521,40 @@ Functions</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_aa2ac8bf1bb304bab8f29829ec30af243_cgraph.svg" width="494" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_aa2ac8bf1bb304bab8f29829ec30af243_cgraph.svg" width="494" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ae279da38c52b15cc8cb01aea4081f288"></a><!-- doxytag: member="Utils::Argument" ref="ae279da38c52b15cc8cb01aea4081f288" args="(string &amp;input)" -->
+<a class="anchor" id="af8586b5c4d77ae0617279186b2bfdb66"></a><!-- doxytag: member="Utils::Argument" ref="af8586b5c4d77ae0617279186b2bfdb66" args="(string &amp;input, const string &amp;delim=&quot; &quot;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#ae279da38c52b15cc8cb01aea4081f288">Utils::Argument</a> </td>
+          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#af8586b5c4d77ae0617279186b2bfdb66">Utils::Argument</a> </td>
           <td>(</td>
           <td class="paramtype">string &amp;&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>delim</em> = <code>&quot;&#160;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>A space separated string of items. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>A delimeter separated string of items. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">delim</td><td>If specified, used as the delimeter. Defaults to space. </td></tr>
   </table>
   </dd>
 </dl>
@@ -540,7 +565,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00418">418</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00401">401</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keywordtype">string</span> output;
@@ -552,9 +577,18 @@ Functions</h2></td></tr>
         <span class="keywordflow">return</span> output;
     }
 
-    pos = input.find_first_of( <span class="stringliteral">&quot; &quot;</span> );
-    output = input.substr( 0, pos );
-    input.erase( 0, pos + 1 );
+    pos = input.find( delim );
+
+    <span class="keywordflow">if</span> ( pos == string::npos )
+    {
+        output = input;
+        input.clear();
+    }
+    <span class="keywordflow">else</span>
+    {
+        output = input.substr( 0, pos + delim.length() - 1 );
+        input.erase( 0, pos + delim.length() );
+    }
 
     <span class="keywordflow">return</span> output;
 }
@@ -564,8 +598,7 @@ Functions</h2></td></tr>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_ae279da38c52b15cc8cb01aea4081f288_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_af8586b5c4d77ae0617279186b2bfdb66_icgraph.svg" width="100%" height="304"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -609,7 +642,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00443">443</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00435">435</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     multimap&lt;bool,string&gt; files;
@@ -622,7 +655,7 @@ Functions</h2></td></tr>
 
     <span class="keywordflow">for</span> ( mi = files.begin(); mi != files.end(); mi++ )
         <span class="keywordflow">if</span> ( mi-&gt;first == <a class="code" href="enum_8h.xhtml#a9325070b1daf70dbe43f7fb9a341aaf2">UTILS_IS_FILE</a> )
-            <span class="keywordflow">if</span> ( ::unlink( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Returns a string consisting of directory/file.ext.">DirPath</a>( <a class="code" href="config_8h.xhtml#a139b7703e057cd102ea853e5999f39fd" title="Directory for temporary files.">CFG_DAT_DIR_VAR</a>, mi-&gt;second ) ) ) &lt; 0 )
+            <span class="keywordflow">if</span> ( ::unlink( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">DirPath</a>( <a class="code" href="config_8h.xhtml#a139b7703e057cd102ea853e5999f39fd" title="Directory for temporary files.">CFG_DAT_DIR_VAR</a>, mi-&gt;second ) ) ) &lt; 0 )
                 <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::CleanupTemp()-&gt;unlink()-&gt;&quot;</span> );
 
     <span class="keywordflow">return</span>;
@@ -633,8 +666,7 @@ Functions</h2></td></tr>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a57b7c6b0c6ea6f1498129d9c9a16d8a8_cgraph.svg" width="510" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a57b7c6b0c6ea6f1498129d9c9a16d8a8_cgraph.svg" width="510" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -643,8 +675,7 @@ Functions</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a57b7c6b0c6ea6f1498129d9c9a16d8a8_icgraph.svg" width="427" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a57b7c6b0c6ea6f1498129d9c9a16d8a8_icgraph.svg" width="427" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -690,15 +721,82 @@ template&lt;class T &gt; </div>
 </pre></div>
 </div>
 </div>
-<a class="anchor" id="addb4a550d4405e6351e52a275fae8107"></a><!-- doxytag: member="Utils::DirPath" ref="addb4a550d4405e6351e52a275fae8107" args="(const string &amp;directory, const string &amp;file, const string &amp;ext=&quot;&quot;)" -->
+<a class="anchor" id="ac41c505e3efccab8549238e6843b0d2e"></a><!-- doxytag: member="Utils::DirExists" ref="ac41c505e3efccab8549238e6843b0d2e" args="(const string &amp;dir)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107">Utils::DirPath</a> </td>
+          <td class="memname">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> <a class="el" href="namespaceUtils.xhtml#ac41c505e3efccab8549238e6843b0d2e">Utils::DirExists</a> </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>directory</em>, </td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dir</td><td>The name of the directory to check for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">uint_t</td><td>A uint_t of either <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa6afb4eb3fbede68c19c12bf3543045f">UTILS_RET_ERROR</a>, <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ae9b6a246539fb57fb810ac271b05d050">UTILS_RET_FALSE</a>, or <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ae2722723183013676ca1f0f065fc0b24">UTILS_RET_TRUE</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00038">38</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+    <span class="keyword">struct </span>stat status = { 0 };
+
+    <span class="keywordflow">if</span> ( dir.empty() )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::DirExists()-&gt; called with empty dir&quot;</span> );
+        <span class="keywordflow">return</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa6afb4eb3fbede68c19c12bf3543045f">UTILS_RET_ERROR</a>;
+    }
+
+    <span class="keywordflow">if</span> ( ::access( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( dir ), F_OK ) &lt; 0 &amp;&amp; errno != ENOENT )
+    {
+        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::DirExists()-&gt;access()-&gt;&quot;</span> );
+        <span class="keywordflow">return</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa6afb4eb3fbede68c19c12bf3543045f">UTILS_RET_ERROR</a>;
+    }
+
+    <span class="keywordflow">if</span> ( ::stat( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( dir ), &amp;status ) &lt; 0 &amp;&amp; errno != ENOENT )
+    {
+        <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::DirExists()-&gt;stat()-&gt;&quot;</span> );
+        <span class="keywordflow">return</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa6afb4eb3fbede68c19c12bf3543045f">UTILS_RET_ERROR</a>;
+    }
+
+    <span class="keywordflow">if</span> ( status.st_mode &amp; S_IFDIR )
+        <span class="keywordflow">return</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ae2722723183013676ca1f0f065fc0b24">UTILS_RET_TRUE</a>;
+
+    <span class="keywordflow">return</span> <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ae9b6a246539fb57fb810ac271b05d050">UTILS_RET_FALSE</a>;
+}
+</pre></div>
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_ac41c505e3efccab8549238e6843b0d2e_icgraph.svg" width="100%" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad21617b756ef242fbc66e63dec3e4e4d"></a><!-- doxytag: member="Utils::DirPath" ref="ad21617b756ef242fbc66e63dec3e4e4d" args="(const string &amp;dir, const string &amp;file, const string &amp;ext=&quot;&quot;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d">Utils::DirPath</a> </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -722,7 +820,7 @@ template&lt;class T &gt; </div>
 <div class="memdoc">
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">directory</td><td>The top level directory build the path from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dir</td><td>The top level directory build the path from. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>The file to build the path from. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ext</td><td>Optionally replaces the file extension with this. </td></tr>
   </table>
@@ -735,30 +833,39 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00040">40</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00074">74</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <span class="keywordtype">string</span> path( directory );
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+    stringstream output;
 
-    path.append( <span class="stringliteral">&quot;/&quot;</span> );
+    <span class="keywordflow">if</span> ( dir.empty() )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::DirPath()-&gt; called with empty dir&quot;</span> );
+        <span class="keywordflow">return</span> output.str();
+    }
+
+    <span class="keywordflow">if</span> ( file.empty() )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::DirPath()-&gt; called with empty file&quot;</span> );
+        <span class="keywordflow">return</span> output.str();
+    }
+
+    output &lt;&lt; dir &lt;&lt; <span class="stringliteral">&quot;/&quot;</span>;
 
     <span class="keywordflow">if</span> ( !ext.empty() )
-    {
-        path.append( file.substr( 0, file.find_last_of( <span class="stringliteral">&quot;.&quot;</span> ) + 1 ) );
-        path.append( ext );
-    }
+        output &lt;&lt; file.substr( 0, file.find_last_of( <span class="stringliteral">&quot;.&quot;</span> ) + 1 ) &lt;&lt; ext;
     <span class="keywordflow">else</span>
-        path.append( file );
+        output &lt;&lt; file;
 
-    <span class="keywordflow">return</span> path;
+    <span class="keywordflow">return</span> output.str();
 }
 </pre></div>
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_addb4a550d4405e6351e52a275fae8107_icgraph.svg" width="100%" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_ad21617b756ef242fbc66e63dec3e4e4d_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -803,7 +910,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00529">529</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00521">521</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -827,13 +934,12 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a7008f8effca71806721305d1834bde1e_icgraph.svg" width="100%" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a7008f8effca71806721305d1834bde1e_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -867,7 +973,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00559">559</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00551">551</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -937,7 +1043,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00589">589</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00581">581</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keywordtype">string</span> oldfi, newfi;
@@ -970,16 +1076,16 @@ template&lt;class T &gt; </div>
     }
 
     <span class="comment">// Ensure the copy to move from temp exists and we have permissions before unlinking the live file</span>
-    newfi = <a class="code" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Returns a string consisting of directory/file.ext.">DirPath</a>( <a class="code" href="config_8h.xhtml#a139b7703e057cd102ea853e5999f39fd" title="Directory for temporary files.">CFG_DAT_DIR_VAR</a>, file );
-    <span class="keywordflow">if</span> ( ::access( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( newfi ), R_OK | W_OK ) &lt; 0 )
+    newfi = <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">DirPath</a>( <a class="code" href="config_8h.xhtml#a139b7703e057cd102ea853e5999f39fd" title="Directory for temporary files.">CFG_DAT_DIR_VAR</a>, file );
+    <span class="keywordflow">if</span> ( ::access( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( newfi ), R_OK | W_OK ) &lt; 0 &amp;&amp; errno != ENOENT )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::FileClose()-&gt;access()-&gt;&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
     <span class="comment">// Remove the live copy</span>
-    oldfi = <a class="code" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Returns a string consisting of directory/file.ext.">DirPath</a>( dir, file );
-    <span class="keywordflow">if</span> ( ::unlink( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( oldfi ) ) &lt; 0 )
+    oldfi = <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">DirPath</a>( dir, file );
+    <span class="keywordflow">if</span> ( ::unlink( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( oldfi ) ) &lt; 0 &amp;&amp; errno != ENOENT )
     {
         <a class="code" href="macros_8h.xhtml#a39c64b6565bddaca7e2af8518ee764e3" title="Wrap Utils::Logger() based on a locally generated errno value from system functions.">LOGERRNO</a>( flags, <span class="stringliteral">&quot;Utils::FileClose()-&gt;unlink()-&gt;&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -995,13 +1101,83 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a795e3185f741a3e0ee5025c4266afcd3_cgraph.svg" width="278" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a795e3185f741a3e0ee5025c4266afcd3_cgraph.svg" width="278" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3e236b07fd628bcaf2e7c5854dd2a281"></a><!-- doxytag: member="Utils::FileExt" ref="a3e236b07fd628bcaf2e7c5854dd2a281" args="(const string &amp;file, const string &amp;ext)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281">Utils::FileExt</a> </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>ext</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>The file to build the path from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ext</td><td>The extension to append. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string consisting of file.ext. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00107">107</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+    stringstream output;
+
+    <span class="keywordflow">if</span> ( file.empty() )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::FileExt()-&gt; called with empty file&quot;</span> );
+        <span class="keywordflow">return</span> output.str();
+    }
+
+    <span class="keywordflow">if</span> ( ext.empty() )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::FileExt()-&gt; called with empty ext&quot;</span> );
+        <span class="keywordflow">return</span> output.str();
+    }
+
+    output &lt;&lt; file &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; ext;
+
+    <span class="keywordflow">return</span> output.str();
+}
+</pre></div>
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a3e236b07fd628bcaf2e7c5854dd2a281_icgraph.svg" width="100%" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1046,7 +1222,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00469">469</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00461">461</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1056,7 +1232,7 @@ template&lt;class T &gt; </div>
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
-    ofs.open( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Returns a string consisting of directory/file.ext.">DirPath</a>( <a class="code" href="config_8h.xhtml#a139b7703e057cd102ea853e5999f39fd" title="Directory for temporary files.">CFG_DAT_DIR_VAR</a>, file ) ) );
+    ofs.open( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">DirPath</a>( <a class="code" href="config_8h.xhtml#a139b7703e057cd102ea853e5999f39fd" title="Directory for temporary files.">CFG_DAT_DIR_VAR</a>, file ) ) );
 
     <span class="keywordflow">if</span> ( ofs.fail() )
     {
@@ -1067,23 +1243,21 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a67fd451200ee8a3cc646aeba5cb9513b_cgraph.svg" width="275" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a67fd451200ee8a3cc646aeba5cb9513b_cgraph.svg" width="275" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a67fd451200ee8a3cc646aeba5cb9513b_icgraph.svg" width="100%" height="258"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a67fd451200ee8a3cc646aeba5cb9513b_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1142,7 +1316,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00499">499</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00491">491</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -1153,7 +1327,7 @@ template&lt;class T &gt; </div>
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
-    ifs.open( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#addb4a550d4405e6351e52a275fae8107" title="Returns a string consisting of directory/file.ext.">DirPath</a>( dir, file ) ) );
+    ifs.open( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">DirPath</a>( dir, file ) ) );
 
     <span class="keywordflow">if</span> ( ifs.fail() )
     {
@@ -1165,13 +1339,69 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_aab9c793c373168f93284240cd870462f_cgraph.svg" width="275" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_aab9c793c373168f93284240cd870462f_cgraph.svg" width="275" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a36780f0aa565047ca0db53bda2aff5fc"></a><!-- doxytag: member="Utils::iAlNum" ref="a36780f0aa565047ca0db53bda2aff5fc" args="(const T &amp;t)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="namespaceUtils.xhtml#a36780f0aa565047ca0db53bda2aff5fc">Utils::iAlNum</a> </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>The input to be checked. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if a non-alphanumeric is found. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if no alphanumerics are found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00148">148</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<div class="fragment"><pre class="fragment">    {
+        <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+        <span class="keywordtype">string</span> input( t );
+
+        <span class="keywordflow">while</span>( i &lt; input.length() )
+        {
+            <span class="keywordflow">if</span> ( !::isalnum( input[i] ) )
+                <span class="keywordflow">return</span> <span class="keyword">false</span>;
+
+            ++i;
+        }
+
+        <span class="keywordflow">return</span> <span class="keyword">true</span>;
+    }
+</pre></div>
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a36780f0aa565047ca0db53bda2aff5fc_icgraph.svg" width="100%" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1205,7 +1435,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00324">324</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00306">306</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keyword">struct </span>stat dir_info;
@@ -1222,13 +1452,12 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a303e8afc983db3b483fb450a1c499c1e_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a303e8afc983db3b483fb450a1c499c1e_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1262,7 +1491,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00347">347</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00329">329</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keyword">struct </span>stat dir_info;
@@ -1279,13 +1508,12 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a7d40818a602fb21db4b4f0917705f85b_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a7d40818a602fb21db4b4f0917705f85b_icgraph.svg" width="100%" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1319,7 +1547,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00370">370</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00352">352</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = 0;
@@ -1337,11 +1565,11 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a47aae40aead5b696e927fb0cdd336442_icgraph.svg" width="230" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -1376,7 +1604,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00394">394</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00376">376</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     ifstream ifile;
@@ -1394,13 +1622,12 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> ret;
 }
 </pre></div>
-<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a158e1deb611937a6313e8683fe7db3fc_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a158e1deb611937a6313e8683fe7db3fc_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1474,7 +1701,7 @@ template&lt;class K , class V &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00174">174</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00211">211</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">string</span> key( keyd );
         <span class="keywordtype">string</span> val( valu );
@@ -1485,7 +1712,7 @@ template&lt;class K , class V &gt; </div>
             transform( val.begin(), val.end(), val.begin(), ::tolower );
         }
 
-        <span class="keywordflow">if</span> ( key.compare( val ) == 0 )
+        <span class="keywordflow">if</span> ( key == val )
         {
             loc = item;
             found = <span class="keyword">true</span>;
@@ -1496,9 +1723,18 @@ template&lt;class K , class V &gt; </div>
         <span class="keywordflow">return</span>;
     }
 </pre></div>
+<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_aba8fca9daa0f767d7f5af5e2b1d6b81d_icgraph.svg" width="100%" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a0aff3514e06faae8ed026c673efe002b"></a><!-- doxytag: member="Utils::KeySet" ref="a0aff3514e06faae8ed026c673efe002b" args="(const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const I &amp;item, L &amp;loc)" -->
+<a class="anchor" id="a8def6be7e490b6d33b3b51d7fc39f517"></a><!-- doxytag: member="Utils::KeySet" ref="a8def6be7e490b6d33b3b51d7fc39f517" args="(const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const I &amp;item, L &amp;loc, const uint_t &amp;maxv, bool &amp;maxb)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -1538,7 +1774,19 @@ template&lt;class K , class V , class I , class L &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">L &amp;&#160;</td>
-          <td class="paramname"><em>loc</em>&#160;</td>
+          <td class="paramname"><em>loc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>maxv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>maxb</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1554,8 +1802,10 @@ template&lt;class K , class V , class I , class L &gt; </div>
     <tr><td class="paramdir">[in]</td><td class="paramname">found</td><td>For loop control. If keyd == valu, set to true, otherwise false. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">keyd</td><td>A string or number that valu must match. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">valu</td><td>A string or number that is checked for a match against keyd. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>Any string, digit, etc to be copied to to loc if keyd == valu. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">loc</td><td>Any string, digit, etc to be assigned the value of item if keyd == valu. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>Any non-string to be copied to to loc if keyd == valu. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">loc</td><td>Any non-string to be assigned the value of item if keyd == valu. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">maxv</td><td>The maximum value to allow loc to be assigned. If value &gt;= maxv, loc = maxv - 1. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">maxb</td><td>KeySet will set to true if value &gt;= maxv, otherwise false. Allows logging from calling function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1566,10 +1816,12 @@ template&lt;class K , class V , class I , class L &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00205">205</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00244">244</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
+        <a class="code" href="macros_8h.xhtml#a6e32552c1b3df78e64aa5205ddf6dae9" title="Define a bitset variable (name) with UTILS_TYPE_INFO already enabled.">UFLAGS_I</a>( flags );
         <span class="keywordtype">string</span> key( keyd );
         <span class="keywordtype">string</span> val( valu );
+        L maxt;
 
         <span class="keywordflow">if</span> ( igncase )
         {
@@ -1577,19 +1829,29 @@ template&lt;class K , class V , class I , class L &gt; </div>
             transform( val.begin(), val.end(), val.begin(), ::tolower );
         }
 
-        <span class="keywordflow">if</span> ( key.compare( val ) == 0 )
+        <span class="keywordflow">if</span> ( key == val )
         {
             <span class="keywordtype">string</span> tf( item );
 
             <span class="comment">// Allow bools be any of: true / 1 or false / 0</span>
             transform( tf.begin(), tf.end(), tf.begin(), ::tolower );
 
-            <span class="keywordflow">if</span> ( tf.compare( <span class="stringliteral">&quot;true&quot;</span> ) == 0 )
+            <span class="keywordflow">if</span> ( tf == <span class="stringliteral">&quot;true&quot;</span> )
                 loc = <span class="keyword">true</span>;
-            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( tf.compare( <span class="stringliteral">&quot;false&quot;</span> ) == 0 )
+            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( tf == <span class="stringliteral">&quot;false&quot;</span> )
                 loc = <span class="keyword">false</span>;
             <span class="keywordflow">else</span>
-                stringstream( item ) &gt;&gt; loc;
+            {
+                stringstream( item ) &gt;&gt; maxt;
+
+                <span class="keywordflow">if</span> ( maxt &gt;= maxv )
+                {
+                    maxb = <span class="keyword">true</span>;
+                    maxt = ( maxv - 1 );
+                }
+
+                loc = maxt;
+            }
             found = <span class="keyword">true</span>;
 
             <span class="keywordflow">return</span>;
@@ -1648,7 +1910,7 @@ template&lt;class K , class V , class I &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00148">148</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00185">185</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">size_t</span> loc = 0;
 
@@ -1665,13 +1927,12 @@ template&lt;class K , class V , class I &gt; </div>
         <span class="keywordflow">return</span> <span class="keyword">true</span>;
     }
 </pre></div>
-<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a4a4d3dfd2ddb691bc5bcff82252c058b_icgraph.svg" width="638" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a4a4d3dfd2ddb691bc5bcff82252c058b_icgraph.svg" width="100%" height="304"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1736,7 +1997,7 @@ template&lt;class K , class V , class I &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00656">656</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00648">648</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     DIR* directory = NULL;
@@ -1767,7 +2028,7 @@ template&lt;class K , class V , class I &gt; </div>
         ifile = entry-&gt;d_name;
 
         <span class="comment">// Skip over the unwanteds</span>
-        <span class="keywordflow">if</span> ( ifile.compare( <span class="stringliteral">&quot;.&quot;</span> ) == 0 || ifile.compare( <span class="stringliteral">&quot;..&quot;</span> ) == 0 )
+        <span class="keywordflow">if</span> ( ifile == <span class="stringliteral">&quot;.&quot;</span> || ifile == <span class="stringliteral">&quot;..&quot;</span> )
             <span class="keywordflow">continue</span>;
 
         <span class="keywordflow">if</span> ( <a class="code" href="namespaceUtils.xhtml#a303e8afc983db3b483fb450a1c499c1e" title="Determines if a file path is a directory or file on disk.">iDirectory</a>( idir + ifile ) )
@@ -1788,22 +2049,21 @@ template&lt;class K , class V , class I &gt; </div>
     <span class="keywordflow">return</span> output;
 }
 </pre></div>
-<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a014607a95c6d01ee99564479b3620ee7_cgraph.svg" width="318" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a014607a95c6d01ee99564479b3620ee7_icgraph.svg" width="648" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a014607a95c6d01ee99564479b3620ee7_icgraph.svg" width="648" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -1847,13 +2107,72 @@ template&lt;class T &gt; </div>
         <span class="keywordflow">return</span> output;
     }
 </pre></div>
-<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a9b70f9dd0af906c806695b35488e778f_icgraph.svg" width="100%" height="150"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a9b70f9dd0af906c806695b35488e778f_icgraph.svg" width="100%" height="345"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1cd33b86e538bb0c765d5c0bcde259e1"></a><!-- doxytag: member="Utils::MakePair" ref="a1cd33b86e538bb0c765d5c0bcde259e1" args="(const T &amp;t, const V &amp;v)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#a1cd33b86e538bb0c765d5c0bcde259e1">Utils::MakePair</a> </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>The first element to use in the pair. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>The second element to use in the pair. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string containing the pair of t and v. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00093">93</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<div class="fragment"><pre class="fragment">    {
+        stringstream output;
+
+        output &lt;&lt; <span class="stringliteral">&quot;{&quot;</span> &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; t &lt;&lt; <span class="stringliteral">&quot;\&quot;:\&quot;&quot;</span> &lt;&lt; v &lt;&lt; <span class="stringliteral">&quot;\&quot;}&quot;</span>;
+
+        <span class="keywordflow">return</span> output.str();
+    }
+</pre></div>
+<p><div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a1cd33b86e538bb0c765d5c0bcde259e1_icgraph.svg" width="100%" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1897,7 +2216,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00222">222</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00135">135</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> amount = 0, i = 0;
@@ -1915,12 +2234,120 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> amount;
 }
 </pre></div>
-<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_afaf029667f299587a52ba9c8de11edfa_icgraph.svg" width="534" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a11bfe61c6e77603d59116397b1d3f580"></a><!-- doxytag: member="Utils::ReadPair" ref="a11bfe61c6e77603d59116397b1d3f580" args="(const string &amp;input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const pair&lt; string, string &gt; <a class="el" href="namespaceUtils.xhtml#a11bfe61c6e77603d59116397b1d3f580">Utils::ReadPair</a> </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>The string to read and parse. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pair&lt;T,V&gt;</td><td>A pair consisting of &lt;T,V&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00158">158</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    pair&lt;string,string&gt; output;
+    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> p1 = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>, p2 = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+
+    <span class="keywordflow">if</span> ( input.compare( 0, 2, <span class="stringliteral">&quot;{\&quot;&quot;</span> ) != 0 )
+        <span class="keywordflow">return</span> output;
+
+    <span class="keywordflow">if</span> ( input.compare( input.length() - 2, 2, <span class="stringliteral">&quot;\&quot;}&quot;</span> ) != 0 )
+        <span class="keywordflow">return</span> output;
+
+    <span class="keywordflow">if</span> ( ( p1 = input.find( <span class="stringliteral">&quot;\&quot;:\&quot;&quot;</span> ) ) == string::npos )
+        <span class="keywordflow">return</span> output;
+
+    <span class="keywordflow">if</span> ( ( p2 = input.find( <span class="stringliteral">&quot;\&quot;}&quot;</span> ) ) == string::npos )
+        <span class="keywordflow">return</span> output;
+
+    output.first = input.substr( 2, p1 - 2 );
+    output.second = input.substr( p1 + 3, p2 - p1 - 3 );
+
+    <span class="keywordflow">return</span> output;
+}
+</pre></div>
+<p><div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a11bfe61c6e77603d59116397b1d3f580_icgraph.svg" width="100%" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adafa6fa32d5b637ea62db12aa35db6e0"></a><!-- doxytag: member="Utils::Salt" ref="adafa6fa32d5b637ea62db12aa35db6e0" args="(const string &amp;input)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0">Utils::Salt</a> </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>A value to append to <a class="el" href="config_8h.xhtml#aee7c7a26324d7aa5dd00144db42355c8" title="The initial salt string to use with crypt().">CFG_SEC_CRYPT_SALT</a> to be used as a salt. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A salt value to use with crypt. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00186">186</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    stringstream output;
+
+    output &lt;&lt; <a class="code" href="config_8h.xhtml#aee7c7a26324d7aa5dd00144db42355c8" title="The initial salt string to use with crypt().">CFG_SEC_CRYPT_SALT</a> &lt;&lt; input;
+
+    <span class="keywordflow">return</span> output.str();
+}
+</pre></div>
+<p><div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_adafa6fa32d5b637ea62db12aa35db6e0_icgraph.svg" width="100%" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1955,7 +2382,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00105">105</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00119">119</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         stringstream ss;
 
@@ -1993,7 +2420,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00245">245</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00200">200</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -2018,26 +2445,111 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> output;
 }
 </pre></div>
-<p><div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a8c70e85acdb1549aa4cd3a16b8d8d9cf_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a53f3c68439fa30795904574e03b4da50"></a><!-- doxytag: member="Utils::StrTime" ref="a53f3c68439fa30795904574e03b4da50" args="(const time_t &amp;now)" -->
+<a class="anchor" id="acf9ee675ffc2d73b7b2a2a71aa68e36a"></a><!-- doxytag: member="Utils::StrPrefix" ref="acf9ee675ffc2d73b7b2a2a71aa68e36a" args="(const string &amp;s1, const string &amp;s2, const bool &amp;igncase=false)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#a53f3c68439fa30795904574e03b4da50">Utils::StrTime</a> </td>
+          <td class="memname">const bool <a class="el" href="namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a">Utils::StrPrefix</a> </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>s1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>s2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>igncase</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s1</td><td>The string to check against s2. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s2</td><td>The string s1 is checked against. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">igncase</td><td>If true, will perform a case-insensitive comparison. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if s1 is not a prefix of s2. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if s1 is a prefix of s2. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00233">233</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    pair&lt;string::iterator,string::iterator&gt; si;
+    <span class="keywordtype">string</span> _s1( s1 ), _s2( s2 );
+
+    <span class="keywordflow">if</span> ( igncase )
+    {
+        _s1 = <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters.">Utils::Lower</a>( _s1 );
+        _s2 = <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters.">Utils::Lower</a>( _s2 );
+    }
+
+    si = mismatch( _s1.begin(), _s1.end(), _s2.begin() );
+
+    <span class="keywordflow">if</span> ( si.first == _s1.end() )
+        <span class="keywordflow">return</span> <span class="keyword">true</span>;
+
+    <span class="keywordflow">return</span> <span class="keyword">false</span>;
+}
+</pre></div>
+<p><div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-30-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_acf9ee675ffc2d73b7b2a2a71aa68e36a_cgraph.svg" width="267" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div id="dynsection-31" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-31-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_acf9ee675ffc2d73b7b2a2a71aa68e36a_icgraph.svg" width="100%" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b2dad8fa1999271cf613dc735f851d4"></a><!-- doxytag: member="Utils::StrTime" ref="a2b2dad8fa1999271cf613dc735f851d4" args="(const time_t &amp;now=chrono::high_resolution_clock::to_time_t(chrono::high_resolution_clock::now()))" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="namespaceUtils.xhtml#a2b2dad8fa1999271cf613dc735f851d4">Utils::StrTime</a> </td>
           <td>(</td>
           <td class="paramtype">const time_t &amp;&#160;</td>
-          <td class="paramname"><em>now</em></td><td>)</td>
+          <td class="paramname"><em>now</em> = <code>chrono::high_resolution_clock::to_time_t(&#160;chrono::high_resolution_clock::now()&#160;)</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -2056,14 +2568,14 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00275">275</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00257">257</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
     <span class="keywordtype">string</span> output;
 
     <span class="keywordflow">if</span> ( ( output = ::ctime( &amp;now ) ).empty() )
     {
-        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::CurrentTime()-&gt;ctime()-&gt; returned NULL&quot;</span> );
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Utils::StrTime()-&gt;ctime()-&gt; returned NULL&quot;</span> );
         <span class="keywordflow">return</span> output;
     }
 
@@ -2073,13 +2585,12 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> output;
 }
 </pre></div>
-<p><div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-32" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-32-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-23-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a53f3c68439fa30795904574e03b4da50_icgraph.svg" width="278" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a2b2dad8fa1999271cf613dc735f851d4_icgraph.svg" width="100%" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -2123,7 +2634,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00298">298</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="utils_8cpp_source.xhtml#l00280">280</a> of file <a class="el" href="utils_8cpp_source.xhtml">utils.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -2142,13 +2653,12 @@ template&lt;class T &gt; </div>
     <span class="keywordflow">return</span> output;
 }
 </pre></div>
-<p><div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-33" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-33-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-24-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a402a36406edb7938330204e83b1abe83_icgraph.svg" width="100%" height="150"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-33-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceUtils_a402a36406edb7938330204e83b1abe83_icgraph.svg" width="100%" height="150"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -2183,7 +2693,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00092">92</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00106">106</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 <div class="fragment"><pre class="fragment">    {
         <span class="keywordtype">string</span> output( t );
 
@@ -2212,7 +2722,7 @@ template&lt;class T &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 9 2013 23:59:16 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 00:09:59 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

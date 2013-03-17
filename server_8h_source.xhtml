@@ -104,69 +104,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00026"></a>00026 <span class="preprocessor"></span>
 <a name="l00027"></a>00027 <span class="preprocessor">#include &lt;fcntl.h&gt;</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &lt;forward_list&gt;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;list&gt;</span>
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="socketclient_8h.xhtml" title="The SocketClient class.">socketclient.h</a>&quot;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="socketserver_8h.xhtml" title="The SocketServer class.">socketserver.h</a>&quot;</span>
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">using namespace </span>std;
-<a name="l00035"></a>00035 
-<a name="l00039"></a><a class="code" href="classServer.xhtml">00039</a> <span class="keyword">class </span><a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a> {
-<a name="l00043"></a><a class="code" href="classServer_1_1Config.xhtml">00043</a>     <span class="keyword">class </span><a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Config</a> {
-<a name="l00044"></a>00044         <span class="keyword">public</span>: 
-<a name="l00046"></a>00046             <span class="keyword">const</span> <span class="keywordtype">bool</span> Serialize() <span class="keyword">const</span>;
-<a name="l00047"></a>00047             <span class="keyword">const</span> <span class="keywordtype">bool</span> Unserialize(); 
-<a name="l00051"></a>00051             forward_list&lt;string&gt; gAccountProhibitedNames() <span class="keyword">const</span>;  
-<a name="l00058"></a>00058             <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Config</a>();
-<a name="l00059"></a>00059             ~<a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Config</a>();
-<a name="l00062"></a>00062         <span class="keyword">private</span>:
-<a name="l00063"></a><a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">00063</a>             forward_list&lt;string&gt; <a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>; 
-<a name="l00064"></a>00064     };
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066     <span class="keyword">public</span>: 
-<a name="l00068"></a>00068         <span class="keyword">const</span> <span class="keywordtype">void</span> Broadcast( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg );
-<a name="l00069"></a>00069         <span class="keyword">const</span> <span class="keywordtype">bool</span> BuildPlugin( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; force = <span class="keyword">false</span> );
-<a name="l00070"></a>00070         <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* FindCommand( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name ) <span class="keyword">const</span>;
-<a name="l00071"></a>00071         <span class="keyword">const</span> <span class="keywordtype">bool</span> LoadCommands();
-<a name="l00072"></a>00072         <span class="keyword">const</span> <span class="keywordtype">bool</span> PollSockets();
-<a name="l00073"></a>00073         <span class="keyword">const</span> <span class="keywordtype">void</span> ProcessEvents();
-<a name="l00074"></a>00074         <span class="keyword">const</span> <span class="keywordtype">void</span> ProcessInput();
-<a name="l00075"></a>00075         <span class="keyword">const</span> <span class="keywordtype">void</span> ProcessLogin( <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* client, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cmd, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; args );
-<a name="l00076"></a>00076         <span class="keyword">const</span> <span class="keywordtype">void</span> RebootRecovery( <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; reboot );
-<a name="l00077"></a>00077         <span class="keyword">const</span> <span class="keywordtype">bool</span> ReloadCommand( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name );
-<a name="l00078"></a>00078         <span class="keyword">const</span> <span class="keywordtype">bool</span> Running() <span class="keyword">const</span>;
-<a name="l00079"></a>00079         <span class="keyword">const</span> <span class="keywordtype">void</span> Startup( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>&amp; desc = 0 );
-<a name="l00080"></a>00080         <span class="keyword">const</span> <span class="keywordtype">void</span> Shutdown( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>&amp; status );
-<a name="l00081"></a>00081         <span class="keyword">const</span> <span class="keywordtype">void</span> Update(); 
-<a name="l00085"></a>00085         <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a>* gConfig() <span class="keyword">const</span>;
-<a name="l00086"></a>00086         <span class="keyword">const</span> <span class="keywordtype">string</span> gHostname() <span class="keyword">const</span>;
-<a name="l00087"></a>00087         <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> gPort() <span class="keyword">const</span>;
-<a name="l00088"></a>00088         <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* gSocket() <span class="keyword">const</span>;
-<a name="l00089"></a>00089         list&lt;SocketClient*&gt;::iterator gSocketClientNext() <span class="keyword">const</span>;
-<a name="l00090"></a>00090         <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> gSocketClose() <span class="keyword">const</span>;
-<a name="l00091"></a>00091         <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> gSocketOpen() <span class="keyword">const</span>;
-<a name="l00092"></a>00092         <span class="keyword">const</span> <span class="keywordtype">string</span> gStatus() <span class="keyword">const</span>; 
-<a name="l00096"></a>00096         <span class="keyword">const</span> <span class="keywordtype">bool</span> sPort( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; port );
-<a name="l00097"></a>00097         <span class="keyword">const</span> <span class="keywordtype">void</span> sSocketClientNext( list&lt;SocketClient*&gt;::iterator next );
-<a name="l00098"></a>00098         <span class="keyword">const</span> <span class="keywordtype">bool</span> sSocketClose( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; amount );
-<a name="l00099"></a>00099         <span class="keyword">const</span> <span class="keywordtype">bool</span> sSocketOpen( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; amount ); 
-<a name="l00103"></a>00103         <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>();
-<a name="l00104"></a>00104         ~<a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>();
-<a name="l00107"></a>00107     <span class="keyword">private</span>:
-<a name="l00108"></a><a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">00108</a>         <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a>* <a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a>; 
-<a name="l00109"></a><a class="code" href="classServer.xhtml#a1747867dad63252314aa7083b0084e2b">00109</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a1747867dad63252314aa7083b0084e2b">m_dir_close</a>; 
-<a name="l00110"></a><a class="code" href="classServer.xhtml#ad14d47d1da6c22097a242519709e960c">00110</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#ad14d47d1da6c22097a242519709e960c">m_dir_open</a>; 
-<a name="l00111"></a><a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">00111</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a>; 
-<a name="l00112"></a><a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">00112</a>         <span class="keywordtype">bool</span> <a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">m_shutdown</a>; 
-<a name="l00113"></a><a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">00113</a>         <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>; 
-<a name="l00114"></a><a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">00114</a>         list&lt;SocketClient*&gt;::iterator <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a>; 
-<a name="l00115"></a><a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">00115</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a>; 
-<a name="l00116"></a><a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">00116</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a>; 
-<a name="l00117"></a><a class="code" href="classServer.xhtml#a3c414ed05d5f52b181f91d7b317aba2c">00117</a>         chrono::high_resolution_clock::time_point <a class="code" href="classServer.xhtml#a3c414ed05d5f52b181f91d7b317aba2c">m_time_boot</a>; 
-<a name="l00118"></a><a class="code" href="classServer.xhtml#a2b6f037a67bc8e4f3c6dadb324915627">00118</a>         chrono::high_resolution_clock::time_point <a class="code" href="classServer.xhtml#a2b6f037a67bc8e4f3c6dadb324915627">m_time_current</a>; 
-<a name="l00119"></a>00119 };
-<a name="l00120"></a>00120 
-<a name="l00121"></a>00121 <span class="preprocessor">#endif</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="socketclient_8h.xhtml" title="The SocketClient class.">socketclient.h</a>&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="socketserver_8h.xhtml" title="The SocketServer class.">socketserver.h</a>&quot;</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="keyword">using namespace </span>std;
+<a name="l00034"></a>00034 
+<a name="l00038"></a><a class="code" href="classServer.xhtml">00038</a> <span class="keyword">class </span><a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a> {
+<a name="l00042"></a><a class="code" href="classServer_1_1Config.xhtml">00042</a>     <span class="keyword">class </span><a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Config</a> {
+<a name="l00043"></a>00043         <span class="keyword">public</span>:  
+<a name="l00048"></a>00048             forward_list&lt;string&gt; gAccountProhibitedNames() <span class="keyword">const</span>; 
+<a name="l00052"></a>00052             <span class="keyword">const</span> <span class="keywordtype">bool</span> Serialize() <span class="keyword">const</span>;
+<a name="l00053"></a>00053             <span class="keyword">const</span> <span class="keywordtype">bool</span> Unserialize(); 
+<a name="l00057"></a>00057             <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Config</a>();
+<a name="l00058"></a>00058             ~<a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Config</a>();
+<a name="l00061"></a>00061         <span class="keyword">private</span>:
+<a name="l00062"></a><a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">00062</a>             forward_list&lt;string&gt; <a class="code" href="classServer_1_1Config.xhtml#a6c1ebe27e7b49d5c8a3060b188a5178e">m_account_prohibited_names</a>; 
+<a name="l00063"></a>00063     };
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065     <span class="keyword">public</span>: 
+<a name="l00067"></a>00067         <span class="keyword">const</span> <span class="keywordtype">void</span> Broadcast( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg );
+<a name="l00068"></a>00068         <span class="keyword">const</span> <span class="keywordtype">bool</span> BuildPlugin( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; force = <span class="keyword">false</span> );
+<a name="l00069"></a>00069         <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* FindCommand( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name ) <span class="keyword">const</span>;
+<a name="l00070"></a>00070         <span class="keyword">const</span> <span class="keywordtype">bool</span> LoadCommands();
+<a name="l00071"></a>00071         <span class="keyword">const</span> <span class="keywordtype">bool</span> PollSockets();
+<a name="l00072"></a>00072         <span class="keyword">const</span> <span class="keywordtype">void</span> ProcessEvents();
+<a name="l00073"></a>00073         <span class="keyword">const</span> <span class="keywordtype">void</span> ProcessInput();
+<a name="l00074"></a>00074         <span class="keyword">const</span> <span class="keywordtype">void</span> RebootRecovery( <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; reboot );
+<a name="l00075"></a>00075         <span class="keyword">const</span> <span class="keywordtype">bool</span> ReloadCommand( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name );
+<a name="l00076"></a>00076         <span class="keyword">const</span> <span class="keywordtype">bool</span> Running() <span class="keyword">const</span>;
+<a name="l00077"></a>00077         <span class="keyword">const</span> <span class="keywordtype">void</span> Startup( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>&amp; desc = 0 );
+<a name="l00078"></a>00078         <span class="keyword">const</span> <span class="keywordtype">void</span> Shutdown( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a>&amp; status );
+<a name="l00079"></a>00079         <span class="keyword">const</span> <span class="keywordtype">void</span> Update(); 
+<a name="l00083"></a>00083         <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a>* gConfig() <span class="keyword">const</span>;
+<a name="l00084"></a>00084         <span class="keyword">const</span> <span class="keywordtype">string</span> gHostname() <span class="keyword">const</span>;
+<a name="l00085"></a>00085         <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> gPort() <span class="keyword">const</span>;
+<a name="l00086"></a>00086         <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* gSocket() <span class="keyword">const</span>;
+<a name="l00087"></a>00087         list&lt;SocketClient*&gt;::iterator gSocketClientNext() <span class="keyword">const</span>;
+<a name="l00088"></a>00088         <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> gSocketClose() <span class="keyword">const</span>;
+<a name="l00089"></a>00089         <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> gSocketOpen() <span class="keyword">const</span>;
+<a name="l00090"></a>00090         <span class="keyword">const</span> <span class="keywordtype">string</span> gStatus() <span class="keyword">const</span>; 
+<a name="l00094"></a>00094         <span class="keyword">const</span> <span class="keywordtype">bool</span> sPort( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; port );
+<a name="l00095"></a>00095         <span class="keyword">const</span> <span class="keywordtype">void</span> sSocketClientNext( list&lt;SocketClient*&gt;::iterator next );
+<a name="l00096"></a>00096         <span class="keyword">const</span> <span class="keywordtype">bool</span> sSocketClose( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; amount );
+<a name="l00097"></a>00097         <span class="keyword">const</span> <span class="keywordtype">bool</span> sSocketOpen( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; amount ); 
+<a name="l00101"></a>00101         <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>();
+<a name="l00102"></a>00102         ~<a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>();
+<a name="l00105"></a>00105     <span class="keyword">private</span>:
+<a name="l00106"></a><a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">00106</a>         <a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Server::Config</a>* <a class="code" href="classServer.xhtml#a33d437db218d598288ea0d78bf14077b">m_config</a>; 
+<a name="l00107"></a><a class="code" href="classServer.xhtml#a1747867dad63252314aa7083b0084e2b">00107</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a1747867dad63252314aa7083b0084e2b">m_dir_close</a>; 
+<a name="l00108"></a><a class="code" href="classServer.xhtml#ad14d47d1da6c22097a242519709e960c">00108</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#ad14d47d1da6c22097a242519709e960c">m_dir_open</a>; 
+<a name="l00109"></a><a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">00109</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#af41cecc8069262fe8e795518afc93bd6">m_port</a>; 
+<a name="l00110"></a><a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">00110</a>         <span class="keywordtype">bool</span> <a class="code" href="classServer.xhtml#a959219a66f40019668e8d56e4c0c4cb6">m_shutdown</a>; 
+<a name="l00111"></a><a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">00111</a>         <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* <a class="code" href="classServer.xhtml#abc51b5fc62103bb44ef90b35f1bac666">m_socket</a>; 
+<a name="l00112"></a><a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">00112</a>         list&lt;SocketClient*&gt;::iterator <a class="code" href="classServer.xhtml#ae720995d69017a3d30b5c2d7772d7c41">m_socket_client_next</a>; 
+<a name="l00113"></a><a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">00113</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#adc7365e75189f3e15ada44fb140e32b0">m_socket_close</a>; 
+<a name="l00114"></a><a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">00114</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer.xhtml#a283e960ea969fe689650af43223395b9">m_socket_open</a>; 
+<a name="l00115"></a><a class="code" href="classServer.xhtml#a3c414ed05d5f52b181f91d7b317aba2c">00115</a>         chrono::high_resolution_clock::time_point <a class="code" href="classServer.xhtml#a3c414ed05d5f52b181f91d7b317aba2c">m_time_boot</a>; 
+<a name="l00116"></a><a class="code" href="classServer.xhtml#a2b6f037a67bc8e4f3c6dadb324915627">00116</a>         chrono::high_resolution_clock::time_point <a class="code" href="classServer.xhtml#a2b6f037a67bc8e4f3c6dadb324915627">m_time_current</a>; 
+<a name="l00117"></a>00117 };
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -185,7 +183,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 00:09:58 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

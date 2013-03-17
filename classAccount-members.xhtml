@@ -86,9 +86,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 This is the complete list of members for <a class="el" href="classAccount.xhtml">Account</a>, including all inherited members.<table>
   <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a366660970b5eeb5c17436062327f1b14">Account</a>()</td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#ae5536f896c11d85f4f948484dd70449a">aLogin</a>(const string &amp;date, const string &amp;name, const uint_t &amp;type)</td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classAccount.xhtml#aa82e62e930fb3a8ac58a4592f323db75">Delete</a>()</td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9">gClient</a>() const </td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a3e2d487e0962a90f4f00cf0ac73cbb7e">gLogins</a>(const uint_t &amp;type) const </td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#aa5598c7fb0b2099dfee5d15696a5ef24">gName</a>() const </td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54">gSecurity</a>() const </td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#abaabaa011c36988830dfb36ee18d79c9">m_client</a></td><td><a class="el" href="classAccount.xhtml">Account</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">m_logins</a></td><td><a class="el" href="classAccount.xhtml">Account</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">m_name</a></td><td><a class="el" href="classAccount.xhtml">Account</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a1e12e66ca5fdd8ebbc741d4f037c806b">New</a>(SocketClient *client, const string &amp;name)</td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a1435d54c3596aec8968a206d69d1b3e9">m_password</a></td><td><a class="el" href="classAccount.xhtml">Account</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a7d0c6fc3a665919f8cc292ad3c33aef9">m_security</a></td><td><a class="el" href="classAccount.xhtml">Account</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#adc4545f17264112e532b5a48abe94baf">New</a>(SocketClient *client, const bool &amp;exists)</td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a87dfcb1fd6c275ea89ec6f279e7ee8ff">Serialize</a>() const </td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a714070b95fbb57cb2f1a8e68046d92ef">sSecurity</a>(const uint_t &amp;security)</td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classAccount.xhtml#ae236325fef7b2269f54e9567577e0b92">Unserialize</a>()</td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classAccount.xhtml#a569c9ef0e42b9157690b4ceb646daba8">~Account</a>()</td><td><a class="el" href="classAccount.xhtml">Account</a></td><td></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
@@ -108,7 +120,7 @@ This is the complete list of members for <a class="el" href="classAccount.xhtml"
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 00:09:59 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

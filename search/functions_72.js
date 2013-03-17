@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['readpair',['ReadPair',['../namespaceUtils.xhtml#a11bfe61c6e77603d59116397b1d3f580',1,'Utils']]],
   ['rebootrecovery',['RebootRecovery',['../classServer.xhtml#a16ea0639731dee10e1a253375b508a02',1,'Server']]],
   ['recv',['Recv',['../classSocketClient.xhtml#a9ee09f452d900e288b2aa187561ef05d',1,'SocketClient']]],
   ['reloadcommand',['ReloadCommand',['../classServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729',1,'Server']]],

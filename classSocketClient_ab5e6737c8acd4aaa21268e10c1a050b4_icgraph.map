@@ -1,9 +1,18 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classServer.xhtml#a16ea0639731dee10e1a253375b508a02" title="Recovers the server state and re&#45;connects client sockets after a reboot." alt="" coords="205,5,379,35"/>
-<area shape="rect" id="node9" href="$classSocketClient.xhtml#a553658a2c076ea71ddcd1758fc64a925" title="Build a SocketClient for a new client connection and set all attributes." alt="" coords="224,59,360,88"/>
-<area shape="rect" id="node5" href="$classServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="648,5,768,35"/>
-<area shape="rect" id="node7" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="999,33,1052,63"/>
-<area shape="rect" id="node11" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="427,59,587,88"/>
-<area shape="rect" id="node13" href="$classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" title="Poll all SocketClient objects that are communicating with the associated SocketServer object..." alt="" coords="636,59,780,88"/>
-<area shape="rect" id="node15" href="$classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="831,59,948,88"/>
+<area shape="rect" id="node3" href="$namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" title="Create a new account object, or load an existing one, with a name and password." alt="" coords="207,165,380,195"/>
+<area shape="rect" id="node18" href="$namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" title="Select a new account name." alt="" coords="655,59,836,88"/>
+<area shape="rect" id="node21" href="$namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" title="Create a new account." alt="" coords="651,112,840,141"/>
+<area shape="rect" id="node24" href="$namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" title="Compare a received password against an existing account." alt="" coords="655,219,836,248"/>
+<area shape="rect" id="node27" href="$namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191" title="Send initial greeting and request for account name." alt="" coords="667,272,824,301"/>
+<area shape="rect" id="node30" href="$classSocketClient.xhtml#a553658a2c076ea71ddcd1758fc64a925" title="Build a SocketClient for a new client connection and set all attributes." alt="" coords="677,5,813,35"/>
+<area shape="rect" id="node41" href="$classServer.xhtml#a16ea0639731dee10e1a253375b508a02" title="Recovers the server state and re&#45;connects client sockets after a reboot." alt="" coords="429,323,603,352"/>
+<area shape="rect" id="node5" href="$namespaceHandler.xhtml#af650e47f3d4baf393b54376d1eaa1fa9" title="Handle SocketClient objects who have not fully logged into the game yet." alt="" coords="435,165,597,195"/>
+<area shape="rect" id="node7" href="$namespaceHandler.xhtml#a142c6f0b9e36e54eba3d72f9db2dfe40" title="Redirect to the appropriate subsystem based on socket state." alt="" coords="679,165,812,195"/>
+<area shape="rect" id="node9" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="888,165,1115,195"/>
+<area shape="rect" id="node11" href="$classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Processes input from all active SocketClient objects." alt="" coords="1163,165,1317,195"/>
+<area shape="rect" id="node13" href="$classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="1367,165,1484,195"/>
+<area shape="rect" id="node15" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="1535,219,1588,248"/>
+<area shape="rect" id="node32" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="921,32,1081,61"/>
+<area shape="rect" id="node34" href="$classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" title="Poll all SocketClient objects that are communicating with the associated SocketServer object..." alt="" coords="1168,85,1312,115"/>
+<area shape="rect" id="node43" href="$classServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="1365,271,1485,300"/>
 </map>

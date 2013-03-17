@@ -1,10 +1,12 @@
 var searchData=
 [
   ['uflags_5fde',['UFLAGS_DE',['../macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502',1,'macros.h']]],
+  ['uflags_5fi',['UFLAGS_I',['../macros_8h.xhtml#a6e32552c1b3df78e64aa5205ddf6dae9',1,'macros.h']]],
+  ['uflags_5fs',['UFLAGS_S',['../macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1',1,'macros.h']]],
   ['uint_5ft',['uint_t',['../limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a',1,'limits.h']]],
   ['uintmax_5ft',['uintmax_t',['../limits_8h.xhtml#a036884201058b0d86aae031fdbcfa16f',1,'limits.h']]],
   ['uintmin_5ft',['uintmin_t',['../limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78',1,'limits.h']]],
-  ['unserialize',['Unserialize',['../classServer_1_1Config.xhtml#a54dba418bfd3365ccfb30bda37ccd461',1,'Server::Config']]],
+  ['unserialize',['Unserialize',['../classAccount.xhtml#ae236325fef7b2269f54e9567577e0b92',1,'Account::Unserialize()'],['../classServer_1_1Config.xhtml#a54dba418bfd3365ccfb30bda37ccd461',1,'Server::Config::Unserialize()']]],
   ['update',['Update',['../classEvent.xhtml#a65983b240559175bfabe83c640ed7147',1,'Event::Update()'],['../classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990',1,'Server::Update()']]],
   ['upper',['Upper',['../namespaceUtils.xhtml#a817d26eb6a3427ad3742fb3cb788d30e',1,'Utils']]],
   ['usleep_5fmax',['USLEEP_MAX',['../macros_8h.xhtml#a5fc45be6b0bb71dc5d4c6390d98bf3ee',1,'macros.h']]],
@@ -16,6 +18,9 @@ var searchData=
   ['utils_5fis_5ffile',['UTILS_IS_FILE',['../enum_8h.xhtml#a9325070b1daf70dbe43f7fb9a341aaf2',1,'enum.h']]],
   ['utils_5fopts',['UTILS_OPTS',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88',1,'enum.h']]],
   ['utils_5fraw',['UTILS_RAW',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a7d4a5f7891869a8964c9f3be6ad4fb03',1,'enum.h']]],
+  ['utils_5fret_5ferror',['UTILS_RET_ERROR',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa6afb4eb3fbede68c19c12bf3543045f',1,'enum.h']]],
+  ['utils_5fret_5ffalse',['UTILS_RET_FALSE',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ae9b6a246539fb57fb810ac271b05d050',1,'enum.h']]],
+  ['utils_5fret_5ftrue',['UTILS_RET_TRUE',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ae2722723183013676ca1f0f065fc0b24',1,'enum.h']]],
   ['utils_5ftype_5ferror',['UTILS_TYPE_ERROR',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a3953ba936b7fd0b7cbc726e534c63197',1,'enum.h']]],
   ['utils_5ftype_5finfo',['UTILS_TYPE_INFO',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88af08cecf6f2c8ca5d3c5e4202a8450a92',1,'enum.h']]],
   ['utils_5ftype_5fsocket',['UTILS_TYPE_SOCKET',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ad9f4e83dec6fdf793451e709fb5d9509',1,'enum.h']]]

@@ -102,19 +102,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00024"></a>00024 <span class="preprocessor">#ifndef DEC_ACCOUNT_H</span>
 <a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#define DEC_ACCOUNT_H</span>
 <a name="l00026"></a>00026 <span class="preprocessor"></span>
-<a name="l00027"></a>00027 <span class="keyword">using namespace </span>std;
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="socketclient_8h.xhtml" title="The SocketClient class.">socketclient.h</a>&quot;</span>
 <a name="l00028"></a>00028 
-<a name="l00032"></a><a class="code" href="classAccount.xhtml">00032</a> <span class="keyword">class </span><a class="code" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a> {
-<a name="l00033"></a>00033     <span class="keyword">public</span>: 
-<a name="l00035"></a>00035         <span class="keyword">const</span> <span class="keywordtype">void</span> Delete();
-<a name="l00036"></a>00036         <span class="keyword">const</span> <span class="keywordtype">bool</span> New( <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* client, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name );   
-<a name="l00046"></a>00046         <a class="code" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>();
-<a name="l00047"></a>00047         ~<a class="code" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>();
-<a name="l00050"></a>00050     <span class="keyword">private</span>:
-<a name="l00051"></a><a class="code" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">00051</a>         <span class="keywordtype">string</span> <a class="code" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">m_name</a>; 
-<a name="l00052"></a>00052 };
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="preprocessor">#endif</span>
+<a name="l00029"></a>00029 <span class="keyword">using namespace </span>std;
+<a name="l00030"></a>00030 
+<a name="l00034"></a><a class="code" href="classAccount.xhtml">00034</a> <span class="keyword">class </span><a class="code" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a> {
+<a name="l00035"></a>00035     <span class="keyword">public</span>: 
+<a name="l00037"></a>00037         <span class="keyword">const</span> <span class="keywordtype">void</span> Delete();
+<a name="l00038"></a>00038         <span class="keyword">const</span> <span class="keywordtype">bool</span> New( <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* client, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; exists );
+<a name="l00039"></a>00039         <span class="keyword">const</span> <span class="keywordtype">bool</span> Serialize() <span class="keyword">const</span>;
+<a name="l00040"></a>00040         <span class="keyword">const</span> <span class="keywordtype">bool</span> Unserialize(); 
+<a name="l00044"></a>00044         <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* gClient() <span class="keyword">const</span>;
+<a name="l00045"></a>00045         <span class="keyword">const</span> list&lt;pair&lt;string,string&gt;&gt; gLogins( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type ) <span class="keyword">const</span>;
+<a name="l00046"></a>00046         <span class="keyword">const</span> <span class="keywordtype">string</span> gName() <span class="keyword">const</span>;
+<a name="l00047"></a>00047         <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> gSecurity() <span class="keyword">const</span>; 
+<a name="l00051"></a>00051         <span class="keyword">const</span> <span class="keywordtype">bool</span> aLogin( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; date, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type );
+<a name="l00052"></a>00052         <span class="keyword">const</span> <span class="keywordtype">bool</span> sSecurity( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; security ); 
+<a name="l00056"></a>00056         <a class="code" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>();
+<a name="l00057"></a>00057         ~<a class="code" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>();
+<a name="l00060"></a>00060     <span class="keyword">private</span>:
+<a name="l00061"></a><a class="code" href="classAccount.xhtml#abaabaa011c36988830dfb36ee18d79c9">00061</a>         <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* <a class="code" href="classAccount.xhtml#abaabaa011c36988830dfb36ee18d79c9">m_client</a>; 
+<a name="l00062"></a><a class="code" href="classAccount.xhtml#aff3dbe2d8fd54c0d215a54353e4c1bf3">00062</a>         list&lt;pair&lt;string,string&gt;&gt; m_logins[<a class="code" href="enum_8h.xhtml#a5ed7c456fadb6b481136921090268797a72df719bd3dcc79326c55af673f3f6f4">MAX_ACT_LOGIN</a>]; 
+<a name="l00063"></a><a class="code" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">00063</a>         <span class="keywordtype">string</span> <a class="code" href="classAccount.xhtml#acee6203484511ee33880c5ec182c1586">m_name</a>; 
+<a name="l00064"></a><a class="code" href="classAccount.xhtml#a1435d54c3596aec8968a206d69d1b3e9">00064</a>         <span class="keywordtype">string</span> <a class="code" href="classAccount.xhtml#a1435d54c3596aec8968a206d69d1b3e9">m_password</a>; 
+<a name="l00065"></a><a class="code" href="classAccount.xhtml#a7d0c6fc3a665919f8cc292ad3c33aef9">00065</a>         <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classAccount.xhtml#a7d0c6fc3a665919f8cc292ad3c33aef9">m_security</a>; 
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -133,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 00:09:58 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

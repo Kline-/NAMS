@@ -92,8 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="macros_8h__dep__incl.svg" width="100%" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="macros_8h__dep__incl.svg" width="100%" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="macros_8h_source.xhtml">Go to the source code of this file.</a></p>
@@ -118,6 +117,8 @@ Defines</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a bitset variable (name) with values (value) already set.  <a href="#aa1be0ce59bc9d78fa526b8f2157c444b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a">CITER</a>(container, type, name)&#160;&#160;&#160;container&lt;type&gt;::const_iterator name</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a const iterator variable (name) of (type) using (container).  <a href="#ae55287491ba1907e91a3a9fa09ef9d9a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#ab8dd2a96f2d83fd315a460c2b0e7401c">CKPASSWORD</a>(salt, check, old)&#160;&#160;&#160;<a class="el" href="namespaceUtils.xhtml#a594756861a60d256d31db7bb34ea70de">Utils::String</a>( crypt( <a class="el" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc">CSTR</a>( check ), <a class="el" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc">CSTR</a>( <a class="el" href="namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0">Utils::Salt</a>( salt ) ) ) ) == old</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two the value of (check) to (old) based on (salt).  <a href="#ab8dd2a96f2d83fd315a460c2b0e7401c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f">CRLF</a>&#160;&#160;&#160;&quot;\r\n&quot;</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a carriage return \ line feed.  <a href="#a6cb23a858b0a21bdaa644b9181dc415f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc">CSTR</a>(str)&#160;&#160;&#160;( str ).c_str()</td></tr>
@@ -126,8 +127,12 @@ Defines</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get function's name wrapped in a string.  <a href="#afd7feb39acd312085566c208e35c2362"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656">ITER</a>(container, type, name)&#160;&#160;&#160;container&lt;type&gt;::iterator name</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Define an iterator variable (name) of (type) using (container).  <a href="#a05e235f398566bf49e21735cf00fc656"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a1867b52cc6ac60871687ed20868e7bed">KEY</a>(stream, name)&#160;&#160;&#160;stream &lt;&lt; name &quot; = &quot;</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins writing (name) to (stream) in key:value format.  <a href="#a1867b52cc6ac60871687ed20868e7bed"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d">KEY</a>(stream, name, value)&#160;&#160;&#160;stream &lt;&lt; name &quot; = &quot; &lt;&lt; value &lt;&lt; endl</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Write (name) and (value) to (stream) in key:value format.  <a href="#ae82f16e6bd484cc5cb600fb899b8c24d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a820638a5bca755f5ec10ced9cd8e1a37">KEYLIST</a>(stream, name)&#160;&#160;&#160;stream &lt;&lt; name &quot; = &quot;</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins writing (name) to (stream) in key:value format.  <a href="#a820638a5bca755f5ec10ced9cd8e1a37"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a56c55a4fe68d269a30a5dbddbb210b47">KEYLISTLOOP</a>(stream, name, iter)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins writing (name)[iter] to (stream) in key:value format.  <a href="#a56c55a4fe68d269a30a5dbddbb210b47"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598">LOGSTR</a>(flags, message)&#160;&#160;&#160;<a class="el" href="utils_8h.xhtml#acf49e3634b60414304a9adfc79e02adb">Utils::Logger</a>( flags, message )</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrap Utils::Logger() for brevity and ease of future maintenance.  <a href="#acd5f0d05a4501b560a2fbc0799039598"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da">LOGFMT</a>(flags, message,...)&#160;&#160;&#160;<a class="el" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598">LOGSTR</a>( flags, <a class="el" href="utils_8h.xhtml#a1e42e9736fc6dc3c7450d100f4267a29">Utils::FormatString</a>( flags, message, __VA_ARGS__ ) )</td></tr>
@@ -136,8 +141,12 @@ Defines</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrap Utils::Logger() based on a locally generated errno value from system functions.  <a href="#a39c64b6565bddaca7e2af8518ee764e3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504">MITER</a>(container, type1, type2, name)&#160;&#160;&#160;container&lt;type1,type2&gt;::iterator name</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Define an iterator variable (name) of (type1,type2) using (container).  <a href="#ac49d0f3d55253bd7403da9e5fcab7504"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502">UFLAGS_DE</a>(name)&#160;&#160;&#160;<a class="el" href="macros_8h.xhtml#aa1be0ce59bc9d78fa526b8f2157c444b">BSET</a>( name, <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a285bb6b32d7a114b3103822c8ba11914">UTILS_DEBUG</a> | <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a3953ba936b7fd0b7cbc726e534c63197">UTILS_TYPE_ERROR</a> )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502">UFLAGS_DE</a>(name)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a bitset variable (name) with <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a285bb6b32d7a114b3103822c8ba11914">UTILS_DEBUG</a> and <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a3953ba936b7fd0b7cbc726e534c63197">UTILS_TYPE_ERROR</a> already enabled.  <a href="#a56f9e62010649bf59e47724b826e3502"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a6e32552c1b3df78e64aa5205ddf6dae9">UFLAGS_I</a>(name)&#160;&#160;&#160;<a class="el" href="macros_8h.xhtml#aa1be0ce59bc9d78fa526b8f2157c444b">BSET</a>( name, <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88af08cecf6f2c8ca5d3c5e4202a8450a92">UTILS_TYPE_INFO</a> )</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a bitset variable (name) with <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88af08cecf6f2c8ca5d3c5e4202a8450a92">UTILS_TYPE_INFO</a> already enabled.  <a href="#a6e32552c1b3df78e64aa5205ddf6dae9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1">UFLAGS_S</a>(name)&#160;&#160;&#160;<a class="el" href="macros_8h.xhtml#aa1be0ce59bc9d78fa526b8f2157c444b">BSET</a>( name, <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ad9f4e83dec6fdf793451e709fb5d9509">UTILS_TYPE_SOCKET</a> )</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a bitset variable (name) with <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ad9f4e83dec6fdf793451e709fb5d9509">UTILS_TYPE_SOCKET</a> already enabled.  <a href="#a81c6b3420739f786f624d7ea14b0bde1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.xhtml#a5fc45be6b0bb71dc5d4c6390d98bf3ee">USLEEP_MAX</a>&#160;&#160;&#160;1000000</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the maximum value usleep will take per man (3) usleep -- 1 second.  <a href="#a5fc45be6b0bb71dc5d4c6390d98bf3ee"></a><br/></td></tr>
 </table>
@@ -242,6 +251,49 @@ Defines</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab8dd2a96f2d83fd315a460c2b0e7401c"></a><!-- doxytag: member="macros.h::CKPASSWORD" ref="ab8dd2a96f2d83fd315a460c2b0e7401c" args="(salt, check, old)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="macros_8h.xhtml#ab8dd2a96f2d83fd315a460c2b0e7401c">CKPASSWORD</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">salt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">check, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">old&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="namespaceUtils.xhtml#a594756861a60d256d31db7bb34ea70de">Utils::String</a>( crypt( <a class="el" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc">CSTR</a>( check ), <a class="el" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc">CSTR</a>( <a class="el" href="namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0">Utils::Salt</a>( salt ) ) ) ) == old</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">salt</td><td>The salt to pass to crypt(). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">check</td><td>The new value to be crypted for comparison. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">old</td><td>The existing salted value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00121">121</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a6cb23a858b0a21bdaa644b9181dc415f"></a><!-- doxytag: member="macros.h::CRLF" ref="a6cb23a858b0a21bdaa644b9181dc415f" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -253,7 +305,7 @@ Defines</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00118">118</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00127">127</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -278,7 +330,7 @@ Defines</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00125">125</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00134">134</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -293,7 +345,7 @@ Defines</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00131">131</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00140">140</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -336,16 +388,59 @@ Defines</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00140">140</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00149">149</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1867b52cc6ac60871687ed20868e7bed"></a><!-- doxytag: member="macros.h::KEY" ref="a1867b52cc6ac60871687ed20868e7bed" args="(stream, name)" -->
+<a class="anchor" id="ae82f16e6bd484cc5cb600fb899b8c24d"></a><!-- doxytag: member="macros.h::KEY" ref="ae82f16e6bd484cc5cb600fb899b8c24d" args="(stream, name, value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="macros_8h.xhtml#a1867b52cc6ac60871687ed20868e7bed">KEY</a></td>
+          <td class="memname">#define <a class="el" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d">KEY</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">stream, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">value&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;stream &lt;&lt; name &quot; = &quot; &lt;&lt; value &lt;&lt; endl</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">stream</td><td>The filestream to use for a key:value pair. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name to use for a key:value pair. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to use for a key:value pair. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00158">158</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a820638a5bca755f5ec10ced9cd8e1a37"></a><!-- doxytag: member="macros.h::KEYLIST" ref="a820638a5bca755f5ec10ced9cd8e1a37" args="(stream, name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="macros_8h.xhtml#a820638a5bca755f5ec10ced9cd8e1a37">KEYLIST</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">stream, </td>
@@ -372,7 +467,50 @@ Defines</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00148">148</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00166">166</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a56c55a4fe68d269a30a5dbddbb210b47"></a><!-- doxytag: member="macros.h::KEYLISTLOOP" ref="a56c55a4fe68d269a30a5dbddbb210b47" args="(stream, name, iter)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="macros_8h.xhtml#a56c55a4fe68d269a30a5dbddbb210b47">KEYLISTLOOP</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">stream, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">iter&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">stream</td><td>The filestream to use for a key:value pair. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name to use for a key:value pair. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iter</td><td>The iterator to track through the loop. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00175">175</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -408,7 +546,7 @@ Defines</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00173">173</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00200">200</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -451,7 +589,7 @@ Defines</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00165">165</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00192">192</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -487,7 +625,7 @@ Defines</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00156">156</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00183">183</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -537,7 +675,7 @@ Defines</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00183">183</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00210">210</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -1080,7 +1218,34 @@ Defines</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">name</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="macros_8h.xhtml#aa1be0ce59bc9d78fa526b8f2157c444b">BSET</a>( name, <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a285bb6b32d7a114b3103822c8ba11914">UTILS_DEBUG</a> | <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a3953ba936b7fd0b7cbc726e534c63197">UTILS_TYPE_ERROR</a> )</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><a class="code" href="macros_8h.xhtml#aa1be0ce59bc9d78fa526b8f2157c444b" title="Define a bitset variable (name) with values (value) already set.">BSET</a>( name, <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a285bb6b32d7a114b3103822c8ba11914">UTILS_DEBUG</a> ); \
+    name.set( <a class="code" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88a3953ba936b7fd0b7cbc726e534c63197">UTILS_TYPE_ERROR</a> )
+</pre></div><dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name to use for declaring a local variable of bitset&lt;<a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb" title="Maximum size of all bitset elements within the server.">CFG_MEM_MAX_BITSET</a>&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00217">217</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e32552c1b3df78e64aa5205ddf6dae9"></a><!-- doxytag: member="macros.h::UFLAGS_I" ref="a6e32552c1b3df78e64aa5205ddf6dae9" args="(name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="macros_8h.xhtml#a6e32552c1b3df78e64aa5205ddf6dae9">UFLAGS_I</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="macros_8h.xhtml#aa1be0ce59bc9d78fa526b8f2157c444b">BSET</a>( name, <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88af08cecf6f2c8ca5d3c5e4202a8450a92">UTILS_TYPE_INFO</a> )</td>
         </tr>
       </table>
 </div>
@@ -1092,7 +1257,32 @@ Defines</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00190">190</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00226">226</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a81c6b3420739f786f624d7ea14b0bde1"></a><!-- doxytag: member="macros.h::UFLAGS_S" ref="a81c6b3420739f786f624d7ea14b0bde1" args="(name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1">UFLAGS_S</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="macros_8h.xhtml#aa1be0ce59bc9d78fa526b8f2157c444b">BSET</a>( name, <a class="el" href="enum_8h.xhtml#a3e334343716a0199504bec5002e4be88ad9f4e83dec6fdf793451e709fb5d9509">UTILS_TYPE_SOCKET</a> )</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name to use for declaring a local variable of bitset&lt;<a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb" title="Maximum size of all bitset elements within the server.">CFG_MEM_MAX_BITSET</a>&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00233">233</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -1108,7 +1298,7 @@ Defines</h2></td></tr>
 <div class="memdoc">
 <p>Some platforms limit usleep to 999999. This should not be a problem as long as <a class="el" href="config_8h.xhtml#abf59791d9bc371bb841717a963babfc3" title="How many cycles per second should be processed.">CFG_GAM_PULSE_RATE</a> is greater than 1. Changing this value will impact the speed at which every action in the game runs. If that is desired then <a class="el" href="config_8h.xhtml#abf59791d9bc371bb841717a963babfc3" title="How many cycles per second should be processed.">CFG_GAM_PULSE_RATE</a> should be modified instead. </p>
 
-<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00201">201</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
+<p>Definition at line <a class="el" href="macros_8h_source.xhtml#l00244">244</a> of file <a class="el" href="macros_8h_source.xhtml">macros.h</a>.</p>
 
 </div>
 </div>
@@ -1130,7 +1320,7 @@ Defines</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 9 2013 23:59:15 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 00:09:59 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
