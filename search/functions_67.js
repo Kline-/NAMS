@@ -18,6 +18,7 @@ var searchData=
   ['glogin',['gLogin',['../classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796',1,'SocketClient']]],
   ['glogins',['gLogins',['../classAccount.xhtml#a3e2d487e0962a90f4f00cf0ac73cbb7e',1,'Account']]],
   ['gname',['gName',['../classAccount.xhtml#aa5598c7fb0b2099dfee5d15696a5ef24',1,'Account::gName()'],['../classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021',1,'Command::gName()'],['../classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae',1,'Plugin::gName()']]],
+  ['gnegotiated',['gNegotiated',['../classSocketClient_1_1TermInfo.xhtml#a58debeabe9fe825bc7abbac06df5b216',1,'SocketClient::TermInfo']]],
   ['gport',['gPort',['../classServer.xhtml#a307ecabcbab896360450e2b06b22a411',1,'Server::gPort()'],['../classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c',1,'Socket::gPort()']]],
   ['gpreempt',['gPreempt',['../classCommand.xhtml#a24702b444e22d28a7566b539a0d15b90',1,'Command']]],
   ['gsecurity',['gSecurity',['../classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54',1,'Account']]],
@@ -29,6 +30,8 @@ var searchData=
   ['gstate',['gState',['../classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385',1,'SocketClient']]],
   ['gstatus',['gStatus',['../classServer.xhtml#aed2e8d1792f3ee019c859c19bfd187e8',1,'Server']]],
   ['gstring',['gString',['../classPlugin.xhtml#a254c795a324dab944aa3a3f127414a87',1,'Plugin']]],
+  ['gtelopt',['gTelopt',['../classSocketClient_1_1TermInfo.xhtml#a53781b89d3e22a7ceaa68c96b2b14463',1,'SocketClient::TermInfo']]],
+  ['gterminfo',['gTermInfo',['../classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb',1,'SocketClient']]],
   ['gtime',['gTime',['../classEvent.xhtml#aba97749a9852eb777c5d8d5ccbc16dc4',1,'Event']]],
   ['guint',['gUint',['../classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43',1,'Plugin']]]
 ];

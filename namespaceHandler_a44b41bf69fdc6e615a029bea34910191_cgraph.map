@@ -1,51 +1,51 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="1257,304,1399,333"/>
-<area shape="rect" id="node17" href="$namespaceUtils.xhtml#a36780f0aa565047ca0db53bda2aff5fc" title="Checks to ensure an input is entirely alphanumeric." alt="" coords="253,1389,357,1419"/>
-<area shape="rect" id="node19" href="$namespaceHandler.xhtml#af650e47f3d4baf393b54376d1eaa1fa9" title="Handle SocketClient objects who have not fully logged into the game yet." alt="" coords="224,455,387,484"/>
-<area shape="rect" id="node27" href="$classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484" title="Set the login command or arguments to be passed between handler functions." alt="" coords="805,403,955,432"/>
-<area shape="rect" id="node31" href="$classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key." alt="" coords="1252,251,1404,280"/>
-<area shape="rect" id="node33" href="$classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket." alt="" coords="804,248,956,277"/>
-<area shape="rect" id="node68" href="$namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext." alt="" coords="1659,567,1763,596"/>
-<area shape="rect" id="node123" href="$namespaceHandler.xhtml#a4f2b4f0ba0aa42e2d348655a1bd2bc7e" title="Checks to see if a name is on the server&#39;s prohibited list." alt="" coords="215,1129,396,1159"/>
-<area shape="rect" id="node130" href="$namespaceHandler.xhtml#a120400154c1559acfc874fe8a0bfbf88" title="Check to see if the current account is already being created." alt="" coords="504,1129,677,1159"/>
-<area shape="rect" id="node142" href="$namespaceUtils.xhtml#ac41c505e3efccab8549238e6843b0d2e" title="Determines if a directory exists on disk." alt="" coords="249,1443,361,1472"/>
-<area shape="rect" id="node5" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="1484,304,1588,333"/>
-<area shape="rect" id="node7" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="1463,91,1609,120"/>
-<area shape="rect" id="node9" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="1461,879,1611,908"/>
-<area shape="rect" id="node11" href="$classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance." alt="" coords="1475,144,1597,173"/>
-<area shape="rect" id="node13" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="1463,197,1609,227"/>
-<area shape="rect" id="node15" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="1463,251,1609,280"/>
-<area shape="rect" id="node21" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="1033,1129,1185,1159"/>
-<area shape="rect" id="node24" href="$namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" title="Compare a received password against an existing account." alt="" coords="500,352,681,381"/>
-<area shape="rect" id="node36" href="$namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" title="Select a new account name." alt="" coords="500,455,681,484"/>
-<area shape="rect" id="node47" href="$namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" title="Create a new account." alt="" coords="496,248,685,277"/>
-<area shape="rect" id="node55" href="$namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" title="Create a new account object, or load an existing one, with a name and password." alt="" coords="504,711,677,740"/>
-<area shape="rect" id="node29" href="$namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0" title="Returns a salt value for use with crypt." alt="" coords="839,195,921,224"/>
-<area shape="rect" id="node40" href="$namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a" title="Returns if string s1 is a prefix of string s2." alt="" coords="1272,983,1384,1012"/>
-<area shape="rect" id="node42" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="1489,1060,1583,1089"/>
-<area shape="rect" id="node58" href="$classAccount.xhtml#adc4545f17264112e532b5a48abe94baf" title="Create a new account." alt="" coords="825,659,935,688"/>
-<area shape="rect" id="node96" href="$classAccount.xhtml#aa82e62e930fb3a8ac58a4592f323db75" title="Unload an account from memory that was previously loaded via Account::New()." alt="" coords="819,763,941,792"/>
-<area shape="rect" id="node98" href="$classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5" title="Returns the Server object associated to this SocketClient." alt="" coords="800,1077,960,1107"/>
-<area shape="rect" id="node100" href="$classServer.xhtml#acf928ad938e32e6342c0cdd278e793bc" title="Server::FindCommand" alt="" coords="799,923,961,952"/>
-<area shape="rect" id="node105" href="$classCommand.xhtml#a6448d432978113719bfdfa3783da5106" title="Execute a Plugin object&#39;s primary function." alt="" coords="820,816,940,845"/>
-<area shape="rect" id="node113" href="$namespaceHandler.xhtml#a093ad11406855ab2a6ca197bc2db42b7" title="Main account menu for all account actions." alt="" coords="797,869,963,899"/>
-<area shape="rect" id="node61" href="$classAccount.xhtml#ae236325fef7b2269f54e9567577e0b92" title="Unserialize the account data from CFG_DAT_FILE_SETTINGS." alt="" coords="1033,713,1185,743"/>
-<area shape="rect" id="node85" href="$classAccount.xhtml#a87dfcb1fd6c275ea89ec6f279e7ee8ff" title="Serialize the account data and write them to CFG_DAT_FILE_SETTINGS." alt="" coords="1260,409,1396,439"/>
-<area shape="rect" id="node94" href="$classSocketClient.xhtml#aaa13ed7d0aa65770b617cbf72a5c28d9" title="Associates an Account object to the SocketClient." alt="" coords="1025,660,1193,689"/>
-<area shape="rect" id="node63" href="$namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext." alt="" coords="1487,461,1585,491"/>
-<area shape="rect" id="node66" href="$namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file." alt="" coords="1480,357,1592,387"/>
-<area shape="rect" id="node71" href="$namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b" title="Splits a string in the format of key=value. Retains any whitespace in the value." alt="" coords="1271,668,1385,697"/>
-<area shape="rect" id="node73" href="$namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" title="If the contents of keyd == valu, assigns loc = item." alt="" coords="1277,721,1379,751"/>
-<area shape="rect" id="node76" href="$namespaceUtils.xhtml#af8586b5c4d77ae0617279186b2bfdb66" title="Returns the first delimeter separated argument from input and then erases it from input..." alt="" coords="1267,775,1389,804"/>
-<area shape="rect" id="node78" href="$namespaceUtils.xhtml#a11bfe61c6e77603d59116397b1d3f580" title="Returns a pair of type T,V after receiving an input string generated from Utils::MakePair()." alt="" coords="1272,828,1384,857"/>
-<area shape="rect" id="node80" href="$namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file." alt="" coords="1480,515,1592,544"/>
-<area shape="rect" id="node82" href="$classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient." alt="" coords="1265,615,1391,644"/>
-<area shape="rect" id="node103" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="1037,1076,1181,1105"/>
-<area shape="rect" id="node107" href="$classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d" title="Execute the primary function of the implemented class." alt="" coords="1064,868,1155,897"/>
-<area shape="rect" id="node115" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="1243,1036,1413,1065"/>
-<area shape="rect" id="node118" href="$namespaceHandler.xhtml#a22b7749e3b3771d31eb2299efa5d821b" title="Send initial account interface menu." alt="" coords="1029,921,1189,951"/>
-<area shape="rect" id="node126" href="$classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58" title="Gets the runtime configuration of the server." alt="" coords="531,1183,651,1212"/>
-<area shape="rect" id="node128" href="$classServer_1_1Config.xhtml#ae93688e4861753dd11a8b537e092ab77" title="Returns an a copy of the account prohibited names list." alt="" coords="445,1236,736,1265"/>
-<area shape="rect" id="node133" href="$classServer.xhtml#a94d4152506da23d153a6070af7e72009" title="Returns the Server&#39;s globally referenced next iterator for SocketClient objects." alt="" coords="785,1181,975,1211"/>
-<area shape="rect" id="node135" href="$classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354" title="Sets the Server&#39;s globally referenced next iterator for SocketClient objects." alt="" coords="785,1285,975,1315"/>
+<area shape="rect" id="node3" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="1337,458,1479,487"/>
+<area shape="rect" id="node17" href="$namespaceUtils.xhtml#a36780f0aa565047ca0db53bda2aff5fc" title="Checks to ensure an input is entirely alphanumeric." alt="" coords="253,74,357,103"/>
+<area shape="rect" id="node19" href="$namespaceHandler.xhtml#af650e47f3d4baf393b54376d1eaa1fa9" title="Handle SocketClient objects who have not fully logged into the game yet." alt="" coords="224,643,387,673"/>
+<area shape="rect" id="node38" href="$classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484" title="Set the login command or arguments to be passed between handler functions." alt="" coords="805,590,955,619"/>
+<area shape="rect" id="node42" href="$classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key." alt="" coords="1332,1051,1484,1081"/>
+<area shape="rect" id="node44" href="$classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket." alt="" coords="1332,641,1484,670"/>
+<area shape="rect" id="node81" href="$namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext." alt="" coords="1739,1258,1843,1287"/>
+<area shape="rect" id="node130" href="$namespaceHandler.xhtml#a4f2b4f0ba0aa42e2d348655a1bd2bc7e" title="Checks to see if a name is on the server&#39;s prohibited list." alt="" coords="215,1650,396,1679"/>
+<area shape="rect" id="node137" href="$namespaceHandler.xhtml#a120400154c1559acfc874fe8a0bfbf88" title="Check to see if the current account is already being created." alt="" coords="504,1570,677,1599"/>
+<area shape="rect" id="node149" href="$namespaceUtils.xhtml#ac41c505e3efccab8549238e6843b0d2e" title="Determines if a directory exists on disk." alt="" coords="249,1831,361,1861"/>
+<area shape="rect" id="node5" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="1564,511,1668,541"/>
+<area shape="rect" id="node7" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="1543,565,1689,594"/>
+<area shape="rect" id="node9" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="1541,1310,1691,1339"/>
+<area shape="rect" id="node11" href="$classServer.xhtml#a686505fb3a2ee84bdac3f42710341b71" title="Returns the SocketServer associated with the current Server instance." alt="" coords="1555,351,1677,381"/>
+<area shape="rect" id="node13" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="1543,405,1689,434"/>
+<area shape="rect" id="node15" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="1543,458,1689,487"/>
+<area shape="rect" id="node21" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="1073,1671,1225,1701"/>
+<area shape="rect" id="node24" href="$namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" title="Compare a received password against an existing account." alt="" coords="500,486,681,515"/>
+<area shape="rect" id="node47" href="$namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" title="Select a new account name." alt="" coords="500,643,681,673"/>
+<area shape="rect" id="node58" href="$namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" title="Create a new account." alt="" coords="496,539,685,569"/>
+<area shape="rect" id="node67" href="$namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" title="Create a new account object, or load an existing one, with a name and password." alt="" coords="504,849,677,878"/>
+<area shape="rect" id="node26" href="$namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c" title="Negotiate requested options." alt="" coords="815,486,945,515"/>
+<area shape="rect" id="node40" href="$namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0" title="Returns a salt value for use with crypt." alt="" coords="839,226,921,255"/>
+<area shape="rect" id="node28" href="$classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb" title="Returns a pointer to the terminal information of the SocketClient." alt="" coords="1064,434,1235,463"/>
+<area shape="rect" id="node30" href="$classSocketClient_1_1TermInfo.xhtml#a58debeabe9fe825bc7abbac06df5b216" title="Returns if a telopt has been previously negotiated." alt="" coords="1024,487,1275,517"/>
+<area shape="rect" id="node32" href="$classSocketClient_1_1TermInfo.xhtml#aa576f2ec6f9de8d4160ccee6cbd1dc34" title="Sets if a telopt has been previously negotiated." alt="" coords="1024,381,1275,410"/>
+<area shape="rect" id="node34" href="$namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f" title="Sends a formatted telnet negotiation command to the client." alt="" coords="1100,327,1199,357"/>
+<area shape="rect" id="node51" href="$namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a" title="Returns if string s1 is a prefix of string s2." alt="" coords="1352,1413,1464,1442"/>
+<area shape="rect" id="node53" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="1569,1517,1663,1546"/>
+<area shape="rect" id="node71" href="$classAccount.xhtml#adc4545f17264112e532b5a48abe94baf" title="Create a new account." alt="" coords="825,1053,935,1082"/>
+<area shape="rect" id="node96" href="$classAccount.xhtml#aa82e62e930fb3a8ac58a4592f323db75" title="Unload an account from memory that was previously loaded via Account::New()." alt="" coords="819,1157,941,1186"/>
+<area shape="rect" id="node98" href="$classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5" title="Returns the Server object associated to this SocketClient." alt="" coords="800,1674,960,1703"/>
+<area shape="rect" id="node100" href="$classServer.xhtml#acf928ad938e32e6342c0cdd278e793bc" title="Server::FindCommand" alt="" coords="799,1415,961,1445"/>
+<area shape="rect" id="node105" href="$classCommand.xhtml#a6448d432978113719bfdfa3783da5106" title="Execute a Plugin object&#39;s primary function." alt="" coords="820,1210,940,1239"/>
+<area shape="rect" id="node113" href="$namespaceHandler.xhtml#a093ad11406855ab2a6ca197bc2db42b7" title="Main account menu for all account actions." alt="" coords="797,746,963,775"/>
+<area shape="rect" id="node74" href="$classAccount.xhtml#ae236325fef7b2269f54e9567577e0b92" title="Unserialize the account data from CFG_DAT_FILE_SETTINGS." alt="" coords="1073,1309,1225,1338"/>
+<area shape="rect" id="node86" href="$classAccount.xhtml#a87dfcb1fd6c275ea89ec6f279e7ee8ff" title="Serialize the account data and write them to CFG_DAT_FILE_SETTINGS." alt="" coords="1340,1105,1476,1134"/>
+<area shape="rect" id="node94" href="$classSocketClient.xhtml#aaa13ed7d0aa65770b617cbf72a5c28d9" title="Associates an Account object to the SocketClient." alt="" coords="1065,1154,1233,1183"/>
+<area shape="rect" id="node76" href="$namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext." alt="" coords="1567,1206,1665,1235"/>
+<area shape="rect" id="node79" href="$namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file." alt="" coords="1560,1153,1672,1182"/>
+<area shape="rect" id="node103" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="1077,1567,1221,1597"/>
+<area shape="rect" id="node107" href="$classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d" title="Execute the primary function of the implemented class." alt="" coords="1104,1463,1195,1493"/>
+<area shape="rect" id="node115" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="1323,746,1493,775"/>
+<area shape="rect" id="node118" href="$namespaceHandler.xhtml#a22b7749e3b3771d31eb2299efa5d821b" title="Send initial account interface menu." alt="" coords="1069,693,1229,722"/>
+<area shape="rect" id="node124" href="$namespaceHandler.xhtml#af55c3642454fd95ff0fa2c4ff575bf67" title="Create a new character in the game." alt="" coords="1056,746,1243,775"/>
+<area shape="rect" id="node133" href="$classServer.xhtml#a2b5b372322a87cdfeb7f6f5e4a01fa58" title="Gets the runtime configuration of the server." alt="" coords="531,1727,651,1757"/>
+<area shape="rect" id="node135" href="$classServer_1_1Config.xhtml#ae93688e4861753dd11a8b537e092ab77" title="Returns an a copy of the account prohibited names list." alt="" coords="445,1623,736,1653"/>
+<area shape="rect" id="node140" href="$classServer.xhtml#a94d4152506da23d153a6070af7e72009" title="Returns the Server&#39;s globally referenced next iterator for SocketClient objects." alt="" coords="785,1621,975,1650"/>
+<area shape="rect" id="node142" href="$classServer.xhtml#ab25462e8370bd6f9270c2f0734b70354" title="Sets the Server&#39;s globally referenced next iterator for SocketClient objects." alt="" coords="785,1727,975,1757"/>
 </map>

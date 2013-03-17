@@ -86,14 +86,578 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>The <a class="el" href="namespaceTelopt.xhtml" title="The Telopt namespace contains telnet option negotiation functions.">Telopt</a> namespace contains telnet option negotiation functions.  
 </p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#acb81c2e75d328c24352dd8ef356b84d8">Handshake</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const char &amp;cmd, const char &amp;opt)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a telnet negotiation handshake for requested options.  <a href="#acb81c2e75d328c24352dd8ef356b84d8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c">Negotiate</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;opt, const bool &amp;val, const bool &amp;reply=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Negotiate requested options.  <a href="#a71c731d78947d4c909f93df74950b64c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f">Send</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const char &amp;cmd, const char &amp;opt)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a formatted telnet negotiation command to the client.  <a href="#a4f56b29258351832660a550c61bda34f"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#aeb77c98d87dd0b0bc4abf827c08c1a3f">opt_telopt_esc</a> = &quot;\e&quot;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#a0ec47c0fca86bced01367114a76d24a3">opt_cursor_home</a> = &quot;[H&quot;</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#aa492f55e4cd1ee3cd8892ae1f99de139">opt_erase_screen</a> = &quot;[2J&quot;</td></tr>
+<tr><td colspan="2"><h2><a name="member-group"></a>
+Core</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#aeb77c98d87dd0b0bc4abf827c08c1a3f">opt_telopt_esc</a> = &quot;\e&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#aae5468ac9f53474dea225a4485905ac3">InitialNegotiation</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Send initial options to negotiate for, then the login string.  <a href="#aae5468ac9f53474dea225a4485905ac3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#abdb8913fd8eb65e47c6035240d9a291f">ProcessInput</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;data)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes data received from a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> for telnet sequences.  <a href="#abdb8913fd8eb65e47c6035240d9a291f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#abb99f54e5e0a1ab69795aea0408c0fc2">ProcessOutput</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;data)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes data to be sent to a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> for telnet sequences.  <a href="#abb99f54e5e0a1ab69795aea0408c0fc2"></a><br/></td></tr>
 </table>
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="acb81c2e75d328c24352dd8ef356b84d8"></a><!-- doxytag: member="Telopt::Handshake" ref="acb81c2e75d328c24352dd8ef356b84d8" args="(SocketClient *client, const char &amp;cmd, const char &amp;opt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void <a class="el" href="namespaceTelopt.xhtml#acb81c2e75d328c24352dd8ef356b84d8">Telopt::Handshake</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char &amp;&#160;</td>
+          <td class="paramname"><em>opt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>The client requesting a negotiation. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>The telnet command such as IAC, DO, WILL, WONT. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">opt</td><td>The option following the command. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="telopt_8cpp_source.xhtml#l00151">151</a> of file <a class="el" href="telopt_8cpp_source.xhtml">telopt.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( client == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Telopt::Handshake()-&gt; called with NULL client&quot;</span> );
+        <span class="keywordflow">return</span>;
+    }
+
+    <span class="keywordflow">switch</span> ( opt )
+    {
+        <span class="keywordflow">case</span> (<span class="keywordtype">char</span>)TELOPT_ECHO:
+            <span class="keywordflow">if</span> ( cmd == (<span class="keywordtype">char</span>)DO )
+            {   <span class="comment">// PuTTY likes to send IAC DO ECHO on connect which doesn&#39;t play nicely with</span>
+                <span class="comment">// allowing the account name to echo then flipping it for the password</span>
+                <span class="keywordflow">if</span> ( client-&gt;<a class="code" href="classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE.">gState</a>() &gt; <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7aa97346118bd6336de5373254e8cbd15f">SOC_STATE_LOGIN_SCREEN</a> )
+                    <a class="code" href="namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c" title="Negotiate requested options.">Negotiate</a>( client, <a class="code" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594">SOC_TELOPT_ECHO</a>, <span class="keyword">true</span>, <span class="keyword">true</span> );
+                <span class="keywordflow">else</span>
+                    <a class="code" href="namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c" title="Negotiate requested options.">Negotiate</a>( client, <a class="code" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594">SOC_TELOPT_ECHO</a>, <span class="keyword">false</span>, <span class="keyword">true</span> );
+
+                client-&gt;<a class="code" href="classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb" title="Returns a pointer to the terminal information of the SocketClient.">gTermInfo</a>()-&gt;<a class="code" href="classSocketClient_1_1TermInfo.xhtml#a05765d3e9e5c8f4d8c94bcea42b74dbe" title="Sets the value of a telnet option.">sTelopt</a>( <a class="code" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594">SOC_TELOPT_ECHO</a>, <span class="keyword">true</span> );
+            }
+            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( cmd == (<span class="keywordtype">char</span>)DONT )
+            {
+                <a class="code" href="namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c" title="Negotiate requested options.">Negotiate</a>( client, <a class="code" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594">SOC_TELOPT_ECHO</a>, <span class="keyword">false</span>, client-&gt;<a class="code" href="classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb" title="Returns a pointer to the terminal information of the SocketClient.">gTermInfo</a>()-&gt;<a class="code" href="classSocketClient_1_1TermInfo.xhtml#a53781b89d3e22a7ceaa68c96b2b14463" title="Returns the value of a telnet option.">gTelopt</a>( <a class="code" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594">SOC_TELOPT_ECHO</a> ) );
+                client-&gt;<a class="code" href="classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb" title="Returns a pointer to the terminal information of the SocketClient.">gTermInfo</a>()-&gt;<a class="code" href="classSocketClient_1_1TermInfo.xhtml#a05765d3e9e5c8f4d8c94bcea42b74dbe" title="Sets the value of a telnet option.">sTelopt</a>( <a class="code" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594">SOC_TELOPT_ECHO</a>, <span class="keyword">false</span> );
+            }
+            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( cmd == (<span class="keywordtype">char</span>)WILL )
+                <a class="code" href="namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f" title="Sends a formatted telnet negotiation command to the client.">Telopt::Send</a>( client, (<span class="keywordtype">char</span>)DONT, opt );
+        <span class="keywordflow">break</span>;
+
+        <span class="keywordflow">default</span>:
+            <span class="keywordflow">if</span> ( cmd == (<span class="keywordtype">char</span>)WILL )
+                <a class="code" href="namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f" title="Sends a formatted telnet negotiation command to the client.">Telopt::Send</a>( client, DONT, opt );
+            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( cmd == (<span class="keywordtype">char</span>)DO )
+                <a class="code" href="namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f" title="Sends a formatted telnet negotiation command to the client.">Telopt::Send</a>( client, WONT, opt );
+        <span class="keywordflow">break</span>;
+
+    }
+
+    <span class="keywordflow">return</span>;
+}
+</pre></div>
+<p><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_acb81c2e75d328c24352dd8ef356b84d8_cgraph.svg" width="100%" height="308"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_acb81c2e75d328c24352dd8ef356b84d8_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aae5468ac9f53474dea225a4485905ac3"></a><!-- doxytag: member="Telopt::InitialNegotiation" ref="aae5468ac9f53474dea225a4485905ac3" args="(SocketClient *client)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="namespaceTelopt.xhtml#aae5468ac9f53474dea225a4485905ac3">Telopt::InitialNegotiation</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>The client to begin negotiations with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error sending data to the client. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if data was successfully sent to the client. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="telopt_8cpp_source.xhtml#l00034">34</a> of file <a class="el" href="telopt_8cpp_source.xhtml">telopt.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( client == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Telopt::InitialNegotiation()-&gt; called with NULL client&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="comment">// negotiate some options here, then send the login string</span>
+    <a class="code" href="namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c" title="Negotiate requested options.">Telopt::Negotiate</a>( client, <a class="code" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594">SOC_TELOPT_ECHO</a>, <span class="keyword">false</span> );
+
+    <span class="keywordflow">if</span> ( !client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#a8d29374ea9db48916be70f6c809e148c" title="String sent on initial socket connection.">CFG_STR_LOGIN</a> ) )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Telopt::InitialNegotiation()-&gt; SocketClient::Send()-&gt; returned false&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_aae5468ac9f53474dea225a4485905ac3_cgraph.svg" width="100%" height="310"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_aae5468ac9f53474dea225a4485905ac3_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a71c731d78947d4c909f93df74950b64c"></a><!-- doxytag: member="Telopt::Negotiate" ref="a71c731d78947d4c909f93df74950b64c" args="(SocketClient *client, const uint_t &amp;opt, const bool &amp;val, const bool &amp;reply=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void <a class="el" href="namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c">Telopt::Negotiate</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>opt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>reply</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>The client requesting a negotiation. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">opt</td><td>The option to check from <a class="el" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4">SOC_TELOPT</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>The value to check the option for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reply</td><td>If true, a reply will be sent upon completion. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="telopt_8cpp_source.xhtml#l00203">203</a> of file <a class="el" href="telopt_8cpp_source.xhtml">telopt.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( client == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Telopt::Negotiate()-&gt; called with NULL client&quot;</span> );
+        <span class="keywordflow">return</span>;
+    }
+
+    <span class="keywordflow">if</span> ( opt &lt; uintmin_t || opt &gt;= <a class="code" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a597c66d7807ce83daecb77a1ca11c7bf">MAX_SOC_TELOPT</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Telopt::Negotiate()-&gt; called with invalid opt: %lu&quot;</span>, opt );
+        <span class="keywordflow">return</span>;
+    }
+
+    <span class="comment">// Check to see if anything has changed</span>
+    <span class="keywordflow">if</span> ( client-&gt;<a class="code" href="classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb" title="Returns a pointer to the terminal information of the SocketClient.">gTermInfo</a>()-&gt;<a class="code" href="classSocketClient_1_1TermInfo.xhtml#a58debeabe9fe825bc7abbac06df5b216" title="Returns if a telopt has been previously negotiated.">gNegotiated</a>( opt ) != val )
+    {
+        client-&gt;<a class="code" href="classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb" title="Returns a pointer to the terminal information of the SocketClient.">gTermInfo</a>()-&gt;<a class="code" href="classSocketClient_1_1TermInfo.xhtml#aa576f2ec6f9de8d4160ccee6cbd1dc34" title="Sets if a telopt has been previously negotiated.">sNegotiated</a>( opt, val );
+
+        <span class="keywordflow">if</span> ( reply )
+        {
+            <span class="keywordflow">switch</span> ( opt )
+            {
+                <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a1585c85241b55cc28b79eebd4c8c1594">SOC_TELOPT_ECHO</a>:
+                    <a class="code" href="namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f" title="Sends a formatted telnet negotiation command to the client.">Telopt::Send</a>( client, val ? WILL : WONT, TELOPT_ECHO );
+                <span class="keywordflow">break</span>;
+
+                <span class="keywordflow">default</span>:
+                <span class="keywordflow">break</span>;
+            }
+        }
+    }
+
+    <span class="keywordflow">return</span>;
+}
+</pre></div>
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_a71c731d78947d4c909f93df74950b64c_cgraph.svg" width="100%" height="290"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_a71c731d78947d4c909f93df74950b64c_icgraph.svg" width="100%" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abdb8913fd8eb65e47c6035240d9a291f"></a><!-- doxytag: member="Telopt::ProcessInput" ref="abdb8913fd8eb65e47c6035240d9a291f" args="(SocketClient *client, const string &amp;data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="namespaceTelopt.xhtml#abdb8913fd8eb65e47c6035240d9a291f">Telopt::ProcessInput</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>The <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> to process data for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The received data to be processed. retval string A string that has been processed for telnet sequences. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="telopt_8cpp_source.xhtml#l00062">62</a> of file <a class="el" href="telopt_8cpp_source.xhtml">telopt.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>, o = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+    <span class="keywordtype">char</span> output[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>] = {<span class="charliteral">&#39;\0&#39;</span>};
+
+    <span class="keywordflow">if</span> ( client == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Telopt::ProcessInput()-&gt; called with NULL client&quot;</span> );
+        <span class="keywordflow">return</span> output;
+    }
+
+    <span class="keywordflow">if</span> ( data.empty() )
+        <span class="keywordflow">return</span> output;
+
+    <span class="keywordflow">if</span> ( data.length() &gt;= <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> )
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Telopt::ProcessInput()-&gt; data length of %lu exceeds buffer length of %lu, truncating&quot;</span>, data.length(), <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> );
+
+    <span class="keywordflow">for</span> ( i = 0; i &lt; data.length() &amp;&amp; i &lt; <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>; i++ )
+    {
+        <span class="keywordflow">if</span> ( data[i] == (<span class="keywordtype">char</span>)IAC )
+        {
+            <span class="keywordflow">switch</span> ( data[i+1] )
+            {
+                <span class="keywordflow">case</span> (<span class="keywordtype">char</span>)IAC: <span class="comment">// IAC IAC will result in IAC being passed as data</span>
+                    output[o++] = (char)IAC;
+                    i++;
+                <span class="keywordflow">break</span>;
+
+                <span class="keywordflow">case</span> (<span class="keywordtype">char</span>)DO:
+                <span class="keywordflow">case</span> (<span class="keywordtype">char</span>)DONT:
+                <span class="keywordflow">case</span> (<span class="keywordtype">char</span>)WILL:
+                <span class="keywordflow">case</span> (<span class="keywordtype">char</span>)WONT:
+                    <a class="code" href="namespaceTelopt.xhtml#acb81c2e75d328c24352dd8ef356b84d8" title="Begins a telnet negotiation handshake for requested options.">Handshake</a>( client, data[i+1], data[i+2] );
+                    i += 2; <span class="comment">// data[i] == IAC, data[i+1] = cmd, data[i+2] = opt</span>
+                <span class="keywordflow">break</span>;
+            }
+        }
+        <span class="keywordflow">else</span>
+            output[o++] = data[i];
+    }
+
+    <span class="keywordflow">return</span> output;
+}
+</pre></div>
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_abdb8913fd8eb65e47c6035240d9a291f_cgraph.svg" width="100%" height="308"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_abdb8913fd8eb65e47c6035240d9a291f_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abb99f54e5e0a1ab69795aea0408c0fc2"></a><!-- doxytag: member="Telopt::ProcessOutput" ref="abb99f54e5e0a1ab69795aea0408c0fc2" args="(SocketClient *client, const string &amp;data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="namespaceTelopt.xhtml#abb99f54e5e0a1ab69795aea0408c0fc2">Telopt::ProcessOutput</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>The <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> to process data for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The received data to be processed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string that has been processed for telnet sequences. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="telopt_8cpp_source.xhtml#l00113">113</a> of file <a class="el" href="telopt_8cpp_source.xhtml">telopt.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>, o = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+    <span class="keywordtype">char</span> output[<a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>] = {<span class="charliteral">&#39;\0&#39;</span>};
+
+    <span class="keywordflow">if</span> ( client == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Telopt::ProcessOutput()-&gt; called with NULL client&quot;</span> );
+        <span class="keywordflow">return</span> output;
+    }
+
+    <span class="keywordflow">if</span> ( data.empty() )
+        <span class="keywordflow">return</span> output;
+
+    <span class="keywordflow">if</span> ( data.length() &gt;= <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> )
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Telopt::ProcessOutput()-&gt; data length of %lu exceeds buffer length of %lu, truncating&quot;</span>, data.length(), <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a> );
+
+    <span class="keywordflow">for</span> ( i = 0; i &lt; data.length() &amp;&amp; i &lt; <a class="code" href="config_8h.xhtml#afb71aab62bfe0df8712e4fdadc30e456" title="Maximum length of all char type buffers.">CFG_STR_MAX_BUFLEN</a>; i++ )
+    {
+        output[o++] = data[i];
+    }
+
+    <span class="keywordflow">return</span> output;
+}
+</pre></div>
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_abb99f54e5e0a1ab69795aea0408c0fc2_icgraph.svg" width="366" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f56b29258351832660a550c61bda34f"></a><!-- doxytag: member="Telopt::Send" ref="a4f56b29258351832660a550c61bda34f" args="(SocketClient *client, const char &amp;cmd, const char &amp;opt)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void <a class="el" href="namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f">Telopt::Send</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char &amp;&#160;</td>
+          <td class="paramname"><em>opt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">client</td><td>The client to send data to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>The command to be sent. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">opt</td><td>The option to be sent. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="telopt_8cpp_source.xhtml#l00248">248</a> of file <a class="el" href="telopt_8cpp_source.xhtml">telopt.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+    <span class="keywordtype">char</span> output[4] = {<span class="charliteral">&#39;\0&#39;</span>};
+
+    <span class="keywordflow">if</span> ( client == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Telopt::Send()-&gt; called with NULL client&quot;</span> );
+        <span class="keywordflow">return</span>;
+    }
+
+    output[0] = (char)IAC;
+    output[1] = cmd;
+    output[2] = opt;
+    output[3] = <span class="charliteral">&#39;\0&#39;</span>;
+
+    client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( output );
+
+    <span class="keywordflow">return</span>;
+ }
+</pre></div>
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_a4f56b29258351832660a550c61bda34f_cgraph.svg" width="502" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceTelopt_a4f56b29258351832660a550c61bda34f_icgraph.svg" width="100%" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
 <hr/><h2>Variable Documentation</h2>
 <a class="anchor" id="a0ec47c0fca86bced01367114a76d24a3"></a><!-- doxytag: member="Telopt::opt_cursor_home" ref="a0ec47c0fca86bced01367114a76d24a3" args="" -->
 <div class="memitem">
@@ -106,7 +670,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="telopt_8h_source.xhtml#l00043">43</a> of file <a class="el" href="telopt_8h_source.xhtml">telopt.h</a>.</p>
+<p>Definition at line <a class="el" href="telopt_8h_source.xhtml#l00048">48</a> of file <a class="el" href="telopt_8h_source.xhtml">telopt.h</a>.</p>
 
 </div>
 </div>
@@ -121,7 +685,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="telopt_8h_source.xhtml#l00044">44</a> of file <a class="el" href="telopt_8h_source.xhtml">telopt.h</a>.</p>
+<p>Definition at line <a class="el" href="telopt_8h_source.xhtml#l00049">49</a> of file <a class="el" href="telopt_8h_source.xhtml">telopt.h</a>.</p>
 
 </div>
 </div>
@@ -136,7 +700,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="telopt_8h_source.xhtml#l00036">36</a> of file <a class="el" href="telopt_8h_source.xhtml">telopt.h</a>.</p>
+<p>Definition at line <a class="el" href="telopt_8h_source.xhtml#l00038">38</a> of file <a class="el" href="telopt_8h_source.xhtml">telopt.h</a>.</p>
 
 </div>
 </div>
@@ -158,7 +722,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 00:09:59 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 16:00:36 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

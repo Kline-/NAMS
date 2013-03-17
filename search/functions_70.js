@@ -6,6 +6,7 @@ var searchData=
   ['pollsockets',['PollSockets',['../classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c',1,'Server']]],
   ['processcommand',['ProcessCommand',['../classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f',1,'SocketClient']]],
   ['processevents',['ProcessEvents',['../classServer.xhtml#a266931bde9b1955346955140986d2b00',1,'Server']]],
-  ['processinput',['ProcessInput',['../classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae',1,'Server::ProcessInput()'],['../classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b',1,'SocketClient::ProcessInput()']]],
-  ['processlogin',['ProcessLogin',['../namespaceHandler.xhtml#af650e47f3d4baf393b54376d1eaa1fa9',1,'Handler']]]
+  ['processinput',['ProcessInput',['../classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae',1,'Server::ProcessInput()'],['../classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b',1,'SocketClient::ProcessInput()'],['../namespaceTelopt.xhtml#abdb8913fd8eb65e47c6035240d9a291f',1,'Telopt::ProcessInput()']]],
+  ['processlogin',['ProcessLogin',['../namespaceHandler.xhtml#af650e47f3d4baf393b54376d1eaa1fa9',1,'Handler']]],
+  ['processoutput',['ProcessOutput',['../namespaceTelopt.xhtml#abb99f54e5e0a1ab69795aea0408c0fc2',1,'Telopt']]]
 ];

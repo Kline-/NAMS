@@ -88,12 +88,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>The telopt namespace.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;arpa/telnet.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="socketclient_8h_source.xhtml">socketclient.h</a>&quot;</code><br/>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for telopt.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="telopt_8h__incl.svg" width="115" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="telopt_8h__incl.svg" width="667" height="350"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
@@ -110,13 +111,29 @@ Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml">Telopt</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The <a class="el" href="namespaceTelopt.xhtml" title="The Telopt namespace contains telnet option negotiation functions.">Telopt</a> namespace contains telnet option negotiation functions. </p>
 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#acb81c2e75d328c24352dd8ef356b84d8">Telopt::Handshake</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const char &amp;cmd, const char &amp;opt)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a telnet negotiation handshake for requested options.  <a href="#acb81c2e75d328c24352dd8ef356b84d8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c">Telopt::Negotiate</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;opt, const bool &amp;val, const bool &amp;reply=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Negotiate requested options.  <a href="#a71c731d78947d4c909f93df74950b64c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f">Telopt::Send</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const char &amp;cmd, const char &amp;opt)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a formatted telnet negotiation command to the client.  <a href="#a4f56b29258351832660a550c61bda34f"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#aeb77c98d87dd0b0bc4abf827c08c1a3f">Telopt::opt_telopt_esc</a> = &quot;\e&quot;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#a0ec47c0fca86bced01367114a76d24a3">Telopt::opt_cursor_home</a> = &quot;[H&quot;</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#aa492f55e4cd1ee3cd8892ae1f99de139">Telopt::opt_erase_screen</a> = &quot;[2J&quot;</td></tr>
+<tr><td colspan="2"><h2><a name="member-group"></a>
+Core</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#aeb77c98d87dd0b0bc4abf827c08c1a3f">Telopt::opt_telopt_esc</a> = &quot;\e&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#aae5468ac9f53474dea225a4485905ac3">Telopt::InitialNegotiation</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Send initial options to negotiate for, then the login string.  <a href="#aae5468ac9f53474dea225a4485905ac3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#abdb8913fd8eb65e47c6035240d9a291f">Telopt::ProcessInput</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;data)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes data received from a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> for telnet sequences.  <a href="#abdb8913fd8eb65e47c6035240d9a291f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTelopt.xhtml#abb99f54e5e0a1ab69795aea0408c0fc2">Telopt::ProcessOutput</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;data)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes data to be sent to a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> for telnet sequences.  <a href="#abb99f54e5e0a1ab69795aea0408c0fc2"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This file contains the <a class="el" href="namespaceTelopt.xhtml" title="The Telopt namespace contains telnet option negotiation functions.">Telopt</a> namespace and template functions. </p>
@@ -140,7 +157,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 00:09:59 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 17 2013 16:00:35 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

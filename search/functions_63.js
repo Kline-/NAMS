@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['charactercreate',['CharacterCreate',['../handler_8cpp.xhtml#adc9fa2604bb8bbd994d1d3450b059552',1,'CharacterCreate():&#160;handler.cpp'],['../namespaceHandler.xhtml#af55c3642454fd95ff0fa2c4ff575bf67',1,'Handler::CharacterCreate()']]],
+  ['charactercreate',['CharacterCreate',['../namespaceHandler.xhtml#af55c3642454fd95ff0fa2c4ff575bf67',1,'Handler']]],
   ['checkcreating',['CheckCreating',['../namespaceHandler.xhtml#a120400154c1559acfc874fe8a0bfbf88',1,'Handler']]],
   ['checkprohibited',['CheckProhibited',['../namespaceHandler.xhtml#a4f2b4f0ba0aa42e2d348655a1bd2bc7e',1,'Handler']]],
   ['cleanuptemp',['CleanupTemp',['../namespaceUtils.xhtml#a57b7c6b0c6ea6f1498129d9c9a16d8a8',1,'Utils']]],

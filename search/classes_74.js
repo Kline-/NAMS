@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['thread',['Thread',['../classThread.xhtml',1,'']]]
+  ['terminfo',['TermInfo',['../classSocketClient_1_1TermInfo.xhtml',1,'SocketClient']]],
+  ['thing',['Thing',['../classThing.xhtml',1,'']]]
 ];

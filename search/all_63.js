@@ -63,7 +63,7 @@ var searchData=
   ['cfg_5fstr_5futils_5finfo',['CFG_STR_UTILS_INFO',['../config_8h.xhtml#aa5d991baf2e5165be5c3f1a1a53eacd6',1,'config.h']]],
   ['cfg_5fstr_5futils_5fsocket',['CFG_STR_UTILS_SOCKET',['../config_8h.xhtml#ac38f0f1beed2da9e2c6e0210da5ba57f',1,'config.h']]],
   ['cfg_5fstr_5fversion',['CFG_STR_VERSION',['../config_8h.xhtml#ae0189326402738016ca074f43606978f',1,'config.h']]],
-  ['charactercreate',['CharacterCreate',['../handler_8cpp.xhtml#adc9fa2604bb8bbd994d1d3450b059552',1,'CharacterCreate():&#160;handler.cpp'],['../namespaceHandler.xhtml#af55c3642454fd95ff0fa2c4ff575bf67',1,'Handler::CharacterCreate()']]],
+  ['charactercreate',['CharacterCreate',['../namespaceHandler.xhtml#af55c3642454fd95ff0fa2c4ff575bf67',1,'Handler']]],
   ['checkcreating',['CheckCreating',['../namespaceHandler.xhtml#a120400154c1559acfc874fe8a0bfbf88',1,'Handler']]],
   ['checkprohibited',['CheckProhibited',['../namespaceHandler.xhtml#a4f2b4f0ba0aa42e2d348655a1bd2bc7e',1,'Handler']]],
   ['citer',['CITER',['../macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a',1,'macros.h']]],
