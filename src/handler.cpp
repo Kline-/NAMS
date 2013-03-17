@@ -256,6 +256,18 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
     return;
 }
 
+/**
+ * @brief Create a new character in the game.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void CharacterCreate( SocketClient* client, const string& cmd, const string& args )
+{
+    return;
+}
+
 /* Internal */
 /**
  * @brief Select a new account name.
