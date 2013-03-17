@@ -29,6 +29,13 @@
 #include "h/list.h"
 
 /**
+ * @var character_list
+ * @brief All characters that exist within the server.
+ * @param Character* A pointer to a Character object in memory.
+ */
+list<Character*> character_list;
+
+/**
  * @var command_list
  * @brief All commands loaded into memory.
  * @param "const char" The first letter of the value contained within Command->m_name.

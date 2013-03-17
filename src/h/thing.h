@@ -24,7 +24,7 @@
 #ifndef DEC_THING_H
 #define DEC_THING_H
 
-#include "account.h"
+#include "server.h"
 
 using namespace std;
 

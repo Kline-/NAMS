@@ -25,9 +25,19 @@
 #include "h/class.h"
 
 #include "h/account.h"
-#include "h/socketclient.h"
 
 /* Core */
+/**
+ * @brief This will set the m_character pointer to NULL, invalidating any references. This exists outside of sCharacter() to ensure that there is an explicit desire to invalidate the character pointer.
+ * @retval void
+ */
+const void Account::ClearCharacter()
+{
+    m_character = NULL;
+
+    return;
+}
+
 /**
  * @brief Unload an account from memory that was previously loaded via Account::New().
  * @retval void
@@ -281,6 +291,15 @@ const bool Account::Unserialize()
 
 /* Query */
 /**
+ * @brief Returns the associated Character, if any.
+ * @retval Character* A pointer to the associated Character, or NULL.
+ */
+Character* Account::gCharacter() const
+{
+    return m_character;
+}
+
+/**
  * @brief Returns the associated SocketClient.
  * @retval SocketClient* A pointer to the associated SocketClient.
  */
@@ -326,6 +345,31 @@ const uint_t Account::gSecurity() const
 }
 
 /* Manipulate */
+/**
+ * @brief Sets the active Character associated with the account.
+ * @param[in] character A pointer to a Character object.
+ * @retval false Returned if the Character was unable to be associated to the account.
+ * @retval true Returned if the Character was successfully associated to the account.
+ */
+const bool Account::sCharacter( Character* character )
+{
+    UFLAGS_DE( flags );
+
+    if ( character == NULL )
+    {
+        LOGSTR( flags, "Account::sCharacter()-> called with NULL character" );
+        return false;
+    }
+
+    if ( m_character != NULL )
+    {
+        LOGSTR( flags, "Account::sCharacter()-> called while m_character is not NULL" );
+        return false;
+    }
+
+    return true;
+}
+
 /**
  * @brief Adds a hostname to the list of previous successful logins. Bumps the oldest entry.
  * @param[in] date A string of the login time.
@@ -393,6 +437,7 @@ Account::Account()
 {
     uint_t i = uintmin_t;
 
+    m_character = NULL;
     m_characters.clear();
     m_client = NULL;
     for ( i = 0; i < MAX_ACT_LOGIN; i++ )

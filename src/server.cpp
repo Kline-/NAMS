@@ -697,6 +697,15 @@ forward_list<string> Server::Config::gProhibitedNames( const uint_t& type ) cons
 }
 
 /**
+ * @brief Returns the Server's globally referenced next iterator for Character objects.
+ * @retval Character* The Server's globally referenced next iterator for Character objects.
+ */
+list<Character*>::iterator Server::gCharacterNext() const
+{
+    return m_character_next;
+}
+
+/**
  * @brief Gets the runtime configuration of the server.
  * @retval Server::Config A pointer to the runtime configuration.
  */
@@ -906,6 +915,18 @@ const bool Server::Config::Unserialize()
 }
 
 /**
+ * @brief Sets the Server's globally referenced next iterator for Character objects.
+ * @param[in] next The next Character in character_list after removing an element.
+ * @retval void
+ */
+const void Server::sCharacterNext( list<Character*>::iterator next )
+{
+    m_character_next = next;
+
+    return;
+}
+
+/**
  * @brief Set the port of a NAMS Server object.
  * @param[in] port The port number to have a SocketServer instance listen for new connections on.
  * @retval false Returned if the port was <= #CFG_SOC_MIN_PORTNUM or >= #CFG_SOC_MAX_PORTNUM.
@@ -1003,6 +1024,7 @@ Server::Config::~Config()
  */
 Server::Server()
 {
+    m_character_next = character_list.begin();
     m_config = new Server::Config();
     m_dir_close = 0;
     m_dir_open = 0;

@@ -26,9 +26,9 @@
 
 #include <fcntl.h>
 
+#include "character.h"
 #include "socketclient.h"
 #include "socketserver.h"
-#include "thing.h"
 
 using namespace std;
 
@@ -80,6 +80,7 @@ class Server {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        list<Character*>::iterator gCharacterNext() const;
         Server::Config* gConfig() const;
         const string gHostname() const;
         const uint_t gPort() const;
@@ -91,6 +92,7 @@ class Server {
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const void sCharacterNext( list<Character*>::iterator next );
         const bool sPort( const uint_t& port );
         const void sSocketClientNext( list<SocketClient*>::iterator next );
         const bool sSocketClose( const uint_t& amount );
@@ -103,6 +105,7 @@ class Server {
         /**@}*/
 
     private:
+        list<Character*>::iterator m_character_next; /**< Used as the next iterator in all loops dealing with Character objects to prevent nested processing loop problems. */
         Server::Config* m_config; /**< Runtime configuration settings. */
         uint_t m_dir_close; /**< Total number of directories closed by the Server. */
         uint_t m_dir_open; /**< Total number of directories opened by the Server. */
