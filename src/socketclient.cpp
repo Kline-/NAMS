@@ -302,7 +302,6 @@ const bool SocketClient::Recv()
     UFLAGS_DE( flags );
     ssize_t amount = 0;
     char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
-    string sbuf;
 
     if ( !Valid() )
     {
@@ -348,9 +347,7 @@ const bool SocketClient::Recv()
         return false;
     }
 
-    sbuf = buf;
-    Telopt::ProcessInput( sbuf );
-    m_input.append( sbuf );
+    m_input.append( Telopt::ProcessInput( this, buf ) );
 
     return true;
 }
@@ -418,8 +415,6 @@ const bool SocketClient::Send()
     if ( m_output.empty() )
         return true;
 
-    Telopt::ProcessOutput( m_output );
-
     if ( ( amount = ::send( gDescriptor(), CSTR( m_output ), m_output.length(), 0 ) ) < 1 )
     {
         if ( amount == 0 )
@@ -472,10 +467,10 @@ const bool SocketClient::Send( const string& msg )
     if ( m_output.empty() && m_state == SOC_STATE_PLAYING )
     {
         m_output.append( CRLF );
-        m_output.append( msg );
+        m_output.append( Telopt::ProcessOutput( this, msg ) );
     }
     else
-        m_output.append( msg );
+        m_output.append( Telopt::ProcessOutput( this, msg ) );
 
     return true;
 }
@@ -491,6 +486,25 @@ const string SocketClient::Serialize() const
 }
 
 /* Query */
+/**
+ * @brief Returns the value of a telnet option.
+ * @param[in] opt The option position to retrieve from #SOC_TELOPT.
+ * @retval false Returned if the option is set to false.
+ * @retval true Returned if the option is set to true.
+ */
+const bool SocketClient::TermInfo::gTelopt( const uint_t& opt ) const
+{
+    UFLAGS_DE( flags );
+
+    if ( opt < uintmin_t || opt >= MAX_SOC_TELOPT )
+    {
+        LOGFMT( flags, "SocketClient::TermInfo::gTelopt()-> called with invalid opt: %lu", opt );
+        return false;
+    }
+
+    return m_telopt[opt];
+}
+
 /**
  * @brief Returns the Account object associated to this SocketClient.
  * @retval Account Pointer to the associated Account object.
@@ -545,7 +559,38 @@ const uint_t SocketClient::gState() const
     return m_state;
 }
 
+/**
+ * @brief Returns a pointer to the terminal information of the SocketClient.
+ * @retval SocketClient::TermInfo* A pointer to the terminal information of the SocketClient.
+ */
+SocketClient::TermInfo* SocketClient::gTermInfo() const
+{
+    return m_terminfo;
+}
+
 /* Manipulate */
+/**
+ * @brief Sets the value of a telnet option.
+ * @param[in] opt The option position to set from #SOC_TELOPT.
+ * @param[in] val The value to set the option to.
+ * @retval false Returned if the option was unable to be set.
+ * @retval true Returned if the option was successfully set.
+ */
+const bool SocketClient::TermInfo::sTelopt( const uint_t& opt, const bool& val )
+{
+    UFLAGS_DE( flags );
+
+    if ( opt < uintmin_t || opt >= MAX_SOC_TELOPT )
+    {
+        LOGFMT( flags, "SocketClient::TermInfo::sTelopt()-> called with invalid opt: %lu", opt );
+        return false;
+    }
+
+    m_telopt[opt] = val;
+
+    return true;
+}
+
 /**
  * @brief Associates an Account object to the SocketClient.
  * @param[in] account A pointer to the Account object to be associated.
@@ -699,6 +744,27 @@ const bool SocketClient::sState( const uint_t& state )
 
 /* Internal */
 /**
+ * @brief Constructor for the SocketClient::TermInfo class.
+ */
+SocketClient::TermInfo::TermInfo()
+{
+    uint_t i = uintmin_t;
+
+    for ( i = 0; i < MAX_SOC_TELOPT; i++ )
+        m_telopt[i] = false;
+
+    return;
+}
+
+/**
+ * @brief Destructor for the SocketClient::TermInfo class.
+ */
+SocketClient::TermInfo::~TermInfo()
+{
+    return;
+}
+
+/**
  * @brief Constructor for the SocketClient class.
  * @param[in] server A pointer to an instance of a Server object.
  * @param[in] descriptor A #sint_t value of the file descriptor that has been opened for the socket.
@@ -717,6 +783,7 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
     m_quitting = false;
     sServer( server );
     m_state = SOC_STATE_DISCONNECTED;
+    m_terminfo = new SocketClient::TermInfo();
 
     m_server->sSocketOpen( m_server->gSocketOpen() + 1 );
     socket_client_list.push_back( this );
@@ -731,6 +798,7 @@ SocketClient::~SocketClient()
 {
     if ( m_account != NULL )
         m_account->Delete();
+    delete m_terminfo;
 
     return;
 }

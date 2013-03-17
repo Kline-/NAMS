@@ -37,6 +37,31 @@ using namespace std;
  * @brief Client / remote host specific functions that extend the Socket class.
  */
 class SocketClient : public Socket {
+    /**
+     * @brief Remote terminal information and configuration.
+     */
+    class TermInfo {
+        public:
+            /** @name Core */ /**@{*/
+            /**@}*/
+
+            /** @name Query */ /**@{*/
+            const bool gTelopt( const uint_t& opt ) const;
+            /**@}*/
+
+            /** @name Manipulate */ /**@{*/
+            const bool sTelopt( const uint_t& opt, const bool& val );
+            /**@}*/
+
+            /** @name Internal */ /**@{*/
+            TermInfo();
+            ~TermInfo();
+            /**@}*/
+
+        private:
+            bool m_telopt[MAX_SOC_TELOPT]; /* Supported telnet options. */
+    };
+
     public:
         /** @name Core */ /**@{*/
         const void Delete();
@@ -61,6 +86,7 @@ class SocketClient : public Socket {
         const string gLogin( const uint_t& key ) const;
         Server* gServer() const;
         const uint_t gState() const;
+        SocketClient::TermInfo* gTermInfo() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -87,6 +113,7 @@ class SocketClient : public Socket {
         bool m_quitting; /**< Flag the client as quitting to escape nested loops. */
         Server* m_server; /**< The Server object associated to this client. */
         uint_t m_state; /**< Connection state of the client from #SOC_STATE. */
+        SocketClient::TermInfo* m_terminfo; /**< Terminal options and status. */
 };
 
 #endif

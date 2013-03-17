@@ -26,6 +26,8 @@
 
 #include <arpa/telnet.h>
 
+#include "socketclient.h"
+
 using namespace std;
 
 /**
@@ -34,8 +36,8 @@ using namespace std;
 namespace Telopt {
     /** @name Core */ /**@{*/
     static const string opt_telopt_esc = "\e";
-    const void ProcessInput( string& data );
-    const void ProcessOutput( string& data );
+    const string ProcessInput( SocketClient* client, const string& data );
+    const string ProcessOutput( SocketClient* client, const string& data );
     /**@}*/
 
     /** @name Query */ /**@{*/

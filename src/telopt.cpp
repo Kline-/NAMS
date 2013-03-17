@@ -27,42 +27,69 @@
 /* Core */
 /**
  * @brief Processes data received from a SocketClient for telnet sequences.
+ * @param[in] client The SocketClient to process data for.
  * @param[in] data The received data to be processed.
- * retval void
+ * retval string A string that has been processed for telnet sequences.
  */
-const void Telopt::ProcessInput( string& data )
+const string Telopt::ProcessInput( SocketClient* client, const string& data )
 {
-    uint_t i = uintmin_t;
+    UFLAGS_DE( flags );
+    uint_t i = uintmin_t, o = uintmin_t;
+    char output[CFG_STR_MAX_BUFLEN] = {'\0'};
 
     if ( data.empty() )
-        return;
+        return output;
 
-    for ( i = 0; i < data.length(); i++ )
+    if ( data.length() >= CFG_STR_MAX_BUFLEN )
+        LOGFMT( flags, "Telopt::ProcessInput()-> data length of %lu exceeds buffer length of %lu, truncating", data.length(), CFG_STR_MAX_BUFLEN );
+
+    for ( i = 0; i < data.length() && i < CFG_STR_MAX_BUFLEN; i++ )
     {
+        if ( data[i] == (char)IAC )
+        {
+            switch ( data[i+1] )
+            {
+                case (char)IAC:
+                    output[o++] = (char)IAC;
+                    i++;
+                break;
 
+                default:
+                    i += 2;
+                break;
+            }
+        }
+        else
+            output[o++] = data[i];
     }
 
-    return;
+    return output;
 }
 
 /**
  * @brief Processes data to be sent to a SocketClient for telnet sequences.
+ * @param[in] client The SocketClient to process data for.
  * @param[in] data The received data to be processed.
- * @retval void
+ * @retval string A string that has been processed for telnet sequences.
  */
-const void Telopt::ProcessOutput( string& data )
+const string Telopt::ProcessOutput( SocketClient* client, const string& data )
 {
-    uint_t i = uintmin_t;
+    UFLAGS_DE( flags );
+    uint_t i = uintmin_t, o = uintmin_t;
+    char output[CFG_STR_MAX_BUFLEN] = {'\0'};
 
     if ( data.empty() )
-        return;
+        return output;
 
-    for ( i = 0; i < data.length(); i++ )
+    if ( data.length() >= CFG_STR_MAX_BUFLEN )
+        LOGFMT( flags, "Telopt::ProcessOutput()-> data length of %lu exceeds buffer length of %lu, truncating", data.length(), CFG_STR_MAX_BUFLEN );
+
+    for ( i = 0; i < data.length() && i < CFG_STR_MAX_BUFLEN; i++ )
     {
-
+        output[o++] = data[i];
     }
 
-    return;
+    return output;
 }
 
 /* Query */

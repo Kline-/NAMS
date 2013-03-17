@@ -121,6 +121,14 @@ enum SOC_LOGIN {
     SOC_LOGIN_PASSWORD = 1, /**< Password received from the socket during the login process. */
     MAX_SOC_LOGIN      = 2  /**< Safety limit for looping. */
 };
+
+/**
+ * @enum SOC_TELOPT
+ */
+enum SOC_TELOPT {
+    SOC_TELOPT_ECHO = 0, /**< Telopt ECHO (1) */
+    MAX_SOC_TELOPT  = 1  /**< Safety limit for looping. */
+};
 /**@}*/
 
 /** @name Utils */ /**@{*/

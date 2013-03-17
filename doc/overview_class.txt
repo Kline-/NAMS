@@ -6,12 +6,14 @@ within the NAMS server.
 
 Namespace
     Handler     All non-member process control functions are within this namespace.
+    Telopt      All non-member telnet negotiation functions are within this namespace.
     Utils       Currently all non-member functions are kept within this namespace.
 
 Class
     Account
         Inherits: None
         Children: None
+        Internal: None
 
         An account is a unique file on disk. An account may have multiple
         associated files as characters. Accounts are the first objects
@@ -21,6 +23,7 @@ Class
     Command
         Inherits: None
         Children: None
+        Internal: None
 
         A single command within the server. Command structure is loaded
         from disk at boot time. Once fully implemented, command logic is
@@ -30,6 +33,7 @@ Class
     Event
         Inherits: None
         Children: None
+        Internal: None
 
         An action set to execute after a set delay. Events can be scheduled
         by a Server, SocketClient, and other objects. Events are polled
@@ -38,6 +42,7 @@ Class
     Plugin
         Inherits: None
         Children: None
+        Internal: None
 
         A self-contained object file that implements a new class and
         interacts with the server via an API. Other server objects
@@ -47,23 +52,29 @@ Class
     Server
         Inherits: None
         Children: None
+        Internal: Config
 
         The server core. Currently, NAMS is designed utilizing a single
         Server instance. However, it would be possible for this to be
         forked or threaded into multiple instances such as alternative
         ports or game worlds.
 
+        Each Server maintains an internal Config class. The Config class
+        stores runtime configuration data that is written to disk and
+        loaded at boot time.
+
     Socket
         Inherits: None
         Children: SocketClient, SocketServer
+        Internal: None
 
-        An individual socket connection within a Server. Sockets are
-        currently implemented as IPv4 TCP connections only. In the
-        future, sockets will also support IPv6 connectivity.
+        An individual socket connection within a Server. Sockets
+        support both IPv4 and IPv6 connections transparently.
 
     SocketClient
         Inherits: Socket
         Children: None
+        Internal: TermInfo
 
         An individual socket connection to a remote client. In addition
         to the base functions of a socket, a client socket implements
@@ -71,9 +82,14 @@ Class
         processing. A client socket references back to a single Server
         object.
 
+        Each SocketClient maintains an internal TermInfo class. The
+        TermInfo class stores remote terminal information and
+        supported telnet options.
+
     SocketServer
         Inherits: Socket
         Children: None
+        Internal: None
 
         An individual listening socket on a Server. Beyond basic
         socket functions, Server sockets only implement methods
