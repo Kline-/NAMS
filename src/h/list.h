@@ -26,8 +26,6 @@
 #ifndef DEC_LIST_H
 #define DEC_LIST_H
 
-#include <forward_list>
-
 using namespace std;
 
 /**

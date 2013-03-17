@@ -25,7 +25,6 @@
 #define DEC_SERVER_H
 
 #include <fcntl.h>
-#include <forward_list>
 
 #include "socketclient.h"
 #include "socketserver.h"
@@ -59,7 +58,7 @@ class Server {
             /**@}*/
 
         private:
-            forward_list<string> m_account_prohibited_names; /**< Names that are illegal to use an as account name. */
+            forward_list<string> m_account_prohibited_names; /**< Names that are illegal to use as an account name. */
     };
 
     public:

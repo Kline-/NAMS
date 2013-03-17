@@ -122,7 +122,8 @@ const bool Account::Serialize() const
     stringstream line;
     uint_t i = uintmin_t;
     string file( Utils::FileExt( m_name, CFG_DAT_FILE_ACT_EXT ) );
-    list<pair<string,string>>::const_iterator li;
+    CITER( forward_list, string, li );
+    list<pair<string,string>>::const_iterator pi;
 
     Utils::FileOpen( ofs, file );
 
@@ -134,6 +135,20 @@ const bool Account::Serialize() const
 
     // First to ensure name is loaded for logging later
     KEY( ofs, "name", m_name );
+    KEYLIST( ofs, "characters" );
+    {
+        if ( !m_characters.empty() )
+        {
+            for ( li = m_characters.begin(); li != m_characters.end(); li++ )
+                line << *li << " ";
+
+            value = line.str();
+            value.erase( value.end() - 1 );
+            ofs << value << endl;
+        }
+        else
+            ofs << endl;
+    }
     KEYLISTLOOP( ofs, "logins", i ); /** @todo Need to find a nicer way to do this */
     {
         for ( i = 0; i < MAX_ACT_LOGIN; i++ )
@@ -143,8 +158,8 @@ const bool Account::Serialize() const
 
             if ( !m_logins[i].empty() )
             {
-                for ( li = m_logins[i].begin(); li != m_logins[i].end(); li++ )
-                    line << Utils::MakePair( li->first, li->second ) << " ";
+                for ( pi = m_logins[i].begin(); pi != m_logins[i].end(); pi++ )
+                    line << Utils::MakePair( pi->first, pi->second ) << " ";
 
                 value = line.str();
                 value.erase( value.end() - 1 );
@@ -172,10 +187,12 @@ const bool Account::Unserialize()
     UFLAGS_DE( flags );
     UFLAGS_I( finfo );
     ifstream ifs;
-    string key, value, line, token;
+    string key, value, line, arg;
     stringstream loop;
     bool found = false, maxb = false;
     pair<string,string> item;
+    vector<string> token;
+    ITER( vector, string, ti );
     uint_t i = uintmin_t;
     string file( Utils::FileExt( m_client->gLogin( SOC_LOGIN_NAME ), CFG_DAT_FILE_ACT_EXT ) );
 
@@ -201,6 +218,14 @@ const bool Account::Unserialize()
 
             // First to ensure name is loaded for logging later
             Utils::KeySet( true, found, key, "name", value, m_name );
+            if ( key == "characters" )
+            {
+                found = true;
+                token = Utils::StrTokens( value, true );
+                for ( ti = token.begin(); ti != token.end(); ti++ )
+                    m_characters.push_front( *ti );
+                m_characters.reverse();
+            }
             if ( Utils::StrPrefix( "logins", key ) ) /** @todo Need to find a nicer way to do this */
             {
                 for ( ; i < MAX_ACT_LOGIN; i++ )
@@ -217,8 +242,8 @@ const bool Account::Unserialize()
 
                 while ( !value.empty() )
                 {
-                    token = Utils::Argument( value, "} " );
-                    item = Utils::ReadPair( token );
+                    arg = Utils::Argument( value, "} " );
+                    item = Utils::ReadPair( arg );
                     m_logins[i].push_back( pair<string,string>( item.first, item.second ) );
                 }
             }
@@ -368,6 +393,7 @@ Account::Account()
 {
     uint_t i = uintmin_t;
 
+    m_characters.clear();
     m_client = NULL;
     for ( i = 0; i < MAX_ACT_LOGIN; i++ )
         m_logins[i].clear();

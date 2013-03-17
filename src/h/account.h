@@ -58,6 +58,7 @@ class Account {
         /**@}*/
 
     private:
+        forward_list<string> m_characters; /**< The names of all characters associated with the account. */
         SocketClient* m_client; /**< The client attached to the account. */
         list<pair<string,string>> m_logins[MAX_ACT_LOGIN]; /**< Date and hostname of previous login failures/successes. */
         string m_name; /**< The name of the account. */

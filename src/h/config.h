@@ -127,6 +127,13 @@
 #define CFG_DAT_FILE_ACT_EXT "act"
 
 /**
+ * @def CFG_DAT_FILE_PLR_EXT
+ * @brief File extension to use for player character files.
+ * @par Default: "plr"
+ */
+#define CFG_DAT_FILE_PLR_EXT "plr"
+
+/**
  * @def CFG_DAT_FILE_REBOOT
  * @brief File for reboot data to be temporarily stored in.
  * @par Default: "reboot.dat"

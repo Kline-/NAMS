@@ -28,6 +28,7 @@
 
 #include <algorithm>
 #include <chrono>
+#include <forward_list>
 #include <list>
 #include <map>
 #include <vector>
