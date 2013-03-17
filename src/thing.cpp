@@ -29,8 +29,76 @@
 /* Core */
 
 /* Query */
+/**
+ * @brief Returns the Account associated with this Thing, if any.
+ * @retval Account* A pointer to the associated account, or NULL if none.
+ */
+Account* Thing::gAccount() const
+{
+    return m_account;
+}
+
+/**
+ * @brief Returns the id associated with this Thing.
+ * @retval string A string containing the id associated with this Thing.
+ */
+const string Thing::gId() const
+{
+    return m_id;
+}
+
+/**
+ * @brief Returns the name associated with this Thing.
+ * @retval string A string containing the name associated with this Thing.
+ */
+const string Thing::gName() const
+{
+    return m_name;
+}
 
 /* Manipulate */
+/**
+ * @brief Sets the id of this Thing.
+ * @param[in] id A string containing the id this Thing should be set to.
+ * @retval false Returned if there was an error setting the id.
+ * @retval true Returned if the id was set successfully.
+ */
+const bool Thing::sId( const string& id )
+{
+    UFLAGS_DE( flags );
+
+    if ( id.length() < CFG_THG_ID_MIN_LEN || id.length() > CFG_THG_ID_MAX_LEN )
+    {
+        LOGFMT( flags, "Thing::sId()-> called with invalid id length %lu", id.length() );
+        return false;
+    }
+
+    m_id = id;
+
+    return true;
+}
+
+/**
+ * @brief Sets the name of this Thing.
+ * @param[in] id A string containing the name this Thing should be set to.
+ * @param[in] system If true, denotes a system-level call (NPCs, etc) and will bypass length limits.
+ * @retval false Returned if there was an error setting the name.
+ * @retval true Returned if the name was set successfully.
+ */
+const bool Thing::sName( const string& name, const bool& system )
+{
+    UFLAGS_DE( flags );
+
+    if ( ( name.length() < CFG_THG_NAME_MIN_LEN || name.length() > CFG_THG_NAME_MAX_LEN ) && !system )
+    {
+        LOGFMT( flags, "Thing::sName()-> called with invalid name length %lu", name.length() );
+        return false;
+    }
+
+    m_name = name;
+
+    return true;
+}
 
 /* Internal */
 /**
@@ -38,6 +106,10 @@
  */
 Thing::Thing()
 {
+    m_account = NULL;
+    m_id.clear();
+    m_name.clear();
+
     return;
 }
 

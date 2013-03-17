@@ -40,7 +40,7 @@ namespace Handler {
 
     /** @name Query */ /**@{*/
     const bool CheckCreating( SocketClient* client, const string& name );
-    const bool CheckProhibited( SocketClient* client, const string& name );
+    const bool CheckProhibited( SocketClient* client, const string& name, const uint_t& type );
     /**@}*/
 
     /** @name Manipulate */ /**@{*/

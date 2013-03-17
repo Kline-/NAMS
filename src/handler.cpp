@@ -188,18 +188,19 @@ const bool Handler::CheckCreating( SocketClient* client, const string& name )
 /**
  * @brief Checks to see if a name is on the server's prohibited list.
  * @param[in] client The SocketClient to requesting to use the name.
- * @param[in] name The Account name to check against the prohibited list.
+ * @param[in] name The name to check against the prohibited list.
+ * @param[in] type The type of prohibited names list to check.
  * @retval false Returned if the name is not prohibited.
  * @retval true Returned if the name is prohibited.
  */
-const bool Handler::CheckProhibited( SocketClient* client, const string& name )
+const bool Handler::CheckProhibited( SocketClient* client, const string& name, const uint_t& type )
 {
     ITER( forward_list, string, fi );
     forward_list<string> search;
     string comp;
 
     // Search for prohibited names
-    search = client->gServer()->gConfig()->gProhibitedNames( SVR_CFG_PROHIBITED_NAMES_ACCOUNT );
+    search = client->gServer()->gConfig()->gProhibitedNames( type );
     for ( fi = search.begin(); fi != search.end(); fi++ )
     {
         comp = *fi;
@@ -489,7 +490,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     }
 
     //Prevent prohibited names based on Server runtime configuration
-    if ( Handler::CheckProhibited( client, cmd ) )
+    if ( Handler::CheckProhibited( client, cmd, SVR_CFG_PROHIBITED_NAMES_ACCOUNT ) )
     {
         client->Send( CFG_STR_ACT_NAME_INVALID );
         client->Send( CFG_STR_ACT_NAME_PROHIBITED );

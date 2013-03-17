@@ -519,4 +519,37 @@
 #define CFG_STR_VERSION "NAMS Development 0.0.0"
 /**@}*/
 
+/***************************************************************************
+ *                              THING OPTIONS                              *
+ ***************************************************************************/
+/** @name Thing Options */ /**@{*/
+/**
+ * @def CFG_THG_ID_MAX_LEN
+ * @brief The maximum allowable length for a thing id.
+ * @par Default: 128
+ */
+#define CFG_THG_ID_MAX_LEN 128
+
+/**
+ * @def CFG_THG_ID_MIN_LEN
+ * @brief The minimum allowable length for a thing id.
+ * @par Default: 1
+ */
+#define CFG_THG_ID_MIN_LEN 1
+
+/**
+ * @def CFG_THG_NAME_MAX_LEN
+ * @brief The maximum allowable length for a thing name when the thing is associated to an account.
+ * @par Default: 16
+ */
+#define CFG_THG_NAME_MAX_LEN 16
+
+/**
+ * @def CFG_THG_NAME_MIN_LEN
+ * @brief The minimum allowable length for a thing name when the thing is associated to an account.
+ * @par Default: 128
+ */
+#define CFG_THG_NAME_MIN_LEN 4
+/**@}*/
+
 #endif

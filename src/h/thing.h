@@ -24,6 +24,8 @@
 #ifndef DEC_THING_H
 #define DEC_THING_H
 
+#include "account.h"
+
 using namespace std;
 
 /**
@@ -35,9 +37,14 @@ class Thing {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        Account* gAccount() const;
+        const string gId() const;
+        const string gName() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sId( const string& id );
+        const bool sName( const string& name, const bool& system = false );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -46,6 +53,9 @@ class Thing {
         /**@}*/
 
     private:
+        Account* m_account; /**< The associated Account, if any. */
+        string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
+        string m_name; /**< The name of the thing. */
 };
 
 #endif
