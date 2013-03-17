@@ -16,46 +16,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 /**
- * @file thing.h
- * @brief The Thing class.
+ * @file character.h
+ * @brief The Character class.
  *
- *  This file contains the Thing class and template functions.
+ *  This file contains the Character class and template functions.
  */
-#ifndef DEC_THING_H
-#define DEC_THING_H
+#ifndef DEC_CHARACTER_H
+#define DEC_CHARACTER_H
 
 #include "account.h"
+#include "thing.h"
 
 using namespace std;
 
 /**
- * @brief A generic "thing": creature, character, room, object, etc.
+ * @brief An actor within the game world.
  */
-class Thing {
+class Character : public Thing {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New( Server* server );
+        const bool New( Server* server, Account* account = NULL );
         /**@}*/
 
         /** @name Query */ /**@{*/
-        const string gId() const;
-        const string gName() const;
+        Account* gAccount() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
-        const bool sId( const string& id );
-        const bool sName( const string& name, const bool& system = false );
         /**@}*/
 
         /** @name Internal */ /**@{*/
-        Thing();
-        ~Thing();
+        Character();
+        ~Character();
         /**@}*/
 
     private:
-        string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
-        string m_name; /**< The name of the thing. */
+        Account* m_account; /**< The associated Account, if any. */
 };
 
 #endif

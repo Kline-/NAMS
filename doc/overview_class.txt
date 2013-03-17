@@ -20,6 +20,15 @@ Class
         loaded once a SocketClient is fully connected, and all characters
         inherit permissions based on the account security and role.
 
+    Character
+        Inherits: Thing
+        Children: None
+        Internal: None
+
+        A character is either autonomous and owned by a Server object
+        or is associated with an Account traceable back to a live
+        SocketClient end-user.
+
     Command
         Inherits: None
         Children: None
@@ -97,8 +106,8 @@ Class
 
     Thing
         Inherits: None
-        Children: None
+        Children: Character
         Internal: None
 
-        A Thing is a generic class for all in-game objects: creatures
-        players, rooms, items, etc.
+        A Thing is a generic parent class for all in-game objects:
+        creatures players, rooms, items, etc.

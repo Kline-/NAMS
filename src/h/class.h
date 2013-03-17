@@ -35,5 +35,6 @@ class Socket;
     class SocketClient;
     class SocketServer;
 class Thing;
+    class Character;
 
 #endif

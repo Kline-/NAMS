@@ -28,6 +28,7 @@
 
 #include "socketclient.h"
 #include "socketserver.h"
+#include "thing.h"
 
 using namespace std;
 

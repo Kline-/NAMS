@@ -27,17 +27,29 @@
 #include "h/thing.h"
 
 /* Core */
-
-/* Query */
 /**
- * @brief Returns the Account associated with this Thing, if any.
- * @retval Account* A pointer to the associated account, or NULL if none.
+ * @brief Unload a thing from memory that was previously loaded via Thing::New().
+ * @retval void
  */
-Account* Thing::gAccount() const
+const void Thing::Delete()
 {
-    return m_account;
+    delete this;
+
+    return;
 }
 
+/**
+ * @brief Create a new thing.
+ * @param[in] server The Server the thing will exist within.
+ * @retval false Returned if a new Thing was successfully created or loaded.
+ * @retval true Returned if a new Thing was unable to be created.
+ */
+const bool Thing::New( Server* server )
+{
+    return true;
+}
+
+/* Query */
 /**
  * @brief Returns the id associated with this Thing.
  * @retval string A string containing the id associated with this Thing.
@@ -106,7 +118,6 @@ const bool Thing::sName( const string& name, const bool& system )
  */
 Thing::Thing()
 {
-    m_account = NULL;
     m_id.clear();
     m_name.clear();
 
