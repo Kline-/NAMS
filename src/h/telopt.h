@@ -34,8 +34,8 @@ using namespace std;
 namespace Telopt {
     /** @name Core */ /**@{*/
     static const string opt_telopt_esc = "\e";
-    const void ProcessInput( string& input );
-    const void ProcessOutput( string& output );
+    const void ProcessInput( string& data );
+    const void ProcessOutput( string& data );
     /**@}*/
 
     /** @name Query */ /**@{*/

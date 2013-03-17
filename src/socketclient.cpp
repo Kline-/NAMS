@@ -302,6 +302,7 @@ const bool SocketClient::Recv()
     UFLAGS_DE( flags );
     ssize_t amount = 0;
     char buf[CFG_STR_MAX_BUFLEN] = {'\0'};
+    string sbuf;
 
     if ( !Valid() )
     {
@@ -347,7 +348,9 @@ const bool SocketClient::Recv()
         return false;
     }
 
-    m_input.append( buf );
+    sbuf = buf;
+    Telopt::ProcessInput( sbuf );
+    m_input.append( sbuf );
 
     return true;
 }
@@ -414,6 +417,8 @@ const bool SocketClient::Send()
     // Nothing new to process; move along
     if ( m_output.empty() )
         return true;
+
+    Telopt::ProcessOutput( m_output );
 
     if ( ( amount = ::send( gDescriptor(), CSTR( m_output ), m_output.length(), 0 ) ) < 1 )
     {

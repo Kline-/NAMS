@@ -30,8 +30,18 @@
  * @param[in] data The received data to be processed.
  * retval void
  */
-const void ProcessInput( string& data )
+const void Telopt::ProcessInput( string& data )
 {
+    uint_t i = uintmin_t;
+
+    if ( data.empty() )
+        return;
+
+    for ( i = 0; i < data.length(); i++ )
+    {
+
+    }
+
     return;
 }
 
@@ -40,8 +50,18 @@ const void ProcessInput( string& data )
  * @param[in] data The received data to be processed.
  * @retval void
  */
-const void ProcessOutput( string& data )
+const void Telopt::ProcessOutput( string& data )
 {
+    uint_t i = uintmin_t;
+
+    if ( data.empty() )
+        return;
+
+    for ( i = 0; i < data.length(); i++ )
+    {
+
+    }
+
     return;
 }
 
