@@ -325,9 +325,9 @@
 /**
  * @def CFG_STR_ACT_NAME_LENGTH
  * @brief String additionally sent when an account name is invalid due to length.
- * @par Default: "Account name must be between %lu and %lu characters." CRLF
+ * @par Default: "Account name must be between %d and %d characters." CRLF
  */
-#define CFG_STR_ACT_NAME_LENGTH "Account name must be between %lu and %lu characters." CRLF
+#define CFG_STR_ACT_NAME_LENGTH "Account name must be between %d and %d characters." CRLF
 
 /**
  * @def CFG_STR_ACT_NAME_PROHIBITED
@@ -374,9 +374,9 @@
 /**
  * @def CFG_STR_ACT_PASSWORD_LENGTH
  * @brief String additionally sent when an account password is invalid due to length.
- * @par Default: "Account password must be between %lu and %lu characters." CRLF
+ * @par Default: "Account password must be between %d and %d characters." CRLF
  */
-#define CFG_STR_ACT_PASSWORD_LENGTH "Account password must be between %lu and %lu characters." CRLF
+#define CFG_STR_ACT_PASSWORD_LENGTH "Account password must be between %d and %d characters." CRLF
 
 /**
  * @def CFG_STR_ACT_PASSWORD_MISMATCH

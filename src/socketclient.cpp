@@ -176,25 +176,17 @@ const bool SocketClient::ProcessCommand()
         m_command_queue.pop_front();
 
         // Redirect if not fully logged in yet
-        if ( m_state < SOC_STATE_PLAYING )
-        {
-            if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
-            {
-                if ( command->Authorized( security ) )
-                    command->Run( this, cmd.first, cmd.second );
-                else
-                    Handler::ProcessLogin( this, cmd.first, cmd.second );
-            }
-            else
-                Handler::ProcessLogin( this, cmd.first, cmd.second );
-        }
-        else if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
+        if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
         {
             if ( command->Authorized( security ) )
                 command->Run( this, cmd.first, cmd.second );
+            else if ( m_state < SOC_STATE_PLAYING )
+                Handler::ProcessLogin( this, cmd.first, cmd.second );
             else
                 Send( CFG_STR_CMD_INVALID );
         }
+        else if ( m_state < SOC_STATE_PLAYING )
+            Handler::ProcessLogin( this, cmd.first, cmd.second );
         else
             Send( CFG_STR_CMD_INVALID );
     }

@@ -30,10 +30,24 @@ class LastLog : public Plugin {
 
 const void LastLog::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
+    list<pair<string,string>> logins;
+    list<pair<string,string>>::const_iterator li;
+
     if ( client )
-        client->Send( "Help!" CRLF );
-    else
-        cout << "Help!" << endl;
+    {
+        if ( client->gAccount() )
+        {
+            logins = client->gAccount()->gLogins( ACT_LOGIN_FAILURE );
+            client->Send( Utils::FormatString( 0, "Last %lu failed logins:" CRLF, CFG_ACT_LOGIN_MAX ) );
+            for ( li = logins.begin(); li != logins.end(); li++ )
+                client->Send( Utils::FormatString( 0, "    [%s] %s" CRLF, CSTR( li->first ), CSTR( li->second ) ) );
+
+            logins = client->gAccount()->gLogins( ACT_LOGIN_SUCCESS );
+            client->Send( Utils::FormatString( 0, "Last %lu successful logins:" CRLF, CFG_ACT_LOGIN_MAX ) );
+            for ( li = logins.begin(); li != logins.end(); li++ )
+                client->Send( Utils::FormatString( 0, "    [%s] %s" CRLF, CSTR( li->first ), CSTR( li->second ) ) );
+        }
+    }
 
     return;
 }

@@ -296,7 +296,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
     if ( cmd.length() < CFG_ACT_PASSWORD_MIN_LEN || cmd.length() > CFG_ACT_PASSWORD_MAX_LEN )
     {
         client->Send( CFG_STR_ACT_PASSWORD_INVALID );
-        client->Send( CFG_STR_ACT_PASSWORD_LENGTH );
+        client->Send( Utils::FormatString( 0, CFG_STR_ACT_PASSWORD_LENGTH, CFG_ACT_PASSWORD_MIN_LEN, CFG_ACT_PASSWORD_MAX_LEN ) );
         client->Send( CFG_STR_ACT_PASSWORD_GET );
 
         return;
@@ -417,7 +417,8 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     if ( cmd.length() < CFG_ACT_NAME_MIN_LEN || cmd.length() > CFG_ACT_NAME_MAX_LEN )
     {
         client->Send( CFG_STR_ACT_NAME_INVALID );
-        client->Send( CFG_STR_ACT_NAME_LENGTH );
+        client->Send( Utils::FormatString( 0, CFG_STR_ACT_NAME_LENGTH, CFG_ACT_NAME_MIN_LEN, CFG_ACT_NAME_MAX_LEN ) );
+        ProcessLogin( client );
 
         return;
     }
