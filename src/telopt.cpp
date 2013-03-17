@@ -26,6 +26,34 @@
 
 /* Core */
 /**
+ * @brief Send initial options to negotiate for, then the login string.
+ * @param[in] client The client to begin negotiations with.
+ * @retval false Returned if there was an error sending data to the client.
+ * @retval true Returned if data was successfully sent to the client.
+ */
+const bool Telopt::InitialNegotiation( SocketClient* client )
+{
+    UFLAGS_DE( flags );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Telopt::InitialNegotiation()-> called with NULL client" );
+        return false;
+    }
+
+    // send some options here, then send the login string
+    // Telopt::Send( client, DO, TELOPT_ECHO );
+
+    if ( !client->Send( CFG_STR_LOGIN ) )
+    {
+        LOGSTR( flags, "Telopt::InitialNegotiation()-> SocketClient::Send()-> returned false" );
+        return false;
+    }
+
+    return true;
+}
+
+/**
  * @brief Processes data received from a SocketClient for telnet sequences.
  * @param[in] client The SocketClient to process data for.
  * @param[in] data The received data to be processed.
@@ -36,6 +64,12 @@ const string Telopt::ProcessInput( SocketClient* client, const string& data )
     UFLAGS_DE( flags );
     uint_t i = uintmin_t, o = uintmin_t;
     char output[CFG_STR_MAX_BUFLEN] = {'\0'};
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Telopt::ProcessInput()-> called with NULL client" );
+        return output;
+    }
 
     if ( data.empty() )
         return output;
@@ -49,13 +83,17 @@ const string Telopt::ProcessInput( SocketClient* client, const string& data )
         {
             switch ( data[i+1] )
             {
-                case (char)IAC:
+                case (char)IAC: // IAC IAC will result in IAC being passed as data
                     output[o++] = (char)IAC;
                     i++;
                 break;
 
-                default:
-                    i += 2;
+                case (char)DO:
+                case (char)DONT:
+                case (char)WILL:
+                case (char)WONT:
+                    BeginHandshake( client, data[i+1], data[i+2] );
+                    i += 2; // data[i] == IAC, data[i+1] = cmd, data[i+2] = opt
                 break;
             }
         }
@@ -78,6 +116,12 @@ const string Telopt::ProcessOutput( SocketClient* client, const string& data )
     uint_t i = uintmin_t, o = uintmin_t;
     char output[CFG_STR_MAX_BUFLEN] = {'\0'};
 
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Telopt::ProcessOutput()-> called with NULL client" );
+        return output;
+    }
+
     if ( data.empty() )
         return output;
 
@@ -97,3 +141,122 @@ const string Telopt::ProcessOutput( SocketClient* client, const string& data )
 /* Manipulate */
 
 /* Internal */
+/**
+ * @brief Begins a telnet negotiation handshake for requested options.
+ * @param[in] client The client requesting a negotiation.
+ * @param[in] cmd The telnet command such as IAC, DO, WILL, WONT.
+ * @param[in] opt The option following the command.
+ * @retval void
+ */
+const void Telopt::BeginHandshake( SocketClient* client, const char& cmd, const char& opt )
+{
+    UFLAGS_DE( flags );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Telopt::BeginHandshake()-> called with NULL client" );
+        return;
+    }
+
+    switch ( opt )
+    {
+        case (char)TELOPT_ECHO:
+            if ( cmd == (char)DO )
+            {
+                EndHandshake( client, SOC_TELOPT_ECHO, true, true );
+                client->gTermInfo()->sTelopt( SOC_TELOPT_ECHO, true );
+            }
+            else if ( cmd == (char)DONT )
+            {
+                EndHandshake( client, SOC_TELOPT_ECHO, false, client->gTermInfo()->gTelopt( SOC_TELOPT_ECHO ) );
+                client->gTermInfo()->sTelopt( SOC_TELOPT_ECHO, false );
+            }
+            else if ( cmd == (char)WILL )
+                Telopt::Send( client, (char)DONT, opt );
+        break;
+
+        default:
+            if ( cmd == (char)WILL )
+                Telopt::Send( client, DONT, opt );
+            else if ( cmd == (char)DO )
+                Telopt::Send( client, WONT, opt );
+        break;
+
+    }
+
+    return;
+}
+
+/**
+ * @brief Ends a telnet negotiation handshake for requested options.
+ * @param[in] client The client requesting a negotiation.
+ * @param[in] opt The option to check from #SOC_TELOPT.
+ * @param[in] val The value to check the option for.
+ * @param[in] reply If true, a reply will be sent upon completion.
+ * @retval void
+ */
+const void Telopt::EndHandshake( SocketClient* client, const uint_t& opt, const bool& val, const bool& reply )
+{
+    UFLAGS_DE( flags );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Telopt::EndHandshake()-> called with NULL client" );
+        return;
+    }
+
+    if ( opt < uintmin_t || opt >= MAX_SOC_TELOPT )
+    {
+        LOGFMT( flags, "Telopt::EndHandshake()-> called with invalid opt: %lu", opt );
+        return;
+    }
+
+    // Check to see if anything has changed
+    if ( client->gTermInfo()->gNegotiated( opt ) != val )
+    {
+        client->gTermInfo()->sNegotiated( opt, val );
+
+        if ( reply )
+        {
+            switch ( opt )
+            {
+                case SOC_TELOPT_ECHO:
+                    Telopt::Send( client, val ? WILL : WONT, TELOPT_ECHO );
+                break;
+
+                default:
+                break;
+            }
+        }
+    }
+
+    return;
+}
+
+/**
+ * @brief Sends a formatted telnet negotiation command to the client.
+ * @param[in] client The client to send data to.
+ * @param[in] opt The option to be sent.
+ * @param[in] val The option value to be sent.
+ * @retval void
+ */
+const void Telopt::Send( SocketClient* client, const char& cmd, const char& opt )
+{
+    UFLAGS_DE( flags );
+    char output[4] = {'\0'};
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Telopt::Send()-> called with NULL client" );
+        return;
+    }
+
+    output[0] = (char)IAC;
+    output[1] = cmd;
+    output[2] = opt;
+    output[3] = '\0';
+
+    client->Send( output );
+
+    return;
+ }

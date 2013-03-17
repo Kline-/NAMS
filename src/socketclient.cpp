@@ -110,9 +110,9 @@ const bool SocketClient::New( const bool& reboot )
         }
 
         // negotiate telopts, send login message
-        if ( !Send( CFG_STR_LOGIN ) )
+        if ( !Telopt::InitialNegotiation( this ) )
         {
-            LOGSTR( flags, "SocketClient::New()->SocketClient::Send()-> msg CFG_STR_LOGIN returned false" );
+            LOGSTR( flags, "SocketClient::New()->Telopt::InitialNegotiation()-> returned false" );
             return false;
         }
 

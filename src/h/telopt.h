@@ -36,6 +36,7 @@ using namespace std;
 namespace Telopt {
     /** @name Core */ /**@{*/
     static const string opt_telopt_esc = "\e";
+    const bool InitialNegotiation( SocketClient* client );
     const string ProcessInput( SocketClient* client, const string& data );
     const string ProcessOutput( SocketClient* client, const string& data );
     /**@}*/
@@ -49,6 +50,9 @@ namespace Telopt {
     /**@}*/
 
     /** @name Internal */ /**@{*/
+    const void BeginHandshake( SocketClient* client, const char& cmd, const char& opt );
+    const void EndHandshake( SocketClient* client, const uint_t& opt, const bool& val, const bool& reply );
+    const void Send( SocketClient* client, const char& cmd, const char& opt );
     /**@}*/
 };
 
