@@ -151,8 +151,8 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
  * @brief Check to see if the current account is already being created.
  * @param[in] client The SocketClient to check against active connections.
  * @param[in] name The Account name to check against active connections.
- * @retval false Returned if the account is not playing or is playing but in a state greater than or equal to #SOC_ACCOUNT_MENU.
- * @retval true Returned if the account is playing and in a state less than #SOC_ACCOUNT_MENU.
+ * @retval false Returned if the account is not playing or is playing but in a state greater than or equal to #SOC_STATE_ACCOUNT_MENU.
+ * @retval true Returned if the account is playing and in a state less than #SOC_STATE_ACCOUNT_MENU.
  */
 const bool Handler::CheckCreating( SocketClient* client, const string& name )
 {

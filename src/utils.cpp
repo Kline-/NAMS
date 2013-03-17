@@ -180,7 +180,7 @@ const pair<string,string> Utils::ReadPair( const string& input )
 
 /**
  * @brief Returns a salt value for use with crypt.
- * @param[in] A value to append to #CFG_ACT_CRYPT_SALT to be used as a salt.
+ * @param[in] input A value to append to #CFG_SEC_CRYPT_SALT to be used as a salt.
  * @retval string A salt value to use with crypt.
  */
 const string Utils::Salt( const string& input )

@@ -243,7 +243,7 @@
 #define CFG_SEC_CRYPT_SALT "$" SX( CFG_SEC_CRYPT_METHOD ) "$"
 
 /**
- * @def CFG_SEC_FILE_MODE
+ * @def CFG_SEC_DIR_MODE
  * @brief The chmod mode to set on directories (accounts) created by the server.
  * @par Default: 0755
  */

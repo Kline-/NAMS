@@ -28,7 +28,7 @@
 
 /** @name Account */ /**@{*/
 /**
- * @enum ACT_LOGINS
+ * @enum ACT_LOGIN
  */
 enum ACT_LOGIN {
     ACT_LOGIN_FAILURE = 0, /**< Failed login attempts. */
