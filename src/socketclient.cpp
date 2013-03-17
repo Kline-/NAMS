@@ -122,7 +122,7 @@ const bool SocketClient::New( const bool& reboot )
             return false;
         }
 
-        Handler::ProcessLogin( this, "", "" );
+        Handler::Interpret( this );
     }
 
     return true;
