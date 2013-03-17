@@ -451,9 +451,9 @@
 /**
  * @def CFG_STR_LOGIN
  * @brief String sent on initial socket connection.
- * @par Default: "For a list of commands type 'help'." CRLF
+ * @par Default: "Welcome to " CFG_STR_VERSION CRLF "For a list of commands type 'help'." CRLF
  */
-#define CFG_STR_LOGIN "For a list of commands type 'help'." CRLF
+#define CFG_STR_LOGIN "Welcome to " CFG_STR_VERSION CRLF "For a list of commands type 'help'." CRLF
 
 /**
  * @def CFG_STR_MAX_BUFLEN
