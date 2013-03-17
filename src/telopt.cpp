@@ -16,38 +16,37 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 /**
- * @file telopt.h
- * @brief The telopt namespace.
+ * @file telopt.cpp
+ * @brief All non-template member functions of the Telopt namespace.
  *
- * This file contains the Telopt namespace and template functions.
+ * The Telopt namespace contains telnet option negotiation functions.
  */
-#ifndef DEC_TELOPT_H
-#define DEC_TELOPT_H
+#include "h/includes.h"
+#include "h/class.h"
 
-#include <arpa/telnet.h>
-
-using namespace std;
+/* Core */
+/**
+ * @brief Processes data received from a SocketClient for telnet sequences.
+ * @param[in] data The received data to be processed.
+ * retval void
+ */
+const void ProcessInput( string& data )
+{
+    return;
+}
 
 /**
- * @brief The Telopt namespace contains telnet option negotiation functions.
+ * @brief Processes data to be sent to a SocketClient for telnet sequences.
+ * @param[in] data The received data to be processed.
+ * @retval void
  */
-namespace Telopt {
-    /** @name Core */ /**@{*/
-    static const string opt_telopt_esc = "\e";
-    const void ProcessInput( string& input );
-    const void ProcessOutput( string& output );
-    /**@}*/
+const void ProcessOutput( string& data )
+{
+    return;
+}
 
-    /** @name Query */ /**@{*/
-    /**@}*/
+/* Query */
 
-    /** @name Manipulate */ /**@{*/
-    static const string opt_cursor_home = opt_telopt_esc + "[H";
-    static const string opt_erase_screen = opt_telopt_esc + "[2J";
-    /**@}*/
+/* Manipulate */
 
-    /** @name Internal */ /**@{*/
-    /**@}*/
-};
-
-#endif
+/* Internal */
