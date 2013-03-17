@@ -360,9 +360,9 @@
 /**
  * @def CFG_STR_ACT_PASSWORD_CONFIRM
  * @brief String sent to request the user confirms their new account password.
- * @par Default: "Please confirm password: "
+ * @par Default: CRLF "Please confirm password: "
  */
-#define CFG_STR_ACT_PASSWORD_CONFIRM "Please confirm password: "
+#define CFG_STR_ACT_PASSWORD_CONFIRM CRLF "Please confirm password: "
 
 /**
  * @def CFG_STR_ACT_PASSWORD_GET
@@ -374,9 +374,9 @@
 /**
  * @def CFG_STR_ACT_PASSWORD_INVALID
  * @brief String sent when an invalid account password is received.
- * @par Default: "Invalid account password." CRLF
+ * @par Default: CRLF "Invalid account password." CRLF
  */
-#define CFG_STR_ACT_PASSWORD_INVALID "Invalid account password." CRLF
+#define CFG_STR_ACT_PASSWORD_INVALID CRLF "Invalid account password." CRLF
 
 /**
  * @def CFG_STR_ACT_PASSWORD_LENGTH
@@ -388,9 +388,9 @@
 /**
  * @def CFG_STR_ACT_PASSWORD_MISMATCH
  * @brief String sent when a new password confirmation fails.
- * @par Default: "Passwords don't match." CRLF
+ * @par Default: CRLF "Passwords don't match." CRLF
  */
-#define CFG_STR_ACT_PASSWORD_MISMATCH "Passwords don't match." CRLF
+#define CFG_STR_ACT_PASSWORD_MISMATCH CRLF "Passwords don't match." CRLF
 
 /**
  * @def CFG_STR_CMD_INVALID
