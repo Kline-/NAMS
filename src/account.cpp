@@ -298,7 +298,7 @@ const list<pair<string,string>> Account::gLogins( const uint_t& type ) const
 {
     UFLAGS_DE( flags );
 
-    if ( type >= MAX_ACT_LOGIN )
+    if ( type < uintmin_t || type >= MAX_ACT_LOGIN )
     {
         LOGFMT( flags, "Account::gLogins()-> called with invalid type %lu", type );
         return list<pair<string,string>>();

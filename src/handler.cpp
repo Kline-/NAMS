@@ -199,7 +199,7 @@ const bool Handler::CheckProhibited( SocketClient* client, const string& name )
     string comp;
 
     // Search for prohibited names
-    search = client->gServer()->gConfig()->gAccountProhibitedNames();
+    search = client->gServer()->gConfig()->gProhibitedNames( SVR_CFG_PROHIBITED_NAMES_ACCOUNT );
     for ( fi = search.begin(); fi != search.end(); fi++ )
     {
         comp = *fi;

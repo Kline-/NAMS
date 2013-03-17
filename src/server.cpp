@@ -679,12 +679,21 @@ const void Server::Update()
 
 /* Query */
 /**
- * @brief Returns an a copy of the account prohibited names list.
- * @retval forward_list<string> A copy of the account prohibited names list.
+ * @brief Returns an a copy of the prohibited names list using type from #SVR_CFG_PROHIBITED_NAMES.
+ * @param[in] type The specific prohibited names list to retrieve.
+ * @retval forward_list<string> A copy of the prohibited names list referenced by type.
  */
-forward_list<string> Server::Config::gAccountProhibitedNames() const
+forward_list<string> Server::Config::gProhibitedNames( const uint_t& type ) const
 {
-    return m_account_prohibited_names;
+    UFLAGS_DE( flags );
+
+    if ( type < uintmin_t || type >= MAX_SVR_CFG_PROHIBITED_NAMES )
+    {
+        LOGFMT( flags, "Server::Config::gProhibitedNames()-> called with invalid type %lu", type );
+        return forward_list<string>();
+    }
+
+    return m_prohibited_names[type];
 }
 
 /**
@@ -790,6 +799,7 @@ const bool Server::Config::Serialize() const
     string value;
     stringstream line;
     CITER( forward_list, string, li );
+    uint_t i = uintmin_t;
 
     LOGSTR( 0, CFG_STR_FILE_SETTINGS_WRITE );
     Utils::FileOpen( ofs, CFG_DAT_FILE_SETTINGS );
@@ -799,20 +809,25 @@ const bool Server::Config::Serialize() const
         LOGFMT( flags, "Server::Config::Serialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
         return false;
     }
-
-    KEYLIST( ofs, "account_prohibited_names" );
+    KEYLISTLOOP( ofs, "prohibited_names", i ); /** @todo Need to find a nicer way to do this */
     {
-        if ( !m_account_prohibited_names.empty() )
+        for ( i = 0; i < MAX_SVR_CFG_PROHIBITED_NAMES; i++ )
         {
-            for ( li = m_account_prohibited_names.begin(); li != m_account_prohibited_names.end(); li++ )
-                line << *li << " ";
+            ofs << "prohibited_names[" << i << "]" << " = ";
+            line.str( "" );
 
-            value = line.str();
-            value.erase( value.end() - 1 );
-            ofs << value << endl;
+            if ( !m_prohibited_names[i].empty() )
+            {
+                for ( li = m_prohibited_names[i].begin(); li != m_prohibited_names[i].end(); li++ )
+                    line << *li << " ";
+
+                value = line.str();
+                value.erase( value.end() - 1 );
+                ofs << value << endl;
+            }
+            else
+                ofs << endl;
         }
-        else
-            ofs << endl;
     }
 
     Utils::FileClose( ofs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
@@ -834,6 +849,8 @@ const bool Server::Config::Unserialize()
     bool found = false;
     vector<string> token;
     ITER( vector, string, ti );
+    uint_t i = uintmin_t;
+    stringstream loop;
 
     LOGSTR( 0, CFG_STR_FILE_SETTINGS_READ );
     Utils::FileOpen( ifs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
@@ -856,13 +873,23 @@ const bool Server::Config::Unserialize()
         {
             found = false;
 
-            if ( key == "account_prohibited_names" )
+            if ( Utils::StrPrefix( "prohibited_names", key ) ) /** @todo Need to find a nicer way to do this */
             {
-                found = true;
-                token = Utils::StrTokens( value, true );
-                for ( ti = token.begin(); ti != token.end(); ti++ )
-                    m_account_prohibited_names.push_front( *ti );
-                m_account_prohibited_names.reverse();
+                for ( ; i < MAX_SVR_CFG_PROHIBITED_NAMES; i++ )
+                {
+                    loop.str( "" );
+                    loop << "prohibited_names[" << i << "]";
+
+                    if ( key == loop.str() )
+                    {
+                        found = true;
+                        token = Utils::StrTokens( value, true );
+                        for ( ti = token.begin(); ti != token.end(); ti++ )
+                            m_prohibited_names[i].push_front( *ti );
+                        m_prohibited_names[i].reverse();
+                        break;
+                    }
+                }
             }
 
             if ( !found )
@@ -955,7 +982,10 @@ const bool Server::sSocketOpen( const uint_t& amount )
  */
 Server::Config::Config()
 {
-    m_account_prohibited_names.clear();
+    uint_t i = uintmin_t;
+
+    for ( i = 0; i < MAX_SVR_CFG_PROHIBITED_NAMES; i++ )
+        m_prohibited_names[i].clear();
 
     return;
 }

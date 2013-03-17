@@ -44,7 +44,7 @@ class Server {
             /**@}*/
 
             /** @name Query */ /**@{*/
-            forward_list<string> gAccountProhibitedNames() const;
+            forward_list<string> gProhibitedNames( const uint_t& type ) const;
             /**@}*/
 
             /** @name Manipulate */ /**@{*/
@@ -58,7 +58,7 @@ class Server {
             /**@}*/
 
         private:
-            forward_list<string> m_account_prohibited_names; /**< Names that are illegal to use as an account name. */
+            forward_list<string> m_prohibited_names[MAX_SVR_CFG_PROHIBITED_NAMES]; /**< Names that are illegal to use as an account name. */
     };
 
     public:

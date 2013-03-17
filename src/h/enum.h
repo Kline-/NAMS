@@ -103,6 +103,17 @@ enum PLG_TYPE_COMMAND_UINT {
 };
 /**@}*/
 
+/** @name Server::Config */ /**@{*/
+/**
+ * @enum SVR_CFG_PROHIBITED_NAMES
+ */
+enum SVR_CFG_PROHIBITED_NAMES {
+    SVR_CFG_PROHIBITED_NAMES_ACCOUNT   = 0, /**< Illegal to use as account name. */
+    SVR_CFG_PROHIBITED_NAMES_CHARACTER = 1, /**< Illegal to use as character name. */
+    MAX_SVR_CFG_PROHIBITED_NAMES       = 2  /**< Safety limit for looping. */
+};
+/**@}*/
+
 /** @name Socket */ /**@{*/
 /**
  * @enum SOC_STATE
