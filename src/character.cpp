@@ -27,6 +27,7 @@
 #include "h/class.h"
 
 #include "h/character.h"
+#include "h/list.h"
 
 /* Core */
 /**
@@ -35,6 +36,7 @@
  */
 const void Character::Delete()
 {
+    gServer()->sCharacterNext( character_list.erase( find( character_list.begin(), character_list.end(), this ) ) );
     delete this;
 
     return;
@@ -49,6 +51,8 @@ const void Character::Delete()
  */
 const bool Character::New( Server* server, Account* account )
 {
+    character_list.push_back( this );
+
     return true;
 }
 

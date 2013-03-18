@@ -36,6 +36,7 @@ using namespace std;
 class Event {
     public:
         /** @name Core */ /**@{*/
+        const void Delete();
         const bool New( const string& args, Server* server, const uint_t& type, const uint_t& time );
         const bool New( const string& cmd, const string& args, SocketClient* client, Command* command, const uint_t& type, const uint_t& time );
         const void Run();

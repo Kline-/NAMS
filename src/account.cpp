@@ -44,6 +44,9 @@ const void Account::ClearCharacter()
  */
 const void Account::Delete()
 {
+    if ( m_character )
+        m_character->Delete();
+
     delete this;
 
     return;

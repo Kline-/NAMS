@@ -45,8 +45,8 @@ const void SocketClient::Delete()
     // Force anything out of the buffer
     Send();
 
-    if ( !m_server->sSocketClose( m_server->gSocketClose() + 1 ) )
-        LOGFMT( flags, "SocketClient::Disconnect()->Server::sSocketClose()-> value %lu returned false", m_server->gSocketClose() + 1 );
+    if ( !gServer()->sSocketClose( gServer()->gSocketClose() + 1 ) )
+        LOGFMT( flags, "SocketClient::Disconnect()->Server::sSocketClose()-> value %lu returned false", gServer()->gSocketClose() + 1 );
 
     gServer()->sSocketClientNext( socket_client_list.erase( find( socket_client_list.begin(), socket_client_list.end(), this ) ) );
     delete this;
@@ -56,17 +56,22 @@ const void SocketClient::Delete()
 
 /**
  * @brief Build a SocketClient for a new client connection and set all attributes.
+ * @param[in] server The server to associate with.
+ * @param[in] descriptor The file descriptor to utilize.
  * @param[in] reboot Mark if the server is undergoing a reboot or not.
  * @retval false Returned if there is an error in connecting the client.
  * @retval true Returned if the client is successfully connected.
  */
-const bool SocketClient::New( const bool& reboot )
+const bool SocketClient::New( Server* server, const sint_t& descriptor, const bool& reboot )
 {
     UFLAGS_DE( flags );
     sint_t error = 0;
     sockaddr_storage sin;
     socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
     char hostname[CFG_STR_MAX_BUFLEN], service[CFG_STR_MAX_BUFLEN];
+
+    sServer( server );
+    sDescriptor( descriptor );
 
     if ( !reboot )
     {
@@ -124,6 +129,9 @@ const bool SocketClient::New( const bool& reboot )
 
         Handler::Interpret( this );
     }
+
+    gServer()->sSocketOpen( gServer()->gSocketOpen() + 1 );
+    socket_client_list.push_back( this );
 
     return true;
 }
@@ -329,9 +337,9 @@ const bool SocketClient::Recv()
         }
     }
 
-    if ( !m_server->gSocket()->aBytesRecvd( amount ) )
+    if ( !gServer()->gSocket()->aBytesRecvd( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Recv()->Server::gSocket()->Server::aBytesRecvd()-> value %lu returned false", m_server->gSocket()->gBytesRecvd() + amount );
+        LOGFMT( flags, "SocketClient::Recv()->Server::gSocket()->Server::aBytesRecvd()-> value %lu returned false", gServer()->gSocket()->gBytesRecvd() + amount );
         return false;
     }
 
@@ -429,9 +437,9 @@ const bool SocketClient::Send()
         }
     }
 
-    if ( !m_server->gSocket()->aBytesSent( amount ) )
+    if ( !gServer()->gSocket()->aBytesSent( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Send()->Server::gSocket()->Server::aBytesSent()-> value %lu returned false", m_server->gSocket()->gBytesSent() + amount );
+        LOGFMT( flags, "SocketClient::Send()->Server::gSocket()->Server::aBytesSent()-> value %lu returned false", gServer()->gSocket()->gBytesSent() + amount );
         return false;
     }
 
@@ -558,15 +566,6 @@ const string SocketClient::gLogin( const uint_t& key ) const
     }
 
     return m_login[key];
-}
-
-/**
- * @brief Returns the Server object associated to this SocketClient.
- * @retval Server Pointer to the associated Server object.
- */
-Server* SocketClient::gServer() const
-{
-    return m_server;
 }
 
 /**
@@ -736,33 +735,6 @@ void* SocketClient::tResolveHostname( void* data )
 }
 
 /**
- * @brief Set the owning server object that the socket is actually connected to.
- * @param[in] server A pointer to an instance of a Server object. By default this is the server instance which initially accepted the client connection.
- * @retval false Returned if the server is either invalid (NULL) or shutdown.
- * @retval true Returned if owning server is successfully set.
- */
-const bool SocketClient::sServer( Server* server )
-{
-    UFLAGS_DE( flags );
-
-    if ( !server )
-    {
-        LOGSTR( flags, "SocketClient::sServer()-> called with NULL server" );
-        return false;
-    }
-
-    if ( !server->Running() )
-    {
-        LOGSTR( flags, "SocketClient::sServer()-> called with offline server" );
-        return false;
-    }
-
-    m_server = server;
-
-    return true;
-}
-
-/**
  * @brief Set the connection state value of the socket.
  * @param[in] state A #uint_t value ranging from #SOC_STATE_DISCONNECTED to #MAX_SOC_STATE-1.
  * @retval false Returned if the socket state value is outside the proper range.
@@ -810,10 +782,8 @@ SocketClient::TermInfo::~TermInfo()
 
 /**
  * @brief Constructor for the SocketClient class.
- * @param[in] server A pointer to an instance of a Server object.
- * @param[in] descriptor A #sint_t value of the file descriptor that has been opened for the socket.
  */
-SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket( server, descriptor )
+SocketClient::SocketClient()
 {
     uint_t i = uintmin_t;
 
@@ -825,12 +795,8 @@ SocketClient::SocketClient( Server* server, const sint_t& descriptor ) : Socket(
         m_login[i].clear();
     m_output.clear();
     m_quitting = false;
-    sServer( server );
     m_state = SOC_STATE_DISCONNECTED;
     m_terminfo = new SocketClient::TermInfo();
-
-    m_server->sSocketOpen( m_server->gSocketOpen() + 1 );
-    socket_client_list.push_back( this );
 
     return;
 }

@@ -85,6 +85,15 @@ const uint_t Socket::gPort() const
     return m_port;
 }
 
+/**
+ * @brief Returns the Server object associated to this SocketServer.
+ * @retval Server Pointer to the associated Server object.
+ */
+Server* Socket::gServer() const
+{
+    return m_server;
+}
+
 /* Manipulate */
 /**
  * @brief Increment the total count of bytes received by the socket.
@@ -191,19 +200,45 @@ const bool Socket::sPort( const uint_t& port )
     return true;
 }
 
+/**
+ * @brief Set the owning server object that the socket is actually connected to.
+ * @param[in] server A pointer to an instance of a Server object. By default this is  the server instance which initially spawned the socket.
+ * @retval false Returned if the server is either invalid (NULL) or shutdown.
+ * @retval true Returned if owning server is successfully set.
+ */
+const bool Socket::sServer( Server* server )
+{
+    UFLAGS_DE( flags );
+
+    if ( !server )
+    {
+        LOGSTR( flags, "Socket::sServer()-> called with NULL server" );
+        return false;
+    }
+
+    if ( !server->Running() )
+    {
+        LOGSTR( flags, "Socket::sServer()-> called with offline server" );
+        return false;
+    }
+
+    m_server = server;
+
+    return true;
+}
+
 /* Internal */
 /**
  * @brief Constructor for the Socket class.
- * @param[in] server A pointer to an instance of a Server object.
- * @param[in] descriptor A #sint_t value of the file descriptor that has been opened for the socket.
  */
-Socket::Socket( Server* server, const sint_t& descriptor )
+Socket::Socket()
 {
     m_bytes_recvd = 0;
     m_bytes_sent = 0;
-    sDescriptor( descriptor );
+    m_descriptor = 0;
     m_hostname.clear();
     m_port = 0;
+    m_server = NULL;
 
     return;
 }

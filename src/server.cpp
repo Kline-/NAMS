@@ -475,7 +475,10 @@ const void Server::RebootRecovery( const bool& reboot )
             }
             cout << "key={" << key << "} && value={" << value << "}" << endl;
             if ( key.compare( "desc" ) == 0 )
-                client = new SocketClient( this, atoi( CSTR( value ) ) );
+            {
+                client = new SocketClient();
+                client->New( this, atoi( CSTR( value ) ) );
+            }
             if ( key.compare( "port" ) == 0 )
                 client->sPort( atoi( CSTR( value ) ) );
             if ( key.compare( "host" ) == 0 )
@@ -609,10 +612,10 @@ const void Server::Startup( const sint_t& desc )
         reboot = true;
     }
 
-    socket_server = new SocketServer( this, descriptor );
+    socket_server = new SocketServer();
     m_socket = socket_server;
 
-    if ( !socket_server->New( reboot ) )
+    if ( !socket_server->New( this, descriptor, reboot ) )
     {
         LOGSTR( flags, "Server::Startup()->SocketServer::New()-> returned false" );
         Shutdown( EXIT_FAILURE );

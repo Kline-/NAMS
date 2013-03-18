@@ -68,6 +68,15 @@ const string Thing::gName() const
     return m_name;
 }
 
+/**
+ * @brief Returns the Server associated with this Thing.
+ * @retval Server* A pointer to the Server associated with this Thing.
+ */
+Server* Thing::gServer() const
+{
+    return m_server;
+}
+
 /* Manipulate */
 /**
  * @brief Sets the id of this Thing.
@@ -120,6 +129,7 @@ Thing::Thing()
 {
     m_id.clear();
     m_name.clear();
+    m_server = NULL;
 
     return;
 }

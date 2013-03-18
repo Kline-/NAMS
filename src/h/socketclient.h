@@ -68,7 +68,7 @@ class SocketClient : public Socket {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New( const bool& reboot = false );
+        const bool New( Server* server, const sint_t& descriptor, const bool& reboot = false );
         const bool PendingCommand() const;
         const bool PendingOutput() const;
         const bool ProcessCommand();
@@ -87,7 +87,6 @@ class SocketClient : public Socket {
         Account* gAccount() const;
         const uint_t gIdle() const;
         const string gLogin( const uint_t& key ) const;
-        Server* gServer() const;
         const uint_t gState() const;
         SocketClient::TermInfo* gTermInfo() const;
         /**@}*/
@@ -97,12 +96,11 @@ class SocketClient : public Socket {
         const bool sIdle( const uint_t& idle );
         const bool sLogin( const uint_t& key, const string& val);
         static void* tResolveHostname( void* data );
-        const bool sServer( Server* server );
         const bool sState( const uint_t& state );
         /**@}*/
 
         /** @name Internal */ /**@{*/
-        SocketClient( Server* server, const sint_t& descriptor );
+        SocketClient();
         ~SocketClient();
         /**@}*/
 
@@ -114,7 +112,6 @@ class SocketClient : public Socket {
         string m_login[MAX_SOC_LOGIN]; /**< Used to pass login process commands and arguments between handler functions. */
         string m_output; /**< Data buffered for sending to the client. */
         bool m_quitting; /**< Flag the client as quitting to escape nested loops. */
-        Server* m_server; /**< The Server object associated to this client. */
         uint_t m_state; /**< Connection state of the client from #SOC_STATE. */
         SocketClient::TermInfo* m_terminfo; /**< Terminal options and status. */
 };

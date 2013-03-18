@@ -41,6 +41,7 @@ class Thing {
         /** @name Query */ /**@{*/
         const string gId() const;
         const string gName() const;
+        Server* gServer() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -56,6 +57,7 @@ class Thing {
     private:
         string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
         string m_name; /**< The name of the thing. */
+        Server* m_server; /**< The Server this Thing exists within. */
 };
 
 #endif

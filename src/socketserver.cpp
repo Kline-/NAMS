@@ -60,9 +60,9 @@ const void SocketServer::Accept()
         return;
     }
 
-    socket_client = new SocketClient( gServer(), descriptor );
+    socket_client = new SocketClient();
 
-    if ( !socket_client->New() )
+    if ( !socket_client->New( gServer(), descriptor ) )
     {
         LOGSTR( flags, "SocketServer::Accept()->SocketClient::New()-> returned false" );
         socket_client->Delete();
@@ -128,8 +128,8 @@ const void SocketServer::Delete()
     if ( !Valid() )
         return;
 
-    if ( !m_server->sSocketClose( m_server->gSocketClose() + 1 ) )
-        LOGFMT( flags, "SocketServer::Delete()->Server::sSocketClose()-> value %lu returned false", m_server->gSocketClose() + 1 );
+    if ( !gServer()->sSocketClose( gServer()->gSocketClose() + 1 ) )
+        LOGFMT( flags, "SocketServer::Delete()->Server::sSocketClose()-> value %lu returned false", gServer()->gSocketClose() + 1 );
 
     socket_server_list.remove( this );
     delete this;
@@ -163,34 +163,43 @@ const bool SocketServer::Listen()
 
 /**
  * @brief Build a socket for a server and set all attributes.
+ * @param[in] server The server to associate with.
+ * @param[in] descriptor The file descriptor to utilize.
  * @param[in] reboot Mark if the server is undergoing a reboot or not.
  * @retval false Returned if any errors are encountered during binding, setting hostname, or listening.
  * @retval true Returned if the socket is able to successfully bind, set hostname, and listen for new connections.
  */
-const bool SocketServer::New( const bool& reboot )
+const bool SocketServer::New( Server* server, const sint_t& descriptor, const bool& reboot )
 {
     UFLAGS_DE( flags );
 
+    sServer( server );
+    sDescriptor( descriptor );
+    sPort( gServer()->gPort() );
+
     if ( !reboot )
     {
-        if ( !Bind( m_server->gPort(), CFG_SOC_BIND_ADDR ) )
+        if ( !Bind( gServer()->gPort(), CFG_SOC_BIND_ADDR ) )
         {
             LOGSTR( flags, "SocketServer::New()->SocketServer::Bind()-> returned false" );
-            m_server->Shutdown( EXIT_FAILURE );
+            gServer()->Shutdown( EXIT_FAILURE );
         }
 
-        if ( !sHostname( m_server->gHostname() ) )
+        if ( !sHostname( gServer()->gHostname() ) )
         {
-            LOGFMT( flags, "SocketServer::New()->SocketServer::sHostname()-> hostname %s returned false", CSTR( m_server->gHostname() ) );
-            m_server->Shutdown( EXIT_FAILURE );
+            LOGFMT( flags, "SocketServer::New()->SocketServer::sHostname()-> hostname %s returned false", CSTR( gServer()->gHostname() ) );
+            gServer()->Shutdown( EXIT_FAILURE );
         }
 
         if ( !Listen() )
         {
             LOGSTR( flags, "SocketServer::New()->SocketServer::Listen()-> returned false" );
-            m_server->Shutdown( EXIT_FAILURE );
+            gServer()->Shutdown( EXIT_FAILURE );
         }
     }
+
+    gServer()->sSocketOpen( gServer()->gSocketOpen() + 1 );
+    socket_server_list.push_back( this );
 
     return true;
 }
@@ -206,59 +215,15 @@ const string SocketServer::Serialize() const
 }
 
 /* Query */
-/**
- * @brief Returns the Server object associated to this SocketServer.
- * @retval Server Pointer to the associated Server object.
- */
-Server* SocketServer::gServer() const
-{
-    return m_server;
-}
 
 /* Manipulate */
-/**
- * @brief Set the owning server object that the socket is actually connected to.
- * @param[in] server A pointer to an instance of a Server object. By default this is  the server instance which initially spawned the socket.
- * @retval false Returned if the server is either invalid (NULL) or shutdown.
- * @retval true Returned if owning server is successfully set.
- */
-const bool SocketServer::sServer( Server* server )
-{
-    UFLAGS_DE( flags );
-
-    if ( !server )
-    {
-        LOGSTR( flags, "SocketServer::sServer()-> called with NULL server" );
-        return false;
-    }
-
-    if ( !server->Running() )
-    {
-        LOGSTR( flags, "SocketServer::sServer()-> called with offline server" );
-        return false;
-    }
-
-    m_server = server;
-
-    return true;
-}
 
 /* Internal */
 /**
  * @brief Constructor for the SocketServer class.
- * @param[in] server A pointer to an instance of a Server object.
- * @param[in] descriptor A #sint_t value of the file descriptor that has been opened for the socket.
  */
-SocketServer::SocketServer( Server* server, const sint_t& descriptor ) : Socket( server, descriptor )
+SocketServer::SocketServer()
 {
-    UFLAGS_DE( flags );
-
-    sServer( server );
-    sPort( server->gPort() );
-
-    m_server->sSocketOpen( m_server->gSocketOpen() + 1 );
-    socket_server_list.push_back( this );
-
     return;
 }
 

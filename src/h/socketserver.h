@@ -38,25 +38,22 @@ class SocketServer : public Socket {
         const bool Bind( const uint_t& port, const string& addr );
         const void Delete();
         const bool Listen();
-        const bool New( const bool& reboot = false );
+        const bool New( Server* server, const sint_t& descriptor, const bool& reboot = false );
         const string Serialize() const;
         /**@}*/
 
         /** @name Query */ /**@{*/
-        Server* gServer() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
-        const bool sServer( Server* server );
         /**@}*/
 
         /** @name Internal */ /**@{*/
-        SocketServer( Server* server, const sint_t& descriptor );
+        SocketServer();
         ~SocketServer();
         /**@}*/
 
     private:
-        Server* m_server; /**< The Server object associated to this server-side socket. */
 };
 
 #endif

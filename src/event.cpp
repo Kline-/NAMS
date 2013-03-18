@@ -29,6 +29,18 @@
 
 /* Core */
 /**
+ * @brief Unload an event from memory that was previously loaded via Event::New().
+ * @retval void
+ */
+const void Event::Delete()
+{
+    event_list.remove( this );
+    delete this;
+
+    return;
+}
+
+/**
  * @brief Create a new Event. This is a special use-case to create an Event on a server, for things such as Server::ReloadCommand.
  * @param[in] args The arguments to be passed to the function.
  * @param[in] server The server to execute the function on.
@@ -146,7 +158,7 @@ const void Event::Run()
         break;
     }
 
-    event_list.remove( this );
+    Delete();
 
     return;
 }
