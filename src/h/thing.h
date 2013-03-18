@@ -34,8 +34,8 @@ using namespace std;
 class Thing {
     public:
         /** @name Core */ /**@{*/
-        const void Delete();
-        const bool New( Server* server );
+        virtual const void Delete() = 0;
+        virtual const bool New( Server* server ) = 0;
         /**@}*/
 
         /** @name Query */ /**@{*/
@@ -47,6 +47,7 @@ class Thing {
         /** @name Manipulate */ /**@{*/
         const bool sId( const string& id );
         const bool sName( const string& name, const bool& system = false );
+        const bool sServer( Server* server );
         /**@}*/
 
         /** @name Internal */ /**@{*/

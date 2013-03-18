@@ -51,6 +51,7 @@ const void Character::Delete()
  */
 const bool Character::New( Server* server, Account* account )
 {
+    sServer( server );
     character_list.push_back( this );
 
     return true;

@@ -27,27 +27,6 @@
 #include "h/thing.h"
 
 /* Core */
-/**
- * @brief Unload a thing from memory that was previously loaded via Thing::New().
- * @retval void
- */
-const void Thing::Delete()
-{
-    delete this;
-
-    return;
-}
-
-/**
- * @brief Create a new thing.
- * @param[in] server The Server the thing will exist within.
- * @retval false Returned if a new Thing was successfully created or loaded.
- * @retval true Returned if a new Thing was unable to be created.
- */
-const bool Thing::New( Server* server )
-{
-    return true;
-}
 
 /* Query */
 /**
@@ -117,6 +96,27 @@ const bool Thing::sName( const string& name, const bool& system )
     }
 
     m_name = name;
+
+    return true;
+}
+
+/**
+ * @brief Associates a Server to this Thing.
+ * @param[in] server The Server the thing will exist within.
+ * @retval false Returned if the server was unable to be associated.
+ * @retval true Returned if the server was successfully associated.
+ */
+const bool Thing::sServer( Server* server )
+{
+    UFLAGS_DE( flags );
+
+    if ( server == NULL )
+    {
+        LOGSTR( flags, "Thing::sServer()-> called with NULL server" );
+        return false;
+    }
+
+    m_server = server;
 
     return true;
 }
