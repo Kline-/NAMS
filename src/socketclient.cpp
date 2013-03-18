@@ -293,7 +293,8 @@ const void SocketClient::Quit()
 
 /**
  * @brief Checks if a client is marked as quitting.
- * @retval bool The value of m_quitting.
+ * @retval false Returned if the m_quitting is set to false.
+ * @retval true Returned if the m_quitting is set to true.
  */
 const bool SocketClient::Quitting() const
 {

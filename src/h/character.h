@@ -41,10 +41,12 @@ class Character : public Thing {
 
         /** @name Query */ /**@{*/
         Account* gAccount() const;
+        const bool gCreation( const uint_t& pos );
         const uint_t gSex() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sCreation( const uint_t& pos, const bool& val );
         const bool sSex( const uint_t& sex );
         /**@}*/
 
@@ -55,6 +57,7 @@ class Character : public Thing {
 
     private:
         Account* m_account; /**< The associated Account, if any. */
+        bool m_creation[MAX_CHR_CREATION]; /**< Track if all creation options have been set. */
         uint_t m_sex; /**< The sex of the character. */
 };
 

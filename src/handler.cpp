@@ -292,8 +292,9 @@ const void Handler::CharacterCreate( SocketClient* client, const string& cmd, co
         client->Send( Telopt::opt_cursor_home );
         client->Send( Telopt::opt_erase_screen );
         client->Send( "Account Menu > Create a new character" CRLF "Please select one of the following options:" CRLF );
-        client->Send( Utils::FormatString( 0, "     %d) Fill me in" CRLF, 1 ) );
-        client->Send( Utils::FormatString( 0, "    %d) Back" CRLF, ACT_MENU_CHARACTER_CREATE_BACK ) );
+        client->Send( Utils::FormatString( 0, "%5d) Set name" CRLF, ACT_MENU_CHARACTER_CREATE_NAME ) );
+        client->Send( Utils::FormatString( 0, "%5d) Set sex" CRLF, ACT_MENU_CHARACTER_CREATE_SEX ) );
+        client->Send( Utils::FormatString( 0, "%5d) Back" CRLF, ACT_MENU_CHARACTER_CREATE_BACK ) );
         client->Send( "Option: " );
         return;
     }
@@ -575,8 +576,8 @@ const void Handler::MenuScreen( SocketClient* client, const string& cmd, const s
         client->Send( Telopt::opt_cursor_home );
         client->Send( Telopt::opt_erase_screen );
         client->Send( "Account Menu" CRLF "Please select one of the following options:" CRLF );
-        client->Send( Utils::FormatString( 0, "     %d) Create a new character" CRLF, ACT_MENU_MAIN_CHARACTER_CREATE ) );
-        client->Send( Utils::FormatString( 0, "    %d) Quit" CRLF, ACT_MENU_MAIN_QUIT ) );
+        client->Send( Utils::FormatString( 0, "%5d) Create a new character" CRLF, ACT_MENU_MAIN_CHARACTER_CREATE ) );
+        client->Send( Utils::FormatString( 0, "%5d) Quit" CRLF, ACT_MENU_MAIN_QUIT ) );
         client->Send( "Option: " );
         return;
     }

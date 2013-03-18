@@ -41,6 +41,8 @@ enum ACT_LOGIN {
  */
 enum ACT_MENU_CHARACTER_CREATE {
     ACT_MENU_CHARACTER_CREATE_INVALID = 0,  /**< Must be 0 for stringstream extraction. */
+    ACT_MENU_CHARACTER_CREATE_NAME    = 1,  /**< Prompt to enter name. */
+    ACT_MENU_CHARACTER_CREATE_SEX     = 2,  /**< Prompt to select sex. */
     ACT_MENU_CHARACTER_CREATE_BACK    = 99, /**< Back out to the previous menu level. */
     MAX_ACT_MENU_CHARACTER_CREATE     = 100 /**< Safety limit for looping. */
 };
@@ -67,6 +69,15 @@ enum ACT_SECURITY {
 /**@}*/
 
 /** @name Character */ /**@{*/
+/**
+ * @enum CHR_CREATION
+ */
+enum CHR_CREATION {
+    CHR_CREATION_NAME = 0, /**< Name has been selected. */
+    CHR_CREATION_SEX  = 1, /**< Sex has been selected. */
+    MAX_CHR_CREATION  = 2  /**< Safety limit for looping. */
+};
+
 /**
  * @enum CHR_SEX
  */

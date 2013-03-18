@@ -59,15 +59,6 @@ const bool Character::New( Server* server, Account* account )
 
 /* Query */
 /**
- * @brief Returns the sex of this character from #CHR_SEX.
- * @retval uint_t A uint_t associated to #CHR_SEX.
- */
-const uint_t Character::gSex() const
-{
-    return m_sex;
-}
-
-/**
  * @brief Returns the Account associated with this Character, if any.
  * @retval Account* A pointer to the associated account, or NULL if none.
  */
@@ -76,7 +67,57 @@ Account* Character::gAccount() const
     return m_account;
 }
 
+/**
+ * @brief Gets the creation states of this character from #CHR_CREATION.
+ * @param[in] pos The creation state to get.
+ * @retval false Returned if the state is set to false.
+ * @retval true Returned if the state is set to true.
+ */
+const bool Character::gCreation( const uint_t& pos )
+{
+    UFLAGS_DE( flags );
+
+    if ( pos < uintmin_t || pos >= MAX_CHR_CREATION )
+    {
+        LOGFMT( flags, "Character::sCreation()-> called with invalid pos %lu", pos );
+        return false;
+    }
+
+    return m_creation[pos];
+}
+
+/**
+ * @brief Returns the sex of this character from #CHR_SEX.
+ * @retval uint_t A uint_t associated to #CHR_SEX.
+ */
+const uint_t Character::gSex() const
+{
+    return m_sex;
+}
+
 /* Manipulate */
+/**
+ * @brief Sets the creation states of this character from #CHR_CREATION.
+ * @param[in] pos The creation state to set.
+ * @param[in] val The value to set.
+ * @retval false Returned if the state was unable to be set.
+ * @retval true Returned if the state was successfully set.
+ */
+const bool Character::sCreation( const uint_t& pos, const bool& val )
+{
+    UFLAGS_DE( flags );
+
+    if ( pos < uintmin_t || pos >= MAX_CHR_CREATION )
+    {
+        LOGFMT( flags, "Character::sCreation()-> called with invalid pos %lu", pos );
+        return false;
+    }
+
+    m_creation[pos] = val;
+
+    return true;
+}
+
 /**
  * @brief Sets the sex of this character from #CHR_SEX.
  * @param[in] sex A value from #CHR_SEX.
@@ -104,7 +145,12 @@ const bool Character::sSex( const uint_t& sex )
  */
 Character::Character()
 {
+    uint_t i = uintmin_t;
+
     m_account = NULL;
+    for ( i = 0; i < MAX_CHR_CREATION; i++ )
+        m_creation[i] = false;
+    m_sex = 0;
 
     return;
 }

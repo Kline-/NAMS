@@ -37,7 +37,8 @@
 /**
  * @brief Return a bool value to tie into other object types.
  * @param[in] pos The array position to be returned.
- * @retval bool The value of m_bool[pos].
+ * @retval false Returned if the m_bool[pos] is set to false.
+ * @retval true Returned if the m_bool[pos] is set to true.
  */
 const bool Plugin::gBool( const uint_t& pos ) const
 {
