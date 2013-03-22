@@ -151,6 +151,8 @@ enum SOC_STATE {
     SOC_STATE_LOAD_ACCOUNT          = 6,   /**< An internal state where an existing account is loaded after confirming a name and password. */
     SOC_STATE_ACCOUNT_MENU          = 7,   /**< A Socket at the main account menu. */
     SOC_STATE_CHARACTER_CREATE_MENU = 8,   /**< A Socket within the character creation menu. */
+    SOC_STATE_CHARACTER_CREATE_NAME = 9,   /**< A Socket selecting a new Character name. */
+    SOC_STATE_CHARACTER_CREATE_SEX  = 10,  /**< A Socket selecting a new Character sex. */
     SOC_STATE_PLAYING               = 100, /**< A Socket fully within the game world and actively playing. */
     MAX_SOC_STATE                   = 101  /**< Safety limit for looping. */
 };

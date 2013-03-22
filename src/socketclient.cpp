@@ -127,7 +127,7 @@ const bool SocketClient::New( Server* server, const sint_t& descriptor, const bo
             return false;
         }
 
-        Handler::Interpret( this );
+        Handler::LoginHandler( this );
     }
 
     gServer()->sSocketOpen( gServer()->gSocketOpen() + 1 );
@@ -192,12 +192,12 @@ const bool SocketClient::ProcessCommand()
             if ( command->Authorized( security ) )
                 command->Run( this, cmd.first, cmd.second );
             else if ( m_state < SOC_STATE_PLAYING )
-                Handler::Interpret( this, cmd.first, cmd.second );
+                Handler::LoginHandler( this, cmd.first, cmd.second );
             else
                 Send( CFG_STR_CMD_INVALID );
         }
         else if ( m_state < SOC_STATE_PLAYING )
-            Handler::Interpret( this, cmd.first, cmd.second );
+            Handler::LoginHandler( this, cmd.first, cmd.second );
         else
             Send( CFG_STR_CMD_INVALID );
     }

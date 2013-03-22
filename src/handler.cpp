@@ -35,91 +35,29 @@
 
 /* Core */
 /**
- * @brief Main account menu for all account actions.
+ * @brief Dispatches the appropriate menu based on client state.
  * @param[in] client The SocketClient to process a menu request for.
  * @param[in] cmd The command sent by the SocketClient.
  * @param[in] args Any arguments to the command.
  * @retval void
  */
-const void Handler::AccountMenu( SocketClient* client, const string& cmd, const string& args )
+const void Handler::LoginHandler( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
 
     if ( client == NULL )
     {
-        LOGSTR( flags, "Handler::AccountMenu()-> called with NULL client" );
+        LOGSTR( flags, "Handler::LoginHandler()-> called with NULL client" );
         return;
     }
 
-    if ( client->gAccount() == NULL )
+    if ( client->gState() >= SOC_STATE_ACCOUNT_MENU && client->gAccount() == NULL )
     {
-        LOGSTR( flags, "Handler::AccountMenu()-> called with NULL account" );
+        LOGSTR( flags, "Handler::LoginHandler()-> called with NULL account" );
         return;
     }
 
     cout << "state=[" << client->gState() << "} cmd={" << cmd << "} args={" << args <<"}" << endl;
-    switch ( client->gState() )
-    {
-        case SOC_STATE_ACCOUNT_MENU:
-            MenuScreen( client, cmd, args );
-        break;
-
-        case SOC_STATE_CHARACTER_CREATE_MENU:
-            CharacterCreate( client, cmd, args );
-        break;
-
-        default:
-        break;
-    }
-
-    return;
-}
-
-/**
- * @brief Redirect to the appropriate subsystem based on socket state.
- * @param[in] client The SocketClient to process a redirect request for.
- * @param[in] cmd The command sent by the SocketClient.
- * @param[in] args Any arguments to the command.
- * @retval void
- */
-const void Handler::Interpret( SocketClient* client, const string& cmd, const string& args )
-{
-    UFLAGS_DE( flags );
-    uint_t state = uintmin_t;
-
-    if ( client == NULL )
-    {
-        LOGSTR( flags, "Handler::Interpret()-> called with NULL client" );
-        return;
-    }
-
-    state = client->gState();
-
-    if ( state >= SOC_STATE_LOGIN_SCREEN && state <= SOC_STATE_LOAD_ACCOUNT )
-        ProcessLogin( client, cmd, args );
-    else if ( state >= SOC_STATE_ACCOUNT_MENU )
-        AccountMenu( client, cmd, args );
-
-    return;
-}
-
-/**
- * @brief Handle SocketClient objects who have not fully logged into the game yet.
- * @param[in] client The SocketClient to process a login request for.
- * @param[in] cmd The command sent by the SocketClient.
- * @param[in] args Any arguments to the command.
- * @retval void
- */
-const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const string& args )
-{
-    UFLAGS_DE( flags );
-
-    if ( client == NULL )
-    {
-        LOGSTR( flags, "Handler::ProcessLogin()-> called with NULL client" );
-        return;
-    }
-
     switch ( client->gState() )
     {
         case SOC_STATE_LOGIN_SCREEN:
@@ -141,6 +79,20 @@ const void Handler::ProcessLogin( SocketClient* client, const string& cmd, const
         case SOC_STATE_CREATE_ACCOUNT:
         case SOC_STATE_LOAD_ACCOUNT:
             AttachAccount( client, cmd, args );
+        break;
+
+        case SOC_STATE_ACCOUNT_MENU:
+            AccountMenuMain( client, cmd, args );
+        break;
+
+        case SOC_STATE_CHARACTER_CREATE_MENU:
+            CharacterCreateMenuMain( client, cmd, args );
+        break;
+
+        case SOC_STATE_CHARACTER_CREATE_NAME:
+        break;
+
+        case SOC_STATE_CHARACTER_CREATE_SEX:
         break;
 
         default:
@@ -250,7 +202,7 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
             client->sLogin( SOC_LOGIN_PASSWORD, "" );
             client->sState( SOC_STATE_LOGIN_SCREEN );
             client->Send( CFG_STR_ACT_NEW_ERROR );
-            ProcessLogin( client );
+            LoginHandler( client );
         }
 
         return;
@@ -258,32 +210,92 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
 
     // All went well, off to the account menu
     client->sState( SOC_STATE_ACCOUNT_MENU );
-    AccountMenu( client );
+    LoginHandler( client );
 
     return;
 }
 
+/* Internal */
 /**
- * @brief Create a new character in the game.
+ * @brief Send initial account interface menu.
  * @param[in] client The SocketClient to process a login request for.
  * @param[in] cmd The command sent by the SocketClient.
  * @param[in] args Any arguments to the command.
  * @retval void
  */
-const void Handler::CharacterCreate( SocketClient* client, const string& cmd, const string& args )
+const void Handler::AccountMenuMain( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
     uint_t val = uintmin_t;
 
     if ( client == NULL )
     {
-        LOGSTR( flags, "Handler::CharacterCreate()-> called with NULL client" );
+        LOGSTR( flags, "Handler::MenuScreen()-> called with NULL client" );
         return;
     }
 
     if ( client->gAccount() == NULL )
     {
-        LOGSTR( flags, "Handler::CharacterCreate()-> called with NULL account" );
+        LOGSTR( flags, "Handler::MenuScreen()-> called with NULL account" );
+        return;
+    }
+
+    if ( cmd.empty() )
+    {
+        client->Send( Telopt::opt_cursor_home );
+        client->Send( Telopt::opt_erase_screen );
+        client->Send( "Account Menu" CRLF "Please select one of the following options:" CRLF );
+        client->Send( Utils::FormatString( 0, "%5d) Create a new character" CRLF, ACT_MENU_MAIN_CHARACTER_CREATE ) );
+        client->Send( Utils::FormatString( 0, "%5d) Quit" CRLF, ACT_MENU_MAIN_QUIT ) );
+        client->Send( "Option: " );
+        return;
+    }
+
+    // Safer than ::stoi(), will output 0 for anything invalid
+    stringstream( cmd ) >> val;
+
+    switch( val )
+    {
+        case ACT_MENU_MAIN_CHARACTER_CREATE:
+            client->sState( SOC_STATE_CHARACTER_CREATE_MENU );
+            LoginHandler( client );
+        break;
+
+        case ACT_MENU_MAIN_QUIT:
+            client->Quit();
+        break;
+
+        case ACT_MENU_MAIN_INVALID:
+        default:
+            client->Send( "Invalid selection." CRLF );
+            client->Send( "Option: " );
+        break;
+    }
+
+    return;
+}
+
+/**
+ * @brief Main Character creation menu.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::CharacterCreateMenuMain( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+    uint_t val = uintmin_t;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterCreateMenu()-> called with NULL client" );
+        return;
+    }
+
+    if ( client->gAccount() == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterCreateMenu()-> called with NULL account" );
         return;
     }
 
@@ -304,9 +316,19 @@ const void Handler::CharacterCreate( SocketClient* client, const string& cmd, co
 
     switch( val )
     {
+        case ACT_MENU_CHARACTER_CREATE_NAME:
+            client->sState( SOC_STATE_CHARACTER_CREATE_NAME );
+            LoginHandler( client );
+        break;
+
+        case ACT_MENU_CHARACTER_CREATE_SEX:
+            client->sState( SOC_STATE_CHARACTER_CREATE_SEX );
+            LoginHandler( client );
+        break;
+
          case ACT_MENU_CHARACTER_CREATE_BACK:
             client->sState( SOC_STATE_ACCOUNT_MENU );
-            AccountMenu( client );
+            LoginHandler( client );
         break;
 
         case ACT_MENU_CHARACTER_CREATE_INVALID:
@@ -319,7 +341,6 @@ const void Handler::CharacterCreate( SocketClient* client, const string& cmd, co
     return;
 }
 
-/* Internal */
 /**
  * @brief Select a new account name.
  * @param[in] client The SocketClient to process a login request for.
@@ -355,7 +376,7 @@ const void Handler::GetNewAccount( SocketClient* client, const string& cmd, cons
         client->Send( CFG_STR_SEL_INVALID );
 
     //Generate the next input prompt
-    ProcessLogin( client );
+    LoginHandler( client );
 
     return;
 }
@@ -417,7 +438,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
     }
 
     //Generate the next input prompt
-    ProcessLogin( client );
+    LoginHandler( client );
 
     return;
 }
@@ -451,7 +472,7 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
     client->sState( SOC_STATE_LOAD_ACCOUNT );
 
     //Generate the next input prompt
-    ProcessLogin( client );
+    LoginHandler( client );
 
     return;
 }
@@ -485,7 +506,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     {
         client->Send( CFG_STR_ACT_NAME_INVALID );
         client->Send( CFG_STR_ACT_NAME_ALNUM );
-        ProcessLogin( client );
+        LoginHandler( client );
 
         return;
     }
@@ -495,7 +516,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     {
         client->Send( CFG_STR_ACT_NAME_INVALID );
         client->Send( CFG_STR_ACT_NAME_PROHIBITED );
-        ProcessLogin( client );
+        LoginHandler( client );
 
         return;
     }
@@ -505,7 +526,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     {
         client->Send( CFG_STR_ACT_NAME_INVALID );
         client->Send( CFG_STR_ACT_NAME_PROHIBITED );
-        ProcessLogin( client );
+        LoginHandler( client );
 
         return;
     }
@@ -514,7 +535,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     {
         client->Send( CFG_STR_ACT_NAME_INVALID );
         client->Send( Utils::FormatString( 0, CFG_STR_ACT_NAME_LENGTH, CFG_ACT_NAME_MIN_LEN, CFG_ACT_NAME_MAX_LEN ) );
-        ProcessLogin( client );
+        LoginHandler( client );
 
         return;
     }
@@ -542,66 +563,7 @@ const void Handler::LoginScreen( SocketClient* client, const string& cmd, const 
     }
 
     //Generate the next input prompt
-    ProcessLogin( client );
-
-    return;
-}
-
-/**
- * @brief Send initial account interface menu.
- * @param[in] client The SocketClient to process a login request for.
- * @param[in] cmd The command sent by the SocketClient.
- * @param[in] args Any arguments to the command.
- * @retval void
- */
-const void Handler::MenuScreen( SocketClient* client, const string& cmd, const string& args )
-{
-    UFLAGS_DE( flags );
-    uint_t val = uintmin_t;
-
-    if ( client == NULL )
-    {
-        LOGSTR( flags, "Handler::MenuScreen()-> called with NULL client" );
-        return;
-    }
-
-    if ( client->gAccount() == NULL )
-    {
-        LOGSTR( flags, "Handler::MenuScreen()-> called with NULL account" );
-        return;
-    }
-
-    if ( cmd.empty() )
-    {
-        client->Send( Telopt::opt_cursor_home );
-        client->Send( Telopt::opt_erase_screen );
-        client->Send( "Account Menu" CRLF "Please select one of the following options:" CRLF );
-        client->Send( Utils::FormatString( 0, "%5d) Create a new character" CRLF, ACT_MENU_MAIN_CHARACTER_CREATE ) );
-        client->Send( Utils::FormatString( 0, "%5d) Quit" CRLF, ACT_MENU_MAIN_QUIT ) );
-        client->Send( "Option: " );
-        return;
-    }
-
-    // Safer than ::stoi(), will output 0 for anything invalid
-    stringstream( cmd ) >> val;
-
-    switch( val )
-    {
-        case ACT_MENU_MAIN_CHARACTER_CREATE:
-            client->sState( SOC_STATE_CHARACTER_CREATE_MENU );
-            AccountMenu( client );
-        break;
-
-        case ACT_MENU_MAIN_QUIT:
-            client->Quit();
-        break;
-
-        case ACT_MENU_MAIN_INVALID:
-        default:
-            client->Send( "Invalid selection." CRLF );
-            client->Send( "Option: " );
-        break;
-    }
+    LoginHandler( client );
 
     return;
 }

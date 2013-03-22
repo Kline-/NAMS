@@ -33,9 +33,7 @@ using namespace std;
  */
 namespace Handler {
     /** @name Core */ /**@{*/
-    const void AccountMenu( SocketClient* client, const string& cmd = "", const string& args = "" );
-    const void Interpret( SocketClient* client, const string& cmd = "", const string& args = "" );
-    const void ProcessLogin( SocketClient* client, const string& cmd = "", const string& args = "" );
+    const void LoginHandler( SocketClient* client, const string& cmd = "", const string& args = "" );
     /**@}*/
 
     /** @name Query */ /**@{*/
@@ -45,15 +43,15 @@ namespace Handler {
 
     /** @name Manipulate */ /**@{*/
     const void AttachAccount( SocketClient* client, const string& cmd, const string& args );
-    const void CharacterCreate( SocketClient* client, const string& cmd, const string& args );
     /**@}*/
 
     /** @name Internal */ /**@{*/
+    const void AccountMenuMain( SocketClient* client, const string& cmd, const string& args );
+    const void CharacterCreateMenuMain( SocketClient* client, const string& cmd, const string& args );
     const void GetNewAccount( SocketClient* client, const string& cmd, const string& args );
     const void GetNewPassword( SocketClient* client, const string& cmd, const string& args );
     const void GetOldPassword( SocketClient* client, const string& cmd, const string& args );
     const void LoginScreen( SocketClient* client, const string& cmd, const string& args );
-    const void MenuScreen( SocketClient* client, const string& cmd, const string& args );
     /**@}*/
 };
 
