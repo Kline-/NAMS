@@ -183,6 +183,12 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
     Account* account = NULL;
     bool exists = false;
 
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::AttachAccount()-> called with NULL client" );
+        return;
+    }
+
     if ( client->gState() == SOC_STATE_CREATE_ACCOUNT )
         exists = false;
     else if ( client->gState() == SOC_STATE_LOAD_ACCOUNT )
@@ -222,53 +228,44 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
 }
 
 /**
- * @brief Attempt to write a new character to disk after ensuring creation was completed.
+ * @brief Attempt to write a new character to disk after creation was completed.
  * @param[in] client The SocketClient to process a login request for.
  * @param[in] cmd The command sent by the SocketClient.
  * @param[in] args Any arguments to the command.
  * @retval void
  */
 const void Handler::AttachCharacter( SocketClient* client, const string& cmd, const string& args )
-{/*
+{
     UFLAGS_DE( flags );
-    Account* account = NULL;
-    bool exists = false;
 
-    if ( client->gState() == SOC_STATE_CREATE_ACCOUNT )
-        exists = false;
-    else if ( client->gState() == SOC_STATE_LOAD_ACCOUNT )
-        exists = true;
-    else
+    if ( client == NULL )
     {
-        LOGFMT( flags, "Handler::AttachAccount()-> called with invalid client state: %lu", client->gState() );
+        LOGSTR( flags, "Handler::AttachCharacter()-> called with NULL client" );
         return;
     }
 
-    Telopt::Negotiate( client, SOC_TELOPT_ECHO, false );
-
-    account = new Account();
-    if ( !account->New( client, exists ) )
+    if ( client->gAccount() == NULL )
     {
-        account->Delete();
-
-        if ( exists )
-            client->gServer()->FindCommand( "quit" )->Run( client );
-        else
-        {
-            client->sLogin( SOC_LOGIN_NAME, "" );
-            client->sLogin( SOC_LOGIN_PASSWORD, "" );
-            client->sState( SOC_STATE_LOGIN_SCREEN );
-            client->Send( CFG_STR_ACT_NEW_ERROR );
-            LoginHandler( client );
-        }
-
+        LOGSTR( flags, "Handler::AttachCharacter()-> called with NULL account" );
         return;
     }
+
+    if ( client->gAccount()->gCharacter() == NULL )
+    {
+        LOGSTR( flags, "Handler::AttachCharacter()-> called with NULL character" );
+        return;
+    }
+
+    // Save the new character then the delete the in-memory copy and reset the active account character
+    client->gAccount()->aCharacter( client->gAccount()->gCharacter()->gName() );
+    client->gAccount()->gCharacter()->Serialize();
+    client->gAccount()->gCharacter()->Delete();
+    client->gAccount()->ClearCharacter();
 
     // All went well, off to the account menu
     client->sState( SOC_STATE_ACCOUNT_MENU );
     LoginHandler( client );
-*/
+
     return;
 }
 
@@ -314,8 +311,16 @@ const void Handler::AccountMenuMain( SocketClient* client, const string& cmd, co
     switch( val )
     {
         case ACT_MENU_MAIN_CHARACTER_CREATE:
-            client->sState( SOC_STATE_CHARACTER_CREATE_MENU );
-            LoginHandler( client );
+            if ( client->gAccount()->gCharacters().size() < CFG_ACT_CHARACTER_MAX )
+            {
+                client->sState( SOC_STATE_CHARACTER_CREATE_MENU );
+                LoginHandler( client );
+            }
+            else
+            {
+                client->Send( Utils::FormatString( 0, CFG_STR_ACT_CHR_LIMIT, CFG_ACT_CHARACTER_MAX ) );
+                client->Send( "Option: " );
+            }
         break;
 
         case ACT_MENU_MAIN_QUIT:
@@ -342,8 +347,9 @@ const void Handler::AccountMenuMain( SocketClient* client, const string& cmd, co
 const void Handler::CharacterCreateMenuMain( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
-    uint_t val = uintmin_t;
+    uint_t i = uintmin_t, val = uintmin_t;
     stringstream menu1, menu2;
+    bool done = true;
 
     if ( client == NULL )
     {
@@ -375,11 +381,21 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
                     case CHR_SEX_FEMALE:  menu2 << "(is: female)";  break;
                     case CHR_SEX_MALE:    menu2 << "(is: male)";    break;
                 }
+            // Ensure creation was completed
+            for ( i = 0; i < MAX_CHR_CREATION; i++ )
+                if ( !client->gAccount()->gCharacter()->gCreation( i ) )
+                {
+                    done = false;
+                    break;
+                }
         }
+        else
+            done = false;
 
         client->Send( Utils::FormatString( 0, "%5d) Set name %s" CRLF, ACT_MENU_CHARACTER_CREATE_NAME, CSTR( menu1.str() ) ) );
         client->Send( Utils::FormatString( 0, "%5d) Set sex %s" CRLF, ACT_MENU_CHARACTER_CREATE_SEX, CSTR( menu2.str() ) ) );
-        client->Send( Utils::FormatString( 0, "%5d) Finish Creation" CRLF, ACT_MENU_CHARACTER_CREATE_FINISH ) );
+        if ( done )
+            client->Send( Utils::FormatString( 0, "%5d) Finish Creation" CRLF, ACT_MENU_CHARACTER_CREATE_FINISH ) );
         client->Send( Utils::FormatString( 0, "%5d) Back" CRLF, ACT_MENU_CHARACTER_CREATE_BACK ) );
         client->Send( "Option: " );
         return;
@@ -401,8 +417,16 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
         break;
 
         case ACT_MENU_CHARACTER_CREATE_FINISH:
-            client->sState( SOC_STATE_CHARACTER_CREATE_FINISH );
-            LoginHandler( client );
+            if ( done )
+            {
+                client->sState( SOC_STATE_CHARACTER_CREATE_FINISH );
+                LoginHandler( client );
+            }
+            else
+            {
+                client->Send( CFG_STR_SEL_INVALID );
+                client->Send( "Option: " );
+            }
         break;
 
         case ACT_MENU_CHARACTER_CREATE_BACK:
@@ -437,7 +461,8 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
 {
     UFLAGS_DE( flags );
     Character* chr = NULL;
-    forward_list<string>::const_iterator ci;
+    list<string> clist;
+    list<string>::iterator ci;
     stringstream cid;
 
     if ( client == NULL )
@@ -489,7 +514,8 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
     }
 
     // Does this account already have a character with this name?
-    for ( ci = client->gAccount()->gCharacters().begin(); ci != client->gAccount()->gCharacters().end(); ci++ )
+    clist = client->gAccount()->gCharacters();
+    for ( ci = clist.begin(); ci != clist.end(); ci++ )
     {
         if ( cmd == *ci )
         {

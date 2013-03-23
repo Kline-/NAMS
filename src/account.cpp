@@ -135,7 +135,7 @@ const bool Account::Serialize() const
     stringstream line;
     uint_t i = uintmin_t;
     string file( Utils::FileExt( m_name, CFG_DAT_FILE_ACT_EXT ) );
-    CITER( forward_list, string, li );
+    CITER( list, string, li );
     list<pair<string,string>>::const_iterator pi;
 
     Utils::FileOpen( ofs, file );
@@ -304,9 +304,9 @@ Character* Account::gCharacter() const
 
 /**
  * @brief Returns the list of all associated characters. Tracking like this allows for a character to be unlinked from the account yet remain on disk.
- * @retval forward_list<string> A forward_list of strings of all the associated Character names.
+ * @retval list<string> A forward_list of strings of all the associated Character names.
  */
-const forward_list<string> Account::gCharacters() const
+const list<string> Account::gCharacters() const
 {
     return m_characters;
 }
@@ -357,6 +357,28 @@ const uint_t Account::gSecurity() const
 }
 
 /* Manipulate */
+/**
+ * @brief Adds a character name to the list of associated characters.
+ * @param[in] name The name of the character to add.
+ * @retval false Returned if there was an error adding the name.
+ * @retval true Returned if the name was added successfully.
+ */
+const bool Account::aCharacter( const string& name )
+{
+    UFLAGS_DE( flags );
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Account::aCharacter()-> called with empty name" );
+        return false;
+    }
+
+    m_characters.push_back( name );
+    m_characters.sort();
+
+    return true;
+}
+
 /**
  * @brief Sets the active Character associated with the account.
  * @param[in] character A pointer to a Character object.

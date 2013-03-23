@@ -309,6 +309,13 @@
  ***************************************************************************/
 /** @name String Options */ /**@{*/
 /**
+ * @def CFG_STR_ACT_CHR_LIMIT
+ * @brief String sent if the account character limit has been reached.
+ * @par Default: "Accounts are limited to %d characters. Please delete an existing character to create a new one." CRLF
+ */
+#define CFG_STR_ACT_CHR_LIMIT "Accounts are limited to %d characters. Please delete an existing character to create a new one." CRLF
+
+/**
  * @def CFG_STR_ACT_NAME_ALNUM
  * @brief String additionally sent if an account name is invalid due to non-alphanumeric characters.
  * @par Default: "Account name must be alphanumeric characters only." CRLF
@@ -412,7 +419,6 @@
  * @par Default: "That character already exists in this account." CRLF
  */
 #define CFG_STR_CHR_NAME_EXISTS "That character already exists in this account." CRLF
-
 
 /**
  * @def CFG_STR_CHR_NAME_GET
