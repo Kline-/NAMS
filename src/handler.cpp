@@ -441,14 +441,17 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
             chr->Delete();
             return;
         }
+
+        client->gAccount()->sCharacter( chr );
     }
+    else
+        chr = client->gAccount()->gCharacter();
 
     chr->sCreation( CHR_CREATION_NAME, true );
     chr->sName( cmd );
     // Id for characters owned by accounts is account_name.character_name
     cid << client->gAccount()->gName() << "." << chr->gName();
     chr->sId( cid.str() );
-    client->gAccount()->sCharacter( chr );
 
     //All went well, generate the next input prompt
     client->sState( SOC_STATE_CHARACTER_CREATE_MENU );
