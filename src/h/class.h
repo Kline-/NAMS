@@ -36,5 +36,6 @@ class Socket;
     class SocketServer;
 class Thing;
     class Character;
+    class Room;
 
 #endif
