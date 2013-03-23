@@ -58,6 +58,14 @@ Class
         will tie into, but not inherit, the Plugin class in order to
         interface with any class that is implemented in this manner.
 
+    Room
+        Inherits: Thing
+        Children: None
+        Internal: None
+
+        A room is a representation of a physical location within the
+        game world.
+
     Server
         Inherits: None
         Children: None
@@ -106,7 +114,7 @@ Class
 
     Thing
         Inherits: None
-        Children: Character
+        Children: Character, Room
         Internal: None
 
         A Thing is a generic parent class for all in-game objects:

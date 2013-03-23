@@ -1,7 +1,7 @@
 ## Create possibly empty folders due to Git
 mkdir -p o
 
-singles="account command doc etc log obj var"
+singles="account command doc etc log obj var world"
 for i in $singles; do
  mkdir -p ../$i
 done
