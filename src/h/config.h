@@ -78,6 +78,13 @@
  ***************************************************************************/
 /** @name Data Options */ /**@{*/
 /**
+ * @def CFG_DAT_CHR_UNLINK
+ * @brief If true, will unlink character files on deletion. If false, character files will be retained on disk and only de-associated from the account.
+ * @par Default: false
+ */
+#define CFG_DAT_CHR_UNLIMK false
+
+/**
  * @def CFG_DAT_DIR_ACCOUNT
  * @brief Directory for accounts to be loaded from.
  * @par Default: "account"
@@ -316,6 +323,13 @@
 #define CFG_STR_ACT_CHR_LIMIT "Accounts are limited to %d characters. Please delete an existing character to create a new one." CRLF
 
 /**
+ * @def CFG_STR_ACT_CHR_NONE
+ * @brief String sent if the account has no characters to delete.
+ * @par Default: "There are no characters associated with this account." CRLF
+ */
+#define CFG_STR_ACT_CHR_NONE "There are no characters associated with this account." CRLF
+
+/**
  * @def CFG_STR_ACT_NAME_ALNUM
  * @brief String additionally sent if an account name is invalid due to non-alphanumeric characters.
  * @par Default: "Account name must be alphanumeric characters only." CRLF
@@ -405,6 +419,13 @@
  * @par Default: CRLF "Passwords don't match." CRLF
  */
 #define CFG_STR_ACT_PASSWORD_MISMATCH CRLF "Passwords don't match." CRLF
+
+/**
+ * @def CFG_STR_CHR_DELETE_CONFIRM
+ * @brief String sent to confirm the deletion of a character.
+ * @par Default: "To confirm deletion enter 'yes'; to abort, enter anything else." CRLF "Do you wish to delete %s? "
+ */
+#define CFG_STR_CHR_DELETE_CONFIRM "To confirm deletion enter 'yes'; to abort, enter anything else." CRLF "Do you wish to delete %s? "
 
 /**
  * @def CFG_STR_CHR_NAME_ALNUM
@@ -545,6 +566,13 @@
  * @par Default: "Please select one of the following options:" CRLF
  */
 #define CFG_STR_SEL_OPTIONS "Please select one of the following options:" CRLF
+
+/**
+ * @def CFG_STR_SEL_PROMPT
+ * @brief String send to the client to prompt an input selection.
+ * @par Default: "Option: "
+ */
+#define CFG_STR_SEL_PROMPT "Option: "
 
 /**
  * @def CFG_STR_SHUTDOWN

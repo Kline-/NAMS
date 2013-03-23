@@ -135,7 +135,7 @@ const bool Account::Serialize() const
     stringstream line;
     uint_t i = uintmin_t;
     string file( Utils::FileExt( m_name, CFG_DAT_FILE_ACT_EXT ) );
-    CITER( list, string, li );
+    CITER( vector, string, li );
     list<pair<string,string>>::const_iterator pi;
 
     Utils::FileOpen( ofs, file );
@@ -236,8 +236,8 @@ const bool Account::Unserialize()
                 found = true;
                 token = Utils::StrTokens( value, true );
                 for ( ti = token.begin(); ti != token.end(); ti++ )
-                    m_characters.push_front( *ti );
-                m_characters.reverse();
+                    m_characters.push_back( *ti );
+                sort( m_characters.begin(), m_characters.end() );
             }
             if ( Utils::StrPrefix( "logins", key ) ) /** @todo Need to find a nicer way to do this */
             {
@@ -304,9 +304,9 @@ Character* Account::gCharacter() const
 
 /**
  * @brief Returns the list of all associated characters. Tracking like this allows for a character to be unlinked from the account yet remain on disk.
- * @retval list<string> A forward_list of strings of all the associated Character names.
+ * @retval vector<string> A vector of strings of all the associated Character names.
  */
-const list<string> Account::gCharacters() const
+const vector<string> Account::gCharacters() const
 {
     return m_characters;
 }
@@ -374,7 +374,49 @@ const bool Account::aCharacter( const string& name )
     }
 
     m_characters.push_back( name );
-    m_characters.sort();
+    sort( m_characters.begin(), m_characters.end() );
+
+    return true;
+}
+
+/**
+ * @brief Deletes a character name from the list of associated characters.
+ * @param[in] name The name of the character to delete.
+ * @retval false Returned if there was an error deleting the name.
+ * @retval true Returned if the name was deleted successfully.
+ */
+const bool Account::dCharacter( const string& name )
+{
+    UFLAGS_DE( flags );
+    ITER( vector, string, ci );
+    string item;
+    stringstream id;
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Account::dCharacter()-> called with empty name" );
+        return false;
+    }
+
+    for ( ci = m_characters.begin(); ci != m_characters.end(); )
+    {
+        item = *ci;
+
+        if ( item == name )
+            ci = m_characters.erase( ci );
+        else
+            ++ci;
+    }
+    sort( m_characters.begin(), m_characters.end() );
+
+    if ( CFG_DAT_CHR_UNLIMK )
+    {
+        id << "/" << m_name << "." << name;
+        item = Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name );
+        item += Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT );
+        if ( ::unlink( CSTR( item ) ) < 0 )
+            LOGERRNO( flags, "Account::dCharacter()->unlink()->" );
+    }
 
     return true;
 }
