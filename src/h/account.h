@@ -44,6 +44,7 @@ class Account {
 
         /** @name Query */ /**@{*/
         Character* gCharacter() const;
+        const forward_list<string> gCharacters() const;
         SocketClient* gClient() const;
         const list<pair<string,string>> gLogins( const uint_t& type ) const;
         const string gName() const;

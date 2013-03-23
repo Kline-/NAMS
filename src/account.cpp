@@ -303,6 +303,15 @@ Character* Account::gCharacter() const
 }
 
 /**
+ * @brief Returns the list of all associated characters. Tracking like this allows for a character to be unlinked from the account yet remain on disk.
+ * @retval forward_list<string> A forward_list of strings of all the associated Character names.
+ */
+const forward_list<string> Account::gCharacters() const
+{
+    return m_characters;
+}
+
+/**
  * @brief Returns the associated SocketClient.
  * @retval SocketClient* A pointer to the associated SocketClient.
  */
@@ -369,6 +378,8 @@ const bool Account::sCharacter( Character* character )
         LOGSTR( flags, "Account::sCharacter()-> called while m_character is not NULL" );
         return false;
     }
+
+    m_character = character;
 
     return true;
 }

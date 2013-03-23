@@ -48,6 +48,7 @@ namespace Handler {
     /** @name Internal */ /**@{*/
     const void AccountMenuMain( SocketClient* client, const string& cmd, const string& args );
     const void CharacterCreateMenuMain( SocketClient* client, const string& cmd, const string& args );
+    const void CharacterCreateName( SocketClient* client, const string& cmd, const string& args );
     const void GetNewAccount( SocketClient* client, const string& cmd, const string& args );
     const void GetNewPassword( SocketClient* client, const string& cmd, const string& args );
     const void GetOldPassword( SocketClient* client, const string& cmd, const string& args );

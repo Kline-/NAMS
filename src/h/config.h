@@ -400,6 +400,56 @@
 #define CFG_STR_ACT_PASSWORD_MISMATCH CRLF "Passwords don't match." CRLF
 
 /**
+ * @def CFG_STR_CHR_NAME_ALNUM
+ * @brief String additionally sent if a character name is invalid due to non-alphanumeric characters.
+ * @par Default: "Name must be alphanumeric characters only." CRLF
+ */
+#define CFG_STR_CHR_NAME_ALNUM "Name must be alphanumeric characters only." CRLF
+
+/**
+ * @def CFG_STR_CHR_NAME_EXISTS
+ * @brief String sent if an account tries to create a duplicate character name.
+ * @par Default: "That character already exists in this account." CRLF
+ */
+#define CFG_STR_CHR_NAME_EXISTS "That character already exists in this account." CRLF
+
+
+/**
+ * @def CFG_STR_CHR_NAME_GET
+ * @brief String sent to request the user enters their character name.
+ * @par Default: "Name: "
+ */
+#define CFG_STR_CHR_NAME_GET "Name: "
+
+/**
+ * @def CFG_STR_CHR_NAME_INVALID
+ * @brief String sent when an invalid character name is received.
+ * @par Default: "Invalid name." CRLF
+ */
+#define CFG_STR_CHR_NAME_INVALID "Invalid name." CRLF
+
+/**
+ * @def CFG_STR_CHR_NAME_LENGTH
+ * @brief String additionally sent when a character name is invalid due to length.
+ * @par Default: "Name must be between %d and %d characters." CRLF
+ */
+#define CFG_STR_CHR_NAME_LENGTH "Name must be between %d and %d characters." CRLF
+
+/**
+ * @def CFG_STR_CHR_NAME_PROHIBITED
+ * @brief String additionally sent when a character name matches the prohibited names list.
+ * @par Default: "That name has been prohibited from use." CRLF
+ */
+#define CFG_STR_CHR_NAME_PROHIBITED "That name has been prohibited from use." CRLF
+
+/**
+ * @def CFG_STR_CHR_NEW_ERROR
+ * @brief String sent if an error occurs when first creating a new character.
+ * @par Default: "An error occured while attempting to create that character." CRLF
+ */
+#define CFG_STR_CHR_NEW_ERROR "An error occured while attempting to create that character." CRLF
+
+/**
  * @def CFG_STR_CMD_INVALID
  * @brief String sent when an invalid command is received.
  * @par Default: "Invalid command." CRLF

@@ -43,6 +43,21 @@ const void Character::Delete()
 }
 
 /**
+ * @brief Create a new character; wrapper for the virtual method in Thing.
+ * @param[in] server The Server the character will exist within.
+ * @retval false Returned if a new Character was successfully created or loaded.
+ * @retval true Returned if a new Character was unable to be created.
+ */
+const bool Character::New( Server* server )
+{
+    sServer( server );
+
+    character_list.push_back( this );
+
+    return true;
+}
+
+/**
  * @brief Create a new character.
  * @param[in] server The Server the character will exist within.
  * @param[in] account The associated Account, if any.
@@ -52,6 +67,8 @@ const void Character::Delete()
 const bool Character::New( Server* server, Account* account )
 {
     sServer( server );
+    m_account = account;
+
     character_list.push_back( this );
 
     return true;

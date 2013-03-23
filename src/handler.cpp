@@ -90,6 +90,7 @@ const void Handler::LoginHandler( SocketClient* client, const string& cmd, const
         break;
 
         case SOC_STATE_CHARACTER_CREATE_NAME:
+            CharacterCreateName( client, cmd, args );
         break;
 
         case SOC_STATE_CHARACTER_CREATE_SEX:
@@ -286,6 +287,7 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
 {
     UFLAGS_DE( flags );
     uint_t val = uintmin_t;
+    stringstream menu1, menu2;
 
     if ( client == NULL )
     {
@@ -304,8 +306,23 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
         client->Send( Telopt::opt_cursor_home );
         client->Send( Telopt::opt_erase_screen );
         client->Send( "Account Menu > Create a new character" CRLF "Please select one of the following options:" CRLF );
-        client->Send( Utils::FormatString( 0, "%5d) Set name" CRLF, ACT_MENU_CHARACTER_CREATE_NAME ) );
-        client->Send( Utils::FormatString( 0, "%5d) Set sex" CRLF, ACT_MENU_CHARACTER_CREATE_SEX ) );
+
+        // If we're mid-creation, update the menu items to show current selections
+        if ( client->gAccount()->gCharacter() != NULL )
+        {
+            if ( client->gAccount()->gCharacter()->gCreation( CHR_CREATION_NAME ) )
+                menu1 << "(is: " << client->gAccount()->gCharacter()->gName() << ")";
+            if ( client->gAccount()->gCharacter()->gCreation( CHR_CREATION_SEX ) )
+                switch ( client->gAccount()->gCharacter()->gSex() )
+                {
+                    case CHR_SEX_NONE:   menu2 << "(is: neutral)"; break;
+                    case CHR_SEX_FEMALE: menu2 << "(is: female)";  break;
+                    case CHR_SEX_MALE:   menu2 << "(is: male)";    break;
+                }
+        }
+
+        client->Send( Utils::FormatString( 0, "%5d) Set name %s" CRLF, ACT_MENU_CHARACTER_CREATE_NAME, CSTR( menu1.str() ) ) );
+        client->Send( Utils::FormatString( 0, "%5d) Set sex %s" CRLF, ACT_MENU_CHARACTER_CREATE_SEX, CSTR( menu2.str() ) ) );
         client->Send( Utils::FormatString( 0, "%5d) Back" CRLF, ACT_MENU_CHARACTER_CREATE_BACK ) );
         client->Send( "Option: " );
         return;
@@ -327,6 +344,12 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
         break;
 
          case ACT_MENU_CHARACTER_CREATE_BACK:
+             // Clear out any partially created characters
+             if ( client->gAccount()->gCharacter() != NULL )
+             {
+                 client->gAccount()->gCharacter()->Delete();
+                 client->gAccount()->ClearCharacter();
+             }
             client->sState( SOC_STATE_ACCOUNT_MENU );
             LoginHandler( client );
         break;
@@ -337,6 +360,99 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
             client->Send( "Option: " );
         break;
     }
+
+    return;
+}
+
+/**
+ * @brief Select a new Character name.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::CharacterCreateName( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+    Character* chr = NULL;
+    forward_list<string>::const_iterator ci;
+    stringstream cid;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterCreateName()-> called with NULL client" );
+        return;
+    }
+
+    //Initial entry
+    if ( cmd.empty() )
+    {
+        client->Send( CFG_STR_CHR_NAME_GET );
+        return;
+    }
+
+    // Only allow alphanumerics for the character name itself
+    if ( !Utils::iAlNum( cmd ) )
+    {
+        client->Send( CFG_STR_CHR_NAME_INVALID );
+        client->Send( CFG_STR_CHR_NAME_ALNUM );
+        LoginHandler( client );
+
+        return;
+    }
+
+    //Prevent prohibited names based on Server runtime configuration
+    if ( Handler::CheckProhibited( client, cmd, SVR_CFG_PROHIBITED_NAMES_CHARACTER ) )
+    {
+        client->Send( CFG_STR_CHR_NAME_INVALID );
+        client->Send( CFG_STR_CHR_NAME_PROHIBITED );
+        LoginHandler( client );
+
+        return;
+    }
+
+    if ( cmd.length() < CFG_THG_NAME_MIN_LEN || cmd.length() > CFG_THG_NAME_MAX_LEN )
+    {
+        client->Send( CFG_STR_CHR_NAME_INVALID );
+        client->Send( Utils::FormatString( 0, CFG_STR_CHR_NAME_LENGTH, CFG_THG_NAME_MIN_LEN, CFG_THG_NAME_MAX_LEN ) );
+        LoginHandler( client );
+
+        return;
+    }
+
+    // Does this account already have a character with this name?
+    for ( ci = client->gAccount()->gCharacters().begin(); ci != client->gAccount()->gCharacters().end(); ci++ )
+    {
+        if ( cmd == *ci )
+        {
+            client->Send( CFG_STR_CHR_NAME_EXISTS );
+            LoginHandler( client );
+            return;
+        }
+    }
+
+    if ( client->gAccount()->gCharacter() == NULL )
+    {
+        chr = new Character();
+
+        if ( !chr->New( client->gServer(), client->gAccount() ) )
+        {
+            client->Send( CFG_STR_CHR_NEW_ERROR );
+            chr->Delete();
+            return;
+        }
+    }
+
+    chr->sCreation( CHR_CREATION_NAME, true );
+    chr->sName( cmd );
+    // Id for characters owned by accounts is account_name.character_name
+    cid << client->gAccount()->gName() << "." << chr->gName();
+    chr->sId( cid.str() );
+    client->gAccount()->sCharacter( chr );
+
+    //All went well, generate the next input prompt
+    client->sState( SOC_STATE_CHARACTER_CREATE_MENU );
+    LoginHandler( client );
 
     return;
 }
