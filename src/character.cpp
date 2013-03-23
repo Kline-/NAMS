@@ -115,12 +115,8 @@ const bool Character::Unserialize()
     UFLAGS_DE( flags );
     UFLAGS_I( finfo );
     ifstream ifs;
-    string key, value, line, arg;
-    stringstream loop;
-    bool found = false;
-    pair<string,string> item;
-    vector<string> token;
-    ITER( vector, string, ti );
+    string key, value, line;
+    bool found = false, maxb = false;
     string file( Utils::FileExt( gId(), CFG_DAT_FILE_ACT_EXT ) );
 
     Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), file );
@@ -142,15 +138,26 @@ const bool Character::Unserialize()
         for ( ;; )
         {
             found = false;
+            maxb = false;
 
             // First to ensure name is loaded for logging later
-           // Utils::KeySet( true, found, key, "name", value, m_name );
+            if ( key == "name" )
+            {
+                found = true;
+                sName( value );
+            }
+            if ( key == "id" )
+            {
+                found = true;
+                sId( value );
+            }
+            Utils::KeySet( true, found, key, "sex", value, m_sex, MAX_CHR_SEX, maxb );
 
             if ( !found )
                 LOGFMT( flags, "Character::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
 
-          //  if ( maxb )
-          //      LOGFMT( finfo, "Character::Unserialize()->Utils::KeySet()-> account %s, key %s has illegal value %s", CSTR( m_name ), CSTR( key ), CSTR( value ) );
+            if ( maxb )
+                LOGFMT( finfo, "Character::Unserialize()->Utils::KeySet()-> character id %s, key %s has illegal value %s", CSTR( gId() ), CSTR( key ), CSTR( value ) );
 
             break;
         }

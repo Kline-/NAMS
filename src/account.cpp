@@ -228,6 +228,7 @@ const bool Account::Unserialize()
         for ( ;; )
         {
             found = false;
+            maxb = false;
 
             // First to ensure name is loaded for logging later
             Utils::KeySet( true, found, key, "name", value, m_name );
