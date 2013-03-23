@@ -123,9 +123,9 @@ const bool Account::New( SocketClient* client, const bool& exists )
 }
 
 /**
- * @brief Serialize the account data and write them to #CFG_DAT_FILE_SETTINGS.
- * @retval false Returned if there was an error serializing settings.
- * @retval true Returned if settings were serialized successfully.
+ * @brief Serialize the account data.
+ * @retval false Returned if there was an error serializing the account.
+ * @retval true Returned if the account was serialized successfully.
  */
 const bool Account::Serialize() const
 {
@@ -142,7 +142,7 @@ const bool Account::Serialize() const
 
     if ( !ofs.good() )
     {
-        LOGFMT( flags, "Account::Serialize()-> failed to open settings file: %s", CSTR( file ) );
+        LOGFMT( flags, "Account::Serialize()-> failed to open account file: %s", CSTR( file ) );
         return false;
     }
 
@@ -191,9 +191,9 @@ const bool Account::Serialize() const
 }
 
 /**
- * @brief Unserialize the account data from #CFG_DAT_FILE_SETTINGS.
- * @retval false Returned if there was an error unserializing settings.
- * @retval true Returned if settings were unserialized successfully.
+ * @brief Unserialize the account data.
+ * @retval false Returned if there was an error unserializing the account.
+ * @retval true Returned if the account was unserialized successfully.
  */
 const bool Account::Unserialize()
 {
@@ -213,7 +213,7 @@ const bool Account::Unserialize()
 
     if ( !ifs.good() )
     {
-        LOGFMT( flags, "Account::Unserialize()-> failed to open settings file: %s", CSTR( file ) );
+        LOGFMT( flags, "Account::Unserialize()-> failed to open account file: %s", CSTR( file ) );
         return false;
     }
 

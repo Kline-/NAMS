@@ -94,6 +94,11 @@ const void Handler::LoginHandler( SocketClient* client, const string& cmd, const
         break;
 
         case SOC_STATE_CHARACTER_CREATE_SEX:
+            CharacterCreateSex( client, cmd, args );
+        break;
+
+        case SOC_STATE_CHARACTER_CREATE_FINISH:
+            AttachCharacter( client, cmd, args );
         break;
 
         default:
@@ -216,6 +221,57 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
     return;
 }
 
+/**
+ * @brief Attempt to write a new character to disk after ensuring creation was completed.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::AttachCharacter( SocketClient* client, const string& cmd, const string& args )
+{/*
+    UFLAGS_DE( flags );
+    Account* account = NULL;
+    bool exists = false;
+
+    if ( client->gState() == SOC_STATE_CREATE_ACCOUNT )
+        exists = false;
+    else if ( client->gState() == SOC_STATE_LOAD_ACCOUNT )
+        exists = true;
+    else
+    {
+        LOGFMT( flags, "Handler::AttachAccount()-> called with invalid client state: %lu", client->gState() );
+        return;
+    }
+
+    Telopt::Negotiate( client, SOC_TELOPT_ECHO, false );
+
+    account = new Account();
+    if ( !account->New( client, exists ) )
+    {
+        account->Delete();
+
+        if ( exists )
+            client->gServer()->FindCommand( "quit" )->Run( client );
+        else
+        {
+            client->sLogin( SOC_LOGIN_NAME, "" );
+            client->sLogin( SOC_LOGIN_PASSWORD, "" );
+            client->sState( SOC_STATE_LOGIN_SCREEN );
+            client->Send( CFG_STR_ACT_NEW_ERROR );
+            LoginHandler( client );
+        }
+
+        return;
+    }
+
+    // All went well, off to the account menu
+    client->sState( SOC_STATE_ACCOUNT_MENU );
+    LoginHandler( client );
+*/
+    return;
+}
+
 /* Internal */
 /**
  * @brief Send initial account interface menu.
@@ -245,7 +301,7 @@ const void Handler::AccountMenuMain( SocketClient* client, const string& cmd, co
     {
         client->Send( Telopt::opt_cursor_home );
         client->Send( Telopt::opt_erase_screen );
-        client->Send( "Account Menu" CRLF "Please select one of the following options:" CRLF );
+        client->Send( "Account Menu" CRLF CFG_STR_SEL_OPTIONS );
         client->Send( Utils::FormatString( 0, "%5d) Create a new character" CRLF, ACT_MENU_MAIN_CHARACTER_CREATE ) );
         client->Send( Utils::FormatString( 0, "%5d) Quit" CRLF, ACT_MENU_MAIN_QUIT ) );
         client->Send( "Option: " );
@@ -268,7 +324,7 @@ const void Handler::AccountMenuMain( SocketClient* client, const string& cmd, co
 
         case ACT_MENU_MAIN_INVALID:
         default:
-            client->Send( "Invalid selection." CRLF );
+            client->Send( CFG_STR_SEL_INVALID );
             client->Send( "Option: " );
         break;
     }
@@ -305,7 +361,7 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
     {
         client->Send( Telopt::opt_cursor_home );
         client->Send( Telopt::opt_erase_screen );
-        client->Send( "Account Menu > Create a new character" CRLF "Please select one of the following options:" CRLF );
+        client->Send( "Account Menu > Create a new character" CRLF CFG_STR_SEL_OPTIONS );
 
         // If we're mid-creation, update the menu items to show current selections
         if ( client->gAccount()->gCharacter() != NULL )
@@ -315,14 +371,15 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
             if ( client->gAccount()->gCharacter()->gCreation( CHR_CREATION_SEX ) )
                 switch ( client->gAccount()->gCharacter()->gSex() )
                 {
-                    case CHR_SEX_NONE:   menu2 << "(is: neutral)"; break;
-                    case CHR_SEX_FEMALE: menu2 << "(is: female)";  break;
-                    case CHR_SEX_MALE:   menu2 << "(is: male)";    break;
+                    case CHR_SEX_NEUTRAL: menu2 << "(is: neutral)"; break;
+                    case CHR_SEX_FEMALE:  menu2 << "(is: female)";  break;
+                    case CHR_SEX_MALE:    menu2 << "(is: male)";    break;
                 }
         }
 
         client->Send( Utils::FormatString( 0, "%5d) Set name %s" CRLF, ACT_MENU_CHARACTER_CREATE_NAME, CSTR( menu1.str() ) ) );
         client->Send( Utils::FormatString( 0, "%5d) Set sex %s" CRLF, ACT_MENU_CHARACTER_CREATE_SEX, CSTR( menu2.str() ) ) );
+        client->Send( Utils::FormatString( 0, "%5d) Finish Creation" CRLF, ACT_MENU_CHARACTER_CREATE_FINISH ) );
         client->Send( Utils::FormatString( 0, "%5d) Back" CRLF, ACT_MENU_CHARACTER_CREATE_BACK ) );
         client->Send( "Option: " );
         return;
@@ -343,20 +400,25 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
             LoginHandler( client );
         break;
 
-         case ACT_MENU_CHARACTER_CREATE_BACK:
-             // Clear out any partially created characters
-             if ( client->gAccount()->gCharacter() != NULL )
-             {
-                 client->gAccount()->gCharacter()->Delete();
-                 client->gAccount()->ClearCharacter();
-             }
+        case ACT_MENU_CHARACTER_CREATE_FINISH:
+            client->sState( SOC_STATE_CHARACTER_CREATE_FINISH );
+            LoginHandler( client );
+        break;
+
+        case ACT_MENU_CHARACTER_CREATE_BACK:
+            // Clear out any partially created characters
+            if ( client->gAccount()->gCharacter() != NULL )
+            {
+                client->gAccount()->gCharacter()->Delete();
+                client->gAccount()->ClearCharacter();
+            }
             client->sState( SOC_STATE_ACCOUNT_MENU );
             LoginHandler( client );
         break;
 
         case ACT_MENU_CHARACTER_CREATE_INVALID:
         default:
-            client->Send( "Invalid selection." CRLF );
+            client->Send( CFG_STR_SEL_INVALID );
             client->Send( "Option: " );
         break;
     }
@@ -381,6 +443,12 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
     if ( client == NULL )
     {
         LOGSTR( flags, "Handler::CharacterCreateName()-> called with NULL client" );
+        return;
+    }
+
+    if ( client->gAccount() == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterCreateName()-> called with NULL account" );
         return;
     }
 
@@ -447,13 +515,70 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
     else
         chr = client->gAccount()->gCharacter();
 
-    chr->sCreation( CHR_CREATION_NAME, true );
     chr->sName( cmd );
     // Id for characters owned by accounts is account_name.character_name
     cid << client->gAccount()->gName() << "." << chr->gName();
     chr->sId( cid.str() );
 
     //All went well, generate the next input prompt
+    chr->sCreation( CHR_CREATION_NAME, true );
+    client->sState( SOC_STATE_CHARACTER_CREATE_MENU );
+    LoginHandler( client );
+
+    return;
+}
+
+/**
+ * @brief Select a new Character sex.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::CharacterCreateSex( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+    uint_t val = uintmin_t;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterCreateSex()-> called with NULL client" );
+        return;
+    }
+
+    if ( client->gAccount() == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterCreateSex()-> called with NULL account" );
+        return;
+    }
+
+    //Initial entry
+    if ( cmd.empty() )
+    {
+        client->Send( CFG_STR_SEL_OPTIONS );
+        client->Send( Utils::FormatString( 0, "%5d) Neutral" CRLF, CHR_SEX_NEUTRAL ) );
+        client->Send( Utils::FormatString( 0, "%5d) Female" CRLF, CHR_SEX_FEMALE ) );
+        client->Send( Utils::FormatString( 0, "%5d) Male" CRLF, CHR_SEX_MALE ) );
+        client->Send( "Option: " );
+
+        return;
+    }
+
+    // Safer than ::stoi(), will output 0 for anything invalid
+    stringstream( cmd ) >> val;
+
+    if ( val == CHR_SEX_NONE )
+    {
+        client->Send( CFG_STR_SEL_INVALID );
+        client->Send( "Option: " );
+
+        return;
+    }
+
+    client->gAccount()->gCharacter()->sSex( val );
+
+    //All went well, generate the next input prompt
+    client->gAccount()->gCharacter()->sCreation( CHR_CREATION_SEX, true );
     client->sState( SOC_STATE_CHARACTER_CREATE_MENU );
     LoginHandler( client );
 

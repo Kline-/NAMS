@@ -74,6 +74,93 @@ const bool Character::New( Server* server, Account* account )
     return true;
 }
 
+/**
+ * @brief Serialize the character data.
+ * @retval false Returned if there was an error serializing the character.
+ * @retval true Returned if the character was serialized successfully.
+ */
+const bool Character::Serialize() const
+{
+    UFLAGS_DE( flags );
+    ofstream ofs;
+    string value;
+    stringstream line;
+    string file( Utils::FileExt( gId(), CFG_DAT_FILE_PLR_EXT ) );
+
+    Utils::FileOpen( ofs, file );
+
+    if ( !ofs.good() )
+    {
+        LOGFMT( flags, "Character::Serialize()-> failed to open character file: %s", CSTR( file ) );
+        return false;
+    }
+
+    // First to ensure name is loaded for logging later
+    KEY( ofs, "name", gName() );
+    KEY( ofs, "id", gId() );
+    KEY( ofs, "sex", m_sex );
+
+    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), CSTR( file ) );
+
+    return true;
+}
+
+/**
+ * @brief Unserialize the character data.
+ * @retval false Returned if there was an error unserializing the character.
+ * @retval true Returned if the character was unserialized successfully.
+ */
+const bool Character::Unserialize()
+{
+    UFLAGS_DE( flags );
+    UFLAGS_I( finfo );
+    ifstream ifs;
+    string key, value, line, arg;
+    stringstream loop;
+    bool found = false;
+    pair<string,string> item;
+    vector<string> token;
+    ITER( vector, string, ti );
+    string file( Utils::FileExt( gId(), CFG_DAT_FILE_ACT_EXT ) );
+
+    Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), file );
+
+    if ( !ifs.good() )
+    {
+        LOGFMT( flags, "Character::Unserialize()-> failed to open character file: %s", CSTR( file ) );
+        return false;
+    }
+
+    while ( getline( ifs, line ) )
+    {
+        if ( !Utils::KeyValue( key, value, line) )
+        {
+            LOGFMT( flags, "Character::Unserialize()-> error reading line: %s", CSTR( line ) );
+            continue;
+        }
+
+        for ( ;; )
+        {
+            found = false;
+
+            // First to ensure name is loaded for logging later
+           // Utils::KeySet( true, found, key, "name", value, m_name );
+
+            if ( !found )
+                LOGFMT( flags, "Character::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+
+          //  if ( maxb )
+          //      LOGFMT( finfo, "Character::Unserialize()->Utils::KeySet()-> account %s, key %s has illegal value %s", CSTR( m_name ), CSTR( key ), CSTR( value ) );
+
+            break;
+        }
+    }
+
+    Utils::FileClose( ifs );
+
+    return true;
+}
+
 /* Query */
 /**
  * @brief Returns the Account associated with this Character, if any.

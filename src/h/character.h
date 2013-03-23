@@ -38,6 +38,8 @@ class Character : public Thing {
         const void Delete();
         const bool New( Server* server );
         const bool New( Server* server, Account* account );
+        const bool Serialize() const;
+        const bool Unserialize();
         /**@}*/
 
         /** @name Query */ /**@{*/

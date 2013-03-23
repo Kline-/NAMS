@@ -43,6 +43,7 @@ enum ACT_MENU_CHARACTER_CREATE {
     ACT_MENU_CHARACTER_CREATE_INVALID = 0,  /**< Must be 0 for stringstream extraction. */
     ACT_MENU_CHARACTER_CREATE_NAME    = 1,  /**< Prompt to enter name. */
     ACT_MENU_CHARACTER_CREATE_SEX     = 2,  /**< Prompt to select sex. */
+    ACT_MENU_CHARACTER_CREATE_FINISH  = 3,  /**< Complete creation and save the new character to disk. */
     ACT_MENU_CHARACTER_CREATE_BACK    = 99, /**< Back out to the previous menu level. */
     MAX_ACT_MENU_CHARACTER_CREATE     = 100 /**< Safety limit for looping. */
 };
@@ -82,10 +83,11 @@ enum CHR_CREATION {
  * @enum CHR_SEX
  */
 enum CHR_SEX {
-    CHR_SEX_NONE   = 0, /**< No sex specified / neutral. */
-    CHR_SEX_FEMALE = 1, /**< A female character. */
-    CHR_SEX_MALE   = 2, /**< A male character. */
-    MAX_CHR_SEX    = 3  /**< Safety limit for looping. */
+    CHR_SEX_NONE    = 0, /**< No sex specified. */
+    CHR_SEX_NEUTRAL = 1, /**< A neutral / non-gender identified character. */
+    CHR_SEX_FEMALE  = 2, /**< A female character. */
+    CHR_SEX_MALE    = 3, /**< A male character. */
+    MAX_CHR_SEX     = 4  /**< Safety limit for looping. */
 };
 /**@}*/
 
@@ -142,19 +144,20 @@ enum SVR_CFG_PROHIBITED_NAMES {
  * @enum SOC_STATE
  */
 enum SOC_STATE {
-    SOC_STATE_DISCONNECTED          = 0,   /**< A Socket in a disconnected state. */
-    SOC_STATE_LOGIN_SCREEN          = 1,   /**< A Socket waiting at the login screen. */
-    SOC_STATE_GET_OLD_PASSWORD      = 2,   /**< A Socket using an existing account entering the password. */
-    SOC_STATE_GET_NEW_ACCOUNT       = 3,   /**< A Socket selecting a new account name. */
-    SOC_STATE_GET_NEW_PASSWORD      = 4,   /**< A Socket selecting a new account password. */
-    SOC_STATE_CREATE_ACCOUNT        = 5,   /**< An internal state where a new account is created after confirming a name and password. */
-    SOC_STATE_LOAD_ACCOUNT          = 6,   /**< An internal state where an existing account is loaded after confirming a name and password. */
-    SOC_STATE_ACCOUNT_MENU          = 7,   /**< A Socket at the main account menu. */
-    SOC_STATE_CHARACTER_CREATE_MENU = 8,   /**< A Socket within the character creation menu. */
-    SOC_STATE_CHARACTER_CREATE_NAME = 9,   /**< A Socket selecting a new Character name. */
-    SOC_STATE_CHARACTER_CREATE_SEX  = 10,  /**< A Socket selecting a new Character sex. */
-    SOC_STATE_PLAYING               = 100, /**< A Socket fully within the game world and actively playing. */
-    MAX_SOC_STATE                   = 101  /**< Safety limit for looping. */
+    SOC_STATE_DISCONNECTED            = 0,   /**< A Socket in a disconnected state. */
+    SOC_STATE_LOGIN_SCREEN            = 1,   /**< A Socket waiting at the login screen. */
+    SOC_STATE_GET_OLD_PASSWORD        = 2,   /**< A Socket using an existing account entering the password. */
+    SOC_STATE_GET_NEW_ACCOUNT         = 3,   /**< A Socket selecting a new account name. */
+    SOC_STATE_GET_NEW_PASSWORD        = 4,   /**< A Socket selecting a new account password. */
+    SOC_STATE_CREATE_ACCOUNT          = 5,   /**< An internal state where a new account is created after confirming a name and password. */
+    SOC_STATE_LOAD_ACCOUNT            = 6,   /**< An internal state where an existing account is loaded after confirming a name and password. */
+    SOC_STATE_ACCOUNT_MENU            = 7,   /**< A Socket at the main account menu. */
+    SOC_STATE_CHARACTER_CREATE_MENU   = 8,   /**< A Socket within the character creation menu. */
+    SOC_STATE_CHARACTER_CREATE_NAME   = 9,   /**< A Socket selecting a new Character name. */
+    SOC_STATE_CHARACTER_CREATE_SEX    = 10,  /**< A Socket selecting a new Character sex. */
+    SOC_STATE_CHARACTER_CREATE_FINISH = 11,  /**< An internal state where a new character is initially saved to disk. */
+    SOC_STATE_PLAYING                 = 100, /**< A Socket fully within the game world and actively playing. */
+    MAX_SOC_STATE                     = 101  /**< Safety limit for looping. */
 };
 /**@}*/
 

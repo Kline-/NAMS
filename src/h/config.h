@@ -534,6 +534,13 @@
 #define CFG_STR_SEL_INVALID "Invalid selection." CRLF
 
 /**
+ * @def CFG_STR_SEL_OPTIONS
+ * @brief String sent to prompt for a selection of menu options.
+ * @par Default: "Please select one of the following options:" CRLF
+ */
+#define CFG_STR_SEL_OPTIONS "Please select one of the following options:" CRLF
+
+/**
  * @def CFG_STR_SHUTDOWN
  * @brief String broadcast to all clients when the server is shutting down.
  * @par Default: "Server shutting down." CRLF
