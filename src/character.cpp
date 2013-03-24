@@ -45,14 +45,26 @@ const void Character::Delete()
 /**
  * @brief Create a new character.
  * @param[in] server The Server the character will exist within.
- * @param[in] account The associated Account, if any.
+ * @param[in] file The filename to load without any path prepended to it.
+ * @param[in] exists True if the character should be loaded, false if a new one need be created.
  * @retval false Returned if a new Character was successfully created or loaded.
  * @retval true Returned if a new Character was unable to be created.
  */
-const bool Character::New( Server* server, Account* account )
+const bool Character::New( Server* server, const string& file, const bool& exists )
 {
+    UFLAGS_DE( flags );
+
+    m_file = file;
     sServer( server );
-    m_account = account;
+
+    if ( exists )
+    {
+        if ( !Unserialize() )
+        {
+            LOGFMT( flags, "Character::New()->Character::Unserialize()-> returned false for file %s", CSTR( file ) );
+            return false;
+        }
+    }
 
     character_list.push_back( this );
 
@@ -102,13 +114,12 @@ const bool Character::Unserialize()
     ifstream ifs;
     string key, value, line;
     bool found = false, maxb = false;
-    string file( Utils::FileExt( gId(), CFG_DAT_FILE_ACT_EXT ) );
 
-    Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), file ) );
+    Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), m_file ) );
 
     if ( !ifs.good() )
     {
-        LOGFMT( flags, "Character::Unserialize()-> failed to open character file: %s", CSTR( file ) );
+        LOGFMT( flags, "Character::Unserialize()-> failed to open character file: %s", CSTR( m_file ) );
         return false;
     }
 
@@ -193,6 +204,27 @@ const uint_t Character::gSex() const
 
 /* Manipulate */
 /**
+ * @brief Sets the account of this character.
+ * @param[in] account A pointer to the Account to be associated with this character.
+ * @retval false Returned if unable to associate the account with this character.
+ * @retval true Returned if the account was successfully associated.
+ */
+const bool Character::sAccount( Account* account )
+{
+    UFLAGS_DE( flags );
+
+    if ( account == NULL )
+    {
+        LOGSTR( flags, "Character::sAccount()-> called with NULL account" );
+        return false;
+    }
+
+    m_account = account;
+
+    return true;
+}
+
+/**
  * @brief Sets the creation states of this character from #CHR_CREATION.
  * @param[in] pos The creation state to set.
  * @param[in] val The value to set.
@@ -246,6 +278,7 @@ Character::Character()
     m_account = NULL;
     for ( i = 0; i < MAX_CHR_CREATION; i++ )
         m_creation[i] = false;
+    m_file.clear();
     m_sex = 0;
 
     return;

@@ -27,6 +27,45 @@
 #include "h/thing.h"
 
 /* Core */
+/**
+ * @brief Adds a Thing to the contents of this Thing.
+ * @param[in] thing A pointer to another Thing to be added to the contents of this Thing.
+ * @retval void
+ */
+const void Thing::AddThing( Thing* thing )
+{
+    UFLAGS_DE( flags );
+
+    if ( thing == NULL )
+    {
+        LOGSTR( flags, "Thing::AddThing()-> called with NULL thing" );
+        return;
+    }
+
+    m_contents.push_back( thing );
+
+    return;
+}
+
+/**
+ * @brief Removes a Thing to the contents of this Thing.
+ * @param[in] thing A pointer to another Thing to be removed from the contents of this Thing.
+ * @retval void
+ */
+const void Thing::RemoveThing( Thing* thing )
+{
+    UFLAGS_DE( flags );
+
+    if ( thing == NULL )
+    {
+        LOGSTR( flags, "Thing::RemoveThing()-> called with NULL thing" );
+        return;
+    }
+
+    m_contents.erase( find( m_contents.begin(), m_contents.end(), thing ) );
+
+    return;
+}
 
 /* Query */
 /**
@@ -127,6 +166,7 @@ const bool Thing::sServer( Server* server )
  */
 Thing::Thing()
 {
+    m_contents.clear();
     m_id.clear();
     m_name.clear();
     m_server = NULL;

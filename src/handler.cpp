@@ -109,6 +109,14 @@ const void Handler::LoginHandler( SocketClient* client, const string& cmd, const
             CharacterDeleteConfirm( client, cmd, args );
         break;
 
+        case SOC_STATE_CHARACTER_LOAD_MENU:
+            CharacterLoadMenuMain( client, cmd, args );
+        break;
+
+        case SOC_STATE_LOAD_CHARACTER:
+            LoadCharacter( client, cmd, args );
+        break;
+
         default:
         break;
     }
@@ -309,6 +317,7 @@ const void Handler::AccountMenuMain( SocketClient* client, const string& cmd, co
         client->Send( Telopt::opt_cursor_home );
         client->Send( Telopt::opt_erase_screen );
         client->Send( "Account Menu" CRLF CFG_STR_SEL_OPTIONS );
+        client->Send( Utils::FormatString( 0, "%5d) Load an existing character" CRLF, ACT_MENU_MAIN_CHARACTER_LOAD ) );
         client->Send( Utils::FormatString( 0, "%5d) Create a new character" CRLF, ACT_MENU_MAIN_CHARACTER_CREATE ) );
         client->Send( Utils::FormatString( 0, "%5d) Delete an existing character" CRLF, ACT_MENU_MAIN_CHARACTER_DELETE ) );
         client->Send( Utils::FormatString( 0, "%5d) Quit" CRLF, ACT_MENU_MAIN_QUIT ) );
@@ -321,6 +330,19 @@ const void Handler::AccountMenuMain( SocketClient* client, const string& cmd, co
 
     switch( val )
     {
+        case ACT_MENU_MAIN_CHARACTER_LOAD:
+            if ( !client->gAccount()->gCharacters().empty() )
+            {
+                client->sState( SOC_STATE_CHARACTER_LOAD_MENU );
+                LoginHandler( client );
+            }
+            else
+            {
+                client->Send( CFG_STR_ACT_CHR_NONE );
+                client->Send( CFG_STR_SEL_PROMPT );
+            }
+        break;
+
         case ACT_MENU_MAIN_CHARACTER_CREATE:
             if ( client->gAccount()->gCharacters().size() < CFG_ACT_CHARACTER_MAX )
             {
@@ -553,8 +575,9 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
     if ( client->gAccount()->gCharacter() == NULL )
     {
         chr = new Character();
+        chr->sAccount( client->gAccount() );
 
-        if ( !chr->New( client->gServer(), client->gAccount() ) )
+        if ( !chr->New( client->gServer(), cmd, false ) )
         {
             client->Send( CFG_STR_CHR_NEW_ERROR );
             chr->Delete();
@@ -662,14 +685,14 @@ const void Handler::CharacterDeleteConfirm( SocketClient* client, const string& 
     //Initial entry
     if ( cmd.empty() )
     {
-        client->Send( Utils::FormatString( 0, CFG_STR_CHR_DELETE_CONFIRM, CSTR( client->gLogin( SOC_LOGIN_DELETE ) ) ) );
+        client->Send( Utils::FormatString( 0, CFG_STR_CHR_DELETE_CONFIRM, CSTR( client->gLogin( SOC_LOGIN_CHARACTER ) ) ) );
         return;
     }
 
-    if ( Utils::Lower( cmd ) == "yes" && client->gAccount()->dCharacter( client->gLogin( SOC_LOGIN_DELETE ) ) )
+    if ( Utils::Lower( cmd ) == "yes" && client->gAccount()->dCharacter( client->gLogin( SOC_LOGIN_CHARACTER ) ) )
             client->gAccount()->Serialize();
 
-    client->sLogin( SOC_LOGIN_DELETE, "" );
+    client->sLogin( SOC_LOGIN_CHARACTER, "" );
 
     //Generate the next input prompt
     client->sState( SOC_STATE_ACCOUNT_MENU );
@@ -710,7 +733,7 @@ const void Handler::CharacterDeleteMenuMain( SocketClient* client, const string&
         client->Send( "Account Menu > Delete an existing character" CRLF CFG_STR_SEL_OPTIONS );
         for ( i = 0; i < client->gAccount()->gCharacters().size(); i++ )
             client->Send( Utils::FormatString( 0, "%5d) %s" CRLF, i+1, CSTR( client->gAccount()->gCharacters()[i] ) ) );
-        client->Send( Utils::FormatString( 0, "%5d) Back" CRLF, ACT_MENU_CHARACTER_CREATE_BACK ) );
+        client->Send( Utils::FormatString( 0, "%5d) Back" CRLF, ACT_MENU_CHARACTER_DELETE_BACK ) );
         client->Send( CFG_STR_SEL_PROMPT );
         return;
     }
@@ -721,7 +744,7 @@ const void Handler::CharacterDeleteMenuMain( SocketClient* client, const string&
     // Handle 1 through CFG_ACT_CHARACTER_MAX dynamically
     if ( val >= 1 && val <= CFG_ACT_CHARACTER_MAX )
     {
-        client->sLogin( SOC_LOGIN_DELETE, client->gAccount()->gCharacters()[val-1] );
+        client->sLogin( SOC_LOGIN_CHARACTER, client->gAccount()->gCharacters()[val-1] );
         client->sState( SOC_STATE_CHARACTER_DELETE_CONFIRM );
         LoginHandler( client );
 
@@ -736,6 +759,73 @@ const void Handler::CharacterDeleteMenuMain( SocketClient* client, const string&
         break;
 
         case ACT_MENU_CHARACTER_DELETE_INVALID:
+        default:
+            client->Send( CFG_STR_SEL_INVALID );
+            client->Send( CFG_STR_SEL_PROMPT );
+        break;
+    }
+
+    return;
+}
+
+/**
+ * @brief Main Character load menu.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+    uint_t i = uintmin_t, val = uintmin_t;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterLoadMenuMain()-> called with NULL client" );
+        return;
+    }
+
+    if ( client->gAccount() == NULL )
+    {
+        LOGSTR( flags, "Handler::CharacterLoadMenuMain()-> called with NULL account" );
+        return;
+    }
+
+    //Initial entry
+    if ( cmd.empty() )
+    {
+        client->Send( Telopt::opt_cursor_home );
+        client->Send( Telopt::opt_erase_screen );
+        client->Send( "Account Menu > Load an existing character" CRLF CFG_STR_SEL_OPTIONS );
+        for ( i = 0; i < client->gAccount()->gCharacters().size(); i++ )
+            client->Send( Utils::FormatString( 0, "%5d) %s" CRLF, i+1, CSTR( client->gAccount()->gCharacters()[i] ) ) );
+        client->Send( Utils::FormatString( 0, "%5d) Back" CRLF, ACT_MENU_CHARACTER_DELETE_BACK ) );
+        client->Send( CFG_STR_SEL_PROMPT );
+        return;
+    }
+
+    // Safer than ::stoi(), will output 0 for anything invalid
+    stringstream( cmd ) >> val;
+
+    // Handle 1 through CFG_ACT_CHARACTER_MAX dynamically
+    if ( val >= 1 && val <= CFG_ACT_CHARACTER_MAX )
+    {
+        client->sLogin( SOC_LOGIN_CHARACTER, client->gAccount()->gCharacters()[val-1] );
+        client->sState( SOC_STATE_LOAD_CHARACTER );
+        LoginHandler( client );
+
+        return;
+    }
+
+    switch( val )
+    {
+        case ACT_MENU_CHARACTER_LOAD_BACK:
+            client->sState( SOC_STATE_ACCOUNT_MENU );
+            LoginHandler( client );
+        break;
+
+        case ACT_MENU_CHARACTER_LOAD_INVALID:
         default:
             client->Send( CFG_STR_SEL_INVALID );
             client->Send( CFG_STR_SEL_PROMPT );
@@ -877,6 +967,48 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
 
     //Generate the next input prompt
     LoginHandler( client );
+
+    return;
+}
+
+/**
+ * @brief Load a character from the account to enter into the game with.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::LoadCharacter( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+    Character* chr = NULL;
+    stringstream id;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::LoadCharacter()-> called with NULL client" );
+        return;
+    }
+
+    if ( client->gAccount() == NULL )
+    {
+        LOGSTR( flags, "Handler::LoadCharacter()-> called with NULL account" );
+        return;
+    }
+
+    chr = new Character();
+    chr->sAccount( client->gAccount() );
+    // Id for characters owned by accounts is account_name.character_name
+    id << client->gAccount()->gName() << "." << client->gLogin( SOC_LOGIN_CHARACTER );
+
+    if ( !chr->New( client->gServer(), Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT ), true ) )
+    {
+        LOGFMT( flags, "Handler::LoadCharacter()->Character::New()-> returned false for character %s", CSTR( id.str() ) );
+        delete chr;
+        return;
+    }
+
+    client->gAccount()->sCharacter( chr );
 
     return;
 }

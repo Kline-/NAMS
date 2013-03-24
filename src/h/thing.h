@@ -34,7 +34,9 @@ using namespace std;
 class Thing {
     public:
         /** @name Core */ /**@{*/
+        const void AddThing( Thing* thing );
         virtual const void Delete() = 0;
+        const void RemoveThing( Thing* thing );
         virtual const bool Serialize() const = 0;
         virtual const bool Unserialize() = 0;
         /**@}*/
@@ -57,6 +59,7 @@ class Thing {
         /**@}*/
 
     private:
+        vector<Thing*> m_contents; /**< Other Things that are contained within this Thing. */
         string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
         string m_name; /**< The name of the thing. */
         Server* m_server; /**< The Server this Thing exists within. */

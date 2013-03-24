@@ -43,7 +43,7 @@ const void Location::Delete()
 /**
  * @brief Create a new location.
  * @param[in] server The Server the location will exist within.
- * @param[in] file The filename to load without any path prepended to it.
+ * @param[in] file The filename to load including the full path prepended to it.
  * @retval false Returned if a new Location was successfully created or loaded.
  * @retval true Returned if a new Location was unable to be created.
  */
@@ -56,7 +56,7 @@ const bool Location::New( Server* server, const string& file )
 
     if ( !Unserialize() )
     {
-        LOGFMT( flags, "Location::New()->Location::Unzerialize()-> returned false for file %s", CSTR( file ) );
+        LOGFMT( flags, "Location::New()->Location::Unserialize()-> returned false for file %s", CSTR( file ) );
         return false;
     }
 

@@ -58,12 +58,22 @@ enum ACT_MENU_CHARACTER_DELETE {
 };
 
 /**
+ * @enum ACT_MENU_CHARACTER_LOAD
+ */
+enum ACT_MENU_CHARACTER_LOAD {
+    ACT_MENU_CHARACTER_LOAD_INVALID = 0,  /**< Must be 0 for stringstream extraction. */
+    ACT_MENU_CHARACTER_LOAD_BACK    = 99, /**< Back out to the previous menu level. */
+    MAX_ACT_MENU_CHARACTER_LOAD     = 100 /**< Safety limit for looping. */
+};
+
+/**
  * @enum ACT_MENU_MAIN
  */
 enum ACT_MENU_MAIN {
     ACT_MENU_MAIN_INVALID          = 0,  /**< Must be 0 for stringstream extraction. */
-    ACT_MENU_MAIN_CHARACTER_CREATE = 1,  /**< Create a new character associated to the account. */
-    ACT_MENU_MAIN_CHARACTER_DELETE = 2,  /**< Delete a character associated with the account. */
+    ACT_MENU_MAIN_CHARACTER_LOAD   = 1,  /**< Load an existing character and enter the game. */
+    ACT_MENU_MAIN_CHARACTER_CREATE = 2,  /**< Create a new character associated to the account. */
+    ACT_MENU_MAIN_CHARACTER_DELETE = 3,  /**< Delete a character associated with the account. */
     ACT_MENU_MAIN_QUIT             = 99, /**< Disconnect from the server. */
     MAX_ACT_MENU_MAIN              = 100 /**< Safety limit for looping. */
 };
@@ -168,6 +178,8 @@ enum SOC_STATE {
     SOC_STATE_CHARACTER_CREATE_FINISH  = 11,  /**< An internal state where a new character is initially saved to disk. */
     SOC_STATE_CHARACTER_DELETE_MENU    = 12,  /**< A Socket within the character deletion menu. */
     SOC_STATE_CHARACTER_DELETE_CONFIRM = 13,  /**< A Socket confirming deletion of a character. */
+    SOC_STATE_CHARACTER_LOAD_MENU      = 14,  /**< A Socket within the character load menu. */
+    SOC_STATE_LOAD_CHARACTER           = 15,  /**< An internal state where an existing character is loaded. */
     SOC_STATE_PLAYING                  = 100, /**< A Socket fully within the game world and actively playing. */
     MAX_SOC_STATE                      = 101  /**< Safety limit for looping. */
 };
@@ -178,10 +190,10 @@ enum SOC_STATE {
  * @enum SOC_LOGIN
  */
 enum SOC_LOGIN {
-    SOC_LOGIN_NAME     = 0, /**< Name received from the socket during the login process. */
-    SOC_LOGIN_PASSWORD = 1, /**< Password received from the socket during the login process. */
-    SOC_LOGIN_DELETE   = 2, /**< Character pending deletion. */
-    MAX_SOC_LOGIN      = 3  /**< Safety limit for looping. */
+    SOC_LOGIN_NAME      = 0, /**< Name received from the socket during the login process. */
+    SOC_LOGIN_PASSWORD  = 1, /**< Password received from the socket during the login process. */
+    SOC_LOGIN_CHARACTER = 2, /**< Character pending loading or deletion. */
+    MAX_SOC_LOGIN       = 3  /**< Safety limit for looping. */
 };
 
 /**

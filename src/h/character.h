@@ -36,7 +36,7 @@ class Character : public Thing {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New( Server* server, Account* account = NULL );
+        const bool New( Server* server, const string& file, const bool& exists );
         const bool Serialize() const;
         const bool Unserialize();
         /**@}*/
@@ -48,6 +48,7 @@ class Character : public Thing {
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sAccount( Account* account );
         const bool sCreation( const uint_t& pos, const bool& val );
         const bool sSex( const uint_t& sex );
         /**@}*/
@@ -60,6 +61,7 @@ class Character : public Thing {
     private:
         Account* m_account; /**< The associated Account, if any. */
         bool m_creation[MAX_CHR_CREATION]; /**< Track if all creation options have been set. */
+        string m_file; /**< Path to the file on disk. */
         uint_t m_sex; /**< The sex of the character. */
 };
 
