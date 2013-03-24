@@ -16,13 +16,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 /**
- * @file room.h
- * @brief The Room class.
+ * @file location.h
+ * @brief The Location class.
  *
- *  This file contains the Room class and template functions.
+ *  This file contains the Location class and template functions.
  */
-#ifndef DEC_ROOM_H
-#define DEC_ROOM_H
+#ifndef DEC_LOCATION_H
+#define DEC_LOCATION_H
 
 #include "thing.h"
 
@@ -31,7 +31,7 @@ using namespace std;
 /**
  * @brief A physical location within the game world.
  */
-class Room : public Thing {
+class Location : public Thing {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
@@ -47,8 +47,8 @@ class Room : public Thing {
         /**@}*/
 
         /** @name Internal */ /**@{*/
-        Room();
-        ~Room();
+        Location();
+        ~Location();
         /**@}*/
 
     private:

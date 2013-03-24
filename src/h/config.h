@@ -127,6 +127,13 @@
 #define CFG_DAT_DIR_VAR "var"
 
 /**
+ * @def CFG_DAT_DIR_WORLD
+ * @brief Directory for game world files: rooms, objects, NPCs, etc.
+ * @par Default: "world"
+ */
+#define CFG_DAT_DIR_WORLD "world"
+
+/**
  * @def CFG_DAT_FILE_ACT_EXT
  * @brief File extension to use for account setting files.
  * @par Default: "act"
@@ -139,6 +146,13 @@
  * @par Default: "plr"
  */
 #define CFG_DAT_FILE_PLR_EXT "plr"
+
+/**
+ * @def CFG_DAT_FILE_LOC_EXT
+ * @brief File extension to use for location files.
+ * @par Default: "loc"
+ */
+#define CFG_DAT_FILE_LOC_EXT "loc"
 
 /**
  * @def CFG_DAT_FILE_REBOOT

@@ -101,14 +101,14 @@ are also grouped here.
     list.cpp
         Contains all globally referenced list / map / vector types.
 
+    location.cpp
+        Contains all non-template member functions of the Location class.
+
     main.cpp
         Currently only implements int main() and creates a Server object.
 
     plugin.cpp
         Contains all non-template member functions of the Plugin class.
-
-    room.cpp
-        Contains all non-template member functions of the Room class.
 
     server.cpp
         Contains all non-template member functions of the Server class.
@@ -187,6 +187,9 @@ are also grouped here.
     list.h
         Contains all globally referenced list / map / vector types.
 
+    location.h
+        Contains the Location class and templates.
+
     macros.h
         Contains all pre-processor macros within NAMS and select reference
         values that "should not" be changed and are hence omitted from
@@ -201,9 +204,6 @@ are also grouped here.
 
     plugin.h
         Contains the Plugin class and templates.
-
-    room.h
-        Contains the Room class and templates.
 
     server.h
         Contains the Server class and templates.

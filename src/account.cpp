@@ -44,9 +44,6 @@ const void Account::ClearCharacter()
  */
 const void Account::Delete()
 {
-    if ( m_character )
-        m_character->Delete();
-
     delete this;
 
     return;
@@ -533,5 +530,8 @@ Account::Account()
  */
 Account::~Account()
 {
+    if ( m_character )
+        m_character->Delete();
+
     return;
 }

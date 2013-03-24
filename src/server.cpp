@@ -36,6 +36,7 @@
 #include "h/command.h"
 #include "h/event.h"
 #include "h/list.h"
+#include "h/location.h"
 
 /* Core */
 /**
@@ -563,6 +564,9 @@ const void Server::Shutdown( const sint_t& status )
     // Cleanup commands
     while ( !command_list.empty() )
         command_list.begin()->second->Delete();
+    // Cleanup locations
+    while ( !location_list.empty() )
+        location_list.front()->Delete();
     // Cleanup socket clients
     while ( !socket_client_list.empty() )
         socket_client_list.front()->Delete();

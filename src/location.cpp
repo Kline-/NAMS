@@ -16,55 +16,59 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 /**
- * @file room.cpp
- * @brief All non-template member functions of the Room class.
+ * @file location.cpp
+ * @brief All non-template member functions of the Location class.
  *
- * A Room is a representation of a physical location within the game world.
+ * A Location is a representation of a physical location within the game world.
  */
 #include "h/includes.h"
 #include "h/class.h"
 
-#include "h/room.h"
+#include "h/location.h"
+#include "h/list.h"
 
 /* Core */
 /**
- * @brief Unload a room from memory that was previously loaded via Room::New().
+ * @brief Unload a location from memory that was previously loaded via Location::New().
  * @retval void
  */
-const void Room::Delete()
+const void Location::Delete()
 {
+    location_list.erase( find( location_list.begin(), location_list.end(), this ) );
     delete this;
 
     return;
 }
 
 /**
- * @brief Create a new room.
- * @param[in] server The Server the room will exist within.
- * @retval false Returned if a new Room was successfully created or loaded.
- * @retval true Returned if a new Room was unable to be created.
+ * @brief Create a new location.
+ * @param[in] server The Server the location will exist within.
+ * @retval false Returned if a new Location was successfully created or loaded.
+ * @retval true Returned if a new Location was unable to be created.
  */
-const bool Room::New( Server* server )
+const bool Location::New( Server* server )
+{
+    location_list.push_back( this );
+
+    return true;
+}
+
+/**
+ * @brief Serialize the location data.
+ * @retval false Returned if there was an error serializing the location.
+ * @retval true Returned if the location was serialized successfully.
+ */
+const bool Location::Serialize() const
 {
     return true;
 }
 
 /**
- * @brief Serialize the room data.
- * @retval false Returned if there was an error serializing the room.
- * @retval true Returned if the room was serialized successfully.
+ * @brief Unserialize the location data.
+ * @retval false Returned if there was an error unserializing the location.
+ * @retval true Returned if the location was unserialized successfully.
  */
-const bool Room::Serialize() const
-{
-    return true;
-}
-
-/**
- * @brief Unserialize the room data.
- * @retval false Returned if there was an error unserializing the room.
- * @retval true Returned if the room was unserialized successfully.
- */
-const bool Room::Unserialize()
+const bool Location::Unserialize()
 {
     return true;
 }
@@ -75,17 +79,17 @@ const bool Room::Unserialize()
 
 /* Internal */
 /**
- * @brief Constructor for the Room class.
+ * @brief Constructor for the Location class.
  */
-Room::Room()
+Location::Location()
 {
     return;
 }
 
 /**
- * @brief Destructor for the Room class.
+ * @brief Destructor for the Location class.
  */
-Room::~Room()
+Location::~Location()
 {
     return;
 }

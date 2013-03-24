@@ -51,6 +51,13 @@ extern multimap<const char,Command*> command_list;
 extern forward_list<Event*> event_list;
 
 /**
+ * @var location_list
+ * @brief All locations that exist within the server.
+ * @param Location* A pointer to a Location object in memory.
+ */
+extern list<Location*> location_list;
+
+/**
  * @var socket_client_list
  * @brief All SocketClient objects connected to the server.
  * @param SocketClient* A pointer to a SocketClient object in memory.
