@@ -36,8 +36,7 @@ class Character : public Thing {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New( Server* server );
-        const bool New( Server* server, Account* account );
+        const bool New( Server* server, Account* account = NULL );
         const bool Serialize() const;
         const bool Unserialize();
         /**@}*/

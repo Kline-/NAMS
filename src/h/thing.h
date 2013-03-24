@@ -35,7 +35,6 @@ class Thing {
     public:
         /** @name Core */ /**@{*/
         virtual const void Delete() = 0;
-        virtual const bool New( Server* server ) = 0;
         virtual const bool Serialize() const = 0;
         virtual const bool Unserialize() = 0;
         /**@}*/

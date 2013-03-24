@@ -438,7 +438,7 @@ const void Utils::CleanupTemp( uint_t& dir_close, uint_t& dir_open )
     multimap<bool,string> files;
     MITER( multimap, bool,string, mi );
 
-    ListDirectory( CFG_DAT_DIR_VAR, false, files, dir_close, dir_open );
+    ListDirectory( CFG_DAT_DIR_VAR, false, false, files, dir_close, dir_open );
 
     if ( files.empty() )
         return;
@@ -482,13 +482,12 @@ const bool Utils::FileOpen( ofstream& ofs, const string& file )
 /**
  * @brief Begins a read from a file.
  * @param[in] ifs The ifstream to open for reading.
- * @param[in] dir The directory the file resides in.
- * @param[in] file The filename to read from.
+ * @param[in] file The filename to read from, including any directory path.
  * @param[in] quiet If true, don't output error messages on fail.
  * @retval false Returned if there is an error reading the file.
  * @retval true Returned if file is successfully read.
  */
-const bool Utils::FileOpen( ifstream& ifs, const string& dir, const string& file, const bool& quiet )
+const bool Utils::FileOpen( ifstream& ifs, const string& file, const bool& quiet )
 {
     UFLAGS_DE( flags );
 
@@ -499,7 +498,7 @@ const bool Utils::FileOpen( ifstream& ifs, const string& dir, const string& file
         return false;
     }
 
-    ifs.open( CSTR( DirPath( dir, file ) ) );
+    ifs.open( CSTR( file ) );
 
     if ( ifs.fail() )
     {
@@ -640,12 +639,13 @@ const bool Utils::FileClose( ofstream& ofs, const string& dir, const string& fil
  * @brief Return a multimap of a specified directory tree on disk.
  * @param[in] dir The filesystem path to search.
  * @param[in] recursive If true, the function will continue to recursively list folders multi-layers deep rather than top level only.
+ * @param[in] path If true, includes the directory path tree for file entries.
  * @param[in,out] output A multimap<bool,string> consisting of a boolean value denoting either #UTILS_IS_DIRECTORY or #UTILS_IS_FILE. If recursive, this will be updated on each pass.
  * @param[in,out] dir_close A #uint_t to store the total directory opened count.
  * @param[in,out] dir_open A #uint_t to store the total directory closed count.
  * @retval multimap<bool,string> A multimap<bool,string> consisting of a boolean value denoting either #UTILS_IS_DIRECTORY or #UTILS_IS_FILE. If recursive, this will be updated on each pass.
  */
-const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
+const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool& recursive, const bool& path,  multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open )
 {
     UFLAGS_DE( flags );
     DIR* directory = NULL;
@@ -681,12 +681,14 @@ const multimap<bool,string> Utils::ListDirectory( const string& dir, const bool&
 
         if ( iDirectory( idir + ifile ) )
             output.insert( pair<bool,string>( UTILS_IS_DIRECTORY, ifile ) );
+        else if ( path )
+            output.insert( pair<bool,string>( UTILS_IS_FILE, idir + ifile ) );
         else
             output.insert( pair<bool,string>( UTILS_IS_FILE, ifile ) );
 
         // Only recurse if another directory is found, otherwise a file was found, so skip it
         if ( iDirectory( idir + ifile ) && recursive )
-            ListDirectory( idir + ifile, recursive, output, dir_close, dir_open );
+            ListDirectory( idir + ifile, recursive, path, output, dir_close, dir_open );
     }
 
     if ( ::closedir( directory ) < 0 )

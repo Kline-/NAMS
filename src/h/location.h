@@ -35,7 +35,7 @@ class Location : public Thing {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New( Server* server );
+        const bool New( Server* server, const string& file );
         const bool Serialize() const;
         const bool Unserialize();
         /**@}*/
@@ -52,6 +52,8 @@ class Location : public Thing {
         /**@}*/
 
     private:
+        string m_file; /**< Path to the file on disk. */
+        string m_zone; /**< Part of a larger zone / group of locations? Name, if so. */
 };
 
 #endif

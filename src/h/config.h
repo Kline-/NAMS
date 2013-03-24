@@ -189,6 +189,18 @@
 /**@}*/
 
 /***************************************************************************
+ *                             LOCATION OPTIONS                            *
+ ***************************************************************************/
+/** @name Location Options */ /**@{*/
+/**
+ * @def CFG_LOC_ID_START
+ * @brief The initial location to place characters in upon first entering the game.
+ * @par Default: "sys.entrypoint"
+ */
+#define CFG_LOC_ID_START "sys.entrypoint"
+/**@}*/
+
+/***************************************************************************
  *                              LOG OPTIONS                                *
  ***************************************************************************/
 /** @name Log Options */ /**@{*/
@@ -524,6 +536,13 @@
  * @par Default: "Done."
  */
 #define CFG_STR_FILE_DONE "Done."
+
+/**
+ * @def CFG_STR_FILE_LOCATION_READ
+ * @brief String to output prior to loading location files.
+ * @par Default: "Loading locations..."
+ */
+#define CFG_STR_FILE_LOCATION_READ "Loading locations..."
 
 /**
  * @def CFG_STR_FILE_SETTINGS_READ

@@ -43,11 +43,23 @@ const void Location::Delete()
 /**
  * @brief Create a new location.
  * @param[in] server The Server the location will exist within.
+ * @param[in] file The filename to load without any path prepended to it.
  * @retval false Returned if a new Location was successfully created or loaded.
  * @retval true Returned if a new Location was unable to be created.
  */
-const bool Location::New( Server* server )
+const bool Location::New( Server* server, const string& file )
 {
+    UFLAGS_DE( flags );
+
+    m_file = file;
+    sServer( server );
+
+    if ( !Unserialize() )
+    {
+        LOGFMT( flags, "Location::New()->Location::Unzerialize()-> returned false for file %s", CSTR( file ) );
+        return false;
+    }
+
     location_list.push_back( this );
 
     return true;
@@ -60,6 +72,27 @@ const bool Location::New( Server* server )
  */
 const bool Location::Serialize() const
 {
+    UFLAGS_DE( flags );
+    ofstream ofs;
+    string value;
+    stringstream line;
+    string file( Utils::FileExt( gId(), CFG_DAT_FILE_LOC_EXT ) );
+
+    Utils::FileOpen( ofs, file );
+
+    if ( !ofs.good() )
+    {
+        LOGFMT( flags, "Location::Serialize()-> failed to open location file: %s", CSTR( file ) );
+        return false;
+    }
+
+    // First to ensure id is loaded for logging later
+    KEY( ofs, "id", gId() );
+    KEY( ofs, "name", gName() );
+    KEY( ofs, "zone", m_zone );
+
+    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_WORLD, m_zone ), CSTR( file ) );
+
     return true;
 }
 
@@ -70,6 +103,58 @@ const bool Location::Serialize() const
  */
 const bool Location::Unserialize()
 {
+    UFLAGS_DE( flags );
+    UFLAGS_I( finfo );
+    ifstream ifs;
+    string key, value, line;
+    bool found = false, maxb = false;
+
+    Utils::FileOpen( ifs, m_file );
+
+    if ( !ifs.good() )
+    {
+        LOGFMT( flags, "Location::Unserialize()-> failed to open location file: %s", CSTR( m_file ) );
+        return false;
+    }
+
+    while ( getline( ifs, line ) )
+    {
+        if ( !Utils::KeyValue( key, value, line) )
+        {
+            LOGFMT( flags, "Location::Unserialize()-> error reading line: %s", CSTR( line ) );
+            continue;
+        }
+
+        for ( ;; )
+        {
+            found = false;
+            maxb = false;
+
+            // First to ensure id is loaded for logging later
+            if ( key == "id" )
+            {
+                found = true;
+                sId( value );
+            }
+            if ( key == "name" )
+            {
+                found = true;
+                sName( value );
+            }
+            Utils::KeySet( true, found, key, "zone", value, m_zone );
+
+            if ( !found )
+                LOGFMT( flags, "Location::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+
+            if ( maxb )
+                LOGFMT( finfo, "Location::Unserialize()->Utils::KeySet()-> location id %s, key %s has illegal value %s", CSTR( gId() ), CSTR( key ), CSTR( value ) );
+
+            break;
+        }
+    }
+
+    Utils::FileClose( ifs );
+
     return true;
 }
 
@@ -83,6 +168,9 @@ const bool Location::Unserialize()
  */
 Location::Location()
 {
+    m_file.clear();
+    m_zone.clear();
+
     return;
 }
 

@@ -170,7 +170,7 @@ namespace Utils {
     const string Argument( string& input, const string& delim = " " );
     const void CleanupTemp( uint_t& dir_close, uint_t& dir_open );
     const bool FileOpen( ofstream& ofs, const string& file );
-    const bool FileOpen( ifstream& ifs, const string& dir, const string& file, const bool& quiet = false );
+    const bool FileOpen( ifstream& ifs, const string& file, const bool& quiet = false );
     const bool FileClose( ifstream& ifs, const bool& quiet = false );
     const bool FileClose( ofstream& ofs );
     const bool FileClose( ofstream& ofs, const string& dir, const string& file );
@@ -284,7 +284,7 @@ namespace Utils {
 
         return;
     }
-    const multimap<bool,string> ListDirectory( const string& dir, const bool& recursive, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open );
+    const multimap<bool,string> ListDirectory( const string& dir, const bool& recursive, const bool& path, multimap<bool,string>& output, uint_t& dir_close, uint_t& dir_open );
     /**@}*/
 
     /** @name Internal */ /**@{*/

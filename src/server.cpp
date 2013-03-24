@@ -167,7 +167,7 @@ const bool Server::LoadCommands()
     LOGSTR( 0, CFG_STR_FILE_COMMAND_READ );
 
     // Populate the multimap with a recursive listing of the commands folder
-    Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, files, m_dir_close, m_dir_open );
+    Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, false, files, m_dir_close, m_dir_open );
 
     if ( files.empty() )
     {
@@ -199,6 +199,54 @@ const bool Server::LoadCommands()
         LOGFMT( 0, "Loaded %lu commands in %1.2fs.", command_list.size(), ( duration / 1000 ) );
     else
         LOGFMT( 0, "Loaded %lu commands in %1.0fms.", command_list.size(), duration );
+
+    return true;
+}
+
+/**
+ * @brief Search all subfolders of #CFG_DAT_DIR_WORLD and call Location::New() to load each file found to memory.
+ * @retval false Returned if a fault is experienced trying to obtain a directory listing to process.
+ * @retval true Returned if 0 or more Location objects are loaded from disk.
+ */
+const bool Server::LoadLocations()
+{
+    UFLAGS_DE( flags );
+    chrono::high_resolution_clock::time_point start, finish;
+    double duration = uintmin_t;
+    Location* loc = NULL;
+    multimap<bool,string> files;
+    MITER( multimap, bool,string, mi );
+
+    start = chrono::high_resolution_clock::now();
+    LOGSTR( 0, CFG_STR_FILE_LOCATION_READ );
+
+    // Populate the multimap with a recursive listing of the locations folder
+    Utils::ListDirectory( CFG_DAT_DIR_WORLD, true, true, files, m_dir_close, m_dir_open );
+
+    if ( files.empty() )
+    {
+        LOGSTR( flags, "Server::LoadLocations()->Utils::ListDirectory()-> CFG_DAT_DIR_WORLD returned NULL" );
+        return false;
+    }
+
+    for ( mi = files.begin(); mi != files.end(); mi++ )
+    {
+        if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ) == CFG_DAT_FILE_LOC_EXT ) )
+        {
+            loc = new Location();
+            if ( !loc->New( this, mi->second ) )
+            {
+                LOGFMT( flags, "Server::LoadLocations()->Location::New()-> location %s returned false", CSTR( mi->second ) );
+                delete loc;
+            }
+        }
+    }
+
+    finish = chrono::high_resolution_clock::now();
+    if ( ( duration = chrono::duration_cast<chrono::milliseconds>( finish - start ).count() ) > 1000 )
+        LOGFMT( 0, "Loaded %lu locations in %1.2fs.", location_list.size(), ( duration / 1000 ) );
+    else
+        LOGFMT( 0, "Loaded %lu locations in %1.0fms.", location_list.size(), duration );
 
     return true;
 }
@@ -644,6 +692,11 @@ const void Server::Startup( const sint_t& desc )
     if ( !LoadCommands() )
     {
         LOGSTR( flags, "Server::Startup()->Server::LoadCommands()-> returned false" );
+        Shutdown( EXIT_FAILURE );
+    }
+    if ( !LoadLocations() )
+    {
+        LOGSTR( flags, "Server::Startup()->Server::LoadLocations()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
 

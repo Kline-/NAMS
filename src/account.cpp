@@ -206,7 +206,7 @@ const bool Account::Unserialize()
     uint_t i = uintmin_t;
     string file( Utils::FileExt( m_client->gLogin( SOC_LOGIN_NAME ), CFG_DAT_FILE_ACT_EXT ) );
 
-    Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_client->gLogin( SOC_LOGIN_NAME ) ), file );
+    Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_client->gLogin( SOC_LOGIN_NAME ) ), file ) );
 
     if ( !ifs.good() )
     {

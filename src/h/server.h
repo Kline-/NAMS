@@ -68,6 +68,7 @@ class Server {
         const bool BuildPlugin( const string& file, const bool& force = false );
         Command* FindCommand( const string& name ) const;
         const bool LoadCommands();
+        const bool LoadLocations();
         const bool PollSockets();
         const void ProcessEvents();
         const void ProcessInput();

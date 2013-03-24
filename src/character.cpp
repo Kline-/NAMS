@@ -43,21 +43,6 @@ const void Character::Delete()
 }
 
 /**
- * @brief Create a new character; wrapper for the virtual method in Thing.
- * @param[in] server The Server the character will exist within.
- * @retval false Returned if a new Character was successfully created or loaded.
- * @retval true Returned if a new Character was unable to be created.
- */
-const bool Character::New( Server* server )
-{
-    sServer( server );
-
-    character_list.push_back( this );
-
-    return true;
-}
-
-/**
  * @brief Create a new character.
  * @param[in] server The Server the character will exist within.
  * @param[in] account The associated Account, if any.
@@ -95,9 +80,9 @@ const bool Character::Serialize() const
         return false;
     }
 
-    // First to ensure name is loaded for logging later
-    KEY( ofs, "name", gName() );
+    // First to ensure id is loaded for logging later
     KEY( ofs, "id", gId() );
+    KEY( ofs, "name", gName() );
     KEY( ofs, "sex", m_sex );
 
     Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), CSTR( file ) );
@@ -119,7 +104,7 @@ const bool Character::Unserialize()
     bool found = false, maxb = false;
     string file( Utils::FileExt( gId(), CFG_DAT_FILE_ACT_EXT ) );
 
-    Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), file );
+    Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), file ) );
 
     if ( !ifs.good() )
     {
@@ -140,16 +125,16 @@ const bool Character::Unserialize()
             found = false;
             maxb = false;
 
-            // First to ensure name is loaded for logging later
-            if ( key == "name" )
-            {
-                found = true;
-                sName( value );
-            }
+            // First to ensure id is loaded for logging later
             if ( key == "id" )
             {
                 found = true;
                 sId( value );
+            }
+            if ( key == "name" )
+            {
+                found = true;
+                sName( value );
             }
             Utils::KeySet( true, found, key, "sex", value, m_sex, MAX_CHR_SEX, maxb );
 
