@@ -61,7 +61,7 @@ class Plugin {
 
         /** @name Internal */ /**@{*/
         Plugin( const string& name, const uint_t& type );
-        ~Plugin();
+        virtual ~Plugin();
         /**@}*/
 
     private:

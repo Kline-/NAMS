@@ -55,7 +55,7 @@ class Thing {
 
         /** @name Internal */ /**@{*/
         Thing();
-        ~Thing();
+        virtual ~Thing();
         /**@}*/
 
     private:

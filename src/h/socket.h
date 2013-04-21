@@ -72,7 +72,7 @@ class Socket {
 
         /** @name Internal */ /**@{*/
         Socket();
-        ~Socket();
+        virtual ~Socket();
         /**@}*/
 
     private:
