@@ -122,14 +122,14 @@ enum EVENT_TYPE {
 };
 /**@}*/
 
-/** @name Location */ /**@{*/
+/** @name Handler */ /**@{*/
 /**
- * @enum LOCATION_FIND
+ * @enum HANDLER_FIND
  */
-enum LOCATION_FIND {
-    LOCATION_FIND_ID   = 0, /**< Search for Location by id, such as "sys.entrypoint". */
-    LOCATION_FIND_NAME = 1, /**< Search for Location by name, such as "Sunny Garden". */
-    MAX_LOCATION_FIND  = 2  /**< Safety limit for looping. */
+enum HANDLER_FIND {
+    HANDLER_FIND_ID   = 0, /**< Search for object by id, such as "sys.entrypoint". */
+    HANDLER_FIND_NAME = 1, /**< Search for object by name, such as "Chris". */
+    MAX_HANDLER_FIND  = 2  /**< Safety limit for looping. */
 };
 /**@}*/
 

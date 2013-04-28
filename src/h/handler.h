@@ -31,6 +31,9 @@ using namespace std;
  */
 namespace Handler {
     /** @name Core */ /**@{*/
+    Character* FindCharacter( const string& name, const uint_t& type );
+    Command* FindCommand( const string& name );
+    Location* FindLocation( const string& name, const uint_t& type );
     const void LoginHandler( SocketClient* client, const string& cmd = "", const string& args = "" );
     /**@}*/
 

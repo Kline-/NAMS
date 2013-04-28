@@ -21,7 +21,6 @@
 #include "account.h"
 #include "command.h"
 #include "event.h"
-#include "server.h"
 
 class AdmIn : public Plugin {
     public:
@@ -56,7 +55,7 @@ const void AdmIn::Run( SocketClient* client, const string& cmd, const string& ar
         ss << first;
         ss >> time;
 
-        if ( ( command = client->gServer()->FindCommand( second ) ) != NULL )
+        if ( ( command = Handler::FindCommand( second ) ) != NULL )
         {
             if ( client->gAccount() )
                 security = client->gAccount()->gSecurity();

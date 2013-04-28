@@ -190,7 +190,7 @@ const bool SocketClient::ProcessCommand()
         m_command_queue.pop_front();
 
         // Redirect if not fully logged in yet
-        if ( ( command = gServer()->FindCommand( cmd.first ) ) != NULL )
+        if ( ( command = Handler::FindCommand( cmd.first ) ) != NULL )
         {
             if ( command->Authorized( security ) )
                 command->Run( this, cmd.first, cmd.second );
@@ -267,7 +267,7 @@ const bool SocketClient::QueueCommand( const string& command )
     cmd = Utils::Argument( args );
 
     // Check to see if the command can preempt and go to the front of the queue
-    if ( ( search = gServer()->FindCommand( cmd ) ) != NULL )
+    if ( ( search = Handler::FindCommand( cmd ) ) != NULL )
     {
         if ( search->gPreempt() )
             m_command_queue.push_front( pair<string,string>( cmd, args ) );

@@ -31,10 +31,133 @@
 #include "h/character.h"
 #include "h/command.h"
 #include "h/list.h"
+#include "h/location.h"
 #include "h/server.h"
 #include "h/socketclient.h"
 
 /* Core */
+/**
+ * @brief Locates a Character within the game.
+ * @param[in] name The name of the Character to search for.
+ * @param[in] type The field to search against, from #HANDLER_FIND.
+ * @retval Character* A pointer to the Character object associated with name, or NULL if one is not found.
+ */
+Character* Handler::FindCharacter( const string& name, const uint_t& type )
+{
+    return NULL;
+}
+
+/**
+ * @brief Locates a Command associated with the game.
+ * @param[in] name The name of the Command to search for.
+ * @retval Command* A pointer to the Command object associated with name, or NULL if one is not found.
+ */
+Command* Handler::FindCommand( const string& name )
+{
+    UFLAGS_DE( flags );
+    Command* cmd = NULL;
+    bool found = false;
+    pair<multimap<const char,Command*>::iterator,multimap<const char,Command*>::iterator> cmd_list;
+    MITER( multimap, const char,Command*, mi );
+
+    if ( name.empty() )
+        LOGSTR( flags, "Handler::FindCommand()-> called with empty name" );
+
+    if ( CFG_GAM_CMD_IGNORE_CASE )
+        cmd_list = command_list.equal_range( Utils::Lower( name )[0] );
+    else
+        cmd_list = command_list.equal_range( name[0] );
+
+    if ( cmd_list.first == cmd_list.second )
+        cmd = NULL;
+    else
+    {
+        for ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
+        {
+            found = false;
+            cmd = mi->second;
+
+            if ( CFG_GAM_CMD_IGNORE_CASE )
+            {
+                if ( Utils::Lower( cmd->gName() ).find( Utils::Lower( name ) ) == 0 )
+                    found = true;
+            }
+            else
+            {
+                if ( cmd->gName().find( name ) == 0 )
+                    found = true;
+            }
+
+            if ( found )
+                break;
+        }
+
+        if ( !found )
+            cmd = NULL;
+    }
+
+    return cmd;
+}
+
+/**
+ * @brief Locates a Location associated with the game.
+ * @param[in] name The name of the Location to search for.
+ * @param[in] type The field to search against, from #HANDLER_FIND.
+ * @retval Location* A pointer to the Location object associated with name, or NULL if one is not found.
+ */
+Location* Handler::FindLocation( const string& name, const uint_t& type )
+{
+    UFLAGS_DE( flags );
+    Location* loc = NULL;
+    bool found = false;
+    ITER( list, Location*, li );
+    uint_t search = type;
+
+    if ( name.empty() )
+        LOGSTR( flags, "Handler::FindLocation()-> called with empty name" );
+
+    if ( location_list.empty() )
+        loc = NULL;
+    else
+    {
+        if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
+        {
+            LOGFMT( flags, "Handler::FindLocation()-> Called with invalid type: %lu", search );
+            LOGSTR( flags, "Handler::FindLocation()-> defaulting to LOCATION_FIND_ID" );
+            search = HANDLER_FIND_ID;
+        }
+
+        for ( li = location_list.begin(); li != location_list.end(); li++ )
+        {
+            found = false;
+            loc = *li;
+
+            if ( CFG_GAM_CMD_IGNORE_CASE )
+            {
+                if ( search == HANDLER_FIND_ID && Utils::Lower( loc->gId() ).find( Utils::Lower( name ) ) == 0 )
+                    found = true;
+                else if ( search == HANDLER_FIND_NAME && Utils::Lower( loc->gName() ).find( Utils::Lower( name ) ) == 0 )
+                    found = true;
+            }
+            else
+            {
+                if ( search == HANDLER_FIND_ID && loc->gId().find( name ) == 0 )
+                    found = true;
+                else if ( search == HANDLER_FIND_NAME && loc->gName().find( name ) == 0 )
+                    found = true;
+            }
+
+            if ( found )
+                break;
+        }
+
+        if ( !found )
+            loc = NULL;
+    }
+
+    return loc;
+}
+
 /**
  * @brief Dispatches the appropriate menu based on client state.
  * @param[in] client The SocketClient to process a menu request for.
@@ -246,7 +369,7 @@ const void Handler::AttachAccount( SocketClient* client, const string& cmd, cons
         account->Delete();
 
         if ( exists )
-            client->gServer()->FindCommand( "quit" )->Run( client );
+            FindCommand( "quit" )->Run( client );
         else
         {
             client->sLogin( SOC_LOGIN_NAME, "" );
@@ -894,7 +1017,7 @@ const void Handler::EnterGame( SocketClient* client, const string& cmd, const st
         return;
     }
 
-    if ( ( loc = client->gServer()->FindLocation( CFG_LOC_ID_START, LOCATION_FIND_ID ) ) == NULL )
+    if ( ( loc = FindLocation( CFG_LOC_ID_START, HANDLER_FIND_ID ) ) == NULL )
     {
         LOGSTR( flags, "Handler::EnterGame()-> unable to locate CFG_LOC_ID_START" );
         return;
@@ -1079,6 +1202,12 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
     chr->sAccount( client->gAccount() );
     // Id for characters owned by accounts is account_name.character_name
     id << client->gAccount()->gName() << "." << client->gLogin( SOC_LOGIN_CHARACTER );
+
+    // Already in the game, so lets reconnect
+    if ( CheckPlaying( id.str() ) )
+    {
+
+    }
 
     if ( !chr->New( client->gServer(), Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT ), true ) )
     {

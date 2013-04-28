@@ -21,7 +21,6 @@
 #include "account.h"
 #include "command.h"
 #include "event.h"
-#include "server.h"
 
 class AdmReload : public Plugin {
     public:
@@ -47,7 +46,7 @@ const void AdmReload::Run( SocketClient* client, const string& cmd, const string
             return;
         }
 
-        if ( ( command = client->gServer()->FindCommand( arg ) ) != NULL )
+        if ( ( command = Handler::FindCommand( arg ) ) != NULL )
         {
             if ( client->gAccount() )
                 security = client->gAccount()->gSecurity();

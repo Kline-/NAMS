@@ -108,117 +108,6 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
 }
 
 /**
- * @brief Locates a Command associated with the Server.
- * @param[in] name The name of the Command to search for.
- * @retval Command* A pointer to the Command object associated with name, or NULL if one is not found.
- */
-Command* Server::FindCommand( const string& name ) const
-{
-    UFLAGS_DE( flags );
-    Command* cmd = NULL;
-    bool found = false;
-    pair<multimap<const char,Command*>::iterator,multimap<const char,Command*>::iterator> cmd_list;
-    MITER( multimap, const char,Command*, mi );
-
-    if ( name.empty() )
-        LOGSTR( flags, "Server::FindCommand()-> called with empty name" );
-
-    if ( CFG_GAM_CMD_IGNORE_CASE )
-        cmd_list = command_list.equal_range( Utils::Lower( name )[0] );
-    else
-        cmd_list = command_list.equal_range( name[0] );
-
-    if ( cmd_list.first == cmd_list.second )
-        cmd = NULL;
-    else
-    {
-        for ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
-        {
-            found = false;
-            cmd = mi->second;
-
-            if ( CFG_GAM_CMD_IGNORE_CASE )
-            {
-                if ( Utils::Lower( cmd->gName() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-            }
-            else
-            {
-                if ( cmd->gName().find( name ) == 0 )
-                    found = true;
-            }
-
-            if ( found )
-                break;
-        }
-
-        if ( !found )
-            cmd = NULL;
-    }
-
-    return cmd;
-}
-
-/**
- * @brief Locates a Location associated with the Server.
- * @param[in] name The name of the Location to search for.
- * @param[in] type The field to search against, from #LOCATION_FIND.
- * @retval Location* A pointer to the Location object associated with name, or NULL if one is not found.
- */
-Location* Server::FindLocation( const string& name, const uint_t& type ) const
-{
-    UFLAGS_DE( flags );
-    Location* loc = NULL;
-    bool found = false;
-    ITER( list, Location*, li );
-    uint_t search = type;
-
-    if ( name.empty() )
-        LOGSTR( flags, "Server::FindLocation()-> called with empty name" );
-
-    if ( location_list.empty() )
-        loc = NULL;
-    else
-    {
-        if ( search < uintmin_t || search >= MAX_LOCATION_FIND )
-        {
-            LOGFMT( flags, "Server::FindLocation()-> Called with invalid type: %lu", search );
-            LOGSTR( flags, "Server::FindLocation()-> defaulting to LOCATION_FIND_ID" );
-            search = LOCATION_FIND_ID;
-        }
-
-        for ( li = location_list.begin(); li != location_list.end(); li++ )
-        {
-            found = false;
-            loc = *li;
-
-            if ( CFG_GAM_CMD_IGNORE_CASE )
-            {
-                if ( search == LOCATION_FIND_ID && Utils::Lower( loc->gId() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-                else if ( search == LOCATION_FIND_NAME && Utils::Lower( loc->gName() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-            }
-            else
-            {
-                if ( search == LOCATION_FIND_ID && loc->gId().find( name ) == 0 )
-                    found = true;
-                else if ( search == LOCATION_FIND_NAME && loc->gName().find( name ) == 0 )
-                    found = true;
-            }
-
-            if ( found )
-                break;
-        }
-
-        if ( !found )
-            loc = NULL;
-    }
-
-    return loc;
-}
-
-/**
  * @brief Search all subfolders of #CFG_DAT_DIR_COMMAND and call Command::New() to load each file found to memory.
  * @retval false Returned if a fault is experienced trying to obtain a directory listing to process.
  * @retval true Returned if 0 or more Command objects are loaded from disk.
@@ -630,7 +519,7 @@ const bool Server::ReloadCommand( const string& name )
     Command* command = NULL;
     string file;
 
-    command = FindCommand( name );
+    command = Handler::FindCommand( name );
 
     if ( command == NULL )
     {
