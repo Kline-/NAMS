@@ -559,6 +559,13 @@
 #define CFG_STR_FILE_SETTINGS_WRITE "Saving settings..."
 
 /**
+ * @def CFG_STR_GAME_ENTER
+ * @brief String sent when a Character first enters the game world.
+ * @par Default "Welcome, please enjoy your stay." CRLF
+ */
+#define CFG_STR_GAME_ENTER "Welcome, please enjoy your stay." CRLF
+
+/**
  * @def CFG_STR_GAME_ENTER_ERROR
  * @brief String sent when a server fault prevents a Character from entering the game world.
  * @par Default "An error occurred while attempting to enter the game world." CRLF

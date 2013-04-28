@@ -43,6 +43,7 @@ class Character : public Thing {
         /** @name Query */ /**@{*/
         Account* gAccount() const;
         const bool gCreation( const uint_t& pos );
+        const string gPrompt() const;
         const uint_t gSex() const;
         /**@}*/
 

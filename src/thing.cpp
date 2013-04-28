@@ -59,6 +59,8 @@ const bool Thing::AddThing( Thing* thing )
 const bool Thing::Move( Location* location )
 {
     UFLAGS_DE( flags );
+
+    if ( location == NULL )
     {
         LOGSTR( flags, "Thing::Move()-> called with NULL location" );
         return false;

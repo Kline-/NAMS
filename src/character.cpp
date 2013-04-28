@@ -195,6 +195,19 @@ const bool Character::gCreation( const uint_t& pos )
 }
 
 /**
+ * @brief Generates a status-bar prompt based on tokens.
+ * @retval string A string containing the status information.
+ */
+const string Character::gPrompt() const
+{
+    stringstream output;
+
+    output << CRLF << gAccount()->gName() << "::" << gName() << "> ";
+
+    return output.str();
+}
+
+/**
  * @brief Returns the sex of this character from #CHR_SEX.
  * @retval uint_t A uint_t associated to #CHR_SEX.
  */

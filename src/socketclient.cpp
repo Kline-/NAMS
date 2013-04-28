@@ -27,6 +27,7 @@
 #include "h/socketclient.h"
 
 #include "h/account.h"
+#include "h/character.h"
 #include "h/command.h"
 #include "h/list.h"
 #include "h/server.h"
@@ -422,6 +423,23 @@ const bool SocketClient::Send()
         return false;
     }
 
+    if ( gState() == SOC_STATE_PLAYING )
+    {
+        if ( gAccount() == NULL )
+        {
+            LOGSTR( flags, "SocketClient::Send()->SocketClient::gAccount()-> returned NULL with SOC_STATE_PLAYING" );
+            return false;
+        }
+
+        if ( gAccount()->gCharacter() == NULL )
+        {
+            LOGSTR( flags, "SocketClient::Send()->Account::gCharacter()-> returned NULL with SOC_STATE_PLAYING" );
+            return false;
+        }
+
+        Send( gAccount()->gCharacter()->gPrompt() );
+    }
+
     // Nothing new to process; move along
     if ( m_output.empty() )
         return true;
@@ -473,15 +491,7 @@ const bool SocketClient::Send( const string& msg )
         return false;
     }
 
-    // Prepend a CRLF to ensure output lands on a newline.
-    // Make this client configurable in the future.
-    if ( m_output.empty() && m_state == SOC_STATE_PLAYING )
-    {
-        m_output.append( CRLF );
-        m_output.append( Telopt::ProcessOutput( this, msg ) );
-    }
-    else
-        m_output.append( Telopt::ProcessOutput( this, msg ) );
+    m_output.append( Telopt::ProcessOutput( this, msg ) );
 
     return true;
 }
