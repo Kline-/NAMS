@@ -16,10 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 
-#include "includes.h"
-#include "class.h"
-#include "plugin.h"
+#include "pincludes.h"
 
+#include "account.h"
 #include "command.h"
 #include "list.h"
 

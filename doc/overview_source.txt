@@ -78,10 +78,15 @@ are also grouped here.
 
 .cpp
     All .cpp files have their include directives structured in the following
-    manner: "h/includes.h", "h/class.h" and then a blank line for visual
-    reference. If the file implements a class the "h/myclass.h" file is
-    included after this and then subsequently followed by any other classes or
-    headers it depends on.
+    manner: "h/includes.h", "h/mycpp.h" where "mycpp.h" represents the header
+    associated with the .cpp file (if any). After these two standard includes
+    a blank line should be maintained for visual reference and then any other
+    header dependencies should be included after that.
+
+    The only exception to the include requirements are for .cpp files which
+    implement Plugin objects. Any .cpp which implements a Plugin object only
+    needs to include "pincludes.h" and then any other dependencies required
+    for its implementation.
 
     account.cpp
         Contains all non-template member functions of the Account class.
@@ -132,15 +137,15 @@ are also grouped here.
         Contains all functions within the Utils namespace.
 
 .h
-    All .h files are #ifdef guard wrapped and contain only external includes
-    required for their function. If a header file requires any system libraries
-    then those are the first files included within it. Any dependent class
-    header file includes follow after this. Header files that implement a
-    class also state "using namespace std;" in addition to the globally
-    referenced statement within "includes.h". This is to aid Doxygen in
-    properly parsing files and generating correct documentation. Macros are
-    not used in declaring member functions or variables of individual classes
-    for easier visual reference and to also aid Doxygen.
+    All .h files are #ifdef guard wrapped. Excluding "header of headers" files,
+    and derived classes, no header includes any other headers. A derived class
+    header will contain only the include for its parent class.
+
+    Excluding "header of headers" files, each header file also states
+    "using namespace std;" This is to aid Doxygen in properly parsing files and
+    generating correct documentation. Macros are not used in declaring member
+    functions or variables of individual classes for easier visual reference
+    and to also aid Doxygen.
 
     account.h
         Contains the Account class and templates.
@@ -150,7 +155,6 @@ are also grouped here.
 
     class.h
         Contains declarations of all classes. Indented to denote inheritance.
-        This is the second file included within every NAMS .cpp file.
 
     command.h
         Contains the Command class and templates.
@@ -175,7 +179,7 @@ are also grouped here.
 
     includes.h
         This is the first file included within every NAMS .cpp file. It
-        is one of three header files that only serve as a "header of headers"
+        is one of foud header files that only serve as a "header of headers"
         designed for brevity within the .cpp files.
 
     limits.h
@@ -202,6 +206,10 @@ are also grouped here.
         This is the second "header of headers" within NAMS. All headers
         that implement a namespace are included within this file.
 
+    pincludes.h
+        This is the third "header of headers" within NAMS. It must be
+        included within every .cpp that implements a Plugin object.
+
     plugin.h
         Contains the Plugin class and templates.
 
@@ -218,9 +226,8 @@ are also grouped here.
         Contains the SocketServer class and templates.
 
     sysincludes.h
-        This is the third of two "header of headers" files within
-        NAMS. All system include files that are required by more than
-        two .cpp or header files are moved within this header for
+        This is the fourth "header of headers" within NAMS. All
+        system include files are referenced within this header for
         easier management and readability.
 
     telopt.h

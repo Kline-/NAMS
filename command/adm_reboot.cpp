@@ -16,11 +16,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 
-#include "includes.h"
-#include "class.h"
-#include "plugin.h"
+#include "pincludes.h"
 
 #include "list.h"
+#include "server.h"
+#include "socketserver.h"
 
 class AdmReboot : public Plugin {
     public:

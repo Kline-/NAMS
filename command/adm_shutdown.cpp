@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 
-#include "includes.h"
-#include "class.h"
-#include "plugin.h"
+#include "pincludes.h"
+
+#include "server.h"
 
 class AdmShutdown : public Plugin {
     public:

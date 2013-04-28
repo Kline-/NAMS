@@ -52,3 +52,9 @@ root folder/
         operations. Files are first written to var and after the write has
         completed are then moved to their intended location. This ensures that
         in the event of a crash mid-write no data is lost.
+
+    world/
+        All persistent locations within the game world are stored within
+        this directory. Each location is stored as an individual .loc file.
+        Locations may be grouped into "zones" and stored within any style of
+        directory hierarchy.
