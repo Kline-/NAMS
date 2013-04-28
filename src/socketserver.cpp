@@ -23,11 +23,11 @@
  * that have no use on the client end such as accept and bind.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/socketserver.h"
+
 #include "h/list.h"
 #include "h/server.h"
+#include "h/socketclient.h"
 
 /* Core */
 /**

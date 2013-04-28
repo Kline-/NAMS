@@ -24,12 +24,6 @@
 #ifndef DEC_COMMAND_H
 #define DEC_COMMAND_H
 
-#include <cstdio>
-#include <dlfcn.h>
-#include <fstream>
-
-#include "plugin.h"
-
 using namespace std;
 
 /**

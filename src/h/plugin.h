@@ -24,8 +24,6 @@
 #ifndef DEC_PLUGIN_H
 #define DEC_PLUGIN_H
 
-#include "socketclient.h"
-
 using namespace std;
 
 /**
@@ -72,15 +70,5 @@ class Plugin {
         uint_t m_type; /**< The #PLG_TYPE of the class the Plugin implements. */
         uint_t m_uint[CFG_PLG_MAX_ARR]; /**< Any #uint_t that needs to be tied back to the parent object member variables. */
 };
-
-/**
- * @brief Used as a pointer to the New() function within an implemented class.
- */
-typedef Plugin* PluginNew();
-
-/**
- * @brief Used as a pointer to the Delete() function within an implemented class.
- */
-typedef void PluginDelete( Plugin* );
 
 #endif

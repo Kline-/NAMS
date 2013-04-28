@@ -22,10 +22,11 @@
  * Event objects will execute a function after a specified delay.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/event.h"
+
+#include "h/command.h"
 #include "h/list.h"
+#include "h/server.h"
 
 /* Core */
 /**

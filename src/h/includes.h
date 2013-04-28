@@ -31,6 +31,17 @@
 #include "macros.h"
 #include "enum.h"
 #include "config.h"
+#include "class.h"
 #include "namespace.h"
+
+/**
+ * @brief Used as a pointer to the New() function within an implemented class.
+ */
+typedef Plugin* PluginNew();
+
+/**
+ * @brief Used as a pointer to the Delete() function within an implemented class.
+ */
+typedef void PluginDelete( Plugin* );
 
 #endif

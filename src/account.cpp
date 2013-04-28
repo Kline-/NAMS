@@ -22,9 +22,10 @@
  * Security structure to maintain characters, roles, and permissions.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/account.h"
+
+#include "h/character.h"
+#include "h/socketclient.h"
 
 /* Core */
 /**

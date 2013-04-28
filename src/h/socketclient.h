@@ -24,12 +24,7 @@
 #ifndef DEC_SOCKETCLIENT_H
 #define DEC_SOCKETCLIENT_H
 
-#include <deque>
-#include <netdb.h>
-
-#include "account.h"
 #include "socket.h"
-#include "server.h"
 
 using namespace std;
 

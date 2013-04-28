@@ -22,7 +22,9 @@
  * The Telopt namespace contains telnet option negotiation functions.
  */
 #include "h/includes.h"
-#include "h/class.h"
+#include "h/telopt.h"
+
+#include "h/socketclient.h"
 
 /* Core */
 /**

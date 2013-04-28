@@ -25,8 +25,6 @@
  * contained within this namespace.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/utils.h"
 
 /* Core */

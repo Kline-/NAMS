@@ -29,10 +29,10 @@
  * other implementation uses.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/command.h"
+
 #include "h/list.h"
+#include "h/plugin.h"
 
 /* Core */
 /**

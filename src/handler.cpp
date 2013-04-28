@@ -25,13 +25,14 @@
  * within this namespace.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/handler.h"
+
 #include "h/account.h"
+#include "h/character.h"
 #include "h/command.h"
 #include "h/list.h"
 #include "h/server.h"
+#include "h/socketclient.h"
 
 /* Core */
 /**

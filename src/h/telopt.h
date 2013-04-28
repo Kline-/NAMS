@@ -24,10 +24,6 @@
 #ifndef DEC_TELOPT_H
 #define DEC_TELOPT_H
 
-#include <arpa/telnet.h>
-
-#include "socketclient.h"
-
 using namespace std;
 
 /**

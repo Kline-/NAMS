@@ -30,6 +30,4 @@
 #include "telopt.h"
 #include "utils.h"
 
-using namespace std;
-
 #endif

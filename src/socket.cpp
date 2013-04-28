@@ -24,9 +24,9 @@
  * possible for efficiency and ease of future maintenance.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/socket.h"
+
+#include "h/server.h"
 
 /* Core */
 /**

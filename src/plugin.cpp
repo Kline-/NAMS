@@ -27,8 +27,6 @@
  * unless an existing shared object file is already found in #CFG_DAT_DIR_OBJ.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/plugin.h"
 
 /* Core */

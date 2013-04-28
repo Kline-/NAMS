@@ -27,8 +27,6 @@
 #ifndef DEC_LIMITS_H
 #define DEC_LIMITS_H
 
-#include <limits>
-
 using namespace std;
 
 #if __WORDSIZE == 64

@@ -24,8 +24,6 @@
 #ifndef DEC_SOCKET_H
 #define DEC_SOCKET_H
 
-#include "server.h"
-
 using namespace std;
 
 /**

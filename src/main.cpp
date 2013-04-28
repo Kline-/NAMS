@@ -36,7 +36,6 @@
  * Project Website - http://www.ackmud.net\n
  */
 #include "h/includes.h"
-#include "h/class.h"
 
 #include "h/server.h"
 

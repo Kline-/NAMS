@@ -24,10 +24,11 @@
  * end-user.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/character.h"
+
+#include "h/account.h"
 #include "h/list.h"
+#include "h/server.h"
 
 /* Core */
 /**

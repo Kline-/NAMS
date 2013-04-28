@@ -22,9 +22,8 @@
  * A generic "thing": creature, character, room, object, etc.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/thing.h"
+
 #include "h/location.h"
 
 /* Core */

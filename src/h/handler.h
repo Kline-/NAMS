@@ -24,8 +24,6 @@
 #ifndef DEC_HANDLER_H
 #define DEC_HANDLER_H
 
-#include "class.h"
-
 using namespace std;
 
 /**

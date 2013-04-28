@@ -19,22 +19,37 @@
  * @file sysincludes.h
  * @brief All system standard includes that are used within NAMS.
  *
- *  This is the second "header of headers" file within NAMS. All system include
- *  files that are required by more than two .cpp or .h files are moved within
- *  this header for easier management and readability.
+ *  This file is a "header of headers". All system include files are moved
+ *  within this header for easier management and readability.
  */
 #ifndef DEC_SYSINCLUDES_H
 #define DEC_SYSINCLUDES_H
 
 #include <algorithm>
+#include <bitset>
 #include <chrono>
+#include <cstdarg>
+#include <cstdio>
+#include <deque>
 #include <forward_list>
+#include <fstream>
+#include <iostream>
+#include <iterator>
+#include <limits>
 #include <list>
 #include <map>
+#include <sstream>
 #include <vector>
 
 #include <arpa/inet.h>
+#include <arpa/telnet.h>
+#include <dirent.h>
+#include <dlfcn.h>
 #include <errno.h>
+#include <fcntl.h>
 #include <memory.h>
+#include <netdb.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 #endif

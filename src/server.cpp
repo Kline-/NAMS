@@ -29,14 +29,15 @@
  * notification.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/server.h"
+
 #include "h/account.h"
 #include "h/command.h"
 #include "h/event.h"
 #include "h/list.h"
 #include "h/location.h"
+#include "h/socketclient.h"
+#include "h/socketserver.h"
 
 /* Core */
 /**

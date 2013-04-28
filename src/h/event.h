@@ -24,10 +24,6 @@
 #ifndef DEC_EVENT_H
 #define DEC_EVENT_H
 
-#include "command.h"
-#include "server.h"
-#include "socketclient.h"
-
 using namespace std;
 
 /**

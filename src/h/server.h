@@ -24,12 +24,6 @@
 #ifndef DEC_SERVER_H
 #define DEC_SERVER_H
 
-#include <fcntl.h>
-
-#include "character.h"
-#include "socketclient.h"
-#include "socketserver.h"
-
 using namespace std;
 
 /**

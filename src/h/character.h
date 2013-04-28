@@ -24,7 +24,6 @@
 #ifndef DEC_CHARACTER_H
 #define DEC_CHARACTER_H
 
-#include "account.h"
 #include "thing.h"
 
 using namespace std;

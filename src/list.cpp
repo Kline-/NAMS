@@ -24,8 +24,6 @@
  *  to ensure proper tracking and memory cleanup later.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/list.h"
 
 /**

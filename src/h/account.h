@@ -24,10 +24,6 @@
 #ifndef DEC_ACCOUNT_H
 #define DEC_ACCOUNT_H
 
-#include <unistd.h>
-#include "character.h"
-#include "socketclient.h"
-
 using namespace std;
 
 /**

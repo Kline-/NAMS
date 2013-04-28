@@ -22,9 +22,8 @@
  * A Location is a representation of a physical location within the game world.
  */
 #include "h/includes.h"
-#include "h/class.h"
-
 #include "h/location.h"
+
 #include "h/list.h"
 
 /* Core */

@@ -24,16 +24,6 @@
 #ifndef DEC_UTILS_H
 #define DEC_UTILS_H
 
-#include <bitset>
-#include <cstdarg>
-#include <cstdio>
-#include <fstream>
-#include <iostream>
-#include <iterator>
-#include <sstream>
-#include <dirent.h>
-#include <sys/stat.h>
-
 using namespace std;
 
 /**
