@@ -42,12 +42,14 @@ class Thing {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        Thing* gContainer() const;
         const string gId() const;
         const string gName() const;
         Server* gServer() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sContainer( Thing* container );
         const bool sId( const string& id );
         const bool sName( const string& name, const bool& system = false );
         const bool sServer( Server* server );
@@ -59,6 +61,7 @@ class Thing {
         /**@}*/
 
     private:
+        Thing* m_container; /**< The Thing that this Thing is stored within. */
         vector<Thing*> m_contents; /**< Other Things that are contained within this Thing. */
         string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
         string m_name; /**< The name of the thing. */

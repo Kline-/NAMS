@@ -60,65 +60,23 @@ const void Handler::LoginHandler( SocketClient* client, const string& cmd, const
     cout << "state=[" << client->gState() << "} cmd={" << cmd << "} args={" << args <<"}" << endl;
     switch ( client->gState() )
     {
-        case SOC_STATE_LOGIN_SCREEN:
-            LoginScreen( client, cmd, args );
-        break;
-
-        case SOC_STATE_GET_OLD_PASSWORD:
-            GetOldPassword( client, cmd, args );
-        break;
-
-        case SOC_STATE_GET_NEW_ACCOUNT:
-            GetNewAccount( client, cmd, args );
-        break;
-
-        case SOC_STATE_GET_NEW_PASSWORD:
-            GetNewPassword( client, cmd, args );
-        break;
-
-        case SOC_STATE_CREATE_ACCOUNT:
-        case SOC_STATE_LOAD_ACCOUNT:
-            AttachAccount( client, cmd, args );
-        break;
-
-        case SOC_STATE_ACCOUNT_MENU:
-            AccountMenuMain( client, cmd, args );
-        break;
-
-        case SOC_STATE_CHARACTER_CREATE_MENU:
-            CharacterCreateMenuMain( client, cmd, args );
-        break;
-
-        case SOC_STATE_CHARACTER_CREATE_NAME:
-            CharacterCreateName( client, cmd, args );
-        break;
-
-        case SOC_STATE_CHARACTER_CREATE_SEX:
-            CharacterCreateSex( client, cmd, args );
-        break;
-
-        case SOC_STATE_CHARACTER_CREATE_FINISH:
-            AttachCharacter( client, cmd, args );
-        break;
-
-        case SOC_STATE_CHARACTER_DELETE_MENU:
-            CharacterDeleteMenuMain( client, cmd, args );
-        break;
-
-        case SOC_STATE_CHARACTER_DELETE_CONFIRM:
-            CharacterDeleteConfirm( client, cmd, args );
-        break;
-
-        case SOC_STATE_CHARACTER_LOAD_MENU:
-            CharacterLoadMenuMain( client, cmd, args );
-        break;
-
-        case SOC_STATE_LOAD_CHARACTER:
-            LoadCharacter( client, cmd, args );
-        break;
-
-        default:
-        break;
+        case SOC_STATE_LOGIN_SCREEN:                LoginScreen( client, cmd, args );               break;
+        case SOC_STATE_GET_OLD_PASSWORD:            GetOldPassword( client, cmd, args );            break;
+        case SOC_STATE_GET_NEW_ACCOUNT:             GetNewAccount( client, cmd, args );             break;
+        case SOC_STATE_GET_NEW_PASSWORD:            GetNewPassword( client, cmd, args );            break;
+        case SOC_STATE_CREATE_ACCOUNT:              AttachAccount( client, cmd, args );             break;
+        case SOC_STATE_LOAD_ACCOUNT:                AttachAccount( client, cmd, args );             break;
+        case SOC_STATE_ACCOUNT_MENU:                AccountMenuMain( client, cmd, args );           break;
+        case SOC_STATE_CHARACTER_CREATE_MENU:       CharacterCreateMenuMain( client, cmd, args );   break;
+        case SOC_STATE_CHARACTER_CREATE_NAME:       CharacterCreateName( client, cmd, args );       break;
+        case SOC_STATE_CHARACTER_CREATE_SEX:        CharacterCreateSex( client, cmd, args );        break;
+        case SOC_STATE_CHARACTER_CREATE_FINISH:     AttachCharacter( client, cmd, args );           break;
+        case SOC_STATE_CHARACTER_DELETE_MENU:       CharacterDeleteMenuMain( client, cmd, args );   break;
+        case SOC_STATE_CHARACTER_DELETE_CONFIRM:    CharacterDeleteConfirm( client, cmd, args );    break;
+        case SOC_STATE_CHARACTER_LOAD_MENU:         CharacterLoadMenuMain( client, cmd, args );     break;
+        case SOC_STATE_LOAD_CHARACTER:              LoadCharacter( client, cmd, args );             break;
+        case SOC_STATE_ENTER_GAME:                  EnterGame( client, cmd, args );                 break;
+        default:                                                                                    break;
     }
 
     return;
@@ -836,6 +794,20 @@ const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& c
 }
 
 /**
+ * @brief Places the character loaded against the account into the game world.
+ * @param[in] client The SocketClient to process a login request for.
+ * @param[in] cmd The command sent by the SocketClient.
+ * @param[in] args Any arguments to the command.
+ * @retval void
+ */
+const void Handler::EnterGame( SocketClient* client, const string& cmd, const string& args )
+{
+    UFLAGS_DE( flags );
+
+    return;
+}
+
+/**
  * @brief Select a new account name.
  * @param[in] client The SocketClient to process a login request for.
  * @param[in] cmd The command sent by the SocketClient.
@@ -1009,6 +981,10 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
     }
 
     client->gAccount()->sCharacter( chr );
+    client->sState( SOC_STATE_ENTER_GAME );
+
+    //Generate the next input prompt
+    LoginHandler( client );
 
     return;
 }

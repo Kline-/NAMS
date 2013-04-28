@@ -69,6 +69,15 @@ const void Thing::RemoveThing( Thing* thing )
 
 /* Query */
 /**
+ * @brief Returns the Thing that this Thing is stored within.
+ * @retval Thing* A pointer to the Thing that thsi Thing is stored within.
+ */
+Thing* Thing::gContainer() const
+{
+    return m_container;
+}
+
+/**
  * @brief Returns the id associated with this Thing.
  * @retval string A string containing the id associated with this Thing.
  */
@@ -96,6 +105,23 @@ Server* Thing::gServer() const
 }
 
 /* Manipulate */
+/**
+ * @brief Stores this Thing inside another Thing.
+ * @param[in] container The Thing to store this Thing inside of.
+ * @retval false Returned if there was an error moving this Thing.
+ * @retval true Returned if this Thing was moved successfully.
+ */
+const bool Thing::sContainer( Thing* container )
+{
+    UFLAGS_DE( flags );
+
+    /** @todo: Logic to check container size, content limits, etc. */
+
+    m_container = container;
+
+    return true;
+}
+
 /**
  * @brief Sets the id of this Thing.
  * @param[in] id A string containing the id this Thing should be set to.
@@ -166,6 +192,7 @@ const bool Thing::sServer( Server* server )
  */
 Thing::Thing()
 {
+    m_container = NULL;
     m_contents.clear();
     m_id.clear();
     m_name.clear();

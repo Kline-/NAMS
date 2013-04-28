@@ -54,6 +54,7 @@ namespace Handler {
     const void CharacterDeleteConfirm( SocketClient* client, const string& cmd, const string& args );
     const void CharacterDeleteMenuMain( SocketClient* client, const string& cmd, const string& args );
     const void CharacterLoadMenuMain( SocketClient* client, const string& cmd, const string& args );
+    const void EnterGame( SocketClient* client, const string& cmd, const string& args );
     const void GetNewAccount( SocketClient* client, const string& cmd, const string& args );
     const void GetNewPassword( SocketClient* client, const string& cmd, const string& args );
     const void GetOldPassword( SocketClient* client, const string& cmd, const string& args );

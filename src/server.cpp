@@ -106,6 +106,11 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
     return true;
 }
 
+/**
+ * @brief Locates a Command associated with the Server.
+ * @param[in] name The name of the Command to search for.
+ * @retval Command* A pointer to the Command object associated with name, or NULL if one is not found.
+ */
 Command* Server::FindCommand( const string& name ) const
 {
     Command* cmd = NULL;
@@ -147,6 +152,19 @@ Command* Server::FindCommand( const string& name ) const
     }
 
     return cmd;
+}
+
+/**
+ * @brief Locates a Location associated with the Server.
+ * @param[in] name The name of the Location to search for.
+ * @retval Location* A pointer to the Location object associated with name, or NULL if one is not found.
+ */
+Location* Server::FindLocation( const string& name ) const
+{
+    Location* loc = NULL;
+//    bool found = false;
+
+    return loc;
 }
 
 /**
