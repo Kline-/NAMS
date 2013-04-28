@@ -67,7 +67,7 @@ class Server {
         const void Broadcast( const string& msg );
         const bool BuildPlugin( const string& file, const bool& force = false );
         Command* FindCommand( const string& name ) const;
-        Location* FindLocation( const string& name ) const;
+        Location* FindLocation( const string& name, const uint_t& type ) const;
         const bool LoadCommands();
         const bool LoadLocations();
         const bool PollSockets();

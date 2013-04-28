@@ -803,6 +803,39 @@ const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& c
 const void Handler::EnterGame( SocketClient* client, const string& cmd, const string& args )
 {
     UFLAGS_DE( flags );
+    Location* loc = NULL;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::EnterGame()-> called with NULL client" );
+        return;
+    }
+
+    if ( client->gAccount() == NULL )
+    {
+        LOGSTR( flags, "Handler::EnterGame()-> called with NULL account" );
+        return;
+    }
+
+    if ( client->gAccount()->gCharacter() == NULL )
+    {
+        LOGSTR( flags, "Handler::EnterGame()-> called with NULL character" );
+        return;
+    }
+
+    if ( ( loc = client->gServer()->FindLocation( CFG_LOC_ID_START, LOCATION_FIND_ID ) ) == NULL )
+    {
+        LOGSTR( flags, "Handler::EnterGame()-> unable to locate CFG_LOC_ID_START" );
+        return;
+    }
+
+    if ( client->gAccount()->gCharacter()->Move( loc ) )
+        client->sState( SOC_STATE_PLAYING );
+    else
+    {
+        client->sState( SOC_STATE_ACCOUNT_MENU );
+        client->Send( CFG_STR_GAME_ENTER_ERROR );
+    }
 
     return;
 }

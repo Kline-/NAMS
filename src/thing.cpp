@@ -25,58 +25,89 @@
 #include "h/class.h"
 
 #include "h/thing.h"
+#include "h/location.h"
 
 /* Core */
 /**
  * @brief Adds a Thing to the contents of this Thing.
  * @param[in] thing A pointer to another Thing to be added to the contents of this Thing.
- * @retval void
+ * @retval false Returned if there was an error adding thing to the contents of this Thing.
+ * @retval true Returned if thing was successfully added to the contents of this Thing.
  */
-const void Thing::AddThing( Thing* thing )
+const bool Thing::AddThing( Thing* thing )
 {
     UFLAGS_DE( flags );
 
     if ( thing == NULL )
     {
         LOGSTR( flags, "Thing::AddThing()-> called with NULL thing" );
-        return;
+        return false;
     }
+
+    /** @todo: Logic to check container size, content limits, etc. */
 
     m_contents.push_back( thing );
 
-    return;
+    return true;
+}
+
+/**
+ * @brief Moves a Thing from within one Location to another Location.
+ * @param[in] location A pointer to the destination Location that this Thing should be moved into.
+ * @retval false Returned if there was an error moving this Thing.
+ * @retval true Returned if this Thing was successfully moved.
+ */
+const bool Thing::Move( Location* location )
+{
+    UFLAGS_DE( flags );
+    {
+        LOGSTR( flags, "Thing::Move()-> called with NULL location" );
+        return false;
+    }
+
+    // If already stored inside another Thing then we need to remove ourselves first.
+    // If something prevents us from being removed, we can't move where we want to go.
+    if( m_location != NULL )
+    {
+        if( m_location->RemoveThing( this ) )
+            m_location = NULL;
+        else
+            return false;
+    }
+
+    // Were we able to get into the destination Thing?
+    if ( location->AddThing( this ) )
+        m_location = location;
+    else
+        return false;
+
+    return true;
 }
 
 /**
  * @brief Removes a Thing to the contents of this Thing.
  * @param[in] thing A pointer to another Thing to be removed from the contents of this Thing.
- * @retval void
+ * @retval false Returned if there was an error removing thing from the contents of this Thing.
+ * @retval true Returned if thing was successfully removed from the contents of this Thing.
  */
-const void Thing::RemoveThing( Thing* thing )
+const bool Thing::RemoveThing( Thing* thing )
 {
     UFLAGS_DE( flags );
 
     if ( thing == NULL )
     {
         LOGSTR( flags, "Thing::RemoveThing()-> called with NULL thing" );
-        return;
+        return false;
     }
+
+    /** @todo: Logic to check debuffs, restrictions, etc. */
 
     m_contents.erase( find( m_contents.begin(), m_contents.end(), thing ) );
 
-    return;
+    return true;
 }
 
 /* Query */
-/**
- * @brief Returns the Thing that this Thing is stored within.
- * @retval Thing* A pointer to the Thing that thsi Thing is stored within.
- */
-Thing* Thing::gContainer() const
-{
-    return m_container;
-}
-
 /**
  * @brief Returns the id associated with this Thing.
  * @retval string A string containing the id associated with this Thing.
@@ -84,6 +115,15 @@ Thing* Thing::gContainer() const
 const string Thing::gId() const
 {
     return m_id;
+}
+
+/**
+ * @brief Returns the Location that this Thing is stored within.
+ * @retval Location* A pointer to the Location that this Thing is stored within.
+ */
+Location* Thing::gLocation() const
+{
+    return m_location;
 }
 
 /**
@@ -105,23 +145,6 @@ Server* Thing::gServer() const
 }
 
 /* Manipulate */
-/**
- * @brief Stores this Thing inside another Thing.
- * @param[in] container The Thing to store this Thing inside of.
- * @retval false Returned if there was an error moving this Thing.
- * @retval true Returned if this Thing was moved successfully.
- */
-const bool Thing::sContainer( Thing* container )
-{
-    UFLAGS_DE( flags );
-
-    /** @todo: Logic to check container size, content limits, etc. */
-
-    m_container = container;
-
-    return true;
-}
-
 /**
  * @brief Sets the id of this Thing.
  * @param[in] id A string containing the id this Thing should be set to.
@@ -192,9 +215,9 @@ const bool Thing::sServer( Server* server )
  */
 Thing::Thing()
 {
-    m_container = NULL;
     m_contents.clear();
     m_id.clear();
+    m_location = NULL;
     m_name.clear();
     m_server = NULL;
 

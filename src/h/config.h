@@ -407,9 +407,9 @@
 /**
  * @def CFG_STR_ACT_NEW_ERROR
  * @brief String sent if an error occurs when first creating a new account.
- * @par Default: "An error occured while attempting to create that account." CRLF
+ * @par Default: "An error occurred while attempting to create that account." CRLF
  */
-#define CFG_STR_ACT_NEW_ERROR "An error occured while attempting to create that account." CRLF
+#define CFG_STR_ACT_NEW_ERROR "An error occurred while attempting to create that account." CRLF
 
 /**
  * @def CFG_STR_ACT_PASSWORD_CONFIRM
@@ -498,9 +498,9 @@
 /**
  * @def CFG_STR_CHR_NEW_ERROR
  * @brief String sent if an error occurs when first creating a new character.
- * @par Default: "An error occured while attempting to create that character." CRLF
+ * @par Default: "An error occurred while attempting to create that character." CRLF
  */
-#define CFG_STR_CHR_NEW_ERROR "An error occured while attempting to create that character." CRLF
+#define CFG_STR_CHR_NEW_ERROR "An error occurred while attempting to create that character." CRLF
 
 /**
  * @def CFG_STR_CMD_INVALID
@@ -557,6 +557,13 @@
  * @par Default: "Saving settings..."
  */
 #define CFG_STR_FILE_SETTINGS_WRITE "Saving settings..."
+
+/**
+ * @def CFG_STR_GAME_ENTER_ERROR
+ * @brief String sent when a server fault prevents a Character from entering the game world.
+ * @par Default "An error occurred while attempting to enter the game world." CRLF
+ */
+#define CFG_STR_GAME_ENTER_ERROR "An error occurred while attempting to enter the game world." CRLF
 
 /**
  * @def CFG_STR_IDLE

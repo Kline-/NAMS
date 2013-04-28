@@ -24,8 +24,6 @@
 #ifndef DEC_THING_H
 #define DEC_THING_H
 
-#include "server.h"
-
 using namespace std;
 
 /**
@@ -34,22 +32,22 @@ using namespace std;
 class Thing {
     public:
         /** @name Core */ /**@{*/
-        const void AddThing( Thing* thing );
+        const bool AddThing( Thing* thing );
         virtual const void Delete() = 0;
-        const void RemoveThing( Thing* thing );
+        const bool Move( Location* location );
+        const bool RemoveThing( Thing* thing );
         virtual const bool Serialize() const = 0;
         virtual const bool Unserialize() = 0;
         /**@}*/
 
         /** @name Query */ /**@{*/
-        Thing* gContainer() const;
         const string gId() const;
+        Location* gLocation() const;
         const string gName() const;
         Server* gServer() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
-        const bool sContainer( Thing* container );
         const bool sId( const string& id );
         const bool sName( const string& name, const bool& system = false );
         const bool sServer( Server* server );
@@ -61,9 +59,9 @@ class Thing {
         /**@}*/
 
     private:
-        Thing* m_container; /**< The Thing that this Thing is stored within. */
         vector<Thing*> m_contents; /**< Other Things that are contained within this Thing. */
         string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
+        Location* m_location; /**< The Location that this Thing is stored within. */
         string m_name; /**< The name of the thing. */
         Server* m_server; /**< The Server this Thing exists within. */
 };
