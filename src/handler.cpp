@@ -132,14 +132,32 @@ const bool Handler::CheckCreating( SocketClient* client, const string& name )
 }
 
 /**
- * @brief Checks to see if a Character associated to this account is currently logged into the game and playing.
- * @param[in] client The SocketClient whose Account should be checked for playing characters.
+ * @brief Checks to see if a Character is currently logged into the game and playing.
  * @param[in] name The Character->gId() to search for.
  * @retval false Returned if a Character with id name is not currently logged in and playing.
  * @retval true Returned if a Character with id name is currently logged in and playing.
  */
-const bool Handler::CheckPlaying( SocketClient* client, const string& name )
+const bool Handler::CheckPlaying( const string& name )
 {
+    UFLAGS_DE( flags );
+    UFLAGS_S( flag );
+    ITER( list, Character*, ci );
+    Character* character = NULL;
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Handler::CheckPlaying()-> called with empty name" );
+        return false;
+    }
+
+    for ( ci = character_list.begin(); ci != character_list.end(); ci++ )
+    {
+        character = *ci;
+
+        if ( character->gId() == name )
+            return true;
+    }
+
     return false;
 }
 
@@ -717,6 +735,7 @@ const void Handler::CharacterDeleteMenuMain( SocketClient* client, const string&
 {
     UFLAGS_DE( flags );
     uint_t i = uintmin_t, val = uintmin_t;
+    stringstream name;
 
     if ( client == NULL )
     {
@@ -737,7 +756,12 @@ const void Handler::CharacterDeleteMenuMain( SocketClient* client, const string&
         client->Send( Telopt::opt_erase_screen );
         client->Send( "Account Menu > Delete an existing character" CRLF CFG_STR_SEL_OPTIONS );
         for ( i = 0; i < client->gAccount()->gCharacters().size(); i++ )
-            client->Send( Utils::FormatString( 0, "%5d) %s" CRLF, i+1, CSTR( client->gAccount()->gCharacters()[i] ) ) );
+        {
+            name << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[i];
+
+            if ( !CheckPlaying( name.str() ) )
+                client->Send( Utils::FormatString( 0, "%5d) %s" CRLF, i+1, CSTR( client->gAccount()->gCharacters()[i] ) ) );
+        }
         client->Send( Utils::FormatString( 0, "%5d) Back" CRLF, ACT_MENU_CHARACTER_DELETE_BACK ) );
         client->Send( CFG_STR_SEL_PROMPT );
         return;
