@@ -93,9 +93,22 @@ const void Handler::LoginHandler( SocketClient* client, const string& cmd, const
  */
 const bool Handler::CheckCreating( SocketClient* client, const string& name )
 {
-    UFLAGS_S( flags );
+    UFLAGS_DE( flags );
+    UFLAGS_S( flag );
     ITER( list, SocketClient*, si );
-    SocketClient* socket_client;
+    SocketClient* socket_client = NULL;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::CheckCreating()-> called with NULL client" );
+        return false;
+    }
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Handler::CheckCreating()-> called with empty name" );
+        return false;
+    }
 
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = client->gServer()->gSocketClientNext() )
     {
@@ -110,7 +123,7 @@ const bool Handler::CheckCreating( SocketClient* client, const string& name )
 
         if ( name == socket_client->gLogin( SOC_LOGIN_NAME ) )
         {
-            LOGFMT( flags, "Handler::CheckPlaying()-> player from site %s attempted to login as %s (in creation)", CSTR( client->gHostname() ), CSTR( name ) );
+            LOGFMT( flag, "Handler::CheckPlaying()-> player from site %s attempted to login as %s (in creation)", CSTR( client->gHostname() ), CSTR( name ) );
             return true;
         }
     }
@@ -119,21 +132,54 @@ const bool Handler::CheckCreating( SocketClient* client, const string& name )
 }
 
 /**
+ * @brief Checks to see if a Character associated to this account is currently logged into the game and playing.
+ * @param[in] client The SocketClient whose Account should be checked for playing characters.
+ * @param[in] name The Character->gId() to search for.
+ * @retval false Returned if a Character with id name is not currently logged in and playing.
+ * @retval true Returned if a Character with id name is currently logged in and playing.
+ */
+const bool Handler::CheckPlaying( SocketClient* client, const string& name )
+{
+    return false;
+}
+
+/**
  * @brief Checks to see if a name is on the server's prohibited list.
  * @param[in] client The SocketClient to requesting to use the name.
  * @param[in] name The name to check against the prohibited list.
- * @param[in] type The type of prohibited names list to check.
+ * @param[in] type The type of prohibited names list to check, from #SVR_CFG_PROHIBITED_NAMES.
  * @retval false Returned if the name is not prohibited.
  * @retval true Returned if the name is prohibited.
  */
 const bool Handler::CheckProhibited( SocketClient* client, const string& name, const uint_t& type )
 {
+    UFLAGS_DE( flags );
     ITER( forward_list, string, fi );
     forward_list<string> search;
     string comp;
+    uint_t searcht = type;
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::CheckCreating()-> called with NULL client" );
+        return false;
+    }
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Handler::CheckCreating()-> called with empty name" );
+        return false;
+    }
+
+    if ( searcht < uintmin_t || searcht >= MAX_SVR_CFG_PROHIBITED_NAMES )
+    {
+        LOGFMT( flags, "Handler::CheckProhibited()-> Called with invalid type: %lu", searcht );
+        LOGSTR( flags, "Handler::CheckProhibited()-> defaulting to SVR_CFG_PROHIBITED_NAMES_ACCOUNT" );
+        searcht = SVR_CFG_PROHIBITED_NAMES_ACCOUNT;
+    }
 
     // Search for prohibited names
-    search = client->gServer()->gConfig()->gProhibitedNames( type );
+    search = client->gServer()->gConfig()->gProhibitedNames( searcht );
     for ( fi = search.begin(); fi != search.end(); fi++ )
     {
         comp = *fi;

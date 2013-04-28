@@ -202,7 +202,7 @@ const string Character::gPrompt() const
 {
     stringstream output;
 
-    output << CRLF << gAccount()->gName() << "::" << gName() << "> ";
+    output << CRLF << gId() << "> ";
 
     return output.str();
 }
