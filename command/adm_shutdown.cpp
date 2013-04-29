@@ -22,11 +22,17 @@
 
 class AdmShutdown : public Plugin {
     public:
+        virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
         AdmShutdown( const string& name, const uint_t& type );
         ~AdmShutdown();
 };
+
+const void AdmShutdown::Run( Character* character, const string& cmd, const string& arg ) const
+{
+    return;
+}
 
 const void AdmShutdown::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {

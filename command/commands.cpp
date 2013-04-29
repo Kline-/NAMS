@@ -24,11 +24,17 @@
 
 class Commands : public Plugin {
     public:
+        virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
         Commands( const string& name, const uint_t& type );
         ~Commands();
 };
+
+const void Commands::Run( Character* character, const string& cmd, const string& arg ) const
+{
+    return;
+}
 
 const void Commands::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {

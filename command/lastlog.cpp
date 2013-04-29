@@ -22,11 +22,17 @@
 
 class LastLog : public Plugin {
     public:
+        virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
         LastLog( const string& name, const uint_t& type );
         ~LastLog();
 };
+
+const void LastLog::Run( Character* character, const string& cmd, const string& arg ) const
+{
+    return;
+}
 
 const void LastLog::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
