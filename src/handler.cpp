@@ -1020,6 +1020,7 @@ const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& c
 {
     UFLAGS_DE( flags );
     uint_t i = uintmin_t, val = uintmin_t;
+    stringstream name;
 
     if ( client == NULL )
     {
@@ -1040,7 +1041,14 @@ const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& c
         client->Send( Telopt::opt_erase_screen );
         client->Send( "Account Menu > Load an existing character" CRLF CFG_STR_SEL_OPTIONS );
         for ( i = 0; i < client->gAccount()->gCharacters().size(); i++ )
-            client->Send( Utils::FormatString( 0, "%5d) %s" CRLF, i+1, CSTR( client->gAccount()->gCharacters()[i] ) ) );
+        {
+            name << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[i];
+
+            if ( CheckPlaying( name.str() ) )
+                client->Send( Utils::FormatString( 0, "%5d) %s (Playing)" CRLF, i+1, CSTR( client->gAccount()->gCharacters()[i] ) ) );
+            else
+                client->Send( Utils::FormatString( 0, "%5d) %s" CRLF, i+1, CSTR( client->gAccount()->gCharacters()[i] ) ) );
+        }
         client->Send( Utils::FormatString( 0, "%5d) Back" CRLF, ACT_MENU_CHARACTER_DELETE_BACK ) );
         client->Send( CFG_STR_SEL_PROMPT );
         return;
