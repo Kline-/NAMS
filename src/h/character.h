@@ -36,6 +36,7 @@ class Character : public Thing {
         /** @name Core */ /**@{*/
         const void Delete();
         const bool New( Server* server, const string& file, const bool& exists );
+        const void Send( const string& msg );
         const bool Serialize() const;
         const bool Unserialize();
         /**@}*/

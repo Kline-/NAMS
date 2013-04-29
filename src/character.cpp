@@ -29,6 +29,7 @@
 #include "h/account.h"
 #include "h/list.h"
 #include "h/server.h"
+#include "h/socketclient.h"
 
 /* Core */
 /**
@@ -70,6 +71,21 @@ const bool Character::New( Server* server, const string& file, const bool& exist
     character_list.push_back( this );
 
     return true;
+}
+
+/**
+ * @brief Send data to the associated SocketClient, if any.
+ * @param[in] msg The data to be sent.
+ * @retval void
+ */
+const void Character::Send( const string& msg )
+{
+
+    if ( m_account != NULL )
+        if ( m_account->gClient() != NULL )
+            m_account->gClient()->Send( msg );
+
+    return;
 }
 
 /**
