@@ -74,6 +74,18 @@
 /**@}*/
 
 /***************************************************************************
+ *                            CHARACTER OPTIONS                            *
+ ***************************************************************************/
+/** @name Character Options */ /**@{*/
+/**
+ * @def CFG_CHR_MAX_IDLE
+ * @brief (Minutes / tick rate) before disconnecting an idle Character detached from an Account. Approx 5 minutes.
+ * @par Default: ( ( 5 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )
+ */
+#define CFG_CHR_MAX_IDLE ( ( 5 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )
+/**@}*/
+
+/***************************************************************************
  *                              DATA OPTIONS                               *
  ***************************************************************************/
 /** @name Data Options */ /**@{*/
@@ -82,7 +94,7 @@
  * @brief If true, will unlink character files on deletion. If false, character files will be retained on disk and only de-associated from the account.
  * @par Default: false
  */
-#define CFG_DAT_CHR_UNLIMK false
+#define CFG_DAT_CHR_UNLINK false
 
 /**
  * @def CFG_DAT_DIR_ACCOUNT
@@ -310,7 +322,7 @@
 
 /**
  * @def CFG_SOC_MAX_IDLE
- * @brief (Minutes / tick rate) before disconneting an idle socket. Approx 30 minutes.
+ * @brief (Minutes / tick rate) before disconnecting an idle socket. Approx 30 minutes.
  * @par Default: ( ( 30 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )
  */
 #define CFG_SOC_MAX_IDLE ( ( 30 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )

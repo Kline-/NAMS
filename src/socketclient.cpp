@@ -430,7 +430,7 @@ const bool SocketClient::Send()
         return false;
     }
 
-    if ( gState() == SOC_STATE_PLAYING )
+    if ( gState() >= SOC_STATE_PLAYING )
     {
         if ( gAccount() == NULL )
         {

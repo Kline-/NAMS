@@ -408,7 +408,7 @@ const bool Account::dCharacter( const string& name )
     }
     sort( m_characters.begin(), m_characters.end() );
 
-    if ( CFG_DAT_CHR_UNLIMK )
+    if ( CFG_DAT_CHR_UNLINK )
     {
         id << "/" << m_name << "." << name;
         item = Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name );

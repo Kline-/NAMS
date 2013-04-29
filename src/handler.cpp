@@ -229,7 +229,7 @@ const void Handler::LoginHandler( SocketClient* client, const string& cmd, const
         return;
     }
 
-    cout << "state=[" << client->gState() << "} cmd={" << cmd << "} args={" << args <<"}" << endl;
+    //cout << "state=[" << client->gState() << "} cmd={" << cmd << "} args={" << args <<"}" << endl;
     switch ( client->gState() )
     {
         case SOC_STATE_LOGIN_SCREEN:                LoginScreen( client, cmd, args );               break;
@@ -294,7 +294,7 @@ const bool Handler::CheckCreating( SocketClient* client, const string& name )
 
         if ( name == socket_client->gLogin( SOC_LOGIN_NAME ) )
         {
-            LOGFMT( flag, "Handler::CheckPlaying()-> player from site %s attempted to login as %s (in creation)", CSTR( client->gHostname() ), CSTR( name ) );
+            LOGFMT( flag, "Handler::CheckCreating()-> player from site %s attempted to login as %s (in creation)", CSTR( client->gHostname() ), CSTR( name ) );
             return true;
         }
     }
@@ -324,7 +324,7 @@ const bool Handler::CheckPlaying( const string& name )
     for ( ci = character_list.begin(); ci != character_list.end(); ci++ )
     {
         chr = *ci;
-        cout << chr->gId() << endl;
+
         if ( chr->gId() == name )
             return true;
     }
@@ -505,11 +505,14 @@ const void Handler::Reconnect( SocketClient* client, Character* character )
 
     LOGFMT( flag, "%s@%s kicking off old link.", CSTR( character->gName() ), CSTR( client->gHostname() ) );
 
-    // De-associate from the existing login session
-    character->gAccount()->sCharacter( NULL );
-    character->gAccount()->gClient()->sState( SOC_STATE_DISC_LINKDEAD );
-    character->gAccount()->gClient()->Quit();
-    character->sAccount( NULL );
+    // De-associate from the existing login session, if one exists
+    if ( character->gAccount() )
+    {
+        character->gAccount()->sCharacter( NULL );
+        character->gAccount()->gClient()->sState( SOC_STATE_DISC_LINKDEAD );
+        character->gAccount()->gClient()->Quit();
+        character->sAccount( NULL );
+    }
 
     // Now re-associate to the new one
     character->sAccount( client->gAccount() );

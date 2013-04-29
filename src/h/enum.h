@@ -116,9 +116,10 @@ enum CHR_SEX {
  * @enum EVENT_TYPE
  */
 enum EVENT_TYPE {
-    EVENT_TYPE_COMMAND = 0, /**< An Event to execute a game command. */
-    EVENT_TYPE_RELOAD  = 1, /**< An Event to reload a game command. */
-    MAX_EVENT_TYPE     = 2  /**< Safety limit for looping. */
+    EVENT_TYPE_COMMAND   = 0, /**< An Event to execute a game command. */
+    EVENT_TYPE_RELOAD    = 1, /**< An Event to reload a game command. */
+    EVENT_TYPE_CHARACTER = 2, /**< An Event to manipulate a character. */
+    MAX_EVENT_TYPE       = 3  /**< Safety limit for looping. */
 };
 /**@}*/
 

@@ -38,6 +38,7 @@
 #include "h/location.h"
 #include "h/socketclient.h"
 #include "h/socketserver.h"
+#include "h/character.h"
 
 /* Core */
 /**
@@ -330,7 +331,21 @@ const bool Server::PollSockets()
             if ( !socket_client->Recv() )
             {
                 LOGFMT( flags, "Server::PollSockets()->SocketClient::Recv()-> descriptor %ld returned false", client_desc );
-                // todo: save character
+
+                // Detach the Character as linkdead
+                if ( socket_client->gState() >= SOC_STATE_PLAYING )
+                {
+                    if ( socket_client->gAccount() != NULL )
+                    {
+                        if ( socket_client->gAccount()->gCharacter() != NULL )
+                        {
+                            socket_client->sState( SOC_STATE_DISC_LINKDEAD );
+                            socket_client->gAccount()->gCharacter()->sAccount( NULL );
+                            socket_client->gAccount()->sCharacter( NULL );
+                        }
+                    }
+                }
+
                 socket_client->Delete();
                 continue;
             }
