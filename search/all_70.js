@@ -2,6 +2,7 @@ var searchData=
 [
   ['pendingcommand',['PendingCommand',['../classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d',1,'SocketClient']]],
   ['pendingoutput',['PendingOutput',['../classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a',1,'SocketClient']]],
+  ['pincludes_2eh',['pincludes.h',['../pincludes_8h.xhtml',1,'']]],
   ['plg_5ftype',['PLG_TYPE',['../enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bd',1,'enum.h']]],
   ['plg_5ftype_5fcommand',['PLG_TYPE_COMMAND',['../enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bda45e5cb968a067894ca30d54003667a12',1,'enum.h']]],
   ['plg_5ftype_5fcommand_5fbool',['PLG_TYPE_COMMAND_BOOL',['../enum_8h.xhtml#a9e809214b0ad67d9044895314e175965',1,'enum.h']]],
@@ -11,8 +12,8 @@ var searchData=
   ['plugin',['Plugin',['../classPlugin.xhtml',1,'Plugin'],['../classPlugin.xhtml#a3bf3ac47f4c7ad4a24629e487115a986',1,'Plugin::Plugin()']]],
   ['plugin_2ecpp',['plugin.cpp',['../plugin_8cpp.xhtml',1,'']]],
   ['plugin_2eh',['plugin.h',['../plugin_8h.xhtml',1,'']]],
-  ['plugindelete',['PluginDelete',['../plugin_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4',1,'plugin.h']]],
-  ['pluginnew',['PluginNew',['../plugin_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6',1,'plugin.h']]],
+  ['plugindelete',['PluginDelete',['../includes_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4',1,'includes.h']]],
+  ['pluginnew',['PluginNew',['../includes_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6',1,'includes.h']]],
   ['pollsockets',['PollSockets',['../classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c',1,'Server']]],
   ['pp_5farg_5fn',['PP_ARG_N',['../macros_8h.xhtml#a31e17247ef3f8e15d6014770586b1201',1,'macros.h']]],
   ['pp_5fnarg',['PP_NARG',['../macros_8h.xhtml#a31b9bcd0e7f30adb8ed947d86d4ae11b',1,'macros.h']]],
@@ -21,6 +22,5 @@ var searchData=
   ['processcommand',['ProcessCommand',['../classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f',1,'SocketClient']]],
   ['processevents',['ProcessEvents',['../classServer.xhtml#a266931bde9b1955346955140986d2b00',1,'Server']]],
   ['processinput',['ProcessInput',['../classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae',1,'Server::ProcessInput()'],['../classSocketClient.xhtml#a92fea2bf7e0f20578404ce1abb835a0b',1,'SocketClient::ProcessInput()'],['../namespaceTelopt.xhtml#abdb8913fd8eb65e47c6035240d9a291f',1,'Telopt::ProcessInput()']]],
-  ['processlogin',['ProcessLogin',['../namespaceHandler.xhtml#af650e47f3d4baf393b54376d1eaa1fa9',1,'Handler']]],
   ['processoutput',['ProcessOutput',['../namespaceTelopt.xhtml#abb99f54e5e0a1ab69795aea0408c0fc2',1,'Telopt']]]
 ];

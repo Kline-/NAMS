@@ -100,10 +100,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00016"></a>00016 <span class="comment"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.   *</span>
 <a name="l00017"></a>00017 <span class="comment"> ***************************************************************************/</span>
 <a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="includes_8h.xhtml" title="All non-system includes that need to be within each .cpp file.">h/includes.h</a>&quot;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="class_8h.xhtml" title="All class declarations.">h/class.h</a>&quot;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="command_8h.xhtml" title="The Command class.">h/command.h</a>&quot;</span>
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="command_8h.xhtml" title="The Command class.">h/command.h</a>&quot;</span>
-<a name="l00035"></a>00035 <span class="preprocessor">#include &quot;<a class="code" href="list_8h.xhtml" title="All globally referenced list / map / vector types.">h/list.h</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="list_8h.xhtml" title="All globally referenced list / map / vector types.">h/list.h</a>&quot;</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#include &quot;<a class="code" href="plugin_8h.xhtml" title="The Plugin class.">h/plugin.h</a>&quot;</span>
 <a name="l00036"></a>00036 
 <a name="l00037"></a>00037 <span class="comment">/* Core */</span>
 <a name="l00044"></a><a class="code" href="classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b">00044</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run().">Command::Authorized</a>( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; sec )<span class="keyword"> const</span>
@@ -160,9 +160,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00107"></a>00107     <span class="keywordflow">else</span>
 <a name="l00108"></a>00108     {
 <a name="l00109"></a>00109         <span class="comment">// Register the handlers and create a new instance of the Plugin&#39;s class</span>
-<a name="l00110"></a>00110         <a class="code" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">m_plg_delete</a> = (<a class="code" href="plugin_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4" title="Used as a pointer to the Delete() function within an implemented class.">PluginDelete</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;Delete&quot;</span> );
+<a name="l00110"></a>00110         <a class="code" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">m_plg_delete</a> = (<a class="code" href="includes_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4" title="Used as a pointer to the Delete() function within an implemented class.">PluginDelete</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;Delete&quot;</span> );
 <a name="l00111"></a>00111         <a class="code" href="classCommand.xhtml#a9d64316428b105c231cb7196f8a0a728">m_plg_file</a> = file;
-<a name="l00112"></a>00112         <a class="code" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">m_plg_new</a> = (<a class="code" href="plugin_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6" title="Used as a pointer to the New() function within an implemented class.">PluginNew</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;New&quot;</span> );
+<a name="l00112"></a>00112         <a class="code" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">m_plg_new</a> = (<a class="code" href="includes_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6" title="Used as a pointer to the New() function within an implemented class.">PluginNew</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;New&quot;</span> );
 <a name="l00113"></a>00113         <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a> = <a class="code" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">m_plg_new</a>();
 <a name="l00114"></a>00114         <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859" title="Sets a pointer to the object that initialized this Plugin.">sCaller</a>( <span class="keyword">this</span> );
 <a name="l00115"></a>00115 
@@ -245,7 +245,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:02 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:22 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -85,16 +85,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 This is the complete list of members for <a class="el" href="classThing.xhtml">Thing</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="classThing.xhtml#a89651e38dd04d9741d4a112606532211">Delete</a>()</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c">AddThing</a>(Thing *thing)</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#a9538999261b5bba766e3b04768ce2700">Delete</a>()=0</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td><code> [pure virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">gId</a>() const </td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e">gLocation</a>() const </td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">gName</a>() const </td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#a24cbae1bbf7bed91bdd782c5893b3250">gServer</a>() const </td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a></td><td><a class="el" href="classThing.xhtml">Thing</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a></td><td><a class="el" href="classThing.xhtml">Thing</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">m_location</a></td><td><a class="el" href="classThing.xhtml">Thing</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a></td><td><a class="el" href="classThing.xhtml">Thing</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classThing.xhtml#a6ba8cdef3685ed564e6b549d0493e5eb">New</a>(Server *server)</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#ab51d731b069b2d4e88ed5894f2a3d5ce">m_server</a></td><td><a class="el" href="classThing.xhtml">Thing</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4">Move</a>(Location *location)</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e">RemoveThing</a>(Thing *thing)</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#a19051d1b895bf1c3ab933a723f1ae79c">Serialize</a>() const =0</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td><code> [pure virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b">sId</a>(const string &amp;id)</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41">sName</a>(const string &amp;name, const bool &amp;system=false)</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#a4737f44c77897dbe813fc6308cdeaa04">sServer</a>(Server *server)</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43">Thing</a>()</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984">~Thing</a>()</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#a56e59bba2e3602b8935dc07b6768dd0a">Unserialize</a>()=0</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984">~Thing</a>()</td><td><a class="el" href="classThing.xhtml">Thing</a></td><td><code> [virtual]</code></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -113,7 +123,7 @@ This is the complete list of members for <a class="el" href="classThing.xhtml">T
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

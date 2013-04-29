@@ -80,8 +80,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <div class="header">
-  <div class="summary">
-<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">SocketServer Class Reference</div>  </div>
 </div><!--header-->
@@ -116,87 +114,42 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8">Bind</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;port, const string &amp;addr)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind a listening socket to a given port and IP address.  <a href="#aee14cfe29fef99baa29664eef8d89dc8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41">Delete</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a server's socket from memory that was previously loaded via <a class="el" href="classSocketServer.xhtml#a72918e73dd56b8986a15678c2cfb5a48" title="Build a socket for a server and set all attributes.">SocketServer::New()</a>.  <a href="#a4fb2589ed01cea5daae154b2f06b4f41"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a server's socket from memory that was previously loaded via <a class="el" href="classSocketServer.xhtml#ae3c98203b60af2d7d75f6b751624ab56" title="Build a socket for a server and set all attributes.">SocketServer::New()</a>.  <a href="#a4fb2589ed01cea5daae154b2f06b4f41"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8">Listen</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Listen for new connections on an established socket.  <a href="#a5c5b0cbbee6a2e265d0510b40bcc12d8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#a72918e73dd56b8986a15678c2cfb5a48">New</a> (const bool &amp;reboot=false)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a socket for a server and set all attributes.  <a href="#a72918e73dd56b8986a15678c2cfb5a48"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#ae3c98203b60af2d7d75f6b751624ab56">New</a> (<a class="el" href="classServer.xhtml">Server</a> *server, const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;descriptor, const bool &amp;reboot=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a socket for a server and set all attributes.  <a href="#ae3c98203b60af2d7d75f6b751624ab56"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#a340c4c7856273cbe7760b4552ecb323f">Serialize</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the object for writing to disk to be later reloaded.  <a href="#a340c4c7856273cbe7760b4552ecb323f"></a><br/></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#afa8e672745cc807784d445dadb2ce937">gServer</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object associated to this <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>.  <a href="#afa8e672745cc807784d445dadb2ce937"></a><br/></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#a89cde9791b2f0ce928329c55a9ad21e7">sServer</a> (<a class="el" href="classServer.xhtml">Server</a> *server)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the owning server object that the socket is actually connected to.  <a href="#a89cde9791b2f0ce928329c55a9ad21e7"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#ad7fde891ef174c336b46299c8ace88f4">SocketServer</a> (<a class="el" href="classServer.xhtml">Server</a> *server, const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;descriptor)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> class.  <a href="#ad7fde891ef174c336b46299c8ace88f4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#a262ba93dc8ad71b260fb75124b3453ee">SocketServer</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> class.  <a href="#a262ba93dc8ad71b260fb75124b3453ee"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#af0e595690e453ef4b8e8da174069aba9">~SocketServer</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> class.  <a href="#af0e595690e453ef4b8e8da174069aba9"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="socketserver_8h_source.xhtml#l00034">34</a> of file <a class="el" href="socketserver_8h_source.xhtml">socketserver.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad7fde891ef174c336b46299c8ace88f4"></a><!-- doxytag: member="SocketServer::SocketServer" ref="ad7fde891ef174c336b46299c8ace88f4" args="(Server *server, const sint_t &amp;descriptor)" -->
+<a class="anchor" id="a262ba93dc8ad71b260fb75124b3453ee"></a><!-- doxytag: member="SocketServer::SocketServer" ref="a262ba93dc8ad71b260fb75124b3453ee" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classSocketServer.xhtml#ad7fde891ef174c336b46299c8ace88f4">SocketServer::SocketServer</a> </td>
+          <td class="memname"><a class="el" href="classSocketServer.xhtml#a262ba93dc8ad71b260fb75124b3453ee">SocketServer::SocketServer</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td>
-          <td class="paramname"><em>server</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>descriptor</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">server</td><td>A pointer to an instance of a <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">descriptor</td><td>A <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> value of the file descriptor that has been opened for the socket. </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00252">252</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                     : <a class="code" href="classSocket.xhtml#aab53cde845a88cec27192ad7ec8c8869" title="Constructor for the Socket class.">Socket</a>( server, descriptor )
-{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-
-    <a class="code" href="classSocketServer.xhtml#a89cde9791b2f0ce928329c55a9ad21e7" title="Set the owning server object that the socket is actually connected to.">sServer</a>( server );
-    <a class="code" href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578" title="Sets the port that was opened for the socket.">sPort</a>( server-&gt;<a class="code" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411" title="Returns the port that any SocketServer should bind to. Defaults to CFG_SOC_PORTNUM.">gPort</a>() );
-
-    <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been opened on a NAMS S...">sSocketOpen</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a0c8164b5ed4b2c6efd0ecbd2a8c8a503" title="Returns the combined number of SocketClient and SocketServer objects that have been created...">gSocketOpen</a>() + 1 );
-    <a class="code" href="list_8cpp.xhtml#acc7c180313f75720b77ac49721ba874b" title="All SocketServer objects listening for new client connections.">socket_server_list</a>.push_back( <span class="keyword">this</span> );
-
+<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00225">225</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
 </pre></div>
-<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_ad7fde891ef174c336b46299c8ace88f4_cgraph.svg" width="598" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="af0e595690e453ef4b8e8da174069aba9"></a><!-- doxytag: member="SocketServer::~SocketServer" ref="af0e595690e453ef4b8e8da174069aba9" args="()" -->
@@ -213,7 +166,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00268">268</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00233">233</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -267,9 +220,9 @@ Private Attributes</h2></td></tr>
         <span class="keywordflow">return</span>;
     }
 
-    socket_client = <span class="keyword">new</span> <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>( <a class="code" href="classSocketServer.xhtml#afa8e672745cc807784d445dadb2ce937" title="Returns the Server object associated to this SocketServer.">gServer</a>(), descriptor );
+    socket_client = <span class="keyword">new</span> <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>();
 
-    <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a553658a2c076ea71ddcd1758fc64a925" title="Build a SocketClient for a new client connection and set all attributes.">New</a>() )
+    <span class="keywordflow">if</span> ( !socket_client-&gt;<a class="code" href="classSocketClient.xhtml#a48c79d01b91f2c1553c3b33b26714215" title="Build a SocketClient for a new client connection and set all attributes.">New</a>( <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>(), descriptor ) )
     {
         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::Accept()-&gt;SocketClient::New()-&gt; returned false&quot;</span> );
         socket_client-&gt;<a class="code" href="classSocketClient.xhtml#af09328648d18ae943c8866cf744e5aad" title="Unload a client&#39;s socket from memory that was previously loaded via SocketClient::New().">Delete</a>();
@@ -279,20 +232,20 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span>;
 }
 </pre></div>
-<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_afdbc60c3bc840875d2214b59c6213f63_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_afdbc60c3bc840875d2214b59c6213f63_icgraph.svg" width="638" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -376,20 +329,20 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_aee14cfe29fef99baa29664eef8d89dc8_cgraph.svg" width="352" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_aee14cfe29fef99baa29664eef8d89dc8_icgraph.svg" width="619" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -425,8 +378,8 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use.">Valid</a>() )
         <span class="keywordflow">return</span>;
 
-    <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a1e68e32745cdfe194e0af388d9d5244a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS S...">sSocketClose</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed...">gSocketClose</a>() + 1 ) )
-        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketServer::Delete()-&gt;Server::sSocketClose()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a01c4cacfdade91bc99d6c8911ca33a54" title="Returns the combined number of SocketClient and SocketServer objects that have been destroyed...">gSocketClose</a>() + 1 );
+    <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;sSocketClose( <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;gSocketClose() + 1 ) )
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketServer::Delete()-&gt;Server::sSocketClose()-&gt; value %lu returned false&quot;</span>, <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;gSocketClose() + 1 );
 
     <a class="code" href="list_8cpp.xhtml#acc7c180313f75720b77ac49721ba874b" title="All SocketServer objects listening for new client connections.">socket_server_list</a>.remove( <span class="keyword">this</span> );
     <span class="keyword">delete</span> <span class="keyword">this</span>;
@@ -434,48 +387,12 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span>;
 }
 </pre></div>
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a4fb2589ed01cea5daae154b2f06b4f41_cgraph.svg" width="379" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="afa8e672745cc807784d445dadb2ce937"></a><!-- doxytag: member="SocketServer::gServer" ref="afa8e672745cc807784d445dadb2ce937" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classServer.xhtml">Server</a> * <a class="el" href="classSocketServer.xhtml#afa8e672745cc807784d445dadb2ce937">SocketServer::gServer</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="retval"><dt><b>Return values:</b></dt><dd>
-  <table class="retval">
-    <tr><td class="paramname"><a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a></td><td>Pointer to the associated <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00213">213</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <span class="keywordflow">return</span> <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>;
-}
-</pre></div>
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_afa8e672745cc807784d445dadb2ce937_icgraph.svg" width="100%" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a4fb2589ed01cea5daae154b2f06b4f41_cgraph.svg" width="344" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -521,42 +438,60 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a5c5b0cbbee6a2e265d0510b40bcc12d8_cgraph.svg" width="363" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a5c5b0cbbee6a2e265d0510b40bcc12d8_icgraph.svg" width="630" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a72918e73dd56b8986a15678c2cfb5a48"></a><!-- doxytag: member="SocketServer::New" ref="a72918e73dd56b8986a15678c2cfb5a48" args="(const bool &amp;reboot=false)" -->
+<a class="anchor" id="ae3c98203b60af2d7d75f6b751624ab56"></a><!-- doxytag: member="SocketServer::New" ref="ae3c98203b60af2d7d75f6b751624ab56" args="(Server *server, const sint_t &amp;descriptor, const bool &amp;reboot=false)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="classSocketServer.xhtml#a72918e73dd56b8986a15678c2cfb5a48">SocketServer::New</a> </td>
+          <td class="memname">const bool <a class="el" href="classSocketServer.xhtml#ae3c98203b60af2d7d75f6b751624ab56">SocketServer::New</a> </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd">sint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>descriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const bool &amp;&#160;</td>
-          <td class="paramname"><em>reboot</em> = <code>false</code></td><td>)</td>
-          <td><code> [virtual]</code></td>
+          <td class="paramname"><em>reboot</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">server</td><td>The server to associate with. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">descriptor</td><td>The file descriptor to utilize. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">reboot</td><td>Mark if the server is undergoing a reboot or not. </td></tr>
   </table>
   </dd>
@@ -569,51 +504,58 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classSocket.xhtml#a0e563ae9651177d3126f58ac36252067">Socket</a>.</p>
+<p>Implements <a class="el" href="classSocket.xhtml#aca3533d4021c4530e7085a41203fe482">Socket</a>.</p>
 
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00170">170</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00172">172</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
+    <a class="code" href="classSocket.xhtml#ad4d6b075f38a278ab1cd6506cc1bd953" title="Set the owning server object that the socket is actually connected to.">sServer</a>( server );
+    <a class="code" href="classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a" title="Sets the file descriptor that was opened for the socket.">sDescriptor</a>( descriptor );
+    <a class="code" href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578" title="Sets the port that was opened for the socket.">sPort</a>( <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;<a class="code" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c" title="Returns the port associated to the Socket.">gPort</a>() );
+
     <span class="keywordflow">if</span> ( !reboot )
     {
-        <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address.">Bind</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a307ecabcbab896360450e2b06b22a411" title="Returns the port that any SocketServer should bind to. Defaults to CFG_SOC_PORTNUM.">gPort</a>(), <a class="code" href="config_8h.xhtml#acfbfb90b5a0afa6cddd1403c1e10a7ee" title="IP address to bind the listening server socket to.">CFG_SOC_BIND_ADDR</a> ) )
+        <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#aee14cfe29fef99baa29664eef8d89dc8" title="Bind a listening socket to a given port and IP address.">Bind</a>( <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;<a class="code" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c" title="Returns the port associated to the Socket.">gPort</a>(), <a class="code" href="config_8h.xhtml#acfbfb90b5a0afa6cddd1403c1e10a7ee" title="IP address to bind the listening server socket to.">CFG_SOC_BIND_ADDR</a> ) )
         {
             <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::New()-&gt;SocketServer::Bind()-&gt; returned false&quot;</span> );
-            <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
+            <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
         }
 
-        <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket.">sHostname</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" title="Gets the hostname of the machine that NAMS is running on.">gHostname</a>() ) )
+        <span class="keywordflow">if</span> ( !<a class="code" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39" title="Sets the hostname of the socket.">sHostname</a>( <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket.">gHostname</a>() ) )
         {
-            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketServer::New()-&gt;SocketServer::sHostname()-&gt; hostname %s returned false&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a49dcdc5d378b3c12c46b80788c986052" title="Gets the hostname of the machine that NAMS is running on.">gHostname</a>() ) );
-            <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
+            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;SocketServer::New()-&gt;SocketServer::sHostname()-&gt; hostname %s returned false&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;<a class="code" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket.">gHostname</a>() ) );
+            <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
         }
 
         <span class="keywordflow">if</span> ( !<a class="code" href="classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8" title="Listen for new connections on an established socket.">Listen</a>() )
         {
             <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::New()-&gt;SocketServer::Listen()-&gt; returned false&quot;</span> );
-            <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
+            <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;<a class="code" href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">Shutdown</a>( EXIT_FAILURE );
         }
     }
+
+    <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;<a class="code" href="classServer.xhtml#a2b261b9b308edee58ec6191966bd019a" title="Set the amount of subordinate SocketClient and SocketServer objects that have been opened on a NAMS S...">sSocketOpen</a>( <a class="code" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe" title="Returns the Server object associated to this SocketServer.">gServer</a>()-&gt;gSocketOpen() + 1 );
+    <a class="code" href="list_8cpp.xhtml#acc7c180313f75720b77ac49721ba874b" title="All SocketServer objects listening for new client connections.">socket_server_list</a>.push_back( <span class="keyword">this</span> );
 
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
-<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_a72918e73dd56b8986a15678c2cfb5a48_cgraph.svg" width="100%" height="310"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSocketServer_ae3c98203b60af2d7d75f6b751624ab56_cgraph.svg" width="100%" height="505"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a72918e73dd56b8986a15678c2cfb5a48_icgraph.svg" width="427" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_ae3c98203b60af2d7d75f6b751624ab56_icgraph.svg" width="427" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -642,97 +584,11 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classSocket.xhtml#a2f38fa86bcb79d7b2d6139331fd95436">Socket</a>.</p>
 
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00203">203</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00212">212</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> string();
 }
 </pre></div>
-</div>
-</div>
-<a class="anchor" id="a89cde9791b2f0ce928329c55a9ad21e7"></a><!-- doxytag: member="SocketServer::sServer" ref="a89cde9791b2f0ce928329c55a9ad21e7" args="(Server *server)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const bool <a class="el" href="classSocketServer.xhtml#a89cde9791b2f0ce928329c55a9ad21e7">SocketServer::sServer</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td>
-          <td class="paramname"><em>server</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">server</td><td>A pointer to an instance of a <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object. By default this is the server instance which initially spawned the socket. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt><b>Return values:</b></dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">false</td><td>Returned if the server is either invalid (NULL) or shutdown. </td></tr>
-    <tr><td class="paramname">true</td><td>Returned if owning server is successfully set. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="socketserver_8cpp_source.xhtml#l00225">225</a> of file <a class="el" href="socketserver_8cpp_source.xhtml">socketserver.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">{
-    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-
-    <span class="keywordflow">if</span> ( !server )
-    {
-        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::sServer()-&gt; called with NULL server&quot;</span> );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <span class="keywordflow">if</span> ( !server-&gt;<a class="code" href="classServer.xhtml#ae3d4d866381050c00f383248872877ea" title="Returns if the Server is shutdown or not.">Running</a>() )
-    {
-        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;SocketServer::sServer()-&gt; called with offline server&quot;</span> );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <a class="code" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">m_server</a> = server;
-
-    <span class="keywordflow">return</span> <span class="keyword">true</span>;
-}
-</pre></div>
-<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a89cde9791b2f0ce928329c55a9ad21e7_cgraph.svg" width="347" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSocketServer_a89cde9791b2f0ce928329c55a9ad21e7_icgraph.svg" width="427" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="abe9a0d62586891e9d8449c0f4d1ca97b"></a><!-- doxytag: member="SocketServer::m_server" ref="abe9a0d62586891e9d8449c0f4d1ca97b" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classServer.xhtml">Server</a>* <a class="el" href="classSocketServer.xhtml#abe9a0d62586891e9d8449c0f4d1ca97b">SocketServer::m_server</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>The <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> object associated to this server-side socket. </p>
-
-<p>Definition at line <a class="el" href="socketserver_8h_source.xhtml#l00059">59</a> of file <a class="el" href="socketserver_8h_source.xhtml">socketserver.h</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -757,7 +613,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

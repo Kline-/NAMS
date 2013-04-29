@@ -96,7 +96,7 @@ This is the complete list of members for <a class="el" href="classSocketClient.x
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb">gIdle</a>() const </td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796">gLogin</a>(const uint_t &amp;key) const </td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">gPort</a>() const </td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#abb055f2dc275dd975ac9465a8e5b19e5">gServer</a>() const </td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe">gServer</a>() const </td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385">gState</a>() const </td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb">gTermInfo</a>() const </td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#aebf1dbfb77a447461d70452f23bfc1f4">m_account</a></td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [private]</code></td></tr>
@@ -106,10 +106,9 @@ This is the complete list of members for <a class="el" href="classSocketClient.x
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#ad99b556e3fbc75145cd4a26f8cb2521b">m_login</a></td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a2a54cf3d5a21ee7bd695213f3f200576">m_output</a></td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a84ede1902642e34c0389adaa0e718f96">m_quitting</a></td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a5806a405d435d6410740d663e113c03e">m_server</a></td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#aa02d9372cc719fd598b842ff2aa4866c">m_state</a></td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a52a31f4112c24bd7e75858d4021fcf95">m_terminfo</a></td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a553658a2c076ea71ddcd1758fc64a925">New</a>(const bool &amp;reboot=false)</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a48c79d01b91f2c1553c3b33b26714215">New</a>(Server *server, const sint_t &amp;descriptor, const bool &amp;reboot=false)</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#aa46590f5ac09115d9888fdb7c600ef1d">PendingCommand</a>() const </td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#ad887231d8188cf23b88b6dad24b9408a">PendingOutput</a>() const </td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f">ProcessCommand</a>()</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
@@ -127,14 +126,14 @@ This is the complete list of members for <a class="el" href="classSocketClient.x
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39">sHostname</a>(const string &amp;hostname)</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293">sIdle</a>(const uint_t &amp;idle)</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484">sLogin</a>(const uint_t &amp;key, const string &amp;val)</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#aab53cde845a88cec27192ad7ec8c8869">Socket</a>(Server *server, const sint_t &amp;descriptor)</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a72bb9c02dbe7894b91feb4b94e2eea55">SocketClient</a>(Server *server, const sint_t &amp;descriptor)</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a7c3256c4fc6e2c603df73201049fae5a">Socket</a>()</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a80d1b7bfb8b4126d706981a80e05c78f">SocketClient</a>()</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578">sPort</a>(const uint_t &amp;port)</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#aa3e0896a5e763ae0a7b250396d722084">sServer</a>(Server *server)</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#ad4d6b075f38a278ab1cd6506cc1bd953">sServer</a>(Server *server)</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4">sState</a>(const uint_t &amp;state)</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2">tResolveHostname</a>(void *data)</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() const </td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#aeac4eb6379a543d38ed88977d3b6630a">~Socket</a>()</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#aeac4eb6379a543d38ed88977d3b6630a">~Socket</a>()</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocketClient.xhtml#af4ecba63b08737b5be4fef324cef1df6">~SocketClient</a>()</td><td><a class="el" href="classSocketClient.xhtml">SocketClient</a></td><td></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
@@ -154,7 +153,7 @@ This is the complete list of members for <a class="el" href="classSocketClient.x
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

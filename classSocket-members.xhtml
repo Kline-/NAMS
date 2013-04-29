@@ -93,19 +93,22 @@ This is the complete list of members for <a class="el" href="classSocket.xhtml">
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82">gDescriptor</a>() const </td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7">gHostname</a>() const </td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c">gPort</a>() const </td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a7d51c27fcddb7bddf1a3beb0be3c5abe">gServer</a>() const </td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a282d278ab607cbfca422504ef1945349">m_bytes_recvd</a></td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#af0b3dfd54d0f706925238bba410cf2f9">m_bytes_sent</a></td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#ad3472404a4a16e143e90dbfb45ddced5">m_descriptor</a></td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a86ca51943303992adf59bfb70036400a">m_hostname</a></td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a5df79ab7d50cced90646c94dc479e278">m_port</a></td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a0e563ae9651177d3126f58ac36252067">New</a>(const bool &amp;reboot=false)=0</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a2dac4d4d48d07e7f9c679d158cffb6ec">m_server</a></td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#aca3533d4021c4530e7085a41203fe482">New</a>(Server *server, const sint_t &amp;descriptor, const bool &amp;reboot=false)=0</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [pure virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a">sDescriptor</a>(const sint_t &amp;descriptor)</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a2f38fa86bcb79d7b2d6139331fd95436">Serialize</a>() const =0</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [pure virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39">sHostname</a>(const string &amp;hostname)</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#aab53cde845a88cec27192ad7ec8c8869">Socket</a>(Server *server, const sint_t &amp;descriptor)</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a7c3256c4fc6e2c603df73201049fae5a">Socket</a>()</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a24c8132ced233add89f4fda68284e578">sPort</a>(const uint_t &amp;port)</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#ad4d6b075f38a278ab1cd6506cc1bd953">sServer</a>(Server *server)</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948">Valid</a>() const </td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#aeac4eb6379a543d38ed88977d3b6630a">~Socket</a>()</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classSocket.xhtml#aeac4eb6379a543d38ed88977d3b6630a">~Socket</a>()</td><td><a class="el" href="classSocket.xhtml">Socket</a></td><td><code> [virtual]</code></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -124,7 +127,7 @@ This is the complete list of members for <a class="el" href="classSocket.xhtml">
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

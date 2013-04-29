@@ -112,15 +112,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53">Delete</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a character from memory that was previously loaded via <a class="el" href="classCharacter.xhtml#a6d1ed45480fdc67b9f7770c7808dfac2" title="Create a new character.">Character::New()</a>.  <a href="#a4f7ff295f5de0fa4f8fece0acb7aaa53"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a6d1ed45480fdc67b9f7770c7808dfac2">New</a> (<a class="el" href="classServer.xhtml">Server</a> *server, <a class="el" href="classAccount.xhtml">Account</a> *account=NULL)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new character.  <a href="#a6d1ed45480fdc67b9f7770c7808dfac2"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a character from memory that was previously loaded via <a class="el" href="classCharacter.xhtml#af7147ddb783cc1ebf56c21a27dfbed4a" title="Create a new character.">Character::New()</a>.  <a href="#a4f7ff295f5de0fa4f8fece0acb7aaa53"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#af7147ddb783cc1ebf56c21a27dfbed4a">New</a> (<a class="el" href="classServer.xhtml">Server</a> *server, const string &amp;file, const bool &amp;exists)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new character.  <a href="#af7147ddb783cc1ebf56c21a27dfbed4a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67">Serialize</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize the character data.  <a href="#acbf271cc1d8bf64bd5bd4c286f508f67"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a91193d9bb29423c2ec95fb56c27d6bb3">Unserialize</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unserialize the character data.  <a href="#a91193d9bb29423c2ec95fb56c27d6bb3"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAccount.xhtml">Account</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef">gAccount</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a> associated with this <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>, if any.  <a href="#a9dce3d7ce7ac17f02397d198e47707ef"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#ad3d3db7ed1d44cf53fb7ae4b991a1c18">gCreation</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the creation states of this character from <a class="el" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2f">CHR_CREATION</a>.  <a href="#ad3d3db7ed1d44cf53fb7ae4b991a1c18"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#accb16b9ee94717e08c9ae8dee4e87262">gIdle</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of time the character has been idle.  <a href="#accb16b9ee94717e08c9ae8dee4e87262"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a611f85cc5c7c7c6977fdfca257530f3a">gPrompt</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a status-bar prompt based on tokens.  <a href="#a611f85cc5c7c7c6977fdfca257530f3a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a3687af665ff3b9fe94176ecde8a7beca">gSex</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sex of this character from <a class="el" href="enum_8h.xhtml#a5a21b8ad48605bcc6bd9d5091c46dc1f">CHR_SEX</a>.  <a href="#a3687af665ff3b9fe94176ecde8a7beca"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a622c35f2465a934848d493cd2a596584">sAccount</a> (<a class="el" href="classAccount.xhtml">Account</a> *account)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the account of this character.  <a href="#a622c35f2465a934848d493cd2a596584"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a324f4ec56476961fd22781a1d4e381ed">sCreation</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos, const bool &amp;val)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the creation states of this character from <a class="el" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2f">CHR_CREATION</a>.  <a href="#a324f4ec56476961fd22781a1d4e381ed"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#ace886cb5be13ee40545811660aa9f9db">sIdle</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;idle)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the idle timer value of the character.  <a href="#ace886cb5be13ee40545811660aa9f9db"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#add25d4f2e5c883884b6852f695e96851">sSex</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;sex)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the sex of this character from <a class="el" href="enum_8h.xhtml#a5a21b8ad48605bcc6bd9d5091c46dc1f">CHR_SEX</a>.  <a href="#add25d4f2e5c883884b6852f695e96851"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
@@ -131,11 +147,14 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAccount.xhtml">Account</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a> [<a class="el" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a>]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a402d965af5015487afa0fa8865bc4dce">m_idle</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00035">35</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
+<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00034">34</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="adc27bdd255876169bad2ed0bae0cffb5"></a><!-- doxytag: member="Character::Character" ref="adc27bdd255876169bad2ed0bae0cffb5" args="()" -->
 <div class="memitem">
@@ -151,9 +170,16 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00100">100</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00318">318</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
+    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+
     <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> = NULL;
+    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a>; i++ )
+        <a class="code" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a>[i] = <span class="keyword">false</span>;
+    <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a>.clear();
+    <a class="code" href="classCharacter.xhtml#a402d965af5015487afa0fa8865bc4dce">m_idle</a> = 0;
+    <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a> = 0;
 
     <span class="keywordflow">return</span>;
 }
@@ -174,7 +200,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00110">110</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00335">335</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -190,7 +216,7 @@ Private Attributes</h2></td></tr>
           <td class="memname">const void <a class="el" href="classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53">Character::Delete</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -202,15 +228,34 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classThing.xhtml#a89651e38dd04d9741d4a112606532211">Thing</a>.</p>
+<p>Implements <a class="el" href="classThing.xhtml#a9538999261b5bba766e3b04768ce2700">Thing</a>.</p>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00036">36</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00038">38</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
+    <a class="code" href="classThing.xhtml#a24cbae1bbf7bed91bdd782c5893b3250" title="Returns the Server associated with this Thing.">gServer</a>()-&gt;<a class="code" href="classServer.xhtml#a82fee111e14e3fcd3ea0658f092bed6e" title="Sets the Server&#39;s globally referenced next iterator for Character objects.">sCharacterNext</a>( <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.erase( find( <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.end(), this ) ) );
     <span class="keyword">delete</span> <span class="keyword">this</span>;
 
     <span class="keywordflow">return</span>;
 }
 </pre></div>
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a4f7ff295f5de0fa4f8fece0acb7aaa53_cgraph.svg" width="368" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a4f7ff295f5de0fa4f8fece0acb7aaa53_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a9dce3d7ce7ac17f02397d198e47707ef"></a><!-- doxytag: member="Character::gAccount" ref="a9dce3d7ce7ac17f02397d198e47707ef" args="() const " -->
@@ -233,11 +278,139 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00069">69</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00173">173</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>;
 }
 </pre></div>
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a9dce3d7ce7ac17f02397d198e47707ef_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3d3db7ed1d44cf53fb7ae4b991a1c18"></a><!-- doxytag: member="Character::gCreation" ref="ad3d3db7ed1d44cf53fb7ae4b991a1c18" args="(const uint_t &amp;pos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classCharacter.xhtml#ad3d3db7ed1d44cf53fb7ae4b991a1c18">Character::gCreation</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The creation state to get. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the state is set to false. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the state is set to true. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00184">184</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::sCreation()-&gt; called with invalid pos %lu&quot;</span>, pos );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">return</span> <a class="code" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a>[pos];
+}
+</pre></div>
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_ad3d3db7ed1d44cf53fb7ae4b991a1c18_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="accb16b9ee94717e08c9ae8dee4e87262"></a><!-- doxytag: member="Character::gIdle" ref="accb16b9ee94717e08c9ae8dee4e87262" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> <a class="el" href="classCharacter.xhtml#accb16b9ee94717e08c9ae8dee4e87262">Character::gIdle</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">uint_t</td><td>The number of seconds the character has been idle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00201">201</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classCharacter.xhtml#a402d965af5015487afa0fa8865bc4dce">m_idle</a>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a611f85cc5c7c7c6977fdfca257530f3a"></a><!-- doxytag: member="Character::gPrompt" ref="a611f85cc5c7c7c6977fdfca257530f3a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string <a class="el" href="classCharacter.xhtml#a611f85cc5c7c7c6977fdfca257530f3a">Character::gPrompt</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string containing the status information. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00210">210</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    stringstream output;
+
+    output &lt;&lt; <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> &lt;&lt; <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() &lt;&lt; <span class="stringliteral">&quot;&gt; &quot;</span>;
+
+    <span class="keywordflow">return</span> output.str();
+}
+</pre></div>
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a611f85cc5c7c7c6977fdfca257530f3a_cgraph.svg" width="291" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a3687af665ff3b9fe94176ecde8a7beca"></a><!-- doxytag: member="Character::gSex" ref="a3687af665ff3b9fe94176ecde8a7beca" args="() const " -->
@@ -260,19 +433,28 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00060">60</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00223">223</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a>;
 }
 </pre></div>
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a3687af665ff3b9fe94176ecde8a7beca_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a6d1ed45480fdc67b9f7770c7808dfac2"></a><!-- doxytag: member="Character::New" ref="a6d1ed45480fdc67b9f7770c7808dfac2" args="(Server *server, Account *account=NULL)" -->
+<a class="anchor" id="af7147ddb783cc1ebf56c21a27dfbed4a"></a><!-- doxytag: member="Character::New" ref="af7147ddb783cc1ebf56c21a27dfbed4a" args="(Server *server, const string &amp;file, const bool &amp;exists)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="classCharacter.xhtml#a6d1ed45480fdc67b9f7770c7808dfac2">Character::New</a> </td>
+          <td class="memname">const bool <a class="el" href="classCharacter.xhtml#af7147ddb783cc1ebf56c21a27dfbed4a">Character::New</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
@@ -280,8 +462,14 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classAccount.xhtml">Account</a> *&#160;</td>
-          <td class="paramname"><em>account</em> = <code>NULL</code>&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>exists</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -294,7 +482,8 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">server</td><td>The <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> the character will exist within. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">account</td><td>The associated <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>, if any. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>The filename to load without any path prepended to it. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exists</td><td>True if the character should be loaded, false if a new one need be created. </td></tr>
   </table>
   </dd>
 </dl>
@@ -306,8 +495,275 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00050">50</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00054">54</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a> = file;
+    <a class="code" href="classThing.xhtml#a4737f44c77897dbe813fc6308cdeaa04" title="Associates a Server to this Thing.">sServer</a>( server );
+
+    <span class="keywordflow">if</span> ( exists )
+    {
+        <span class="keywordflow">if</span> ( !<a class="code" href="classCharacter.xhtml#a91193d9bb29423c2ec95fb56c27d6bb3" title="Unserialize the character data.">Unserialize</a>() )
+        {
+            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::New()-&gt;Character::Unserialize()-&gt; returned false for file %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ) );
+            <span class="keywordflow">return</span> <span class="keyword">false</span>;
+        }
+    }
+
+    <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.push_back( <span class="keyword">this</span> );
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_af7147ddb783cc1ebf56c21a27dfbed4a_cgraph.svg" width="100%" height="428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_af7147ddb783cc1ebf56c21a27dfbed4a_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a622c35f2465a934848d493cd2a596584"></a><!-- doxytag: member="Character::sAccount" ref="a622c35f2465a934848d493cd2a596584" args="(Account *account)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classCharacter.xhtml#a622c35f2465a934848d493cd2a596584">Character::sAccount</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classAccount.xhtml">Account</a> *&#160;</td>
+          <td class="paramname"><em>account</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">account</td><td>A pointer to the <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a> to be associated with this character. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if unable to associate the account with this character. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the account was successfully associated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00235">235</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> != NULL &amp;&amp; account != NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Character::sAccount()-&gt; called while m_account is not NULL&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> = account;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a622c35f2465a934848d493cd2a596584_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a324f4ec56476961fd22781a1d4e381ed"></a><!-- doxytag: member="Character::sCreation" ref="a324f4ec56476961fd22781a1d4e381ed" args="(const uint_t &amp;pos, const bool &amp;val)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classCharacter.xhtml#a324f4ec56476961fd22781a1d4e381ed">Character::sCreation</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The creation state to set. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>The value to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the state was unable to be set. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the state was successfully set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00257">257</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::sCreation()-&gt; called with invalid pos %lu&quot;</span>, pos );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a>[pos] = val;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a324f4ec56476961fd22781a1d4e381ed_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acbf271cc1d8bf64bd5bd4c286f508f67"></a><!-- doxytag: member="Character::Serialize" ref="acbf271cc1d8bf64bd5bd4c286f508f67" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67">Character::Serialize</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error serializing the character. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the character was serialized successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classThing.xhtml#a19051d1b895bf1c3ab933a723f1ae79c">Thing</a>.</p>
+
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00080">80</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+    ofstream ofs;
+    <span class="keywordtype">string</span> value;
+    stringstream line;
+    <span class="keywordtype">string</span> file( <a class="code" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext.">Utils::FileExt</a>( <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>(), <a class="code" href="config_8h.xhtml#a2339c99068cee7dd8024d0097583cdee" title="File extension to use for player character files.">CFG_DAT_FILE_PLR_EXT</a> ) );
+
+    <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ofs, file );
+
+    <span class="keywordflow">if</span> ( !ofs.good() )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::Serialize()-&gt; failed to open character file: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ) );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="comment">// First to ensure id is loaded for logging later</span>
+    <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;id&quot;</span>, <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() );
+    <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;name&quot;</span>, <a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() );
+    <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;sex&quot;</span>, <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a> );
+
+    <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ofs, <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#a5820804ddbdd36a88754b698a1a28220" title="Directory for accounts to be loaded from.">CFG_DAT_DIR_ACCOUNT</a>, <a class="code" href="classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any.">gAccount</a>()-&gt;<a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ) );
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_acbf271cc1d8bf64bd5bd4c286f508f67_cgraph.svg" width="512" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_acbf271cc1d8bf64bd5bd4c286f508f67_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ace886cb5be13ee40545811660aa9f9db"></a><!-- doxytag: member="Character::sIdle" ref="ace886cb5be13ee40545811660aa9f9db" args="(const uint_t &amp;idle)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classCharacter.xhtml#ace886cb5be13ee40545811660aa9f9db">Character::sIdle</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>idle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">idle</td><td>A <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> value ranging from 0 to <a class="el" href="config_8h.xhtml#a2e5cf1b99e6fb32492aeee4eeb9590d3" title="(Minutes / tick rate) before disconnecting an idle Character detached from an Account. Approx 5 minutes.">CFG_CHR_MAX_IDLE</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the idle value is outside the proper range. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the idle value was successfully set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00278">278</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( idle &lt; uintmin_t || idle &gt; <a class="code" href="config_8h.xhtml#a2e5cf1b99e6fb32492aeee4eeb9590d3" title="(Minutes / tick rate) before disconnecting an idle Character detached from an Account. Approx 5 minutes.">CFG_CHR_MAX_IDLE</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::sIdle()-&gt; called with invalid idle: %lu&quot;</span>, idle );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classCharacter.xhtml#a402d965af5015487afa0fa8865bc4dce">m_idle</a> = idle;
+
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
@@ -341,7 +797,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00081">81</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00299">299</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -356,6 +812,115 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_add25d4f2e5c883884b6852f695e96851_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a91193d9bb29423c2ec95fb56c27d6bb3"></a><!-- doxytag: member="Character::Unserialize" ref="a91193d9bb29423c2ec95fb56c27d6bb3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classCharacter.xhtml#a91193d9bb29423c2ec95fb56c27d6bb3">Character::Unserialize</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error unserializing the character. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the character was unserialized successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classThing.xhtml#a56e59bba2e3602b8935dc07b6768dd0a">Thing</a>.</p>
+
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00111">111</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+    <a class="code" href="macros_8h.xhtml#a6e32552c1b3df78e64aa5205ddf6dae9" title="Define a bitset variable (name) with UTILS_TYPE_INFO already enabled.">UFLAGS_I</a>( finfo );
+    ifstream ifs;
+    <span class="keywordtype">string</span> key, value, line;
+    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>, maxb = <span class="keyword">false</span>;
+
+    <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ifs, <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#a5820804ddbdd36a88754b698a1a28220" title="Directory for accounts to be loaded from.">CFG_DAT_DIR_ACCOUNT</a>, <a class="code" href="classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any.">gAccount</a>()-&gt;<a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() ), <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a> ) );
+
+    <span class="keywordflow">if</span> ( !ifs.good() )
+    {
+        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::Unserialize()-&gt; failed to open character file: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a> ) );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">while</span> ( getline( ifs, line ) )
+    {
+        <span class="keywordflow">if</span> ( !<a class="code" href="namespaceUtils.xhtml#a4a4d3dfd2ddb691bc5bcff82252c058b" title="Splits a string in the format of key=value. Retains any whitespace in the value.">Utils::KeyValue</a>( key, value, line) )
+        {
+            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::Unserialize()-&gt; error reading line: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( line ) );
+            <span class="keywordflow">continue</span>;
+        }
+
+        <span class="keywordflow">for</span> ( ;; )
+        {
+            found = <span class="keyword">false</span>;
+            maxb = <span class="keyword">false</span>;
+
+            <span class="comment">// First to ensure id is loaded for logging later</span>
+            <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;id&quot;</span> )
+            {
+                found = <span class="keyword">true</span>;
+                <a class="code" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b" title="Sets the id of this Thing.">sId</a>( value );
+            }
+            <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;name&quot;</span> )
+            {
+                found = <span class="keyword">true</span>;
+                <a class="code" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41" title="Sets the name of this Thing.">sName</a>( value );
+            }
+            <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" title="If the contents of keyd == valu, assigns loc = item.">Utils::KeySet</a>( <span class="keyword">true</span>, found, key, <span class="stringliteral">&quot;sex&quot;</span>, value, <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a>, <a class="code" href="enum_8h.xhtml#a5a21b8ad48605bcc6bd9d5091c46dc1fa06107e14022a0ca1f5b2c92ecfc748d2">MAX_CHR_SEX</a>, maxb );
+
+            <span class="keywordflow">if</span> ( !found )
+                <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::Unserialize()-&gt;Utils::KeySet()-&gt; key not found: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( key ) );
+
+            <span class="keywordflow">if</span> ( maxb )
+                <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( finfo, <span class="stringliteral">&quot;Character::Unserialize()-&gt;Utils::KeySet()-&gt; character id %s, key %s has illegal value %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( key ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( value ) );
+
+            <span class="keywordflow">break</span>;
+        }
+    }
+
+    <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ifs );
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a91193d9bb29423c2ec95fb56c27d6bb3_cgraph.svg" width="528" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a91193d9bb29423c2ec95fb56c27d6bb3_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
@@ -371,7 +936,55 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The associated <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>, if any. </p>
 
-<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00057">57</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
+<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00064">64</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c2a00e9ddb021cc0258cf1504c1b0d7"></a><!-- doxytag: member="Character::m_creation" ref="a1c2a00e9ddb021cc0258cf1504c1b0d7" args="[MAX_CHR_CREATION]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">Character::m_creation</a>[<a class="el" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a>]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Track if all creation options have been set. </p>
+
+<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00065">65</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a32489f7db50dddbed3e8920e8c4d3418"></a><!-- doxytag: member="Character::m_file" ref="a32489f7db50dddbed3e8920e8c4d3418" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string <a class="el" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">Character::m_file</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Path to the file on disk. </p>
+
+<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00066">66</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a402d965af5015487afa0fa8865bc4dce"></a><!-- doxytag: member="Character::m_idle" ref="a402d965af5015487afa0fa8865bc4dce" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> <a class="el" href="classCharacter.xhtml#a402d965af5015487afa0fa8865bc4dce">Character::m_idle</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Amount of time since being de-associated from an <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>, and therefore, a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>. </p>
+
+<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00067">67</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
 
 </div>
 </div>
@@ -387,7 +1000,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The sex of the character. </p>
 
-<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00058">58</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
+<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00068">68</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
 
 </div>
 </div>
@@ -413,7 +1026,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

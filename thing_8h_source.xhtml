@@ -102,26 +102,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00024"></a>00024 <span class="preprocessor">#ifndef DEC_THING_H</span>
 <a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#define DEC_THING_H</span>
 <a name="l00026"></a>00026 <span class="preprocessor"></span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="server_8h.xhtml" title="The Server class.">server.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="keyword">using namespace </span>std;
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">using namespace </span>std;
-<a name="l00030"></a>00030 
-<a name="l00034"></a><a class="code" href="classThing.xhtml">00034</a> <span class="keyword">class </span><a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> {
-<a name="l00035"></a>00035     <span class="keyword">public</span>: 
-<a name="l00037"></a>00037         <span class="keyword">const</span> <span class="keywordtype">void</span> Delete();
-<a name="l00038"></a>00038         <span class="keyword">const</span> <span class="keywordtype">bool</span> New( <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>* server ); 
-<a name="l00042"></a>00042         <span class="keyword">const</span> <span class="keywordtype">string</span> gId() <span class="keyword">const</span>;
-<a name="l00043"></a>00043         <span class="keyword">const</span> <span class="keywordtype">string</span> gName() <span class="keyword">const</span>; 
-<a name="l00047"></a>00047         <span class="keyword">const</span> <span class="keywordtype">bool</span> sId( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span> );
-<a name="l00048"></a>00048         <span class="keyword">const</span> <span class="keywordtype">bool</span> sName( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; system = <span class="keyword">false</span> ); 
-<a name="l00052"></a>00052         <a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>();
-<a name="l00053"></a>00053         ~<a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>();
-<a name="l00056"></a>00056     <span class="keyword">private</span>:
-<a name="l00057"></a><a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">00057</a>         <span class="keywordtype">string</span> <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>; 
-<a name="l00058"></a><a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">00058</a>         <span class="keywordtype">string</span> <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>; 
-<a name="l00059"></a>00059 };
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="preprocessor">#endif</span>
+<a name="l00032"></a><a class="code" href="classThing.xhtml">00032</a> <span class="keyword">class </span><a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> {
+<a name="l00033"></a>00033     <span class="keyword">public</span>: 
+<a name="l00035"></a>00035         <span class="keyword">const</span> <span class="keywordtype">bool</span> AddThing( <a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>* thing );
+<a name="l00036"></a>00036         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">void</span> Delete() = 0;
+<a name="l00037"></a>00037         <span class="keyword">const</span> <span class="keywordtype">bool</span> Move( <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>* location );
+<a name="l00038"></a>00038         <span class="keyword">const</span> <span class="keywordtype">bool</span> RemoveThing( <a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>* thing );
+<a name="l00039"></a>00039         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Serialize() <span class="keyword">const</span> = 0;
+<a name="l00040"></a>00040         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Unserialize() = 0; 
+<a name="l00044"></a>00044         <span class="keyword">const</span> <span class="keywordtype">string</span> gId() <span class="keyword">const</span>;
+<a name="l00045"></a>00045         <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>* gLocation() <span class="keyword">const</span>;
+<a name="l00046"></a>00046         <span class="keyword">const</span> <span class="keywordtype">string</span> gName() <span class="keyword">const</span>;
+<a name="l00047"></a>00047         <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>* gServer() <span class="keyword">const</span>; 
+<a name="l00051"></a>00051         <span class="keyword">const</span> <span class="keywordtype">bool</span> sId( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span> );
+<a name="l00052"></a>00052         <span class="keyword">const</span> <span class="keywordtype">bool</span> sName( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; system = <span class="keyword">false</span> );
+<a name="l00053"></a>00053         <span class="keyword">const</span> <span class="keywordtype">bool</span> sServer( <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>* server ); 
+<a name="l00057"></a>00057         <a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>();
+<a name="l00058"></a>00058         <span class="keyword">virtual</span> ~<a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>();
+<a name="l00061"></a>00061     <span class="keyword">private</span>:
+<a name="l00062"></a><a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">00062</a>         vector&lt;Thing*&gt; <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>; 
+<a name="l00063"></a><a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">00063</a>         <span class="keywordtype">string</span> <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>; 
+<a name="l00064"></a><a class="code" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">00064</a>         <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>* <a class="code" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">m_location</a>; 
+<a name="l00065"></a><a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">00065</a>         <span class="keywordtype">string</span> <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>; 
+<a name="l00066"></a><a class="code" href="classThing.xhtml#ab51d731b069b2d4e88ed5894f2a3d5ce">00066</a>         <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>* <a class="code" href="classThing.xhtml#ab51d731b069b2d4e88ed5894f2a3d5ce">m_server</a>; 
+<a name="l00067"></a>00067 };
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -140,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:22 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

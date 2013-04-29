@@ -32,43 +32,43 @@
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 852;
+var viewWidth = 858;
 var viewHeight = 270;
-var sectionId = 'dynsection-18';
+var sectionId = 'dynsection-13';
 </script>
 <script xlink:href="svgpan.js"/>
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>G</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-266 849,-266 849,5 -4,5"/>
+<polygon fill="white" stroke="white" points="-4,5 -4,-266 855,-266 855,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="0,-130.5 0,-151.5 124,-151.5 124,-130.5 0,-130.5"/>
-<text text-anchor="middle" x="62" y="-138.5" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessEvents</text>
+<polygon fill="#bfbfbf" stroke="black" points="0,-100.5 0,-121.5 124,-121.5 124,-100.5 0,-100.5"/>
+<text text-anchor="middle" x="62" y="-108.5" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessEvents</text>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
 <a xlink:href="classEvent.xhtml#a65983b240559175bfabe83c640ed7147" target="_top" xlink:title="Updates the Event by decrementing the remaining time.">
-<polygon fill="white" stroke="black" points="160.5,-150.5 160.5,-171.5 245.5,-171.5 245.5,-150.5 160.5,-150.5"/>
-<text text-anchor="middle" x="203" y="-158.5" font-family="FreeSans.ttf" font-size="10.00">Event::Update</text>
+<polygon fill="white" stroke="black" points="160.5,-120.5 160.5,-141.5 245.5,-141.5 245.5,-120.5 160.5,-120.5"/>
+<text text-anchor="middle" x="203" y="-128.5" font-family="FreeSans.ttf" font-size="10.00">Event::Update</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M124.255,-149.831C132.961,-151.065 141.838,-152.325 150.344,-153.531"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="150.106,-157.032 160.498,-154.971 151.089,-150.102 150.106,-157.032"/>
+<path fill="none" stroke="midnightblue" d="M124.255,-119.831C132.961,-121.065 141.838,-122.325 150.344,-123.531"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="150.106,-127.032 160.498,-124.971 151.089,-120.102 150.106,-127.032"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
 <a xlink:href="classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c" target="_top" xlink:title="Execute the function stored within the Event object.">
-<polygon fill="white" stroke="black" points="169.5,-110.5 169.5,-131.5 236.5,-131.5 236.5,-110.5 169.5,-110.5"/>
-<text text-anchor="middle" x="203" y="-118.5" font-family="FreeSans.ttf" font-size="10.00">Event::Run</text>
+<polygon fill="white" stroke="black" points="169.5,-80.5 169.5,-101.5 236.5,-101.5 236.5,-80.5 169.5,-80.5"/>
+<text text-anchor="middle" x="203" y="-88.5" font-family="FreeSans.ttf" font-size="10.00">Event::Run</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M124.255,-132.169C135.995,-130.504 148.045,-128.795 159.077,-127.23"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="159.89,-130.65 169.3,-125.78 158.907,-123.719 159.89,-130.65"/>
+<path fill="none" stroke="midnightblue" d="M124.255,-102.169C135.995,-100.504 148.045,-98.795 159.077,-97.2302"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="159.89,-100.65 169.3,-95.7802 158.907,-93.7193 159.89,-100.65"/>
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
@@ -79,8 +79,8 @@ var sectionId = 'dynsection-18';
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge6" class="edge"><title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M236.725,-127.883C253.904,-131.389 275.232,-135.741 294.733,-139.721"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="294.234,-143.191 304.732,-141.762 295.634,-136.333 294.234,-143.191"/>
+<path fill="none" stroke="midnightblue" d="M228.942,-101.589C252.727,-111.297 288.154,-125.757 314.546,-136.529"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="313.241,-139.777 323.823,-140.315 315.887,-133.296 313.241,-139.777"/>
 </g>
 <!-- Node6 -->
 <g id="node11" class="node"><title>Node6</title>
@@ -91,174 +91,186 @@ var sectionId = 'dynsection-18';
 </g>
 <!-- Node3&#45;&gt;Node6 -->
 <g id="edge10" class="edge"><title>Node3&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M236.725,-114.117C251.959,-111.008 270.456,-107.233 288.048,-103.643"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="289.171,-106.986 298.269,-101.557 287.771,-100.128 289.171,-106.986"/>
+<path fill="none" stroke="midnightblue" d="M236.725,-91C247.254,-91 259.342,-91 271.612,-91"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="271.932,-94.5001 281.932,-91 271.932,-87.5001 271.932,-94.5001"/>
+</g>
+<!-- Node19 -->
+<g id="node39" class="node"><title>Node19</title>
+<a xlink:href="classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4" target="_top" xlink:title="Unload an event from memory that was previously loaded via Event::New().">
+<polygon fill="white" stroke="black" points="309.5,-40.5 309.5,-61.5 390.5,-61.5 390.5,-40.5 309.5,-40.5"/>
+<text text-anchor="middle" x="350" y="-48.5" font-family="FreeSans.ttf" font-size="10.00">Event::Delete</text>
+</a>
+</g>
+<!-- Node3&#45;&gt;Node19 -->
+<g id="edge40" class="edge"><title>Node3&#45;&gt;Node19</title>
+<path fill="none" stroke="midnightblue" d="M236.725,-81.8232C255.897,-76.6063 280.236,-69.9835 301.435,-64.215"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="302.508,-67.5504 311.238,-61.5475 300.67,-60.796 302.508,-67.5504"/>
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
 <a xlink:href="classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d" target="_top" xlink:title="Execute the primary function of the implemented class.">
-<polygon fill="white" stroke="black" points="482,-160.5 482,-181.5 550,-181.5 550,-160.5 482,-160.5"/>
-<text text-anchor="middle" x="516" y="-168.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::Run</text>
+<polygon fill="white" stroke="black" points="485,-160.5 485,-181.5 553,-181.5 553,-160.5 485,-160.5"/>
+<text text-anchor="middle" x="519" y="-168.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::Run</text>
 </a>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge8" class="edge"><title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M395.36,-156.465C419.109,-159.326 448.073,-162.816 471.668,-165.659"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="471.409,-169.153 481.756,-166.874 472.246,-162.203 471.409,-169.153"/>
+<path fill="none" stroke="midnightblue" d="M395.289,-156.36C419.928,-159.275 450.282,-162.868 474.756,-165.764"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="474.509,-169.259 484.851,-166.959 475.332,-162.308 474.509,-169.259"/>
 </g>
 <!-- Node7 -->
 <g id="node13" class="node"><title>Node7</title>
-<a xlink:href="classServer.xhtml#acf928ad938e32e6342c0cdd278e793bc" target="_top" xlink:title="Server::FindCommand">
-<polygon fill="white" stroke="black" points="454.5,-0.5 454.5,-21.5 577.5,-21.5 577.5,-0.5 454.5,-0.5"/>
-<text text-anchor="middle" x="516" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Server::FindCommand</text>
+<a xlink:href="namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" target="_top" xlink:title="Locates a Command associated with the game.">
+<polygon fill="white" stroke="black" points="454.5,-0.5 454.5,-21.5 583.5,-21.5 583.5,-0.5 454.5,-0.5"/>
+<text text-anchor="middle" x="519" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Handler::FindCommand</text>
 </a>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge12" class="edge"><title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M366.007,-80.3304C385.961,-67.3722 421.419,-45.4583 454,-31 458.788,-28.8754 463.872,-26.8649 468.99,-24.9968"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="470.504,-28.1759 478.801,-21.5874 468.207,-21.5637 470.504,-28.1759"/>
+<path fill="none" stroke="midnightblue" d="M398.272,-80.4403C405.167,-77.91 411.961,-74.8034 418,-71 438.239,-58.2545 433.841,-43.8712 454,-31 457.172,-28.9747 460.562,-27.1437 464.066,-25.49"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="465.671,-28.612 473.538,-21.515 462.963,-22.1574 465.671,-28.612"/>
 </g>
 <!-- Node11 -->
 <g id="node21" class="node"><title>Node11</title>
 <a xlink:href="classCommand.xhtml#a63b8f3fc40a0cc9e02fcaa2ea2329c40" target="_top" xlink:title="Return the filename of the associated Plugin object.">
-<polygon fill="white" stroke="black" points="469,-80.5 469,-101.5 563,-101.5 563,-80.5 469,-80.5"/>
-<text text-anchor="middle" x="516" y="-88.5" font-family="FreeSans.ttf" font-size="10.00">Command::gFile</text>
+<polygon fill="white" stroke="black" points="472,-80.5 472,-101.5 566,-101.5 566,-80.5 472,-80.5"/>
+<text text-anchor="middle" x="519" y="-88.5" font-family="FreeSans.ttf" font-size="10.00">Command::gFile</text>
 </a>
 </g>
 <!-- Node6&#45;&gt;Node11 -->
 <g id="edge20" class="edge"><title>Node6&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M418.477,-91C431.866,-91 445.776,-91 458.754,-91"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="458.934,-94.5001 468.934,-91 458.934,-87.5001 458.934,-94.5001"/>
+<path fill="none" stroke="midnightblue" d="M418.252,-91C432.56,-91 447.514,-91 461.388,-91"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="461.759,-94.5001 471.759,-91 461.759,-87.5001 461.759,-94.5001"/>
 </g>
 <!-- Node12 -->
 <g id="node23" class="node"><title>Node12</title>
 <a xlink:href="classCommand.xhtml#afc0d482427309deb78e094fa787d1477" target="_top" xlink:title="Unload a command from memory that was previously loaded via Command::New().">
-<polygon fill="white" stroke="black" points="464,-40.5 464,-61.5 568,-61.5 568,-40.5 464,-40.5"/>
-<text text-anchor="middle" x="516" y="-48.5" font-family="FreeSans.ttf" font-size="10.00">Command::Delete</text>
+<polygon fill="white" stroke="black" points="467,-40.5 467,-61.5 571,-61.5 571,-40.5 467,-40.5"/>
+<text text-anchor="middle" x="519" y="-48.5" font-family="FreeSans.ttf" font-size="10.00">Command::Delete</text>
 </a>
 </g>
 <!-- Node6&#45;&gt;Node12 -->
 <g id="edge22" class="edge"><title>Node6&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M393.615,-80.4905C414.69,-75.412 440.176,-69.2708 462.423,-63.9102"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="463.487,-67.254 472.389,-61.5087 461.847,-60.4488 463.487,-67.254"/>
+<path fill="none" stroke="midnightblue" d="M394.403,-80.4905C415.956,-75.3892 442.04,-69.2155 464.76,-63.8378"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="465.676,-67.2179 474.601,-61.5087 464.063,-60.4061 465.676,-67.2179"/>
 </g>
 <!-- Node13 -->
 <g id="node25" class="node"><title>Node13</title>
 <a xlink:href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" target="_top" xlink:title="Load a plugin command from CFG_DAT_DIR_OBJ.">
-<polygon fill="white" stroke="black" points="469.5,-120.5 469.5,-141.5 562.5,-141.5 562.5,-120.5 469.5,-120.5"/>
-<text text-anchor="middle" x="516" y="-128.5" font-family="FreeSans.ttf" font-size="10.00">Command::New</text>
+<polygon fill="white" stroke="black" points="472.5,-120.5 472.5,-141.5 565.5,-141.5 565.5,-120.5 472.5,-120.5"/>
+<text text-anchor="middle" x="519" y="-128.5" font-family="FreeSans.ttf" font-size="10.00">Command::New</text>
 </a>
 </g>
 <!-- Node6&#45;&gt;Node13 -->
 <g id="edge24" class="edge"><title>Node6&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M393.615,-101.51C414.69,-106.588 440.176,-112.729 462.423,-118.09"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="461.847,-121.551 472.389,-120.491 463.487,-114.746 461.847,-121.551"/>
+<path fill="none" stroke="midnightblue" d="M394.403,-101.51C415.956,-106.611 442.04,-112.785 464.76,-118.162"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="464.063,-121.594 474.601,-120.491 465.676,-114.782 464.063,-121.594"/>
 </g>
 <!-- Node8 -->
 <g id="node15" class="node"><title>Node8</title>
 <a xlink:href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" target="_top" xlink:title="Returns a string converted to all lowercase letters.">
-<polygon fill="white" stroke="black" points="632.5,-40.5 632.5,-61.5 703.5,-61.5 703.5,-40.5 632.5,-40.5"/>
-<text text-anchor="middle" x="668" y="-48.5" font-family="FreeSans.ttf" font-size="10.00">Utils::Lower</text>
+<polygon fill="white" stroke="black" points="638.5,-40.5 638.5,-61.5 709.5,-61.5 709.5,-40.5 638.5,-40.5"/>
+<text text-anchor="middle" x="674" y="-48.5" font-family="FreeSans.ttf" font-size="10.00">Utils::Lower</text>
 </a>
 </g>
 <!-- Node7&#45;&gt;Node8 -->
 <g id="edge14" class="edge"><title>Node7&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M555.936,-21.5095C576.438,-26.9048 601.498,-33.4996 622.718,-39.0836"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="621.915,-42.4915 632.477,-41.6518 623.697,-35.722 621.915,-42.4915"/>
+<path fill="none" stroke="midnightblue" d="M559.724,-21.5095C580.881,-26.9693 606.798,-33.6576 628.599,-39.2836"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="627.737,-42.6756 638.294,-41.7855 629.486,-35.8977 627.737,-42.6756"/>
 </g>
 <!-- Node9 -->
 <g id="node17" class="node"><title>Node9</title>
 <a xlink:href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" target="_top" xlink:title="Return the name of the associated Plugin object.">
-<polygon fill="white" stroke="black" points="614,-0.5 614,-21.5 722,-21.5 722,-0.5 614,-0.5"/>
-<text text-anchor="middle" x="668" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Command::gName</text>
+<polygon fill="white" stroke="black" points="620,-0.5 620,-21.5 728,-21.5 728,-0.5 620,-0.5"/>
+<text text-anchor="middle" x="674" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Command::gName</text>
 </a>
 </g>
 <!-- Node7&#45;&gt;Node9 -->
 <g id="edge16" class="edge"><title>Node7&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M577.824,-11C586.239,-11 594.893,-11 603.356,-11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="603.554,-14.5001 613.554,-11 603.554,-7.5001 603.554,-14.5001"/>
+<path fill="none" stroke="midnightblue" d="M583.836,-11C592.329,-11 601.03,-11 609.517,-11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="609.734,-14.5001 619.734,-11 609.734,-7.5001 609.734,-14.5001"/>
 </g>
 <!-- Node10 -->
 <g id="node19" class="node"><title>Node10</title>
 <a xlink:href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" target="_top" xlink:title="Return the name of the object.">
-<polygon fill="white" stroke="black" points="758,-0.5 758,-21.5 844,-21.5 844,-0.5 758,-0.5"/>
-<text text-anchor="middle" x="801" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::gName</text>
+<polygon fill="white" stroke="black" points="764,-0.5 764,-21.5 850,-21.5 850,-0.5 764,-0.5"/>
+<text text-anchor="middle" x="807" y="-8.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::gName</text>
 </a>
 </g>
 <!-- Node9&#45;&gt;Node10 -->
 <g id="edge18" class="edge"><title>Node9&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M722.096,-11C730.584,-11 739.35,-11 747.817,-11"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="747.957,-14.5001 757.956,-11 747.956,-7.5001 747.957,-14.5001"/>
+<path fill="none" stroke="midnightblue" d="M728.096,-11C736.584,-11 745.35,-11 753.817,-11"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="753.957,-14.5001 763.956,-11 753.956,-7.5001 753.957,-14.5001"/>
 </g>
 <!-- Node13&#45;&gt;Node8 -->
 <g id="edge36" class="edge"><title>Node13&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M559.039,-120.397C565.66,-117.852 572.21,-114.752 578,-111 598.071,-97.9926 594.211,-84.4326 614,-71 616.858,-69.0603 619.927,-67.2799 623.1,-65.6511"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="624.6,-68.8139 632.223,-61.456 621.675,-62.4541 624.6,-68.8139"/>
+<path fill="none" stroke="midnightblue" d="M564.462,-120.485C571.287,-117.936 578.029,-114.812 584,-111 604.159,-98.1288 600.211,-84.4326 620,-71 622.858,-69.0603 625.927,-67.2799 629.1,-65.6511"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="630.6,-68.8139 638.223,-61.456 627.675,-62.4541 630.6,-68.8139"/>
 </g>
 <!-- Node13&#45;&gt;Node9 -->
 <g id="edge38" class="edge"><title>Node13&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M562.702,-120.757C568.258,-118.197 573.533,-114.997 578,-111 607.054,-84.9992 585.507,-57.6146 614,-31 615.662,-29.4475 617.455,-28.013 619.343,-26.6877"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="621.254,-29.6248 628.113,-21.5501 617.715,-23.5849 621.254,-29.6248"/>
+<path fill="none" stroke="midnightblue" d="M565.623,-122.025C572.297,-119.278 578.689,-115.688 584,-111 613.23,-85.1965 591.507,-57.6146 620,-31 621.662,-29.4475 623.455,-28.013 625.343,-26.6877"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="627.254,-29.6248 634.113,-21.5501 623.715,-23.5849 627.254,-29.6248"/>
 </g>
 <!-- Node14 -->
 <g id="node27" class="node"><title>Node14</title>
 <a xlink:href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" target="_top" xlink:title="Returns a string consisting of directory/file.ext.">
-<polygon fill="white" stroke="black" points="629,-200.5 629,-221.5 707,-221.5 707,-200.5 629,-200.5"/>
-<text text-anchor="middle" x="668" y="-208.5" font-family="FreeSans.ttf" font-size="10.00">Utils::DirPath</text>
+<polygon fill="white" stroke="black" points="635,-200.5 635,-221.5 713,-221.5 713,-200.5 635,-200.5"/>
+<text text-anchor="middle" x="674" y="-208.5" font-family="FreeSans.ttf" font-size="10.00">Utils::DirPath</text>
 </a>
 </g>
 <!-- Node13&#45;&gt;Node14 -->
 <g id="edge26" class="edge"><title>Node13&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M559.039,-141.603C565.66,-144.148 572.21,-147.248 578,-151 598.071,-164.007 594.211,-177.567 614,-191 616.73,-192.853 619.653,-194.56 622.674,-196.129"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="621.394,-199.394 631.939,-200.426 624.34,-193.043 621.394,-199.394"/>
+<path fill="none" stroke="midnightblue" d="M564.462,-141.515C571.287,-144.064 578.029,-147.188 584,-151 604.159,-163.871 600.211,-177.567 620,-191 622.73,-192.853 625.653,-194.56 628.674,-196.129"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="627.394,-199.394 637.939,-200.426 630.34,-193.043 627.394,-199.394"/>
 </g>
 <!-- Node15 -->
 <g id="node29" class="node"><title>Node15</title>
 <a xlink:href="namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b" target="_top" xlink:title="Determines if a file path is a file or directory on disk.">
-<polygon fill="white" stroke="black" points="637.5,-160.5 637.5,-181.5 698.5,-181.5 698.5,-160.5 637.5,-160.5"/>
-<text text-anchor="middle" x="668" y="-168.5" font-family="FreeSans.ttf" font-size="10.00">Utils::iFile</text>
+<polygon fill="white" stroke="black" points="643.5,-160.5 643.5,-181.5 704.5,-181.5 704.5,-160.5 643.5,-160.5"/>
+<text text-anchor="middle" x="674" y="-168.5" font-family="FreeSans.ttf" font-size="10.00">Utils::iFile</text>
 </a>
 </g>
 <!-- Node13&#45;&gt;Node15 -->
 <g id="edge28" class="edge"><title>Node13&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M555.936,-141.51C578.057,-147.331 605.483,-154.548 627.666,-160.386"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="626.89,-163.801 637.452,-162.961 628.672,-157.031 626.89,-163.801"/>
+<path fill="none" stroke="midnightblue" d="M559.724,-141.51C582.539,-147.397 610.889,-154.713 633.644,-160.586"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="632.785,-163.978 643.342,-163.088 634.534,-157.201 632.785,-163.978"/>
 </g>
 <!-- Node16 -->
 <g id="node31" class="node"><title>Node16</title>
 <a xlink:href="classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859" target="_top" xlink:title="Sets a pointer to the object that initialized this Plugin.">
-<polygon fill="white" stroke="black" points="626.5,-120.5 626.5,-141.5 709.5,-141.5 709.5,-120.5 626.5,-120.5"/>
-<text text-anchor="middle" x="668" y="-128.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::sCaller</text>
+<polygon fill="white" stroke="black" points="632.5,-120.5 632.5,-141.5 715.5,-141.5 715.5,-120.5 632.5,-120.5"/>
+<text text-anchor="middle" x="674" y="-128.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::sCaller</text>
 </a>
 </g>
 <!-- Node13&#45;&gt;Node16 -->
 <g id="edge30" class="edge"><title>Node13&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M562.845,-131C579.676,-131 598.756,-131 615.999,-131"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="616.461,-134.5 626.461,-131 616.461,-127.5 616.461,-134.5"/>
+<path fill="none" stroke="midnightblue" d="M565.505,-131C583.329,-131 603.772,-131 622.072,-131"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="622.275,-134.5 632.275,-131 622.275,-127.5 622.275,-134.5"/>
 </g>
 <!-- Node17 -->
 <g id="node33" class="node"><title>Node17</title>
 <a xlink:href="classPlugin.xhtml#a669870333a99490518fdd59054deaade" target="_top" xlink:title="Return a bool value to tie into other object types.">
-<polygon fill="white" stroke="black" points="629,-80.5 629,-101.5 707,-101.5 707,-80.5 629,-80.5"/>
-<text text-anchor="middle" x="668" y="-88.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::gBool</text>
+<polygon fill="white" stroke="black" points="635,-80.5 635,-101.5 713,-101.5 713,-80.5 635,-80.5"/>
+<text text-anchor="middle" x="674" y="-88.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::gBool</text>
 </a>
 </g>
 <!-- Node13&#45;&gt;Node17 -->
 <g id="edge32" class="edge"><title>Node13&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M555.936,-120.49C575.287,-115.398 598.699,-109.237 619.109,-103.866"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="620.076,-107.231 628.856,-101.301 618.295,-100.461 620.076,-107.231"/>
+<path fill="none" stroke="midnightblue" d="M559.724,-120.49C579.779,-115.315 604.111,-109.036 625.16,-103.604"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="626.076,-106.982 634.884,-101.094 624.326,-100.204 626.076,-106.982"/>
 </g>
 <!-- Node18 -->
 <g id="node35" class="node"><title>Node18</title>
 <a xlink:href="classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43" target="_top" xlink:title="Return a uint_t value to tie into other object types.">
-<polygon fill="white" stroke="black" points="629.5,-240.5 629.5,-261.5 706.5,-261.5 706.5,-240.5 629.5,-240.5"/>
-<text text-anchor="middle" x="668" y="-248.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::gUint</text>
+<polygon fill="white" stroke="black" points="635.5,-240.5 635.5,-261.5 712.5,-261.5 712.5,-240.5 635.5,-240.5"/>
+<text text-anchor="middle" x="674" y="-248.5" font-family="FreeSans.ttf" font-size="10.00">Plugin::gUint</text>
 </a>
 </g>
 <!-- Node13&#45;&gt;Node18 -->
 <g id="edge34" class="edge"><title>Node13&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M562.702,-141.243C568.258,-143.803 573.533,-147.003 578,-151 607.054,-177.001 585.507,-204.385 614,-231 615.95,-232.821 618.08,-234.48 620.332,-235.991"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="619.057,-239.288 629.494,-241.111 622.473,-233.178 619.057,-239.288"/>
+<path fill="none" stroke="midnightblue" d="M565.623,-139.975C572.297,-142.722 578.689,-146.312 584,-151 613.23,-176.803 591.507,-204.385 620,-231 621.95,-232.821 624.08,-234.48 626.332,-235.991"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="625.057,-239.288 635.494,-241.111 628.473,-233.178 625.057,-239.288"/>
 </g>
 </g>
 </svg>

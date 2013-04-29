@@ -78,6 +78,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">h/includes.h File Reference</div>  </div>
 </div><!--header-->
@@ -90,13 +92,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="macros_8h_source.xhtml">macros.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="enum_8h_source.xhtml">enum.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="config_8h_source.xhtml">config.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="class_8h_source.xhtml">class.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="namespace_8h_source.xhtml">namespace.h</a>&quot;</code><br/>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for includes.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="includes_8h__incl.svg" width="100%" height="592"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="includes_8h__incl.svg" width="100%" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
@@ -107,11 +110,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 </div>
 <p><a href="includes_8h_source.xhtml">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classPlugin.xhtml">Plugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="includes_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6">PluginNew</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Used as a pointer to the New() function within an implemented class.  <a href="#aa2b4854863feda0a2425bfd72c37f8d6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="includes_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4">PluginDelete</a> (<a class="el" href="classPlugin.xhtml">Plugin</a> *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Used as a pointer to the Delete() function within an implemented class.  <a href="#a1c99eaa96f84c10bc07e3586fa6a15c4"></a><br/></td></tr>
+</table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This file is a "headers of headers" in that it only references other headers within NAMS that should be included to each .cpp file. This header file should be the first file included within every .cpp file. </p>
 
 <p>Definition in file <a class="el" href="includes_8h_source.xhtml">includes.h</a>.</p>
-</div></div><!-- contents -->
+</div><hr/><h2>Typedef Documentation</h2>
+<a class="anchor" id="a1c99eaa96f84c10bc07e3586fa6a15c4"></a><!-- doxytag: member="includes.h::PluginDelete" ref="a1c99eaa96f84c10bc07e3586fa6a15c4" args="(Plugin *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void <a class="el" href="includes_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4">PluginDelete</a>(<a class="el" href="classPlugin.xhtml">Plugin</a> *)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="includes_8h_source.xhtml#l00045">45</a> of file <a class="el" href="includes_8h_source.xhtml">includes.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa2b4854863feda0a2425bfd72c37f8d6"></a><!-- doxytag: member="includes.h::PluginNew" ref="aa2b4854863feda0a2425bfd72c37f8d6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classPlugin.xhtml">Plugin</a>* <a class="el" href="includes_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6">PluginNew</a>()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="includes_8h_source.xhtml#l00040">40</a> of file <a class="el" href="includes_8h_source.xhtml">includes.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -129,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:22 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

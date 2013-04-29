@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['entergame',['EnterGame',['../namespaceHandler.xhtml#a571519b889d3750c63b9dc3418449bcb',1,'Handler']]],
   ['enum_2eh',['enum.h',['../enum_8h.xhtml',1,'']]],
   ['event',['Event',['../classEvent.xhtml',1,'Event'],['../classEvent.xhtml#a5a40dd4708297f7031e29b39e039ae10',1,'Event::Event()']]],
   ['event_2ecpp',['event.cpp',['../event_8cpp.xhtml',1,'']]],

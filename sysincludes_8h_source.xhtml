@@ -99,21 +99,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 <span class="comment"> * You should have received a copy of the GNU General Public License       *</span>
 <a name="l00016"></a>00016 <span class="comment"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.   *</span>
 <a name="l00017"></a>00017 <span class="comment"> ***************************************************************************/</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#ifndef DEC_SYSINCLUDES_H</span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define DEC_SYSINCLUDES_H</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;algorithm&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#ifndef DEC_SYSINCLUDES_H</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#define DEC_SYSINCLUDES_H</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;algorithm&gt;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;bitset&gt;</span>
 <a name="l00030"></a>00030 <span class="preprocessor">#include &lt;chrono&gt;</span>
-<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;forward_list&gt;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;list&gt;</span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00034"></a>00034 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="preprocessor">#include &lt;arpa/inet.h&gt;</span>
-<a name="l00037"></a>00037 <span class="preprocessor">#include &lt;errno.h&gt;</span>
-<a name="l00038"></a>00038 <span class="preprocessor">#include &lt;memory.h&gt;</span>
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="preprocessor">#endif</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;cstdarg&gt;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;cstdio&gt;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &lt;deque&gt;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &lt;forward_list&gt;</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#include &lt;fstream&gt;</span>
+<a name="l00036"></a>00036 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00037"></a>00037 <span class="preprocessor">#include &lt;iterator&gt;</span>
+<a name="l00038"></a>00038 <span class="preprocessor">#include &lt;limits&gt;</span>
+<a name="l00039"></a>00039 <span class="preprocessor">#include &lt;list&gt;</span>
+<a name="l00040"></a>00040 <span class="preprocessor">#include &lt;map&gt;</span>
+<a name="l00041"></a>00041 <span class="preprocessor">#include &lt;sstream&gt;</span>
+<a name="l00042"></a>00042 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="preprocessor">#include &lt;arpa/inet.h&gt;</span>
+<a name="l00045"></a>00045 <span class="preprocessor">#include &lt;arpa/telnet.h&gt;</span>
+<a name="l00046"></a>00046 <span class="preprocessor">#include &lt;dirent.h&gt;</span>
+<a name="l00047"></a>00047 <span class="preprocessor">#include &lt;dlfcn.h&gt;</span>
+<a name="l00048"></a>00048 <span class="preprocessor">#include &lt;errno.h&gt;</span>
+<a name="l00049"></a>00049 <span class="preprocessor">#include &lt;fcntl.h&gt;</span>
+<a name="l00050"></a>00050 <span class="preprocessor">#include &lt;memory.h&gt;</span>
+<a name="l00051"></a>00051 <span class="preprocessor">#include &lt;netdb.h&gt;</span>
+<a name="l00052"></a>00052 <span class="preprocessor">#include &lt;sys/stat.h&gt;</span>
+<a name="l00053"></a>00053 <span class="preprocessor">#include &lt;unistd.h&gt;</span>
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -132,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:22 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -88,27 +88,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>The <a class="el" href="namespaceUtils.xhtml" title="The Utils namespace contains all general purpose, multi-use, and non-class functions.">Utils</a> namespace.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;bitset&gt;</code><br/>
-<code>#include &lt;cstdarg&gt;</code><br/>
-<code>#include &lt;cstdio&gt;</code><br/>
-<code>#include &lt;fstream&gt;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;iterator&gt;</code><br/>
-<code>#include &lt;sstream&gt;</code><br/>
-<code>#include &lt;dirent.h&gt;</code><br/>
-<code>#include &lt;sys/stat.h&gt;</code><br/>
-</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for utils.h:</div>
+<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="utils_8h__incl.svg" width="100%" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="utils_8h__dep__incl.svg" width="100%" height="244"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
@@ -144,8 +128,8 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlinks any temp files leftover from a failed write.  <a href="#a57b7c6b0c6ea6f1498129d9c9a16d8a8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b">Utils::FileOpen</a> (ofstream &amp;ofs, const string &amp;file)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a write to a temporary file that is intended to replace a live file.  <a href="#a67fd451200ee8a3cc646aeba5cb9513b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#aab9c793c373168f93284240cd870462f">Utils::FileOpen</a> (ifstream &amp;ifs, const string &amp;dir, const string &amp;file, const bool &amp;quiet=false)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a read from a file.  <a href="#aab9c793c373168f93284240cd870462f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a46f8de9f032906cc7f0b4c18602e6542">Utils::FileOpen</a> (ifstream &amp;ifs, const string &amp;file, const bool &amp;quiet=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a read from a file.  <a href="#a46f8de9f032906cc7f0b4c18602e6542"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e">Utils::FileClose</a> (ifstream &amp;ifs, const bool &amp;quiet=false)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Completes a read from a file.  <a href="#a7008f8effca71806721305d1834bde1e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a2e9eaa30b811a49ea71003ca3e54fc3c">Utils::FileClose</a> (ofstream &amp;ofs)</td></tr>
@@ -161,8 +145,8 @@ Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class K , class V , class I , class L &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">const void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a8def6be7e490b6d33b3b51d7fc39f517">Utils::KeySet</a> (const bool &amp;igncase, bool &amp;found, const K &amp;keyd, const V &amp;valu, const I &amp;item, L &amp;loc, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;maxv, bool &amp;maxb)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If the contents of keyd == valu, assigns loc = item.  <a href="#a8def6be7e490b6d33b3b51d7fc39f517"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const multimap&lt; bool, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a014607a95c6d01ee99564479b3620ee7">Utils::ListDirectory</a> (const string &amp;dir, const bool &amp;recursive, multimap&lt; bool, string &gt; &amp;output, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_close, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_open)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a multimap of a specified directory tree on disk.  <a href="#a014607a95c6d01ee99564479b3620ee7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const multimap&lt; bool, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a995fed3bf7ff41788f5b3dbdc6a70ecb">Utils::ListDirectory</a> (const string &amp;dir, const bool &amp;recursive, const bool &amp;path, multimap&lt; bool, string &gt; &amp;output, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_close, <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;dir_open)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a multimap of a specified directory tree on disk.  <a href="#a995fed3bf7ff41788f5b3dbdc6a70ecb"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.xhtml#a33e08ea185b71aab494d83322ad3cd53">Utils::_FormatString</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;narg, const bitset&lt; <a class="el" href="config_8h.xhtml#a67bd2c66766c9c7f481025398b42dadb">CFG_MEM_MAX_BITSET</a> &gt; &amp;flags, const string &amp;caller, const string &amp;fmt,...)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a nested wrapper for <a class="el" href="namespaceUtils.xhtml#a070c642e01b4b1d2ded94e234d32f65e" title="This is the printf-style string formatter. It should not be invoked directly, but rather by using Uti...">Utils::__FormatString</a> and should not be called directly.  <a href="#a33e08ea185b71aab494d83322ad3cd53"></a><br/></td></tr>
@@ -246,7 +230,7 @@ Core</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00130">130</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00120">120</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 
 </div>
 </div>
@@ -281,7 +265,7 @@ Core</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00131">131</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="utils_8h_source.xhtml#l00121">121</a> of file <a class="el" href="utils_8h_source.xhtml">utils.h</a>.</p>
 
 </div>
 </div>
@@ -303,7 +287,7 @@ Core</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:22 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -96,14 +96,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classThing__inherit__graph.svg" width="96" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classThing__inherit__graph.svg" width="195" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for Thing:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classThing__coll__graph.svg" width="195" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 
 <p><a href="classThing-members.xhtml">List of all members.</a></p>
@@ -111,33 +111,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a89651e38dd04d9741d4a112606532211">Delete</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a thing from memory that was previously loaded via <a class="el" href="classThing.xhtml#a6ba8cdef3685ed564e6b549d0493e5eb" title="Create a new thing.">Thing::New()</a>.  <a href="#a89651e38dd04d9741d4a112606532211"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a6ba8cdef3685ed564e6b549d0493e5eb">New</a> (<a class="el" href="classServer.xhtml">Server</a> *server)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new thing.  <a href="#a6ba8cdef3685ed564e6b549d0493e5eb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c">AddThing</a> (<a class="el" href="classThing.xhtml">Thing</a> *thing)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1672d1e62ee2f1ef36d312d3e0d6ed2c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a9538999261b5bba766e3b04768ce2700">Delete</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4">Move</a> (<a class="el" href="classLocation.xhtml">Location</a> *location)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from within one <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> to another <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>.  <a href="#a46dfe09e636299cd0bf1bc9c37aaebf4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e">RemoveThing</a> (<a class="el" href="classThing.xhtml">Thing</a> *thing)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#afcc77dab7148c2f108aa384d83a6430e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a19051d1b895bf1c3ab933a723f1ae79c">Serialize</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a56e59bba2e3602b8935dc07b6768dd0a">Unserialize</a> ()=0</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">gId</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aea5dad4f4241b325cdf64b232e84e602"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLocation.xhtml">Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e">gLocation</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within.  <a href="#ad3fcacc08977cb364ede9ff490a2c35e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">gName</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3c3c40c996ff562baa335f2ded022578"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a24cbae1bbf7bed91bdd782c5893b3250">gServer</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a24cbae1bbf7bed91bdd782c5893b3250"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b">sId</a> (const string &amp;id)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a946fbf68bcd90ea5b26f4cce0b37132b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41">sName</a> (const string &amp;name, const bool &amp;system=false)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a69568f79edcdf1b0225f1b764a7ceb41"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a4737f44c77897dbe813fc6308cdeaa04">sServer</a> (<a class="el" href="classServer.xhtml">Server</a> *server)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Associates a <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> to this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a4737f44c77897dbe813fc6308cdeaa04"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43">Thing</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> class.  <a href="#a39968586a8e98dfef67c72ca54e00a43"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984">~Thing</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984">~Thing</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> class.  <a href="#ad4cc59aaae978053d0764b444d088984"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classThing.xhtml">Thing</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLocation.xhtml">Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">m_location</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ab51d731b069b2d4e88ed5894f2a3d5ce">m_server</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00034">34</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00032">32</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a39968586a8e98dfef67c72ca54e00a43"></a><!-- doxytag: member="Thing::Thing" ref="a39968586a8e98dfef67c72ca54e00a43" args="()" -->
 <div class="memitem">
@@ -153,10 +167,13 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00119">119</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00217">217</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
+    <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>.clear();
     <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>.clear();
+    <a class="code" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">m_location</a> = NULL;
     <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>.clear();
+    <a class="code" href="classThing.xhtml#ab51d731b069b2d4e88ed5894f2a3d5ce">m_server</a> = NULL;
 
     <span class="keywordflow">return</span>;
 }
@@ -171,13 +188,13 @@ Private Attributes</h2></td></tr>
           <td class="memname"><a class="el" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984">Thing::~Thing</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00130">130</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00231">231</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -185,35 +202,77 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a89651e38dd04d9741d4a112606532211"></a><!-- doxytag: member="Thing::Delete" ref="a89651e38dd04d9741d4a112606532211" args="()" -->
+<a class="anchor" id="a1672d1e62ee2f1ef36d312d3e0d6ed2c"></a><!-- doxytag: member="Thing::AddThing" ref="a1672d1e62ee2f1ef36d312d3e0d6ed2c" args="(Thing *thing)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const void <a class="el" href="classThing.xhtml#a89651e38dd04d9741d4a112606532211">Thing::Delete</a> </td>
+          <td class="memname">const bool <a class="el" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c">Thing::AddThing</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td>
+          <td class="paramname"><em>thing</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="retval"><dt><b>Return values:</b></dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">void</td><td></td></tr>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">thing</td><td>A pointer to another <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to be added to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error adding thing to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if thing was successfully added to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000011">Todo:</a></b></dt><dd>: Logic to check container size, content limits, etc. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53">Character</a>.</p>
-
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00034">34</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00036">36</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <span class="keyword">delete</span> <span class="keyword">this</span>;
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
-    <span class="keywordflow">return</span>;
+    <span class="keywordflow">if</span> ( thing == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Thing::AddThing()-&gt; called with NULL thing&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>.push_back( thing );
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a1672d1e62ee2f1ef36d312d3e0d6ed2c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9538999261b5bba766e3b04768ce2700"></a><!-- doxytag: member="Thing::Delete" ref="a9538999261b5bba766e3b04768ce2700" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const void <a class="el" href="classThing.xhtml#a9538999261b5bba766e3b04768ce2700">Thing::Delete</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53">Character</a>, and <a class="el" href="classLocation.xhtml#a2640eee7c5e9b2b08f84a401f7beab53">Location</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aea5dad4f4241b325cdf64b232e84e602"></a><!-- doxytag: member="Thing::gId" ref="aea5dad4f4241b325cdf64b232e84e602" args="() const " -->
@@ -236,9 +295,45 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00057">57</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00116">116</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>;
+}
+</pre></div>
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_aea5dad4f4241b325cdf64b232e84e602_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3fcacc08977cb364ede9ff490a2c35e"></a><!-- doxytag: member="Thing::gLocation" ref="ad3fcacc08977cb364ede9ff490a2c35e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLocation.xhtml">Location</a> * <a class="el" href="classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e">Thing::gLocation</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Location*</td><td>A pointer to the <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00125">125</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">m_location</a>;
 }
 </pre></div>
 </div>
@@ -263,22 +358,67 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00066">66</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00134">134</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>;
 }
 </pre></div>
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a3c3c40c996ff562baa335f2ded022578_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a6ba8cdef3685ed564e6b549d0493e5eb"></a><!-- doxytag: member="Thing::New" ref="a6ba8cdef3685ed564e6b549d0493e5eb" args="(Server *server)" -->
+<a class="anchor" id="a24cbae1bbf7bed91bdd782c5893b3250"></a><!-- doxytag: member="Thing::gServer" ref="a24cbae1bbf7bed91bdd782c5893b3250" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="classThing.xhtml#a6ba8cdef3685ed564e6b549d0493e5eb">Thing::New</a> </td>
+          <td class="memname"><a class="el" href="classServer.xhtml">Server</a> * <a class="el" href="classThing.xhtml#a24cbae1bbf7bed91bdd782c5893b3250">Thing::gServer</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td>
-          <td class="paramname"><em>server</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Server*</td><td>A pointer to the <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00143">143</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#ab51d731b069b2d4e88ed5894f2a3d5ce">m_server</a>;
+}
+</pre></div>
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a24cbae1bbf7bed91bdd782c5893b3250_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a46dfe09e636299cd0bf1bc9c37aaebf4"></a><!-- doxytag: member="Thing::Move" ref="a46dfe09e636299cd0bf1bc9c37aaebf4" args="(Location *location)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4">Thing::Move</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLocation.xhtml">Location</a> *&#160;</td>
+          <td class="paramname"><em>location</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -286,23 +426,138 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">server</td><td>The <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> the thing will exist within. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">location</td><td>A pointer to the destination <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> should be moved into. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
-    <tr><td class="paramname">false</td><td>Returned if a new <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> was successfully created or loaded. </td></tr>
-    <tr><td class="paramname">true</td><td>Returned if a new <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> was unable to be created. </td></tr>
+    <tr><td class="paramname">false</td><td>Returned if there was an error moving this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> was successfully moved. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00047">47</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00059">59</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( location == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Thing::Move()-&gt; called with NULL location&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="comment">// If already stored inside another Thing then we need to remove ourselves first.</span>
+    <span class="comment">// If something prevents us from being removed, we can&#39;t move where we want to go.</span>
+    <span class="keywordflow">if</span> ( <a class="code" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">m_location</a> != NULL )
+    {
+        <span class="keywordflow">if</span> ( <a class="code" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">m_location</a>-&gt;<a class="code" href="classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e" title="Removes a Thing to the contents of this Thing.">RemoveThing</a>( <span class="keyword">this</span> ) )
+            <a class="code" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">m_location</a> = NULL;
+        <span class="keywordflow">else</span>
+            <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="comment">// Were we able to get into the destination Thing?</span>
+    <span class="keywordflow">if</span> ( location-&gt;<a class="code" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c" title="Adds a Thing to the contents of this Thing.">AddThing</a>( <span class="keyword">this</span> ) )
+        <a class="code" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">m_location</a> = location;
+    <span class="keywordflow">else</span>
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classThing_a46dfe09e636299cd0bf1bc9c37aaebf4_cgraph.svg" width="307" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a46dfe09e636299cd0bf1bc9c37aaebf4_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afcc77dab7148c2f108aa384d83a6430e"></a><!-- doxytag: member="Thing::RemoveThing" ref="afcc77dab7148c2f108aa384d83a6430e" args="(Thing *thing)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e">Thing::RemoveThing</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td>
+          <td class="paramname"><em>thing</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">thing</td><td>A pointer to another <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to be removed from the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error removing thing from the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if thing was successfully removed from the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000012">Todo:</a></b></dt><dd>: Logic to check debuffs, restrictions, etc. </dd></dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00094">94</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( thing == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Thing::RemoveThing()-&gt; called with NULL thing&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>.erase( find( <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>.begin(), <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>.end(), thing ) );
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_afcc77dab7148c2f108aa384d83a6430e_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a19051d1b895bf1c3ab933a723f1ae79c"></a><!-- doxytag: member="Thing::Serialize" ref="a19051d1b895bf1c3ab933a723f1ae79c" args="() const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const bool <a class="el" href="classThing.xhtml#a19051d1b895bf1c3ab933a723f1ae79c">Thing::Serialize</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67">Character</a>, and <a class="el" href="classLocation.xhtml#a4f364ffc1f0910ac60bcb2e7cf9e7e20">Location</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a946fbf68bcd90ea5b26f4cce0b37132b"></a><!-- doxytag: member="Thing::sId" ref="a946fbf68bcd90ea5b26f4cce0b37132b" args="(const string &amp;id)" -->
@@ -333,7 +588,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00078">78</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00155">155</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -348,6 +603,15 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a946fbf68bcd90ea5b26f4cce0b37132b_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a69568f79edcdf1b0225f1b764a7ceb41"></a><!-- doxytag: member="Thing::sName" ref="a69568f79edcdf1b0225f1b764a7ceb41" args="(const string &amp;name, const bool &amp;system=false)" -->
@@ -389,7 +653,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00100">100</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00177">177</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -404,9 +668,106 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 }
 </pre></div>
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a69568f79edcdf1b0225f1b764a7ceb41_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4737f44c77897dbe813fc6308cdeaa04"></a><!-- doxytag: member="Thing::sServer" ref="a4737f44c77897dbe813fc6308cdeaa04" args="(Server *server)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classThing.xhtml#a4737f44c77897dbe813fc6308cdeaa04">Thing::sServer</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td>
+          <td class="paramname"><em>server</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">server</td><td>The <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> the thing will exist within. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the server was unable to be associated. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the server was successfully associated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00198">198</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( server == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Thing::sServer()-&gt; called with NULL server&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classThing.xhtml#ab51d731b069b2d4e88ed5894f2a3d5ce">m_server</a> = server;
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a4737f44c77897dbe813fc6308cdeaa04_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a56e59bba2e3602b8935dc07b6768dd0a"></a><!-- doxytag: member="Thing::Unserialize" ref="a56e59bba2e3602b8935dc07b6768dd0a" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const bool <a class="el" href="classThing.xhtml#a56e59bba2e3602b8935dc07b6768dd0a">Thing::Unserialize</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="classCharacter.xhtml#a91193d9bb29423c2ec95fb56c27d6bb3">Character</a>, and <a class="el" href="classLocation.xhtml#af65d15c0c107b1fdea7711d632ac909d">Location</a>.</p>
+
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ade0266a3024027bc9930267efca61879"></a><!-- doxytag: member="Thing::m_contents" ref="ade0266a3024027bc9930267efca61879" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="classThing.xhtml">Thing</a>*&gt; <a class="el" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">Thing::m_contents</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Other Things that are contained within this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </p>
+
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00062">62</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a72953c57b3abed7d9923e03283877d90"></a><!-- doxytag: member="Thing::m_id" ref="a72953c57b3abed7d9923e03283877d90" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -419,7 +780,23 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>An identifier to denote ownership. For characters, id = account.name </p>
 
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00057">57</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00063">63</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa49ae4f02eca80249f44217b7ff262a1"></a><!-- doxytag: member="Thing::m_location" ref="aa49ae4f02eca80249f44217b7ff262a1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLocation.xhtml">Location</a>* <a class="el" href="classThing.xhtml#aa49ae4f02eca80249f44217b7ff262a1">Thing::m_location</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within. </p>
+
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00064">64</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 
 </div>
 </div>
@@ -435,7 +812,23 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The name of the thing. </p>
 
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00058">58</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00065">65</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab51d731b069b2d4e88ed5894f2a3d5ce"></a><!-- doxytag: member="Thing::m_server" ref="ab51d731b069b2d4e88ed5894f2a3d5ce" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classServer.xhtml">Server</a>* <a class="el" href="classThing.xhtml#ab51d731b069b2d4e88ed5894f2a3d5ce">Thing::m_server</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The <a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> exists within. </p>
+
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00066">66</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 
 </div>
 </div>
@@ -461,7 +854,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

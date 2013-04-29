@@ -129,16 +129,16 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlugin.xhtml">Plugin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="plugin_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4">PluginDelete</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">m_plg_delete</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="includes_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4">PluginDelete</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">m_plg_delete</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a9d64316428b105c231cb7196f8a0a728">m_plg_file</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="plugin_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6">PluginNew</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">m_plg_new</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="includes_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6">PluginNew</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">m_plg_new</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">m_preempt</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.xhtml#a2e5ca0ee4ca16710e1f4b78cac9d94d3">m_security</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00038">38</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00032">32</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a18df2d81039392daeb0b78c346a70537"></a><!-- doxytag: member="Command::Command" ref="a18df2d81039392daeb0b78c346a70537" args="()" -->
 <div class="memitem">
@@ -186,7 +186,8 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00203">203</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
-}</pre></div>
+}
+</pre></div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -406,7 +407,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a7e591e2b82f59fd73d9b25daaa192021_icgraph.svg" width="100%" height="309"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a7e591e2b82f59fd73d9b25daaa192021_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -497,9 +498,9 @@ Private Attributes</h2></td></tr>
     <span class="keywordflow">else</span>
     {
         <span class="comment">// Register the handlers and create a new instance of the Plugin&#39;s class</span>
-        <a class="code" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">m_plg_delete</a> = (<a class="code" href="plugin_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4" title="Used as a pointer to the Delete() function within an implemented class.">PluginDelete</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;Delete&quot;</span> );
+        <a class="code" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">m_plg_delete</a> = (<a class="code" href="includes_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4" title="Used as a pointer to the Delete() function within an implemented class.">PluginDelete</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;Delete&quot;</span> );
         <a class="code" href="classCommand.xhtml#a9d64316428b105c231cb7196f8a0a728">m_plg_file</a> = file;
-        <a class="code" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">m_plg_new</a> = (<a class="code" href="plugin_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6" title="Used as a pointer to the New() function within an implemented class.">PluginNew</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;New&quot;</span> );
+        <a class="code" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">m_plg_new</a> = (<a class="code" href="includes_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6" title="Used as a pointer to the New() function within an implemented class.">PluginNew</a>*) ::dlsym( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a>, <span class="stringliteral">&quot;New&quot;</span> );
         <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a> = <a class="code" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">m_plg_new</a>();
         <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859" title="Sets a pointer to the object that initialized this Plugin.">sCaller</a>( <span class="keyword">this</span> );
 
@@ -602,7 +603,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a6448d432978113719bfdfa3783da5106_icgraph.svg" width="100%" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a6448d432978113719bfdfa3783da5106_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -621,7 +622,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Pointer to the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00063">63</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00057">57</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -630,14 +631,14 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="plugin_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4">PluginDelete</a>* <a class="el" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">Command::m_plg_delete</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="includes_8h.xhtml#a1c99eaa96f84c10bc07e3586fa6a15c4">PluginDelete</a>* <a class="el" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">Command::m_plg_delete</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>Pointer to the PluginDelete object within the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00064">64</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00058">58</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -653,7 +654,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Filename of the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> object for reloading later. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00065">65</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00059">59</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -669,7 +670,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Pointer to the file handle of the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00066">66</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00060">60</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -678,14 +679,14 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="plugin_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6">PluginNew</a>* <a class="el" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">Command::m_plg_new</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="includes_8h.xhtml#aa2b4854863feda0a2425bfd72c37f8d6">PluginNew</a>* <a class="el" href="classCommand.xhtml#a393ca653019565f1044ac7f36bed19eb">Command::m_plg_new</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>Pointer to the PluginNew object within the associated <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00067">67</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00061">61</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -701,7 +702,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>If true, the <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> will process ahead of any other queued commands from a <a class="el" href="classSocket.xhtml" title="Functions and interfaces that are common to both SocketClient and SocketServer.">Socket</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00068">68</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00062">62</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -717,7 +718,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Security level required to execute the <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>. </p>
 
-<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00069">69</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
+<p>Definition at line <a class="el" href="command_8h_source.xhtml#l00063">63</a> of file <a class="el" href="command_8h_source.xhtml">command.h</a>.</p>
 
 </div>
 </div>
@@ -743,7 +744,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

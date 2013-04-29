@@ -87,19 +87,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>The <a class="el" href="namespaceHandler.xhtml" title="The Handler namespace contains process control functions.">Handler</a> namespace.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="class_8h_source.xhtml">class.h</a>&quot;</code><br/>
-</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for handler.h:</div>
+<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="handler_8h__incl.svg" width="104" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="handler_8h__dep__incl.svg" width="100%" height="244"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
@@ -113,33 +105,55 @@ Namespaces</h2></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a093ad11406855ab2a6ca197bc2db42b7">Handler::AccountMenu</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd=&quot;&quot;, const string &amp;args=&quot;&quot;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Main account menu for all account actions.  <a href="#a093ad11406855ab2a6ca197bc2db42b7"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a142c6f0b9e36e54eba3d72f9db2dfe40">Handler::Interpret</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd=&quot;&quot;, const string &amp;args=&quot;&quot;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Redirect to the appropriate subsystem based on socket state.  <a href="#a142c6f0b9e36e54eba3d72f9db2dfe40"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#af650e47f3d4baf393b54376d1eaa1fa9">Handler::ProcessLogin</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd=&quot;&quot;, const string &amp;args=&quot;&quot;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> objects who have not fully logged into the game yet.  <a href="#af650e47f3d4baf393b54376d1eaa1fa9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCharacter.xhtml">Character</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#ab2e9bf0a670cbf82be7a440065151516">Handler::FindCharacter</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates a <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> within the game.  <a href="#ab2e9bf0a670cbf82be7a440065151516"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCommand.xhtml">Command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d">Handler::FindCommand</a> (const string &amp;name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates a <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> associated with the game.  <a href="#a02ba68c0c416219816c97189ea8bae4d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLocation.xhtml">Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a57dc60ce5522b41f1ab98b83de76779f">Handler::FindLocation</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates a <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> associated with the game.  <a href="#a57dc60ce5522b41f1ab98b83de76779f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888">Handler::LoginHandler</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd=&quot;&quot;, const string &amp;args=&quot;&quot;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches the appropriate menu based on client state.  <a href="#a139febc000c9d767a620708148e0c888"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a120400154c1559acfc874fe8a0bfbf88">Handler::CheckCreating</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;name)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if the current account is already being created.  <a href="#a120400154c1559acfc874fe8a0bfbf88"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#aab2a2273860d63543809b878c7e40b6e">Handler::CheckPlaying</a> (const string &amp;name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if a <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> is currently logged into the game and playing.  <a href="#aab2a2273860d63543809b878c7e40b6e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a934fb4c3d6add91bc9e6e347b3270927">Handler::CheckProhibited</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if a name is on the server's prohibited list.  <a href="#a934fb4c3d6add91bc9e6e347b3270927"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0">Handler::AttachAccount</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new account object, or load an existing one, with a name and password.  <a href="#a33a19d69ead678af81fbe96907eceaf0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#af55c3642454fd95ff0fa2c4ff575bf67">Handler::CharacterCreate</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new character in the game.  <a href="#af55c3642454fd95ff0fa2c4ff575bf67"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a2e4ebf6ed049eb872aa4948d54c4932c">Handler::AttachCharacter</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempt to write a new character to disk after creation was completed.  <a href="#a2e4ebf6ed049eb872aa4948d54c4932c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#ae660d7a3f4c95db9639d74e965e82df6">Handler::Reconnect</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, <a class="el" href="classCharacter.xhtml">Character</a> *character)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconnects an existing in-game <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> to a new <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>.  <a href="#ae660d7a3f4c95db9639d74e965e82df6"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a73ed6064f2698dbffb5f4c247a02b661">Handler::AccountMenuMain</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Send initial account interface menu.  <a href="#a73ed6064f2698dbffb5f4c247a02b661"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#ad04998a7a6ece2486bc441052a57c2d7">Handler::CharacterCreateMenuMain</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Main <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> creation menu.  <a href="#ad04998a7a6ece2486bc441052a57c2d7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#ab5889a65de2794129b375ec39ae923ae">Handler::CharacterCreateName</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Select a new <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> name.  <a href="#ab5889a65de2794129b375ec39ae923ae"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#ae5086bcf5857eb572beedd09158c3065">Handler::CharacterCreateSex</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Select a new <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> sex.  <a href="#ae5086bcf5857eb572beedd09158c3065"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a97a198bfc72285b2aca4f36978db715e">Handler::CharacterDeleteConfirm</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Main <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> deletion confirmation.  <a href="#a97a198bfc72285b2aca4f36978db715e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#afc470ec6e82b7a9a1560588a368734f9">Handler::CharacterDeleteMenuMain</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Main <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> deletion menu.  <a href="#afc470ec6e82b7a9a1560588a368734f9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a02b1b954749641ab646f6548a5360d3b">Handler::CharacterLoadMenuMain</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Main <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> load menu.  <a href="#a02b1b954749641ab646f6548a5360d3b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a571519b889d3750c63b9dc3418449bcb">Handler::EnterGame</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Places the character loaded against the account into the game world.  <a href="#a571519b889d3750c63b9dc3418449bcb"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4">Handler::GetNewAccount</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Select a new account name.  <a href="#a00bc24564bfd267e0329643c569da1e4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2">Handler::GetNewPassword</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new account.  <a href="#a744adadcf407cdb3a9c33365afd5a7c2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6">Handler::GetOldPassword</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare a received password against an existing account.  <a href="#adfe13cc9748392348f3941656a1323b6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#ae70e4e50054c729c14493eafefe01b5c">Handler::LoadCharacter</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a character from the account to enter into the game with.  <a href="#ae70e4e50054c729c14493eafefe01b5c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191">Handler::LoginScreen</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Send initial greeting and request for account name.  <a href="#a44b41bf69fdc6e615a029bea34910191"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a22b7749e3b3771d31eb2299efa5d821b">Handler::MenuScreen</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd, const string &amp;args)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Send initial account interface menu.  <a href="#a22b7749e3b3771d31eb2299efa5d821b"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This file contains the <a class="el" href="namespaceHandler.xhtml" title="The Handler namespace contains process control functions.">Handler</a> namespace and template functions. </p>
@@ -163,7 +177,7 @@ Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 17 2013 18:30:03 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 28 2013 21:23:22 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
