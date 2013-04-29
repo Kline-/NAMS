@@ -34,6 +34,14 @@ class Plugin {
         /** @name Core */ /**@{*/
         /**
          * @brief Execute the primary function of the implemented class.
+         * @param[in] character If called from a Character, the caller is passed through to the Plugin for reference.
+         * @param[in] cmd If called from a Character, the command from the character is passed through.
+         * @param[in] arg If called from a Character, the arguments from the character are passed through.
+         * @retval void
+         */
+        virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const = 0;
+        /**
+         * @brief Execute the primary function of the implemented class.
          * @param[in] client If called from a SocketClient, the caller is passed through to the Plugin for reference.
          * @param[in] cmd If called from a SocketClient, the command from the client is passed through.
          * @param[in] arg If called from a SocketClient, the arguments from the client are passed through.

@@ -28,6 +28,7 @@
 
 #include "includes.h"
 #include "plugin.h"
+#include "character.h"
 #include "socketclient.h"
 
 #endif

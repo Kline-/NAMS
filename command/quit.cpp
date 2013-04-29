@@ -29,6 +29,10 @@ class Quit : public Plugin {
 
 const void Quit::Run( Character* character, const string& cmd, const string& arg ) const
 {
+    if ( character )
+        if ( character->gAccount() == NULL )
+            character->Delete();
+
     return;
 }
 
