@@ -68,9 +68,9 @@ const bool Thing::Move( Location* location )
 
     // If already stored inside another Thing then we need to remove ourselves first.
     // If something prevents us from being removed, we can't move where we want to go.
-    if( m_location != NULL )
+    if ( m_location != NULL )
     {
-        if( m_location->RemoveThing( this ) )
+        if ( m_location->RemoveThing( this ) )
             m_location = NULL;
         else
             return false;

@@ -227,9 +227,9 @@ const bool Character::sAccount( Account* account )
 {
     UFLAGS_DE( flags );
 
-    if ( account == NULL )
+    if ( m_account != NULL && account != NULL )
     {
-        LOGSTR( flags, "Character::sAccount()-> called with NULL account" );
+        LOGSTR( flags, "Character::sAccount()-> called while m_account is not NULL" );
         return false;
     }
 

@@ -44,7 +44,55 @@
  */
 Character* Handler::FindCharacter( const string& name, const uint_t& type )
 {
-    return NULL;
+    UFLAGS_DE( flags );
+    Character* chr = NULL;
+    bool found = false;
+    ITER( list, Character*, ci );
+    uint_t search = type;
+
+    if ( name.empty() )
+        LOGSTR( flags, "Handler::FindCharacter()-> called with empty name" );
+
+    if ( character_list.empty() )
+        chr = NULL;
+    else
+    {
+        if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
+        {
+            LOGFMT( flags, "Handler::FindCharacter()-> Called with invalid type: %lu", search );
+            LOGSTR( flags, "Handler::FindCharacter()-> defaulting to HANDLER_FIND_ID" );
+            search = HANDLER_FIND_ID;
+        }
+
+        for ( ci = character_list.begin(); ci != character_list.end(); ci++ )
+        {
+            found = false;
+            chr = *ci;
+
+            if ( CFG_GAM_CMD_IGNORE_CASE )
+            {
+                if ( search == HANDLER_FIND_ID && Utils::Lower( chr->gId() ).find( Utils::Lower( name ) ) == 0 )
+                    found = true;
+                else if ( search == HANDLER_FIND_NAME && Utils::Lower( chr->gName() ).find( Utils::Lower( name ) ) == 0 )
+                    found = true;
+            }
+            else
+            {
+                if ( search == HANDLER_FIND_ID && chr->gId().find( name ) == 0 )
+                    found = true;
+                else if ( search == HANDLER_FIND_NAME && chr->gName().find( name ) == 0 )
+                    found = true;
+            }
+
+            if ( found )
+                break;
+        }
+
+        if ( !found )
+            chr = NULL;
+    }
+
+    return chr;
 }
 
 /**
@@ -123,7 +171,7 @@ Location* Handler::FindLocation( const string& name, const uint_t& type )
         if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
         {
             LOGFMT( flags, "Handler::FindLocation()-> Called with invalid type: %lu", search );
-            LOGSTR( flags, "Handler::FindLocation()-> defaulting to LOCATION_FIND_ID" );
+            LOGSTR( flags, "Handler::FindLocation()-> defaulting to HANDLER_FIND_ID" );
             search = HANDLER_FIND_ID;
         }
 
@@ -265,7 +313,7 @@ const bool Handler::CheckPlaying( const string& name )
     UFLAGS_DE( flags );
     UFLAGS_S( flag );
     ITER( list, Character*, ci );
-    Character* character = NULL;
+    Character* chr = NULL;
 
     if ( name.empty() )
     {
@@ -275,9 +323,9 @@ const bool Handler::CheckPlaying( const string& name )
 
     for ( ci = character_list.begin(); ci != character_list.end(); ci++ )
     {
-        character = *ci;
-
-        if ( character->gId() == name )
+        chr = *ci;
+        cout << chr->gId() << endl;
+        if ( chr->gId() == name )
             return true;
     }
 
@@ -428,6 +476,47 @@ const void Handler::AttachCharacter( SocketClient* client, const string& cmd, co
     // All went well, off to the account menu
     client->sState( SOC_STATE_ACCOUNT_MENU );
     LoginHandler( client );
+
+    return;
+}
+
+/**
+ * @brief Reconnects an existing in-game Character to a new SocketClient.
+ * @param[in] client The SocketClient who is attempting to login to the character.
+ * @param[in] character The Character that is already playing in the game.
+ * @retval void
+ */
+const void Handler::Reconnect( SocketClient* client, Character* character )
+{
+    UFLAGS_DE( flags );
+    UFLAGS_S( flag );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Handler::Reconnect()-> called with NULL client" );
+        return;
+    }
+
+    if ( character == NULL )
+    {
+        LOGSTR( flags, "Handler::Reconnect()-> called with NULL character" );
+        return;
+    }
+
+    LOGFMT( flag, "%s@%s kicking off old link.", CSTR( character->gName() ), CSTR( client->gHostname() ) );
+
+    // De-associate from the existing login session
+    character->gAccount()->sCharacter( NULL );
+    character->gAccount()->gClient()->sState( SOC_STATE_DISC_LINKDEAD );
+    character->gAccount()->gClient()->Quit();
+    character->sAccount( NULL );
+
+    // Now re-associate to the new one
+    character->sAccount( client->gAccount() );
+    client->gAccount()->sCharacter( character );
+
+    client->sState( SOC_STATE_PLAYING );
+    client->Send( CFG_STR_CHR_RECONNECTED );
 
     return;
 }
@@ -1206,10 +1295,15 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
     // Already in the game, so lets reconnect
     if ( CheckPlaying( id.str() ) )
     {
+        delete chr;
 
+        client->sState( SOC_STATE_RECONNECTING );
+        chr = FindCharacter( id.str(), HANDLER_FIND_ID );
+        Reconnect( client, chr );
+
+        return;
     }
-
-    if ( !chr->New( client->gServer(), Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT ), true ) )
+    else if ( !chr->New( client->gServer(), Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT ), true ) )
     {
         LOGFMT( flags, "Handler::LoadCharacter()->Character::New()-> returned false for character %s", CSTR( id.str() ) );
         delete chr;

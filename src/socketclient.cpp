@@ -286,8 +286,15 @@ const bool SocketClient::QueueCommand( const string& command )
  */
 const void SocketClient::Quit()
 {
-    Send( CFG_STR_QUIT );
-    LOGFMT( 0, "SocketClient::Quit()-> %s:%lu (%lu)", CSTR( gHostname() ), gPort(), gDescriptor() );
+    UFLAGS_S( flags );
+
+    switch ( m_state )
+    {
+        case SOC_STATE_DISC_LINKDEAD:   Send( CFG_STR_QUIT_LINKDEAD );  break;
+        case SOC_STATE_PLAYING:         Send( CFG_STR_QUIT_PLAYING );   break;
+    }
+
+    LOGFMT( flags, "SocketClient::Quit()-> %s:%lu (%lu)", CSTR( gHostname() ), gPort(), gDescriptor() );
 
     m_quitting = true;
 

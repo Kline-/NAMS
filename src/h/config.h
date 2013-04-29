@@ -503,6 +503,13 @@
 #define CFG_STR_CHR_NEW_ERROR "An error occurred while attempting to create that character." CRLF
 
 /**
+ * @def CFG_STR_CHR_RECONNECTED
+ * @brief String sent upon resuming a linkdead character.
+ * @par Default: "You take over your body, which was already in use." CRLF
+ */
+#define CFG_STR_CHR_RECONNECTED "You take over your body, which was already in use." CRLF
+
+/**
  * @def CFG_STR_CMD_INVALID
  * @brief String sent when an invalid command is received.
  * @par Default: "Invalid command." CRLF
@@ -594,11 +601,18 @@
 #define CFG_STR_MAX_BUFLEN 16384
 
 /**
- * @def CFG_STR_QUIT
+ * @def CFG_STR_QUIT_LINKDEAD
+ * @brief String sent to the client when they are disconnected due to a new login session on the same Character.
+ * @par Default: CRLF "This body has been taken over!" CRLF
+ */
+#define CFG_STR_QUIT_LINKDEAD CRLF "This body has been taken over!" CRLF
+
+/**
+ * @def CFG_STR_QUIT_PLAYING
  * @brief String sent to the client when they quit.
  * @par Default: "Goodbye." CRLF
  */
-#define CFG_STR_QUIT "Goodbye." CRLF
+#define CFG_STR_QUIT_PLAYING "Goodbye." CRLF
 
 /**
  * @def CFG_STR_SEL_INVALID

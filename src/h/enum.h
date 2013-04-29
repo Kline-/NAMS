@@ -192,6 +192,8 @@ enum SOC_STATE {
     SOC_STATE_CHARACTER_LOAD_MENU      = 14,  /**< A Socket within the character load menu. */
     SOC_STATE_LOAD_CHARACTER           = 15,  /**< An internal state where an existing character is loaded. */
     SOC_STATE_ENTER_GAME               = 16,  /**< An internal state where the loaded character is entered into the game. */
+    SOC_STATE_RECONNECTING             = 17,  /**< A Socket that is in the process of being reassociated to a linkdead Character in the game. */
+    SOC_STATE_DISC_LINKDEAD            = 18,  /**< A Socket being disconnected due to a new login session, such as a link-dead Character. */
     SOC_STATE_PLAYING                  = 100, /**< A Socket fully within the game world and actively playing. */
     MAX_SOC_STATE                      = 101  /**< Safety limit for looping. */
 };

@@ -430,13 +430,7 @@ const bool Account::sCharacter( Character* character )
 {
     UFLAGS_DE( flags );
 
-    if ( character == NULL )
-    {
-        LOGSTR( flags, "Account::sCharacter()-> called with NULL character" );
-        return false;
-    }
-
-    if ( m_character != NULL )
+    if ( m_character != NULL && character != NULL )
     {
         LOGSTR( flags, "Account::sCharacter()-> called while m_character is not NULL" );
         return false;

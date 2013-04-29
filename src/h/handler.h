@@ -46,6 +46,7 @@ namespace Handler {
     /** @name Manipulate */ /**@{*/
     const void AttachAccount( SocketClient* client, const string& cmd, const string& args );
     const void AttachCharacter( SocketClient* client, const string& cmd, const string& args );
+    const void Reconnect( SocketClient* client, Character* character );
     /**@}*/
 
     /** @name Internal */ /**@{*/
