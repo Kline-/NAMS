@@ -56,6 +56,7 @@ $(PROG): $(O_FILES)
 	$(RM) $(PROG)
 	$(CXX) -o $(PROG) $(O_FILES) $(L_FLAGS)
 	echo "Finished building $(VERS) ($(MODE))."
+	$(MAKE) depend
 	chmod +x $(PROG)
 
 cbuild:
