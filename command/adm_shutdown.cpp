@@ -44,7 +44,7 @@ const void AdmShutdown::Run( SocketClient* client, const string& cmd, const stri
             return;
         }
 
-        client->gServer()->Shutdown( EXIT_SUCCESS );
+        Server::Shutdown( EXIT_SUCCESS );
     }
 
     return;

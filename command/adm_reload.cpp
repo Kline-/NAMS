@@ -60,7 +60,7 @@ const void AdmReload::Run( SocketClient* client, const string& cmd, const string
             if ( command->Authorized( security ) )
             {
                 event = new Event();
-                if ( !event->New( arg, client->gServer(), EVENT_TYPE_RELOAD, 100 ) )
+                if ( !event->New( arg, EVENT_TYPE_RELOAD, 100 ) )
                 {
                     LOGSTR( flags, "AdmReload::Run()->Event::New()-> returned false" );
                     delete event;
