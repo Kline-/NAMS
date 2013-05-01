@@ -39,13 +39,12 @@ class Socket {
         virtual const void Delete() = 0;
         /**
          * @brief Build a Socket for either a new SocketClient or SocketServer.
-         * @param[in] server The server to associate with.
          * @param[in] descriptor The file descriptor to utilize.
          * @param[in] reboot Mark if the server is undergoing a reboot or not.
          * @retval false Returned if there is an error in creating the Socket.
          * @retval true Returned if the Socket is successfully created.
          */
-        virtual const bool New( Server* server, const sint_t& descriptor, const bool& reboot = false ) = 0;
+        virtual const bool New( const sint_t& descriptor, const bool& reboot = false ) = 0;
         virtual const string Serialize() const = 0;
         const bool Valid() const;
         /**@}*/
@@ -56,7 +55,6 @@ class Socket {
         const sint_t gDescriptor() const;
         const string gHostname() const;
         const uint_t gPort() const;
-        Server* gServer() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -65,7 +63,6 @@ class Socket {
         const bool sDescriptor( const sint_t& descriptor );
         const bool sHostname( const string& hostname );
         const bool sPort( const uint_t& port );
-        const bool sServer( Server* server );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -79,7 +76,6 @@ class Socket {
         sint_t m_descriptor; /**< File descriptor assigned from the host OS. */
         string m_hostname; /**< Hostname of the host OS or remote client. */
         uint_t m_port; /**< Port number being used. */
-        Server* m_server; /**< The Server object associated to this client. */
 };
 
 #endif

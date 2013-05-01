@@ -525,8 +525,11 @@ Account::Account()
  */
 Account::~Account()
 {
-    if ( m_character )
+    if ( m_character != NULL )
         m_character->Delete();
+
+    if ( m_client != NULL )
+        m_client->sAccount( NULL );
 
     return;
 }

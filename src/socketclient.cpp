@@ -30,7 +30,6 @@
 #include "h/character.h"
 #include "h/command.h"
 #include "h/list.h"
-#include "h/server.h"
 #include "h/socketserver.h"
 
 /* Core */
@@ -48,10 +47,10 @@ const void SocketClient::Delete()
     // Force anything out of the buffer
     Send();
 
-    if ( !gServer()->sSocketClose( gServer()->gSocketClose() + 1 ) )
-        LOGFMT( flags, "SocketClient::Disconnect()->Server::sSocketClose()-> value %lu returned false", gServer()->gSocketClose() + 1 );
+    if ( g_stats->sSocketClose( g_stats->gSocketClose() + 1 ) )
+        LOGFMT( flags, "SocketClient::Disconnect()->Server::Stats::sSocketClose()-> value %lu returned false", g_stats->gSocketClose() + 1 );
 
-    gServer()->sSocketClientNext( socket_client_list.erase( find( socket_client_list.begin(), socket_client_list.end(), this ) ) );
+    g_socket_client_next = socket_client_list.erase( find( socket_client_list.begin(), socket_client_list.end(), this ) );
     delete this;
 
     return;
@@ -59,13 +58,12 @@ const void SocketClient::Delete()
 
 /**
  * @brief Build a SocketClient for a new client connection and set all attributes.
- * @param[in] server The server to associate with.
  * @param[in] descriptor The file descriptor to utilize.
  * @param[in] reboot Mark if the server is undergoing a reboot or not.
  * @retval false Returned if there is an error in connecting the client.
  * @retval true Returned if the client is successfully connected.
  */
-const bool SocketClient::New( Server* server, const sint_t& descriptor, const bool& reboot )
+const bool SocketClient::New( const sint_t& descriptor, const bool& reboot )
 {
     UFLAGS_DE( flags );
     sint_t error = 0;
@@ -73,7 +71,6 @@ const bool SocketClient::New( Server* server, const sint_t& descriptor, const bo
     socklen_t size = static_cast<socklen_t>( sizeof( sin ) );
     char hostname[CFG_STR_MAX_BUFLEN], service[CFG_STR_MAX_BUFLEN];
 
-    sServer( server );
     sDescriptor( descriptor );
 
     if ( !reboot )
@@ -133,7 +130,7 @@ const bool SocketClient::New( Server* server, const sint_t& descriptor, const bo
         Handler::LoginHandler( this );
     }
 
-    gServer()->sSocketOpen( gServer()->gSocketOpen() + 1 );
+    g_stats->sSocketOpen( g_stats->gSocketOpen() + 1 );
     socket_client_list.push_back( this );
 
     return true;
@@ -348,9 +345,9 @@ const bool SocketClient::Recv()
         }
     }
 
-    if ( !gServer()->gSocket()->aBytesRecvd( amount ) )
+    if ( !g_listen->aBytesRecvd( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Recv()->Server::gSocket()->Server::aBytesRecvd()-> value %lu returned false", gServer()->gSocket()->gBytesRecvd() + amount );
+        LOGFMT( flags, "SocketClient::Recv()->SocketServer::aBytesRecvd()-> value %lu returned false", g_listen->gBytesRecvd() + amount );
         return false;
     }
 
@@ -465,9 +462,9 @@ const bool SocketClient::Send()
         }
     }
 
-    if ( !gServer()->gSocket()->aBytesSent( amount ) )
+    if ( !g_listen->aBytesSent( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Send()->Server::gSocket()->Server::aBytesSent()-> value %lu returned false", gServer()->gSocket()->gBytesSent() + amount );
+        LOGFMT( flags, "SocketClient::Send()->SocketServer::aBytesSent()-> value %lu returned false", g_listen->gBytesSent() + amount );
         return false;
     }
 
@@ -661,9 +658,9 @@ const bool SocketClient::sAccount( Account* account )
 {
     UFLAGS_DE( flags );
 
-    if ( account == NULL )
+    if ( m_account != NULL && account != NULL )
     {
-        LOGSTR( flags, "SocketClient::sAccount()-> called with NULL account" );
+        LOGSTR( flags, "SocketClient::sAccount()-> called while m_account is not NULL" );
         return false;
     }
 
@@ -828,6 +825,7 @@ SocketClient::~SocketClient()
 {
     if ( m_account != NULL )
         m_account->Delete();
+
     delete m_terminfo;
 
     return;

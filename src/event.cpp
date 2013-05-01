@@ -26,7 +26,6 @@
 
 #include "h/command.h"
 #include "h/list.h"
-#include "h/server.h"
 
 /* Core */
 /**
@@ -93,27 +92,20 @@ const bool Event::New( const string& cmd, const string& args, Character* charact
 }
 
 /**
- * @brief Create a new Event. This is a special use-case to create an Event on a server, for things such as Server::ReloadCommand.
+ * @brief Create a new Event. This is a special use-case to create an Event for things such as Server::ReloadCommand.
  * @param[in] args The arguments to be passed to the function.
- * @param[in] server The server to execute the function on.
  * @param[in] type The type of Event.
  * @param[in] time How long to wait before executing Event::Run().
  * @retval false Returned if the event is unable to be created.
  * @retval true Returned if the event was successfully created.
  */
-const bool Event::New( const string& args, Server* server, const uint_t& type, const uint_t& time )
+const bool Event::New( const string& args, const uint_t& type, const uint_t& time )
 {
     UFLAGS_DE( flags );
 
     if ( args.empty() )
     {
         LOGSTR( flags, "Event::New() called with empty args" );
-        return false;
-    }
-
-    if ( server == NULL )
-    {
-        LOGSTR( flags, "Event::New() called with NULL server" );
         return false;
     }
 
@@ -132,7 +124,6 @@ const bool Event::New( const string& args, Server* server, const uint_t& type, c
     m_args = args;
     m_time = time;
     m_type = type;
-    m_server = server;
 
     event_list.push_front( this );
 
@@ -199,7 +190,7 @@ const void Event::Run()
     switch ( m_type )
     {
         case EVENT_TYPE_RELOAD:
-            m_server->ReloadCommand( m_args );
+            Server::ReloadCommand( m_args );
         break;
 
         case EVENT_TYPE_CMD_SOCKET:
@@ -234,6 +225,24 @@ const bool Event::Update()
 
 /* Query */
 /**
+ * @brief Returns the Character associated to this Event, if any.
+ * @retval Character* A pointer to the associated Character, if any.
+ */
+Character* Event::gCharacter() const
+{
+    return m_character;
+}
+
+/**
+ * @brief Returns the Command associated to this Event, if any.
+ * @retval Command* A pointer to the associated Command, if any.
+ */
+Command* Event::gCommand() const
+{
+    return m_command;
+}
+
+/**
  * @brief  Returns the amount of time remaining.
  * @retval uint_t The amount of time remaining.
  */
@@ -255,7 +264,6 @@ Event::Event()
     m_character = NULL;
     m_client = NULL;
     m_command = NULL;
-    m_server = NULL;
     m_time = uintmin_t;
     m_type = uintmin_t;
 

@@ -44,10 +44,10 @@ const void AdmReboot::Run( SocketClient* client, const string& cmd, const string
     ofstream ofs;
 
     Utils::FileOpen( ofs, CFG_DAT_FILE_REBOOT );
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = Server::gSocketClientNext() )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
     {
         socket_client = *si;
-        Server::sSocketClientNext( ++si );
+        g_socket_client_next = ++si;
 
         ofs << "desc = " << socket_client->gDescriptor() << endl;
         ofs << "port = " << socket_client->gPort() << endl;
@@ -59,8 +59,8 @@ const void AdmReboot::Run( SocketClient* client, const string& cmd, const string
     }
     Utils::FileClose( ofs );
 
-    port = Utils::String( Server::gSocket()->gPort() );
-    desc = Utils::String( Server::gSocket()->gDescriptor() );
+    port = Utils::String( g_listen->gPort() );
+    desc = Utils::String( g_listen->gDescriptor() );
 
     execl( "src/nams", "nams", CSTR( port ), CSTR( desc ), (char*)NULL );
     LOGERRNO( 0, "" );

@@ -41,17 +41,15 @@ const void Location::Delete()
 
 /**
  * @brief Create a new location.
- * @param[in] server The Server the location will exist within.
  * @param[in] file The filename to load including the full path prepended to it.
  * @retval false Returned if a new Location was successfully created or loaded.
  * @retval true Returned if a new Location was unable to be created.
  */
-const bool Location::New( Server* server, const string& file )
+const bool Location::New( const string& file )
 {
     UFLAGS_DE( flags );
 
     m_file = file;
-    sServer( server );
 
     if ( !Unserialize() )
     {

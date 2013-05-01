@@ -136,15 +136,6 @@ const string Thing::gName() const
     return m_name;
 }
 
-/**
- * @brief Returns the Server associated with this Thing.
- * @retval Server* A pointer to the Server associated with this Thing.
- */
-Server* Thing::gServer() const
-{
-    return m_server;
-}
-
 /* Manipulate */
 /**
  * @brief Sets the id of this Thing.
@@ -189,27 +180,6 @@ const bool Thing::sName( const string& name, const bool& system )
     return true;
 }
 
-/**
- * @brief Associates a Server to this Thing.
- * @param[in] server The Server the thing will exist within.
- * @retval false Returned if the server was unable to be associated.
- * @retval true Returned if the server was successfully associated.
- */
-const bool Thing::sServer( Server* server )
-{
-    UFLAGS_DE( flags );
-
-    if ( server == NULL )
-    {
-        LOGSTR( flags, "Thing::sServer()-> called with NULL server" );
-        return false;
-    }
-
-    m_server = server;
-
-    return true;
-}
-
 /* Internal */
 /**
  * @brief Constructor for the Thing class.
@@ -220,7 +190,6 @@ Thing::Thing()
     m_id.clear();
     m_location = NULL;
     m_name.clear();
-    m_server = NULL;
 
     return;
 }

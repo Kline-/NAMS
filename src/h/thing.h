@@ -44,13 +44,11 @@ class Thing {
         const string gId() const;
         Location* gLocation() const;
         const string gName() const;
-        Server* gServer() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
         const bool sId( const string& id );
         const bool sName( const string& name, const bool& system = false );
-        const bool sServer( Server* server );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -63,7 +61,6 @@ class Thing {
         string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
         Location* m_location; /**< The Location that this Thing is stored within. */
         string m_name; /**< The name of the thing. */
-        Server* m_server; /**< The Server this Thing exists within. */
 };
 
 #endif

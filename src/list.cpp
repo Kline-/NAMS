@@ -61,10 +61,3 @@ list<Location*> location_list;
  * @param SocketClient* A pointer to a SocketClient object in memory.
  */
 list<SocketClient*> socket_client_list;
-
-/**
- * @var socket_server_list
- * @brief All SocketServer objects listening for new client connections.
- * @param SocketServer* A pointer to a SocketServer object in memory.
- */
-list<SocketServer*> socket_server_list;

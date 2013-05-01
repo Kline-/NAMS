@@ -30,9 +30,9 @@
 #include "h/account.h"
 #include "h/character.h"
 #include "h/command.h"
+#include "h/event.h"
 #include "h/list.h"
 #include "h/location.h"
-#include "h/server.h"
 #include "h/socketclient.h"
 
 /* Core */
@@ -281,10 +281,10 @@ const bool Handler::CheckCreating( SocketClient* client, const string& name )
         return false;
     }
 
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = client->gServer()->gSocketClientNext() )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
     {
         socket_client = *si;
-        client->gServer()->sSocketClientNext( ++si );
+        g_socket_client_next = ++si;
 
         if ( socket_client == client )
             continue;
@@ -368,7 +368,7 @@ const bool Handler::CheckProhibited( SocketClient* client, const string& name, c
     }
 
     // Search for prohibited names
-    search = client->gServer()->gConfig()->gProhibitedNames( searcht );
+    search = g_config->gProhibitedNames( searcht );
     for ( fi = search.begin(); fi != search.end(); fi++ )
     {
         comp = *fi;
@@ -490,6 +490,9 @@ const void Handler::Reconnect( SocketClient* client, Character* character )
 {
     UFLAGS_DE( flags );
     UFLAGS_S( flag );
+    ITER( forward_list, Event*, ei );
+    ITER( forward_list, Event*, ei_next );
+    Event* event = NULL;
 
     if ( client == NULL )
     {
@@ -517,6 +520,16 @@ const void Handler::Reconnect( SocketClient* client, Character* character )
     // Now re-associate to the new one
     character->sAccount( client->gAccount() );
     client->gAccount()->sCharacter( character );
+
+    // Cleanup any pending disconnection events from the old Character
+    for ( ei = event_list.begin(); ei != event_list.end(); ei = g_event_next )
+    {
+        event = *ei;
+        g_event_next = ++ei;
+
+        if ( event->gCharacter() == character && event->gCommand() == Handler::FindCommand( "quit" ) )
+            event->Delete();
+    }
 
     client->sState( SOC_STATE_PLAYING );
     client->Send( CFG_STR_CHR_RECONNECTED );
@@ -815,7 +828,7 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
         chr = new Character();
         chr->sAccount( client->gAccount() );
 
-        if ( !chr->New( client->gServer(), cmd, false ) )
+        if ( !chr->New( cmd, false ) )
         {
             client->Send( CFG_STR_CHR_NEW_ERROR );
             chr->Delete();
@@ -1314,7 +1327,7 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
 
         return;
     }
-    else if ( !chr->New( client->gServer(), Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT ), true ) )
+    else if ( !chr->New( Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT ), true ) )
     {
         LOGFMT( flags, "Handler::LoadCharacter()->Character::New()-> returned false for character %s", CSTR( id.str() ) );
         delete chr;

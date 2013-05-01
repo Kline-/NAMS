@@ -63,7 +63,7 @@ class SocketClient : public Socket {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New( Server* server, const sint_t& descriptor, const bool& reboot = false );
+        const bool New( const sint_t& descriptor, const bool& reboot = false );
         const bool PendingCommand() const;
         const bool PendingOutput() const;
         const bool ProcessCommand();

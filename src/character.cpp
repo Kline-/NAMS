@@ -19,16 +19,14 @@
  * @file character.cpp
  * @brief All non-template member functions of the Character class.
  *
- * A Character is either autonomous and owned by a Server object or is
- * associated with an Account traceable back to a live SocketClient
- * end-user.
+ * A Character is either autonomous or is associated with an Account traceable
+ * back to a live SocketClient end-user.
  */
 #include "h/includes.h"
 #include "h/character.h"
 
 #include "h/account.h"
 #include "h/list.h"
-#include "h/server.h"
 #include "h/socketclient.h"
 
 /* Core */
@@ -38,7 +36,7 @@
  */
 const void Character::Delete()
 {
-    gServer()->sCharacterNext( character_list.erase( find( character_list.begin(), character_list.end(), this ) ) );
+    g_character_next = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
     delete this;
 
     return;
@@ -46,18 +44,16 @@ const void Character::Delete()
 
 /**
  * @brief Create a new character.
- * @param[in] server The Server the character will exist within.
  * @param[in] file The filename to load without any path prepended to it.
  * @param[in] exists True if the character should be loaded, false if a new one need be created.
  * @retval false Returned if a new Character was successfully created or loaded.
  * @retval true Returned if a new Character was unable to be created.
  */
-const bool Character::New( Server* server, const string& file, const bool& exists )
+const bool Character::New( const string& file, const bool& exists )
 {
     UFLAGS_DE( flags );
 
     m_file = file;
-    sServer( server );
 
     if ( exists )
     {
@@ -319,5 +315,8 @@ Character::Character()
  */
 Character::~Character()
 {
+    if ( m_account != NULL )
+        m_account->sCharacter( NULL );
+
     return;
 }

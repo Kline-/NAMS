@@ -33,6 +33,7 @@
 #include "config.h"
 #include "class.h"
 #include "namespace.h"
+#include "globals.h"
 
 /**
  * @brief Used as a pointer to the New() function within an implemented class.

@@ -26,8 +26,6 @@
 #include "h/includes.h"
 #include "h/socket.h"
 
-#include "h/server.h"
-
 /* Core */
 /**
  * @brief Return if the Socket is valid for use.
@@ -83,15 +81,6 @@ const string Socket::gHostname() const
 const uint_t Socket::gPort() const
 {
     return m_port;
-}
-
-/**
- * @brief Returns the Server object associated to this SocketServer.
- * @retval Server Pointer to the associated Server object.
- */
-Server* Socket::gServer() const
-{
-    return m_server;
 }
 
 /* Manipulate */
@@ -200,33 +189,6 @@ const bool Socket::sPort( const uint_t& port )
     return true;
 }
 
-/**
- * @brief Set the owning server object that the socket is actually connected to.
- * @param[in] server A pointer to an instance of a Server object. By default this is  the server instance which initially spawned the socket.
- * @retval false Returned if the server is either invalid (NULL) or shutdown.
- * @retval true Returned if owning server is successfully set.
- */
-const bool Socket::sServer( Server* server )
-{
-    UFLAGS_DE( flags );
-
-    if ( !server )
-    {
-        LOGSTR( flags, "Socket::sServer()-> called with NULL server" );
-        return false;
-    }
-
-    if ( !server->Running() )
-    {
-        LOGSTR( flags, "Socket::sServer()-> called with offline server" );
-        return false;
-    }
-
-    m_server = server;
-
-    return true;
-}
-
 /* Internal */
 /**
  * @brief Constructor for the Socket class.
@@ -238,7 +200,6 @@ Socket::Socket()
     m_descriptor = 0;
     m_hostname.clear();
     m_port = 0;
-    m_server = NULL;
 
     return;
 }

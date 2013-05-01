@@ -34,13 +34,15 @@ class Event {
         /** @name Core */ /**@{*/
         const void Delete();
         const bool New( const string& cmd, const string& args, Character* character, Command* command, const uint_t& type, const uint_t& time );
-        const bool New( const string& args, Server* server, const uint_t& type, const uint_t& time );
+        const bool New( const string& args, const uint_t& type, const uint_t& time );
         const bool New( const string& cmd, const string& args, SocketClient* client, Command* command, const uint_t& type, const uint_t& time );
         const void Run();
         const bool Update();
         /**@}*/
 
         /** @name Query */ /**@{*/
+        Character* gCharacter() const;
+        Command* gCommand() const;
         const uint_t gTime() const;
         /**@}*/
 
@@ -58,7 +60,6 @@ class Event {
         Character* m_character; /**< The Character who initiated the Event. */
         SocketClient* m_client; /**< The client who initiated the Event. */
         Command* m_command; /**< Command to execute. */
-        Server* m_server; /**< Server to execute the event on. */
         uint_t m_time; /**< Amount of time to wait before executing. Based on #CFG_GAM_PULSE_RATE. */
         uint_t m_type; /**< The type of function to be called. */
 };

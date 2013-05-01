@@ -36,8 +36,7 @@
  * Project Website - http://www.ackmud.net\n
  */
 #include "h/includes.h"
-
-#include "h/server.h"
+#include "h/main.h"
 
 /* Core */
 /**
@@ -51,19 +50,18 @@ int main( const int argc, const char* argv[] )
 {
     BSET( flags, UTILS_RAW );
     sint_t desc = 0;
-    Server _server;
 
     if ( argc > 1 )
     {
         if ( !Utils::iNumber( argv[1] ) )
         {
             LOGFMT( flags, "Usage: %s [port #]", argv[0] );
-            _server.Shutdown( EXIT_FAILURE );
+            Server::Shutdown( EXIT_FAILURE );
         }
-        else if ( !_server.sPort( atoi( argv[1] ) ) )
+        else if ( !Server::sPort( atoi( argv[1] ) ) )
         {
             LOGFMT( flags, "Port number must be between %d and %d.", CFG_SOC_MIN_PORTNUM, CFG_SOC_MAX_PORTNUM );
-            _server.Shutdown( EXIT_FAILURE );
+            Server::Shutdown( EXIT_FAILURE );
         }
 
         // Must be rebooting
@@ -71,13 +69,15 @@ int main( const int argc, const char* argv[] )
             desc = atoi( argv[2] );
     }
     else
-        _server.sPort( CFG_SOC_PORTNUM );
+        Server::sPort( CFG_SOC_PORTNUM );
 
-    _server.Startup( desc );
-    while( _server.Running() )
-        _server.Update();
+    g_config = new Server::Config();
+    g_stats = new Server::Stats();
+    Server::Startup( desc );
+    while( !g_shutdown )
+        Server::Update();
 
-    _server.Shutdown( EXIT_SUCCESS );
+    Server::Shutdown( EXIT_SUCCESS );
 }
 
 /* Query */

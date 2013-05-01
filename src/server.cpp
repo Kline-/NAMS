@@ -17,11 +17,10 @@
  ***************************************************************************/
 /**
  * @file server.cpp
- * @brief All non-template member functions of the Server class.
+ * @brief All non-template member functions of the Server namespace.
  *
- * A Server object is created from main() when NAMS is first started. The Server
- * object handles all further interfacing with the host OS and is the central
- * core of NAMS.
+ * The Server namespace handles all interfacing with the host OS and is the
+ * central core of NAMS.
  *
  * During its boot sequence, the Server will spawn a SocketServer to listen for
  * incoming SocketClient connections, compile and load any Plugin objects,
@@ -42,6 +41,28 @@
 
 /* Core */
 /**
+ * @brief Unload runtime configuration from memory.
+ * @retval void
+ */
+const void Server::Config::Delete()
+{
+    delete this;
+
+    return;
+}
+
+/**
+ * @brief Unload runtime statistics from memory.
+ * @retval void
+ */
+const void Server::Stats::Delete()
+{
+    delete this;
+
+    return;
+}
+
+/**
  * @brief Sends a message to all clients connected to the Server.
  * @param[in] msg The message to be sent.
  * @retval void
@@ -51,10 +72,10 @@ const void Server::Broadcast( const string& msg )
     SocketClient *client = NULL;
     ITER( list, SocketClient*, si );
 
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
     {
         client = *si;
-        m_socket_client_next = ++si;
+        g_socket_client_next = ++si;
 
         client->Send( msg );
         client->Send();
@@ -126,7 +147,7 @@ const bool Server::LoadCommands()
     LOGSTR( 0, CFG_STR_FILE_COMMAND_READ );
 
     // Populate the multimap with a recursive listing of the commands folder
-    Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, false, files, m_dir_close, m_dir_open );
+    Utils::ListDirectory( CFG_DAT_DIR_COMMAND, true, false, files, g_stats->m_dir_close, g_stats->m_dir_open );
 
     if ( files.empty() )
     {
@@ -180,7 +201,7 @@ const bool Server::LoadLocations()
     LOGSTR( 0, CFG_STR_FILE_LOCATION_READ );
 
     // Populate the multimap with a recursive listing of the locations folder
-    Utils::ListDirectory( CFG_DAT_DIR_WORLD, true, true, files, m_dir_close, m_dir_open );
+    Utils::ListDirectory( CFG_DAT_DIR_WORLD, true, true, files, g_stats->m_dir_close, g_stats->m_dir_open );
 
     if ( files.empty() )
     {
@@ -193,7 +214,7 @@ const bool Server::LoadLocations()
         if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ) == CFG_DAT_FILE_LOC_EXT ) )
         {
             loc = new Location();
-            if ( !loc->New( this, mi->second ) )
+            if ( !loc->New( mi->second ) )
             {
                 LOGFMT( flags, "Server::LoadLocations()->Location::New()-> location %s returned false", CSTR( mi->second ) );
                 delete loc;
@@ -230,7 +251,7 @@ const bool Server::PollSockets()
     FD_ZERO( &in_set );
     FD_ZERO( &out_set );
 
-    if ( ( server_desc = m_socket->gDescriptor() ) < 1 )
+    if ( ( server_desc = g_listen->gDescriptor() ) < 1 )
     {
         LOGFMT( flags, "Server::PollSockets()->SocketServer::gDescriptor()-> returned invalid descriptor: %ld", server_desc );
         return false;
@@ -240,10 +261,10 @@ const bool Server::PollSockets()
     max_desc = server_desc;
 
     // Build three file descriptor lists to be polled
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
     {
         socket_client = *si;
-        m_socket_client_next = ++si;
+        g_socket_client_next = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -276,13 +297,13 @@ const bool Server::PollSockets()
 
     // Process new connections
     if ( FD_ISSET( server_desc, &in_set ) )
-        m_socket->Accept();
+        g_listen->Accept();
 
     // Process faulted connections
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
     {
         socket_client = *si;
-        m_socket_client_next = ++si;
+        g_socket_client_next = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -302,10 +323,10 @@ const bool Server::PollSockets()
     }
 
     // Process input from active connections
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
     {
         socket_client = *si;
-        m_socket_client_next = ++si;
+        g_socket_client_next = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -366,10 +387,10 @@ const bool Server::PollSockets()
     }
 
     // Process any pending output
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
     {
         socket_client = *si;
-        m_socket_client_next = ++si;
+        g_socket_client_next = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -413,13 +434,12 @@ const bool Server::PollSockets()
 const void Server::ProcessEvents()
 {
     ITER( forward_list, Event*, ei );
-    ITER( forward_list, Event*, ei_next );
     Event* event;
 
-    for ( ei = event_list.begin(); ei != event_list.end(); ei = ei_next )
+    for ( ei = event_list.begin(); ei != event_list.end(); ei = g_event_next )
     {
         event = *ei;
-        ei_next = ++ei;
+        g_event_next = ++ei;
 
         if ( !event->Update() )
             event->Run();
@@ -439,10 +459,10 @@ const void Server::ProcessInput()
     SocketClient* socket_client;
     sint_t client_desc = 0;
 
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = m_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
     {
         socket_client = *si;
-        m_socket_client_next = ++si;
+        g_socket_client_next = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -502,7 +522,7 @@ const void Server::RebootRecovery( const bool& reboot )
             if ( key.compare( "desc" ) == 0 )
             {
                 client = new SocketClient();
-                client->New( this, atoi( CSTR( value ) ) );
+                client->New( atoi( CSTR( value ) ) );
             }
             if ( key.compare( "port" ) == 0 )
                 client->sPort( atoi( CSTR( value ) ) );
@@ -560,43 +580,37 @@ const bool Server::ReloadCommand( const string& name )
 }
 
 /**
- * @brief Returns if the Server is shutdown or not.
- * @retval false Returned if the server is inactive and is shutdown.
- * @retval true Returned if the server is active and not shutdown.
- */
-const bool Server::Running() const
-{
-    return !m_shutdown;
-}
-
-/**
  * @brief Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all memory to verify there are no leaks.
  * @param[in] status The shutdown code to pass to exit() when NAMS exits. Either EXIT_FAILURE or EXIT_SUCCESS.
  * @retval void
  */
 const void Server::Shutdown( const sint_t& status )
 {
-    bool was_running = !m_shutdown;
+    bool was_running = !g_shutdown;
 
     Broadcast( CFG_STR_SHUTDOWN );
-    m_shutdown = true;
+    g_shutdown = true;
 
     // Write runtime settings
-    m_config->Serialize();
-    delete m_config;
+    g_config->Serialize();
 
     // Cleanup commands
     while ( !command_list.empty() )
         command_list.begin()->second->Delete();
+    // Cleanup events
+    while ( !event_list.empty() )
+        event_list.front()->Delete();
     // Cleanup locations
     while ( !location_list.empty() )
         location_list.front()->Delete();
     // Cleanup socket clients
     while ( !socket_client_list.empty() )
         socket_client_list.front()->Delete();
-    // Cleanup socket servers
-    while ( !socket_server_list.empty() )
-        socket_server_list.front()->Delete();
+
+    //Cleanup globals
+    g_config->Delete();
+    g_listen->Delete();
+    g_stats->Delete();
 
     // Only output if the server actually booted; otherwise it probably faulted while getting a port from main()
     if ( was_running )
@@ -620,10 +634,10 @@ const void Server::Startup( const sint_t& desc )
     SocketServer* socket_server = NULL;
     sint_t descriptor = 0;
     bool reboot = false;
-    m_shutdown = false;
+    g_shutdown = false;
 
     LOGFMT( 0, "%s started.", CFG_STR_VERSION );
-    m_time_boot = chrono::high_resolution_clock::now();
+    g_time_boot = chrono::high_resolution_clock::now();
 
     // Fresh boot, otherwise it would already be assigned during a reboot
     if ( desc == 0 )
@@ -641,9 +655,9 @@ const void Server::Startup( const sint_t& desc )
     }
 
     socket_server = new SocketServer();
-    m_socket = socket_server;
+    g_listen = socket_server;
 
-    if ( !socket_server->New( this, descriptor, reboot ) )
+    if ( !socket_server->New( descriptor, reboot ) )
     {
         LOGSTR( flags, "Server::Startup()->SocketServer::New()-> returned false" );
         Shutdown( EXIT_FAILURE );
@@ -657,9 +671,9 @@ const void Server::Startup( const sint_t& desc )
     }
 
     // Cleanup any leftovers from a hard crash mid-write
-    Utils::CleanupTemp( m_dir_close, m_dir_open );
+    Utils::CleanupTemp( g_stats->m_dir_close, g_stats->m_dir_open );
 
-    if ( !m_config->Unserialize() )
+    if ( !g_config->Unserialize() )
     {
         LOGSTR( flags, "Server::Config::Unserialize()-> returned false" );
         Shutdown( EXIT_FAILURE );
@@ -678,7 +692,7 @@ const void Server::Startup( const sint_t& desc )
 
     RebootRecovery( reboot );
 
-    LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, m_port );
+    LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, g_port );
     LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
 
     return;
@@ -692,7 +706,7 @@ const void Server::Update()
 {
     UFLAGS_DE( flags );
 
-    m_time_current = chrono::high_resolution_clock::now();
+    g_time_current = chrono::high_resolution_clock::now();
 
     // Poll all sockets for changes
     if ( !PollSockets() )
@@ -733,21 +747,21 @@ forward_list<string> Server::Config::gProhibitedNames( const uint_t& type ) cons
 }
 
 /**
- * @brief Returns the Server's globally referenced next iterator for Character objects.
- * @retval Character* The Server's globally referenced next iterator for Character objects.
+ * @brief Returns the combined number of SocketClient and SocketServer objects that have been destroyed.
+ * @retval uint_t The total number of closed sockets that were tied to this object.
  */
-list<Character*>::iterator Server::gCharacterNext() const
+const uint_t Server::Stats::gSocketClose() const
 {
-    return m_character_next;
+    return m_socket_close;
 }
 
 /**
- * @brief Gets the runtime configuration of the server.
- * @retval Server::Config A pointer to the runtime configuration.
+ * @brief Returns the combined number of SocketClient and SocketServer objects that have been created.
+ * @retval uint_t The total number of opened sockets that are tied to this object.
  */
-Server::Config* Server::gConfig() const
+const uint_t Server::Stats::gSocketOpen() const
 {
-    return m_config;
+    return m_socket_open;
 }
 
 /**
@@ -755,7 +769,7 @@ Server::Config* Server::gConfig() const
  * @retval string A string is returned containing either "(unknown)" or the machine hostname.
  * @todo Move this to Server::sHostname() and redo this func as a simple getter. Don't need to query the host server multiple times.
  */
-const string Server::gHostname() const
+const string Server::gHostname()
 {
     UFLAGS_DE( flags );
     string output;
@@ -778,45 +792,9 @@ const string Server::gHostname() const
  * @brief Returns the port that any SocketServer should bind to. Defaults to #CFG_SOC_PORTNUM.
  * @retval uint_t The port for a SocketServer to bind to.
  */
-const uint_t Server::gPort() const
+const uint_t Server::gPort()
 {
-    return m_port;
-}
-
-/**
- * @brief Returns the SocketServer associated with the current Server instance.
- * @retval SocketServer A pointer to the #SocketServer object spanwed by this object.
- */
-SocketServer* Server::gSocket() const
-{
-    return m_socket;
-}
-
-/**
- * @brief Returns the Server's globally referenced next iterator for SocketClient objects.
- * @retval SocketClient* The Server's globally referenced next iterator for SocketClient objects.
- */
-list<SocketClient*>::iterator Server::gSocketClientNext() const
-{
-    return m_socket_client_next;
-}
-
-/**
- * @brief Returns the combined number of SocketClient and SocketServer objects that have been destroyed.
- * @retval uint_t The total number of closed sockets that were tied to this object.
- */
-const uint_t Server::gSocketClose() const
-{
-    return m_socket_close;
-}
-
-/**
- * @brief Returns the combined number of SocketClient and SocketServer objects that have been created.
- * @retval uint_t The total number of opened sockets that are tied to this object.
- */
-const uint_t Server::gSocketOpen() const
-{
-    return m_socket_open;
+    return g_port;
 }
 
 /**
@@ -824,7 +802,7 @@ const uint_t Server::gSocketOpen() const
  * @retval string A string is returned containing a pre-formatted data display of all Server information.
  * @todo Write this entire function.
  */
-const string Server::gStatus() const
+const string Server::gStatus()
 {
     string output;
 
@@ -837,7 +815,7 @@ const string Server::gStatus() const
  * @retval false Returned if there was an error serializing settings.
  * @retval true Returned if settings were serialized successfully.
  */
-const bool Server::Config::Serialize() const
+const bool Server::Config::Serialize()
 {
     UFLAGS_DE( flags );
     ofstream ofs;
@@ -951,59 +929,18 @@ const bool Server::Config::Unserialize()
 }
 
 /**
- * @brief Sets the Server's globally referenced next iterator for Character objects.
- * @param[in] next The next Character in character_list after removing an element.
- * @retval void
- */
-const void Server::sCharacterNext( list<Character*>::iterator next )
-{
-    m_character_next = next;
-
-    return;
-}
-
-/**
- * @brief Set the port of a NAMS Server object.
- * @param[in] port The port number to have a SocketServer instance listen for new connections on.
- * @retval false Returned if the port was <= #CFG_SOC_MIN_PORTNUM or >= #CFG_SOC_MAX_PORTNUM.
- * @retval true Returned if the port was > #CFG_SOC_MIN_PORTNUM and < #CFG_SOC_MAX_PORTNUM.
- */
-const bool Server::sPort( const uint_t& port )
-{
-    // No logger output; this should only be called pre-boot
-    if ( port <= CFG_SOC_MIN_PORTNUM || port >= CFG_SOC_MAX_PORTNUM )
-        return false;
-
-    m_port = port;
-
-    return true;
-}
-
-/**
- * @brief Sets the Server's globally referenced next iterator for SocketClient objects.
- * @param[in] next The next SocketClient in socket_client_list after removing an element.
- * @retval void
- */
-const void Server::sSocketClientNext( list<SocketClient*>::iterator next )
-{
-    m_socket_client_next = next;
-
-    return;
-}
-
-/**
  * @brief Set the amount of subordinate SocketClient and SocketServer objects that have been closed on a NAMS Server object.
  * @param[in] amount The amount that Server::m_socket_close should be set to.
  * @retval false Returned if amount is outside the boundaries of a uint_t variable.
  * @retval true Returned if amount is within the boundaries of a uint_t variable.
  */
-const bool Server::sSocketClose( const uint_t& amount )
+const bool Server::Stats::sSocketClose( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
     if ( amount < uintmin_t || amount >= uintmax_t )
     {
-        LOGFMT( flags, "Server::sSocketClose()-> called with m_socket_close overflow: %lu + %lu", m_socket_close, amount );
+        LOGFMT( flags, "Server::Stats::sSocketClose()-> called with m_socket_close overflow: %lu + %lu", m_socket_close, amount );
         return false;
     }
 
@@ -1018,17 +955,34 @@ const bool Server::sSocketClose( const uint_t& amount )
  * @retval false Returned if amount is outside the boundaries of a uint_t variable.
  * @retval true Returned if amount is within the boundaries of a uint_t variable.
  */
-const bool Server::sSocketOpen( const uint_t& amount )
+const bool Server::Stats::sSocketOpen( const uint_t& amount )
 {
     UFLAGS_DE( flags );
 
     if ( amount < uintmin_t || amount >= uintmax_t )
     {
-        LOGFMT( flags, "Server::sSocketOpen()-> called with m_socket_open overflow: %lu + %lu", m_socket_open, amount );
+        LOGFMT( flags, "Server::Stats::sSocketOpen()-> called with m_socket_open overflow: %lu + %lu", m_socket_open, amount );
         return false;
     }
 
     m_socket_open = amount;
+
+    return true;
+}
+
+/**
+ * @brief Set the port of a NAMS Server object.
+ * @param[in] port The port number to have a SocketServer instance listen for new connections on.
+ * @retval false Returned if the port was <= #CFG_SOC_MIN_PORTNUM or >= #CFG_SOC_MAX_PORTNUM.
+ * @retval true Returned if the port was > #CFG_SOC_MIN_PORTNUM and < #CFG_SOC_MAX_PORTNUM.
+ */
+const bool Server::sPort( const uint_t& port )
+{
+    // No logger output; this should only be called pre-boot
+    if ( port <= CFG_SOC_MIN_PORTNUM || port >= CFG_SOC_MAX_PORTNUM )
+        return false;
+
+    g_port = port;
 
     return true;
 }
@@ -1056,30 +1010,22 @@ Server::Config::~Config()
 }
 
 /**
- * @brief Constructor for the Server class.
+ * @brief Constructor for the Server::Stats class.
  */
-Server::Server()
+Server::Stats::Stats()
 {
-    m_character_next = character_list.begin();
-    m_config = new Server::Config();
     m_dir_close = 0;
     m_dir_open = 0;
-    m_port = 0;
-    m_shutdown = true;
-    m_socket = 0;
-    m_socket_client_next = socket_client_list.begin();
     m_socket_close = 0;
     m_socket_open = 0;
-    m_time_boot = chrono::high_resolution_clock::now();
-    m_time_current = chrono::high_resolution_clock::now();
 
     return;
 }
 
 /**
- * @brief Destructor for the Server class.
+ * @brief Destructor for the Server::Stats class.
  */
-Server::~Server()
+Server::Stats::~Stats()
 {
     return;
 }

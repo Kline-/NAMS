@@ -16,44 +16,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 /**
- * @file socketserver.h
- * @brief The SocketServer class.
+ * @file globals.h
+ * @brief Externs to reference global scope variables.
  *
- *  This file contains the SocketServer class and template functions.
+ *  This file contains extern references to all global scope variables.
  */
-#ifndef DEC_SOCKETSERVER_H
-#define DEC_SOCKETSERVER_H
+#ifndef DEC_GLOBAL_H
+#define DEC_GLOBAL_H
 
-#include "socket.h"
-
-using namespace std;
-
-/**
- * @brief SocketServer extends the Socket class to implement server-side socket functions.
- */
-class SocketServer : public Socket {
-    public:
-        /** @name Core */ /**@{*/
-        const void Accept();
-        const bool Bind( const uint_t& port, const string& addr );
-        const void Delete();
-        const bool Listen();
-        const bool New( const sint_t& descriptor, const bool& reboot = false );
-        const string Serialize() const;
-        /**@}*/
-
-        /** @name Query */ /**@{*/
-        /**@}*/
-
-        /** @name Manipulate */ /**@{*/
-        /**@}*/
-
-        /** @name Internal */ /**@{*/
-        SocketServer();
-        ~SocketServer();
-        /**@}*/
-
-    private:
-};
+extern list<Character*>::iterator g_character_next; /**< Used as the next iterator in all loops dealing with Character objects to prevent nested processing loop problems. */
+extern Server::Config* g_config; /**< Runtime settings. */
+extern forward_list<Event*>::iterator g_event_next; /**< Used as the next iterator in all loops dealing with Event objects to prevent nested processing loop problems. */
+extern SocketServer* g_listen; /**< The listening server-side socket. */
+extern uint_t g_port; /**< Port number to be passed to the associated SocketServer. */
+extern bool g_shutdown; /**< Shutdown state of the game. */
+extern list<SocketClient*>::iterator g_socket_client_next; /**< Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
+extern Server::Stats* g_stats; /**< Runtime statistics. */
+extern chrono::high_resolution_clock::time_point g_time_boot; /**< Time the Server was first booted. */
+extern chrono::high_resolution_clock::time_point g_time_current; /**< Current time from the host OS. */
 
 #endif

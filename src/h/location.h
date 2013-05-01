@@ -35,7 +35,7 @@ class Location : public Thing {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New( Server* server, const string& file );
+        const bool New( const string& file );
         const bool Serialize() const;
         const bool Unserialize();
         /**@}*/
