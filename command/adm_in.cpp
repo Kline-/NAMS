@@ -69,7 +69,7 @@ const void AdmIn::Run( SocketClient* client, const string& cmd, const string& ar
             if ( command->Authorized( security ) )
             {
                 event = new Event();
-                if ( !event->New( second, third, client, command, EVENT_TYPE_COMMAND, time ) )
+                if ( !event->New( second, third, client, command, EVENT_TYPE_CMD_SOCKET, time ) )
                 {
                     LOGSTR( flags, "AdmIn::Run()->Event::New()-> returned false" );
                     delete event;

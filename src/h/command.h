@@ -35,6 +35,7 @@ class Command {
         const bool Authorized( const uint_t& sec ) const;
         const void Delete();
         const bool New( const string& file );
+        const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
         const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
         /**@}*/
 

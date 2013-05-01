@@ -42,6 +42,57 @@ const void Event::Delete()
 }
 
 /**
+ * @brief Create a new Event for a Character to execute a Command on a delay.
+ * @param[in] cmd The string used to locate the actual command. Needed for some admin commands.
+ * @param[in] args The arguments to be passed to the function.
+ * @param[in] client The client who initiated the function.
+ * @param[in] command The command to execute.
+ * @param[in] type The type of Event.
+ * @param[in] time How long to wait before executing Event::Run().
+ * @retval false Returned if the event is unable to be created.
+ * @retval true Returned if the event was successfully created.
+ */
+const bool Event::New( const string& cmd, const string& args, Character* character, Command* command, const uint_t& type, const uint_t& time )
+{
+    UFLAGS_DE( flags );
+
+    if ( args.empty() )
+    {
+        LOGSTR( flags, "Event::New() called with empty args" );
+        return false;
+    }
+
+    if ( character == NULL )
+    {
+        LOGSTR( flags, "Event::New() called with NULL character" );
+        return false;
+    }
+
+    if ( type == EVENT_TYPE_RELOAD )
+    {
+        LOGSTR( flags, "Event::New() called with invalid type" );
+        return false;
+    }
+
+    if ( time < uintmin_t )
+    {
+        LOGSTR( flags, "Event::New() called with invalid time" );
+        return false;
+    }
+
+    m_args = args;
+    m_cmd = cmd;
+    m_character = character;
+    m_command = command;
+    m_time = time;
+    m_type = type;
+
+    event_list.push_front( this );
+
+    return true;
+}
+
+/**
  * @brief Create a new Event. This is a special use-case to create an Event on a server, for things such as Server::ReloadCommand.
  * @param[in] args The arguments to be passed to the function.
  * @param[in] server The server to execute the function on.
@@ -111,7 +162,7 @@ const bool Event::New( const string& cmd, const string& args, SocketClient* clie
 
     if ( client == NULL )
     {
-        LOGSTR( flags, "Event::New() called with NULL server" );
+        LOGSTR( flags, "Event::New() called with NULL client" );
         return false;
     }
 
@@ -147,12 +198,16 @@ const void Event::Run()
 {
     switch ( m_type )
     {
-        case EVENT_TYPE_COMMAND:
+        case EVENT_TYPE_RELOAD:
+            m_server->ReloadCommand( m_args );
+        break;
+
+        case EVENT_TYPE_CMD_SOCKET:
             m_command->Run( m_client, m_cmd, m_args );
         break;
 
-        case EVENT_TYPE_RELOAD:
-            m_server->ReloadCommand( m_args );
+        case EVENT_TYPE_CMD_CHARACTER:
+            m_command->Run( m_character, m_cmd, m_args );
         break;
 
         default:
@@ -197,6 +252,7 @@ Event::Event()
 {
     m_args.clear();
     m_cmd.clear();
+    m_character = NULL;
     m_client = NULL;
     m_command = NULL;
     m_server = NULL;

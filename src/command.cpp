@@ -128,6 +128,20 @@ const bool Command::New( const string& file )
 
 /**
  * @brief Execute a Plugin object's primary function.
+ * @param[in] character If called from a Character, the caller is passed through to the Plugin for reference.
+ * @param[in] cmd If called from a Character, the command from the client is passed through.
+ * @param[in] arg If called from a Character, the arguments from the client are passed through.
+ * @retval void
+ */
+const void Command::Run( Character* character, const string& cmd, const string& arg ) const
+{
+    m_plg->Run( character, cmd, arg );
+
+    return;
+}
+
+/**
+ * @brief Execute a Plugin object's primary function.
  * @param[in] client If called from a SocketClient, the caller is passed through to the Plugin for reference.
  * @param[in] cmd If called from a SocketClient, the command from the client is passed through.
  * @param[in] arg If called from a SocketClient, the arguments from the client are passed through.

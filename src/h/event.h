@@ -33,6 +33,7 @@ class Event {
     public:
         /** @name Core */ /**@{*/
         const void Delete();
+        const bool New( const string& cmd, const string& args, Character* character, Command* command, const uint_t& type, const uint_t& time );
         const bool New( const string& args, Server* server, const uint_t& type, const uint_t& time );
         const bool New( const string& cmd, const string& args, SocketClient* client, Command* command, const uint_t& type, const uint_t& time );
         const void Run();
@@ -54,6 +55,7 @@ class Event {
     private:
         string m_args; /**< Any arguments to be passed to the function. */
         string m_cmd; /**< The string used to locate the actual command. Needed for some admin commands. */
+        Character* m_character; /**< The Character who initiated the Event. */
         SocketClient* m_client; /**< The client who initiated the Event. */
         Command* m_command; /**< Command to execute. */
         Server* m_server; /**< Server to execute the event on. */

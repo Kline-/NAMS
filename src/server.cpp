@@ -339,8 +339,11 @@ const bool Server::PollSockets()
                     {
                         if ( socket_client->gAccount()->gCharacter() != NULL )
                         {
+                            Event* event = new Event();
+
                             socket_client->sState( SOC_STATE_DISC_LINKDEAD );
                             socket_client->gAccount()->gCharacter()->sAccount( NULL );
+                            event->New( "quit", "quit", socket_client->gAccount()->gCharacter(), Handler::FindCommand( "quit" ), EVENT_TYPE_CMD_CHARACTER, CFG_CHR_MAX_IDLE );
                             socket_client->gAccount()->sCharacter( NULL );
                         }
                     }
