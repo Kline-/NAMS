@@ -57,6 +57,39 @@ namespace Server {
             forward_list<string> m_prohibited_names[MAX_SVR_CFG_PROHIBITED_NAMES]; /**< Names that are illegal to use as an account name. */
     };
 
+    /**
+     * @brief Container for global variables.
+     */
+    class Global {
+        public:
+            /** @name Core */ /**@{*/
+            const void Delete();
+            /**@}*/
+
+            /** @name Query */ /**@{*/
+            /**@}*/
+
+            /** @name Manipulate */ /**@{*/
+            /**@}*/
+
+            /** @name Internal */ /**@{*/
+            Global();
+            ~Global();
+            /**@}*/
+
+            SocketServer* m_listen; /**< The listening server-side socket. */
+            forward_list<Event*>::iterator m_next_event; /**< Used as the next iterator in all loops dealing with Event objects to prevent nested processing loop problems. */
+            list<Character*>::iterator m_next_character; /**< Used as the next iterator in all loops dealing with Character objects to prevent nested processing loop problems. */
+            list<SocketClient*>::iterator m_next_socket_client; /**< Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
+            uint_t m_port; /**< Port number to be passed to the associated SocketServer. */
+            bool m_shutdown; /**< Shutdown state of the game. */
+            chrono::high_resolution_clock::time_point m_time_boot; /**< Time the Server was first booted. */
+            chrono::high_resolution_clock::time_point m_time_current; /**< Current time from the host OS. */
+    };
+
+    /**
+     * @brief Runtime statistics.
+     */
     class Stats {
         public:
             /** @name Core */ /**@{*/
@@ -104,12 +137,10 @@ namespace Server {
 
     /** @name Query */ /**@{*/
     const string gHostname();
-    const uint_t gPort();
     const string gStatus();
     /**@}*/
 
     /** @name Manipulate */ /**@{*/
-    const bool sPort( const uint_t& port );
     /**@}*/
 
     /** @name Internal */ /**@{*/

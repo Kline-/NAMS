@@ -52,6 +52,17 @@ const void Server::Config::Delete()
 }
 
 /**
+ * @brief Unload global variables from memory.
+ * @retval void
+ */
+const void Server::Global::Delete()
+{
+    delete this;
+
+    return;
+}
+
+/**
  * @brief Unload runtime statistics from memory.
  * @retval void
  */
@@ -72,10 +83,10 @@ const void Server::Broadcast( const string& msg )
     SocketClient *client = NULL;
     ITER( list, SocketClient*, si );
 
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_global->m_next_socket_client )
     {
         client = *si;
-        g_socket_client_next = ++si;
+        g_global->m_next_socket_client = ++si;
 
         client->Send( msg );
         client->Send();
@@ -251,7 +262,7 @@ const bool Server::PollSockets()
     FD_ZERO( &in_set );
     FD_ZERO( &out_set );
 
-    if ( ( server_desc = g_listen->gDescriptor() ) < 1 )
+    if ( ( server_desc = g_global->m_listen->gDescriptor() ) < 1 )
     {
         LOGFMT( flags, "Server::PollSockets()->SocketServer::gDescriptor()-> returned invalid descriptor: %ld", server_desc );
         return false;
@@ -261,10 +272,10 @@ const bool Server::PollSockets()
     max_desc = server_desc;
 
     // Build three file descriptor lists to be polled
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_global->m_next_socket_client )
     {
         socket_client = *si;
-        g_socket_client_next = ++si;
+        g_global->m_next_socket_client = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -297,13 +308,13 @@ const bool Server::PollSockets()
 
     // Process new connections
     if ( FD_ISSET( server_desc, &in_set ) )
-        g_listen->Accept();
+        g_global->m_listen->Accept();
 
     // Process faulted connections
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_global->m_next_socket_client )
     {
         socket_client = *si;
-        g_socket_client_next = ++si;
+        g_global->m_next_socket_client = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -323,10 +334,10 @@ const bool Server::PollSockets()
     }
 
     // Process input from active connections
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_global->m_next_socket_client )
     {
         socket_client = *si;
-        g_socket_client_next = ++si;
+        g_global->m_next_socket_client = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -387,10 +398,10 @@ const bool Server::PollSockets()
     }
 
     // Process any pending output
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_global->m_next_socket_client )
     {
         socket_client = *si;
-        g_socket_client_next = ++si;
+        g_global->m_next_socket_client = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -436,10 +447,10 @@ const void Server::ProcessEvents()
     ITER( forward_list, Event*, ei );
     Event* event;
 
-    for ( ei = event_list.begin(); ei != event_list.end(); ei = g_event_next )
+    for ( ei = event_list.begin(); ei != event_list.end(); ei = g_global->m_next_event )
     {
         event = *ei;
-        g_event_next = ++ei;
+        g_global->m_next_event = ++ei;
 
         if ( !event->Update() )
             event->Run();
@@ -459,10 +470,10 @@ const void Server::ProcessInput()
     SocketClient* socket_client;
     sint_t client_desc = 0;
 
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_global->m_next_socket_client )
     {
         socket_client = *si;
-        g_socket_client_next = ++si;
+        g_global->m_next_socket_client = ++si;
 
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
@@ -586,10 +597,10 @@ const bool Server::ReloadCommand( const string& name )
  */
 const void Server::Shutdown( const sint_t& status )
 {
-    bool was_running = !g_shutdown;
+    bool was_running = !g_global->m_shutdown;
 
     Broadcast( CFG_STR_SHUTDOWN );
-    g_shutdown = true;
+    g_global->m_shutdown = true;
 
     // Write runtime settings
     g_config->Serialize();
@@ -609,8 +620,8 @@ const void Server::Shutdown( const sint_t& status )
 
     //Cleanup globals
     g_config->Delete();
-    g_listen->Delete();
     g_stats->Delete();
+    g_global->Delete();
 
     // Only output if the server actually booted; otherwise it probably faulted while getting a port from main()
     if ( was_running )
@@ -634,10 +645,9 @@ const void Server::Startup( const sint_t& desc )
     SocketServer* socket_server = NULL;
     sint_t descriptor = 0;
     bool reboot = false;
-    g_shutdown = false;
+    g_global->m_shutdown = false;
 
     LOGFMT( 0, "%s started.", CFG_STR_VERSION );
-    g_time_boot = chrono::high_resolution_clock::now();
 
     // Fresh boot, otherwise it would already be assigned during a reboot
     if ( desc == 0 )
@@ -655,7 +665,7 @@ const void Server::Startup( const sint_t& desc )
     }
 
     socket_server = new SocketServer();
-    g_listen = socket_server;
+    g_global->m_listen = socket_server;
 
     if ( !socket_server->New( descriptor, reboot ) )
     {
@@ -692,7 +702,7 @@ const void Server::Startup( const sint_t& desc )
 
     RebootRecovery( reboot );
 
-    LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, g_port );
+    LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, g_global->m_port );
     LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );
 
     return;
@@ -706,7 +716,7 @@ const void Server::Update()
 {
     UFLAGS_DE( flags );
 
-    g_time_current = chrono::high_resolution_clock::now();
+    g_global->m_time_current = chrono::high_resolution_clock::now();
 
     // Poll all sockets for changes
     if ( !PollSockets() )
@@ -786,15 +796,6 @@ const string Server::gHostname()
     output = hostname;
 
     return output;
-}
-
-/**
- * @brief Returns the port that any SocketServer should bind to. Defaults to #CFG_SOC_PORTNUM.
- * @retval uint_t The port for a SocketServer to bind to.
- */
-const uint_t Server::gPort()
-{
-    return g_port;
 }
 
 /**
@@ -970,23 +971,6 @@ const bool Server::Stats::sSocketOpen( const uint_t& amount )
     return true;
 }
 
-/**
- * @brief Set the port of a NAMS Server object.
- * @param[in] port The port number to have a SocketServer instance listen for new connections on.
- * @retval false Returned if the port was <= #CFG_SOC_MIN_PORTNUM or >= #CFG_SOC_MAX_PORTNUM.
- * @retval true Returned if the port was > #CFG_SOC_MIN_PORTNUM and < #CFG_SOC_MAX_PORTNUM.
- */
-const bool Server::sPort( const uint_t& port )
-{
-    // No logger output; this should only be called pre-boot
-    if ( port <= CFG_SOC_MIN_PORTNUM || port >= CFG_SOC_MAX_PORTNUM )
-        return false;
-
-    g_port = port;
-
-    return true;
-}
-
 /* Internal */
 /**
  * @brief Constructor for the Server::Config class.
@@ -1006,6 +990,33 @@ Server::Config::Config()
  */
 Server::Config::~Config()
 {
+    return;
+}
+
+/**
+ * @brief Constructor for the Server::Global class.
+ */
+Server::Global::Global()
+{
+    m_listen = NULL;
+    m_next_character = character_list.begin();
+    m_next_event = event_list.begin();
+    m_next_socket_client = socket_client_list.begin();
+    m_port = 0;
+    m_shutdown = true;
+    m_time_boot = chrono::high_resolution_clock::now();
+    m_time_current = chrono::high_resolution_clock::now();
+
+    return;
+}
+
+/**
+ * @brief Destructor for the Server::Global class.
+ */
+Server::Global::~Global()
+{
+    m_listen->Delete();
+
     return;
 }
 

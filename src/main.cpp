@@ -50,6 +50,13 @@ int main( const int argc, const char* argv[] )
 {
     BSET( flags, UTILS_RAW );
     sint_t desc = 0;
+    uint_t port = 0;
+
+    // Initialize global variables, runtime configuration, and statistics
+    // Ensure globals are first as other items depend on them
+    g_global = new Server::Global();
+    g_config = new Server::Config();
+    g_stats = new Server::Stats();
 
     if ( argc > 1 )
     {
@@ -58,23 +65,27 @@ int main( const int argc, const char* argv[] )
             LOGFMT( flags, "Usage: %s [port #]", argv[0] );
             Server::Shutdown( EXIT_FAILURE );
         }
-        else if ( !Server::sPort( atoi( argv[1] ) ) )
+
+        port = atoi( argv[1] );
+
+        if ( port <= CFG_SOC_MIN_PORTNUM || port >= CFG_SOC_MAX_PORTNUM )
         {
             LOGFMT( flags, "Port number must be between %d and %d.", CFG_SOC_MIN_PORTNUM, CFG_SOC_MAX_PORTNUM );
             Server::Shutdown( EXIT_FAILURE );
         }
+        else
+            g_global->m_port = port;
 
         // Must be rebooting
         if ( argc > 2 )
             desc = atoi( argv[2] );
     }
     else
-        Server::sPort( CFG_SOC_PORTNUM );
+        g_global->m_port = CFG_SOC_PORTNUM;
 
-    g_config = new Server::Config();
-    g_stats = new Server::Stats();
+
     Server::Startup( desc );
-    while( !g_shutdown )
+    while( !g_global->m_shutdown )
         Server::Update();
 
     Server::Shutdown( EXIT_SUCCESS );

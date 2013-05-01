@@ -24,15 +24,8 @@
 #ifndef DEC_GLOBAL_H
 #define DEC_GLOBAL_H
 
-extern list<Character*>::iterator g_character_next; /**< Used as the next iterator in all loops dealing with Character objects to prevent nested processing loop problems. */
 extern Server::Config* g_config; /**< Runtime settings. */
-extern forward_list<Event*>::iterator g_event_next; /**< Used as the next iterator in all loops dealing with Event objects to prevent nested processing loop problems. */
-extern SocketServer* g_listen; /**< The listening server-side socket. */
-extern uint_t g_port; /**< Port number to be passed to the associated SocketServer. */
-extern bool g_shutdown; /**< Shutdown state of the game. */
-extern list<SocketClient*>::iterator g_socket_client_next; /**< Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
+extern Server::Global* g_global; /**< Global variables. */
 extern Server::Stats* g_stats; /**< Runtime statistics. */
-extern chrono::high_resolution_clock::time_point g_time_boot; /**< Time the Server was first booted. */
-extern chrono::high_resolution_clock::time_point g_time_current; /**< Current time from the host OS. */
 
 #endif

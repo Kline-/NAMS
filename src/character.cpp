@@ -36,7 +36,7 @@
  */
 const void Character::Delete()
 {
-    g_character_next = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
+    g_global->m_next_character = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
     delete this;
 
     return;

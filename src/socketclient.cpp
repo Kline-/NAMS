@@ -47,10 +47,10 @@ const void SocketClient::Delete()
     // Force anything out of the buffer
     Send();
 
-    if ( g_stats->sSocketClose( g_stats->gSocketClose() + 1 ) )
+    if ( !g_stats->sSocketClose( g_stats->gSocketClose() + 1 ) )
         LOGFMT( flags, "SocketClient::Disconnect()->Server::Stats::sSocketClose()-> value %lu returned false", g_stats->gSocketClose() + 1 );
 
-    g_socket_client_next = socket_client_list.erase( find( socket_client_list.begin(), socket_client_list.end(), this ) );
+    g_global->m_next_socket_client = socket_client_list.erase( find( socket_client_list.begin(), socket_client_list.end(), this ) );
     delete this;
 
     return;
@@ -345,9 +345,9 @@ const bool SocketClient::Recv()
         }
     }
 
-    if ( !g_listen->aBytesRecvd( amount ) )
+    if ( !g_global->m_listen->aBytesRecvd( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Recv()->SocketServer::aBytesRecvd()-> value %lu returned false", g_listen->gBytesRecvd() + amount );
+        LOGFMT( flags, "SocketClient::Recv()->SocketServer::aBytesRecvd()-> value %lu returned false", g_global->m_listen->gBytesRecvd() + amount );
         return false;
     }
 
@@ -462,9 +462,9 @@ const bool SocketClient::Send()
         }
     }
 
-    if ( !g_listen->aBytesSent( amount ) )
+    if ( !g_global->m_listen->aBytesSent( amount ) )
     {
-        LOGFMT( flags, "SocketClient::Send()->SocketServer::aBytesSent()-> value %lu returned false", g_listen->gBytesSent() + amount );
+        LOGFMT( flags, "SocketClient::Send()->SocketServer::aBytesSent()-> value %lu returned false", g_global->m_listen->gBytesSent() + amount );
         return false;
     }
 

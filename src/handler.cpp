@@ -281,10 +281,10 @@ const bool Handler::CheckCreating( SocketClient* client, const string& name )
         return false;
     }
 
-    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_socket_client_next )
+    for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_global->m_next_socket_client )
     {
         socket_client = *si;
-        g_socket_client_next = ++si;
+        g_global->m_next_socket_client = ++si;
 
         if ( socket_client == client )
             continue;
@@ -522,10 +522,10 @@ const void Handler::Reconnect( SocketClient* client, Character* character )
     client->gAccount()->sCharacter( character );
 
     // Cleanup any pending disconnection events from the old Character
-    for ( ei = event_list.begin(); ei != event_list.end(); ei = g_event_next )
+    for ( ei = event_list.begin(); ei != event_list.end(); ei = g_global->m_next_event )
     {
         event = *ei;
-        g_event_next = ++ei;
+        g_global->m_next_event = ++ei;
 
         if ( event->gCharacter() == character && event->gCommand() == Handler::FindCommand( "quit" ) )
             event->Delete();

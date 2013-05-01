@@ -127,7 +127,7 @@ const void SocketServer::Delete()
     if ( !Valid() )
         return;
 
-    if ( !g_stats->sSocketClose( g_stats->gSocketClose() + 1 ) )
+    if ( !g_global->m_shutdown && !g_stats->sSocketClose( g_stats->gSocketClose() + 1 ) )
         LOGFMT( flags, "SocketServer::Delete()->Server::Stats::sSocketClose()-> value %lu returned false", g_stats->gSocketClose() + 1 );
 
     delete this;
@@ -171,11 +171,11 @@ const bool SocketServer::New( const sint_t& descriptor, const bool& reboot )
     UFLAGS_DE( flags );
 
     sDescriptor( descriptor );
-    sPort( Server::gPort() );
+    sPort( g_global->m_port );
 
     if ( !reboot )
     {
-        if ( !Bind( Server::gPort(), CFG_SOC_BIND_ADDR ) )
+        if ( !Bind( g_global->m_port, CFG_SOC_BIND_ADDR ) )
         {
             LOGSTR( flags, "SocketServer::New()->SocketServer::Bind()-> returned false" );
             Server::Shutdown( EXIT_FAILURE );
