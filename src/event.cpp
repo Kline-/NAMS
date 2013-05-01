@@ -44,7 +44,7 @@ const void Event::Delete()
  * @brief Create a new Event for a Character to execute a Command on a delay.
  * @param[in] cmd The string used to locate the actual command. Needed for some admin commands.
  * @param[in] args The arguments to be passed to the function.
- * @param[in] client The client who initiated the function.
+ * @param[in] character The character who initiated the function.
  * @param[in] command The command to execute.
  * @param[in] type The type of Event.
  * @param[in] time How long to wait before executing Event::Run().
