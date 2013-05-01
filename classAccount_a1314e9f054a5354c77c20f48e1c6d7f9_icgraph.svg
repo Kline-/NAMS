@@ -43,44 +43,56 @@ var sectionId = 'dynsection-10';
 <polygon fill="white" stroke="white" points="-4,5 -4,-584 1511,-584 1511,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="0.5,-206.5 0.5,-227.5 95.5,-227.5 95.5,-206.5 0.5,-206.5"/>
-<text text-anchor="middle" x="48" y="-214.5" font-family="FreeSans.ttf" font-size="10.00">Account::gClient</text>
+<polygon fill="#bfbfbf" stroke="black" points="0.5,-179.5 0.5,-200.5 95.5,-200.5 95.5,-179.5 0.5,-179.5"/>
+<text text-anchor="middle" x="48" y="-187.5" font-family="FreeSans.ttf" font-size="10.00">Account::gClient</text>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
 <a xlink:href="classAccount.xhtml#ae236325fef7b2269f54e9567577e0b92" target="_top" xlink:title="Unserialize the account data.">
-<polygon fill="white" stroke="black" points="132,-233.5 132,-254.5 246,-254.5 246,-233.5 132,-233.5"/>
-<text text-anchor="middle" x="189" y="-241.5" font-family="FreeSans.ttf" font-size="10.00">Account::Unserialize</text>
+<polygon fill="white" stroke="black" points="132,-225.5 132,-246.5 246,-246.5 246,-225.5 132,-225.5"/>
+<text text-anchor="middle" x="189" y="-233.5" font-family="FreeSans.ttf" font-size="10.00">Account::Unserialize</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M105.727,-228.054C115.077,-229.845 124.737,-231.694 134.019,-233.472"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="106.216,-224.584 95.7362,-226.141 104.899,-231.459 106.216,-224.584"/>
+<path fill="none" stroke="midnightblue" d="M90.1448,-203.749C111.507,-210.719 137.038,-219.048 156.802,-225.496"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="90.9407,-200.328 80.3482,-200.553 88.7696,-206.982 90.9407,-200.328"/>
 </g>
 <!-- Node28 -->
 <g id="node71" class="node"><title>Node28</title>
-<a xlink:href="namespaceHandler.xhtml#ae660d7a3f4c95db9639d74e965e82df6" target="_top" xlink:title="Reconnects an existing in&#45;game Character to a new SocketClient.">
-<polygon fill="white" stroke="black" points="282,-149.5 282,-170.5 392,-170.5 392,-149.5 282,-149.5"/>
-<text text-anchor="middle" x="337" y="-157.5" font-family="FreeSans.ttf" font-size="10.00">Handler::Reconnect</text>
+<a xlink:href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" target="_top" xlink:title="Send data to the associated SocketClient, if any.">
+<polygon fill="white" stroke="black" points="141.5,-179.5 141.5,-200.5 236.5,-200.5 236.5,-179.5 141.5,-179.5"/>
+<text text-anchor="middle" x="189" y="-187.5" font-family="FreeSans.ttf" font-size="10.00">Character::Send</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node28 -->
 <g id="edge86" class="edge"><title>Node1&#45;&gt;Node28</title>
-<path fill="none" stroke="midnightblue" d="M105.761,-205.608C157.602,-195.383 233.087,-180.495 283.559,-170.54"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="104.856,-202.219 95.7225,-207.588 106.211,-209.086 104.856,-202.219"/>
+<path fill="none" stroke="midnightblue" d="M105.921,-190C117.692,-190 129.946,-190 141.313,-190"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="105.736,-186.5 95.7362,-190 105.736,-193.5 105.736,-186.5"/>
+</g>
+<!-- Node29 -->
+<g id="node73" class="node"><title>Node29</title>
+<a xlink:href="namespaceHandler.xhtml#ae660d7a3f4c95db9639d74e965e82df6" target="_top" xlink:title="Reconnects an existing in&#45;game Character to a new SocketClient.">
+<polygon fill="white" stroke="black" points="282,-103.5 282,-124.5 392,-124.5 392,-103.5 282,-103.5"/>
+<text text-anchor="middle" x="337" y="-111.5" font-family="FreeSans.ttf" font-size="10.00">Handler::Reconnect</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node29 -->
+<g id="edge88" class="edge"><title>Node1&#45;&gt;Node29</title>
+<path fill="none" stroke="midnightblue" d="M97.9407,-176.867C154.243,-162.061 244.691,-138.275 296.692,-124.6"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="96.9652,-173.504 88.1842,-179.433 98.7456,-180.274 96.9652,-173.504"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
 <a xlink:href="classAccount.xhtml#adc4545f17264112e532b5a48abe94baf" target="_top" xlink:title="Create a new account.">
-<polygon fill="white" stroke="black" points="296,-248.5 296,-269.5 378,-269.5 378,-248.5 296,-248.5"/>
-<text text-anchor="middle" x="337" y="-256.5" font-family="FreeSans.ttf" font-size="10.00">Account::New</text>
+<polygon fill="white" stroke="black" points="296,-275.5 296,-296.5 378,-296.5 378,-275.5 296,-275.5"/>
+<text text-anchor="middle" x="337" y="-283.5" font-family="FreeSans.ttf" font-size="10.00">Account::New</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M256.45,-250.836C269.94,-252.203 283.722,-253.6 295.986,-254.843"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="256.523,-247.326 246.221,-249.799 255.817,-254.29 256.523,-247.326"/>
+<path fill="none" stroke="midnightblue" d="M229.946,-249.833C253.966,-257.948 283.833,-268.038 305.912,-275.497"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="230.981,-246.489 220.387,-246.604 228.741,-253.12 230.981,-246.489"/>
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
@@ -91,8 +103,8 @@ var sectionId = 'dynsection-10';
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge6" class="edge"><title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M388.097,-268.764C404.329,-271.865 422.35,-275.309 438.855,-278.463"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="388.729,-265.321 378.25,-266.882 387.415,-272.197 388.729,-265.321"/>
+<path fill="none" stroke="midnightblue" d="M388.265,-286.98C401.089,-287.225 415.018,-287.491 428.431,-287.747"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="388.315,-283.48 378.25,-286.788 388.181,-290.479 388.315,-283.48"/>
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
@@ -269,7 +281,7 @@ var sectionId = 'dynsection-10';
 </g>
 <!-- Node19 -->
 <g id="node51" class="node"><title>Node19</title>
-<a xlink:href="classSocketClient.xhtml#a48c79d01b91f2c1553c3b33b26714215" target="_top" xlink:title="Build a SocketClient for a new client connection and set all attributes.">
+<a xlink:href="classSocketClient.xhtml#a8399ef20292e9f3ec83b5c4bec2e105b" target="_top" xlink:title="Build a SocketClient for a new client connection and set all attributes.">
 <polygon fill="white" stroke="black" points="798.5,-78.5 798.5,-99.5 901.5,-99.5 901.5,-78.5 798.5,-78.5"/>
 <text text-anchor="middle" x="850" y="-86.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::New</text>
 </a>
@@ -358,7 +370,7 @@ var sectionId = 'dynsection-10';
 </g>
 <!-- Node20 -->
 <g id="node53" class="node"><title>Node20</title>
-<a xlink:href="classServer.xhtml#a16ea0639731dee10e1a253375b508a02" target="_top" xlink:title="Recovers the server state and re&#45;connects client sockets after a reboot.">
+<a xlink:href="namespaceServer.xhtml#a16ea0639731dee10e1a253375b508a02" target="_top" xlink:title="Recovers the server state and re&#45;connects client sockets after a reboot.">
 <polygon fill="white" stroke="black" points="1000,-118.5 1000,-139.5 1130,-139.5 1130,-118.5 1000,-118.5"/>
 <text text-anchor="middle" x="1065" y="-126.5" font-family="FreeSans.ttf" font-size="10.00">Server::RebootRecovery</text>
 </a>
@@ -382,7 +394,7 @@ var sectionId = 'dynsection-10';
 </g>
 <!-- Node21 -->
 <g id="node55" class="node"><title>Node21</title>
-<a xlink:href="classServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" target="_top" xlink:title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
+<a xlink:href="namespaceServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" target="_top" xlink:title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
 <polygon fill="white" stroke="black" points="1338,-118.5 1338,-139.5 1428,-139.5 1428,-118.5 1338,-118.5"/>
 <text text-anchor="middle" x="1383" y="-126.5" font-family="FreeSans.ttf" font-size="10.00">Server::Startup</text>
 </a>
@@ -406,7 +418,7 @@ var sectionId = 'dynsection-10';
 </g>
 <!-- Node24 -->
 <g id="node61" class="node"><title>Node24</title>
-<a xlink:href="classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" target="_top" xlink:title="Poll all SocketClient objects that are communicating with the associated SocketServer object...">
+<a xlink:href="namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" target="_top" xlink:title="Poll all SocketClient objects that are communicating with the associated SocketServer object...">
 <polygon fill="white" stroke="black" points="1189.5,-78.5 1189.5,-99.5 1298.5,-99.5 1298.5,-78.5 1189.5,-78.5"/>
 <text text-anchor="middle" x="1244" y="-86.5" font-family="FreeSans.ttf" font-size="10.00">Server::PollSockets</text>
 </a>
@@ -418,7 +430,7 @@ var sectionId = 'dynsection-10';
 </g>
 <!-- Node25 -->
 <g id="node63" class="node"><title>Node25</title>
-<a xlink:href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
+<a xlink:href="namespaceServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
 <polygon fill="white" stroke="black" points="1338.5,-78.5 1338.5,-99.5 1427.5,-99.5 1427.5,-78.5 1338.5,-78.5"/>
 <text text-anchor="middle" x="1383" y="-86.5" font-family="FreeSans.ttf" font-size="10.00">Server::Update</text>
 </a>
@@ -435,7 +447,7 @@ var sectionId = 'dynsection-10';
 </g>
 <!-- Node27 -->
 <g id="node68" class="node"><title>Node27</title>
-<a xlink:href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" target="_top" xlink:title="Processes input from all active SocketClient objects.">
+<a xlink:href="namespaceServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" target="_top" xlink:title="Processes input from all active SocketClient objects.">
 <polygon fill="white" stroke="black" points="1186,-38.5 1186,-59.5 1302,-59.5 1302,-38.5 1186,-38.5"/>
 <text text-anchor="middle" x="1244" y="-46.5" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessInput</text>
 </a>
@@ -450,10 +462,10 @@ var sectionId = 'dynsection-10';
 <path fill="none" stroke="midnightblue" d="M1290.34,-62.3358C1308.53,-67.5696 1329.11,-73.4909 1346.24,-78.4218"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="1291.1,-58.9116 1280.52,-59.5095 1289.16,-65.6386 1291.1,-58.9116"/>
 </g>
-<!-- Node28&#45;&gt;Node17 -->
-<g id="edge88" class="edge"><title>Node28&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M383.09,-146.613C483.958,-117.316 722.523,-48.0254 813.704,-21.5422"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="382.109,-143.253 373.482,-149.404 384.062,-149.976 382.109,-143.253"/>
+<!-- Node29&#45;&gt;Node17 -->
+<g id="edge90" class="edge"><title>Node29&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M399.351,-101.481C501.432,-80.9855 702.369,-40.6412 797.585,-21.5239"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="398.605,-98.0611 389.489,-103.461 399.983,-104.924 398.605,-98.0611"/>
 </g>
 </g>
 </svg>

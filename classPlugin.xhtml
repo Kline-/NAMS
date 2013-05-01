@@ -104,6 +104,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e">Run</a> (<a class="el" href="classCharacter.xhtml">Character</a> *character=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the primary function of the implemented class.  <a href="#a40f8facb58b11e24951052ad0080a51e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d">Run</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const =0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the primary function of the implemented class.  <a href="#a34515b5310b349069dfd9f34ca144b2d"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
@@ -434,12 +436,68 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a40f8facb58b11e24951052ad0080a51e"></a><!-- doxytag: member="Plugin::Run" ref="a40f8facb58b11e24951052ad0080a51e" args="(Character *character=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const void <a class="el" href="classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e">Plugin::Run</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCharacter.xhtml">Character</a> *&#160;</td>
+          <td class="paramname"><em>character</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>arg</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">character</td><td>If called from a <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>, the caller is passed through to the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> for reference. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>If called from a <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>, the command from the character is passed through. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">arg</td><td>If called from a <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>, the arguments from the character are passed through. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_a40f8facb58b11e24951052ad0080a51e_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a34515b5310b349069dfd9f34ca144b2d"></a><!-- doxytag: member="Plugin::Run" ref="a34515b5310b349069dfd9f34ca144b2d" args="(SocketClient *client=NULL, const string &amp;cmd=&quot;&quot;, const string &amp;arg=&quot;&quot;) const =0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const void <a class="el" href="classPlugin.xhtml#a34515b5310b349069dfd9f34ca144b2d">Plugin::Run</a> </td>
+          <td class="memname">virtual const void <a class="el" href="classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e">Plugin::Run</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td>
           <td class="paramname"><em>client</em> = <code>NULL</code>, </td>
@@ -478,15 +536,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlugin_a34515b5310b349069dfd9f34ca144b2d_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
 
 </div>
 </div>
@@ -731,7 +780,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Any bool that needs to be tied back to the parent object member variables. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00066">66</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00074">74</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -747,7 +796,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Pointer back to the object that initially loaded the plugin. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00067">67</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00075">75</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -763,7 +812,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The name of the class the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00068">68</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00076">76</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -779,7 +828,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Any string that needs to be tied back to the parent object member variables. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00069">69</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00077">77</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -795,7 +844,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The <a class="el" href="enum_8h.xhtml#ad32844af4f4f98b07c8624038c5dc1bd">PLG_TYPE</a> of the class the <a class="el" href="classPlugin.xhtml" title="Functions that are indepdently built and loaded to extend the server core via an API.">Plugin</a> implements. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00070">70</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00078">78</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -811,7 +860,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Any <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> that needs to be tied back to the parent object member variables. </p>
 
-<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00071">71</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
+<p>Definition at line <a class="el" href="plugin_8h_source.xhtml#l00079">79</a> of file <a class="el" href="plugin_8h_source.xhtml">plugin.h</a>.</p>
 
 </div>
 </div>
@@ -837,7 +886,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 1 2013 09:59:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

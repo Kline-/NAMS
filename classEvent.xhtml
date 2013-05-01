@@ -105,9 +105,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4">Delete</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload an event from memory that was previously loaded via <a class="el" href="classEvent.xhtml#a2fe4d8209e096e47315f93c6ebda3b33" title="Create a new Event. This is a special use-case to create an Event on a server, for things such as Ser...">Event::New()</a>.  <a href="#a95bfba52e3b7c70b33fd7784b396b5c4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a2fe4d8209e096e47315f93c6ebda3b33">New</a> (const string &amp;args, <a class="el" href="classServer.xhtml">Server</a> *server, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;time)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>. This is a special use-case to create an <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a> on a server, for things such as <a class="el" href="classServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin.">Server::ReloadCommand</a>.  <a href="#a2fe4d8209e096e47315f93c6ebda3b33"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload an event from memory that was previously loaded via <a class="el" href="classEvent.xhtml#a6deaed335b6c5b7690c79c36107e2c4f" title="Create a new Event for a Character to execute a Command on a delay.">Event::New()</a>.  <a href="#a95bfba52e3b7c70b33fd7784b396b5c4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a6deaed335b6c5b7690c79c36107e2c4f">New</a> (const string &amp;cmd, const string &amp;args, <a class="el" href="classCharacter.xhtml">Character</a> *character, <a class="el" href="classCommand.xhtml">Command</a> *command, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;time)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a> for a <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> to execute a <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> on a delay.  <a href="#a6deaed335b6c5b7690c79c36107e2c4f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a2306a6a426cff5f772c4974c9ba145d1">New</a> (const string &amp;args, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;time)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>. This is a special use-case to create an <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a> for things such as <a class="el" href="namespaceServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin.">Server::ReloadCommand</a>.  <a href="#a2306a6a426cff5f772c4974c9ba145d1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#aa606d3646f0220abc3af0419d2e6263d">New</a> (const string &amp;cmd, const string &amp;args, <a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, <a class="el" href="classCommand.xhtml">Command</a> *command, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;time)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a> for a <a class="el" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a> to execute a <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> on a delay.  <a href="#aa606d3646f0220abc3af0419d2e6263d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c">Run</a> ()</td></tr>
@@ -115,6 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a65983b240559175bfabe83c640ed7147">Update</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a> by decrementing the remaining time.  <a href="#a65983b240559175bfabe83c640ed7147"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCharacter.xhtml">Character</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a88d0dd346148af90b70b0c711563038b">gCharacter</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> associated to this <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>, if any.  <a href="#a88d0dd346148af90b70b0c711563038b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCommand.xhtml">Command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a75fba5593fa26faac54a98bf89724f5d">gCommand</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> associated to this <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>, if any.  <a href="#a75fba5593fa26faac54a98bf89724f5d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#aba97749a9852eb777c5d8d5ccbc16dc4">gTime</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of time remaining.  <a href="#aba97749a9852eb777c5d8d5ccbc16dc4"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
@@ -126,9 +132,9 @@ Public Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCharacter.xhtml">Character</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSocketClient.xhtml">SocketClient</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCommand.xhtml">Command</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a5124808ea7831236513fb9a95ff65b3c">m_server</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a></td></tr>
 </table>
@@ -150,13 +156,13 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00196">196</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00260">260</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a>.clear();
     <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>.clear();
+    <a class="code" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a> = NULL;
     <a class="code" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a> = NULL;
     <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a> = NULL;
-    <a class="code" href="classEvent.xhtml#a5124808ea7831236513fb9a95ff65b3c">m_server</a> = NULL;
     <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
     <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
 
@@ -179,7 +185,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00212">212</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00276">276</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span>;
 }
@@ -207,7 +213,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00036">36</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00035">35</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.remove( <span class="keyword">this</span> );
     <span class="keyword">delete</span> <span class="keyword">this</span>;
@@ -224,6 +230,60 @@ Private Attributes</h2></td></tr>
 </div>
 </p>
 
+</div>
+</div>
+<a class="anchor" id="a88d0dd346148af90b70b0c711563038b"></a><!-- doxytag: member="Event::gCharacter" ref="a88d0dd346148af90b70b0c711563038b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCharacter.xhtml">Character</a> * <a class="el" href="classEvent.xhtml#a88d0dd346148af90b70b0c711563038b">Event::gCharacter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Character*</td><td>A pointer to the associated <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>, if any. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00231">231</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a75fba5593fa26faac54a98bf89724f5d"></a><!-- doxytag: member="Event::gCommand" ref="a75fba5593fa26faac54a98bf89724f5d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCommand.xhtml">Command</a> * <a class="el" href="classEvent.xhtml#a75fba5593fa26faac54a98bf89724f5d">Event::gCommand</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Command*</td><td>A pointer to the associated <a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>, if any. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00240">240</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a>;
+}
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="aba97749a9852eb777c5d8d5ccbc16dc4"></a><!-- doxytag: member="Event::gTime" ref="aba97749a9852eb777c5d8d5ccbc16dc4" args="() const " -->
@@ -246,28 +306,131 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00185">185</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00249">249</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a>;
 }
 </pre></div>
 </div>
 </div>
-<a class="anchor" id="a2fe4d8209e096e47315f93c6ebda3b33"></a><!-- doxytag: member="Event::New" ref="a2fe4d8209e096e47315f93c6ebda3b33" args="(const string &amp;args, Server *server, const uint_t &amp;type, const uint_t &amp;time)" -->
+<a class="anchor" id="a6deaed335b6c5b7690c79c36107e2c4f"></a><!-- doxytag: member="Event::New" ref="a6deaed335b6c5b7690c79c36107e2c4f" args="(const string &amp;cmd, const string &amp;args, Character *character, Command *command, const uint_t &amp;type, const uint_t &amp;time)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="classEvent.xhtml#a2fe4d8209e096e47315f93c6ebda3b33">Event::New</a> </td>
+          <td class="memname">const bool <a class="el" href="classEvent.xhtml#a6deaed335b6c5b7690c79c36107e2c4f">Event::New</a> </td>
           <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>args</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classServer.xhtml">Server</a> *&#160;</td>
-          <td class="paramname"><em>server</em>, </td>
+          <td class="paramtype"><a class="el" href="classCharacter.xhtml">Character</a> *&#160;</td>
+          <td class="paramname"><em>character</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCommand.xhtml">Command</a> *&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>The string used to locate the actual command. Needed for some admin commands. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>The arguments to be passed to the function. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">character</td><td>The character who initiated the function. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>The command to execute. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The type of <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>How long to wait before executing <a class="el" href="classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c" title="Execute the function stored within the Event object.">Event::Run()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt><b>Return values:</b></dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if the event is unable to be created. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the event was successfully created. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00054">54</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+
+    <span class="keywordflow">if</span> ( args.empty() )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with empty args&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">if</span> ( character == NULL )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with NULL character&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">if</span> ( type == <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid type&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <span class="keywordflow">if</span> ( time &lt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )
+    {
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid time&quot;</span> );
+        <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    }
+
+    <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> = args;
+    <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a> = cmd;
+    <a class="code" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a> = character;
+    <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a> = command;
+    <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;
+    <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;
+
+    <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );
+
+    <span class="keywordflow">return</span> <span class="keyword">true</span>;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a2306a6a426cff5f772c4974c9ba145d1"></a><!-- doxytag: member="Event::New" ref="a2306a6a426cff5f772c4974c9ba145d1" args="(const string &amp;args, const uint_t &amp;type, const uint_t &amp;time)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="classEvent.xhtml#a6deaed335b6c5b7690c79c36107e2c4f">Event::New</a> </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -292,7 +455,6 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>The arguments to be passed to the function. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">server</td><td>The server to execute the function on. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The type of <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>How long to wait before executing <a class="el" href="classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c" title="Execute the function stored within the Event object.">Event::Run()</a>. </td></tr>
   </table>
@@ -306,19 +468,13 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00053">53</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00102">102</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
     <span class="keywordflow">if</span> ( args.empty() )
     {
         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with empty args&quot;</span> );
-        <span class="keywordflow">return</span> <span class="keyword">false</span>;
-    }
-
-    <span class="keywordflow">if</span> ( server == NULL )
-    {
-        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with NULL server&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -337,7 +493,6 @@ Private Attributes</h2></td></tr>
     <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> = args;
     <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;
     <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;
-    <a class="code" href="classEvent.xhtml#a5124808ea7831236513fb9a95ff65b3c">m_server</a> = server;
 
     <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );
 
@@ -351,7 +506,7 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="classEvent.xhtml#a2fe4d8209e096e47315f93c6ebda3b33">Event::New</a> </td>
+          <td class="memname">const bool <a class="el" href="classEvent.xhtml#a6deaed335b6c5b7690c79c36107e2c4f">Event::New</a> </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>cmd</em>, </td>
@@ -413,7 +568,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00102">102</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00144">144</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 
@@ -425,7 +580,7 @@ Private Attributes</h2></td></tr>
 
     <span class="keywordflow">if</span> ( client == NULL )
     {
-        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with NULL server&quot;</span> );
+        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with NULL client&quot;</span> );
         <span class="keywordflow">return</span> <span class="keyword">false</span>;
     }
 
@@ -475,16 +630,20 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00146">146</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00188">188</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">switch</span> ( <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> )
     {
-        <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a6bdf6e3310db807701e7a8db4cd14ad9">EVENT_TYPE_COMMAND</a>:
-            <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a>-&gt;<a class="code" href="classCommand.xhtml#a6448d432978113719bfdfa3783da5106" title="Execute a Plugin object&#39;s primary function.">Run</a>( <a class="code" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a>, <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>, <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
+        <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a>:
+            <a class="code" href="namespaceServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin.">Server::ReloadCommand</a>( <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
         <span class="keywordflow">break</span>;
 
-        <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a>:
-            <a class="code" href="classEvent.xhtml#a5124808ea7831236513fb9a95ff65b3c">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin.">ReloadCommand</a>( <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
+        <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045ab3a7e6f3bc3725b60cd8f5bfef4ca68c">EVENT_TYPE_CMD_SOCKET</a>:
+            <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a>-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <a class="code" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a>, <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>, <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
+        <span class="keywordflow">break</span>;
+
+        <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a15e6557b4ff5e76148a16c4adad8e407">EVENT_TYPE_CMD_CHARACTER</a>:
+            <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a>-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <a class="code" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a>, <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>, <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
         <span class="keywordflow">break</span>;
 
         <span class="keywordflow">default</span>:
@@ -501,7 +660,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEvent_ae00620af2a424d3d0041676e76b9303c_cgraph.svg" width="100%" height="310"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEvent_ae00620af2a424d3d0041676e76b9303c_cgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -537,7 +696,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00172">172</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00218">218</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
     <span class="keywordflow">if</span> ( --<a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> &gt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )
         <span class="keywordflow">return</span> <span class="keyword">true</span>;
@@ -569,7 +728,23 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Any arguments to be passed to the function. </p>
 
-<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00055">55</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
+<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00058">58</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57e336815f086c624c6ec8c78f6bf122"></a><!-- doxytag: member="Event::m_character" ref="a57e336815f086c624c6ec8c78f6bf122" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCharacter.xhtml">Character</a>* <a class="el" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">Event::m_character</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> who initiated the <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>. </p>
+
+<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00060">60</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
 
 </div>
 </div>
@@ -585,7 +760,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The client who initiated the <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>. </p>
 
-<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00057">57</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
+<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00061">61</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
 
 </div>
 </div>
@@ -601,7 +776,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The string used to locate the actual command. Needed for some admin commands. </p>
 
-<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00056">56</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
+<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00059">59</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
 
 </div>
 </div>
@@ -617,23 +792,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p><a class="el" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a> to execute. </p>
 
-<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00058">58</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5124808ea7831236513fb9a95ff65b3c"></a><!-- doxytag: member="Event::m_server" ref="a5124808ea7831236513fb9a95ff65b3c" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classServer.xhtml">Server</a>* <a class="el" href="classEvent.xhtml#a5124808ea7831236513fb9a95ff65b3c">Event::m_server</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p><a class="el" href="classServer.xhtml" title="The core of the game server.">Server</a> to execute the event on. </p>
-
-<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00059">59</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
+<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00062">62</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
 
 </div>
 </div>
@@ -649,7 +808,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>Amount of time to wait before executing. Based on <a class="el" href="config_8h.xhtml#abf59791d9bc371bb841717a963babfc3" title="How many cycles per second should be processed.">CFG_GAM_PULSE_RATE</a>. </p>
 
-<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00060">60</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
+<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00063">63</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
 
 </div>
 </div>
@@ -665,7 +824,7 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 <p>The type of function to be called. </p>
 
-<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00061">61</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
+<p>Definition at line <a class="el" href="event_8h_source.xhtml#l00064">64</a> of file <a class="el" href="event_8h_source.xhtml">event.h</a>.</p>
 
 </div>
 </div>
@@ -691,7 +850,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 1 2013 09:59:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

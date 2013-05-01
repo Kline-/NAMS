@@ -104,56 +104,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="command_8h.xhtml" title="The Command class.">h/command.h</a>&quot;</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="list_8h.xhtml" title="All globally referenced list / map / vector types.">h/list.h</a>&quot;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="server_8h.xhtml" title="The Server class.">h/server.h</a>&quot;</span>
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="comment">/* Core */</span>
-<a name="l00036"></a><a class="code" href="classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4">00036</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4" title="Unload an event from memory that was previously loaded via Event::New().">Event::Delete</a>()
-<a name="l00037"></a>00037 {
-<a name="l00038"></a>00038     <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.remove( <span class="keyword">this</span> );
-<a name="l00039"></a>00039     <span class="keyword">delete</span> <span class="keyword">this</span>;
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041     <span class="keywordflow">return</span>;
-<a name="l00042"></a>00042 }
-<a name="l00043"></a>00043 
-<a name="l00053"></a><a class="code" href="classEvent.xhtml#a2fe4d8209e096e47315f93c6ebda3b33">00053</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classEvent.xhtml#a2fe4d8209e096e47315f93c6ebda3b33" title="Create a new Event. This is a special use-case to create an Event on a server, for things such as Ser...">Event::New</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; args, <a class="code" href="classServer.xhtml" title="The core of the game server.">Server</a>* server, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; time )
-<a name="l00054"></a>00054 {
-<a name="l00055"></a>00055     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057     <span class="keywordflow">if</span> ( args.empty() )
-<a name="l00058"></a>00058     {
-<a name="l00059"></a>00059         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with empty args&quot;</span> );
-<a name="l00060"></a>00060         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00061"></a>00061     }
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063     <span class="keywordflow">if</span> ( server == NULL )
-<a name="l00064"></a>00064     {
-<a name="l00065"></a>00065         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with NULL server&quot;</span> );
-<a name="l00066"></a>00066         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00067"></a>00067     }
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069     <span class="keywordflow">if</span> ( type != <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a> )
-<a name="l00070"></a>00070     {
-<a name="l00071"></a>00071         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid type&quot;</span> );
-<a name="l00072"></a>00072         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00073"></a>00073     }
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075     <span class="keywordflow">if</span> ( time &lt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )
-<a name="l00076"></a>00076     {
-<a name="l00077"></a>00077         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid time&quot;</span> );
-<a name="l00078"></a>00078         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00079"></a>00079     }
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081     <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> = args;
-<a name="l00082"></a>00082     <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;
-<a name="l00083"></a>00083     <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;
-<a name="l00084"></a>00084     <a class="code" href="classEvent.xhtml#a5124808ea7831236513fb9a95ff65b3c">m_server</a> = server;
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086     <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00089"></a>00089 }
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="comment">/* Core */</span>
+<a name="l00035"></a><a class="code" href="classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4">00035</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4" title="Unload an event from memory that was previously loaded via Event::New().">Event::Delete</a>()
+<a name="l00036"></a>00036 {
+<a name="l00037"></a>00037     <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.remove( <span class="keyword">this</span> );
+<a name="l00038"></a>00038     <span class="keyword">delete</span> <span class="keyword">this</span>;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     <span class="keywordflow">return</span>;
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00054"></a><a class="code" href="classEvent.xhtml#a6deaed335b6c5b7690c79c36107e2c4f">00054</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classEvent.xhtml#a6deaed335b6c5b7690c79c36107e2c4f" title="Create a new Event for a Character to execute a Command on a delay.">Event::New</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cmd, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; args, <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>* character, <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* command, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; time )
+<a name="l00055"></a>00055 {
+<a name="l00056"></a>00056     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058     <span class="keywordflow">if</span> ( args.empty() )
+<a name="l00059"></a>00059     {
+<a name="l00060"></a>00060         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with empty args&quot;</span> );
+<a name="l00061"></a>00061         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00062"></a>00062     }
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064     <span class="keywordflow">if</span> ( character == NULL )
+<a name="l00065"></a>00065     {
+<a name="l00066"></a>00066         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with NULL character&quot;</span> );
+<a name="l00067"></a>00067         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00068"></a>00068     }
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070     <span class="keywordflow">if</span> ( type == <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a> )
+<a name="l00071"></a>00071     {
+<a name="l00072"></a>00072         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid type&quot;</span> );
+<a name="l00073"></a>00073         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00074"></a>00074     }
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076     <span class="keywordflow">if</span> ( time &lt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )
+<a name="l00077"></a>00077     {
+<a name="l00078"></a>00078         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid time&quot;</span> );
+<a name="l00079"></a>00079         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00080"></a>00080     }
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082     <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> = args;
+<a name="l00083"></a>00083     <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a> = cmd;
+<a name="l00084"></a>00084     <a class="code" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a> = character;
+<a name="l00085"></a>00085     <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a> = command;
+<a name="l00086"></a>00086     <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;
+<a name="l00087"></a>00087     <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089     <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );
 <a name="l00090"></a>00090 
-<a name="l00102"></a><a class="code" href="classEvent.xhtml#aa606d3646f0220abc3af0419d2e6263d">00102</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classEvent.xhtml#a2fe4d8209e096e47315f93c6ebda3b33" title="Create a new Event. This is a special use-case to create an Event on a server, for things such as Ser...">Event::New</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cmd, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; args, <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* client, <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* command, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; time )
+<a name="l00091"></a>00091     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00092"></a>00092 }
+<a name="l00093"></a>00093 
+<a name="l00102"></a><a class="code" href="classEvent.xhtml#a2306a6a426cff5f772c4974c9ba145d1">00102</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classEvent.xhtml#a6deaed335b6c5b7690c79c36107e2c4f" title="Create a new Event for a Character to execute a Command on a delay.">Event::New</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; args, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; time )
 <a name="l00103"></a>00103 {
 <a name="l00104"></a>00104     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
 <a name="l00105"></a>00105 
@@ -163,91 +164,136 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00109"></a>00109         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00110"></a>00110     }
 <a name="l00111"></a>00111 
-<a name="l00112"></a>00112     <span class="keywordflow">if</span> ( client == NULL )
+<a name="l00112"></a>00112     <span class="keywordflow">if</span> ( type != <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a> )
 <a name="l00113"></a>00113     {
-<a name="l00114"></a>00114         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with NULL server&quot;</span> );
+<a name="l00114"></a>00114         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid type&quot;</span> );
 <a name="l00115"></a>00115         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00116"></a>00116     }
 <a name="l00117"></a>00117 
-<a name="l00118"></a>00118     <span class="keywordflow">if</span> ( type == <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a> )
+<a name="l00118"></a>00118     <span class="keywordflow">if</span> ( time &lt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )
 <a name="l00119"></a>00119     {
-<a name="l00120"></a>00120         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid type&quot;</span> );
+<a name="l00120"></a>00120         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid time&quot;</span> );
 <a name="l00121"></a>00121         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00122"></a>00122     }
 <a name="l00123"></a>00123 
-<a name="l00124"></a>00124     <span class="keywordflow">if</span> ( time &lt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )
-<a name="l00125"></a>00125     {
-<a name="l00126"></a>00126         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid time&quot;</span> );
-<a name="l00127"></a>00127         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00128"></a>00128     }
+<a name="l00124"></a>00124     <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> = args;
+<a name="l00125"></a>00125     <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;
+<a name="l00126"></a>00126     <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128     <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );
 <a name="l00129"></a>00129 
-<a name="l00130"></a>00130     <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> = args;
-<a name="l00131"></a>00131     <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a> = cmd;
-<a name="l00132"></a>00132     <a class="code" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a> = client;
-<a name="l00133"></a>00133     <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a> = command;
-<a name="l00134"></a>00134     <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;
-<a name="l00135"></a>00135     <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137     <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );
-<a name="l00138"></a>00138 
-<a name="l00139"></a>00139     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00140"></a>00140 }
-<a name="l00141"></a>00141 
-<a name="l00146"></a><a class="code" href="classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c">00146</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c" title="Execute the function stored within the Event object.">Event::Run</a>()
-<a name="l00147"></a>00147 {
-<a name="l00148"></a>00148     <span class="keywordflow">switch</span> ( <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> )
+<a name="l00130"></a>00130     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00131"></a>00131 }
+<a name="l00132"></a>00132 
+<a name="l00144"></a><a class="code" href="classEvent.xhtml#aa606d3646f0220abc3af0419d2e6263d">00144</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classEvent.xhtml#a6deaed335b6c5b7690c79c36107e2c4f" title="Create a new Event for a Character to execute a Command on a delay.">Event::New</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cmd, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; args, <a class="code" href="classSocketClient.xhtml" title="Client / remote host specific functions that extend the Socket class.">SocketClient</a>* client, <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* command, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type, <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; time )
+<a name="l00145"></a>00145 {
+<a name="l00146"></a>00146     <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148     <span class="keywordflow">if</span> ( args.empty() )
 <a name="l00149"></a>00149     {
-<a name="l00150"></a>00150         <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a6bdf6e3310db807701e7a8db4cd14ad9">EVENT_TYPE_COMMAND</a>:
-<a name="l00151"></a>00151             <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a>-&gt;<a class="code" href="classCommand.xhtml#a6448d432978113719bfdfa3783da5106" title="Execute a Plugin object&#39;s primary function.">Run</a>( <a class="code" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a>, <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>, <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
-<a name="l00152"></a>00152         <span class="keywordflow">break</span>;
+<a name="l00150"></a>00150         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with empty args&quot;</span> );
+<a name="l00151"></a>00151         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00152"></a>00152     }
 <a name="l00153"></a>00153 
-<a name="l00154"></a>00154         <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a>:
-<a name="l00155"></a>00155             <a class="code" href="classEvent.xhtml#a5124808ea7831236513fb9a95ff65b3c">m_server</a>-&gt;<a class="code" href="classServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin.">ReloadCommand</a>( <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
-<a name="l00156"></a>00156         <span class="keywordflow">break</span>;
-<a name="l00157"></a>00157 
-<a name="l00158"></a>00158         <span class="keywordflow">default</span>:
-<a name="l00159"></a>00159         <span class="keywordflow">break</span>;
-<a name="l00160"></a>00160     }
-<a name="l00161"></a>00161 
-<a name="l00162"></a>00162     <a class="code" href="classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4" title="Unload an event from memory that was previously loaded via Event::New().">Delete</a>();
-<a name="l00163"></a>00163 
-<a name="l00164"></a>00164     <span class="keywordflow">return</span>;
-<a name="l00165"></a>00165 }
-<a name="l00166"></a>00166 
-<a name="l00172"></a><a class="code" href="classEvent.xhtml#a65983b240559175bfabe83c640ed7147">00172</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classEvent.xhtml#a65983b240559175bfabe83c640ed7147" title="Updates the Event by decrementing the remaining time.">Event::Update</a>()
-<a name="l00173"></a>00173 {
-<a name="l00174"></a>00174     <span class="keywordflow">if</span> ( --<a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> &gt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )
-<a name="l00175"></a>00175         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00176"></a>00176     <span class="keywordflow">else</span>
-<a name="l00177"></a>00177         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00178"></a>00178 }
-<a name="l00179"></a>00179 
-<a name="l00180"></a>00180 <span class="comment">/* Query */</span>
-<a name="l00185"></a><a class="code" href="classEvent.xhtml#aba97749a9852eb777c5d8d5ccbc16dc4">00185</a> <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classEvent.xhtml#aba97749a9852eb777c5d8d5ccbc16dc4" title="Returns the amount of time remaining.">Event::gTime</a>()<span class="keyword"> const</span>
-<a name="l00186"></a>00186 <span class="keyword"></span>{
-<a name="l00187"></a>00187     <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a>;
-<a name="l00188"></a>00188 }
-<a name="l00189"></a>00189 
-<a name="l00190"></a>00190 <span class="comment">/* Manipulate */</span>
-<a name="l00191"></a>00191 
-<a name="l00192"></a>00192 <span class="comment">/* Internal */</span>
-<a name="l00196"></a><a class="code" href="classEvent.xhtml#a5a40dd4708297f7031e29b39e039ae10">00196</a> <a class="code" href="classEvent.xhtml#a5a40dd4708297f7031e29b39e039ae10" title="Constructor for the Event class.">Event::Event</a>()
-<a name="l00197"></a>00197 {
-<a name="l00198"></a>00198     <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a>.clear();
-<a name="l00199"></a>00199     <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>.clear();
-<a name="l00200"></a>00200     <a class="code" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a> = NULL;
-<a name="l00201"></a>00201     <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a> = NULL;
-<a name="l00202"></a>00202     <a class="code" href="classEvent.xhtml#a5124808ea7831236513fb9a95ff65b3c">m_server</a> = NULL;
-<a name="l00203"></a>00203     <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
-<a name="l00204"></a>00204     <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
-<a name="l00205"></a>00205 
-<a name="l00206"></a>00206     <span class="keywordflow">return</span>;
-<a name="l00207"></a>00207 }
-<a name="l00208"></a>00208 
-<a name="l00212"></a><a class="code" href="classEvent.xhtml#a7704ec01ce91e673885792054214b3d2">00212</a> <a class="code" href="classEvent.xhtml#a7704ec01ce91e673885792054214b3d2" title="Destructor for the Event class.">Event::~Event</a>()
-<a name="l00213"></a>00213 {
-<a name="l00214"></a>00214     <span class="keywordflow">return</span>;
-<a name="l00215"></a>00215 }
+<a name="l00154"></a>00154     <span class="keywordflow">if</span> ( client == NULL )
+<a name="l00155"></a>00155     {
+<a name="l00156"></a>00156         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with NULL client&quot;</span> );
+<a name="l00157"></a>00157         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00158"></a>00158     }
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160     <span class="keywordflow">if</span> ( type == <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a> )
+<a name="l00161"></a>00161     {
+<a name="l00162"></a>00162         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid type&quot;</span> );
+<a name="l00163"></a>00163         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00164"></a>00164     }
+<a name="l00165"></a>00165 
+<a name="l00166"></a>00166     <span class="keywordflow">if</span> ( time &lt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )
+<a name="l00167"></a>00167     {
+<a name="l00168"></a>00168         <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Event::New() called with invalid time&quot;</span> );
+<a name="l00169"></a>00169         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00170"></a>00170     }
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172     <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> = args;
+<a name="l00173"></a>00173     <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a> = cmd;
+<a name="l00174"></a>00174     <a class="code" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a> = client;
+<a name="l00175"></a>00175     <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a> = command;
+<a name="l00176"></a>00176     <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;
+<a name="l00177"></a>00177     <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;
+<a name="l00178"></a>00178 
+<a name="l00179"></a>00179     <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );
+<a name="l00180"></a>00180 
+<a name="l00181"></a>00181     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00182"></a>00182 }
+<a name="l00183"></a>00183 
+<a name="l00188"></a><a class="code" href="classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c">00188</a> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c" title="Execute the function stored within the Event object.">Event::Run</a>()
+<a name="l00189"></a>00189 {
+<a name="l00190"></a>00190     <span class="keywordflow">switch</span> ( <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> )
+<a name="l00191"></a>00191     {
+<a name="l00192"></a>00192         <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a33c33fab988563da1d33705ad2af3843">EVENT_TYPE_RELOAD</a>:
+<a name="l00193"></a>00193             <a class="code" href="namespaceServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin.">Server::ReloadCommand</a>( <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
+<a name="l00194"></a>00194         <span class="keywordflow">break</span>;
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196         <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045ab3a7e6f3bc3725b60cd8f5bfef4ca68c">EVENT_TYPE_CMD_SOCKET</a>:
+<a name="l00197"></a>00197             <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a>-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <a class="code" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a>, <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>, <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
+<a name="l00198"></a>00198         <span class="keywordflow">break</span>;
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200         <span class="keywordflow">case</span> <a class="code" href="enum_8h.xhtml#aacea4a7e80c7ca11553910c740986045a15e6557b4ff5e76148a16c4adad8e407">EVENT_TYPE_CMD_CHARACTER</a>:
+<a name="l00201"></a>00201             <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a>-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <a class="code" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a>, <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>, <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a> );
+<a name="l00202"></a>00202         <span class="keywordflow">break</span>;
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204         <span class="keywordflow">default</span>:
+<a name="l00205"></a>00205         <span class="keywordflow">break</span>;
+<a name="l00206"></a>00206     }
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208     <a class="code" href="classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4" title="Unload an event from memory that was previously loaded via Event::New().">Delete</a>();
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210     <span class="keywordflow">return</span>;
+<a name="l00211"></a>00211 }
+<a name="l00212"></a>00212 
+<a name="l00218"></a><a class="code" href="classEvent.xhtml#a65983b240559175bfabe83c640ed7147">00218</a> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classEvent.xhtml#a65983b240559175bfabe83c640ed7147" title="Updates the Event by decrementing the remaining time.">Event::Update</a>()
+<a name="l00219"></a>00219 {
+<a name="l00220"></a>00220     <span class="keywordflow">if</span> ( --<a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> &gt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )
+<a name="l00221"></a>00221         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00222"></a>00222     <span class="keywordflow">else</span>
+<a name="l00223"></a>00223         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00224"></a>00224 }
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226 <span class="comment">/* Query */</span>
+<a name="l00231"></a><a class="code" href="classEvent.xhtml#a88d0dd346148af90b70b0c711563038b">00231</a> <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>* <a class="code" href="classEvent.xhtml#a88d0dd346148af90b70b0c711563038b" title="Returns the Character associated to this Event, if any.">Event::gCharacter</a>()<span class="keyword"> const</span>
+<a name="l00232"></a>00232 <span class="keyword"></span>{
+<a name="l00233"></a>00233     <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a>;
+<a name="l00234"></a>00234 }
+<a name="l00235"></a>00235 
+<a name="l00240"></a><a class="code" href="classEvent.xhtml#a75fba5593fa26faac54a98bf89724f5d">00240</a> <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* <a class="code" href="classEvent.xhtml#a75fba5593fa26faac54a98bf89724f5d" title="Returns the Command associated to this Event, if any.">Event::gCommand</a>()<span class="keyword"> const</span>
+<a name="l00241"></a>00241 <span class="keyword"></span>{
+<a name="l00242"></a>00242     <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a>;
+<a name="l00243"></a>00243 }
+<a name="l00244"></a>00244 
+<a name="l00249"></a><a class="code" href="classEvent.xhtml#aba97749a9852eb777c5d8d5ccbc16dc4">00249</a> <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classEvent.xhtml#aba97749a9852eb777c5d8d5ccbc16dc4" title="Returns the amount of time remaining.">Event::gTime</a>()<span class="keyword"> const</span>
+<a name="l00250"></a>00250 <span class="keyword"></span>{
+<a name="l00251"></a>00251     <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a>;
+<a name="l00252"></a>00252 }
+<a name="l00253"></a>00253 
+<a name="l00254"></a>00254 <span class="comment">/* Manipulate */</span>
+<a name="l00255"></a>00255 
+<a name="l00256"></a>00256 <span class="comment">/* Internal */</span>
+<a name="l00260"></a><a class="code" href="classEvent.xhtml#a5a40dd4708297f7031e29b39e039ae10">00260</a> <a class="code" href="classEvent.xhtml#a5a40dd4708297f7031e29b39e039ae10" title="Constructor for the Event class.">Event::Event</a>()
+<a name="l00261"></a>00261 {
+<a name="l00262"></a>00262     <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a>.clear();
+<a name="l00263"></a>00263     <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>.clear();
+<a name="l00264"></a>00264     <a class="code" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a> = NULL;
+<a name="l00265"></a>00265     <a class="code" href="classEvent.xhtml#a0e5035fc31466ad69e50321148dbe708">m_client</a> = NULL;
+<a name="l00266"></a>00266     <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a> = NULL;
+<a name="l00267"></a>00267     <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+<a name="l00268"></a>00268     <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;
+<a name="l00269"></a>00269 
+<a name="l00270"></a>00270     <span class="keywordflow">return</span>;
+<a name="l00271"></a>00271 }
+<a name="l00272"></a>00272 
+<a name="l00276"></a><a class="code" href="classEvent.xhtml#a7704ec01ce91e673885792054214b3d2">00276</a> <a class="code" href="classEvent.xhtml#a7704ec01ce91e673885792054214b3d2" title="Destructor for the Event class.">Event::~Event</a>()
+<a name="l00277"></a>00277 {
+<a name="l00278"></a>00278     <span class="keywordflow">return</span>;
+<a name="l00279"></a>00279 }
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -266,7 +312,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 28 2013 21:23:22 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 1 2013 09:59:12 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

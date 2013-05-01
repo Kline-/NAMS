@@ -233,7 +233,7 @@ var sectionId = 'dynsection-14';
 </g>
 <!-- Node17 -->
 <g id="node47" class="node"><title>Node17</title>
-<a xlink:href="classSocketClient.xhtml#a48c79d01b91f2c1553c3b33b26714215" target="_top" xlink:title="Build a SocketClient for a new client connection and set all attributes.">
+<a xlink:href="classSocketClient.xhtml#a8399ef20292e9f3ec83b5c4bec2e105b" target="_top" xlink:title="Build a SocketClient for a new client connection and set all attributes.">
 <polygon fill="white" stroke="black" points="488.5,-53.1308 488.5,-74.1308 591.5,-74.1308 591.5,-53.1308 488.5,-53.1308"/>
 <text text-anchor="middle" x="540" y="-61.1308" font-family="FreeSans.ttf" font-size="10.00">SocketClient::New</text>
 </a>
@@ -322,7 +322,7 @@ var sectionId = 'dynsection-14';
 </g>
 <!-- Node18 -->
 <g id="node49" class="node"><title>Node18</title>
-<a xlink:href="classServer.xhtml#a16ea0639731dee10e1a253375b508a02" target="_top" xlink:title="Recovers the server state and re&#45;connects client sockets after a reboot.">
+<a xlink:href="namespaceServer.xhtml#a16ea0639731dee10e1a253375b508a02" target="_top" xlink:title="Recovers the server state and re&#45;connects client sockets after a reboot.">
 <polygon fill="white" stroke="black" points="690,-93.1308 690,-114.131 820,-114.131 820,-93.1308 690,-93.1308"/>
 <text text-anchor="middle" x="755" y="-101.131" font-family="FreeSans.ttf" font-size="10.00">Server::RebootRecovery</text>
 </a>
@@ -346,7 +346,7 @@ var sectionId = 'dynsection-14';
 </g>
 <!-- Node19 -->
 <g id="node51" class="node"><title>Node19</title>
-<a xlink:href="classServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" target="_top" xlink:title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
+<a xlink:href="namespaceServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" target="_top" xlink:title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
 <polygon fill="white" stroke="black" points="1028,-93.1308 1028,-114.131 1118,-114.131 1118,-93.1308 1028,-93.1308"/>
 <text text-anchor="middle" x="1073" y="-101.131" font-family="FreeSans.ttf" font-size="10.00">Server::Startup</text>
 </a>
@@ -370,7 +370,7 @@ var sectionId = 'dynsection-14';
 </g>
 <!-- Node22 -->
 <g id="node57" class="node"><title>Node22</title>
-<a xlink:href="classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" target="_top" xlink:title="Poll all SocketClient objects that are communicating with the associated SocketServer object...">
+<a xlink:href="namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" target="_top" xlink:title="Poll all SocketClient objects that are communicating with the associated SocketServer object...">
 <polygon fill="white" stroke="black" points="879.5,-53.1308 879.5,-74.1308 988.5,-74.1308 988.5,-53.1308 879.5,-53.1308"/>
 <text text-anchor="middle" x="934" y="-61.1308" font-family="FreeSans.ttf" font-size="10.00">Server::PollSockets</text>
 </a>
@@ -382,7 +382,7 @@ var sectionId = 'dynsection-14';
 </g>
 <!-- Node23 -->
 <g id="node59" class="node"><title>Node23</title>
-<a xlink:href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
+<a xlink:href="namespaceServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
 <polygon fill="white" stroke="black" points="1028.5,-53.1308 1028.5,-74.1308 1117.5,-74.1308 1117.5,-53.1308 1028.5,-53.1308"/>
 <text text-anchor="middle" x="1073" y="-61.1308" font-family="FreeSans.ttf" font-size="10.00">Server::Update</text>
 </a>
@@ -399,7 +399,7 @@ var sectionId = 'dynsection-14';
 </g>
 <!-- Node25 -->
 <g id="node64" class="node"><title>Node25</title>
-<a xlink:href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" target="_top" xlink:title="Processes input from all active SocketClient objects.">
+<a xlink:href="namespaceServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" target="_top" xlink:title="Processes input from all active SocketClient objects.">
 <polygon fill="white" stroke="black" points="876,-13.1308 876,-34.1308 992,-34.1308 992,-13.1308 876,-13.1308"/>
 <text text-anchor="middle" x="934" y="-21.1308" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessInput</text>
 </a>

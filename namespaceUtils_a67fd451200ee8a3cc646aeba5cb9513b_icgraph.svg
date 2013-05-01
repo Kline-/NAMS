@@ -120,7 +120,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node36 -->
 <g id="node95" class="node"><title>Node36</title>
-<a xlink:href="classServer_1_1Config.xhtml#a2b99a2a519c260a79d53c489781321fc" target="_top" xlink:title="Serialize runtime configuration settings and write them to CFG_DAT_FILE_SETTINGS.">
+<a xlink:href="classServer_1_1Config.xhtml#a39f409e995ec914244e9eff416d4477e" target="_top" xlink:title="Serialize runtime configuration settings and write them to CFG_DAT_FILE_SETTINGS.">
 <polygon fill="white" stroke="black" points="570.5,-693.5 570.5,-714.5 701.5,-714.5 701.5,-693.5 570.5,-693.5"/>
 <text text-anchor="middle" x="636" y="-701.5" font-family="FreeSans.ttf" font-size="10.00">Server::Config::Serialize</text>
 </a>
@@ -356,7 +356,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node19 -->
 <g id="node51" class="node"><title>Node19</title>
-<a xlink:href="classSocketClient.xhtml#a48c79d01b91f2c1553c3b33b26714215" target="_top" xlink:title="Build a SocketClient for a new client connection and set all attributes.">
+<a xlink:href="classSocketClient.xhtml#a8399ef20292e9f3ec83b5c4bec2e105b" target="_top" xlink:title="Build a SocketClient for a new client connection and set all attributes.">
 <polygon fill="white" stroke="black" points="960.5,-478.5 960.5,-499.5 1063.5,-499.5 1063.5,-478.5 960.5,-478.5"/>
 <text text-anchor="middle" x="1012" y="-486.5" font-family="FreeSans.ttf" font-size="10.00">SocketClient::New</text>
 </a>
@@ -445,7 +445,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node20 -->
 <g id="node53" class="node"><title>Node20</title>
-<a xlink:href="classServer.xhtml#a16ea0639731dee10e1a253375b508a02" target="_top" xlink:title="Recovers the server state and re&#45;connects client sockets after a reboot.">
+<a xlink:href="namespaceServer.xhtml#a16ea0639731dee10e1a253375b508a02" target="_top" xlink:title="Recovers the server state and re&#45;connects client sockets after a reboot.">
 <polygon fill="white" stroke="black" points="1162,-538.5 1162,-559.5 1292,-559.5 1292,-538.5 1162,-538.5"/>
 <text text-anchor="middle" x="1227" y="-546.5" font-family="FreeSans.ttf" font-size="10.00">Server::RebootRecovery</text>
 </a>
@@ -469,7 +469,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node21 -->
 <g id="node55" class="node"><title>Node21</title>
-<a xlink:href="classServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" target="_top" xlink:title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
+<a xlink:href="namespaceServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" target="_top" xlink:title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
 <polygon fill="white" stroke="black" points="1361,-635.5 1361,-656.5 1451,-656.5 1451,-635.5 1361,-635.5"/>
 <text text-anchor="middle" x="1406" y="-643.5" font-family="FreeSans.ttf" font-size="10.00">Server::Startup</text>
 </a>
@@ -493,7 +493,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node24 -->
 <g id="node61" class="node"><title>Node24</title>
-<a xlink:href="classServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" target="_top" xlink:title="Poll all SocketClient objects that are communicating with the associated SocketServer object...">
+<a xlink:href="namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" target="_top" xlink:title="Poll all SocketClient objects that are communicating with the associated SocketServer object...">
 <polygon fill="white" stroke="black" points="1351.5,-537.5 1351.5,-558.5 1460.5,-558.5 1460.5,-537.5 1351.5,-537.5"/>
 <text text-anchor="middle" x="1406" y="-545.5" font-family="FreeSans.ttf" font-size="10.00">Server::PollSockets</text>
 </a>
@@ -505,7 +505,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node25 -->
 <g id="node63" class="node"><title>Node25</title>
-<a xlink:href="classServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
+<a xlink:href="namespaceServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
 <polygon fill="white" stroke="black" points="1500.5,-567.5 1500.5,-588.5 1589.5,-588.5 1589.5,-567.5 1500.5,-567.5"/>
 <text text-anchor="middle" x="1545" y="-575.5" font-family="FreeSans.ttf" font-size="10.00">Server::Update</text>
 </a>
@@ -522,7 +522,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node27 -->
 <g id="node68" class="node"><title>Node27</title>
-<a xlink:href="classServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" target="_top" xlink:title="Processes input from all active SocketClient objects.">
+<a xlink:href="namespaceServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" target="_top" xlink:title="Processes input from all active SocketClient objects.">
 <polygon fill="white" stroke="black" points="1348,-428.5 1348,-449.5 1464,-449.5 1464,-428.5 1348,-428.5"/>
 <text text-anchor="middle" x="1406" y="-436.5" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessInput</text>
 </a>
@@ -549,7 +549,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node31 -->
 <g id="node82" class="node"><title>Node31</title>
-<a xlink:href="classCharacter.xhtml#af7147ddb783cc1ebf56c21a27dfbed4a" target="_top" xlink:title="Create a new character.">
+<a xlink:href="classCharacter.xhtml#a829a28ec5f8573f3f53684ac4dcb75bb" target="_top" xlink:title="Create a new character.">
 <polygon fill="white" stroke="black" points="765,-40.5 765,-61.5 855,-61.5 855,-40.5 765,-40.5"/>
 <text text-anchor="middle" x="810" y="-48.5" font-family="FreeSans.ttf" font-size="10.00">Character::New</text>
 </a>
@@ -571,7 +571,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node34 -->
 <g id="node90" class="node"><title>Node34</title>
-<a xlink:href="classLocation.xhtml#a4d81afe82b87938d4a4a33aa1d8e0120" target="_top" xlink:title="Create a new location.">
+<a xlink:href="classLocation.xhtml#a6396aba5eab9bcbabb000c3f6478e1a2" target="_top" xlink:title="Create a new location.">
 <polygon fill="white" stroke="black" points="431.5,-635.5 431.5,-656.5 514.5,-656.5 514.5,-635.5 431.5,-635.5"/>
 <text text-anchor="middle" x="473" y="-643.5" font-family="FreeSans.ttf" font-size="10.00">Location::New</text>
 </a>
@@ -583,7 +583,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node35 -->
 <g id="node92" class="node"><title>Node35</title>
-<a xlink:href="classServer.xhtml#a9b8efad79a32f2356d431788449e1f82" target="_top" xlink:title="Search all subfolders of CFG_DAT_DIR_WORLD and call Location::New() to load each file found to memory...">
+<a xlink:href="namespaceServer.xhtml#a9b8efad79a32f2356d431788449e1f82" target="_top" xlink:title="Search all subfolders of CFG_DAT_DIR_WORLD and call Location::New() to load each file found to memory...">
 <polygon fill="white" stroke="black" points="574.5,-635.5 574.5,-656.5 697.5,-656.5 697.5,-635.5 574.5,-635.5"/>
 <text text-anchor="middle" x="636" y="-643.5" font-family="FreeSans.ttf" font-size="10.00">Server::LoadLocations</text>
 </a>
@@ -600,7 +600,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node37 -->
 <g id="node97" class="node"><title>Node37</title>
-<a xlink:href="classServer.xhtml#a9b7082bbc9faca6eb84180f856116762" target="_top" xlink:title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">
+<a xlink:href="namespaceServer.xhtml#a9b7082bbc9faca6eb84180f856116762" target="_top" xlink:title="Perform a clean shutdown of the NAMS Server providing a chance to complete disk writes and free all m...">
 <polygon fill="white" stroke="black" points="961.5,-712.5 961.5,-733.5 1062.5,-733.5 1062.5,-712.5 961.5,-712.5"/>
 <text text-anchor="middle" x="1012" y="-720.5" font-family="FreeSans.ttf" font-size="10.00">Server::Shutdown</text>
 </a>
@@ -627,7 +627,7 @@ var sectionId = 'dynsection-13';
 </g>
 <!-- Node38 -->
 <g id="node102" class="node"><title>Node38</title>
-<a xlink:href="classSocketServer.xhtml#ae3c98203b60af2d7d75f6b751624ab56" target="_top" xlink:title="Build a socket for a server and set all attributes.">
+<a xlink:href="classSocketServer.xhtml#a0e621d024f754a8c045b4243280cabbe" target="_top" xlink:title="Build a socket for a server and set all attributes.">
 <polygon fill="white" stroke="black" points="1173.5,-712.5 1173.5,-733.5 1280.5,-733.5 1280.5,-712.5 1173.5,-712.5"/>
 <text text-anchor="middle" x="1227" y="-720.5" font-family="FreeSans.ttf" font-size="10.00">SocketServer::New</text>
 </a>

@@ -206,8 +206,11 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="account_8cpp_source.xhtml#l00526">526</a> of file <a class="el" href="account_8cpp_source.xhtml">account.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{
-    <span class="keywordflow">if</span> ( <a class="code" href="classAccount.xhtml#af9e8554557e92e13ba37da963ca7c2d7">m_character</a> )
+    <span class="keywordflow">if</span> ( <a class="code" href="classAccount.xhtml#af9e8554557e92e13ba37da963ca7c2d7">m_character</a> != NULL )
         <a class="code" href="classAccount.xhtml#af9e8554557e92e13ba37da963ca7c2d7">m_character</a>-&gt;<a class="code" href="classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53" title="Unload a character from memory that was previously loaded via Character::New().">Delete</a>();
+
+    <span class="keywordflow">if</span> ( <a class="code" href="classAccount.xhtml#abaabaa011c36988830dfb36ee18d79c9">m_client</a> != NULL )
+        <a class="code" href="classAccount.xhtml#abaabaa011c36988830dfb36ee18d79c9">m_client</a>-&gt;<a class="code" href="classSocketClient.xhtml#aaa13ed7d0aa65770b617cbf72a5c28d9" title="Associates an Account object to the SocketClient.">sAccount</a>( NULL );
 
     <span class="keywordflow">return</span>;
 }
@@ -217,7 +220,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classAccount_a569c9ef0e42b9157690b4ceb646daba8_cgraph.svg" width="563" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classAccount_a569c9ef0e42b9157690b4ceb646daba8_cgraph.svg" width="376" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -1349,7 +1352,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 28 2013 21:23:23 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 1 2013 09:59:13 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
