@@ -220,6 +220,17 @@ enum SOC_TELOPT {
 };
 /**@}*/
 
+/** @name Thing */ /**@{*/
+/**
+ * @enum THING_DESCRIPTION
+ */
+enum THING_DESCRIPTION {
+    THING_DESCRIPTION_SHORT = 0, /**< A brief description. */
+    THING_DESCRIPTION_LONG  = 1, /**< A detailed description. */
+    MAX_THING_DESCRIPTION   = 2  /**< Safety limit for looping. */
+};
+/**@}*/
+
 /** @name Utils */ /**@{*/
 /**
  * @enum UTILS_OPTS

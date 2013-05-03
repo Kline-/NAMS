@@ -17,10 +17,10 @@
  ***************************************************************************/
 /**
  * @file main.h
- * @brief All global / server-wide variables, lists, etc.
+ * @brief All global objects.
  *
- *  This file contains all global variables, lists, and other objects that
- *  need to be referenced or accessed by the Server namespace.
+ *  This file contains all global objects that need to be referenced or
+ * accessed throughout the entire game server.
  */
 #ifndef DEC_MAIN_H
 #define DEC_MAIN_H

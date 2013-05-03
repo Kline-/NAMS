@@ -41,12 +41,14 @@ class Thing {
         /**@}*/
 
         /** @name Query */ /**@{*/
+        const string gDescription( const uint_t& type ) const;
         const string gId() const;
         Location* gLocation() const;
         const string gName() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sDescription( const string& description, const uint_t& type );
         const bool sId( const string& id );
         const bool sName( const string& name, const bool& system = false );
         /**@}*/
@@ -58,6 +60,7 @@ class Thing {
 
     private:
         vector<Thing*> m_contents; /**< Other Things that are contained within this Thing. */
+        string m_description[MAX_THING_DESCRIPTION]; /**< What is displayed to other Things. */
         string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
         Location* m_location; /**< The Location that this Thing is stored within. */
         string m_name; /**< The name of the thing. */

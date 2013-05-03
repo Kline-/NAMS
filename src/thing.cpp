@@ -110,6 +110,24 @@ const bool Thing::RemoveThing( Thing* thing )
 
 /* Query */
 /**
+ * @brief Returns the description of the Thing from #THING_DESCRIPTION.
+ * @param[in] type The specific description to retrieve.
+ * @retval string The description referred to by type.
+ */
+const string Thing::gDescription( const uint_t& type ) const
+{
+    UFLAGS_DE( flags );
+
+    if ( type < uintmin_t || type >= MAX_THING_DESCRIPTION )
+    {
+        LOGFMT( flags, "Thing::gDescription()-> called with invalid type %lu", type );
+        return string();
+    }
+
+    return m_description[type];
+}
+
+/**
  * @brief Returns the id associated with this Thing.
  * @retval string A string containing the id associated with this Thing.
  */
@@ -137,6 +155,28 @@ const string Thing::gName() const
 }
 
 /* Manipulate */
+/**
+ * @brief Sets the description of the Thing from #THING_DESCRIPTION.
+ * @param[in] description The description.
+ * @param[in] type The specific description to set.
+ * @retval false Returned if there was an error setting the description.
+ * @retval true Returned if the description was successfully set.
+ */
+const bool Thing::sDescription( const string& description, const uint_t& type )
+{
+    UFLAGS_DE( flags );
+
+    if ( type < uintmin_t || type >= MAX_THING_DESCRIPTION )
+    {
+        LOGFMT( flags, "Thing::sDescription()-> called with invalid type %lu", type );
+        return false;
+    }
+
+    m_description[type] = description;
+
+    return true;
+}
+
 /**
  * @brief Sets the id of this Thing.
  * @param[in] id A string containing the id this Thing should be set to.
@@ -186,7 +226,11 @@ const bool Thing::sName( const string& name, const bool& system )
  */
 Thing::Thing()
 {
+    uint_t i = uintmin_t;
+
     m_contents.clear();
+    for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
+        m_description[i].clear();
     m_id.clear();
     m_location = NULL;
     m_name.clear();

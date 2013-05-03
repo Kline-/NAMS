@@ -29,7 +29,7 @@
 using namespace std;
 
 /**
- * @brief Client / remote host specific functions that extend the Socket class.
+ * @brief SocketClient extends the Socket class to implement remote-host socket functions.
  */
 class SocketClient : public Socket {
     /**

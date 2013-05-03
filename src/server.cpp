@@ -739,7 +739,7 @@ const void Server::Update()
 
 /* Query */
 /**
- * @brief Returns an a copy of the prohibited names list using type from #SVR_CFG_PROHIBITED_NAMES.
+ * @brief Returns a a copy of the prohibited names list using type from #SVR_CFG_PROHIBITED_NAMES.
  * @param[in] type The specific prohibited names list to retrieve.
  * @retval forward_list<string> A copy of the prohibited names list referenced by type.
  */

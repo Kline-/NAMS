@@ -15,17 +15,50 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-/**
- * @file globals.h
- * @brief Externs to reference global scope variables.
- *
- *  This file contains extern references to all global scope objects.
- */
-#ifndef DEC_GLOBAL_H
-#define DEC_GLOBAL_H
 
-extern Server::Config* g_config; /**< Runtime settings. */
-extern Server::Global* g_global; /**< Global variables. */
-extern Server::Stats* g_stats; /**< Runtime statistics. */
+#include "pincludes.h"
 
-#endif
+#include "account.h"
+#include "location.h"
+
+class Look : public Plugin {
+    public:
+        virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
+        virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
+
+        Look( const string& name, const uint_t& type );
+        ~Look();
+};
+
+const void Look::Run( Character* character, const string& cmd, const string& arg ) const
+{
+    return;
+}
+
+const void Look::Run( SocketClient* client, const string& cmd, const string& arg ) const
+{
+    if ( client )
+    {
+        if ( arg.empty() && client->gAccount()->gCharacter()->gLocation() != NULL )
+            client->Send( client->gAccount()->gCharacter()->gLocation()->gDescription( THING_DESCRIPTION_LONG ) );
+    }
+
+    return;
+}
+
+Look::Look( const string& name = "look", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+{
+    Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
+    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_NONE );
+
+    return;
+}
+
+Look::~Look()
+{
+}
+
+extern "C" {
+    Plugin* New() { return new Look(); }
+    void Delete( Plugin* p ) { delete p; }
+}

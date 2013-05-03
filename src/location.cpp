@@ -73,6 +73,7 @@ const bool Location::Serialize() const
     ofstream ofs;
     string value;
     stringstream line;
+    uint_t i = uintmin_t;
     string file( Utils::FileExt( gId(), CFG_DAT_FILE_LOC_EXT ) );
 
     Utils::FileOpen( ofs, file );
@@ -85,6 +86,18 @@ const bool Location::Serialize() const
 
     // First to ensure id is loaded for logging later
     KEY( ofs, "id", gId() );
+    KEYLISTLOOP( ofs, "description", i ); /** @todo Need to find a nicer way to do this */
+    {
+        for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
+        {
+            ofs << "description[" << i << "]" << " = ";
+
+            if ( !gDescription( i ).empty() )
+                ofs << gDescription( i ) << endl;
+            else
+                ofs << endl;
+        }
+    }
     KEY( ofs, "name", gName() );
     KEY( ofs, "zone", m_zone );
 
@@ -104,6 +117,8 @@ const bool Location::Unserialize()
     UFLAGS_I( finfo );
     ifstream ifs;
     string key, value, line;
+    stringstream loop;
+    uint_t i = uintmin_t;
     bool found = false, maxb = false;
 
     Utils::FileOpen( ifs, m_file );
@@ -127,11 +142,25 @@ const bool Location::Unserialize()
             found = false;
             maxb = false;
 
-            // First to ensure id is loaded for logging later
             if ( key == "id" )
             {
                 found = true;
                 sId( value );
+            }
+            if ( Utils::StrPrefix( "description", key ) ) /** @todo Need to find a nicer way to do this */
+            {
+                for ( ; i < MAX_THING_DESCRIPTION; i++ )
+                {
+                    loop.str( "" );
+                    loop << "description[" << i << "]";
+
+                    if ( key == loop.str() )
+                    {
+                        found = true;
+                        sDescription( value, i );
+                        break;
+                    }
+                }
             }
             if ( key == "name" )
             {

@@ -27,7 +27,7 @@
 using namespace std;
 
 /**
- * @brief The core of the game server.
+ * @brief The Server namespace contains OS interface functions.
  */
 namespace Server {
     /**
