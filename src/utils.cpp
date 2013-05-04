@@ -198,27 +198,39 @@ const pair<string,string> Utils::ReadPair( const string& input )
 
 /**
  * @brief Reads a string written by Utils::WriteString to strip off the container edges.
- * @param[in] input A string written by Utils::WriteString.
+ * @param[in] input An ifstream containing a string written by Utils::WriteString.
  * @retval string A string with the Utils::WriteString container edges stripped off.
  */
-const string Utils::ReadString( const string& input )
+const string Utils::ReadString( ifstream& input )
 {
-    string output;
+    string value, output;
+    stringstream mline;
     uint_t p1 = uintmin_t, p2 = uintmin_t;
 
-    if ( ( p1 = input.find( CFG_DAT_STR_CTR_A ) ) == string::npos )
+    mline << CFG_DAT_STR_CTR_A;
+    getline( input, value );
+    while ( value != CFG_DAT_STR_CTR_C )
+    {
+        mline << value << CRLF;
+        getline( input, value );
+    }
+    mline << value;
+
+    value = mline.str();
+
+    if ( ( p1 = value.find( CFG_DAT_STR_CTR_A ) ) == string::npos )
         return output;
 
-    if ( ( p2 = input.find( CFG_DAT_STR_CTR_C ) ) == string::npos )
+    if ( ( p2 = value.find( CFG_DAT_STR_CTR_C ) ) == string::npos )
         return output;
 
-    if ( input.compare( p1, 2, CFG_DAT_STR_CTR_A ) != 0 )
+    if ( value.compare( p1, 2, CFG_DAT_STR_CTR_A ) != 0 )
         return output;
 
-    if ( input.compare( p2, 2, CFG_DAT_STR_CTR_C ) != 0 )
+    if ( value.compare( p2, 2, CFG_DAT_STR_CTR_C ) != 0 )
         return output;
 
-    output = input.substr( p1 + 2, input.length() - p1 - 4 );
+    output = value.substr( p1 + 2, value.length() - p1 - 4 );
 
     return output;
 }
@@ -350,7 +362,7 @@ const string Utils::WriteString( const string& input )
 {
     stringstream output;
 
-    output << "{\"" << input << "\"}";
+    output << CFG_DAT_STR_CTR_A << CRLF << input << CRLF<< CFG_DAT_STR_CTR_C;
 
     return output.str();
 }

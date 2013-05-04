@@ -37,10 +37,17 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
 
 const void Look::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
+    Location* location = NULL;
     if ( client )
     {
-        if ( arg.empty() && client->gAccount()->gCharacter()->gLocation() != NULL )
-            client->Send( client->gAccount()->gCharacter()->gLocation()->gDescription( THING_DESCRIPTION_LONG ) );
+        location = client->gAccount()->gCharacter()->gLocation();
+
+        if ( arg.empty() && location != NULL )
+        {
+            client->Send( location->gName() );
+            client->Send( CRLF );
+            client->Send( location->gDescription( THING_DESCRIPTION_LONG ) );
+        }
     }
 
     return;

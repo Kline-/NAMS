@@ -151,19 +151,8 @@ const bool Location::Unserialize()
             }
             if ( Utils::StrPrefix( "description", key ) )
             {
-                mline.str( "" );
-                while ( value != CFG_DAT_STR_CTR_C )
-                {
-                    mline << value;
-                    getline( ifs, value );
-                    mline << CRLF;
-                }
-                mline << value;
-
                 found = true;
-                cout << Utils::ReadIndex( key ) << endl << Utils::ReadString( mline.str() ) << endl;
-                cout << mline.str() << endl;
-                sDescription( Utils::ReadString( mline.str() ), Utils::ReadIndex( key ) );
+                sDescription( Utils::ReadString( ifs ), Utils::ReadIndex( key ) );
             }
             if ( key == "name" )
             {

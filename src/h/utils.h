@@ -122,7 +122,7 @@ namespace Utils {
     const uint_t NumChar( const string& input, const string& item );
     const uint_t ReadIndex( const string& input );
     const pair<string,string> ReadPair( const string& input );
-    const string ReadString( const string& input );
+    const string ReadString( ifstream& input );
     const string Salt( const string& input );
     const vector<string> StrNewlines( const string& input );
     const bool StrPrefix( const string& s1, const string& s2, const bool& igncase = false );

@@ -58,7 +58,7 @@ const void LastLog::Run( SocketClient* client, const string& cmd, const string& 
     return;
 }
 
-LastLog::LastLog( const string& name = "lastlog", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+LastLog::LastLog( const string& name = ".lastlog", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
     Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_NONE );
