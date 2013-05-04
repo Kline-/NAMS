@@ -149,6 +149,26 @@ const uint_t Utils::NumChar( const string& input, const string& item )
 }
 
 /**
+ * @brief Extracts the index of an array from a string.
+ * @param[in] input The string to extract an array index from.
+ * @retval uint_t The extracted index value.
+ */
+const uint_t Utils::ReadIndex( const string& input )
+{
+    uint_t output = uintmin_t, p1 = uintmin_t, p2 = uintmin_t;
+
+    if ( ( p1 = input.find( "[" ) ) == string::npos )
+        return output;
+
+    if ( ( p2 = input.find( "]" ) ) == string::npos )
+        return output;
+
+    stringstream( input.substr( p1 + 1, input.length() - p1 - 2 ) ) >> output;
+
+    return output;
+}
+
+/**
  * @brief Returns a pair of type T,V after receiving an input string generated from Utils::MakePair().
  * @param[in] input The string to read and parse.
  * @retval pair<T,V> A pair consisting of <T,V>.
@@ -158,20 +178,47 @@ const pair<string,string> Utils::ReadPair( const string& input )
     pair<string,string> output;
     uint_t p1 = uintmin_t, p2 = uintmin_t;
 
-    if ( input.compare( 0, 2, "{\"" ) != 0 )
+    if ( input.compare( 0, 2, CFG_DAT_STR_CTR_A ) != 0 )
         return output;
 
-    if ( input.compare( input.length() - 2, 2, "\"}" ) != 0 )
+    if ( input.compare( input.length() - 2, 2, CFG_DAT_STR_CTR_C ) != 0 )
         return output;
 
-    if ( ( p1 = input.find( "\":\"" ) ) == string::npos )
+    if ( ( p1 = input.find( CFG_DAT_STR_CTR_B ) ) == string::npos )
         return output;
 
-    if ( ( p2 = input.find( "\"}" ) ) == string::npos )
+    if ( ( p2 = input.find( CFG_DAT_STR_CTR_C ) ) == string::npos )
         return output;
 
     output.first = input.substr( 2, p1 - 2 );
     output.second = input.substr( p1 + 3, p2 - p1 - 3 );
+
+    return output;
+}
+
+/**
+ * @brief Reads a string written by Utils::WriteString to strip off the container edges.
+ * @param[in] input A string written by Utils::WriteString.
+ * @retval string A string with the Utils::WriteString container edges stripped off.
+ */
+const string Utils::ReadString( const string& input )
+{
+    string output;
+    uint_t p1 = uintmin_t, p2 = uintmin_t;
+
+    if ( ( p1 = input.find( CFG_DAT_STR_CTR_A ) ) == string::npos )
+        return output;
+
+    if ( ( p2 = input.find( CFG_DAT_STR_CTR_C ) ) == string::npos )
+        return output;
+
+    if ( input.compare( p1, 2, CFG_DAT_STR_CTR_A ) != 0 )
+        return output;
+
+    if ( input.compare( p2, 2, CFG_DAT_STR_CTR_C ) != 0 )
+        return output;
+
+    output = input.substr( p1 + 2, input.length() - p1 - 4 );
 
     return output;
 }
@@ -292,6 +339,20 @@ const vector<string> Utils::StrTokens( const string& input, const bool& quiet )
     vector<string> output( si, end );
 
     return output;
+}
+
+/**
+ * @brief Wraps a string in container edges suitable for multi-line read/writing.
+ * @param[in] input A string to wrap in container edges.
+ * @retval string A string wrapped in container edges.
+ */
+const string Utils::WriteString( const string& input )
+{
+    stringstream output;
+
+    output << "{\"" << input << "\"}";
+
+    return output.str();
 }
 
 /* Query */

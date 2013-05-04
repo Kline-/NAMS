@@ -179,6 +179,27 @@
  * @par Default: "settings.dat"
  */
 #define CFG_DAT_FILE_SETTINGS "settings.dat"
+
+/**
+ * @def CFG_DAT_STR_CTR_A
+ * @brief Delimeter to use before writing a container wrapped string.
+ * @par Default: "{\""
+ */
+#define CFG_DAT_STR_CTR_A "{\""
+
+/**
+ * @def CFG_DAT_STR_CTR_B
+ * @brief Delimeter to use when writing an object pair of data.
+ * @par Default: "\":\""
+ */
+#define CFG_DAT_STR_CTR_B "\":\""
+
+/**
+ * @def CFG_DAT_STR_CTR_C
+ * @brief Delimeter to use after writing a container wrapped string.
+ * @par Default: "\"}"
+ */
+#define CFG_DAT_STR_CTR_C "\"}"
 /**@}*/
 
 /***************************************************************************

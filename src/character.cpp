@@ -115,7 +115,7 @@ const bool Character::Serialize() const
             ofs << "description[" << i << "]" << " = ";
 
             if ( !gDescription( i ).empty() )
-                ofs << gDescription( i ) << endl;
+                ofs << Utils::WriteString( gDescription( i ) ) << endl;
             else
                 ofs << endl;
         }
@@ -139,8 +139,7 @@ const bool Character::Unserialize()
     UFLAGS_I( finfo );
     ifstream ifs;
     string key, value, line;
-    stringstream loop;
-    uint_t i = uintmin_t;
+    stringstream loop, mline;
     bool found = false, maxb = false;
 
     Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), m_file ) );
@@ -169,20 +168,19 @@ const bool Character::Unserialize()
                 found = true;
                 sId( value );
             }
-            if ( Utils::StrPrefix( "description", key ) ) /** @todo Need to find a nicer way to do this */
+            if ( Utils::StrPrefix( "description", key ) )
             {
-                for ( ; i < MAX_THING_DESCRIPTION; i++ )
+                mline.str( "" );
+                while ( value != CFG_DAT_STR_CTR_C )
                 {
-                    loop.str( "" );
-                    loop << "description[" << i << "]";
-
-                    if ( key == loop.str() )
-                    {
-                        found = true;
-                        sDescription( value, i );
-                        break;
-                    }
+                    mline << value;
+                    getline( ifs, value );
+                    mline << CRLF;
                 }
+                mline << value;
+
+                found = true;
+                sDescription( Utils::ReadString( mline.str() ), Utils::ReadIndex( key ) );
             }
             if ( key == "name" )
             {

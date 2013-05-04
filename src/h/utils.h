@@ -84,7 +84,7 @@ namespace Utils {
     {
         stringstream output;
 
-        output << "{" << "\"" << t << "\":\"" << v << "\"}";
+        output << CFG_DAT_STR_CTR_A << t << CFG_DAT_STR_CTR_B << v << CFG_DAT_STR_CTR_C;
 
         return output.str();
     }
@@ -120,12 +120,15 @@ namespace Utils {
     #define FormatString( flags, fmt, ... ) _FormatString( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     #define Logger( flags, fmt, ... ) _Logger( PP_NARG( __VA_ARGS__ ), flags, _caller_, fmt, ##__VA_ARGS__ )
     const uint_t NumChar( const string& input, const string& item );
+    const uint_t ReadIndex( const string& input );
     const pair<string,string> ReadPair( const string& input );
+    const string ReadString( const string& input );
     const string Salt( const string& input );
     const vector<string> StrNewlines( const string& input );
     const bool StrPrefix( const string& s1, const string& s2, const bool& igncase = false );
     const string StrTime( const time_t& now = chrono::high_resolution_clock::to_time_t( chrono::high_resolution_clock::now() ) );
     const vector<string> StrTokens( const string& input, const bool& quiet = false );
+    const string WriteString( const string& input );
     /**@}*/
 
     /** @name Query */ /**@{*/
