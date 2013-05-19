@@ -219,6 +219,13 @@ using namespace std;
     name.set( UTILS_TYPE_ERROR )
 
 /**
+ * @def UFLAGS_E
+ * @brief Define a bitset variable (name) with #UTILS_TYPE_ERROR already enabled.
+ * @param[in] name The name to use for declaring a local variable of bitset<#CFG_MEM_MAX_BITSET>.
+ */
+#define UFLAGS_E( name ) BSET( name, UTILS_TYPE_ERROR )
+
+/**
  * @def UFLAGS_I
  * @brief Define a bitset variable (name) with #UTILS_TYPE_INFO already enabled.
  * @param[in] name The name to use for declaring a local variable of bitset<#CFG_MEM_MAX_BITSET>.
