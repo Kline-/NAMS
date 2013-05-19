@@ -1,0 +1,10 @@
+id = sys.room1
+description[0] = {"
+"}
+description[1] = {"
+Room1 ... How "glorious" (?)
+"}
+exit = {"dest_id":"sys.entrypoint"} {"name":"ep"}
+exit = {"dest_id":"sys.room1"} {"name":"r1"}
+name = Room1
+zone = sys
