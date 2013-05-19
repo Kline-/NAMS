@@ -38,6 +38,7 @@
 #include "h/socketclient.h"
 #include "h/socketserver.h"
 #include "h/character.h"
+#include "h/exit.h"
 
 /* Core */
 /**
@@ -138,6 +139,54 @@ const bool Server::BuildPlugin( const string& file, const bool& force )
         LOGFMT( 0, "Plugin built successfully: %s", CSTR( file ) );
 
     return true;
+}
+
+/**
+ * @brief Links Exit pointers together after all locations are loaded.
+ * @retval void
+ */
+const void Server::LinkExits()
+{
+    UFLAGS_E( flags );
+    chrono::high_resolution_clock::time_point start, finish;
+    double duration = uintmin_t;
+    ITER( list, Location*, li );
+    ITER( list, Exit*, ei );
+    list<Exit*> loc_exits;
+    Location* destination = NULL;
+    Location* location = NULL;
+    Exit* exit = NULL;
+    uint_t count = 0;
+
+    start = chrono::high_resolution_clock::now();
+    LOGSTR( 0, CFG_STR_FILE_EXIT_READ );
+
+    for ( li = location_list.begin(); li != location_list.end(); li++ )
+    {
+        location = *li;
+        loc_exits = location->gExits();
+
+        for ( ei = loc_exits.begin(); ei != loc_exits.end(); ei++ )
+        {
+            exit = *ei;
+
+            if ( ( destination = Handler::FindLocation( exit->gDestId(), HANDLER_FIND_ID ) ) == NULL )
+                LOGFMT( flags, "Server::LinkExits()-> location %s has invalid exit to %s", CSTR( location->gId() ), CSTR( exit->gDestId() ) );
+            else
+            {
+                count++;
+                exit->sDestination( destination );
+            }
+        }
+    }
+
+    finish = chrono::high_resolution_clock::now();
+    if ( ( duration = chrono::duration_cast<chrono::milliseconds>( finish - start ).count() ) > 1000 )
+        LOGFMT( 0, "Linked %lu exits in %1.2fs.", count, ( duration / 1000 ) );
+    else
+        LOGFMT( 0, "Linked %lu exits in %1.0fms.", count, duration );
+
+    return;
 }
 
 /**
@@ -700,6 +749,7 @@ const void Server::Startup( const sint_t& desc )
         Shutdown( EXIT_FAILURE );
     }
 
+    LinkExits();
     RebootRecovery( reboot );
 
     LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, g_global->m_port );

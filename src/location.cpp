@@ -222,6 +222,14 @@ const bool Location::Unserialize()
 }
 
 /* Query */
+/**
+ * @brief Returns the list of Exits associated to this Location.
+ * @retval list<Exit*> A list of pointers to Exit objects associated with this Location.
+ */
+list<Exit*> Location::gExits() const
+{
+    return m_exits;
+}
 
 /* Manipulate */
 

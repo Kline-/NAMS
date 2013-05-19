@@ -127,6 +127,7 @@ namespace Server
     /** @name Core */ /**@{*/
     const void Broadcast( const string& msg );
     const bool BuildPlugin( const string& file, const bool& force = false );
+    const void LinkExits();
     const bool LoadCommands();
     const bool LoadLocations();
     const bool PollSockets();

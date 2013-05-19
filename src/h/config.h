@@ -578,6 +578,13 @@
 #define CFG_STR_FILE_DONE "Done."
 
 /**
+ * @def CFG_STR_FILE_EXIT_READ
+ * @brief String to output prior to linking exit pointers between locations.
+ * @par Default: "Linking exits..."
+ */
+#define CFG_STR_FILE_EXIT_READ "Linking exits..."
+
+/**
  * @def CFG_STR_FILE_LOCATION_READ
  * @brief String to output prior to loading location files.
  * @par Default: "Loading locations..."

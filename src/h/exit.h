@@ -40,6 +40,7 @@ class Exit
         /**@}*/
 
         /** @name Query */ /**@{*/
+        const string gDestId() const;
         Location* gDestination() const;
         Location* gLocation() const;
         const string gName() const;
@@ -47,8 +48,6 @@ class Exit
 
         /** @name Manipulate */ /**@{*/
         const bool sDestination( Location* location );
-        const bool sFile( const string& file );
-        const bool sName( const string& name );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -58,7 +57,7 @@ class Exit
 
     private:
         Location* m_destination; /**< The Location this Exit leads to. */
-        string m_file; /**< The filename of the destination. */
+        string m_dest_id; /**< The id of the destination. */
         Location* m_location; /**< The owning Location. */
         string m_name; /**< The name of the exit. */
 };

@@ -65,7 +65,7 @@ const string Exit::Serialize() const
 {
     stringstream output;
 
-    output << Utils::MakePair( "file", m_file );
+    output << Utils::MakePair( "dest_id", m_dest_id );
     output << Utils::MakePair( "name", m_name );
 
     return output.str();
@@ -92,7 +92,7 @@ const bool Exit::Unserialize( const string& input )
         arg = Utils::Argument( value, "} " );
         item = Utils::ReadPair( arg );
 
-        Utils::KeySet( true, found, item.first, "file", item.second, m_file );
+        Utils::KeySet( true, found, item.first, "dest_id", item.second, m_dest_id );
         Utils::KeySet( true, found, item.first, "name", item.second, m_name );
 
         if ( !found )
@@ -103,6 +103,15 @@ const bool Exit::Unserialize( const string& input )
 }
 
 /* Query */
+/**
+ * @brief Returns the destination id of the Exit.
+ * @retval string A string containing the destination id of the Exit.
+ */
+const string Exit::gDestId() const
+{
+    return m_dest_id;
+}
+
 /**
  * @brief Returns the destination that this Exit leads to.
  * @retval Location* A pointer to the Location that this Exit leads to.
@@ -151,26 +160,6 @@ const bool Exit::sDestination( Location* location )
 
     return true;
 }
-/**
- * @brief Sets the name of the Exit.
- * @param[in] name A string with the name to be set.
- * @retval false Returned if there was an error setting the name.
- * @retval true Returned if the name was successfully set.
- */
-const bool Exit::sName( const string& name )
-{
-    UFLAGS_DE( flags );
-
-    if ( name.empty() )
-    {
-        LOGSTR( flags, "Exit::sName()-> called with empty name" );
-        return false;
-    }
-
-    m_name = name;
-
-    return true;
-}
 
 /* Internal */
 /**
@@ -179,7 +168,7 @@ const bool Exit::sName( const string& name )
 Exit::Exit()
 {
     m_destination = NULL;
-    m_file.clear();
+    m_dest_id.clear();
     m_location = NULL;
     m_name.clear();
 

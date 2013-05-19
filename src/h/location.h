@@ -42,6 +42,7 @@ class Location : public Thing
         /**@}*/
 
         /** @name Query */ /**@{*/
+        list<Exit*> gExits() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
