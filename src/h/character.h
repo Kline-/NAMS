@@ -36,6 +36,7 @@ class Character : public Thing
     public:
         /** @name Core */ /**@{*/
         const void Delete();
+        const void Interpret( const uint_t& security, const string& cmd, const string& args );
         const bool New( const string& file, const bool& exists );
         const void Send( const string& msg );
         const bool Serialize() const;

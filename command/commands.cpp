@@ -33,22 +33,17 @@ class Commands : public Plugin {
 
 const void Commands::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    return;
-}
-
-const void Commands::Run( SocketClient* client, const string& cmd, const string& arg ) const
-{
     MITER( multimap, const char,Command*, mi );
     list<string> output;
     uint_t count = 0;
     uint_t security = ACT_SECURITY_NONE;
 
-    if ( client )
+    if ( character )
     {
-        if ( client->gAccount() )
-            security = client->gAccount()->gSecurity();
+        if ( character->gAccount() )
+            security = character->gAccount()->gSecurity();
 
-        client->Send( "Available commands:" CRLF "    " );
+        character->Send( "Available commands:" CRLF "    " );
 
         for ( mi = command_list.begin(); mi != command_list.end(); mi++ )
         {
@@ -62,19 +57,24 @@ const void Commands::Run( SocketClient* client, const string& cmd, const string&
         {
             if ( ++count % 6 == 0 )
             {
-                client->Send( CRLF "    " );
-                client->Send( Utils::FormatString( 0, "%-12s", CSTR( (*output.begin()) ) ) );
+                character->Send( CRLF "    " );
+                character->Send( Utils::FormatString( 0, "%-12s", CSTR( (*output.begin()) ) ) );
             }
             else
-                client->Send( Utils::FormatString( 0, "%-12s", CSTR( (*output.begin()) ) ) );
+                character->Send( Utils::FormatString( 0, "%-12s", CSTR( (*output.begin()) ) ) );
 
-            client->Send( " " );
+            character->Send( " " );
             output.pop_front();
         }
 
-        client->Send( CRLF );
+        character->Send( CRLF );
     }
 
+    return;
+}
+
+const void Commands::Run( SocketClient* client, const string& cmd, const string& arg ) const
+{
     return;
 }
 

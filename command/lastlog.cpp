@@ -31,30 +31,30 @@ class LastLog : public Plugin {
 
 const void LastLog::Run( Character* character, const string& cmd, const string& arg ) const
 {
+    list<pair<string,string>> logins;
+    list<pair<string,string>>::const_iterator li;
+
+    if ( character )
+    {
+        if ( character->gAccount() )
+        {
+            logins = character->gAccount()->gLogins( ACT_LOGIN_FAILURE );
+            character->Send( Utils::FormatString( 0, "Last %lu failed logins:" CRLF, CFG_ACT_LOGIN_MAX ) );
+            for ( li = logins.begin(); li != logins.end(); li++ )
+                character->Send( Utils::FormatString( 0, "    [%s] %s" CRLF, CSTR( li->first ), CSTR( li->second ) ) );
+
+            logins = character->gAccount()->gLogins( ACT_LOGIN_SUCCESS );
+            character->Send( Utils::FormatString( 0, "Last %lu successful logins:" CRLF, CFG_ACT_LOGIN_MAX ) );
+            for ( li = logins.begin(); li != logins.end(); li++ )
+                character->Send( Utils::FormatString( 0, "    [%s] %s" CRLF, CSTR( li->first ), CSTR( li->second ) ) );
+        }
+    }
+
     return;
 }
 
 const void LastLog::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
-    list<pair<string,string>> logins;
-    list<pair<string,string>>::const_iterator li;
-
-    if ( client )
-    {
-        if ( client->gAccount() )
-        {
-            logins = client->gAccount()->gLogins( ACT_LOGIN_FAILURE );
-            client->Send( Utils::FormatString( 0, "Last %lu failed logins:" CRLF, CFG_ACT_LOGIN_MAX ) );
-            for ( li = logins.begin(); li != logins.end(); li++ )
-                client->Send( Utils::FormatString( 0, "    [%s] %s" CRLF, CSTR( li->first ), CSTR( li->second ) ) );
-
-            logins = client->gAccount()->gLogins( ACT_LOGIN_SUCCESS );
-            client->Send( Utils::FormatString( 0, "Last %lu successful logins:" CRLF, CFG_ACT_LOGIN_MAX ) );
-            for ( li = logins.begin(); li != logins.end(); li++ )
-                client->Send( Utils::FormatString( 0, "    [%s] %s" CRLF, CSTR( li->first ), CSTR( li->second ) ) );
-        }
-    }
-
     return;
 }
 

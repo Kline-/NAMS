@@ -36,6 +36,7 @@ class Location : public Thing
     public:
         /** @name Core */ /**@{*/
         const void Delete();
+        const void Interpret( const uint_t& security, const string& cmd, const string& args );
         const bool New( const string& file );
         const bool Serialize() const;
         const bool Unserialize();

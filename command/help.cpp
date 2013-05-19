@@ -29,16 +29,16 @@ class Help : public Plugin {
 
 const void Help::Run( Character* character, const string& cmd, const string& arg ) const
 {
+    if ( character )
+        character->Send( "Help!" CRLF );
+    else
+        cout << "Help!" << endl;
+
     return;
 }
 
 const void Help::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
-    if ( client )
-        client->Send( "Help!" CRLF );
-    else
-        cout << "Help!" << endl;
-
     return;
 }
 

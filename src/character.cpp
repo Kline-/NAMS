@@ -26,6 +26,7 @@
 #include "h/character.h"
 
 #include "h/account.h"
+#include "h/command.h"
 #include "h/list.h"
 #include "h/socketclient.h"
 
@@ -38,6 +39,30 @@ const void Character::Delete()
 {
     g_global->m_next_character = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
     delete this;
+
+    return;
+}
+
+/**
+ * @brief Interprets cmd with args at level security.
+ * @param[in] security Security level which is inherited from the Account, if any. Values from #ACT_SECURITY.
+ * @param[in] cmd The command to search for and attempt to run.
+ * @param[in] args Arguments to be passed to the command.
+ * @retval void
+ */
+const void Character::Interpret( const uint_t& security, const string& cmd, const string& args )
+{
+    Command* command = NULL;
+
+    if ( ( command = Handler::FindCommand( cmd ) ) != NULL )
+    {
+        if ( command->Authorized( security ) )
+            command->Run( this, cmd, args );
+        else
+            Send( CFG_STR_CMD_INVALID );
+    }
+    else
+        Send( CFG_STR_CMD_INVALID );
 
     return;
 }

@@ -31,22 +31,22 @@ class AdmShutdown : public Plugin {
 
 const void AdmShutdown::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    return;
-}
-
-const void AdmShutdown::Run( SocketClient* client, const string& cmd, const string& arg ) const
-{
-    if ( client )
+    if ( character )
     {
         if ( Utils::Lower( cmd ).compare( gName() ) != 0 )
         {
-            client->Send( "If you wish to shutdown you must enter the complete command." CRLF );
+            character->Send( "If you wish to shutdown you must enter the complete command." CRLF );
             return;
         }
 
         Server::Shutdown( EXIT_SUCCESS );
     }
 
+    return;
+}
+
+const void AdmShutdown::Run( SocketClient* client, const string& cmd, const string& arg ) const
+{
     return;
 }
 

@@ -33,11 +33,6 @@ class AdmIn : public Plugin {
 
 const void AdmIn::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    return;
-}
-
-const void AdmIn::Run( SocketClient* client, const string& cmd, const string& arg ) const
-{
     UFLAGS_DE( flags );
     Command* command = NULL;
     Event* event = NULL;
@@ -46,11 +41,11 @@ const void AdmIn::Run( SocketClient* client, const string& cmd, const string& ar
     uint_t time = 0;
     uint_t security = ACT_SECURITY_NONE;
 
-    if ( client )
+    if ( character )
     {
         if ( arg.empty() )
         {
-            client->Send( "Schedule -which- command?" CRLF );
+            character->Send( "Schedule -which- command?" CRLF );
             return;
         }
 
@@ -63,25 +58,30 @@ const void AdmIn::Run( SocketClient* client, const string& cmd, const string& ar
 
         if ( ( command = Handler::FindCommand( second ) ) != NULL )
         {
-            if ( client->gAccount() )
-                security = client->gAccount()->gSecurity();
+            if ( character->gAccount() )
+                security = character->gAccount()->gSecurity();
 
             if ( command->Authorized( security ) )
             {
                 event = new Event();
-                if ( !event->New( second, third, client, command, EVENT_TYPE_CMD_SOCKET, time ) )
+                if ( !event->New( second, third, character, command, EVENT_TYPE_CMD_SOCKET, time ) )
                 {
                     LOGSTR( flags, "AdmIn::Run()->Event::New()-> returned false" );
                     delete event;
                 }
                 else
-                    client->Send( "Event successfully scheduled." CRLF );
+                    character->Send( "Event successfully scheduled." CRLF );
             }
         }
         else
-            client->Send( "That command doesn't exist." CRLF );
+            character->Send( "That command doesn't exist." CRLF );
     }
 
+    return;
+}
+
+const void AdmIn::Run( SocketClient* client, const string& cmd, const string& arg ) const
+{
     return;
 }
 

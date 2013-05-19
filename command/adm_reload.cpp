@@ -33,29 +33,24 @@ class AdmReload : public Plugin {
 
 const void AdmReload::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    return;
-}
-
-const void AdmReload::Run( SocketClient* client, const string& cmd, const string& arg ) const
-{
     UFLAGS_DE( flags );
     Command* command = NULL;
     Event* event = NULL;
     string file;
     uint_t security = ACT_SECURITY_NONE;
 
-    if ( client )
+    if ( character )
     {
         if ( arg.empty() )
         {
-            client->Send( "Reload -which- command?" CRLF );
+            character->Send( "Reload -which- command?" CRLF );
             return;
         }
 
         if ( ( command = Handler::FindCommand( arg ) ) != NULL )
         {
-            if ( client->gAccount() )
-                security = client->gAccount()->gSecurity();
+            if ( character->gAccount() )
+                security = character->gAccount()->gSecurity();
 
             if ( command->Authorized( security ) )
             {
@@ -66,13 +61,18 @@ const void AdmReload::Run( SocketClient* client, const string& cmd, const string
                     delete event;
                 }
                 else
-                    client->Send( "Command successfully reloaded." CRLF );
+                    character->Send( "Command successfully reloaded." CRLF );
             }
         }
         else
-            client->Send( "That command doesn't exist." CRLF );
+            character->Send( "That command doesn't exist." CRLF );
     }
 
+    return;
+}
+
+const void AdmReload::Run( SocketClient* client, const string& cmd, const string& arg ) const
+{
     return;
 }
 

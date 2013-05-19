@@ -52,6 +52,18 @@ const void Location::Delete()
 }
 
 /**
+ * @brief Interprets cmd with args at level security.
+ * @param[in] security Security level which is inherited from the Account, if any. Values from #ACT_SECURITY.
+ * @param[in] cmd The command to search for and attempt to run.
+ * @param[in] args Arguments to be passed to the command.
+ * @retval void
+ */
+const void Location::Interpret( const uint_t& security, const string& cmd, const string& args )
+{
+    return;
+}
+
+/**
  * @brief Create a new location.
  * @param[in] file The filename to load including the full path prepended to it.
  * @retval false Returned if a new Location was successfully created or loaded.

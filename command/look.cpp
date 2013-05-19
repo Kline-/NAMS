@@ -33,45 +33,45 @@ class Look : public Plugin {
 
 const void Look::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    return;
-}
-
-const void Look::Run( SocketClient* client, const string& cmd, const string& arg ) const
-{
     Location* location = NULL;
     list<Exit*> loc_exits;
     CITER( list, Exit*, ei );
     Exit* exit = NULL;
 
-    if ( client )
+    if ( character )
     {
-        location = client->gAccount()->gCharacter()->gLocation();
+        location = character->gLocation();
 
         if ( arg.empty() && location != NULL )
         {
             loc_exits = location->gExits();
 
-            client->Send( "[Exits: ");
+            character->Send( "[Exits: ");
 
             if ( loc_exits.empty() )
-                client->Send( "none]" CRLF );
+                character->Send( "none]" CRLF );
             else
             {
                 for ( ei = loc_exits.begin(); ei != loc_exits.end(); ei++ )
                 {
                     exit = *ei;
-                    client->Send( exit->gName() );
+                    character->Send( exit->gName() );
                 }
 
-                client->Send( "]" CRLF );
+                character->Send( "]" CRLF );
             }
 
-            client->Send( location->gName() );
-            client->Send( CRLF );
-            client->Send( location->gDescription( THING_DESCRIPTION_LONG ) );
+            character->Send( location->gName() );
+            character->Send( CRLF );
+            character->Send( location->gDescription( THING_DESCRIPTION_LONG ) );
         }
     }
 
+    return;
+}
+
+const void Look::Run( SocketClient* client, const string& cmd, const string& arg ) const
+{
     return;
 }
 

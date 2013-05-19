@@ -33,11 +33,6 @@ class AdmReboot : public Plugin {
 
 const void AdmReboot::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    return;
-}
-
-const void AdmReboot::Run( SocketClient* client, const string& cmd, const string& arg ) const
-{
     SocketClient* socket_client = NULL;
     ITER( list, SocketClient*, si );
     string desc, port;
@@ -65,6 +60,11 @@ const void AdmReboot::Run( SocketClient* client, const string& cmd, const string
     execl( "src/nams", "nams", CSTR( port ), CSTR( desc ), (char*)NULL );
     LOGERRNO( 0, "" );
 
+    return;
+}
+
+const void AdmReboot::Run( SocketClient* client, const string& cmd, const string& arg ) const
+{
     return;
 }
 

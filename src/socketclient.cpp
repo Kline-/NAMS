@@ -181,26 +181,46 @@ const bool SocketClient::ProcessCommand()
     if ( m_account )
         security = m_account->gSecurity();
 
-    while ( !m_command_queue.empty() )
-    {
-        cmd = m_command_queue.front();
-        m_command_queue.pop_front();
+    cmd = m_command_queue.front();
+    m_command_queue.pop_front();
 
-        // Redirect if not fully logged in yet
-        if ( ( command = Handler::FindCommand( cmd.first ) ) != NULL )
+    // Redirect if not fully logged in yet
+    if ( m_state < SOC_STATE_PLAYING )
+        Handler::LoginHandler( this, cmd.first, cmd.second );
+    else
+    {
+        // Raw run if no Character exists to interpret
+        if ( m_account == NULL || m_account->gCharacter() == NULL )
         {
-            if ( command->Authorized( security ) )
-                command->Run( this, cmd.first, cmd.second );
-            else if ( m_state < SOC_STATE_PLAYING )
-                Handler::LoginHandler( this, cmd.first, cmd.second );
+            if ( ( command = Handler::FindCommand( cmd.first ) ) != NULL )
+            {
+                if ( command->Authorized( security ) )
+                    command->Run( this, cmd.first, cmd.second );
+                else
+                    Send( CFG_STR_CMD_INVALID );
+            }
             else
                 Send( CFG_STR_CMD_INVALID );
         }
+        else
+            m_account->gCharacter()->Interpret( security, cmd.first, cmd.second );
+
+    }
+/*
+    // Redirect if not fully logged in yet
+    if ( ( command = Handler::FindCommand( cmd.first ) ) != NULL )
+    {
+        if ( command->Authorized( security ) )
+            command->Run( this, cmd.first, cmd.second );
         else if ( m_state < SOC_STATE_PLAYING )
             Handler::LoginHandler( this, cmd.first, cmd.second );
         else
             Send( CFG_STR_CMD_INVALID );
     }
+    else if ( m_state < SOC_STATE_PLAYING )
+        Handler::LoginHandler( this, cmd.first, cmd.second );
+    else
+        Send( CFG_STR_CMD_INVALID );*/
 
     return true;
 }

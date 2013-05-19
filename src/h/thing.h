@@ -35,6 +35,7 @@ class Thing
         /** @name Core */ /**@{*/
         const bool AddThing( Thing* thing );
         virtual const void Delete() = 0;
+        virtual const void Interpret( const uint_t& security, const string& cmd, const string& args ) = 0;
         const bool Move( Location* location );
         const bool RemoveThing( Thing* thing );
         virtual const bool Serialize() const = 0;
