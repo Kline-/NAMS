@@ -48,6 +48,15 @@ Class
         by a Server, SocketClient, and other objects. Events are polled
         during each Server update loop.
 
+    Exit
+        Inherits: None
+        Children: None
+        Internal: None
+
+        An exit is a link between two Locations. Exits may define keywords
+        by which they are accessed, restrict access based on flags, or even
+        perform actions on other objects that pass through them.
+
     Location
         Inherits: Thing
         Children: None

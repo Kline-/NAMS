@@ -16,26 +16,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 /**
- * @file class.h
- * @brief All class declarations.
+ * @file exit.h
+ * @brief The Exit class.
  *
- *  This file contains declarations of all classes. Each declaration is
- *  indented to denote inheritance. This header file should be the second
- *  file included within every .cpp file.
+ *  This file contains the Exit class and template functions.
  */
-#ifndef DEC_CLASS_H
-#define DEC_CLASS_H
+#ifndef DEC_EXIT_H
+#define DEC_EXIT_H
 
-class Account;
-class Command;
-class Event;
-class Exit;
-class Plugin;
-class Socket;
-    class SocketClient;
-    class SocketServer;
-class Thing;
-    class Character;
-    class Location;
+using namespace std;
+
+/**
+ * @brief A link between two locations within the game world.
+ */
+class Exit
+{
+    public:
+        /** @name Core */ /**@{*/
+        const void Delete();
+        const bool New();
+        /**@}*/
+
+        /** @name Query */ /**@{*/
+        /**@}*/
+
+        /** @name Manipulate */ /**@{*/
+        /**@}*/
+
+        /** @name Internal */ /**@{*/
+        Exit();
+        ~Exit();
+        /**@}*/
+
+    private:
+};
 
 #endif
