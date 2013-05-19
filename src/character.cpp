@@ -29,6 +29,7 @@
 #include "h/command.h"
 #include "h/list.h"
 #include "h/socketclient.h"
+#include "h/exit.h"
 
 /* Core */
 /**
@@ -53,6 +54,7 @@ const void Character::Delete()
 const void Character::Interpret( const uint_t& security, const string& cmd, const string& args )
 {
     Command* command = NULL;
+    Exit* exit = NULL;
 
     if ( ( command = Handler::FindCommand( cmd ) ) != NULL )
     {
@@ -61,7 +63,15 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
         else
             Send( CFG_STR_CMD_INVALID );
     }
-    else
+    else if ( ( exit = Handler::FindExit( gLocation(), cmd ) ) != NULL ) // Search for an exit
+    {
+        if ( !Move( exit->gDestination() ) )
+            Send( CFG_STR_CMD_INVALID );
+
+        if ( ( command = Handler::FindCommand( "look" ) ) != NULL ) /** @todo Make this configurable per-account/character */
+            command->Run( this );
+    }
+    else // Give up
         Send( CFG_STR_CMD_INVALID );
 
     return;

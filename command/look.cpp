@@ -46,16 +46,16 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
         {
             loc_exits = location->gExits();
 
-            character->Send( "[Exits: ");
+            character->Send( "[Exits:");
 
             if ( loc_exits.empty() )
-                character->Send( "none]" CRLF );
+                character->Send( " none]" CRLF );
             else
             {
                 for ( ei = loc_exits.begin(); ei != loc_exits.end(); ei++ )
                 {
                     exit = *ei;
-                    character->Send( exit->gName() );
+                    character->Send( " " + exit->gName() );
                 }
 
                 character->Send( "]" CRLF );

@@ -31,6 +31,7 @@
 #include "h/character.h"
 #include "h/command.h"
 #include "h/event.h"
+#include "h/exit.h"
 #include "h/list.h"
 #include "h/location.h"
 #include "h/socketclient.h"
@@ -145,6 +146,59 @@ Command* Handler::FindCommand( const string& name )
     }
 
     return cmd;
+}
+
+/**
+ * @brief Locates an Exit within a Location.
+ * @param[in] location The Location to search for the Exit within.
+ * @param[in] name The name of the Exit to search for.
+ * @retval Exit* A pointer to the Exit within the Location.
+ */
+Exit* Handler::FindExit( Location* location, const string& name )
+{
+    UFLAGS_DE( flags );
+    Exit* exit = NULL;
+    list<Exit*> loc_exits;
+    ITER( list, Exit*, ei );
+    bool found = false;
+
+    if ( location == NULL )
+    {
+        LOGSTR( flags, "Handler::FindExit()-> called with NULL location" );
+        return exit;
+    }
+
+    loc_exits = location->gExits();
+
+    if ( loc_exits.empty() )
+        exit = NULL;
+    else
+    {
+        for ( ei = loc_exits.begin(); ei != loc_exits.end(); ei++ )
+        {
+            found = false;
+            exit = *ei;
+
+            if ( CFG_GAM_CMD_IGNORE_CASE )
+            {
+                if ( Utils::Lower( exit->gName() ).find( Utils::Lower( name ) ) == 0 )
+                    found = true;
+            }
+            else
+            {
+                if ( exit->gName().find( name ) == 0 )
+                    found = true;
+            }
+
+            if ( found )
+                break;
+        }
+
+        if ( !found )
+            exit = NULL;
+    }
+
+    return exit;
 }
 
 /**
