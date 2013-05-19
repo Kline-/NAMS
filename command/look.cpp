@@ -19,6 +19,7 @@
 #include "pincludes.h"
 
 #include "account.h"
+#include "exit.h"
 #include "location.h"
 
 class Look : public Plugin {
@@ -38,12 +39,33 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
 const void Look::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     Location* location = NULL;
+    list<Exit*> loc_exits;
+    CITER( list, Exit*, ei );
+    Exit* exit = NULL;
+
     if ( client )
     {
         location = client->gAccount()->gCharacter()->gLocation();
 
         if ( arg.empty() && location != NULL )
         {
+            loc_exits = location->gExits();
+
+            client->Send( "[Exits: ");
+
+            if ( loc_exits.empty() )
+                client->Send( "none]" CRLF );
+            else
+            {
+                for ( ei = loc_exits.begin(); ei != loc_exits.end(); ei++ )
+                {
+                    exit = *ei;
+                    client->Send( exit->gName() );
+                }
+
+                client->Send( "]" CRLF );
+            }
+
             client->Send( location->gName() );
             client->Send( CRLF );
             client->Send( location->gDescription( THING_DESCRIPTION_LONG ) );
