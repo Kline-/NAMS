@@ -29,7 +29,8 @@ using namespace std;
 /**
  * @brief The Utils namespace contains all general purpose, multi-use, and non-class functions.
  */
-namespace Utils {
+namespace Utils
+{
     /**
      * @brief The DeleteObject class implements only operator() to be used in easily deleting lists of pointers or other objects.
      */

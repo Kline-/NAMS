@@ -31,7 +31,8 @@ using namespace std;
 /**
  * @brief SocketServer extends the Socket class to implement server-side socket functions.
  */
-class SocketServer : public Socket {
+class SocketServer : public Socket
+{
     public:
         /** @name Core */ /**@{*/
         const void Accept();

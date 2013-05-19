@@ -30,7 +30,8 @@
 /**
  * @enum ACT_LOGIN
  */
-enum ACT_LOGIN {
+enum ACT_LOGIN
+{
     ACT_LOGIN_FAILURE = 0, /**< Failed login attempts. */
     ACT_LOGIN_SUCCESS = 1, /**< Successful login attempts. */
     MAX_ACT_LOGIN     = 2  /**< Safety limit for looping. */
@@ -39,7 +40,8 @@ enum ACT_LOGIN {
 /**
  * @enum ACT_MENU_CHARACTER_CREATE
  */
-enum ACT_MENU_CHARACTER_CREATE {
+enum ACT_MENU_CHARACTER_CREATE
+{
     ACT_MENU_CHARACTER_CREATE_INVALID = 0,  /**< Must be 0 for stringstream extraction. */
     ACT_MENU_CHARACTER_CREATE_NAME    = 1,  /**< Prompt to enter name. */
     ACT_MENU_CHARACTER_CREATE_SEX     = 2,  /**< Prompt to select sex. */
@@ -51,7 +53,8 @@ enum ACT_MENU_CHARACTER_CREATE {
 /**
  * @enum ACT_MENU_CHARACTER_DELETE
  */
-enum ACT_MENU_CHARACTER_DELETE {
+enum ACT_MENU_CHARACTER_DELETE
+{
     ACT_MENU_CHARACTER_DELETE_INVALID = 0,  /**< Must be 0 for stringstream extraction. */
     ACT_MENU_CHARACTER_DELETE_BACK    = 99, /**< Back out to the previous menu level. */
     MAX_ACT_MENU_CHARACTER_DELETE     = 100 /**< Safety limit for looping. */
@@ -60,7 +63,8 @@ enum ACT_MENU_CHARACTER_DELETE {
 /**
  * @enum ACT_MENU_CHARACTER_LOAD
  */
-enum ACT_MENU_CHARACTER_LOAD {
+enum ACT_MENU_CHARACTER_LOAD
+{
     ACT_MENU_CHARACTER_LOAD_INVALID = 0,  /**< Must be 0 for stringstream extraction. */
     ACT_MENU_CHARACTER_LOAD_BACK    = 99, /**< Back out to the previous menu level. */
     MAX_ACT_MENU_CHARACTER_LOAD     = 100 /**< Safety limit for looping. */
@@ -69,7 +73,8 @@ enum ACT_MENU_CHARACTER_LOAD {
 /**
  * @enum ACT_MENU_MAIN
  */
-enum ACT_MENU_MAIN {
+enum ACT_MENU_MAIN
+{
     ACT_MENU_MAIN_INVALID          = 0,  /**< Must be 0 for stringstream extraction. */
     ACT_MENU_MAIN_CHARACTER_LOAD   = 1,  /**< Load an existing character and enter the game. */
     ACT_MENU_MAIN_CHARACTER_CREATE = 2,  /**< Create a new character associated to the account. */
@@ -81,7 +86,8 @@ enum ACT_MENU_MAIN {
 /**
  * @enum ACT_SECURITY
  */
-enum ACT_SECURITY {
+enum ACT_SECURITY
+{
     ACT_SECURITY_NONE      = 0, /**< An Account that has not logged in. Login screen commands. */
     ACT_SECURITY_AUTH_USER = 1, /**< An Account that has logged in as a normal user account. */
     ACT_SECURITY_ADMIN     = 2, /**< An Account that has logged in as an admin account. */
@@ -93,7 +99,8 @@ enum ACT_SECURITY {
 /**
  * @enum CHR_CREATION
  */
-enum CHR_CREATION {
+enum CHR_CREATION
+{
     CHR_CREATION_NAME = 0, /**< Name has been selected. */
     CHR_CREATION_SEX  = 1, /**< Sex has been selected. */
     MAX_CHR_CREATION  = 2  /**< Safety limit for looping. */
@@ -102,7 +109,8 @@ enum CHR_CREATION {
 /**
  * @enum CHR_SEX
  */
-enum CHR_SEX {
+enum CHR_SEX
+{
     CHR_SEX_NONE    = 0, /**< Must be 0 for stringstream extraction. */
     CHR_SEX_NEUTRAL = 1, /**< A neutral / non-gender identified character. */
     CHR_SEX_FEMALE  = 2, /**< A female character. */
@@ -115,7 +123,8 @@ enum CHR_SEX {
 /**
  * @enum EVENT_TYPE
  */
-enum EVENT_TYPE {
+enum EVENT_TYPE
+{
     EVENT_TYPE_RELOAD        = 0, /**< An Event to reload a game command. */
     EVENT_TYPE_CMD_SOCKET    = 1, /**< An Event to execute a game command. */
     EVENT_TYPE_CMD_CHARACTER = 2, /**< An Event to manipulate a character. */
@@ -127,7 +136,8 @@ enum EVENT_TYPE {
 /**
  * @enum HANDLER_FIND
  */
-enum HANDLER_FIND {
+enum HANDLER_FIND
+{
     HANDLER_FIND_ID   = 0, /**< Search for object by id, such as "sys.entrypoint". */
     HANDLER_FIND_NAME = 1, /**< Search for object by name, such as "Chris". */
     MAX_HANDLER_FIND  = 2  /**< Safety limit for looping. */
@@ -138,7 +148,8 @@ enum HANDLER_FIND {
 /**
  * @enum PLG_TYPE
  */
-enum PLG_TYPE {
+enum PLG_TYPE
+{
     PLG_TYPE_COMMAND = 0, /**< A Plugin that specifies a game command. */
     MAX_PLG_TYPE     = 1  /**< Safety limit for looping. */
 };
@@ -146,7 +157,8 @@ enum PLG_TYPE {
 /**
  * @enum PLG_TYPE_COMMAND_BOOL
  */
-enum PLG_TYPE_COMMAND_BOOL {
+enum PLG_TYPE_COMMAND_BOOL
+{
     PLG_TYPE_COMMAND_BOOL_PREEMPT = 0, /**< Ties to Command->m_preempt. */
     MAX_PLG_TYPE_COMMAND_BOOL     = 1  /**< Safety limit for looping. */
 };
@@ -154,7 +166,8 @@ enum PLG_TYPE_COMMAND_BOOL {
 /**
  * @enum PLG_TYPE_COMMAND_UINT
  */
-enum PLG_TYPE_COMMAND_UINT {
+enum PLG_TYPE_COMMAND_UINT
+{
     PLG_TYPE_COMMAND_UINT_SECURITY = 0, /**< Ties to Command->m_security. */
     MAX_PLG_TYPE_COMMAND_UINT      = 1  /**< Safety limit for looping. */
 };
@@ -164,7 +177,8 @@ enum PLG_TYPE_COMMAND_UINT {
 /**
  * @enum SVR_CFG_PROHIBITED_NAMES
  */
-enum SVR_CFG_PROHIBITED_NAMES {
+enum SVR_CFG_PROHIBITED_NAMES
+{
     SVR_CFG_PROHIBITED_NAMES_ACCOUNT   = 0, /**< Illegal to use as account name. */
     SVR_CFG_PROHIBITED_NAMES_CHARACTER = 1, /**< Illegal to use as character name. */
     MAX_SVR_CFG_PROHIBITED_NAMES       = 2  /**< Safety limit for looping. */
@@ -175,7 +189,8 @@ enum SVR_CFG_PROHIBITED_NAMES {
 /**
  * @enum SOC_STATE
  */
-enum SOC_STATE {
+enum SOC_STATE
+{
     SOC_STATE_DISCONNECTED             = 0,   /**< A Socket in a disconnected state. */
     SOC_STATE_LOGIN_SCREEN             = 1,   /**< A Socket waiting at the login screen. */
     SOC_STATE_GET_OLD_PASSWORD         = 2,   /**< A Socket using an existing account entering the password. */
@@ -204,7 +219,8 @@ enum SOC_STATE {
 /**
  * @enum SOC_LOGIN
  */
-enum SOC_LOGIN {
+enum SOC_LOGIN
+{
     SOC_LOGIN_NAME      = 0, /**< Name received from the socket during the login process. */
     SOC_LOGIN_PASSWORD  = 1, /**< Password received from the socket during the login process. */
     SOC_LOGIN_CHARACTER = 2, /**< Character pending loading or deletion. */
@@ -214,7 +230,8 @@ enum SOC_LOGIN {
 /**
  * @enum SOC_TELOPT
  */
-enum SOC_TELOPT {
+enum SOC_TELOPT
+{
     SOC_TELOPT_ECHO = 0, /**< Telopt ECHO (1) */
     MAX_SOC_TELOPT  = 1  /**< Safety limit for looping. */
 };
@@ -224,7 +241,8 @@ enum SOC_TELOPT {
 /**
  * @enum THING_DESCRIPTION
  */
-enum THING_DESCRIPTION {
+enum THING_DESCRIPTION
+{
     THING_DESCRIPTION_SHORT = 0, /**< A brief description. */
     THING_DESCRIPTION_LONG  = 1, /**< A detailed description. */
     MAX_THING_DESCRIPTION   = 2  /**< Safety limit for looping. */
@@ -235,7 +253,8 @@ enum THING_DESCRIPTION {
 /**
  * @enum UTILS_OPTS
  */
-enum UTILS_OPTS {
+enum UTILS_OPTS
+{
     UTILS_DEBUG       = 0, /**< Enables debugging output in Utils::_Logger(). This typically includes the calling function's file and line number. */
     UTILS_RAW         = 1, /**< Raw data output. Skips prepending / appending anything on Utils::_Logger writes (no timestamp, etc). */
     UTILS_TYPE_ERROR  = 2, /**< Indicates an error and prepends #CFG_STR_UTILS_ERROR to Utils::_Logger() output. */

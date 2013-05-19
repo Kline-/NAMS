@@ -29,7 +29,8 @@ using namespace std;
 /**
  * @brief Functions that are indepdently built and loaded to extend the server core via an API.
  */
-class Plugin {
+class Plugin
+{
     public:
         /** @name Core */ /**@{*/
         /**

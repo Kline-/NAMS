@@ -29,7 +29,8 @@ using namespace std;
 /**
  * @brief Security structure to maintain characters, roles, and permissions.
  */
-class Account {
+class Account
+{
     public:
         /** @name Core */ /**@{*/
         const void ClearCharacter();

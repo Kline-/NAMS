@@ -29,7 +29,8 @@ using namespace std;
 /**
  * @brief Functions that are built and loaded independently as Plugin objects.
  */
-class Command {
+class Command
+{
     public:
         /** @name Core */ /**@{*/
         const bool Authorized( const uint_t& sec ) const;

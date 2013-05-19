@@ -29,11 +29,13 @@ using namespace std;
 /**
  * @brief The Server namespace contains OS interface functions.
  */
-namespace Server {
+namespace Server
+{
     /**
      * @brief Runtime settings.
      */
-    class Config {
+    class Config
+    {
         public:
             /** @name Core */ /**@{*/
             const void Delete();
@@ -60,7 +62,8 @@ namespace Server {
     /**
      * @brief Container for global variables.
      */
-    class Global {
+    class Global
+    {
         public:
             /** @name Core */ /**@{*/
             const void Delete();
@@ -90,7 +93,8 @@ namespace Server {
     /**
      * @brief Runtime statistics.
      */
-    class Stats {
+    class Stats
+    {
         public:
             /** @name Core */ /**@{*/
             const void Delete();

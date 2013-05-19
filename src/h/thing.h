@@ -29,7 +29,8 @@ using namespace std;
 /**
  * @brief A generic "thing": creature, character, room, object, etc.
  */
-class Thing {
+class Thing
+{
     public:
         /** @name Core */ /**@{*/
         const bool AddThing( Thing* thing );

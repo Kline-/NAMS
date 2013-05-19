@@ -29,7 +29,8 @@ using namespace std;
 /**
  * @brief Functions and interfaces that are common to both SocketClient and SocketServer.
  */
-class Socket {
+class Socket
+{
     public:
         /** @name Core */ /**@{*/
         /**

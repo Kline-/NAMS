@@ -29,7 +29,8 @@ using namespace std;
 /**
  * @brief Actions that execute after a specified delay.
  */
-class Event {
+class Event
+{
     public:
         /** @name Core */ /**@{*/
         const void Delete();

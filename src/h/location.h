@@ -31,7 +31,8 @@ using namespace std;
 /**
  * @brief A physical location within the game world.
  */
-class Location : public Thing {
+class Location : public Thing
+{
     public:
         /** @name Core */ /**@{*/
         const void Delete();

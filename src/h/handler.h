@@ -29,7 +29,8 @@ using namespace std;
 /**
  * @brief The Handler namespace contains process control functions.
  */
-namespace Handler {
+namespace Handler
+{
     /** @name Core */ /**@{*/
     Character* FindCharacter( const string& name, const uint_t& type );
     Command* FindCommand( const string& name );

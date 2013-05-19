@@ -29,7 +29,8 @@ using namespace std;
 /**
  * @brief The Telopt namespace contains telnet option negotiation functions.
  */
-namespace Telopt {
+namespace Telopt
+{
     /** @name Core */ /**@{*/
     static const string opt_telopt_esc = "\e";
     const bool InitialNegotiation( SocketClient* client );

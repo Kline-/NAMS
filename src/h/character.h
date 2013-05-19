@@ -31,7 +31,8 @@ using namespace std;
 /**
  * @brief An actor within the game world.
  */
-class Character : public Thing {
+class Character : public Thing
+{
     public:
         /** @name Core */ /**@{*/
         const void Delete();

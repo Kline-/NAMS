@@ -31,11 +31,13 @@ using namespace std;
 /**
  * @brief SocketClient extends the Socket class to implement remote-host socket functions.
  */
-class SocketClient : public Socket {
+class SocketClient : public Socket
+{
     /**
      * @brief Remote terminal information and configuration.
      */
-    class TermInfo {
+    class TermInfo
+    {
         public:
             /** @name Core */ /**@{*/
             /**@}*/
