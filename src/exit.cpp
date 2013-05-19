@@ -38,17 +38,139 @@ const void Exit::Delete()
 
 /**
  * @brief Create a new exit.
+ * @param[in] location The owning location associated to the Exit.
  * @retval false Returned if a new Location was successfully created or loaded.
  * @retval true Returned if a new Location was unable to be created.
  */
-const bool Exit::New()
+const bool Exit::New( Location* location )
 {
+    UFLAGS_DE( flags );
+
+    if ( location == NULL )
+    {
+        LOGSTR( flags, "Exit::New()-> called with NULL location" );
+        return false;
+    }
+
+    m_location = location;
+
+    return true;
+}
+
+/**
+ * @brief Serialize the exit data.
+ * @retval string A string containing the serialized data.
+ */
+const string Exit::Serialize() const
+{
+    stringstream output;
+
+    output << Utils::MakePair( "file", m_file );
+    output << Utils::MakePair( "name", m_name );
+
+    return output.str();
+}
+
+/**
+ * @brief Unserialize the exit data.
+ * @param[in] input The serialized data to use.
+ * @retval false Returned if there was an error unserializing the data.
+ * @retval true Returned if the data was successfully unserialized.
+ */
+const bool Exit::Unserialize( const string& input )
+{
+    UFLAGS_DE( flags );
+    string arg, value;
+    pair<string,string> item;
+    bool found = false;
+
+    value = input;
+
+    while ( !value.empty() )
+    {
+        found = false;
+        arg = Utils::Argument( value, "} " );
+        item = Utils::ReadPair( arg );
+
+        Utils::KeySet( true, found, item.first, "file", item.second, m_file );
+        Utils::KeySet( true, found, item.first, "name", item.second, m_name );
+
+        if ( !found )
+            LOGFMT( flags, "Exit::Unserialize()-> key not found: %s", CSTR( item.first ) );
+    }
+
     return true;
 }
 
 /* Query */
+/**
+ * @brief Returns the destination that this Exit leads to.
+ * @retval Location* A pointer to the Location that this Exit leads to.
+ */
+Location* Exit::gDestination() const
+{
+    return m_destination;
+}
+
+/**
+ * @brief Returns the Location that owns the Exit.
+ * @retval Location* A pointer to the Location which owns the exit.
+ */
+Location* Exit::gLocation() const
+{
+    return m_location;
+}
+
+/**
+ * @brief Returns the name of the Exit.
+ * @retval string A string containing the name of the Exit.
+ */
+const string Exit::gName() const
+{
+    return m_name;
+}
 
 /* Manipulate */
+/**
+ * @brief Sets the target destination of this Exit.
+ * @param[in] location The target location this Exit should lead to.
+ * @retval false Returned if there was an error setting the destination.
+ * @retval true Returned if the destination was successfully set.
+ */
+const bool Exit::sDestination( Location* location )
+{
+    UFLAGS_DE( flags );
+
+    if ( location == NULL )
+    {
+        LOGSTR( flags, "Exit::sDestination()-> called with NULL location" );
+        return false;
+    }
+
+    m_destination = location;
+
+    return true;
+}
+/**
+ * @brief Sets the name of the Exit.
+ * @param[in] name A string with the name to be set.
+ * @retval false Returned if there was an error setting the name.
+ * @retval true Returned if the name was successfully set.
+ */
+const bool Exit::sName( const string& name )
+{
+    UFLAGS_DE( flags );
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Exit::sName()-> called with empty name" );
+        return false;
+    }
+
+    m_name = name;
+
+    return true;
+}
 
 /* Internal */
 /**
@@ -56,6 +178,11 @@ const bool Exit::New()
  */
 Exit::Exit()
 {
+    m_destination = NULL;
+    m_file.clear();
+    m_location = NULL;
+    m_name.clear();
+
     return;
 }
 

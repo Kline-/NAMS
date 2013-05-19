@@ -207,6 +207,10 @@ namespace Utils
         string key( keyd );
         string val( valu );
 
+        // Someone else already found a value this loop
+        if ( found )
+            return;
+
         if ( igncase )
         {
             transform( key.begin(), key.end(), key.begin(), ::tolower );
@@ -241,6 +245,10 @@ namespace Utils
         string key( keyd );
         string val( valu );
         L maxt;
+
+        // Someone else already found a value this loop
+        if ( found )
+            return;
 
         if ( igncase )
         {

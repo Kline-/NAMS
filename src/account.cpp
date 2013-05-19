@@ -262,10 +262,10 @@ const bool Account::Unserialize()
             Utils::KeySet( true, found, key, "security", value, m_security, MAX_ACT_SECURITY, maxb );
 
             if ( !found )
-                LOGFMT( flags, "Account::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+                LOGFMT( flags, "Account::Unserialize()-> key not found: %s", CSTR( key ) );
 
             if ( maxb )
-                LOGFMT( finfo, "Account::Unserialize()->Utils::KeySet()-> account %s, key %s has illegal value %s", CSTR( m_name ), CSTR( key ), CSTR( value ) );
+                LOGFMT( finfo, "Account::Unserialize()-> account %s, key %s has illegal value %s", CSTR( m_name ), CSTR( key ), CSTR( value ) );
 
             break;
         }

@@ -181,10 +181,10 @@ const bool Character::Unserialize()
             Utils::KeySet( true, found, key, "sex", value, m_sex, MAX_CHR_SEX, maxb );
 
             if ( !found )
-                LOGFMT( flags, "Character::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+                LOGFMT( flags, "Character::Unserialize()-> key not found: %s", CSTR( key ) );
 
             if ( maxb )
-                LOGFMT( finfo, "Character::Unserialize()->Utils::KeySet()-> character id %s, key %s has illegal value %s", CSTR( gId() ), CSTR( key ), CSTR( value ) );
+                LOGFMT( finfo, "Character::Unserialize()-> character id %s, key %s has illegal value %s", CSTR( gId() ), CSTR( key ), CSTR( value ) );
 
             break;
         }

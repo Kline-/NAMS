@@ -34,13 +34,21 @@ class Exit
     public:
         /** @name Core */ /**@{*/
         const void Delete();
-        const bool New();
+        const bool New( Location* location );
+        const string Serialize() const;
+        const bool Unserialize( const string& input );
         /**@}*/
 
         /** @name Query */ /**@{*/
+        Location* gDestination() const;
+        Location* gLocation() const;
+        const string gName() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sDestination( Location* location );
+        const bool sFile( const string& file );
+        const bool sName( const string& name );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -49,6 +57,10 @@ class Exit
         /**@}*/
 
     private:
+        Location* m_destination; /**< The Location this Exit leads to. */
+        string m_file; /**< The filename of the destination. */
+        Location* m_location; /**< The owning Location. */
+        string m_name; /**< The name of the exit. */
 };
 
 #endif

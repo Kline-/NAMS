@@ -24,6 +24,7 @@
 #include "h/includes.h"
 #include "h/location.h"
 
+#include "h/exit.h"
 #include "h/list.h"
 
 /* Core */
@@ -33,6 +34,17 @@
  */
 const void Location::Delete()
 {
+    Exit* exit = NULL;
+    ITER( list, Exit*, ei );
+
+    for ( ei = m_exits.begin(); ei != m_exits.end(); )
+    {
+        exit = *ei;
+
+        ei = m_exits.erase( ei );
+        exit->Delete();
+    }
+
     location_list.erase( find( location_list.begin(), location_list.end(), this ) );
     delete this;
 
@@ -74,6 +86,8 @@ const bool Location::Serialize() const
     string value;
     stringstream line;
     uint_t i = uintmin_t;
+    CITER( list, Exit*, ei );
+    Exit* exit = NULL;
     string file( Utils::FileExt( gId(), CFG_DAT_FILE_LOC_EXT ) );
 
     Utils::FileOpen( ofs, file );
@@ -96,6 +110,14 @@ const bool Location::Serialize() const
                 ofs << Utils::WriteString( gDescription( i ) ) << endl;
             else
                 ofs << endl;
+        }
+    }
+    KEYLISTLOOP( ofs, "exit", i ); /** @todo Need to find a nicer way to do this */
+    {
+        for ( ei = m_exits.begin(); ei != m_exits.end(); ei++ )
+        {
+            exit = *ei;
+            ofs << "exit = " << exit->Serialize() << endl;
         }
     }
     KEY( ofs, "name", gName() );
@@ -154,6 +176,29 @@ const bool Location::Unserialize()
                 found = true;
                 sDescription( Utils::ReadString( ifs ), Utils::ReadIndex( key ) );
             }
+            if ( key == "exit" )
+            {
+                Exit* exit = NULL;
+
+                found = true;
+                exit = new Exit();
+
+                if ( !exit->New( this ) )
+                {
+                    LOGSTR( flags, "Location::Unserialize()->Exit::New()-> returned false" );
+                    delete exit;
+                }
+                else
+                {
+                    if ( !exit->Unserialize( value ) )
+                    {
+                        LOGSTR( flags, "Location::Unserialize()->Exit::Unserialize()-> returned false" );
+                        delete exit;
+                    }
+                    else
+                        m_exits.push_back( exit );
+                }
+            }
             if ( key == "name" )
             {
                 found = true;
@@ -162,10 +207,10 @@ const bool Location::Unserialize()
             Utils::KeySet( true, found, key, "zone", value, m_zone );
 
             if ( !found )
-                LOGFMT( flags, "Location::Unserialize()->Utils::KeySet()-> key not found: %s", CSTR( key ) );
+                LOGFMT( flags, "Location::Unserialize()-> key not found: %s", CSTR( key ) );
 
             if ( maxb )
-                LOGFMT( finfo, "Location::Unserialize()->Utils::KeySet()-> location id %s, key %s has illegal value %s", CSTR( gId() ), CSTR( key ), CSTR( value ) );
+                LOGFMT( finfo, "Location::Unserialize()-> location id %s, key %s has illegal value %s", CSTR( gId() ), CSTR( key ), CSTR( value ) );
 
             break;
         }
@@ -186,6 +231,7 @@ const bool Location::Unserialize()
  */
 Location::Location()
 {
+    m_exits.clear();
     m_file.clear();
     m_zone.clear();
 
