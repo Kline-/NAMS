@@ -47,6 +47,7 @@ class Location : public Thing
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const void RemoveExit( Exit* exit );
         /**@}*/
 
         /** @name Internal */ /**@{*/

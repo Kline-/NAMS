@@ -72,12 +72,20 @@ const void Location::Interpret( const uint_t& security, const string& cmd, const
 const bool Location::New( const string& file )
 {
     UFLAGS_DE( flags );
+    Location* location = NULL;
 
     m_file = file;
 
     if ( !Unserialize() )
     {
         LOGFMT( flags, "Location::New()->Location::Unserialize()-> returned false for file %s", CSTR( file ) );
+        return false;
+    }
+
+    // Check for duplicate Location ids
+    if ( ( location = Handler::FindLocation( gId(), HANDLER_FIND_ID ) ) != NULL )
+    {
+        LOGFMT( flags, "Location::New()->Handler::FindLocation()-> didn't return NULL, location %s has duplicate id of %s", CSTR( m_file ), CSTR( gId() ) );
         return false;
     }
 
@@ -115,14 +123,7 @@ const bool Location::Serialize() const
     KEYLISTLOOP( ofs, "description", i ); /** @todo Need to find a nicer way to do this */
     {
         for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
-        {
-            ofs << "description[" << i << "]" << " = ";
-
-            if ( !gDescription( i ).empty() )
-                ofs << Utils::WriteString( gDescription( i ) ) << endl;
-            else
-                ofs << endl;
-        }
+            ofs << "description[" << i << "]" << " = " << Utils::WriteString( gDescription( i ) ) << endl;
     }
     KEYLISTLOOP( ofs, "exit", i ); /** @todo Need to find a nicer way to do this */
     {
@@ -244,6 +245,26 @@ list<Exit*> Location::gExits() const
 }
 
 /* Manipulate */
+/**
+ * @brief Removes an Exit associated with this Location.
+ * @param[in] exit The Exit to be removed.
+ * @retval void
+ */
+const void Location::RemoveExit( Exit* exit )
+{
+    UFLAGS_DE( flags );
+
+    if ( exit == NULL )
+    {
+        LOGSTR( flags, "Location::RemoveExit()-> called with NULL exit" );
+        return;
+    }
+
+    m_exits.erase( find( m_exits.begin(), m_exits.end(), exit ) );
+    exit->Delete();
+
+    return;
+}
 
 /* Internal */
 /**

@@ -171,7 +171,10 @@ const void Server::LinkExits()
             exit = *ei;
 
             if ( ( destination = Handler::FindLocation( exit->gDestId(), HANDLER_FIND_ID ) ) == NULL )
+            {
                 LOGFMT( flags, "Server::LinkExits()-> location %s has invalid exit to %s", CSTR( location->gId() ), CSTR( exit->gDestId() ) );
+                location->RemoveExit( exit );
+            }
             else
             {
                 count++;
