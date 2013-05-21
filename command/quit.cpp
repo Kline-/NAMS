@@ -18,6 +18,8 @@
 
 #include "pincludes.h"
 
+#include "account.h"
+
 class Quit : public Plugin {
     public:
         virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
@@ -30,8 +32,12 @@ class Quit : public Plugin {
 const void Quit::Run( Character* character, const string& cmd, const string& arg ) const
 {
     if ( character )
+    {
         if ( character->gAccount() == NULL )
             character->Delete();
+        else
+            character->gAccount()->gClient()->Quit();
+    }
 
     return;
 }

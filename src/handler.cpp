@@ -1090,7 +1090,7 @@ const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& c
 {
     UFLAGS_DE( flags );
     uint_t i = uintmin_t, val = uintmin_t;
-    stringstream name;
+    stringstream name, selected;
 
     if ( client == NULL )
     {
@@ -1112,6 +1112,7 @@ const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& c
         client->Send( "Account Menu > Load an existing character" CRLF CFG_STR_SEL_OPTIONS );
         for ( i = 0; i < client->gAccount()->gCharacters().size(); i++ )
         {
+            name.str( "" );
             name << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[i];
 
             if ( CheckPlaying( name.str() ) )
@@ -1130,6 +1131,22 @@ const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& c
     // Handle 1 through CFG_ACT_CHARACTER_MAX dynamically
     if ( val >= 1 && val <= CFG_ACT_CHARACTER_MAX )
     {
+        // Only allow a re-login to the currently playing character
+        for ( i = 0; i < client->gAccount()->gCharacters().size(); i++ )
+        {
+            name.str( "" );
+            selected.str( "" );
+            name << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[i];
+            selected << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[val-1];
+
+            if ( CheckPlaying( name.str() ) && name.str() != selected.str() )
+            {
+                client->Send( CFG_STR_SEL_PLAYING );
+                client->Send( CFG_STR_SEL_PROMPT );
+                return;
+            }
+        }
+
         client->sLogin( SOC_LOGIN_CHARACTER, client->gAccount()->gCharacters()[val-1] );
         client->sState( SOC_STATE_LOAD_CHARACTER );
         LoginHandler( client );

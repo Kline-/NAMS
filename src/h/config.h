@@ -669,6 +669,13 @@
 #define CFG_STR_SEL_OPTIONS "Please select one of the following options:" CRLF
 
 /**
+ * @def CFG_STR_SEL_PLAYING
+ * @brief String sent when attempting to load a character with another already in-game.
+ * @par Default: "You already have another character who is currently playing." CRLF
+ */
+#define CFG_STR_SEL_PLAYING "You already have another character who is currently playing." CRLF
+
+/**
  * @def CFG_STR_SEL_PROMPT
  * @brief String send to the client to prompt an input selection.
  * @par Default: "Option: "
