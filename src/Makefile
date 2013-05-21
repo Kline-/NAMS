@@ -53,15 +53,14 @@ help:
 	echo -e "    plugins  Compiles all available plugins.\n"
 
 $(PROG): $(O_FILES)
+	$(MAKE) depend
 	$(RM) $(PROG)
 	$(CXX) -o $(PROG) $(O_FILES) $(L_FLAGS)
 	echo "Finished building $(VERS) ($(MODE))."
-	$(MAKE) depend
 	chmod +x $(PROG)
 
 cbuild:
 	$(MAKE) clean
-	$(MAKE) depend
 	$(MAKE) $(PROG)
 	$(MAKE) plugins
 
