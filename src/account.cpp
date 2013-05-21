@@ -514,7 +514,7 @@ Account::Account()
         m_logins[i].clear();
     m_name.clear();
     m_password.clear();
-    m_security = ACT_SECURITY_NONE;
+    m_security = ACT_SECURITY_AUTH_USER;
 
     return;
 }

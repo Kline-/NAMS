@@ -38,6 +38,7 @@ class Thing
         virtual const void Interpret( const uint_t& security, const string& cmd, const string& args ) = 0;
         const bool Move( Location* location );
         const bool RemoveThing( Thing* thing );
+        virtual const void Send( const string& msg ) = 0;
         virtual const bool Serialize() const = 0;
         virtual const bool Unserialize() = 0;
         /**@}*/
