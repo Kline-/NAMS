@@ -67,8 +67,7 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
     {
         if ( !Move( exit->gDestination() ) )
             Send( CFG_STR_CMD_INVALID );
-
-        if ( ( command = Handler::FindCommand( "look" ) ) != NULL ) /** @todo Make this configurable per-account/character */
+        else if ( ( command = Handler::FindCommand( "look" ) ) != NULL ) /** @todo Make this configurable per-account/character */
             command->Run( this );
     }
     else // Give up
@@ -146,14 +145,7 @@ const bool Character::Serialize() const
     KEYLISTLOOP( ofs, "description", i ); /** @todo Need to find a nicer way to do this */
     {
         for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
-        {
-            ofs << "description[" << i << "]" << " = ";
-
-            if ( !gDescription( i ).empty() )
-                ofs << Utils::WriteString( gDescription( i ) ) << endl;
-            else
-                ofs << endl;
-        }
+            ofs << "description[" << i << "]" << " = " << Utils::WriteString( gDescription( i ) ) << endl;
     }
     KEY( ofs, "name", gName() );
     KEY( ofs, "sex", m_sex );

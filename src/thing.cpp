@@ -110,6 +110,15 @@ const bool Thing::RemoveThing( Thing* thing )
 
 /* Query */
 /**
+ * @brief Returns the contents of this Thing.
+ * @retval vector<Thing*> The contents of this Thing.
+ */
+const vector<Thing*> Thing::gContents() const
+{
+    return m_contents;
+}
+
+/**
  * @brief Returns the description of the Thing from #THING_DESCRIPTION.
  * @param[in] type The specific description to retrieve.
  * @retval string The description referred to by type.

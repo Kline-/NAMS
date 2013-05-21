@@ -43,6 +43,7 @@ class Thing
         /**@}*/
 
         /** @name Query */ /**@{*/
+        const vector<Thing*> gContents() const;
         const string gDescription( const uint_t& type ) const;
         const string gId() const;
         Location* gLocation() const;

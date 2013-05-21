@@ -37,6 +37,9 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
     list<Exit*> loc_exits;
     CITER( list, Exit*, ei );
     Exit* exit = NULL;
+    vector<Thing*> loc_contents;
+    CITER( vector, Thing*, ti );
+    Thing* thing = NULL;
 
     if ( character )
     {
@@ -61,9 +64,28 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
                 character->Send( "]" CRLF );
             }
 
-            character->Send( location->gName() );
-            character->Send( CRLF );
+            character->Send( location->gName() + CRLF );
             character->Send( location->gDescription( THING_DESCRIPTION_LONG ) );
+
+            //Contents
+            loc_contents = location->gContents();
+
+            if ( !loc_contents.empty() )
+            {
+                // We are not alone
+                if ( loc_contents.size() > 1 )
+                    character->Send( CRLF );
+
+                for ( ti = loc_contents.begin(); ti != loc_contents.end(); ti++ )
+                {
+                    thing = *ti;
+
+                    if ( thing == character )
+                        continue;
+                    else
+                        character->Send( thing->gName() + " is standing here." + CRLF );
+                }
+            }
         }
     }
 
