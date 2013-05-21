@@ -1039,6 +1039,7 @@ const void Handler::CharacterDeleteMenuMain( SocketClient* client, const string&
         client->Send( "Account Menu > Delete an existing character" CRLF CFG_STR_SEL_OPTIONS );
         for ( i = 0; i < client->gAccount()->gCharacters().size(); i++ )
         {
+            name.str( "" );
             name << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[i];
 
             if ( !CheckPlaying( name.str() ) )
