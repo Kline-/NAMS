@@ -39,7 +39,8 @@
  */
 const void Character::Delete()
 {
-    g_global->m_next_character = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
+    if ( find( character_list.begin(), character_list.end(), this ) != character_list.end() )
+        g_global->m_next_character = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
 
     if ( m_account != NULL )
         m_account->sCharacter( NULL );

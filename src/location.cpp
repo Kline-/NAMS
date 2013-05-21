@@ -37,6 +37,9 @@ const void Location::Delete()
     Exit* exit = NULL;
     ITER( list, Exit*, ei );
 
+    if ( find( location_list.begin(), location_list.end(), this ) != location_list.end() )
+        location_list.erase( find( location_list.begin(), location_list.end(), this ) );
+
     for ( ei = m_exits.begin(); ei != m_exits.end(); )
     {
         exit = *ei;
@@ -44,8 +47,6 @@ const void Location::Delete()
         ei = m_exits.erase( ei );
         exit->Delete();
     }
-
-    location_list.erase( find( location_list.begin(), location_list.end(), this ) );
 
     delete this;
 

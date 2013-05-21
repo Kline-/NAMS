@@ -44,13 +44,14 @@ const void SocketClient::Delete()
     if ( !Valid() )
         return;
 
+    if ( find( socket_client_list.begin(), socket_client_list.end(), this ) != socket_client_list.end() )
+        g_global->m_next_socket_client = socket_client_list.erase( find( socket_client_list.begin(), socket_client_list.end(), this ) );
+
     // Force anything out of the buffer
     Send();
 
     if ( !g_stats->sSocketClose( g_stats->gSocketClose() + 1 ) )
         LOGFMT( flags, "SocketClient::Disconnect()->Server::Stats::sSocketClose()-> value %lu returned false", g_stats->gSocketClose() + 1 );
-
-    g_global->m_next_socket_client = socket_client_list.erase( find( socket_client_list.begin(), socket_client_list.end(), this ) );
 
     if ( m_account != NULL )
         m_account->Delete();

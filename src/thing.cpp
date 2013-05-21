@@ -103,7 +103,8 @@ const bool Thing::RemoveThing( Thing* thing )
 
     /** @todo: Logic to check debuffs, restrictions, etc. */
 
-    m_contents.erase( find( m_contents.begin(), m_contents.end(), thing ) );
+    if ( find ( m_contents.begin(), m_contents.end(), thing ) != m_contents.end() )
+        m_contents.erase( find( m_contents.begin(), m_contents.end(), thing ) );
 
     return true;
 }
