@@ -208,23 +208,7 @@ const bool SocketClient::ProcessCommand()
         }
         else
             m_account->gCharacter()->Interpret( security, cmd.first, cmd.second );
-
     }
-/*
-    // Redirect if not fully logged in yet
-    if ( ( command = Handler::FindCommand( cmd.first ) ) != NULL )
-    {
-        if ( command->Authorized( security ) )
-            command->Run( this, cmd.first, cmd.second );
-        else if ( m_state < SOC_STATE_PLAYING )
-            Handler::LoginHandler( this, cmd.first, cmd.second );
-        else
-            Send( CFG_STR_CMD_INVALID );
-    }
-    else if ( m_state < SOC_STATE_PLAYING )
-        Handler::LoginHandler( this, cmd.first, cmd.second );
-    else
-        Send( CFG_STR_CMD_INVALID );*/
 
     return true;
 }

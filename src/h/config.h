@@ -620,6 +620,13 @@
 #define CFG_STR_GAME_ENTER_ERROR "An error occurred while attempting to enter the game world." CRLF
 
 /**
+ * @def CFG_STR_GAME_ENTER_REBOOT
+ * @brief String sent when a Character re-enters the game after a reboot.
+ * @par Default: "The world has changed..." CRLF
+ */
+#define CFG_STR_GAME_ENTER_REBOOT "The world has changed..." CRLF
+
+/**
  * @def CFG_STR_IDLE
  * @brief String sent on disconnecting an idle socket.
  * @par Default: CRLF "Idle limit reached. Goodbye." CRLF

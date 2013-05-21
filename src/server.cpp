@@ -567,7 +567,7 @@ const void Server::ProcessInput()
 const void Server::RebootRecovery( const bool& reboot )
 {
     ifstream recovery;
-    string key, value, line;
+    string key, value, line, silent;
     SocketClient *client = NULL;
     Account *account = NULL;
     Character *character = NULL;
@@ -583,38 +583,41 @@ const void Server::RebootRecovery( const bool& reboot )
                 cout << "Error reading line " << line << endl;
                 continue;
             }
-            cout << "key={" << key << "} && value={" << value << "}" << endl;
-            if ( key == "desc" )
+
+            if ( key == "slnt" )
+                silent = value;
+            else if ( key == "desc" )
             {
                 client = new SocketClient();
-                client->New( atoi( CSTR( value ) ) );
+                client->New( atoi( CSTR( value ) ), true );
             }
-            if ( key == "port" )
+            else if ( key == "port" )
                 client->sPort( atoi( CSTR( value ) ) );
-            if ( key == "host" )
+            else if ( key == "host" )
                 client->sHostname( value );
-            if ( key == "recv" )
+            else if ( key == "recv" )
                 client->aBytesRecvd( atoi( CSTR( value ) ) );
-            if ( key == "sent" )
+            else if ( key == "sent" )
                 client->aBytesSent( atoi( CSTR( value ) ) );
-            if ( key == "idle" )
+            else if ( key == "idle" )
                 client->sIdle( atoi( CSTR( value ) ) );
-            if ( key == "stat" )
+            else if ( key == "stat" )
                 client->sState( atoi( CSTR( value ) ) );
-            if ( key == "acct" )
+            else if ( key == "acct" )
                 client->sLogin( SOC_LOGIN_NAME, value );
-            if ( key == "pasw" )
+            else if ( key == "pasw" )
             {
                 account = new Account();
                 client->sLogin( SOC_LOGIN_PASSWORD, value );
                 account->New( client, true );
             }
-            if ( key == "char" )
+            else if ( key == "char" )
             {
                 character = new Character();
                 client->gAccount()->sCharacter( character );
                 character->sAccount( client->gAccount() );
                 character->New( client->gAccount()->gName() + "." + value + "." + CFG_DAT_FILE_PLR_EXT, true );
+                Handler::EnterGame( client, "reboot", silent );
             }
         }
 

@@ -1216,8 +1216,16 @@ const void Handler::EnterGame( SocketClient* client, const string& cmd, const st
 
     if ( client->gAccount()->gCharacter()->Move( loc ) )
     {
-        client->sState( SOC_STATE_PLAYING );
-        client->Send( CFG_STR_GAME_ENTER );
+        if ( cmd == "reboot" )
+        {
+            if ( args != "silent" )
+                client->Send( CFG_STR_GAME_ENTER_REBOOT );
+        }
+        else
+        {
+            client->sState( SOC_STATE_PLAYING );
+            client->Send( CFG_STR_GAME_ENTER );
+        }
     }
     else
     {

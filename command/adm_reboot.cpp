@@ -45,6 +45,10 @@ const void AdmReboot::Run( Character* character, const string& cmd, const string
         socket_client = *si;
         g_global->m_next_socket_client = ++si;
 
+        if ( arg == "silent" )
+            ofs << "slnt = silent" << endl;
+        else
+            ofs << "slnt = " << endl;
         ofs << "desc = " << socket_client->gDescriptor() << endl;
         ofs << "port = " << socket_client->gPort() << endl;
         ofs << "host = " << socket_client->gHostname() << endl;
@@ -58,7 +62,10 @@ const void AdmReboot::Run( Character* character, const string& cmd, const string
             ofs << "pasw = " << socket_client->gLogin( SOC_LOGIN_PASSWORD ) << endl;
         }
         if ( socket_client->gAccount()->gCharacter() != NULL )
+        {
+            socket_client->gAccount()->gCharacter()->Serialize();
             ofs << "char = " << socket_client->gAccount()->gCharacter()->gName() << endl;
+        }
     }
     Utils::FileClose( ofs );
 
