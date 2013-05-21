@@ -76,6 +76,7 @@ const void Command::Delete()
         else
             ++mi;
     }
+
     delete this;
 
    return;

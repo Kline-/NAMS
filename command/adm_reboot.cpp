@@ -18,6 +18,7 @@
 
 #include "pincludes.h"
 
+#include "account.h"
 #include "list.h"
 #include "server.h"
 #include "socketserver.h"
@@ -51,6 +52,13 @@ const void AdmReboot::Run( Character* character, const string& cmd, const string
         ofs << "sent = " << socket_client->gBytesSent() << endl;
         ofs << "idle = " << socket_client->gIdle() << endl;
         ofs << "stat = " << socket_client->gState() << endl;
+        if ( socket_client->gAccount() != NULL )
+        {
+            ofs << "acct = " << socket_client->gLogin( SOC_LOGIN_NAME ) << endl;
+            ofs << "pasw = " << socket_client->gLogin( SOC_LOGIN_PASSWORD ) << endl;
+        }
+        if ( socket_client->gAccount()->gCharacter() != NULL )
+            ofs << "char = " << socket_client->gAccount()->gCharacter()->gName() << endl;
     }
     Utils::FileClose( ofs );
 

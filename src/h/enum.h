@@ -224,7 +224,8 @@ enum SOC_LOGIN
     SOC_LOGIN_NAME      = 0, /**< Name received from the socket during the login process. */
     SOC_LOGIN_PASSWORD  = 1, /**< Password received from the socket during the login process. */
     SOC_LOGIN_CHARACTER = 2, /**< Character pending loading or deletion. */
-    MAX_SOC_LOGIN       = 3  /**< Safety limit for looping. */
+    SOC_LOGIN_LOCATION  = 3, /**< Previously saved location to load the Character into. */
+    MAX_SOC_LOGIN       = 4  /**< Safety limit for looping. */
 };
 
 /**

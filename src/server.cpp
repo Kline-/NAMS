@@ -232,7 +232,7 @@ const bool Server::LoadCommands()
             if ( !cmd->New( mi->second ) )
             {
                 LOGFMT( flags, "Server::LoadCommands()->Command::New()-> command %s returned false", CSTR( mi->second ) );
-                delete cmd;
+                cmd->Delete();
             }
         }
     }
@@ -280,7 +280,7 @@ const bool Server::LoadLocations()
             if ( !loc->New( mi->second ) )
             {
                 LOGFMT( flags, "Server::LoadLocations()->Location::New()-> location %s returned false", CSTR( mi->second ) );
-                delete loc;
+                loc->Delete();
             }
         }
     }
@@ -569,6 +569,8 @@ const void Server::RebootRecovery( const bool& reboot )
     ifstream recovery;
     string key, value, line;
     SocketClient *client = NULL;
+    Account *account = NULL;
+    Character *character = NULL;
 
     if ( reboot )
     {
@@ -582,23 +584,38 @@ const void Server::RebootRecovery( const bool& reboot )
                 continue;
             }
             cout << "key={" << key << "} && value={" << value << "}" << endl;
-            if ( key.compare( "desc" ) == 0 )
+            if ( key == "desc" )
             {
                 client = new SocketClient();
                 client->New( atoi( CSTR( value ) ) );
             }
-            if ( key.compare( "port" ) == 0 )
+            if ( key == "port" )
                 client->sPort( atoi( CSTR( value ) ) );
-            if ( key.compare( "host" ) == 0 )
+            if ( key == "host" )
                 client->sHostname( value );
-            if ( key.compare( "recv" ) == 0 )
+            if ( key == "recv" )
                 client->aBytesRecvd( atoi( CSTR( value ) ) );
-            if ( key.compare( "sent" ) == 0 )
+            if ( key == "sent" )
                 client->aBytesSent( atoi( CSTR( value ) ) );
-            if ( key.compare( "idle" ) == 0 )
+            if ( key == "idle" )
                 client->sIdle( atoi( CSTR( value ) ) );
-            if ( key.compare( "stat" ) == 0 )
+            if ( key == "stat" )
                 client->sState( atoi( CSTR( value ) ) );
+            if ( key == "acct" )
+                client->sLogin( SOC_LOGIN_NAME, value );
+            if ( key == "pasw" )
+            {
+                account = new Account();
+                client->sLogin( SOC_LOGIN_PASSWORD, value );
+                account->New( client, true );
+            }
+            if ( key == "char" )
+            {
+                character = new Character();
+                client->gAccount()->sCharacter( character );
+                character->sAccount( client->gAccount() );
+                character->New( client->gAccount()->gName() + "." + value + "." + CFG_DAT_FILE_PLR_EXT, true );
+            }
         }
 
         recovery.close();
@@ -635,7 +652,7 @@ const bool Server::ReloadCommand( const string& name )
     if ( !command->New( file ) )
     {
         LOGFMT( flags, "Server::ReloadCommand()->Command::New()-> command %s returned false", CSTR( file ) );
-        delete command;
+        command->Delete();
         return false;
     }
 
@@ -732,9 +749,6 @@ const void Server::Startup( const sint_t& desc )
         Shutdown( EXIT_FAILURE );
     }
 
-    // Cleanup any leftovers from a hard crash mid-write
-    Utils::CleanupTemp( g_stats->m_dir_close, g_stats->m_dir_open );
-
     if ( !g_config->Unserialize() )
     {
         LOGSTR( flags, "Server::Config::Unserialize()-> returned false" );
@@ -754,6 +768,9 @@ const void Server::Startup( const sint_t& desc )
 
     LinkExits();
     RebootRecovery( reboot );
+
+    // Cleanup any leftovers from a hard crash mid-write
+    Utils::CleanupTemp( g_stats->m_dir_close, g_stats->m_dir_open );
 
     LOGFMT( 0, "%s is ready on port %lu.", CFG_STR_VERSION, g_global->m_port );
     LOGSTR( 0, "Last compiled on " __DATE__ " at " __TIME__ "." );

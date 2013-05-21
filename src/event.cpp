@@ -35,6 +35,7 @@
 const void Event::Delete()
 {
     event_list.remove( this );
+
     delete this;
 
     return;

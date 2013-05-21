@@ -46,6 +46,7 @@ const void Location::Delete()
     }
 
     location_list.erase( find( location_list.begin(), location_list.end(), this ) );
+
     delete this;
 
     return;
@@ -269,14 +270,14 @@ const bool Location::Unserialize()
                 if ( !exit->New( this ) )
                 {
                     LOGSTR( flags, "Location::Unserialize()->Exit::New()-> returned false" );
-                    delete exit;
+                    exit->Delete();
                 }
                 else
                 {
                     if ( !exit->Unserialize( value ) )
                     {
                         LOGSTR( flags, "Location::Unserialize()->Exit::Unserialize()-> returned false" );
-                        delete exit;
+                        exit->Delete();
                     }
                     else
                         m_exits.push_back( exit );

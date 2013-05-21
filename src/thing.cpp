@@ -252,5 +252,12 @@ Thing::Thing()
  */
 Thing::~Thing()
 {
+    if ( !g_global->m_shutdown )
+    {
+        // To properly handle quit
+        if ( m_location != NULL )
+           m_location->RemoveThing( this );
+    }
+
     return;
 }

@@ -51,6 +51,10 @@ const void SocketClient::Delete()
         LOGFMT( flags, "SocketClient::Disconnect()->Server::Stats::sSocketClose()-> value %lu returned false", g_stats->gSocketClose() + 1 );
 
     g_global->m_next_socket_client = socket_client_list.erase( find( socket_client_list.begin(), socket_client_list.end(), this ) );
+
+    if ( m_account != NULL )
+        m_account->Delete();
+
     delete this;
 
     return;
@@ -309,6 +313,12 @@ const void SocketClient::Quit()
     {
         case SOC_STATE_DISC_LINKDEAD:   Send( CFG_STR_QUIT_LINKDEAD );  break;
         case SOC_STATE_PLAYING:         Send( CFG_STR_QUIT_PLAYING );   break;
+    }
+
+    if ( m_account )
+    {
+        if ( m_account->gCharacter() )
+            m_account->gCharacter()->Serialize();
     }
 
     LOGFMT( flags, "SocketClient::Quit()-> %s:%lu (%lu)", CSTR( gHostname() ), gPort(), gDescriptor() );
@@ -843,9 +853,6 @@ SocketClient::SocketClient()
  */
 SocketClient::~SocketClient()
 {
-    if ( m_account != NULL )
-        m_account->Delete();
-
     delete m_terminfo;
 
     return;

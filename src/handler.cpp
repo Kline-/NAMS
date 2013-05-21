@@ -1202,10 +1202,16 @@ const void Handler::EnterGame( SocketClient* client, const string& cmd, const st
         return;
     }
 
-    if ( ( loc = FindLocation( CFG_LOC_ID_START, HANDLER_FIND_ID ) ) == NULL )
+    if ( !client->gLogin( SOC_LOGIN_LOCATION ).empty() )
+        loc = FindLocation( client->gLogin( SOC_LOGIN_LOCATION ), HANDLER_FIND_ID );
+
+    if ( loc == NULL )
     {
-        LOGSTR( flags, "Handler::EnterGame()-> unable to locate CFG_LOC_ID_START" );
-        return;
+        if ( ( loc = FindLocation( CFG_LOC_ID_START, HANDLER_FIND_ID ) ) == NULL )
+        {
+            LOGSTR( flags, "Handler::EnterGame()-> unable to locate CFG_LOC_ID_START" );
+            return;
+        }
     }
 
     if ( client->gAccount()->gCharacter()->Move( loc ) )
@@ -1391,7 +1397,7 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
     // Already in the game, so lets reconnect
     if ( CheckPlaying( id.str() ) )
     {
-        delete chr;
+        chr->Delete();
 
         client->sState( SOC_STATE_RECONNECTING );
         chr = FindCharacter( id.str(), HANDLER_FIND_ID );
@@ -1402,7 +1408,7 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
     else if ( !chr->New( Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT ), true ) )
     {
         LOGFMT( flags, "Handler::LoadCharacter()->Character::New()-> returned false for character %s", CSTR( id.str() ) );
-        delete chr;
+        chr->Delete();
         return;
     }
 

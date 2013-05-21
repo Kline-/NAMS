@@ -28,6 +28,7 @@
 #include "h/account.h"
 #include "h/command.h"
 #include "h/list.h"
+#include "h/location.h"
 #include "h/socketclient.h"
 #include "h/exit.h"
 
@@ -39,6 +40,10 @@
 const void Character::Delete()
 {
     g_global->m_next_character = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
+
+    if ( m_account != NULL )
+        m_account->sCharacter( NULL );
+
     delete this;
 
     return;
@@ -147,6 +152,7 @@ const bool Character::Serialize() const
         for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
             ofs << "description[" << i << "]" << " = " << Utils::WriteString( gDescription( i ) ) << endl;
     }
+    KEY( ofs, "location", gLocation()->gId() );
     KEY( ofs, "name", gName() );
     KEY( ofs, "sex", m_sex );
 
@@ -199,6 +205,11 @@ const bool Character::Unserialize()
             {
                 found = true;
                 sDescription( Utils::ReadString( ifs ), Utils::ReadIndex( key ) );
+            }
+            if ( key == "location" )
+            {
+                found = true;
+                gAccount()->gClient()->sLogin( SOC_LOGIN_LOCATION, value );
             }
             if ( key == "name" )
             {
@@ -360,8 +371,5 @@ Character::Character()
  */
 Character::~Character()
 {
-    if ( m_account != NULL )
-        m_account->sCharacter( NULL );
-
     return;
 }
