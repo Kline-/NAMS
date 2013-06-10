@@ -48,7 +48,7 @@ const void Telopts::Run( SocketClient* client, const string& cmd, const string& 
     return;
 }
 
-Telopts::Telopts( const string& name = "telopts", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+Telopts::Telopts( const string& name = ".telopts", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
     Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_NONE );
