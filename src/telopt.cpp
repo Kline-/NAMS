@@ -45,6 +45,7 @@ const bool Telopt::InitialNegotiation( SocketClient* client )
 
     // negotiate some options here, then send the login string
     Telopt::Negotiate( client, SOC_TELOPT_ECHO, false );
+    Telopt::Negotiate( client, SOC_TELOPT_MSP, false );
 
     if ( !client->Send( CFG_STR_LOGIN ) )
     {
@@ -182,6 +183,21 @@ const void Telopt::Handshake( SocketClient* client, const char& cmd, const char&
                 Telopt::Send( client, (char)DONT, opt );
         break;
 
+        case (char)TELOPT_MSP:
+            if ( cmd == (char)DO )
+            {
+                Negotiate( client, SOC_TELOPT_MSP, true, true );
+                client->gTermInfo()->sTelopt( SOC_TELOPT_MSP, true );
+            }
+            else if ( cmd == (char)DONT )
+            {
+                Negotiate( client, SOC_TELOPT_MSP, false, client->gTermInfo()->gTelopt( SOC_TELOPT_MSP ) );
+                client->gTermInfo()->sTelopt( SOC_TELOPT_MSP, false );
+            }
+            else if ( cmd == (char)WILL )
+                Telopt::Send( client, (char)DONT, opt );
+        break;
+
         default:
             if ( cmd == (char)WILL )
                 Telopt::Send( client, DONT, opt );
@@ -190,6 +206,47 @@ const void Telopt::Handshake( SocketClient* client, const char& cmd, const char&
         break;
 
     }
+
+    return;
+}
+
+/**
+ * @brief Sends a MSP music trigger to the client. See: http://www.zuggsoft.com/zmud/msp.htm
+ * @param[in] client The client to send data to.
+ * @param[in] music The audio file to play on the client machine.
+ * @param[in] v Optional, music volume from 0-100.
+ * @param[in] l Optional, number of repeats. -1 for infinite, otherwise > 0.
+ * @param[in] c Optional, 0 to continue playing or 1 to restart.
+ * @param[in] t Optional, type to specify subdirectories.
+ * @param[in] u Optional, URL of the directory path to download the music from.
+ * @retval void
+ */
+const void Telopt::Music( SocketClient* client, const string& music, const string& v, const string& l, const string& c, const string& t, const string& u )
+{
+    UFLAGS_DE( flags );
+    string output( "!!MUSIC(" );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Telopt::Music()-> called with NULL client" );
+        return;
+    }
+
+    output += music;
+
+    if ( !v.empty() )
+        output += " V=" + v;
+    if ( !l.empty() )
+        output += " L=" + l;
+    if ( !c.empty() )
+        output += "C=" + c;
+    if ( !t.empty() )
+        output += "T=" + t;
+    if ( !u.empty() )
+        output += "U=" + u;
+
+    output += ")" CRLF;
+    client->Send( output );
 
     return;
 }
@@ -231,6 +288,10 @@ const void Telopt::Negotiate( SocketClient* client, const uint_t& opt, const boo
                     Telopt::Send( client, val ? WILL : WONT, TELOPT_ECHO );
                 break;
 
+                case SOC_TELOPT_MSP:
+                    Telopt::Send( client, val ? WILL : WONT, TELOPT_MSP );
+                break;
+
                 default:
                 break;
             }
@@ -267,3 +328,44 @@ const void Telopt::Send( SocketClient* client, const char& cmd, const char& opt 
 
     return;
  }
+
+/**
+ * @brief Sends a MSP sound trigger to the client. See: http://www.zuggsoft.com/zmud/msp.htm
+ * @param[in] client The client to send data to.
+ * @param[in] sound The audio file to play on the client machine.
+ * @param[in] v Optional, sound volume from 0-100.
+ * @param[in] l Optional, number of repeats. -1 for infinite, otherwise > 0.
+ * @param[in] p Optional, priority from 0-100.
+ * @param[in] t Optional, type to specify subdirectories.
+ * @param[in] u Optional, URL of the directory path to download the sound from.
+ * @retval void
+ */
+const void Telopt::Sound( SocketClient* client, const string& sound, const string& v, const string& l, const string& p, const string& t, const string& u )
+{
+    UFLAGS_DE( flags );
+    string output( "!!SOUND(" );
+
+    if ( client == NULL )
+    {
+        LOGSTR( flags, "Telopt::Sound()-> called with NULL client" );
+        return;
+    }
+
+    output += sound;
+
+    if ( !v.empty() )
+        output += " V=" + v;
+    if ( !l.empty() )
+        output += " L=" + l;
+    if ( !p.empty() )
+        output += "P=" + p;
+    if ( !t.empty() )
+        output += "T=" + t;
+    if ( !u.empty() )
+        output += "U=" + u;
+
+    output += ")" CRLF;
+    client->Send( output );
+
+    return;
+}

@@ -234,7 +234,8 @@ enum SOC_LOGIN
 enum SOC_TELOPT
 {
     SOC_TELOPT_ECHO = 0, /**< Telopt ECHO (1) */
-    MAX_SOC_TELOPT  = 1  /**< Safety limit for looping. */
+    SOC_TELOPT_MSP  = 1, /**< Telopt MSP (90) */
+    MAX_SOC_TELOPT  = 2  /**< Safety limit for looping. */
 };
 /**@}*/
 
