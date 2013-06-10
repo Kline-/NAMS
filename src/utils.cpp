@@ -362,7 +362,10 @@ const string Utils::WriteString( const string& input )
 {
     stringstream output;
 
-    output << CFG_DAT_STR_CTR_A << CRLF << input << CRLF<< CFG_DAT_STR_CTR_C;
+    if ( input.empty() )
+        output << CFG_DAT_STR_CTR_A << CRLF << CFG_DAT_STR_CTR_C;
+    else
+        output << CFG_DAT_STR_CTR_A << CRLF << input << CRLF<< CFG_DAT_STR_CTR_C;
 
     return output.str();
 }

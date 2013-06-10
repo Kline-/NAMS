@@ -896,7 +896,7 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
 
     chr->sName( cmd );
     // Id for characters owned by accounts is account_name.character_name
-    cid << client->gAccount()->gName() << "." << chr->gName();
+    cid << client->gAccount()->gId() << "." << chr->gName();
     chr->sId( cid.str() );
 
     //All went well, generate the next input prompt
@@ -1040,7 +1040,7 @@ const void Handler::CharacterDeleteMenuMain( SocketClient* client, const string&
         for ( i = 0; i < client->gAccount()->gCharacters().size(); i++ )
         {
             name.str( "" );
-            name << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[i];
+            name << client->gAccount()->gId() << "." << client->gAccount()->gCharacters()[i];
 
             if ( !CheckPlaying( name.str() ) )
                 client->Send( Utils::FormatString( 0, "%5d) %s" CRLF, i+1, CSTR( client->gAccount()->gCharacters()[i] ) ) );
@@ -1114,7 +1114,7 @@ const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& c
         for ( i = 0; i < client->gAccount()->gCharacters().size(); i++ )
         {
             name.str( "" );
-            name << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[i];
+            name << client->gAccount()->gId() << "." << client->gAccount()->gCharacters()[i];
 
             if ( CheckPlaying( name.str() ) )
                 client->Send( Utils::FormatString( 0, "%5d) %s (Playing)" CRLF, i+1, CSTR( client->gAccount()->gCharacters()[i] ) ) );
@@ -1137,8 +1137,8 @@ const void Handler::CharacterLoadMenuMain( SocketClient* client, const string& c
         {
             name.str( "" );
             selected.str( "" );
-            name << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[i];
-            selected << client->gAccount()->gName() << "." << client->gAccount()->gCharacters()[val-1];
+            name << client->gAccount()->gId() << "." << client->gAccount()->gCharacters()[i];
+            selected << client->gAccount()->gId() << "." << client->gAccount()->gCharacters()[val-1];
 
             if ( CheckPlaying( name.str() ) && name.str() != selected.str() )
             {
@@ -1400,7 +1400,7 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
     chr = new Character();
     chr->sAccount( client->gAccount() );
     // Id for characters owned by accounts is account_name.character_name
-    id << client->gAccount()->gName() << "." << client->gLogin( SOC_LOGIN_CHARACTER );
+    id << client->gAccount()->gId() << "." << client->gLogin( SOC_LOGIN_CHARACTER );
 
     // Already in the game, so lets reconnect
     if ( CheckPlaying( id.str() ) )

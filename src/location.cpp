@@ -190,7 +190,9 @@ const bool Location::Serialize() const
         return false;
     }
 
-    // First to ensure id is loaded for logging later
+    // First to ensure proper handling in the future
+    KEY( ofs, "revision", CFG_LOC_REVISION );
+    // Second to ensure id is loaded for logging later
     KEY( ofs, "id", gId() );
     KEYLISTLOOP( ofs, "description", i ); /** @todo Need to find a nicer way to do this */
     {
@@ -226,6 +228,7 @@ const bool Location::Unserialize()
     string key, value, line;
     stringstream loop, mline;
     bool found = false, maxb = false;
+    uint_t revision = uintmin_t;
 
     Utils::FileOpen( ifs, m_file );
 
@@ -251,17 +254,12 @@ const bool Location::Unserialize()
             found = false;
             maxb = false;
 
-            if ( key == "id" )
-            {
-                found = true;
-                sId( value );
-            }
             if ( Utils::StrPrefix( "description", key ) )
             {
                 found = true;
                 sDescription( Utils::ReadString( ifs ), Utils::ReadIndex( key ) );
             }
-            if ( key == "exit" )
+            else if ( key == "exit" )
             {
                 Exit* exit = NULL;
 
@@ -284,11 +282,17 @@ const bool Location::Unserialize()
                         m_exits.push_back( exit );
                 }
             }
-            if ( key == "name" )
+            else if ( key == "id" )
+            {
+                found = true;
+                sId( value );
+            }
+            else if ( key == "name" )
             {
                 found = true;
                 sName( value );
             }
+            Utils::KeySet( true, found, key, "revision", value, revision, CFG_LOC_REVISION, maxb );
             Utils::KeySet( true, found, key, "zone", value, m_zone );
 
             if ( !found )

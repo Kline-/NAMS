@@ -616,7 +616,7 @@ const void Server::RebootRecovery( const bool& reboot )
                 character = new Character();
                 client->gAccount()->sCharacter( character );
                 character->sAccount( client->gAccount() );
-                character->New( client->gAccount()->gName() + "." + value + "." + CFG_DAT_FILE_PLR_EXT, true );
+                character->New( client->gAccount()->gId() + "." + value + "." + CFG_DAT_FILE_PLR_EXT, true );
                 Handler::EnterGame( client, "reboot", silent );
             }
         }

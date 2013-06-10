@@ -146,7 +146,9 @@ const bool Character::Serialize() const
         return false;
     }
 
-    // First to ensure id is loaded for logging later
+    // First to ensure proper handling in the future
+    KEY( ofs, "revision", CFG_CHR_REVISION );
+    // Second to ensure id is loaded for logging later
     KEY( ofs, "id", gId() );
     KEYLISTLOOP( ofs, "description", i ); /** @todo Need to find a nicer way to do this */
     {
@@ -157,7 +159,7 @@ const bool Character::Serialize() const
     KEY( ofs, "name", gName() );
     KEY( ofs, "sex", m_sex );
 
-    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), CSTR( file ) );
+    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gId() ), CSTR( file ) );
 
     return true;
 }
@@ -175,8 +177,9 @@ const bool Character::Unserialize()
     string key, value, line;
     stringstream loop, mline;
     bool found = false, maxb = false;
+    uint_t revision = uintmin_t;
 
-    Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gName() ), m_file ) );
+    Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gId() ), m_file ) );
 
     if ( !ifs.good() )
     {
@@ -197,26 +200,28 @@ const bool Character::Unserialize()
             found = false;
             maxb = false;
 
-            if ( key == "id" )
-            {
-                found = true;
-                sId( value );
-            }
             if ( Utils::StrPrefix( "description", key ) )
             {
                 found = true;
                 sDescription( Utils::ReadString( ifs ), Utils::ReadIndex( key ) );
             }
-            if ( key == "location" )
+            else if ( key == "id" )
+            {
+                found = true;
+                sId( value );
+            }
+            else if ( key == "location" )
             {
                 found = true;
                 gAccount()->gClient()->sLogin( SOC_LOGIN_LOCATION, value );
             }
-            if ( key == "name" )
+            else if ( key == "name" )
             {
                 found = true;
                 sName( value );
             }
+
+            Utils::KeySet( true, found, key, "revision", value, revision, CFG_CHR_REVISION, maxb );
             Utils::KeySet( true, found, key, "sex", value, m_sex, MAX_CHR_SEX, maxb );
 
             if ( !found )

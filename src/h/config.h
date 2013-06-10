@@ -71,6 +71,13 @@
  * @par Default: 4
  */
 #define CFG_ACT_PASSWORD_MIN_LEN 4
+
+/**
+ * @def CFG_ACT_REVISION
+ * @brief The Account file format revision. Used to ensure backwards compatibility if necessary.
+ * @par Default: 0
+ */
+#define CFG_ACT_REVISION 0
 /**@}*/
 
 /***************************************************************************
@@ -83,6 +90,13 @@
  * @par Default: ( ( 5 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )
  */
 #define CFG_CHR_MAX_IDLE ( ( 5 * 60 * USLEEP_MAX ) / ( USLEEP_MAX / CFG_GAM_PULSE_RATE ) )
+
+/**
+ * @def CFG_CHR_REVISION
+ * @brief The Character file format revision. Used to ensure backwards compatibility if necessary.
+ * @par Default: 0
+ */
+#define CFG_CHR_REVISION 0
 /**@}*/
 
 /***************************************************************************
@@ -231,6 +245,13 @@
  * @par Default: "sys.entrypoint"
  */
 #define CFG_LOC_ID_START "sys.entrypoint"
+
+/**
+ * @def CFG_LOC_REVISION
+ * @brief The Location file format revision. Used to ensure backwards compatibility if necessary.
+ * @par Default: 0
+ */
+#define CFG_LOC_REVISION 0
 /**@}*/
 
 /***************************************************************************

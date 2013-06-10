@@ -235,7 +235,7 @@ namespace Utils
      * @param[in] valu A string or number that is checked for a match against keyd.
      * @param[in] item Any non-string to be copied to to loc if keyd == valu.
      * @param[in] loc Any non-string to be assigned the value of item if keyd == valu.
-     * @param[in] maxv The maximum value to allow loc to be assigned. If value >= maxv, loc = maxv - 1.
+     * @param[in] maxv The maximum value to allow loc to be assigned. If value > maxv, loc = maxv.
      * @param[in] maxb KeySet will set to true if value >= maxv, otherwise false. Allows logging from calling function.
      * @retval void
      */
@@ -271,10 +271,10 @@ namespace Utils
             {
                 stringstream( item ) >> maxt;
 
-                if ( maxt >= maxv )
+                if ( maxt > maxv )
                 {
                     maxb = true;
-                    maxt = ( maxv - 1 );
+                    maxt = maxv;
                 }
 
                 loc = maxt;

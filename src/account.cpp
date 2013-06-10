@@ -97,10 +97,10 @@ const bool Account::New( SocketClient* client, const bool& exists )
     }
     else
     {
-        m_name = client->gLogin( SOC_LOGIN_NAME );
+        m_id = client->gLogin( SOC_LOGIN_NAME );
         m_password = client->gLogin( SOC_LOGIN_PASSWORD );
 
-        if ( ::mkdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ) ), CFG_SEC_DIR_MODE ) < 0 )
+        if ( ::mkdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_id ) ), CFG_SEC_DIR_MODE ) < 0 )
         {
             LOGERRNO( flags, "Account::New()->mkdir()->" );
             return false;
@@ -110,7 +110,7 @@ const bool Account::New( SocketClient* client, const bool& exists )
         {
             LOGSTR( flags, "Account::New()->Account::Serialize()-> returned false" );
 
-            if ( ::rmdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ) ) ) < 0 )
+            if ( ::rmdir( CSTR( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_id ) ) ) < 0 )
                 LOGERRNO( flags, "Account::New()->rmdir->" );
 
             return false;
@@ -138,7 +138,7 @@ const bool Account::Serialize() const
     string value;
     stringstream line;
     uint_t i = uintmin_t;
-    string file( Utils::FileExt( m_name, CFG_DAT_FILE_ACT_EXT ) );
+    string file( Utils::FileExt( m_id, CFG_DAT_FILE_ACT_EXT ) );
     CITER( vector, string, li );
     list<pair<string,string>>::const_iterator pi;
 
@@ -150,8 +150,10 @@ const bool Account::Serialize() const
         return false;
     }
 
-    // First to ensure name is loaded for logging later
-    KEY( ofs, "name", m_name );
+    // First to ensure proper handling in the future
+    KEY( ofs, "revision", CFG_ACT_REVISION );
+    // Second to ensure id is loaded for logging later
+    KEY( ofs, "id", m_id );
     KEYLIST( ofs, "characters" );
     {
         if ( !m_characters.empty() )
@@ -189,7 +191,7 @@ const bool Account::Serialize() const
     KEY( ofs, "password", m_password );
     KEY( ofs, "security", m_security );
 
-    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name ), CSTR( file ) );
+    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_id ), CSTR( file ) );
 
     return true;
 }
@@ -210,7 +212,7 @@ const bool Account::Unserialize()
     pair<string,string> item;
     vector<string> token;
     ITER( vector, string, ti );
-    uint_t i = uintmin_t;
+    uint_t revision = uintmin_t, i = uintmin_t;
     string file( Utils::FileExt( m_client->gLogin( SOC_LOGIN_NAME ), CFG_DAT_FILE_ACT_EXT ) );
 
     Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_client->gLogin( SOC_LOGIN_NAME ) ), file ) );
@@ -234,7 +236,6 @@ const bool Account::Unserialize()
             found = false;
             maxb = false;
 
-            Utils::KeySet( true, found, key, "name", value, m_name );
             if ( key == "characters" )
             {
                 found = true;
@@ -243,7 +244,7 @@ const bool Account::Unserialize()
                     m_characters.push_back( *ti );
                 sort( m_characters.begin(), m_characters.end() );
             }
-            if ( Utils::StrPrefix( "logins", key ) ) /** @todo Need to find a nicer way to do this */
+            else if ( Utils::StrPrefix( "logins", key ) ) /** @todo Need to find a nicer way to do this */
             {
                 for ( ; i < MAX_ACT_LOGIN; i++ )
                 {
@@ -264,14 +265,16 @@ const bool Account::Unserialize()
                     m_logins[i].push_back( pair<string,string>( item.first, item.second ) );
                 }
             }
+            Utils::KeySet( true, found, key, "id", value, m_id );
             Utils::KeySet( true, found, key, "password", value, m_password );
+            Utils::KeySet( true, found, key, "revision", value, revision, CFG_ACT_REVISION, maxb );
             Utils::KeySet( true, found, key, "security", value, m_security, MAX_ACT_SECURITY, maxb );
 
             if ( !found )
                 LOGFMT( flags, "Account::Unserialize()-> key not found: %s", CSTR( key ) );
 
             if ( maxb )
-                LOGFMT( finfo, "Account::Unserialize()-> account %s, key %s has illegal value %s", CSTR( m_name ), CSTR( key ), CSTR( value ) );
+                LOGFMT( finfo, "Account::Unserialize()-> account %s, key %s has illegal value %s", CSTR( m_id ), CSTR( key ), CSTR( value ) );
 
             break;
         }
@@ -325,6 +328,15 @@ SocketClient* Account::gClient() const
 }
 
 /**
+ * @brief Returns the id of the account.
+ * @retval string A string with the id of the account.
+ */
+const string Account::gId() const
+{
+    return m_id;
+}
+
+/**
  * @brief Returns a list of either login successes or failures based on #ACT_LOGIN.
  * @param[in] type A value from #ACT_LOGIN.
  * @retval list<pair<string,string>> A list of a string pair containing the login dates and times.
@@ -340,15 +352,6 @@ const list<pair<string,string>> Account::gLogins( const uint_t& type ) const
     }
 
     return m_logins[type];
-}
-
-/**
- * @brief Returns the name of the account.
- * @retval string A string with the name of the account.
- */
-const string Account::gName() const
-{
-    return m_name;
 }
 
 /**
@@ -415,8 +418,8 @@ const bool Account::dCharacter( const string& name )
 
     if ( CFG_DAT_CHR_UNLINK )
     {
-        id << "/" << m_name << "." << name;
-        item = Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_name );
+        id << "/" << m_id << "." << name;
+        item = Utils::DirPath( CFG_DAT_DIR_ACCOUNT, m_id );
         item += Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT );
         if ( ::unlink( CSTR( item ) ) < 0 )
             LOGERRNO( flags, "Account::dCharacter()->unlink()->" );
@@ -516,9 +519,9 @@ Account::Account()
     m_character = NULL;
     m_characters.clear();
     m_client = NULL;
+    m_id.clear();
     for ( i = 0; i < MAX_ACT_LOGIN; i++ )
         m_logins[i].clear();
-    m_name.clear();
     m_password.clear();
     m_security = ACT_SECURITY_AUTH_USER;
 

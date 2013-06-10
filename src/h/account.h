@@ -44,8 +44,8 @@ class Account
         Character* gCharacter() const;
         const vector<string> gCharacters() const;
         SocketClient* gClient() const;
+        const string gId() const;
         const list<pair<string,string>> gLogins( const uint_t& type ) const;
-        const string gName() const;
         const uint_t gSecurity() const;
         /**@}*/
 
@@ -66,8 +66,8 @@ class Account
         Character* m_character; /**< The active Character, if any. */
         vector<string> m_characters; /**< The names of all characters associated with the account. */
         SocketClient* m_client; /**< The client attached to the account. */
+        string m_id; /**< The id of the account. */
         list<pair<string,string>> m_logins[MAX_ACT_LOGIN]; /**< Date and hostname of previous login failures/successes. */
-        string m_name; /**< The name of the account. */
         string m_password; /**< The encrypted password of the account. */
         uint_t m_security; /**< Security level for commands and restricted access. */
 };
