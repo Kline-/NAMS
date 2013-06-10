@@ -74,7 +74,6 @@ const void AdmDisable::Run( Character* character, const string& cmd, const strin
             else
                 character->Send( "There was an error enabling that command or it doesn't exist." CRLF );
         }
-
     }
 
     return;

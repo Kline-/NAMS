@@ -35,6 +35,7 @@
 #include "h/list.h"
 #include "h/plugin.h"
 #include "h/socketclient.h"
+#include "h/account.h"
 
 /* Core */
 /**
@@ -143,10 +144,13 @@ const bool Command::New( const string& file )
  */
 const void Command::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    if ( m_disabled && character )
-        character->Send( CFG_STR_CMD_DISABLED );
-    else
-        m_plg->Run( character, cmd, arg );
+    if ( character )
+    {
+        if ( m_disabled && character->gAccount()->gSecurity() < ACT_SECURITY_ADMIN )
+            character->Send( CFG_STR_CMD_DISABLED );
+        else
+            m_plg->Run( character, cmd, arg );
+    }
 
     return;
 }
@@ -160,10 +164,13 @@ const void Command::Run( Character* character, const string& cmd, const string& 
  */
 const void Command::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
-    if ( m_disabled && client )
-        client->Send( CFG_STR_CMD_DISABLED );
-    else
-        m_plg->Run( client, cmd, arg );
+    if ( client )
+    {
+        if ( m_disabled && client->gAccount()->gSecurity() < ACT_SECURITY_ADMIN )
+            client->Send( CFG_STR_CMD_DISABLED );
+        else
+            m_plg->Run( client, cmd, arg );
+    }
 
     return;
 }
