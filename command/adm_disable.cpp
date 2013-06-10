@@ -29,23 +29,22 @@ class AdmDisable : public Plugin {
 
 const void AdmDisable::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    vector<string> disabled_commands;
+    vector<string> disabled = g_config->gDisabledCommands();
     CITER( vector, string, vi );
 
     if ( character )
     {
+        sort( disabled.begin(), disabled.end() );
+
         if ( arg.empty() )
         {
-            disabled_commands = g_config->gDisabledCommands();
-            sort( disabled_commands.begin(), disabled_commands.end() );
-
             character->Send( "Disabled Commands" CRLF );
 
-            if ( disabled_commands.empty() )
+            if ( disabled.empty() )
                 character->Send( "    None" CRLF );
             else
             {
-                for ( vi = disabled_commands.begin(); vi != disabled_commands.end(); vi++ )
+                for ( vi = disabled.begin(); vi != disabled.end(); vi++ )
                 {
                     character->Send( "    " );
                     character->Send( *vi + CRLF );
@@ -61,10 +60,21 @@ const void AdmDisable::Run( Character* character, const string& cmd, const strin
             return;
         }
 
-        if ( g_config->ToggleDisable( arg ) )
-            character->Send( "Command disabled." CRLF );
+        if ( find( disabled.begin(), disabled.end(), arg ) == disabled.end() )
+        {
+            if ( g_config->ToggleDisable( arg ) )
+                character->Send( "Command disabled." CRLF );
+            else
+                character->Send( "There was an error disabling that command or it doesn't exist." CRLF );
+        }
         else
-            character->Send( "There was an error disabling that command or it doesn't exist." CRLF );
+        {
+            if ( g_config->ToggleDisable( arg ) )
+                character->Send( "Command enabled." CRLF );
+            else
+                character->Send( "There was an error enabling that command or it doesn't exist." CRLF );
+        }
+
     }
 
     return;
