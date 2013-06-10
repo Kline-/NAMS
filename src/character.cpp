@@ -155,7 +155,8 @@ const bool Character::Serialize() const
         for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
             ofs << "description[" << i << "]" << " = " << Utils::WriteString( gDescription( i ) ) << endl;
     }
-    KEY( ofs, "location", gLocation()->gId() );
+    if ( gLocation() != NULL ) // This will be NULL during creation
+        KEY( ofs, "location", gLocation()->gId() );
     KEY( ofs, "name", gName() );
     KEY( ofs, "sex", m_sex );
 
