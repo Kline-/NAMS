@@ -31,8 +31,10 @@
 #include "h/includes.h"
 #include "h/command.h"
 
+#include "h/character.h"
 #include "h/list.h"
 #include "h/plugin.h"
+#include "h/socketclient.h"
 
 /* Core */
 /**
@@ -92,6 +94,7 @@ const bool Command::New( const string& file )
 {
     UFLAGS_DE( flags );
     string path( Utils::DirPath( CFG_DAT_DIR_OBJ, file, CFG_PLG_BUILD_EXT_OUT ) );
+    vector<string> disabled = g_config->gDisabledCommands();
 
     // Ensure there is a valid file to open
     if ( !Utils::iFile( path ) )
@@ -117,6 +120,10 @@ const bool Command::New( const string& file )
         // Set specific values unique to a Command object that the Plugin can specify
         m_preempt = m_plg->gBool( PLG_TYPE_COMMAND_BOOL_PREEMPT );
         m_security = m_plg->gUint( PLG_TYPE_COMMAND_UINT_SECURITY );
+
+        // Check to see if the Command has been disabled
+        if ( find( disabled.begin(), disabled.end(), gName() ) != disabled.end() )
+            m_disabled = true;
     }
 
     if ( CFG_GAM_CMD_IGNORE_CASE )
@@ -136,7 +143,10 @@ const bool Command::New( const string& file )
  */
 const void Command::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    m_plg->Run( character, cmd, arg );
+    if ( m_disabled && character )
+        character->Send( CFG_STR_CMD_DISABLED );
+    else
+        m_plg->Run( character, cmd, arg );
 
     return;
 }
@@ -150,7 +160,10 @@ const void Command::Run( Character* character, const string& cmd, const string& 
  */
 const void Command::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
-    m_plg->Run( client, cmd, arg );
+    if ( m_disabled && client )
+        client->Send( CFG_STR_CMD_DISABLED );
+    else
+        m_plg->Run( client, cmd, arg );
 
     return;
 }
@@ -194,6 +207,16 @@ const bool Command::gPreempt() const
 }
 
 /* Manipulate */
+/**
+ * @brief Toggles the disabled state of a Command.
+ * @retval void
+ */
+const void Command::ToggleDisable()
+{
+    m_disabled = !m_disabled;
+
+    return;
+}
 
 /* Internal */
 /**
@@ -201,6 +224,7 @@ const bool Command::gPreempt() const
  */
 Command::Command()
 {
+    m_disabled = false;
     m_plg = NULL;
     m_plg_delete = NULL;
     m_plg_file.clear();

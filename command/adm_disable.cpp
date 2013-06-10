@@ -18,39 +18,64 @@
 
 #include "pincludes.h"
 
-#include "server.h"
-
-class AdmShutdown : public Plugin {
+class AdmDisable : public Plugin {
     public:
         virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
-        AdmShutdown( const string& name, const uint_t& type );
-        ~AdmShutdown();
+        AdmDisable( const string& name, const uint_t& type );
+        ~AdmDisable();
 };
 
-const void AdmShutdown::Run( Character* character, const string& cmd, const string& arg ) const
+const void AdmDisable::Run( Character* character, const string& cmd, const string& arg ) const
 {
+    vector<string> disabled_commands;
+    CITER( vector, string, vi );
+
     if ( character )
     {
-        if ( Utils::Lower( cmd ) != gName() )
+        if ( arg.empty() )
         {
-            character->Send( "If you wish to shutdown you must enter the complete command." CRLF );
+            disabled_commands = g_config->gDisabledCommands();
+            sort( disabled_commands.begin(), disabled_commands.end() );
+
+            character->Send( "Disabled Commands" CRLF );
+
+            if ( disabled_commands.empty() )
+                character->Send( "    None" CRLF );
+            else
+            {
+                for ( vi = disabled_commands.begin(); vi != disabled_commands.end(); vi++ )
+                {
+                    character->Send( "    " );
+                    character->Send( *vi + CRLF );
+                }
+            }
+
             return;
         }
 
-        Server::Shutdown( EXIT_SUCCESS );
+        if ( arg == gName() )
+        {
+            character->Send( "You can't disable the disable command." CRLF );
+            return;
+        }
+
+        if ( g_config->ToggleDisable( arg ) )
+            character->Send( "Command disabled." CRLF );
+        else
+            character->Send( "There was an error disabling that command or it doesn't exist." CRLF );
     }
 
     return;
 }
 
-const void AdmShutdown::Run( SocketClient* client, const string& cmd, const string& arg ) const
+const void AdmDisable::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     return;
 }
 
-AdmShutdown::AdmShutdown( const string& name = "::shutdown", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+AdmDisable::AdmDisable( const string& name = "::disable", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
     Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_ADMIN );
@@ -58,11 +83,11 @@ AdmShutdown::AdmShutdown( const string& name = "::shutdown", const uint_t& type 
     return;
 }
 
-AdmShutdown::~AdmShutdown()
+AdmDisable::~AdmDisable()
 {
 }
 
 extern "C" {
-    Plugin* New() { return new AdmShutdown(); }
+    Plugin* New() { return new AdmDisable(); }
     void Delete( Plugin* p ) { delete p; }
 }

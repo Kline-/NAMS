@@ -48,6 +48,7 @@ class Command
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const void ToggleDisable();
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -56,6 +57,7 @@ class Command
         /**@}*/
 
     private:
+        bool m_disabled; /**< If true, the command can only be used by SOC_SECURITY_ADMIN */
         Plugin* m_plg; /**< Pointer to the associated Plugin. */
         PluginDelete* m_plg_delete; /**< Pointer to the PluginDelete object within the associated Plugin. */
         string m_plg_file; /**< Filename of the Plugin object for reloading later. */

@@ -812,6 +812,15 @@ const void Server::Update()
 
 /* Query */
 /**
+ * @brief Returns a copy of the disabled commands list.
+ * @retval vector<string> A copy of the disabled commands list.
+ */
+vector<string> Server::Config::gDisabledCommands() const
+{
+    return m_disabled_commands;
+}
+
+/**
  * @brief Returns a a copy of the prohibited names list using type from #SVR_CFG_PROHIBITED_NAMES.
  * @param[in] type The specific prohibited names list to retrieve.
  * @retval forward_list<string> A copy of the prohibited names list referenced by type.
@@ -896,6 +905,7 @@ const bool Server::Config::Serialize()
     string value;
     stringstream line;
     CITER( forward_list, string, li );
+    CITER( vector, string, vi );
     uint_t i = uintmin_t;
 
     LOGSTR( 0, CFG_STR_FILE_SETTINGS_WRITE );
@@ -905,6 +915,23 @@ const bool Server::Config::Serialize()
     {
         LOGFMT( flags, "Server::Config::Serialize()-> failed to open settings file: %s", CFG_DAT_FILE_SETTINGS );
         return false;
+    }
+
+    KEYLIST( ofs, "disabled_commands" );
+    {
+        line.str( "" );
+
+        if ( !m_disabled_commands.empty() )
+        {
+            for ( vi = m_disabled_commands.begin(); vi != m_disabled_commands.end(); vi++ )
+                line << *vi << " ";
+
+            value = line.str();
+            value.erase( value.end() - 1 );
+            ofs << value << endl;
+        }
+        else
+            ofs << endl;
     }
     KEYLISTLOOP( ofs, "prohibited_names", i ); /** @todo Need to find a nicer way to do this */
     {
@@ -934,6 +961,39 @@ const bool Server::Config::Serialize()
 }
 
 /**
+ * @brief Toggles if a command is disabled or not.
+ * @param[in] command The name of the command to disable or enable.
+ * @retval false Returned if the command was successfully toggled.
+ * @retval true Returned if there was an error toggling the command or it doesn't exist.
+ */
+const bool Server::Config::ToggleDisable( const string& command )
+{
+    UFLAGS_DE( flags );
+    Command* cmd = NULL;
+    ITER( vector, string, vi );
+
+    if ( command.empty() )
+    {
+        LOGSTR( flags, "Server::Config::TogleDisable()-> called with empty command" );
+        return false;
+    }
+
+    if ( ( cmd = Handler::FindCommand( command ) ) == NULL )
+        return false;
+
+    cmd->ToggleDisable();
+
+    if ( ( vi = find( m_disabled_commands.begin(), m_disabled_commands.end(), Utils::Lower( cmd->gName() ) ) ) == m_disabled_commands.end() )
+        m_disabled_commands.push_back( Utils::Lower( cmd->gName() ) );
+    else
+        m_disabled_commands.erase( vi );
+
+    Serialize();
+
+    return true;
+}
+
+/**
  * @brief Unserialize runtime configuration settings from #CFG_DAT_FILE_SETTINGS.
  * @retval false Returned if there was an error unserializing settings.
  * @retval true Returned if settings were unserialized successfully.
@@ -950,7 +1010,7 @@ const bool Server::Config::Unserialize()
     stringstream loop;
 
     LOGSTR( 0, CFG_STR_FILE_SETTINGS_READ );
-    Utils::FileOpen( ifs, CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS );
+    Utils::FileOpen( ifs, Utils::DirPath( CFG_DAT_DIR_ETC, CFG_DAT_FILE_SETTINGS ) );
 
     if ( !ifs.good() )
     {
@@ -970,7 +1030,15 @@ const bool Server::Config::Unserialize()
         {
             found = false;
 
-            if ( Utils::StrPrefix( "prohibited_names", key ) ) /** @todo Need to find a nicer way to do this */
+            if ( key == "disabled_commands" )
+            {
+                found = true;
+                token = Utils::StrTokens( value, true );
+                for ( ti = token.begin(); ti != token.end(); ti++ )
+                    m_disabled_commands.push_back( *ti );
+                sort( m_disabled_commands.begin(), m_disabled_commands.end() );
+            }
+            else if ( Utils::StrPrefix( "prohibited_names", key ) ) /** @todo Need to find a nicer way to do this */
             {
                 for ( ; i < MAX_SVR_CFG_PROHIBITED_NAMES; i++ )
                 {
@@ -1052,6 +1120,7 @@ Server::Config::Config()
 {
     uint_t i = uintmin_t;
 
+    m_disabled_commands.clear();
     for ( i = 0; i < MAX_SVR_CFG_PROHIBITED_NAMES; i++ )
         m_prohibited_names[i].clear();
 

@@ -42,11 +42,13 @@ namespace Server
             /**@}*/
 
             /** @name Query */ /**@{*/
+            vector<string> gDisabledCommands() const;
             forward_list<string> gProhibitedNames( const uint_t& type ) const;
             /**@}*/
 
             /** @name Manipulate */ /**@{*/
             const bool Serialize();
+            const bool ToggleDisable( const string& command );
             const bool Unserialize();
             /**@}*/
 
@@ -56,6 +58,7 @@ namespace Server
             /**@}*/
 
         private:
+            vector<string> m_disabled_commands; /**< Commands that have been disabled. */
             forward_list<string> m_prohibited_names[MAX_SVR_CFG_PROHIBITED_NAMES]; /**< Names that are illegal to use as an account name. */
     };
 

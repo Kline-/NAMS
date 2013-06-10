@@ -564,6 +564,13 @@
 #define CFG_STR_CHR_RECONNECTED "You take over your body, which was already in use." CRLF
 
 /**
+ * @def CFG_STR_CMD_DISABLED
+ * @brief String sent when a command has been disabled.
+ * @par Default: "That command has been temporarily disabled." CRLF
+ */
+#define CFG_STR_CMD_DISABLED "That command has been temporarily disabled." CRLF
+
+/**
  * @def CFG_STR_CMD_INVALID
  * @brief String sent when an invalid command is received.
  * @par Default: "Invalid command." CRLF
