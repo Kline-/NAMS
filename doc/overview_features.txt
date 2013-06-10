@@ -1,0 +1,50 @@
+NAMS - Not Another MUD Server
+    High Level Overview - Features
+
+This document provides a high level overview of features within the NAMS server.
+
+Accounts
+    Accounts contain multiple characters and simplify user management. Character
+    names are only required to be unique to the account itself. Character management
+    is integrated directly into the login process.
+
+Customization
+    NAMS currently supports over 100 configurable options. Configurable options
+    include everything from memory management, login banners, prohibited account
+    and character nanes, and more.
+
+Events
+    Events can be set to trigger an action after a set delay period. Events can
+    be created from anywhere: the game driver, plugins, or even room/AI scripts
+    once added.
+
+No External Dependencies
+    NAMS is written and designed as a completely standalone game server. No
+    external libraries or packages are needed beyond a standard C++ development
+    environment (compiler, standard library files, etc).
+
+Open World Structure
+    There are no "areas". Each location is written and stored as its own
+    file on disk. Locations can be grouped within any folder structure for
+    ease of management (a folder per builder, a folder per "area", etc)
+    if desired but it is not required. There is no restricted amount of
+    "vnums" or other arbitrary limit on the size, or shape, of the game world.
+
+Plugins
+    A Plugin API is provided to create objects that can be compiled and used
+    separately from the game driver. Plugins can be dynamically reloaded in
+    memory without restarting or rebooting the game drveir. Currently only
+    commands are supported as plugins, but this will be expanded.
+
+Telnet Options
+    NAMS supports and will attempt to negotiate the following telnet options
+    automatically with any client that supports them.
+
+    Echo
+    MSP
+
+Unrestricted Movement
+    Exits between "rooms" or "locations" as they are called in NAMS are
+    unrestricted. There is no requirement that all exits be "north", "south",
+    etc. Any word is an acceptable exit allowing for greater customization
+    and immersion.
