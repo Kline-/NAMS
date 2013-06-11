@@ -35,6 +35,7 @@
 #include "h/event.h"
 #include "h/list.h"
 #include "h/location.h"
+#include "h/object.h"
 #include "h/socketclient.h"
 #include "h/socketserver.h"
 #include "h/character.h"
@@ -291,6 +292,16 @@ const bool Server::LoadLocations()
     else
         LOGFMT( 0, "Loaded %lu locations in %1.0fms.", location_list.size(), duration );
 
+    return true;
+}
+
+/**
+ * @brief Search all subfolders of #CFG_DAT_DIR_WORLD and call Object::New() to load each file found to memory.
+ * @retval false Returned if a fault is experienced trying to obtain a directory listing to process.
+ * @retval true Returned if 0 or more Object objects are loaded from disk.
+ */
+const bool Server::LoadObjects()
+{
     return true;
 }
 
@@ -686,6 +697,9 @@ const void Server::Shutdown( const sint_t& status )
     // Cleanup locations
     while ( !location_list.empty() )
         location_list.front()->Delete();
+    // Cleanup objects
+    while ( !object_list.empty() )
+        object_list.front()->Delete();
     // Cleanup socket clients
     while ( !socket_client_list.empty() )
         socket_client_list.front()->Delete();

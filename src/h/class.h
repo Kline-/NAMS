@@ -37,5 +37,6 @@ class Socket;
 class Thing;
     class Character;
     class Location;
+    class Object;
 
 #endif

@@ -133,6 +133,7 @@ namespace Server
     const void LinkExits();
     const bool LoadCommands();
     const bool LoadLocations();
+    const bool LoadObjects();
     const bool PollSockets();
     const void ProcessEvents();
     const void ProcessInput();

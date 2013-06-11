@@ -56,6 +56,13 @@ forward_list<Event*> event_list;
 list<Location*> location_list;
 
 /**
+ * @var object_list
+ * @brief All objects that exist within the server.
+ * @param Object* A pointer to an Object object in memory.
+ */
+list<Object*> object_list;
+
+/**
  * @var socket_client_list
  * @brief All SocketClient objects connected to the server.
  * @param SocketClient* A pointer to a SocketClient object in memory.

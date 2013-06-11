@@ -181,6 +181,13 @@
 #define CFG_DAT_FILE_LOC_EXT "loc"
 
 /**
+ * @def CFG_DAT_FILE_OBJ_EXT
+ * @brief File extension to use for object files.
+ * @par Default: "obj"
+ */
+#define CFG_DAT_FILE_OBJ_EXT "obj"
+
+/**
  * @def CFG_DAT_FILE_REBOOT
  * @brief File for reboot data to be temporarily stored in.
  * @par Default: "reboot.dat"
@@ -264,6 +271,18 @@
  * @par Default: "server.log"
  */
 #define CFG_LOG_SERVER "server.log"
+/**@}*/
+
+/***************************************************************************
+ *                             OBJECT OPTIONS                              *
+ ***************************************************************************/
+/** @name Object Options */ /**@{*/
+/**
+ * @def CFG_OBJ_REVISION
+ * @brief The Object file format revision. Used to ensure backwards compatibility if necessary.
+ * @par Default: 0
+ */
+#define CFG_OBJ_REVISION 0
 /**@}*/
 
 /***************************************************************************
@@ -618,6 +637,13 @@
  * @par Default: "Loading locations..."
  */
 #define CFG_STR_FILE_LOCATION_READ "Loading locations..."
+
+/**
+ * @def CFG_STR_FILE_OBJECT_READ
+ * @brief String to output prior to loading object files.
+ * @par Default: "Loading objects..."
+ */
+#define CFG_STR_FILE_OBJECT_READ "Loading objects..."
 
 /**
  * @def CFG_STR_FILE_SETTINGS_READ
