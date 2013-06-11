@@ -42,15 +42,15 @@ $(shell if [ -x ./.dirbuild ]; then ./.dirbuild; rm -f ./.dirbuild; fi )
 .PHONY: help $(PROG) cbuild clean commands depend doxygen pclean plugins
 
 help:
-	echo -e "\n### $(VERS) Makefile Options ###"
-	echo -e "    help     Displays this help menu."
-	echo -e "    $(PROG)     Compiles the game into binary file $(PROG)."
-	echo -e "    cbuild   Equivalent to: make clean && make depend && make $(PROG) && make plugins"
-	echo -e "    clean    Removes files: $(PROG) o/* ../report/core ../obj/*"
-	echo -e "    depend   Generate dependencies for all source code."
-	echo -e "    doxygen  Generate Doxygen output in ../etc/gh-pages."
-	echo -e "    pclean   Removes files: ../obj/*"
-	echo -e "    plugins  Compiles all available plugins.\n"
+	echo "\n### $(VERS) Makefile Options ###"
+	echo "    help     Displays this help menu."
+	echo "    $(PROG)     Compiles the game into binary file $(PROG)."
+	echo "    cbuild   Equivalent to: make clean && make depend && make $(PROG) && make plugins"
+	echo "    clean    Removes files: $(PROG) o/* ../report/core ../obj/*"
+	echo "    depend   Generate dependencies for all source code."
+	echo "    doxygen  Generate Doxygen output in ../etc/gh-pages."
+	echo "    pclean   Removes files: ../obj/*"
+	echo "    plugins  Compiles all available plugins.\n"
 
 $(PROG): $(O_FILES)
 	$(MAKE) depend
