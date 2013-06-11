@@ -1,18 +1,31 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$namespaceServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin." alt="" coords="144,272,325,301"/>
-<area shape="rect" id="node31" href="$classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function." alt="" coords="175,352,295,381"/>
-<area shape="rect" id="node35" href="$classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4" title="Unload an event from memory that was previously loaded via Event::New()." alt="" coords="181,405,288,435"/>
-<area shape="rect" id="node5" href="$namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game." alt="" coords="375,325,545,355"/>
-<area shape="rect" id="node13" href="$classCommand.xhtml#a63b8f3fc40a0cc9e02fcaa2ea2329c40" title="Return the filename of the associated Plugin object." alt="" coords="397,219,523,248"/>
-<area shape="rect" id="node15" href="$classCommand.xhtml#afc0d482427309deb78e094fa787d1477" title="Unload a command from memory that was previously loaded via Command::New()." alt="" coords="391,272,529,301"/>
-<area shape="rect" id="node17" href="$classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ." alt="" coords="399,165,521,195"/>
-<area shape="rect" id="node7" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="620,272,713,301"/>
-<area shape="rect" id="node9" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="595,325,739,355"/>
-<area shape="rect" id="node11" href="$classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object." alt="" coords="787,325,901,355"/>
-<area shape="rect" id="node19" href="$namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext." alt="" coords="615,59,719,88"/>
-<area shape="rect" id="node21" href="$namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b" title="Determines if a file path is a file or directory on disk." alt="" coords="627,112,707,141"/>
-<area shape="rect" id="node23" href="$classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859" title="Sets a pointer to the object that initialized this Plugin." alt="" coords="612,165,721,195"/>
-<area shape="rect" id="node25" href="$classPlugin.xhtml#a669870333a99490518fdd59054deaade" title="Return a bool value to tie into other object types." alt="" coords="615,219,719,248"/>
-<area shape="rect" id="node27" href="$classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43" title="Return a uint_t value to tie into other object types." alt="" coords="616,5,717,35"/>
-<area shape="rect" id="node33" href="$classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e" title="Execute the primary function of the implemented class." alt="" coords="415,379,505,408"/>
+<map id="Event::Run" name="Event::Run">
+<area shape="rect" id="node3" href="$namespaceServer.xhtml#a4073e768d93ce18c25cb5996f4cd3729" title="Reloads a Command Plugin." alt="" coords="144,219,325,247"/>
+<area shape="rect" id="node33" href="$classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function." alt="" coords="175,375,295,403"/>
+<area shape="rect" id="node61" href="$classEvent.xhtml#a95bfba52e3b7c70b33fd7784b396b5c4" title="Unload an event from memory that was previously loaded via Event::New()." alt="" coords="181,426,288,454"/>
+<area shape="rect" id="node5" href="$namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game." alt="" coords="375,55,545,83"/>
+<area shape="rect" id="node13" href="$classCommand.xhtml#a63b8f3fc40a0cc9e02fcaa2ea2329c40" title="Return the filename of the associated Plugin object." alt="" coords="397,219,523,247"/>
+<area shape="rect" id="node15" href="$classCommand.xhtml#afc0d482427309deb78e094fa787d1477" title="Unload a command from memory that was previously loaded via Command::New()." alt="" coords="391,270,529,298"/>
+<area shape="rect" id="node17" href="$classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ." alt="" coords="399,169,521,197"/>
+<area shape="rect" id="node7" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="640,5,733,33"/>
+<area shape="rect" id="node9" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="615,55,759,83"/>
+<area shape="rect" id="node11" href="$classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object." alt="" coords="855,55,969,83"/>
+<area shape="rect" id="node19" href="$namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext." alt="" coords="635,106,739,134"/>
+<area shape="rect" id="node21" href="$classServer_1_1Config.xhtml#a19e57fb735f4ff3787e9e418e5789365" title="Returns a copy of the disabled commands list." alt="" coords="596,157,777,201"/>
+<area shape="rect" id="node23" href="$namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b" title="Determines if a file path is a file or directory on disk." alt="" coords="647,223,727,251"/>
+<area shape="rect" id="node25" href="$classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859" title="Sets a pointer to the object that initialized this Plugin." alt="" coords="632,274,741,302"/>
+<area shape="rect" id="node27" href="$classPlugin.xhtml#a669870333a99490518fdd59054deaade" title="Return a bool value to tie into other object types." alt="" coords="635,325,739,353"/>
+<area shape="rect" id="node29" href="$classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43" title="Return a uint_t value to tie into other object types." alt="" coords="636,375,737,403"/>
+<area shape="rect" id="node35" href="$classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any." alt="" coords="384,325,536,353"/>
+<area shape="rect" id="node37" href="$classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54" title="Returns the authorized security level of the account." alt="" coords="389,375,531,403"/>
+<area shape="rect" id="node39" href="$classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" title="Send data to the associated SocketClient, if any." alt="" coords="397,426,523,454"/>
+<area shape="rect" id="node59" href="$classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e" title="Execute the primary function of the implemented class." alt="" coords="415,477,505,505"/>
+<area shape="rect" id="node41" href="$classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient." alt="" coords="624,426,749,454"/>
+<area shape="rect" id="node43" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="616,477,757,505"/>
+<area shape="rect" id="node45" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="860,477,964,505"/>
+<area shape="rect" id="node47" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="839,527,985,555"/>
+<area shape="rect" id="node49" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="836,578,988,606"/>
+<area shape="rect" id="node51" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="827,629,997,657"/>
+<area shape="rect" id="node53" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="837,325,987,353"/>
+<area shape="rect" id="node55" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="839,375,985,403"/>
+<area shape="rect" id="node57" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="839,426,985,454"/>
 </map>

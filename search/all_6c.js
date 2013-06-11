@@ -1,6 +1,7 @@
 var searchData=
 [
   ['limits_2eh',['limits.h',['../limits_8h.xhtml',1,'']]],
+  ['linkexits',['LinkExits',['../namespaceServer.xhtml#a21b284fbb08f1d61510945f64d0673cb',1,'Server']]],
   ['list_2ecpp',['list.cpp',['../list_8cpp.xhtml',1,'']]],
   ['list_2eh',['list.h',['../list_8h.xhtml',1,'']]],
   ['listdirectory',['ListDirectory',['../namespaceUtils.xhtml#a995fed3bf7ff41788f5b3dbdc6a70ecb',1,'Utils']]],

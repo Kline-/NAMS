@@ -1,12 +1,12 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$namespaceServer.xhtml#a16ea0639731dee10e1a253375b508a02" title="Recovers the server state and re&#45;connects client sockets after a reboot." alt="" coords="509,57,683,87"/>
-<area shape="rect" id="node9" href="$classSocketClient.xhtml#a8399ef20292e9f3ec83b5c4bec2e105b" title="Build a SocketClient for a new client connection and set all attributes." alt="" coords="251,109,387,139"/>
-<area shape="rect" id="node19" href="$classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2" title="Resolve the hostname of the client. Threaded to avoid locking on long resolutions." alt="" coords="204,163,433,192"/>
-<area shape="rect" id="node23" href="$classSocketServer.xhtml#a0e621d024f754a8c045b4243280cabbe" title="Build a socket for a server and set all attributes." alt="" coords="248,5,389,35"/>
-<area shape="rect" id="node5" href="$namespaceServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="771,57,891,87"/>
-<area shape="rect" id="node7" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="1121,85,1175,115"/>
-<area shape="rect" id="node12" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="516,111,676,140"/>
-<area shape="rect" id="node14" href="$namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" title="Poll all SocketClient objects that are communicating with the associated SocketServer object..." alt="" coords="759,111,903,140"/>
-<area shape="rect" id="node16" href="$namespaceServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="953,111,1071,140"/>
-<area shape="rect" id="node21" href="$classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1" title="A wrapper to SocketClient::tResolveHostname(). Necessary for threading a member function." alt="" coords="484,164,708,193"/>
+<map id="Socket::sHostname" name="Socket::sHostname">
+<area shape="rect" id="node3" href="$namespaceServer.xhtml#a16ea0639731dee10e1a253375b508a02" title="Recovers the server state and re&#45;connects client sockets after a reboot." alt="" coords="509,55,683,83"/>
+<area shape="rect" id="node9" href="$classSocketClient.xhtml#a8399ef20292e9f3ec83b5c4bec2e105b" title="Build a SocketClient for a new client connection and set all attributes." alt="" coords="251,106,387,134"/>
+<area shape="rect" id="node19" href="$classSocketClient.xhtml#a3cfd5a085d8df5b4fed5166afe7578b2" title="Resolve the hostname of the client. Threaded to avoid locking on long resolutions." alt="" coords="204,157,433,185"/>
+<area shape="rect" id="node23" href="$classSocketServer.xhtml#a0e621d024f754a8c045b4243280cabbe" title="Build a socket for a server and set all attributes." alt="" coords="248,5,389,33"/>
+<area shape="rect" id="node5" href="$namespaceServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="771,55,891,83"/>
+<area shape="rect" id="node7" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="1121,81,1175,109"/>
+<area shape="rect" id="node12" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="516,106,676,134"/>
+<area shape="rect" id="node14" href="$namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" title="Poll all SocketClient objects that are communicating with the associated SocketServer object..." alt="" coords="759,106,903,134"/>
+<area shape="rect" id="node16" href="$namespaceServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="953,106,1071,134"/>
+<area shape="rect" id="node21" href="$classSocketClient.xhtml#afd723bd898217b3c41e29a02f43ec9e1" title="A wrapper to SocketClient::tResolveHostname(). Necessary for threading a member function." alt="" coords="484,157,708,185"/>
 </map>

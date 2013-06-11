@@ -5,6 +5,7 @@ var searchData=
   ['ifile',['iFile',['../namespaceUtils.xhtml#a7d40818a602fb21db4b4f0917705f85b',1,'Utils']]],
   ['includes_2eh',['includes.h',['../includes_8h.xhtml',1,'']]],
   ['initialnegotiation',['InitialNegotiation',['../namespaceTelopt.xhtml#aae5468ac9f53474dea225a4485905ac3',1,'Telopt']]],
+  ['interpret',['Interpret',['../classCharacter.xhtml#ad51f5ff0cfefa9bd7e674bc413f6b73c',1,'Character::Interpret()'],['../classLocation.xhtml#a1585bb5ec9637a31a47115463d325e7b',1,'Location::Interpret()'],['../classThing.xhtml#a00bb611784d9e852ad307d83e82f8738',1,'Thing::Interpret()']]],
   ['inumber',['iNumber',['../namespaceUtils.xhtml#a47aae40aead5b696e927fb0cdd336442',1,'Utils']]],
   ['ireadable',['iReadable',['../namespaceUtils.xhtml#a158e1deb611937a6313e8683fe7db3fc',1,'Utils']]],
   ['iter',['ITER',['../macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656',1,'macros.h']]]

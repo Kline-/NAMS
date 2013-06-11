@@ -1,19 +1,20 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="416,272,587,301"/>
-<area shape="rect" id="node5" href="$classAccount.xhtml#a1d2b9eb6c351b9d43d16e649fa599466" title="Returns the associated Character, if any." alt="" coords="212,165,364,195"/>
-<area shape="rect" id="node7" href="$namespaceHandler.xhtml#a57dc60ce5522b41f1ab98b83de76779f" title="Locates a Location associated with the game." alt="" coords="209,85,367,115"/>
-<area shape="rect" id="node15" href="$classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4" title="Moves a Thing from within one Location to another Location." alt="" coords="239,219,337,248"/>
-<area shape="rect" id="node21" href="$classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket." alt="" coords="212,323,364,352"/>
-<area shape="rect" id="node23" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="217,405,359,435"/>
-<area shape="rect" id="node9" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="455,5,548,35"/>
-<area shape="rect" id="node11" href="$classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing." alt="" coords="460,59,543,88"/>
-<area shape="rect" id="node13" href="$classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing." alt="" coords="447,112,556,141"/>
-<area shape="rect" id="node17" href="$classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e" title="Removes a Thing to the contents of this Thing." alt="" coords="427,165,576,195"/>
-<area shape="rect" id="node19" href="$classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c" title="Adds a Thing to the contents of this Thing." alt="" coords="440,219,563,248"/>
-<area shape="rect" id="node25" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="449,325,553,355"/>
-<area shape="rect" id="node27" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="428,379,575,408"/>
-<area shape="rect" id="node29" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="425,432,577,461"/>
-<area shape="rect" id="node32" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="427,485,576,515"/>
-<area shape="rect" id="node34" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="428,539,575,568"/>
-<area shape="rect" id="node36" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="428,592,575,621"/>
+<map id="Handler::EnterGame" name="Handler::EnterGame">
+<area shape="rect" id="node3" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="416,5,587,33"/>
+<area shape="rect" id="node5" href="$classAccount.xhtml#a1d2b9eb6c351b9d43d16e649fa599466" title="Returns the associated Character, if any." alt="" coords="212,309,364,337"/>
+<area shape="rect" id="node7" href="$classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key." alt="" coords="212,359,364,387"/>
+<area shape="rect" id="node9" href="$namespaceHandler.xhtml#a57dc60ce5522b41f1ab98b83de76779f" title="Locates a Location associated with the game." alt="" coords="209,410,367,438"/>
+<area shape="rect" id="node17" href="$classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4" title="Moves a Thing from within one Location to another Location." alt="" coords="239,486,337,514"/>
+<area shape="rect" id="node23" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="217,182,359,210"/>
+<area shape="rect" id="node38" href="$classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket." alt="" coords="212,537,364,565"/>
+<area shape="rect" id="node11" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="455,359,548,387"/>
+<area shape="rect" id="node13" href="$classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing." alt="" coords="460,410,543,438"/>
+<area shape="rect" id="node15" href="$classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing." alt="" coords="447,461,556,489"/>
+<area shape="rect" id="node19" href="$classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e" title="Removes a Thing to the contents of this Thing." alt="" coords="427,511,576,539"/>
+<area shape="rect" id="node21" href="$classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c" title="Adds a Thing to the contents of this Thing." alt="" coords="440,562,563,590"/>
+<area shape="rect" id="node25" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="449,55,553,83"/>
+<area shape="rect" id="node27" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="428,106,575,134"/>
+<area shape="rect" id="node29" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="425,157,577,185"/>
+<area shape="rect" id="node32" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="427,207,576,235"/>
+<area shape="rect" id="node34" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="428,258,575,286"/>
+<area shape="rect" id="node36" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="428,309,575,337"/>
 </map>

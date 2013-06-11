@@ -5,6 +5,7 @@ var searchData=
   ['_7ecommand',['~Command',['../classCommand.xhtml#ab552bb3a07fdd1acbfd8ea76e69b2278',1,'Command']]],
   ['_7econfig',['~Config',['../classServer_1_1Config.xhtml#a03f08c4efd61997ae6c6be516481a58c',1,'Server::Config']]],
   ['_7eevent',['~Event',['../classEvent.xhtml#a7704ec01ce91e673885792054214b3d2',1,'Event']]],
+  ['_7eexit',['~Exit',['../classExit.xhtml#adf66e70ca988ae2fe7e74ef256d8612a',1,'Exit']]],
   ['_7eglobal',['~Global',['../classServer_1_1Global.xhtml#a49a7fdf90420561906df68759af61a78',1,'Server::Global']]],
   ['_7elocation',['~Location',['../classLocation.xhtml#af5be2c6550bbd96137cbb3144ec3c529',1,'Location']]],
   ['_7eplugin',['~Plugin',['../classPlugin.xhtml#aee4cc1864a2afa84a9ad935153f3fe39',1,'Plugin']]],

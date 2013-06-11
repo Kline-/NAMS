@@ -1,18 +1,18 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$namespaceServer.xhtml#ae1bb8d3c7c71119bae6dd4205fd6c0cc" title="Sends a message to all clients connected to the Server." alt="" coords="209,219,345,248"/>
-<area shape="rect" id="node21" href="$classServer_1_1Config.xhtml#a39f409e995ec914244e9eff416d4477e" title="Serialize runtime configuration settings and write them to CFG_DAT_FILE_SETTINGS." alt="" coords="191,299,364,328"/>
-<area shape="rect" id="node29" href="$classServer_1_1Config.xhtml#ac8f796a3da103223e7f176800f4ef929" title="Unload runtime configuration from memory." alt="" coords="196,352,359,381"/>
-<area shape="rect" id="node31" href="$classServer_1_1Stats.xhtml#a04c80b5a0190d979dce3b5b53c7fe122" title="Unload runtime statistics from memory." alt="" coords="200,405,355,435"/>
-<area shape="rect" id="node33" href="$classServer_1_1Global.xhtml#a14a06f48b3f3d845f54e09c1cbdd8960" title="Unload global variables from memory." alt="" coords="196,459,359,488"/>
-<area shape="rect" id="node5" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="415,192,556,221"/>
-<area shape="rect" id="node7" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="639,5,743,35"/>
-<area shape="rect" id="node9" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="617,59,764,88"/>
-<area shape="rect" id="node11" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="615,112,767,141"/>
-<area shape="rect" id="node13" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="605,165,776,195"/>
-<area shape="rect" id="node15" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="616,219,765,248"/>
-<area shape="rect" id="node17" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="617,272,764,301"/>
-<area shape="rect" id="node19" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="617,325,764,355"/>
-<area shape="rect" id="node23" href="$namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file." alt="" coords="429,299,541,328"/>
-<area shape="rect" id="node27" href="$namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file." alt="" coords="429,352,541,381"/>
-<area shape="rect" id="node25" href="$namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext." alt="" coords="639,379,743,408"/>
+<map id="Server::Shutdown" name="Server::Shutdown">
+<area shape="rect" id="node3" href="$namespaceServer.xhtml#ae1bb8d3c7c71119bae6dd4205fd6c0cc" title="Sends a message to all clients connected to the Server." alt="" coords="209,207,345,235"/>
+<area shape="rect" id="node21" href="$classServer_1_1Config.xhtml#a39f409e995ec914244e9eff416d4477e" title="Serialize runtime configuration settings and write them to CFG_DAT_FILE_SETTINGS." alt="" coords="191,283,364,311"/>
+<area shape="rect" id="node29" href="$classServer_1_1Config.xhtml#ac8f796a3da103223e7f176800f4ef929" title="Unload runtime configuration from memory." alt="" coords="196,334,359,362"/>
+<area shape="rect" id="node31" href="$classServer_1_1Stats.xhtml#a04c80b5a0190d979dce3b5b53c7fe122" title="Unload runtime statistics from memory." alt="" coords="200,385,355,413"/>
+<area shape="rect" id="node33" href="$classServer_1_1Global.xhtml#a14a06f48b3f3d845f54e09c1cbdd8960" title="Unload global variables from memory." alt="" coords="196,435,359,463"/>
+<area shape="rect" id="node5" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="415,182,556,210"/>
+<area shape="rect" id="node7" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="639,5,743,33"/>
+<area shape="rect" id="node9" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="617,55,764,83"/>
+<area shape="rect" id="node11" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="615,106,767,134"/>
+<area shape="rect" id="node13" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="605,157,776,185"/>
+<area shape="rect" id="node15" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="616,207,765,235"/>
+<area shape="rect" id="node17" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="617,258,764,286"/>
+<area shape="rect" id="node19" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="617,309,764,337"/>
+<area shape="rect" id="node23" href="$namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file." alt="" coords="429,283,541,311"/>
+<area shape="rect" id="node27" href="$namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file." alt="" coords="429,334,541,362"/>
+<area shape="rect" id="node25" href="$namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext." alt="" coords="639,359,743,387"/>
 </map>

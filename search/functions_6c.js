@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['linkexits',['LinkExits',['../namespaceServer.xhtml#a21b284fbb08f1d61510945f64d0673cb',1,'Server']]],
   ['listdirectory',['ListDirectory',['../namespaceUtils.xhtml#a995fed3bf7ff41788f5b3dbdc6a70ecb',1,'Utils']]],
   ['listen',['Listen',['../classSocketServer.xhtml#a5c5b0cbbee6a2e265d0510b40bcc12d8',1,'SocketServer']]],
   ['loadcharacter',['LoadCharacter',['../namespaceHandler.xhtml#ae70e4e50054c729c14493eafefe01b5c',1,'Handler']]],
