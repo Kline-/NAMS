@@ -90,46 +90,36 @@ const bool Object::New( const string& file )
  * @retval true Returned if the object was serialized successfully.
  */
 const bool Object::Serialize() const
-{/*
+{
     UFLAGS_DE( flags );
     ofstream ofs;
     string value;
     stringstream line;
     uint_t i = uintmin_t;
-    CITER( list, Exit*, ei );
-    Exit* exit = NULL;
-    string file( Utils::FileExt( gId(), CFG_DAT_FILE_LOC_EXT ) );
+    string file( Utils::FileExt( gId(), CFG_DAT_FILE_OBJ_EXT ) );
 
     Utils::FileOpen( ofs, file );
 
     if ( !ofs.good() )
     {
-        LOGFMT( flags, "Location::Serialize()-> failed to open location file: %s", CSTR( file ) );
+        LOGFMT( flags, "Object::Serialize()-> failed to open object file: %s", CSTR( file ) );
         return false;
     }
 
     // First to ensure proper handling in the future
-    KEY( ofs, "revision", CFG_LOC_REVISION );
+    KEY( ofs, "revision", CFG_OBJ_REVISION );
     // Second to ensure id is loaded for logging later
     KEY( ofs, "id", gId() );
-    KEYLISTLOOP( ofs, "description", i ); ** @todo Need to find a nicer way to do this *
+    KEYLISTLOOP( ofs, "description", i ); /** @todo Need to find a nicer way to do this */
     {
         for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
             ofs << "description[" << i << "]" << " = " << Utils::WriteString( gDescription( i ) ) << endl;
-    }
-    KEYLISTLOOP( ofs, "exit", i ); ** @todo Need to find a nicer way to do this *
-    {
-        for ( ei = m_exits.begin(); ei != m_exits.end(); ei++ )
-        {
-            exit = *ei;
-            ofs << "exit = " << exit->Serialize() << endl;
-        }
     }
     KEY( ofs, "name", gName() );
     KEY( ofs, "zone", m_zone );
 
     Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_WORLD, m_zone ), CSTR( file ) );
-*/
+
     return true;
 }
 
@@ -139,7 +129,7 @@ const bool Object::Serialize() const
  * @retval true Returned if the object was unserialized successfully.
  */
 const bool Object::Unserialize()
-{/*
+{
     UFLAGS_DE( flags );
     UFLAGS_I( finfo );
     ifstream ifs;
@@ -152,7 +142,7 @@ const bool Object::Unserialize()
 
     if ( !ifs.good() )
     {
-        LOGFMT( flags, "Location::Unserialize()-> failed to open location file: %s", CSTR( m_file ) );
+        LOGFMT( flags, "Object::Unserialize()-> failed to open object file: %s", CSTR( m_file ) );
         return false;
     }
 
@@ -163,7 +153,7 @@ const bool Object::Unserialize()
 
         if ( !Utils::KeyValue( key, value, line) )
         {
-            LOGFMT( flags, "Location::Unserialize()-> error reading line: %s", CSTR( line ) );
+            LOGFMT( flags, "Object::Unserialize()-> error reading line: %s", CSTR( line ) );
             continue;
         }
 
@@ -177,29 +167,6 @@ const bool Object::Unserialize()
                 found = true;
                 sDescription( Utils::ReadString( ifs ), Utils::ReadIndex( key ) );
             }
-            else if ( key == "exit" )
-            {
-                Exit* exit = NULL;
-
-                found = true;
-                exit = new Exit();
-
-                if ( !exit->New( this ) )
-                {
-                    LOGSTR( flags, "Location::Unserialize()->Exit::New()-> returned false" );
-                    exit->Delete();
-                }
-                else
-                {
-                    if ( !exit->Unserialize( value ) )
-                    {
-                        LOGSTR( flags, "Location::Unserialize()->Exit::Unserialize()-> returned false" );
-                        exit->Delete();
-                    }
-                    else
-                        m_exits.push_back( exit );
-                }
-            }
             else if ( key == "id" )
             {
                 found = true;
@@ -210,21 +177,21 @@ const bool Object::Unserialize()
                 found = true;
                 sName( value );
             }
-            Utils::KeySet( true, found, key, "revision", value, revision, CFG_LOC_REVISION, maxb );
+            Utils::KeySet( true, found, key, "revision", value, revision, CFG_OBJ_REVISION, maxb );
             Utils::KeySet( true, found, key, "zone", value, m_zone );
 
             if ( !found )
-                LOGFMT( flags, "Location::Unserialize()-> key not found: %s", CSTR( key ) );
+                LOGFMT( flags, "Object::Unserialize()-> key not found: %s", CSTR( key ) );
 
             if ( maxb )
-                LOGFMT( finfo, "Location::Unserialize()-> location id %s, key %s has illegal value %s", CSTR( gId() ), CSTR( key ), CSTR( value ) );
+                LOGFMT( finfo, "Object::Unserialize()-> object id %s, key %s has illegal value %s", CSTR( gId() ), CSTR( key ), CSTR( value ) );
 
             break;
         }
     }
 
     Utils::FileClose( ifs );
-*/
+
     return true;
 }
 

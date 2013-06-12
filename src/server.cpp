@@ -302,6 +302,44 @@ const bool Server::LoadLocations()
  */
 const bool Server::LoadObjects()
 {
+    UFLAGS_DE( flags );
+    chrono::high_resolution_clock::time_point start, finish;
+    double duration = uintmin_t;
+    Object* obj = NULL;
+    multimap<bool,string> files;
+    MITER( multimap, bool,string, mi );
+
+    start = chrono::high_resolution_clock::now();
+    LOGSTR( 0, CFG_STR_FILE_OBJECT_READ );
+
+    // Populate the multimap with a recursive listing of the objectss folder
+    Utils::ListDirectory( CFG_DAT_DIR_WORLD, true, true, files, g_stats->m_dir_close, g_stats->m_dir_open );
+
+    if ( files.empty() )
+    {
+        LOGSTR( flags, "Server::LoadObjects()->Utils::ListDirectory()-> CFG_DAT_DIR_WORLD returned NULL" );
+        return false;
+    }
+
+    for ( mi = files.begin(); mi != files.end(); mi++ )
+    {
+        if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ) == CFG_DAT_FILE_OBJ_EXT ) )
+        {
+            obj = new Object();
+            if ( !obj->New( mi->second ) )
+            {
+                LOGFMT( flags, "Server::LoadObjects()->Object::New()-> object %s returned false", CSTR( mi->second ) );
+                obj->Delete();
+            }
+        }
+    }
+
+    finish = chrono::high_resolution_clock::now();
+    if ( ( duration = chrono::duration_cast<chrono::milliseconds>( finish - start ).count() ) > 1000 )
+        LOGFMT( 0, "Loaded %lu objects in %1.2fs.", object_list.size(), ( duration / 1000 ) );
+    else
+        LOGFMT( 0, "Loaded %lu objects in %1.0fms.", object_list.size(), duration );
+
     return true;
 }
 
@@ -780,6 +818,11 @@ const void Server::Startup( const sint_t& desc )
     if ( !LoadLocations() )
     {
         LOGSTR( flags, "Server::Startup()->Server::LoadLocations()-> returned false" );
+        Shutdown( EXIT_FAILURE );
+    }
+    if ( !LoadObjects() )
+    {
+        LOGSTR( flags, "Server::Startup()->Server::LoadObjects()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
 
