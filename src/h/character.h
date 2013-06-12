@@ -38,7 +38,7 @@ class Character : public Thing
         const void Delete();
         const void Interpret( const uint_t& security, const string& cmd, const string& args );
         const bool New( const string& file, const bool& exists );
-        const void Send( const string& msg );
+        const void Send( const string& msg, Thing* speaker = NULL ) const;
         const bool Serialize() const;
         const bool Unserialize();
         /**@}*/

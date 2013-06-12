@@ -38,8 +38,6 @@ class Location : public Thing
         const void Delete();
         const void Interpret( const uint_t& security, const string& cmd, const string& args );
         const bool New( const string& file );
-        const void Send( Thing* speaker, const string& msg );
-        const void Send( const string& msg );
         const bool Serialize() const;
         const bool Unserialize();
         /**@}*/

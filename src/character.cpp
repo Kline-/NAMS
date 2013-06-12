@@ -112,13 +112,13 @@ const bool Character::New( const string& file, const bool& exists )
 /**
  * @brief Send data to the associated SocketClient, if any.
  * @param[in] msg The data to be sent.
+ * @param[in] speaker The Thing originating the message.
  * @retval void
  */
-const void Character::Send( const string& msg )
+const void Character::Send( const string& msg, Thing* speaker ) const
 {
-
-    if ( m_account != NULL )
-        if ( m_account->gClient() != NULL )
+    if ( m_account )
+        if ( m_account->gClient() )
             m_account->gClient()->Send( msg );
 
     return;

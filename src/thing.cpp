@@ -109,6 +109,37 @@ const bool Thing::RemoveThing( Thing* thing )
     return true;
 }
 
+/**
+ * @brief Send data to all Thing objects within the Thing except for the speaker.
+ * @param[in] msg The data to be sent.
+ * @param[in] speaker The Thing originating the message.
+ * @retval void
+ */
+const void Thing::Send( const string& msg, Thing* speaker ) const
+{
+    UFLAGS_DE( flags );
+    CITER( vector, Thing*, ti );
+    Thing* thing = NULL;
+
+    if ( msg.empty() )
+    {
+        LOGSTR( flags, "Thing::Send()-> called with empty msg" );
+        return;
+    }
+
+    for ( ti = m_contents.begin(); ti != m_contents.end(); ti++ )
+    {
+        thing = *ti;
+
+        if ( thing == speaker )
+            continue;
+        else
+            thing->Send( msg );
+    }
+
+    return;
+}
+
 /* Query */
 /**
  * @brief Returns the contents of this Thing.

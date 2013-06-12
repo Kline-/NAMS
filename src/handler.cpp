@@ -34,6 +34,7 @@
 #include "h/exit.h"
 #include "h/list.h"
 #include "h/location.h"
+#include "h/object.h"
 #include "h/socketclient.h"
 
 /* Core */
@@ -258,6 +259,65 @@ Location* Handler::FindLocation( const string& name, const uint_t& type )
     }
 
     return loc;
+}
+
+/**
+ * @brief Locates an Object associated with the game.
+ * @param[in] name The name of the Object to search for.
+ * @param[in] type The field to search against, from #HANDLER_FIND.
+ * @retval Object* A pointer to the Object object associated with name, or NULL if one is not found.
+ */
+Object* Handler::FindObject( const string& name, const uint_t& type )
+{
+    UFLAGS_DE( flags );
+    Object* obj = NULL;
+    bool found = false;
+    ITER( list, Object*, oi );
+    uint_t search = type;
+
+    if ( name.empty() )
+        LOGSTR( flags, "Handler::FindObject()-> called with empty name" );
+
+    if ( object_list.empty() )
+        obj = NULL;
+    else
+    {
+        if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
+        {
+            LOGFMT( flags, "Handler::FindObject()-> Called with invalid type: %lu", search );
+            LOGSTR( flags, "Handler::FindObject()-> defaulting to HANDLER_FIND_ID" );
+            search = HANDLER_FIND_ID;
+        }
+
+        for ( oi = object_list.begin(); oi != object_list.end(); oi++ )
+        {
+            found = false;
+            obj = *oi;
+
+            if ( CFG_GAM_CMD_IGNORE_CASE )
+            {
+                if ( search == HANDLER_FIND_ID && Utils::Lower( obj->gId() ).find( Utils::Lower( name ) ) == 0 )
+                    found = true;
+                else if ( search == HANDLER_FIND_NAME && Utils::Lower( obj->gName() ).find( Utils::Lower( name ) ) == 0 )
+                    found = true;
+            }
+            else
+            {
+                if ( search == HANDLER_FIND_ID && obj->gId().find( name ) == 0 )
+                    found = true;
+                else if ( search == HANDLER_FIND_NAME && obj->gName().find( name ) == 0 )
+                    found = true;
+            }
+
+            if ( found )
+                break;
+        }
+
+        if ( !found )
+            obj = NULL;
+    }
+
+    return obj;
 }
 
 /**

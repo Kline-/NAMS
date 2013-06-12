@@ -31,15 +31,15 @@
 #include "h/server.h"
 
 #include "h/account.h"
+#include "h/character.h"
 #include "h/command.h"
 #include "h/event.h"
+#include "h/exit.h"
 #include "h/list.h"
 #include "h/location.h"
 #include "h/object.h"
 #include "h/socketclient.h"
 #include "h/socketserver.h"
-#include "h/character.h"
-#include "h/exit.h"
 
 /* Core */
 /**

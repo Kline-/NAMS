@@ -24,29 +24,20 @@
 #include "h/includes.h"
 #include "h/object.h"
 
+#include "h/list.h"
+
 /* Core */
 /**
  * @brief Unload an object from memory that was previously loaded via Object::New().
  * @retval void
  */
 const void Object::Delete()
-{/*
-    Exit* exit = NULL;
-    ITER( list, Exit*, ei );
-
-    if ( find( location_list.begin(), location_list.end(), this ) != location_list.end() )
-        location_list.erase( find( location_list.begin(), location_list.end(), this ) );
-
-    for ( ei = m_exits.begin(); ei != m_exits.end(); )
-    {
-        exit = *ei;
-
-        ei = m_exits.erase( ei );
-        exit->Delete();
-    }
+{
+    if ( find( object_list.begin(), object_list.end(), this ) != object_list.end() )
+        object_list.erase( find( object_list.begin(), object_list.end(), this ) );
 
     delete this;
-*/
+
     return;
 }
 
@@ -69,98 +60,28 @@ const void Object::Interpret( const uint_t& security, const string& cmd, const s
  * @retval true Returned if a new Object was unable to be created.
  */
 const bool Object::New( const string& file )
-{/*
+{
     UFLAGS_DE( flags );
-    Location* location = NULL;
+    Object* object = NULL;
 
     m_file = file;
 
     if ( !Unserialize() )
     {
-        LOGFMT( flags, "Location::New()->Location::Unserialize()-> returned false for file %s", CSTR( file ) );
+        LOGFMT( flags, "Object::New()->Object::Unserialize()-> returned false for file %s", CSTR( file ) );
         return false;
     }
 
-    // Check for duplicate Location ids
-    if ( ( location = Handler::FindLocation( gId(), HANDLER_FIND_ID ) ) != NULL )
+    // Check for duplicate Object ids
+    if ( ( object = Handler::FindObject( gId(), HANDLER_FIND_ID ) ) != NULL )
     {
-        LOGFMT( flags, "Location::New()->Handler::FindLocation()-> didn't return NULL, location %s has duplicate id of %s", CSTR( m_file ), CSTR( gId() ) );
+        LOGFMT( flags, "Object::New()->Handler::FindObject()-> didn't return NULL, object %s has duplicate id of %s", CSTR( m_file ), CSTR( gId() ) );
         return false;
     }
 
-    location_list.push_back( this );
-*/
+    object_list.push_back( this );
+
     return true;
-}
-
-/**
- * @brief Send data to all Thing objects within the Object except for the speaker.
- * @param[in] speaker The Thing originating the message.
- * @param[in] msg The data to be sent.
- * @retval void
- */
-const void Object::Send( Thing* speaker, const string& msg )
-{/*
-    UFLAGS_DE( flags );
-    vector<Thing*> contents;
-    ITER( vector, Thing*, ti );
-    Thing* thing = NULL;
-
-    if ( speaker == NULL )
-    {
-        LOGSTR( flags, "Location::Send()-> called with NULL speaker" );
-        return;
-    }
-
-    if ( msg.empty() )
-    {
-        LOGSTR( flags, "Location::Send()-> called with empty msg" );
-        return;
-    }
-
-    contents = gContents();
-
-    for ( ti = contents.begin(); ti != contents.end(); ti++ )
-    {
-        thing = *ti;
-
-        if ( thing == speaker )
-            continue;
-        else
-            thing->Send( msg );
-    }
-*/
-    return;
-}
-
-/**
- * @brief Send data to all Thing objects within the Object.
- * @param[in] msg The data to be sent.
- * @retval void
- */
-const void Object::Send( const string& msg )
-{/*
-    UFLAGS_DE( flags );
-    vector<Thing*> contents;
-    ITER( vector, Thing*, ti );
-    Thing* thing = NULL;
-
-    if ( msg.empty() )
-    {
-        LOGSTR( flags, "Location::Send()-> called with empty msg" );
-        return;
-    }
-
-    contents = gContents();
-
-    for ( ti = contents.begin(); ti != contents.end(); ti++ )
-    {
-        thing = *ti;
-
-        thing->Send( msg );
-    }
-*/
-    return;
 }
 
 /**
