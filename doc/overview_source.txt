@@ -115,6 +115,9 @@ are also grouped here.
     main.cpp
         Currently only implements int main() and creates a Server object.
 
+    object.cpp
+        Contains all non-template member functions of the Object class.
+
     plugin.cpp
         Contains all non-template member functions of the Plugin class.
 
@@ -211,6 +214,9 @@ are also grouped here.
     namespace.h
         This is the second "header of headers" within NAMS. All headers
         that implement a namespace are included within this file.
+
+    object.h
+        Contains the Object class and templates.
 
     pincludes.h
         This is the third "header of headers" within NAMS. It must be
