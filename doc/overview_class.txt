@@ -83,6 +83,15 @@ Class
         will tie into, but not inherit, the Plugin class in order to
         interface with any class that is implemented in this manner.
 
+    Reset
+        Inherits: None
+        Children: None
+        Internal: None
+
+        A reset is a "spawn" instance within the game world. A reset defines
+        how many Objects or NPCs will be generated within a Location and
+        within what timeframe.
+
     Server
         Inherits: None
         Children: None

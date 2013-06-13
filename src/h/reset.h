@@ -16,28 +16,45 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
 /**
- * @file class.h
- * @brief All class declarations.
+ * @file reset.h
+ * @brief The Reset class.
  *
- *  This file contains declarations of all classes. Each declaration is
- *  indented to denote inheritance. This header file should be the second
- *  file included within every .cpp file.
+ *  This file contains the Reset class and template functions.
  */
-#ifndef DEC_CLASS_H
-#define DEC_CLASS_H
+#ifndef DEC_RESET_H
+#define DEC_RESET_H
 
-class Account;
-class Command;
-class Event;
-class Exit;
-class Plugin;
-class Reset;
-class Socket;
-    class SocketClient;
-    class SocketServer;
-class Thing;
-    class Character;
-    class Location;
-    class Object;
+using namespace std;
+
+/**
+ * @brief A "spawn" of an Object or NPC.
+ */
+class Reset
+{
+    public:
+        /** @name Core */ /**@{*/
+        const void Delete();
+        const bool New( Location* location );
+        const string Serialize() const;
+        const bool Unserialize( const string& input );
+        /**@}*/
+
+        /** @name Query */ /**@{*/
+        Location* gLocation() const;
+        const string gName() const;
+        /**@}*/
+
+        /** @name Manipulate */ /**@{*/
+        /**@}*/
+
+        /** @name Internal */ /**@{*/
+        Reset();
+        ~Reset();
+        /**@}*/
+
+    private:
+        Location* m_location; /**< The owning Location. */
+        string m_name; /**< The name of the reset. */
+};
 
 #endif
