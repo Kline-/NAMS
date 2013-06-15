@@ -33,8 +33,8 @@
  */
 const void Object::Delete()
 {
-    if ( find( object_list.begin(), object_list.end(), this ) != object_list.end() )
-        object_list.erase( find( object_list.begin(), object_list.end(), this ) );
+    if ( find( object_template_list.begin(), object_template_list.end(), this ) != object_template_list.end() )
+            object_template_list.erase( find( object_template_list.begin(), object_template_list.end(), this ) );
 
     delete this;
 
@@ -73,13 +73,13 @@ const bool Object::New( const string& file )
     }
 
     // Check for duplicate Object ids
-    if ( ( object = Handler::FindObject( gId(), HANDLER_FIND_ID ) ) != NULL )
+    if ( ( object = Handler::FindObject( gId(), HANDLER_FIND_ID, object_template_list ) ) != NULL )
     {
         LOGFMT( flags, "Object::New()->Handler::FindObject()-> didn't return NULL, object %s has duplicate id of %s", CSTR( m_file ), CSTR( gId() ) );
         return false;
     }
 
-    object_list.push_back( this );
+    object_template_list.push_back( this );
 
     return true;
 }

@@ -58,11 +58,11 @@ extern forward_list<Event*> event_list;
 extern list<Location*> location_list;
 
 /**
- * @var object_list
- * @brief All objects that exist within the server.
- * @param Object* A pointer to an Object object in memory.
+ * @var object_template_list
+ * @brief All objects that exist as templates within the server.
+ * @param Object* A pointer to an Object template in memory.
  */
-extern list<Object*> object_list;
+extern list<Object*> object_template_list;
 
 /**
  * @var socket_client_list

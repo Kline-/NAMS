@@ -265,20 +265,21 @@ Location* Handler::FindLocation( const string& name, const uint_t& type )
  * @brief Locates an Object associated with the game.
  * @param[in] name The name of the Object to search for.
  * @param[in] type The field to search against, from #HANDLER_FIND.
+ * @param[in] olist The object list to be searched.
  * @retval Object* A pointer to the Object object associated with name, or NULL if one is not found.
  */
-Object* Handler::FindObject( const string& name, const uint_t& type )
+Object* Handler::FindObject( const string& name, const uint_t& type, const list<Object*>& olist )
 {
     UFLAGS_DE( flags );
     Object* obj = NULL;
     bool found = false;
-    ITER( list, Object*, oi );
+    CITER( list, Object*, oi );
     uint_t search = type;
 
     if ( name.empty() )
         LOGSTR( flags, "Handler::FindObject()-> called with empty name" );
 
-    if ( object_list.empty() )
+    if ( olist.empty() )
         obj = NULL;
     else
     {
@@ -289,7 +290,7 @@ Object* Handler::FindObject( const string& name, const uint_t& type )
             search = HANDLER_FIND_ID;
         }
 
-        for ( oi = object_list.begin(); oi != object_list.end(); oi++ )
+        for ( oi = olist.begin(); oi != olist.end(); oi++ )
         {
             found = false;
             obj = *oi;

@@ -336,9 +336,9 @@ const bool Server::LoadObjects()
 
     finish = chrono::high_resolution_clock::now();
     if ( ( duration = chrono::duration_cast<chrono::milliseconds>( finish - start ).count() ) > 1000 )
-        LOGFMT( 0, "Loaded %lu objects in %1.2fs.", object_list.size(), ( duration / 1000 ) );
+        LOGFMT( 0, "Loaded %lu objects in %1.2fs.", object_template_list.size(), ( duration / 1000 ) );
     else
-        LOGFMT( 0, "Loaded %lu objects in %1.0fms.", object_list.size(), duration );
+        LOGFMT( 0, "Loaded %lu objects in %1.0fms.", object_template_list.size(), duration );
 
     return true;
 }
@@ -735,9 +735,9 @@ const void Server::Shutdown( const sint_t& status )
     // Cleanup locations
     while ( !location_list.empty() )
         location_list.front()->Delete();
-    // Cleanup objects
-    while ( !object_list.empty() )
-        object_list.front()->Delete();
+    // Cleanup object templates
+    while ( !object_template_list.empty() )
+        object_template_list.front()->Delete();
     // Cleanup socket clients
     while ( !socket_client_list.empty() )
         socket_client_list.front()->Delete();

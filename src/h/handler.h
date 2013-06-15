@@ -36,7 +36,7 @@ namespace Handler
     Command* FindCommand( const string& name );
     Exit* FindExit( Location* location, const string& name );
     Location* FindLocation( const string& name, const uint_t& type );
-    Object* FindObject( const string& name, const uint_t& type );
+    Object* FindObject( const string& name, const uint_t& type,  const list<Object*>& olist );
     const void LoginHandler( SocketClient* client, const string& cmd = "", const string& args = "" );
     /**@}*/
 
