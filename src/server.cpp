@@ -735,6 +735,9 @@ const void Server::Shutdown( const sint_t& status )
     // Cleanup locations
     while ( !location_list.empty() )
         location_list.front()->Delete();
+    // Cleanup object copies
+    while ( !object_list.empty() )
+        object_list.front()->Delete();
     // Cleanup object templates
     while ( !object_template_list.empty() )
         object_template_list.front()->Delete();

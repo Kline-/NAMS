@@ -61,7 +61,7 @@ Character* Handler::FindCharacter( const string& name, const uint_t& type )
     {
         if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
         {
-            LOGFMT( flags, "Handler::FindCharacter()-> Called with invalid type: %lu", search );
+            LOGFMT( flags, "Handler::FindCharacter()-> called with invalid type: %lu", search );
             LOGSTR( flags, "Handler::FindCharacter()-> defaulting to HANDLER_FIND_ID" );
             search = HANDLER_FIND_ID;
         }
@@ -225,7 +225,7 @@ Location* Handler::FindLocation( const string& name, const uint_t& type )
     {
         if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
         {
-            LOGFMT( flags, "Handler::FindLocation()-> Called with invalid type: %lu", search );
+            LOGFMT( flags, "Handler::FindLocation()-> called with invalid type: %lu", search );
             LOGSTR( flags, "Handler::FindLocation()-> defaulting to HANDLER_FIND_ID" );
             search = HANDLER_FIND_ID;
         }
@@ -285,7 +285,7 @@ Object* Handler::FindObject( const string& name, const uint_t& type, const list<
     {
         if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
         {
-            LOGFMT( flags, "Handler::FindObject()-> Called with invalid type: %lu", search );
+            LOGFMT( flags, "Handler::FindObject()-> called with invalid type: %lu", search );
             LOGSTR( flags, "Handler::FindObject()-> defaulting to HANDLER_FIND_ID" );
             search = HANDLER_FIND_ID;
         }

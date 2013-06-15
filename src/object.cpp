@@ -28,12 +28,58 @@
 
 /* Core */
 /**
- * @brief Unload an object from memory that was previously loaded via Object::New().
+ * @brief Clones an Object from the object_template_list into the object_list.
+ * @param[in] name The name of the template object to clone.
+ * @param[in] type The field to search against, from #HANDLER_FIND.
+ * @retval Object* A pointer to a new cloned Object in memory or NULL if unable to find the template.
+ */
+Object* Object::Clone( const string& name, const uint_t& type )
+{
+    UFLAGS_DE( flags );
+    Object* obj = NULL;
+    Object* tobj = NULL;
+    uint_t search = type;
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Object::Clone()-> called with empty name" );
+        return obj;
+    }
+
+    if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
+    {
+        LOGFMT( flags, "Object::Clone()-> called with invalid type: %lu", search );
+        LOGSTR( flags, "Object::Clone()-> defaulting to HANDLER_FIND_ID" );
+        search = HANDLER_FIND_ID;
+    }
+
+    if ( ( tobj = Handler::FindObject( name, type, object_template_list ) ) == NULL )
+        return obj;
+
+    obj = new Object();
+
+    /** Copy elements from Thing parent class */
+    for ( search = 0; search < MAX_THING_DESCRIPTION; search++ )
+        obj->sDescription( tobj->gDescription( search ), search );
+    obj->sName( tobj->gName() );
+    /** Copy elements internal to Object class */
+    obj->m_file = tobj->m_file;
+    obj->m_zone = tobj->m_zone;
+
+    object_list.push_back( this );
+
+    return obj;
+}
+
+/**
+ * @brief Unload an object from memory that was previously loaded via Object::New() or Object::Clone().
  * @retval void
  */
 const void Object::Delete()
 {
-    if ( find( object_template_list.begin(), object_template_list.end(), this ) != object_template_list.end() )
+    if ( find( object_list.begin(), object_list.end(), this ) != object_list.end() )
+        object_list.erase( find( object_list.begin(), object_list.end(), this ) );
+    else if ( find( object_template_list.begin(), object_template_list.end(), this ) != object_template_list.end() )
             object_template_list.erase( find( object_template_list.begin(), object_template_list.end(), this ) );
 
     delete this;
