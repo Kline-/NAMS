@@ -45,6 +45,10 @@ const bool Thing::AddThing( Thing* thing )
 
     /** @todo Logic to check container size, content limits, etc. */
 
+    // This will occur on initial login
+    if ( m_type == THING_TYPE_LOCATION && thing->gLocation() == NULL )
+        thing->m_location = dynamic_cast<Location*>( this );
+
     m_contents.push_back( thing );
 
     return true;
@@ -56,31 +60,36 @@ const bool Thing::AddThing( Thing* thing )
  * @retval false Returned if there was an error moving this Thing.
  * @retval true Returned if this Thing was successfully moved.
  */
-const bool Thing::Move( Location* location )
+const bool Thing::Move( Thing* source, Thing* destination )
 {
     UFLAGS_DE( flags );
 
-    if ( location == NULL )
+    if ( source == NULL )
     {
-        LOGSTR( flags, "Thing::Move()-> called with NULL location" );
+        LOGSTR( flags, "Thing::Move()-> called with NULL source" );
+        return false;
+    }
+
+    if ( destination == NULL )
+    {
+        LOGSTR( flags, "Thing::Move()-> called with NULL destination" );
         return false;
     }
 
     // If already stored inside another Thing then we need to remove ourselves first.
     // If something prevents us from being removed, we can't move where we want to go.
-    if ( m_location != NULL )
-    {
-        if ( m_location->RemoveThing( this ) )
-            m_location = NULL;
-        else
-            return false;
-    }
+    if ( !source->RemoveThing( this ) )
+        return false;
+
+    if ( source->gType() == THING_TYPE_LOCATION )
+        m_location = NULL;
 
     // Were we able to get into the destination Thing?
-    if ( location->AddThing( this ) )
-        m_location = location;
-    else
+    if ( !destination->AddThing( this ) )
         return false;
+
+    if ( destination->gType() == THING_TYPE_LOCATION )
+        m_location = dynamic_cast<Location*>( destination );
 
     return true;
 }

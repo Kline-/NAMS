@@ -1275,7 +1275,7 @@ const void Handler::EnterGame( SocketClient* client, const string& cmd, const st
         }
     }
 
-    if ( client->gAccount()->gCharacter()->Move( loc ) )
+    if ( loc->AddThing( client->gAccount()->gCharacter() ) )
     {
         if ( cmd == "reboot" )
         {

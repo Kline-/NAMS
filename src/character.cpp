@@ -71,7 +71,7 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
     }
     else if ( ( exit = Handler::FindExit( gLocation(), cmd ) ) != NULL ) // Search for an exit
     {
-        if ( !Move( exit->gDestination() ) )
+        if ( !Move( gLocation(), exit->gDestination() ) )
             Send( CFG_STR_CMD_INVALID );
         else if ( ( command = Handler::FindCommand( "look" ) ) != NULL ) /** @todo Make this configurable per-account/character */
             command->Run( this );
