@@ -119,25 +119,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span> Delete();</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span> Interpret( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; security, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cmd, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; args );</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> New( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f" title="Sends a formatted telnet negotiation command to the client.">Send</a>( <a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>* speaker, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg );</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f" title="Sends a formatted telnet negotiation command to the client.">Send</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg );</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> Serialize() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> Unserialize(); </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        list&lt;Exit*&gt; gExits() <span class="keyword">const</span>; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span> RemoveExit( <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit ); </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        ~<a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">   61</a></span>&#160;        list&lt;Exit*&gt; <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classLocation.xhtml#aef7bb3607c4c22375a1fae5518962ff6">   62</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classLocation.xhtml#aef7bb3607c4c22375a1fae5518962ff6">m_file</a>; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="classLocation.xhtml#a78f355da90860faba8b9884ac96c56b8">   63</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classLocation.xhtml#a78f355da90860faba8b9884ac96c56b8">m_zone</a>; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> Serialize() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> Unserialize(); </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        list&lt;Exit*&gt; gExits() <span class="keyword">const</span>; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span> RemoveExit( <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit ); </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        ~<a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">   59</a></span>&#160;        list&lt;Exit*&gt; <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classLocation.xhtml#aef7bb3607c4c22375a1fae5518962ff6">   60</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classLocation.xhtml#aef7bb3607c4c22375a1fae5518962ff6">m_file</a>; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classLocation.xhtml#a78f355da90860faba8b9884ac96c56b8">   61</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classLocation.xhtml#a78f355da90860faba8b9884ac96c56b8">m_zone</a>; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 11 2013 16:20:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 14:41:11 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

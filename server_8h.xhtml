@@ -100,7 +100,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="server_8h__dep__incl.svg" width="100%" height="504"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="server_8h__dep__incl.svg" width="100%" height="504"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </div>
 <p><a href="server_8h_source.xhtml">Go to the source code of this file.</a></p>
@@ -132,6 +133,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac2e1d14caee54a38a89c2394abe6e5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search all subfolders of <a class="el" href="config_8h.xhtml#af2e75e297c4447df28b526dff66734ce" title="Directory for commands to be loaded from.">CFG_DAT_DIR_COMMAND</a> and call <a class="el" href="classCommand.xhtml#a6b8eed27f76619d07effd72372a4be48" title="Load a plugin command from CFG_DAT_DIR_OBJ.">Command::New()</a> to load each file found to memory.  <a href="#ac2e1d14caee54a38a89c2394abe6e5a5"></a><br/></td></tr>
 <tr class="memitem:a9b8efad79a32f2356d431788449e1f82"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceServer.xhtml#a9b8efad79a32f2356d431788449e1f82">Server::LoadLocations</a> ()</td></tr>
 <tr class="memdesc:a9b8efad79a32f2356d431788449e1f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search all subfolders of <a class="el" href="config_8h.xhtml#aeb234d51b0a7b1a2c836059fb76c5770" title="Directory for game world files: rooms, objects, NPCs, etc.">CFG_DAT_DIR_WORLD</a> and call <a class="el" href="classLocation.xhtml#a6396aba5eab9bcbabb000c3f6478e1a2" title="Create a new location.">Location::New()</a> to load each file found to memory.  <a href="#a9b8efad79a32f2356d431788449e1f82"></a><br/></td></tr>
+<tr class="memitem:a0a8c7c124f8cc8e5e6a9c7b067be5ff5"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceServer.xhtml#a0a8c7c124f8cc8e5e6a9c7b067be5ff5">Server::LoadObjects</a> ()</td></tr>
+<tr class="memdesc:a0a8c7c124f8cc8e5e6a9c7b067be5ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search all subfolders of <a class="el" href="config_8h.xhtml#aeb234d51b0a7b1a2c836059fb76c5770" title="Directory for game world files: rooms, objects, NPCs, etc.">CFG_DAT_DIR_WORLD</a> and call <a class="el" href="classObject.xhtml#abbf694ca0643b6bd1e0b5fbc8d6ade24" title="Create a new object.">Object::New()</a> to load each file found to memory.  <a href="#a0a8c7c124f8cc8e5e6a9c7b067be5ff5"></a><br/></td></tr>
 <tr class="memitem:a39dbe16fdc8c5f6fbd678c6540fbcd6c"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c">Server::PollSockets</a> ()</td></tr>
 <tr class="memdesc:a39dbe16fdc8c5f6fbd678c6540fbcd6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poll all <a class="el" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a> objects that are communicating with the associated <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a> object.  <a href="#a39dbe16fdc8c5f6fbd678c6540fbcd6c"></a><br/></td></tr>
 <tr class="memitem:a266931bde9b1955346955140986d2b00"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceServer.xhtml#a266931bde9b1955346955140986d2b00">Server::ProcessEvents</a> ()</td></tr>
@@ -161,7 +164,7 @@ Functions</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 11 2013 16:20:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 14:41:11 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

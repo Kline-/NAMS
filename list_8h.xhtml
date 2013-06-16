@@ -99,7 +99,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="list_8h__dep__incl.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="list_8h__dep__incl.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </div>
 <p><a href="list_8h_source.xhtml">Go to the source code of this file.</a></p>
@@ -114,6 +115,10 @@ Variables</h2></td></tr>
 <tr class="memdesc:ad6193b63fb1a04ccad88807abbf8c1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">All events pending execution.  <a href="#ad6193b63fb1a04ccad88807abbf8c1b7"></a><br/></td></tr>
 <tr class="memitem:ae825739bc4c29f1b39699fbaddf2dc86"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classLocation.xhtml">Location</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#ae825739bc4c29f1b39699fbaddf2dc86">location_list</a></td></tr>
 <tr class="memdesc:ae825739bc4c29f1b39699fbaddf2dc86"><td class="mdescLeft">&#160;</td><td class="mdescRight">All locations that exist within the server.  <a href="#ae825739bc4c29f1b39699fbaddf2dc86"></a><br/></td></tr>
+<tr class="memitem:a9d495c3a1d12bdb1982b27ad1dca175b"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a9d495c3a1d12bdb1982b27ad1dca175b">object_list</a></td></tr>
+<tr class="memdesc:a9d495c3a1d12bdb1982b27ad1dca175b"><td class="mdescLeft">&#160;</td><td class="mdescRight">All objects that exist as a copy of a template within the server.  <a href="#a9d495c3a1d12bdb1982b27ad1dca175b"></a><br/></td></tr>
+<tr class="memitem:a5106e7b92fd24349679157dfdeebffe0"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a5106e7b92fd24349679157dfdeebffe0">object_template_list</a></td></tr>
+<tr class="memdesc:a5106e7b92fd24349679157dfdeebffe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">All objects that exist as templates within the server.  <a href="#a5106e7b92fd24349679157dfdeebffe0"></a><br/></td></tr>
 <tr class="memitem:a0a518fc6607b121546a40295adc8c06b"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classSocketClient.xhtml">SocketClient</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a0a518fc6607b121546a40295adc8c06b">socket_client_list</a></td></tr>
 <tr class="memdesc:a0a518fc6607b121546a40295adc8c06b"><td class="mdescLeft">&#160;</td><td class="mdescRight">All <a class="el" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a> objects connected to the server.  <a href="#a0a518fc6607b121546a40295adc8c06b"></a><br/></td></tr>
 </table>
@@ -203,6 +208,46 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9d495c3a1d12bdb1982b27ad1dca175b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list&lt;<a class="el" href="classObject.xhtml">Object</a>*&gt; object_list</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Object*</td><td>A pointer to an <a class="el" href="classObject.xhtml" title="A physical object within the game world.">Object</a> copy in memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00063">63</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5106e7b92fd24349679157dfdeebffe0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list&lt;<a class="el" href="classObject.xhtml">Object</a>*&gt; object_template_list</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Object*</td><td>A pointer to an <a class="el" href="classObject.xhtml" title="A physical object within the game world.">Object</a> template in memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00070">70</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a0a518fc6607b121546a40295adc8c06b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -219,14 +264,14 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00063">63</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00077">77</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 11 2013 16:20:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 14:41:11 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -18,5 +18,6 @@ var searchData=
   ['max_5fsoc_5ftelopt',['MAX_SOC_TELOPT',['../enum_8h.xhtml#a8133e93c6dc811b9b216c65d6836dbe4a597c66d7807ce83daecb77a1ca11c7bf',1,'enum.h']]],
   ['max_5fsvr_5fcfg_5fprohibited_5fnames',['MAX_SVR_CFG_PROHIBITED_NAMES',['../enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94',1,'enum.h']]],
   ['max_5fthing_5fdescription',['MAX_THING_DESCRIPTION',['../enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5a5916fe4a04746e062eb4e16f3ee8daeb',1,'enum.h']]],
+  ['max_5fthing_5ftype',['MAX_THING_TYPE',['../enum_8h.xhtml#a37fc305e33c43e18f03f70aeb8bba7baa7147c3f91191456080471fc21f151674',1,'enum.h']]],
   ['max_5futils',['MAX_UTILS',['../enum_8h.xhtml#a3e334343716a0199504bec5002e4be88aa435dc1cf64950a334aba3ae322dc7e3',1,'enum.h']]]
 ];

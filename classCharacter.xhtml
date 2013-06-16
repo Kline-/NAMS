@@ -107,7 +107,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
@@ -119,8 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad51f5ff0cfefa9bd7e674bc413f6b73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interprets cmd with args at level security.  <a href="#ad51f5ff0cfefa9bd7e674bc413f6b73c"></a><br/></td></tr>
 <tr class="memitem:a829a28ec5f8573f3f53684ac4dcb75bb"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a829a28ec5f8573f3f53684ac4dcb75bb">New</a> (const string &amp;file, const bool &amp;exists)</td></tr>
 <tr class="memdesc:a829a28ec5f8573f3f53684ac4dcb75bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new character.  <a href="#a829a28ec5f8573f3f53684ac4dcb75bb"></a><br/></td></tr>
-<tr class="memitem:a17362c9349dd81d1fd28e66cc0b8f174"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174">Send</a> (const string &amp;msg)</td></tr>
-<tr class="memdesc:a17362c9349dd81d1fd28e66cc0b8f174"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to the associated <a class="el" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>, if any.  <a href="#a17362c9349dd81d1fd28e66cc0b8f174"></a><br/></td></tr>
+<tr class="memitem:a0121996391ec2a3fb12ec76406dd6018"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018">Send</a> (const string &amp;msg, <a class="el" href="classThing.xhtml">Thing</a> *speaker=NULL) const </td></tr>
+<tr class="memdesc:a0121996391ec2a3fb12ec76406dd6018"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to the associated <a class="el" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>, if any.  <a href="#a0121996391ec2a3fb12ec76406dd6018"></a><br/></td></tr>
 <tr class="memitem:acbf271cc1d8bf64bd5bd4c286f508f67"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67">Serialize</a> () const </td></tr>
 <tr class="memdesc:acbf271cc1d8bf64bd5bd4c286f508f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize the character data.  <a href="#acbf271cc1d8bf64bd5bd4c286f508f67"></a><br/></td></tr>
 <tr class="memitem:a91193d9bb29423c2ec95fb56c27d6bb3"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a91193d9bb29423c2ec95fb56c27d6bb3">Unserialize</a> ()</td></tr>
@@ -163,12 +164,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad3fcacc08977cb364ede9ff490a2c35e inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within.  <a href="#ad3fcacc08977cb364ede9ff490a2c35e"></a><br/></td></tr>
 <tr class="memitem:a3c3c40c996ff562baa335f2ded022578 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">gName</a> () const </td></tr>
 <tr class="memdesc:a3c3c40c996ff562baa335f2ded022578 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3c3c40c996ff562baa335f2ded022578"></a><br/></td></tr>
+<tr class="memitem:aa79bfcc9b321d3e05752066e5ba1c50a inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a">gType</a> () const </td></tr>
+<tr class="memdesc:aa79bfcc9b321d3e05752066e5ba1c50a inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the inherited sub-type of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aa79bfcc9b321d3e05752066e5ba1c50a"></a><br/></td></tr>
 <tr class="memitem:adf1753595ae5f94906663f88b7d38edd inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#adf1753595ae5f94906663f88b7d38edd">sDescription</a> (const string &amp;description, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr class="memdesc:adf1753595ae5f94906663f88b7d38edd inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the description of the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from <a class="el" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5">THING_DESCRIPTION</a>.  <a href="#adf1753595ae5f94906663f88b7d38edd"></a><br/></td></tr>
 <tr class="memitem:a946fbf68bcd90ea5b26f4cce0b37132b inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b">sId</a> (const string &amp;id)</td></tr>
 <tr class="memdesc:a946fbf68bcd90ea5b26f4cce0b37132b inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a946fbf68bcd90ea5b26f4cce0b37132b"></a><br/></td></tr>
 <tr class="memitem:a69568f79edcdf1b0225f1b764a7ceb41 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41">sName</a> (const string &amp;name, const bool &amp;system=false)</td></tr>
 <tr class="memdesc:a69568f79edcdf1b0225f1b764a7ceb41 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a69568f79edcdf1b0225f1b764a7ceb41"></a><br/></td></tr>
+<tr class="memitem:adf1d92efe54e7f5934d22e10b4374c59 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59">sType</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
+<tr class="memdesc:adf1d92efe54e7f5934d22e10b4374c59 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the inherited sub-type of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#adf1d92efe54e7f5934d22e10b4374c59"></a><br/></td></tr>
+<tr class="memitem:a9d7867991d8943d81101a32597eb4df1 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a9d7867991d8943d81101a32597eb4df1">NewId</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;seed)</td></tr>
+<tr class="memdesc:a9d7867991d8943d81101a32597eb4df1 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new unique id for this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a9d7867991d8943d81101a32597eb4df1"></a><br/></td></tr>
 <tr class="memitem:a39968586a8e98dfef67c72ca54e00a43 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43">Thing</a> ()</td></tr>
 <tr class="memdesc:a39968586a8e98dfef67c72ca54e00a43 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> class.  <a href="#a39968586a8e98dfef67c72ca54e00a43"></a><br/></td></tr>
 <tr class="memitem:ad4cc59aaae978053d0764b444d088984 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad4cc59aaae978053d0764b444d088984">~Thing</a> ()</td></tr>
@@ -197,11 +204,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialize attributes from parent <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> class</p>
+<p>Initialize attributes specific to Characters </p>
 
 <p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00363">363</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
 <div class="line"></div>
+<div class="line">    <a class="code" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59" title="Sets the inherited sub-type of this Thing.">sType</a>( <a class="code" href="enum_8h.xhtml#a37fc305e33c43e18f03f70aeb8bba7baac0eec9324dd51ebf65a7466f34ab8093">THING_TYPE_CHARACTER</a> );</div>
 <div class="line">    <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> = NULL;</div>
 <div class="line">    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a>; i++ )</div>
 <div class="line">        <a class="code" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a>[i] = <span class="keyword">false</span>;</div>
@@ -211,6 +221,16 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_adc27bdd255876169bad2ed0bae0cffb5_cgraph.svg" width="315" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a9e9be564d05ded80962b2045aa70b3fc"></a>
@@ -226,7 +246,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00379">379</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00382">382</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -276,20 +296,20 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a4f7ff295f5de0fa4f8fece0acb7aaa53_cgraph.svg" width="347" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a4f7ff295f5de0fa4f8fece0acb7aaa53_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -320,11 +340,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a9dce3d7ce7ac17f02397d198e47707ef_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -371,11 +391,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a>[pos];</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_ad3d3db7ed1d44cf53fb7ae4b991a1c18_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -410,11 +430,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> output.str();</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a611f85cc5c7c7c6977fdfca257530f3a_cgraph.svg" width="291" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -445,11 +465,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a3687af665ff3b9fe94176ecde8a7beca_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -521,35 +541,36 @@ Private Attributes</h2></td></tr>
 <div class="line">        <span class="keywordflow">if</span> ( command-&gt;<a class="code" href="classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run().">Authorized</a>( security ) )</div>
 <div class="line">            command-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <span class="keyword">this</span>, cmd, args );</div>
 <div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            <a class="code" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
+<div class="line">            <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( ( exit = <a class="code" href="namespaceHandler.xhtml#a6a66769cd9a793514515b88d44091cc7" title="Locates an Exit within a Location.">Handler::FindExit</a>( <a class="code" href="classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e" title="Returns the Location that this Thing is stored within.">gLocation</a>(), cmd ) ) != NULL ) <span class="comment">// Search for an exit</span></div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> ( !<a class="code" href="classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4" title="Moves a Thing from within one Location to another Location.">Move</a>( exit-&gt;<a class="code" href="classExit.xhtml#a798f8c836542670b5dd0dd41503a6171" title="Returns the destination that this Exit leads to.">gDestination</a>() ) )</div>
-<div class="line">            <a class="code" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
+<div class="line">            <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( ( command = <a class="code" href="namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game.">Handler::FindCommand</a>( <span class="stringliteral">&quot;look&quot;</span> ) ) != NULL ) </div>
 <div class="line">            command-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <span class="keyword">this</span> );</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="comment">// Give up</span></div>
-<div class="line">        <a class="code" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
+<div class="line">        <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_ad51f5ff0cfefa9bd7e674bc413f6b73c_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
-
 <p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_ad51f5ff0cfefa9bd7e674bc413f6b73c_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_ad51f5ff0cfefa9bd7e674bc413f6b73c_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -614,20 +635,20 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a829a28ec5f8573f3f53684ac4dcb75bb_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a829a28ec5f8573f3f53684ac4dcb75bb_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -676,11 +697,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a622c35f2465a934848d493cd2a596584_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -740,18 +761,18 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a324f4ec56476961fd22781a1d4e381ed_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a17362c9349dd81d1fd28e66cc0b8f174"></a>
+<a class="anchor" id="a0121996391ec2a3fb12ec76406dd6018"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -762,8 +783,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">const void Character::Send </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td>
+          <td class="paramname"><em>speaker</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -775,6 +806,7 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>The data to be sent. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">speaker</td><td>The <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> originating the message. </td></tr>
   </table>
   </dd>
 </dl>
@@ -785,33 +817,34 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classThing.xhtml#a2160234a5b340cf5e98162ea8b83b130">Thing</a>.</p>
+<p>Reimplemented from <a class="el" href="classThing.xhtml#aea72918fcebfd612b8dd076c708c1592">Thing</a>.</p>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00117">117</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00118">118</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
-<div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> != NULL )</div>
-<div class="line">        <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>() != NULL )</div>
+<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> )</div>
+<div class="line">        <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>() )</div>
 <div class="line">            <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>()-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( msg );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a17362c9349dd81d1fd28e66cc0b8f174_cgraph.svg" width="550" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
 <p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-15-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a17362c9349dd81d1fd28e66cc0b8f174_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a0121996391ec2a3fb12ec76406dd6018_cgraph.svg" width="550" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a0121996391ec2a3fb12ec76406dd6018_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -884,20 +917,20 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_acbf271cc1d8bf64bd5bd4c286f508f67_cgraph.svg" width="512" height="494"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_acbf271cc1d8bf64bd5bd4c286f508f67_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -946,11 +979,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_add25d4f2e5c883884b6852f695e96851_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -1057,20 +1090,20 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a91193d9bb29423c2ec95fb56c27d6bb3_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a91193d9bb29423c2ec95fb56c27d6bb3_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -1177,7 +1210,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 11 2013 16:20:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 14:41:12 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

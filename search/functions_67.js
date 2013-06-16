@@ -25,10 +25,10 @@ var searchData=
   ['gid',['gId',['../classAccount.xhtml#acee0aed5b91b420a7dbcf37b4b5d08e8',1,'Account::gId()'],['../classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602',1,'Thing::gId()']]],
   ['gidle',['gIdle',['../classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb',1,'SocketClient']]],
   ['global',['Global',['../classServer_1_1Global.xhtml#a2b3effe974a7f4e8e813fc08eac57cdb',1,'Server::Global']]],
-  ['glocation',['gLocation',['../classExit.xhtml#ae6fefb2ecc09630f3ce9e4d74663d366',1,'Exit::gLocation()'],['../classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e',1,'Thing::gLocation()']]],
+  ['glocation',['gLocation',['../classExit.xhtml#ae6fefb2ecc09630f3ce9e4d74663d366',1,'Exit::gLocation()'],['../classReset.xhtml#ac01ffe6dac9ba1e5f37d48822e610a66',1,'Reset::gLocation()'],['../classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e',1,'Thing::gLocation()']]],
   ['glogin',['gLogin',['../classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796',1,'SocketClient']]],
   ['glogins',['gLogins',['../classAccount.xhtml#a3e2d487e0962a90f4f00cf0ac73cbb7e',1,'Account']]],
-  ['gname',['gName',['../classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021',1,'Command::gName()'],['../classExit.xhtml#a34207621e47d7bf64933eb68d05fedd9',1,'Exit::gName()'],['../classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae',1,'Plugin::gName()'],['../classThing.xhtml#a3c3c40c996ff562baa335f2ded022578',1,'Thing::gName()']]],
+  ['gname',['gName',['../classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021',1,'Command::gName()'],['../classExit.xhtml#a34207621e47d7bf64933eb68d05fedd9',1,'Exit::gName()'],['../classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae',1,'Plugin::gName()'],['../classReset.xhtml#a05b0a8d00a0881980f9cc9e98299c399',1,'Reset::gName()'],['../classThing.xhtml#a3c3c40c996ff562baa335f2ded022578',1,'Thing::gName()']]],
   ['gnegotiated',['gNegotiated',['../classSocketClient_1_1TermInfo.xhtml#a58debeabe9fe825bc7abbac06df5b216',1,'SocketClient::TermInfo']]],
   ['gport',['gPort',['../classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c',1,'Socket']]],
   ['gpreempt',['gPreempt',['../classCommand.xhtml#a24702b444e22d28a7566b539a0d15b90',1,'Command']]],
@@ -44,5 +44,6 @@ var searchData=
   ['gtelopt',['gTelopt',['../classSocketClient_1_1TermInfo.xhtml#a53781b89d3e22a7ceaa68c96b2b14463',1,'SocketClient::TermInfo']]],
   ['gterminfo',['gTermInfo',['../classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb',1,'SocketClient']]],
   ['gtime',['gTime',['../classEvent.xhtml#aba97749a9852eb777c5d8d5ccbc16dc4',1,'Event']]],
+  ['gtype',['gType',['../classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a',1,'Thing']]],
   ['guint',['gUint',['../classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43',1,'Plugin']]]
 ];

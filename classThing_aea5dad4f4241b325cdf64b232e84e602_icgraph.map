@@ -1,41 +1,47 @@
 <map id="Thing::gId" name="Thing::gId">
-<area shape="rect" id="node3" href="$classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67" title="Serialize the character data." alt="" coords="144,558,291,586"/>
-<area shape="rect" id="node75" href="$classCharacter.xhtml#a91193d9bb29423c2ec95fb56c27d6bb3" title="Unserialize the character data." alt="" coords="136,730,299,758"/>
-<area shape="rect" id="node82" href="$classCharacter.xhtml#a611f85cc5c7c7c6977fdfca257530f3a" title="Generates a status&#45;bar prompt based on tokens." alt="" coords="144,1034,291,1062"/>
-<area shape="rect" id="node84" href="$namespaceHandler.xhtml#ab2e9bf0a670cbf82be7a440065151516" title="Locates a Character within the game." alt="" coords="581,794,749,822"/>
-<area shape="rect" id="node87" href="$namespaceHandler.xhtml#a57dc60ce5522b41f1ab98b83de76779f" title="Locates a Location associated with the game." alt="" coords="139,882,296,910"/>
-<area shape="rect" id="node93" href="$classLocation.xhtml#a6396aba5eab9bcbabb000c3f6478e1a2" title="Create a new location." alt="" coords="385,914,495,942"/>
-<area shape="rect" id="node98" href="$namespaceServer.xhtml#a21b284fbb08f1d61510945f64d0673cb" title="Links Exit pointers together after all locations are loaded." alt="" coords="377,965,503,993"/>
-<area shape="rect" id="node101" href="$namespaceHandler.xhtml#aab2a2273860d63543809b878c7e40b6e" title="Checks to see if a Character is currently logged into the game and playing." alt="" coords="584,642,747,670"/>
-<area shape="rect" id="node107" href="$classLocation.xhtml#a4f364ffc1f0910ac60bcb2e7cf9e7e20" title="Serialize the location data." alt="" coords="148,1085,287,1113"/>
-<area shape="rect" id="node109" href="$classLocation.xhtml#af65d15c0c107b1fdea7711d632ac909d" title="Unserialize the location data." alt="" coords="140,831,295,859"/>
-<area shape="rect" id="node5" href="$namespaceHandler.xhtml#a2e4ebf6ed049eb872aa4948d54c4932c" title="Attempt to write a new character to disk after creation was completed." alt="" coords="348,417,532,445"/>
-<area shape="rect" id="node69" href="$classSocketClient.xhtml#ad8ab017dd47d5e8b20ad30f72773a759" title="Flags a client as quitting to break out of nested loops." alt="" coords="372,558,508,586"/>
-<area shape="rect" id="node7" href="$namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888" title="Dispatches the appropriate menu based on client state." alt="" coords="584,417,747,445"/>
-<area shape="rect" id="node9" href="$namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" title="Create a new account object, or load an existing one, with a name and password." alt="" coords="831,493,1004,521"/>
-<area shape="rect" id="node13" href="$namespaceHandler.xhtml#a73ed6064f2698dbffb5f4c247a02b661" title="Send initial account interface menu." alt="" coords="819,5,1016,33"/>
-<area shape="rect" id="node16" href="$namespaceHandler.xhtml#ad04998a7a6ece2486bc441052a57c2d7" title="Main Character creation menu." alt="" coords="824,106,1011,150"/>
-<area shape="rect" id="node19" href="$namespaceHandler.xhtml#ab5889a65de2794129b375ec39ae923ae" title="Select a new Character name." alt="" coords="805,711,1029,739"/>
-<area shape="rect" id="node22" href="$namespaceHandler.xhtml#ae5086bcf5857eb572beedd09158c3065" title="Select a new Character sex." alt="" coords="812,173,1023,201"/>
-<area shape="rect" id="node25" href="$namespaceHandler.xhtml#a97a198bfc72285b2aca4f36978db715e" title="Main Character deletion confirmation." alt="" coords="825,223,1009,267"/>
-<area shape="rect" id="node28" href="$namespaceHandler.xhtml#afc470ec6e82b7a9a1560588a368734f9" title="Main Character deletion menu." alt="" coords="825,594,1009,638"/>
-<area shape="rect" id="node31" href="$namespaceHandler.xhtml#a02b1b954749641ab646f6548a5360d3b" title="Main Character load menu." alt="" coords="799,661,1036,689"/>
-<area shape="rect" id="node34" href="$namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" title="Select a new account name." alt="" coords="827,290,1008,318"/>
-<area shape="rect" id="node37" href="$namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" title="Create a new account." alt="" coords="823,341,1012,369"/>
-<area shape="rect" id="node40" href="$namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" title="Compare a received password against an existing account." alt="" coords="827,391,1008,419"/>
-<area shape="rect" id="node43" href="$namespaceHandler.xhtml#ae70e4e50054c729c14493eafefe01b5c" title="Load a character from the account to enter into the game with." alt="" coords="831,762,1004,790"/>
-<area shape="rect" id="node46" href="$namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191" title="Send initial greeting and request for account name." alt="" coords="839,442,996,470"/>
-<area shape="rect" id="node49" href="$classSocketClient.xhtml#a8399ef20292e9f3ec83b5c4bec2e105b" title="Build a SocketClient for a new client connection and set all attributes." alt="" coords="849,543,985,571"/>
-<area shape="rect" id="node64" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="1085,165,1312,193"/>
-<area shape="rect" id="node51" href="$namespaceServer.xhtml#a16ea0639731dee10e1a253375b508a02" title="Recovers the server state and re&#45;connects client sockets after a reboot." alt="" coords="1112,825,1285,853"/>
-<area shape="rect" id="node57" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="1119,543,1279,571"/>
-<area shape="rect" id="node53" href="$namespaceServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="1377,863,1497,891"/>
-<area shape="rect" id="node55" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="1732,609,1785,637"/>
-<area shape="rect" id="node59" href="$namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" title="Poll all SocketClient objects that are communicating with the associated SocketServer object..." alt="" coords="1365,543,1509,571"/>
-<area shape="rect" id="node61" href="$namespaceServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="1564,543,1681,571"/>
-<area shape="rect" id="node66" href="$namespaceServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Processes input from all active SocketClient objects." alt="" coords="1360,274,1515,302"/>
-<area shape="rect" id="node71" href="$namespaceHandler.xhtml#ae660d7a3f4c95db9639d74e965e82df6" title="Reconnects an existing in&#45;game Character to a new SocketClient." alt="" coords="592,693,739,721"/>
-<area shape="rect" id="node77" href="$classCharacter.xhtml#a829a28ec5f8573f3f53684ac4dcb75bb" title="Create a new character." alt="" coords="605,743,725,771"/>
-<area shape="rect" id="node89" href="$namespaceHandler.xhtml#a571519b889d3750c63b9dc3418449bcb" title="Places the character loaded against the account into the game world." alt="" coords="364,863,516,891"/>
-<area shape="rect" id="node95" href="$namespaceServer.xhtml#a9b8efad79a32f2356d431788449e1f82" title="Search all subfolders of CFG_DAT_DIR_WORLD and call Location::New() to load each file found to memory..." alt="" coords="1117,901,1280,929"/>
+<area shape="rect" id="node3" href="$classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67" title="Serialize the character data." alt="" coords="143,586,289,614"/>
+<area shape="rect" id="node75" href="$classCharacter.xhtml#a91193d9bb29423c2ec95fb56c27d6bb3" title="Unserialize the character data." alt="" coords="356,859,519,887"/>
+<area shape="rect" id="node82" href="$classCharacter.xhtml#a611f85cc5c7c7c6977fdfca257530f3a" title="Generates a status&#45;bar prompt based on tokens." alt="" coords="143,657,289,685"/>
+<area shape="rect" id="node84" href="$namespaceHandler.xhtml#ab2e9bf0a670cbf82be7a440065151516" title="Locates a Character within the game." alt="" coords="579,813,747,841"/>
+<area shape="rect" id="node87" href="$namespaceHandler.xhtml#a57dc60ce5522b41f1ab98b83de76779f" title="Locates a Location associated with the game." alt="" coords="137,809,295,837"/>
+<area shape="rect" id="node93" href="$classLocation.xhtml#a6396aba5eab9bcbabb000c3f6478e1a2" title="Create a new location." alt="" coords="383,1101,492,1129"/>
+<area shape="rect" id="node98" href="$namespaceServer.xhtml#a21b284fbb08f1d61510945f64d0673cb" title="Links Exit pointers together after all locations are loaded." alt="" coords="375,478,500,506"/>
+<area shape="rect" id="node101" href="$namespaceHandler.xhtml#a0ee2f5e038afd5072af274d5d36b12a8" title="Locates an Object associated with the game." alt="" coords="143,910,289,938"/>
+<area shape="rect" id="node105" href="$classObject.xhtml#abbf694ca0643b6bd1e0b5fbc8d6ade24" title="Create a new object." alt="" coords="388,1011,487,1039"/>
+<area shape="rect" id="node110" href="$namespaceHandler.xhtml#aab2a2273860d63543809b878c7e40b6e" title="Checks to see if a Character is currently logged into the game and playing." alt="" coords="581,707,744,735"/>
+<area shape="rect" id="node116" href="$classLocation.xhtml#a4f364ffc1f0910ac60bcb2e7cf9e7e20" title="Serialize the location data." alt="" coords="147,1062,285,1090"/>
+<area shape="rect" id="node118" href="$classLocation.xhtml#af65d15c0c107b1fdea7711d632ac909d" title="Unserialize the location data." alt="" coords="139,1113,293,1141"/>
+<area shape="rect" id="node122" href="$classObject.xhtml#a17108a2fecfd2c0542290f4cccfc6a6b" title="Serialize the object data." alt="" coords="153,1163,279,1191"/>
+<area shape="rect" id="node124" href="$classObject.xhtml#a194a597210a8466f7a1668d6383c5b70" title="Unserialize the object data." alt="" coords="145,961,287,989"/>
+<area shape="rect" id="node5" href="$namespaceHandler.xhtml#a2e4ebf6ed049eb872aa4948d54c4932c" title="Attempt to write a new character to disk after creation was completed." alt="" coords="345,529,529,557"/>
+<area shape="rect" id="node69" href="$classSocketClient.xhtml#ad8ab017dd47d5e8b20ad30f72773a759" title="Flags a client as quitting to break out of nested loops." alt="" coords="369,586,505,614"/>
+<area shape="rect" id="node7" href="$namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888" title="Dispatches the appropriate menu based on client state." alt="" coords="581,519,744,547"/>
+<area shape="rect" id="node9" href="$namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" title="Create a new account object, or load an existing one, with a name and password." alt="" coords="828,461,1001,489"/>
+<area shape="rect" id="node13" href="$namespaceHandler.xhtml#a73ed6064f2698dbffb5f4c247a02b661" title="Send initial account interface menu." alt="" coords="816,106,1013,134"/>
+<area shape="rect" id="node16" href="$namespaceHandler.xhtml#ad04998a7a6ece2486bc441052a57c2d7" title="Main Character creation menu." alt="" coords="821,511,1008,555"/>
+<area shape="rect" id="node19" href="$namespaceHandler.xhtml#ab5889a65de2794129b375ec39ae923ae" title="Select a new Character name." alt="" coords="803,813,1027,841"/>
+<area shape="rect" id="node22" href="$namespaceHandler.xhtml#ae5086bcf5857eb572beedd09158c3065" title="Select a new Character sex." alt="" coords="809,578,1020,606"/>
+<area shape="rect" id="node25" href="$namespaceHandler.xhtml#a97a198bfc72285b2aca4f36978db715e" title="Main Character deletion confirmation." alt="" coords="823,629,1007,673"/>
+<area shape="rect" id="node28" href="$namespaceHandler.xhtml#afc470ec6e82b7a9a1560588a368734f9" title="Main Character deletion menu." alt="" coords="823,695,1007,739"/>
+<area shape="rect" id="node31" href="$namespaceHandler.xhtml#a02b1b954749641ab646f6548a5360d3b" title="Main Character load menu." alt="" coords="796,762,1033,790"/>
+<area shape="rect" id="node34" href="$namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" title="Select a new account name." alt="" coords="824,207,1005,235"/>
+<area shape="rect" id="node37" href="$namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" title="Create a new account." alt="" coords="820,258,1009,286"/>
+<area shape="rect" id="node40" href="$namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" title="Compare a received password against an existing account." alt="" coords="824,309,1005,337"/>
+<area shape="rect" id="node43" href="$namespaceHandler.xhtml#ae70e4e50054c729c14493eafefe01b5c" title="Load a character from the account to enter into the game with." alt="" coords="828,863,1001,891"/>
+<area shape="rect" id="node46" href="$namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191" title="Send initial greeting and request for account name." alt="" coords="836,359,993,387"/>
+<area shape="rect" id="node49" href="$classSocketClient.xhtml#a8399ef20292e9f3ec83b5c4bec2e105b" title="Build a SocketClient for a new client connection and set all attributes." alt="" coords="847,410,983,438"/>
+<area shape="rect" id="node64" href="$classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" title="Interpret the command at the front of the queue." alt="" coords="1083,5,1309,33"/>
+<area shape="rect" id="node51" href="$namespaceServer.xhtml#a16ea0639731dee10e1a253375b508a02" title="Recovers the server state and re&#45;connects client sockets after a reboot." alt="" coords="1109,914,1283,942"/>
+<area shape="rect" id="node57" href="$classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port." alt="" coords="1116,410,1276,438"/>
+<area shape="rect" id="node53" href="$namespaceServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ..." alt="" coords="1375,914,1495,942"/>
+<area shape="rect" id="node55" href="$main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" title="The default function required to execute the server." alt="" coords="1729,549,1783,577"/>
+<area shape="rect" id="node59" href="$namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" title="Poll all SocketClient objects that are communicating with the associated SocketServer object..." alt="" coords="1363,410,1507,438"/>
+<area shape="rect" id="node61" href="$namespaceServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo..." alt="" coords="1561,410,1679,438"/>
+<area shape="rect" id="node66" href="$namespaceServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" title="Processes input from all active SocketClient objects." alt="" coords="1357,182,1512,210"/>
+<area shape="rect" id="node71" href="$namespaceHandler.xhtml#ae660d7a3f4c95db9639d74e965e82df6" title="Reconnects an existing in&#45;game Character to a new SocketClient." alt="" coords="589,762,736,790"/>
+<area shape="rect" id="node77" href="$classCharacter.xhtml#a829a28ec5f8573f3f53684ac4dcb75bb" title="Create a new character." alt="" coords="603,863,723,891"/>
+<area shape="rect" id="node89" href="$namespaceHandler.xhtml#a571519b889d3750c63b9dc3418449bcb" title="Places the character loaded against the account into the game world." alt="" coords="361,809,513,837"/>
+<area shape="rect" id="node95" href="$namespaceServer.xhtml#a9b8efad79a32f2356d431788449e1f82" title="Search all subfolders of CFG_DAT_DIR_WORLD and call Location::New() to load each file found to memory..." alt="" coords="1115,1066,1277,1094"/>
+<area shape="rect" id="node103" href="$classObject.xhtml#a2238f4fd2bdae2764e400556c0c7e310" title="Clones an Object from the object_template_list into the object_list." alt="" coords="384,910,491,938"/>
+<area shape="rect" id="node107" href="$namespaceServer.xhtml#a0a8c7c124f8cc8e5e6a9c7b067be5ff5" title="Search all subfolders of CFG_DAT_DIR_WORLD and call Object::New() to load each file found to memory..." alt="" coords="1121,990,1271,1018"/>
 </map>

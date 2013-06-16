@@ -34,7 +34,7 @@
 <script type="text/javascript">
 var viewWidth = 1376;
 var viewHeight = 596;
-var sectionId = 'dynsection-5';
+var sectionId = 'dynsection-4';
 </script>
 <script xlink:href="svgpan.js"/>
 <svg id="graph" class="graph">
@@ -43,8 +43,8 @@ var sectionId = 'dynsection-5';
 <polygon fill="white" stroke="white" points="-4,5 -4,-592 1373,-592 1373,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="0,-397 0,-417 108,-417 108,-397 0,-397"/>
-<text text-anchor="middle" x="54" y="-404" font-family="FreeSans.ttf" font-size="10.00">Thing::gDescription</text>
+<polygon fill="#bfbfbf" stroke="black" points="0,-359 0,-379 108,-379 108,-359 0,-359"/>
+<text text-anchor="middle" x="54" y="-366" font-family="FreeSans.ttf" font-size="10.00">Thing::gDescription</text>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
@@ -55,8 +55,8 @@ var sectionId = 'dynsection-5';
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M118.574,-415.461C126.994,-416.565 135.559,-417.687 143.807,-418.768"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="118.775,-411.958 108.405,-414.129 117.866,-418.899 118.775,-411.958"/>
+<path fill="none" stroke="midnightblue" d="M86.261,-383.239C103.317,-390.609 124.672,-399.591 144,-407 151.924,-410.038 160.569,-413.127 168.609,-415.908"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="87.3296,-379.887 76.7633,-379.109 84.5385,-386.306 87.3296,-379.887"/>
 </g>
 <!-- Node29 -->
 <g id="node75" class="node"><title>Node29</title>
@@ -67,8 +67,32 @@ var sectionId = 'dynsection-5';
 </g>
 <!-- Node1&#45;&gt;Node29 -->
 <g id="edge92" class="edge"><title>Node1&#45;&gt;Node29</title>
-<path fill="none" stroke="midnightblue" d="M118.528,-398.545C127.95,-397.31 137.554,-396.052 146.693,-394.854"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="117.866,-395.101 108.405,-399.871 118.775,-402.042 117.866,-395.101"/>
+<path fill="none" stroke="midnightblue" d="M118.528,-377.455C127.95,-378.69 137.554,-379.948 146.693,-381.146"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="118.775,-373.958 108.405,-376.129 117.866,-380.899 118.775,-373.958"/>
+</g>
+<!-- Node30 -->
+<g id="node77" class="node"><title>Node30</title>
+<a xlink:href="classObject.xhtml#a2238f4fd2bdae2764e400556c0c7e310" target="_top" xlink:title="Clones an Object from the object_template_list into the object_list.">
+<polygon fill="white" stroke="black" points="159,-340 159,-360 239,-360 239,-340 159,-340"/>
+<text text-anchor="middle" x="199" y="-347" font-family="FreeSans.ttf" font-size="10.00">Object::Clone</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node30 -->
+<g id="edge94" class="edge"><title>Node1&#45;&gt;Node30</title>
+<path fill="none" stroke="midnightblue" d="M118.327,-360.571C132.089,-358.768 146.25,-356.912 158.79,-355.269"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="117.866,-357.101 108.405,-361.871 118.775,-364.042 117.866,-357.101"/>
+</g>
+<!-- Node31 -->
+<g id="node79" class="node"><title>Node31</title>
+<a xlink:href="classObject.xhtml#a17108a2fecfd2c0542290f4cccfc6a6b" target="_top" xlink:title="Serialize the object data.">
+<polygon fill="white" stroke="black" points="152,-302 152,-322 246,-322 246,-302 152,-302"/>
+<text text-anchor="middle" x="199" y="-309" font-family="FreeSans.ttf" font-size="10.00">Object::Serialize</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node31 -->
+<g id="edge96" class="edge"><title>Node1&#45;&gt;Node31</title>
+<path fill="none" stroke="midnightblue" d="M86.261,-354.761C103.317,-347.391 124.672,-338.409 144,-331 151.924,-327.962 160.569,-324.873 168.609,-322.092"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="84.5385,-351.694 76.7633,-358.891 87.3296,-358.113 84.5385,-351.694"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>

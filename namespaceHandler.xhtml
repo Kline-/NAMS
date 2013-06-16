@@ -100,6 +100,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a6a66769cd9a793514515b88d44091cc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates an <a class="el" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a> within a <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>.  <a href="#a6a66769cd9a793514515b88d44091cc7"></a><br/></td></tr>
 <tr class="memitem:a57dc60ce5522b41f1ab98b83de76779f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLocation.xhtml">Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a57dc60ce5522b41f1ab98b83de76779f">FindLocation</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr class="memdesc:a57dc60ce5522b41f1ab98b83de76779f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates a <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> associated with the game.  <a href="#a57dc60ce5522b41f1ab98b83de76779f"></a><br/></td></tr>
+<tr class="memitem:a0ee2f5e038afd5072af274d5d36b12a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.xhtml">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a0ee2f5e038afd5072af274d5d36b12a8">FindObject</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type, const list&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt; &amp;olist)</td></tr>
+<tr class="memdesc:a0ee2f5e038afd5072af274d5d36b12a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates an <a class="el" href="classObject.xhtml" title="A physical object within the game world.">Object</a> associated with the game.  <a href="#a0ee2f5e038afd5072af274d5d36b12a8"></a><br/></td></tr>
 <tr class="memitem:a139febc000c9d767a620708148e0c888"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888">LoginHandler</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd=&quot;&quot;, const string &amp;args=&quot;&quot;)</td></tr>
 <tr class="memdesc:a139febc000c9d767a620708148e0c888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches the appropriate menu based on client state.  <a href="#a139febc000c9d767a620708148e0c888"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
@@ -189,7 +191,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00602">602</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00663">663</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> val = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
@@ -342,7 +344,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00444">444</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00505">505</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>* account = NULL;</div>
@@ -397,7 +399,8 @@ Functions</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a33a19d69ead678af81fbe96907eceaf0_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a33a19d69ead678af81fbe96907eceaf0_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -456,7 +459,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00501">501</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00562">562</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -556,7 +559,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00698">698</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00759">759</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>, val = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
@@ -727,7 +730,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00812">812</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00873">873</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>* chr = NULL;</div>
@@ -889,7 +892,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00917">917</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00978">978</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> val = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
@@ -1003,7 +1006,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00974">974</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01035">1035</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -1102,7 +1105,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01016">1016</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01077">1077</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>, val = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
@@ -1233,7 +1236,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01090">1090</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01151">1151</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>, val = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
@@ -1376,7 +1379,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00319">319</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00380">380</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1" title="Define a bitset variable (name) with UTILS_TYPE_SOCKET already enabled.">UFLAGS_S</a>( flag );</div>
@@ -1463,7 +1466,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00365">365</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00426">426</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1" title="Define a bitset variable (name) with UTILS_TYPE_SOCKET already enabled.">UFLAGS_S</a>( flag );</div>
@@ -1552,7 +1555,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00397">397</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00458">458</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( forward_list, <span class="keywordtype">string</span>, fi );</div>
@@ -1655,7 +1658,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01182">1182</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01243">1243</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>* loc = NULL;</div>
@@ -1769,7 +1772,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00046">46</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00047">47</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>* chr = NULL;</div>
@@ -1786,7 +1789,7 @@ Functions</h2></td></tr>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> ( search &lt; uintmin_t || search &gt;= <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a76f1872093e830545839a2ec938b3098">MAX_HANDLER_FIND</a> )</div>
 <div class="line">        {</div>
-<div class="line">            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Handler::FindCharacter()-&gt; Called with invalid type: %lu&quot;</span>, search );</div>
+<div class="line">            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Handler::FindCharacter()-&gt; called with invalid type: %lu&quot;</span>, search );</div>
 <div class="line">            <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Handler::FindCharacter()-&gt; defaulting to HANDLER_FIND_ID&quot;</span> );</div>
 <div class="line">            search = <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a9316081309157c0cf6f4508b8d91fedd">HANDLER_FIND_ID</a>;</div>
 <div class="line">        }</div>
@@ -1868,7 +1871,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00104">104</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00105">105</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* cmd = NULL;</div>
@@ -1972,7 +1975,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00157">157</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00158">158</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit = NULL;</div>
@@ -2076,7 +2079,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00210">210</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00211">211</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>* loc = NULL;</div>
@@ -2093,7 +2096,7 @@ Functions</h2></td></tr>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> ( search &lt; uintmin_t || search &gt;= <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a76f1872093e830545839a2ec938b3098">MAX_HANDLER_FIND</a> )</div>
 <div class="line">        {</div>
-<div class="line">            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Handler::FindLocation()-&gt; Called with invalid type: %lu&quot;</span>, search );</div>
+<div class="line">            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Handler::FindLocation()-&gt; called with invalid type: %lu&quot;</span>, search );</div>
 <div class="line">            <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Handler::FindLocation()-&gt; defaulting to HANDLER_FIND_ID&quot;</span> );</div>
 <div class="line">            search = <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a9316081309157c0cf6f4508b8d91fedd">HANDLER_FIND_ID</a>;</div>
 <div class="line">        }</div>
@@ -2149,6 +2152,125 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0ee2f5e038afd5072af274d5d36b12a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObject.xhtml">Object</a> * Handler::FindObject </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const list&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>olist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of the <a class="el" href="classObject.xhtml" title="A physical object within the game world.">Object</a> to search for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The field to search against, from <a class="el" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406">HANDLER_FIND</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">olist</td><td>The object list to be searched. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Object*</td><td>A pointer to the <a class="el" href="classObject.xhtml" title="A physical object within the game world.">Object</a> object associated with name, or NULL if one is not found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00271">271</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
+<div class="line">    <a class="code" href="classObject.xhtml" title="A physical object within the game world.">Object</a>* obj = NULL;</div>
+<div class="line">    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( list, <a class="code" href="classObject.xhtml" title="A physical object within the game world.">Object</a>*, oi );</div>
+<div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> search = type;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> ( name.empty() )</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Handler::FindObject()-&gt; called with empty name&quot;</span> );</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> ( olist.empty() )</div>
+<div class="line">        obj = NULL;</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span> ( search &lt; uintmin_t || search &gt;= <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a76f1872093e830545839a2ec938b3098">MAX_HANDLER_FIND</a> )</div>
+<div class="line">        {</div>
+<div class="line">            <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Handler::FindObject()-&gt; called with invalid type: %lu&quot;</span>, search );</div>
+<div class="line">            <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Handler::FindObject()-&gt; defaulting to HANDLER_FIND_ID&quot;</span> );</div>
+<div class="line">            search = <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a9316081309157c0cf6f4508b8d91fedd">HANDLER_FIND_ID</a>;</div>
+<div class="line">        }</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordflow">for</span> ( oi = olist.begin(); oi != olist.end(); oi++ )</div>
+<div class="line">        {</div>
+<div class="line">            found = <span class="keyword">false</span>;</div>
+<div class="line">            obj = *oi;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span> ( search == <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a9316081309157c0cf6f4508b8d91fedd">HANDLER_FIND_ID</a> &amp;&amp; <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters.">Utils::Lower</a>( obj-&gt;<a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() ).find( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters.">Utils::Lower</a>( name ) ) == 0 )</div>
+<div class="line">                    found = <span class="keyword">true</span>;</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( search == <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a32bd1c73177c537366983800f16a85a0">HANDLER_FIND_NAME</a> &amp;&amp; <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters.">Utils::Lower</a>( obj-&gt;<a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() ).find( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters.">Utils::Lower</a>( name ) ) == 0 )</div>
+<div class="line">                    found = <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span></div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span> ( search == <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a9316081309157c0cf6f4508b8d91fedd">HANDLER_FIND_ID</a> &amp;&amp; obj-&gt;<a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>().find( name ) == 0 )</div>
+<div class="line">                    found = <span class="keyword">true</span>;</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( search == <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a32bd1c73177c537366983800f16a85a0">HANDLER_FIND_NAME</a> &amp;&amp; obj-&gt;<a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>().find( name ) == 0 )</div>
+<div class="line">                    found = <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> ( found )</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">        }</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordflow">if</span> ( !found )</div>
+<div class="line">            obj = NULL;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> obj;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p><div id="dynsection-34" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-34-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-34-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a0ee2f5e038afd5072af274d5d36b12a8_cgraph.svg" width="318" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+<p><div id="dynsection-35" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-35-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-35-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-35-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a0ee2f5e038afd5072af274d5d36b12a8_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a00bc24564bfd267e0329643c569da1e4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2193,7 +2315,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01246">1246</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01307">1307</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -2226,20 +2348,20 @@ Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-34" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-34-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-36" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-36-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-36-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-34-content" class="dyncontent" style="display:none;">
+<div id="dynsection-36-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a00bc24564bfd267e0329643c569da1e4_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-35" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-35-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-35-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-37" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-37-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-37-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-35-content" class="dyncontent" style="display:none;">
+<div id="dynsection-37-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a00bc24564bfd267e0329643c569da1e4_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -2290,7 +2412,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01286">1286</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01347">1347</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -2322,7 +2444,7 @@ Functions</h2></td></tr>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( client-&gt;<a class="code" href="classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key.">gLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aaef7df213742c1c08fe0d427288d8f819">SOC_LOGIN_PASSWORD</a> ).empty() )</div>
 <div class="line">    {</div>
-<div class="line">        client-&gt;<a class="code" href="classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484" title="Set the login command or arguments to be passed between handler functions.">sLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aaef7df213742c1c08fe0d427288d8f819">SOC_LOGIN_PASSWORD</a>, crypt( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( cmd ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0" title="Returns a salt value for use with crypt.">Utils::Salt</a>( client-&gt;<a class="code" href="classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key.">gLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa2795241d82649418f379522adb32897a">SOC_LOGIN_NAME</a> ) ) ) ) );</div>
+<div class="line">        client-&gt;<a class="code" href="classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484" title="Set the login command or arguments to be passed between handler functions.">sLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aaef7df213742c1c08fe0d427288d8f819">SOC_LOGIN_PASSWORD</a>, ::crypt( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( cmd ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0" title="Returns a salt value for use with crypt.">Utils::Salt</a>( client-&gt;<a class="code" href="classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key.">gLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa2795241d82649418f379522adb32897a">SOC_LOGIN_NAME</a> ) ) ) ) );</div>
 <div class="line">        client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( <a class="code" href="config_8h.xhtml#a51eaea4b5ef702d560ee8d1037757650" title="String sent to request the user confirms their new account password.">CFG_STR_ACT_PASSWORD_CONFIRM</a> );</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -2345,20 +2467,20 @@ Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-36" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-36-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-36-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-38" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-38-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-38-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-36-content" class="dyncontent" style="display:none;">
+<div id="dynsection-38-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a744adadcf407cdb3a9c33365afd5a7c2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-37" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-37-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-37-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-39" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-39-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-39-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-37-content" class="dyncontent" style="display:none;">
+<div id="dynsection-39-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a744adadcf407cdb3a9c33365afd5a7c2_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -2409,7 +2531,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01348">1348</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01409">1409</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -2427,7 +2549,7 @@ Functions</h2></td></tr>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    client-&gt;<a class="code" href="classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484" title="Set the login command or arguments to be passed between handler functions.">sLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aaef7df213742c1c08fe0d427288d8f819">SOC_LOGIN_PASSWORD</a>, crypt( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( cmd ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0" title="Returns a salt value for use with crypt.">Utils::Salt</a>( client-&gt;<a class="code" href="classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key.">gLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa2795241d82649418f379522adb32897a">SOC_LOGIN_NAME</a> ) ) ) ) );</div>
+<div class="line">    client-&gt;<a class="code" href="classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484" title="Set the login command or arguments to be passed between handler functions.">sLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aaef7df213742c1c08fe0d427288d8f819">SOC_LOGIN_PASSWORD</a>, ::crypt( <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( cmd ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( <a class="code" href="namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0" title="Returns a salt value for use with crypt.">Utils::Salt</a>( client-&gt;<a class="code" href="classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key.">gLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa2795241d82649418f379522adb32897a">SOC_LOGIN_NAME</a> ) ) ) ) );</div>
 <div class="line">    client-&gt;<a class="code" href="classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket.">sState</a>( <a class="code" href="enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7a0578d117dea969aded3b50085da44adf">SOC_STATE_LOAD_ACCOUNT</a> );</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">//Generate the next input prompt</span></div>
@@ -2436,20 +2558,20 @@ Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-38" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-38-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-38-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-40" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-40-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-40-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-38-content" class="dyncontent" style="display:none;">
+<div id="dynsection-40-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_adfe13cc9748392348f3941656a1323b6_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-39" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-39-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-39-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-41" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-41-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-41-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-39-content" class="dyncontent" style="display:none;">
+<div id="dynsection-41-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_adfe13cc9748392348f3941656a1323b6_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -2500,7 +2622,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01382">1382</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01443">1443</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>* chr = NULL;</div>
@@ -2550,20 +2672,20 @@ Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-40" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-40-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-40-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-42" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-42-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-42-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-40-content" class="dyncontent" style="display:none;">
+<div id="dynsection-42-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_ae70e4e50054c729c14493eafefe01b5c_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-41" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-41-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-41-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-43" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-43-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-43-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-41-content" class="dyncontent" style="display:none;">
+<div id="dynsection-43-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_ae70e4e50054c729c14493eafefe01b5c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -2614,7 +2736,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00270">270</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00331">331</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -2655,20 +2777,20 @@ Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-42" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-42-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-42-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-44" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-44-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-44-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-42-content" class="dyncontent" style="display:none;">
+<div id="dynsection-44-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a139febc000c9d767a620708148e0c888_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-43" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-43-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-43-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-45" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-45-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-45-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-43-content" class="dyncontent" style="display:none;">
+<div id="dynsection-45-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a139febc000c9d767a620708148e0c888_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -2719,7 +2841,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01439">1439</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l01500">1500</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -2803,20 +2925,20 @@ Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-44" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-44-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-44-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-46" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-46-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-46-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-44-content" class="dyncontent" style="display:none;">
+<div id="dynsection-46-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a44b41bf69fdc6e615a029bea34910191_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-45" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-45-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-45-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-47" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-47-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-47-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-45-content" class="dyncontent" style="display:none;">
+<div id="dynsection-47-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a44b41bf69fdc6e615a029bea34910191_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -2860,7 +2982,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00543">543</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00604">604</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1" title="Define a bitset variable (name) with UTILS_TYPE_SOCKET already enabled.">UFLAGS_S</a>( flag );</div>
@@ -2911,20 +3033,20 @@ Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-46" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-46-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-46-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-48" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-48-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-48-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-46-content" class="dyncontent" style="display:none;">
+<div id="dynsection-48-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_ae660d7a3f4c95db9639d74e965e82df6_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-47" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-47-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-47-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-49" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-49-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-49-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-47-content" class="dyncontent" style="display:none;">
+<div id="dynsection-49-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_ae660d7a3f4c95db9639d74e965e82df6_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -2934,7 +3056,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 11 2013 16:20:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 14:41:14 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

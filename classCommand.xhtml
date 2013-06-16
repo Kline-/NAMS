@@ -593,7 +593,7 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">if</span> ( character )</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> ( <a class="code" href="classCommand.xhtml#a7156e5eb0eee4f31336c51c7469e624b">m_disabled</a> &amp;&amp; character-&gt;<a class="code" href="classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any.">gAccount</a>()-&gt;<a class="code" href="classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54" title="Returns the authorized security level of the account.">gSecurity</a>() &lt; <a class="code" href="enum_8h.xhtml#a1ac3d345b9be3a5c05bc8d91f23ebd7aa1ecc7711deb9da5347f51e1528be763f">ACT_SECURITY_ADMIN</a> )</div>
-<div class="line">            character-&gt;<a class="code" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ad420a2625489c178dea14379e2121b99" title="String sent when a command has been disabled.">CFG_STR_CMD_DISABLED</a> );</div>
+<div class="line">            character-&gt;<a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ad420a2625489c178dea14379e2121b99" title="String sent when a command has been disabled.">CFG_STR_CMD_DISABLED</a> );</div>
 <div class="line">        <span class="keywordflow">else</span></div>
 <div class="line">            <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e" title="Execute the primary function of the implemented class.">Run</a>( character, cmd, arg );</div>
 <div class="line">    }</div>
@@ -606,7 +606,8 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a6cef42c7b0a50d8aa3b4424aef29b0bd_cgraph.svg" width="100%" height="556"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCommand_a6cef42c7b0a50d8aa3b4424aef29b0bd_cgraph.svg" width="100%" height="556"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -918,7 +919,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 11 2013 16:20:41 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 14:41:12 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -136,17 +136,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span> ( command-&gt;<a class="code" href="classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run().">Authorized</a>( security ) )</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            command-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <span class="keyword">this</span>, cmd, args );</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( ( exit = <a class="code" href="namespaceHandler.xhtml#a6a66769cd9a793514515b88d44091cc7" title="Locates an Exit within a Location.">Handler::FindExit</a>( <a class="code" href="classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e" title="Returns the Location that this Thing is stored within.">gLocation</a>(), cmd ) ) != NULL ) <span class="comment">// Search for an exit</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span> ( !<a class="code" href="classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4" title="Moves a Thing from within one Location to another Location.">Move</a>( exit-&gt;<a class="code" href="classExit.xhtml#a798f8c836542670b5dd0dd41503a6171" title="Returns the destination that this Exit leads to.">gDestination</a>() ) )</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <a class="code" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( ( command = <a class="code" href="namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game.">Handler::FindCommand</a>( <span class="stringliteral">&quot;look&quot;</span> ) ) != NULL ) </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            command-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <span class="keyword">this</span> );</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">else</span> <span class="comment">// Give up</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
@@ -171,11 +171,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174">  117</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classCharacter.xhtml#a17362c9349dd81d1fd28e66cc0b8f174" title="Send data to the associated SocketClient, if any.">Character::Send</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg )</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> != NULL )</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>() != NULL )</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018">  118</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Character::Send</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg, <a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>* speaker )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> )</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>() )</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>()-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( msg );</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span>;</div>
@@ -371,23 +370,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;{</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> = NULL;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a>; i++ )</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <a class="code" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a>[i] = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a>.clear();</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a> = 0;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;}</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <a class="code" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59" title="Sets the inherited sub-type of this Thing.">sType</a>( <a class="code" href="enum_8h.xhtml#a37fc305e33c43e18f03f70aeb8bba7baac0eec9324dd51ebf65a7466f34ab8093">THING_TYPE_CHARACTER</a> );</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> = NULL;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a>; i++ )</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <a class="code" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a>[i] = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a>.clear();</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a> = 0;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
-<div class="line"><a name="l00379"></a><span class="lineno"><a class="code" href="classCharacter.xhtml#a9e9be564d05ded80962b2045aa70b3fc">  379</a></span>&#160;<a class="code" href="classCharacter.xhtml#a9e9be564d05ded80962b2045aa70b3fc" title="Destructor for the Character class.">Character::~Character</a>()</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;{</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;}</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;}</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
+<div class="line"><a name="l00382"></a><span class="lineno"><a class="code" href="classCharacter.xhtml#a9e9be564d05ded80962b2045aa70b3fc">  382</a></span>&#160;<a class="code" href="classCharacter.xhtml#a9e9be564d05ded80962b2045aa70b3fc" title="Destructor for the Character class.">Character::~Character</a>()</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;{</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 11 2013 16:20:40 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 14:41:10 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
