@@ -34,7 +34,7 @@
 <script type="text/javascript">
 var viewWidth = 1464;
 var viewHeight = 614;
-var sectionId = 'dynsection-33';
+var sectionId = 'dynsection-35';
 </script>
 <script xlink:href="svgpan.js"/>
 <svg id="graph" class="graph">
@@ -43,8 +43,8 @@ var sectionId = 'dynsection-33';
 <polygon fill="white" stroke="white" points="-4,5 -4,-609.807 1461,-609.807 1461,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="0.5,-117 0.5,-137 81.5,-137 81.5,-117 0.5,-117"/>
-<text text-anchor="middle" x="41" y="-124" font-family="FreeSans.ttf" font-size="10.00">Utils::StrTime</text>
+<polygon fill="#bfbfbf" stroke="black" points="0.5,-98 0.5,-118 81.5,-118 81.5,-98 0.5,-98"/>
+<text text-anchor="middle" x="41" y="-105" font-family="FreeSans.ttf" font-size="10.00">Utils::StrTime</text>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
@@ -55,20 +55,32 @@ var sectionId = 'dynsection-33';
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M91.7193,-134.192C100.226,-135.398 109.105,-136.657 117.762,-137.884"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="91.9604,-130.691 81.5681,-132.752 90.9776,-137.621 91.9604,-130.691"/>
+<path fill="none" stroke="midnightblue" d="M86.4249,-120.882C103.67,-125.772 123.051,-131.268 139.276,-135.869"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="87.1333,-117.445 76.5577,-118.084 85.2235,-124.179 87.1333,-117.445"/>
 </g>
 <!-- Node28 -->
 <g id="node72" class="node"><title>Node28</title>
-<a xlink:href="namespaceUtils.xhtml#aa2ac8bf1bb304bab8f29829ec30af243" target="_top" xlink:title="This is the logging output engine. It should not be invoked directly, but rather by calling Utils::Lo...">
-<polygon fill="white" stroke="black" points="134,-98 134,-118 216,-118 216,-98 134,-98"/>
-<text text-anchor="middle" x="175" y="-105" font-family="FreeSans.ttf" font-size="10.00">Utils::_Logger</text>
+<a xlink:href="namespaceServer.xhtml#a0cd8d593edfecdbb98403c2a2c203d64" target="_top" xlink:title="Display miscellaneous data about the NAMS Server, such as total data transfered, objects in memory...">
+<polygon fill="white" stroke="black" points="129,-98 129,-118 221,-118 221,-98 129,-98"/>
+<text text-anchor="middle" x="175" y="-105" font-family="FreeSans.ttf" font-size="10.00">Server::gStatus</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node28 -->
 <g id="edge88" class="edge"><title>Node1&#45;&gt;Node28</title>
-<path fill="none" stroke="midnightblue" d="M91.4806,-119.842C105.391,-117.87 120.315,-115.754 133.644,-113.864"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="90.9776,-116.379 81.5681,-121.248 91.9604,-123.309 90.9776,-116.379"/>
+<path fill="none" stroke="midnightblue" d="M91.6359,-108C103.886,-108 116.913,-108 128.939,-108"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="91.5681,-104.5 81.5681,-108 91.568,-111.5 91.5681,-104.5"/>
+</g>
+<!-- Node29 -->
+<g id="node74" class="node"><title>Node29</title>
+<a xlink:href="namespaceUtils.xhtml#aa2ac8bf1bb304bab8f29829ec30af243" target="_top" xlink:title="This is the logging output engine. It should not be invoked directly, but rather by calling Utils::Lo...">
+<polygon fill="white" stroke="black" points="134,-60 134,-80 216,-80 216,-60 134,-60"/>
+<text text-anchor="middle" x="175" y="-67" font-family="FreeSans.ttf" font-size="10.00">Utils::_Logger</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node29 -->
+<g id="edge90" class="edge"><title>Node1&#45;&gt;Node29</title>
+<path fill="none" stroke="midnightblue" d="M86.4249,-95.1183C103.67,-90.2278 123.051,-84.7319 139.276,-80.1307"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="85.2235,-91.8209 76.5577,-97.9165 87.1333,-98.5554 85.2235,-91.8209"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>

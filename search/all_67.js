@@ -37,7 +37,7 @@ var searchData=
   ['gnegotiated',['gNegotiated',['../classSocketClient_1_1TermInfo.xhtml#a58debeabe9fe825bc7abbac06df5b216',1,'SocketClient::TermInfo']]],
   ['gport',['gPort',['../classSocket.xhtml#accd94dbf518b30cdd878a9710d3c481c',1,'Socket']]],
   ['gpreempt',['gPreempt',['../classCommand.xhtml#a24702b444e22d28a7566b539a0d15b90',1,'Command']]],
-  ['gprohibitednames',['gProhibitedNames',['../classServer_1_1Config.xhtml#a69c39210f0791ea8af97ee05c38efabc',1,'Server::Config']]],
+  ['gprohibitednames',['gProhibitedNames',['../classServer_1_1Config.xhtml#ac5ab9debe123ba5b03bd0a127ce5db76',1,'Server::Config']]],
   ['gprompt',['gPrompt',['../classCharacter.xhtml#a611f85cc5c7c7c6977fdfca257530f3a',1,'Character']]],
   ['gsecurity',['gSecurity',['../classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54',1,'Account']]],
   ['gsex',['gSex',['../classCharacter.xhtml#a3687af665ff3b9fe94176ecde8a7beca',1,'Character']]],

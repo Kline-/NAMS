@@ -122,7 +122,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a60944d3654141d136ae0f1af263c803b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSocketServer.xhtml">SocketServer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a></td></tr>
-<tr class="memitem:ad09b3760d6f761c65ae1a84f7b8e1c3c"><td class="memItemLeft" align="right" valign="top">forward_list&lt; <a class="el" href="classEvent.xhtml">Event</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#ad09b3760d6f761c65ae1a84f7b8e1c3c">m_next_event</a></td></tr>
+<tr class="memitem:aaa0f8f02223ffe28765bc7fe3f5b2ea4"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classEvent.xhtml">Event</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">m_next_event</a></td></tr>
 <tr class="memitem:a1783142c9d2911dfd5b04488723b4987"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classCharacter.xhtml">Character</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a1783142c9d2911dfd5b04488723b4987">m_next_character</a></td></tr>
 <tr class="memitem:ac53fd9755bbb78e3dd0b77d4f81fb959"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classSocketClient.xhtml">SocketClient</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a></td></tr>
 <tr class="memitem:ad75b902c5e4d9bc524ac87cfa1f6ee49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#ad75b902c5e4d9bc524ac87cfa1f6ee49">m_port</a></td></tr>
@@ -147,11 +147,11 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01201">1201</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01230">1230</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a> = NULL;</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a1783142c9d2911dfd5b04488723b4987">m_next_character</a> = <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.begin();</div>
-<div class="line">    <a class="code" href="classServer_1_1Global.xhtml#ad09b3760d6f761c65ae1a84f7b8e1c3c">m_next_event</a> = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin();</div>
+<div class="line">    <a class="code" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">m_next_event</a> = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin();</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin();</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#ad75b902c5e4d9bc524ac87cfa1f6ee49">m_port</a> = 0;</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a97b9415b50cd9bd2b9a96d23553789c4">m_shutdown</a> = <span class="keyword">true</span>;</div>
@@ -176,7 +176,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01218">1218</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01247">1247</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a>-&gt;<a class="code" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="Unload a server&#39;s socket from memory that was previously loaded via SocketServer::New().">Delete</a>();</div>
 <div class="line"></div>
@@ -254,12 +254,12 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad09b3760d6f761c65ae1a84f7b8e1c3c"></a>
+<a class="anchor" id="aaa0f8f02223ffe28765bc7fe3f5b2ea4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">forward_list&lt;<a class="el" href="classEvent.xhtml">Event</a>*&gt;::iterator Server::Global::m_next_event</td>
+          <td class="memname">list&lt;<a class="el" href="classEvent.xhtml">Event</a>*&gt;::iterator Server::Global::m_next_event</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -351,7 +351,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 14:41:14 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

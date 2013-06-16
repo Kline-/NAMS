@@ -100,8 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classExit__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classExit__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
@@ -157,7 +156,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00168">168</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00179">179</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classExit.xhtml#a3c3e7650f913b57e49a5d7c28407d976">m_destination</a> = NULL;</div>
 <div class="line">    <a class="code" href="classExit.xhtml#a63cd3cf84247e56989f1fad11ae07abd">m_dest_id</a>.clear();</div>
@@ -182,7 +181,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00181">181</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00192">192</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -209,19 +208,36 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00032">32</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00035">35</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> ( find( <a class="code" href="list_8cpp.xhtml#a2d61b6ac5b09df453f39e086d2ec9ed5" title="All exits that exist within the server.">exit_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a2d61b6ac5b09df453f39e086d2ec9ed5" title="All exits that exist within the server.">exit_list</a>.end(), this ) != <a class="code" href="list_8cpp.xhtml#a2d61b6ac5b09df453f39e086d2ec9ed5" title="All exits that exist within the server.">exit_list</a>.end() )</div>
+<div class="line">        <a class="code" href="list_8cpp.xhtml#a2d61b6ac5b09df453f39e086d2ec9ed5" title="All exits that exist within the server.">exit_list</a>.erase( find( <a class="code" href="list_8cpp.xhtml#a2d61b6ac5b09df453f39e086d2ec9ed5" title="All exits that exist within the server.">exit_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a2d61b6ac5b09df453f39e086d2ec9ed5" title="All exits that exist within the server.">exit_list</a>.end(), this ) );</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classExit.xhtml#a4e47cb6e66dd9e3c740c095e7201d70e">m_location</a> )</div>
+<div class="line">        <a class="code" href="classExit.xhtml#a4e47cb6e66dd9e3c740c095e7201d70e">m_location</a>-&gt;<a class="code" href="classLocation.xhtml#aca658255ecc7a1f000913f3aefd54fad" title="Removes an Exit associated with this Location.">RemoveExit</a>( <span class="keyword">this</span> );</div>
+<div class="line"></div>
 <div class="line">    <span class="keyword">delete</span> <span class="keyword">this</span>;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classExit_ac490c605f6b1581429cc59290e7bd400_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classExit_ac490c605f6b1581429cc59290e7bd400_cgraph.svg" width="315" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classExit_ac490c605f6b1581429cc59290e7bd400_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -246,16 +262,16 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00110">110</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00121">121</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classExit.xhtml#a63cd3cf84247e56989f1fad11ae07abd">m_dest_id</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classExit_a365f2a3f411df703cb2726ce7a83e0f8_icgraph.svg" width="563" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -281,16 +297,16 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00119">119</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00130">130</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classExit.xhtml#a3c3e7650f913b57e49a5d7c28407d976">m_destination</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classExit_a798f8c836542670b5dd0dd41503a6171_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -316,7 +332,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00128">128</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00139">139</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classExit.xhtml#a4e47cb6e66dd9e3c740c095e7201d70e">m_location</a>;</div>
 <div class="line">}</div>
@@ -342,16 +358,16 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00137">137</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00148">148</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classExit.xhtml#a9d552e6a0c3954fa603420bf260db3e9">m_name</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classExit_a34207621e47d7bf64933eb68d05fedd9_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -385,7 +401,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00045">45</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00054">54</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -397,14 +413,16 @@ Private Attributes</h2></td></tr>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classExit.xhtml#a4e47cb6e66dd9e3c740c095e7201d70e">m_location</a> = location;</div>
 <div class="line"></div>
+<div class="line">    <a class="code" href="list_8cpp.xhtml#a2d61b6ac5b09df453f39e086d2ec9ed5" title="All exits that exist within the server.">exit_list</a>.push_back( <span class="keyword">this</span> );</div>
+<div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classExit_a8d3ad324e2d5e7ca525d26d1aac19cd1_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -438,7 +456,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00149">149</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00160">160</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -453,11 +471,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classExit_ae4b375ca6875ef63c9de87bd4f945323_icgraph.svg" width="592" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -483,7 +501,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00064">64</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00075">75</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    stringstream output;</div>
 <div class="line"></div>
@@ -493,20 +511,20 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> output.str();</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classExit_a097962625968fc2ea0e39c867f9e1f31_cgraph.svg" width="280" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classExit_a097962625968fc2ea0e39c867f9e1f31_icgraph.svg" width="304" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
@@ -540,7 +558,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00080">80</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
+<p>Definition at line <a class="el" href="exit_8cpp_source.xhtml#l00091">91</a> of file <a class="el" href="exit_8cpp_source.xhtml">exit.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <span class="keywordtype">string</span> arg, value;</div>
@@ -565,20 +583,20 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classExit_a6e2bf2b62898e1f4c2b92ee100c6af75_cgraph.svg" width="304" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classExit_a6e2bf2b62898e1f4c2b92ee100c6af75_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -685,7 +703,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 14:41:12 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

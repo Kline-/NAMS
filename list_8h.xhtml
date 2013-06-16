@@ -111,8 +111,10 @@ Variables</h2></td></tr>
 <tr class="memdesc:a21841d506b797c1e6ee1e03a03b31dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">All characters that exist within the server.  <a href="#a21841d506b797c1e6ee1e03a03b31dba"></a><br/></td></tr>
 <tr class="memitem:a82a4f4375bf789a81d7ef1a01ea83943"><td class="memItemLeft" align="right" valign="top">multimap&lt; const char, <a class="el" href="classCommand.xhtml">Command</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a82a4f4375bf789a81d7ef1a01ea83943">command_list</a></td></tr>
 <tr class="memdesc:a82a4f4375bf789a81d7ef1a01ea83943"><td class="mdescLeft">&#160;</td><td class="mdescRight">All commands loaded into memory.  <a href="#a82a4f4375bf789a81d7ef1a01ea83943"></a><br/></td></tr>
-<tr class="memitem:ad6193b63fb1a04ccad88807abbf8c1b7"><td class="memItemLeft" align="right" valign="top">forward_list&lt; <a class="el" href="classEvent.xhtml">Event</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#ad6193b63fb1a04ccad88807abbf8c1b7">event_list</a></td></tr>
-<tr class="memdesc:ad6193b63fb1a04ccad88807abbf8c1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">All events pending execution.  <a href="#ad6193b63fb1a04ccad88807abbf8c1b7"></a><br/></td></tr>
+<tr class="memitem:aff112f2a9d671488a634d6362a3086be"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classEvent.xhtml">Event</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#aff112f2a9d671488a634d6362a3086be">event_list</a></td></tr>
+<tr class="memdesc:aff112f2a9d671488a634d6362a3086be"><td class="mdescLeft">&#160;</td><td class="mdescRight">All events pending execution.  <a href="#aff112f2a9d671488a634d6362a3086be"></a><br/></td></tr>
+<tr class="memitem:a505ba309e75e62b52f655c7a21a22e18"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classExit.xhtml">Exit</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a505ba309e75e62b52f655c7a21a22e18">exit_list</a></td></tr>
+<tr class="memdesc:a505ba309e75e62b52f655c7a21a22e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">All exits that exist within the server.  <a href="#a505ba309e75e62b52f655c7a21a22e18"></a><br/></td></tr>
 <tr class="memitem:ae825739bc4c29f1b39699fbaddf2dc86"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classLocation.xhtml">Location</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#ae825739bc4c29f1b39699fbaddf2dc86">location_list</a></td></tr>
 <tr class="memdesc:ae825739bc4c29f1b39699fbaddf2dc86"><td class="mdescLeft">&#160;</td><td class="mdescRight">All locations that exist within the server.  <a href="#ae825739bc4c29f1b39699fbaddf2dc86"></a><br/></td></tr>
 <tr class="memitem:a9d495c3a1d12bdb1982b27ad1dca175b"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.xhtml#a9d495c3a1d12bdb1982b27ad1dca175b">object_list</a></td></tr>
@@ -168,12 +170,12 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad6193b63fb1a04ccad88807abbf8c1b7"></a>
+<a class="anchor" id="aff112f2a9d671488a634d6362a3086be"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">forward_list&lt;<a class="el" href="classEvent.xhtml">Event</a>*&gt; event_list</td>
+          <td class="memname">list&lt;<a class="el" href="classEvent.xhtml">Event</a>*&gt; event_list</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -185,6 +187,26 @@ Variables</h2></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00049">49</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a505ba309e75e62b52f655c7a21a22e18"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list&lt;<a class="el" href="classExit.xhtml">Exit</a>*&gt; exit_list</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Exit*</td><td>A pointer to an <a class="el" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a> object in memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00056">56</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
 
 </div>
 </div>
@@ -204,7 +226,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00056">56</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00063">63</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
 
 </div>
 </div>
@@ -224,7 +246,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00063">63</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00070">70</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
 
 </div>
 </div>
@@ -244,7 +266,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00070">70</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00077">77</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
 
 </div>
 </div>
@@ -264,14 +286,14 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00077">77</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
+<p>Definition at line <a class="el" href="list_8cpp_source.xhtml#l00084">84</a> of file <a class="el" href="list_8cpp_source.xhtml">list.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 14:41:11 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 17:23:46 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

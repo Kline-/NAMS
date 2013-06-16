@@ -118,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">public</span>: </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">void</span> Delete(); </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            vector&lt;string&gt; gDisabledCommands() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            forward_list&lt;string&gt; gProhibitedNames( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type ) <span class="keyword">const</span>; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            list&lt;string&gt; gProhibitedNames( <span class="keyword">const</span> <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a>&amp; type ) <span class="keyword">const</span>; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">bool</span> Serialize();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">bool</span> ToggleDisable( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; command );</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">bool</span> Unserialize(); </div>
@@ -126,7 +126,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            ~<a class="code" href="classServer_1_1Config.xhtml" title="Runtime settings.">Config</a>();</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classServer_1_1Config.xhtml#a7e3331d9bb5252a4f8714362820b6eda">   61</a></span>&#160;            vector&lt;string&gt; <a class="code" href="classServer_1_1Config.xhtml#a7e3331d9bb5252a4f8714362820b6eda">m_disabled_commands</a>; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classServer_1_1Config.xhtml#a7aaafee45dca9a727e91bf7cbc5e86d1">   62</a></span>&#160;            forward_list&lt;string&gt; m_prohibited_names[<a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>]; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classServer_1_1Config.xhtml#aa230b9c76c2a696c0bc0d5fbb09b2ecc">   62</a></span>&#160;            list&lt;string&gt; m_prohibited_names[<a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>]; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classServer_1_1Global.xhtml">   68</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classServer_1_1Global.xhtml" title="Container for global variables.">Global</a></div>
@@ -136,7 +136,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="classServer_1_1Global.xhtml" title="Container for global variables.">Global</a>();</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            ~<a class="code" href="classServer_1_1Global.xhtml" title="Container for global variables.">Global</a>();</div>
 <div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">   86</a></span>&#160;            <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* <a class="code" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a>; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="classServer_1_1Global.xhtml#ad09b3760d6f761c65ae1a84f7b8e1c3c">   87</a></span>&#160;            forward_list&lt;Event*&gt;::iterator <a class="code" href="classServer_1_1Global.xhtml#ad09b3760d6f761c65ae1a84f7b8e1c3c">m_next_event</a>; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">   87</a></span>&#160;            list&lt;Event*&gt;::iterator <a class="code" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">m_next_event</a>; </div>
 <div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="classServer_1_1Global.xhtml#a1783142c9d2911dfd5b04488723b4987">   88</a></span>&#160;            list&lt;Character*&gt;::iterator <a class="code" href="classServer_1_1Global.xhtml#a1783142c9d2911dfd5b04488723b4987">m_next_character</a>; </div>
 <div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">   89</a></span>&#160;            list&lt;SocketClient*&gt;::iterator <a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a>; </div>
 <div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="classServer_1_1Global.xhtml#ad75b902c5e4d9bc524ac87cfa1f6ee49">   90</a></span>&#160;            <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> <a class="code" href="classServer_1_1Global.xhtml#ad75b902c5e4d9bc524ac87cfa1f6ee49">m_port</a>; </div>
@@ -184,7 +184,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 14:41:11 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 17:23:46 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

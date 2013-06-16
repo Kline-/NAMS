@@ -32,15 +32,15 @@
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 396;
+var viewWidth = 424;
 var viewHeight = 522;
-var sectionId = 'dynsection-12';
+var sectionId = 'dynsection-10';
 </script>
 <script xlink:href="svgpan.js"/>
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>Location::Unserialize</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-518 393,-518 393,5 -4,5"/>
+<polygon fill="white" stroke="white" points="-4,5 -4,-518 421,-518 421,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
 <polygon fill="#bfbfbf" stroke="black" points="0,-247 0,-267 116,-267 116,-247 0,-247"/>
@@ -142,130 +142,142 @@ var sectionId = 'dynsection-12';
 <path fill="none" stroke="midnightblue" d="M116.069,-249.545C130.653,-247.673 146.104,-245.689 160.008,-243.904"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="160.826,-247.328 170.299,-242.583 159.934,-240.385 160.826,-247.328"/>
 </g>
-<!-- Node12 -->
-<g id="node23" class="node"><title>Node12</title>
+<!-- Node13 -->
+<g id="node25" class="node"><title>Node13</title>
 <a xlink:href="classExit.xhtml#a6e2bf2b62898e1f4c2b92ee100c6af75" target="_top" xlink:title="Unserialize the exit data.">
 <polygon fill="white" stroke="black" points="160,-190 160,-210 252,-210 252,-190 160,-190"/>
 <text text-anchor="middle" x="206" y="-197" font-family="FreeSans.ttf" font-size="10.00">Exit::Unserialize</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node12 -->
-<g id="edge22" class="edge"><title>Node1&#45;&gt;Node12</title>
+<!-- Node1&#45;&gt;Node13 -->
+<g id="edge24" class="edge"><title>Node1&#45;&gt;Node13</title>
 <path fill="none" stroke="midnightblue" d="M82.2253,-246.851C101.138,-239.014 128.124,-228.021 152,-219 156.872,-217.159 162.013,-215.276 167.107,-213.444"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="168.515,-216.659 176.765,-210.012 166.171,-210.063 168.515,-216.659"/>
 </g>
-<!-- Node15 -->
-<g id="node29" class="node"><title>Node15</title>
-<a xlink:href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" target="_top" xlink:title="If the contents of keyd == valu, assigns loc = item.">
-<polygon fill="white" stroke="black" points="303.5,-152 303.5,-172 380.5,-172 380.5,-152 303.5,-152"/>
-<text text-anchor="middle" x="342" y="-159" font-family="FreeSans.ttf" font-size="10.00">Utils::KeySet</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node15 -->
-<g id="edge34" class="edge"><title>Node1&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M66.6488,-246.935C81.9175,-229.952 115.506,-195.992 152,-181 197.319,-162.383 253.637,-158.929 293.15,-159.335"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="293.255,-162.838 303.32,-159.529 293.389,-155.839 293.255,-162.838"/>
-</g>
 <!-- Node16 -->
 <g id="node31" class="node"><title>Node16</title>
+<a xlink:href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" target="_top" xlink:title="If the contents of keyd == valu, assigns loc = item.">
+<polygon fill="white" stroke="black" points="317.5,-152 317.5,-172 394.5,-172 394.5,-152 317.5,-152"/>
+<text text-anchor="middle" x="356" y="-159" font-family="FreeSans.ttf" font-size="10.00">Utils::KeySet</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node16 -->
+<g id="edge36" class="edge"><title>Node1&#45;&gt;Node16</title>
+<path fill="none" stroke="midnightblue" d="M66.638,-246.909C81.8905,-229.886 115.455,-195.868 152,-181 202.07,-160.629 264.583,-157.748 307.122,-158.771"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="307.111,-162.272 317.218,-159.096 307.336,-155.276 307.111,-162.272"/>
+</g>
+<!-- Node17 -->
+<g id="node33" class="node"><title>Node17</title>
 <a xlink:href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b" target="_top" xlink:title="Sets the id of this Thing.">
 <polygon fill="white" stroke="black" points="175,-114 175,-134 237,-134 237,-114 175,-114"/>
 <text text-anchor="middle" x="206" y="-121" font-family="FreeSans.ttf" font-size="10.00">Thing::sId</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node16 -->
-<g id="edge30" class="edge"><title>Node1&#45;&gt;Node16</title>
+<!-- Node1&#45;&gt;Node17 -->
+<g id="edge32" class="edge"><title>Node1&#45;&gt;Node17</title>
 <path fill="none" stroke="midnightblue" d="M64.3793,-246.976C78.1173,-226.074 112.476,-177.347 152,-148 156.855,-144.395 162.336,-141.178 167.899,-138.362"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="169.659,-141.403 177.24,-134.001 166.698,-135.06 169.659,-141.403"/>
 </g>
-<!-- Node17 -->
-<g id="node33" class="node"><title>Node17</title>
+<!-- Node18 -->
+<g id="node35" class="node"><title>Node18</title>
 <a xlink:href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41" target="_top" xlink:title="Sets the name of this Thing.">
 <polygon fill="white" stroke="black" points="164.5,-76 164.5,-96 247.5,-96 247.5,-76 164.5,-76"/>
 <text text-anchor="middle" x="206" y="-83" font-family="FreeSans.ttf" font-size="10.00">Thing::sName</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node17 -->
-<g id="edge32" class="edge"><title>Node1&#45;&gt;Node17</title>
+<!-- Node1&#45;&gt;Node18 -->
+<g id="edge34" class="edge"><title>Node1&#45;&gt;Node18</title>
 <path fill="none" stroke="midnightblue" d="M61.5137,-246.851C71.386,-219.796 101.964,-145.267 152,-105 153.824,-103.532 155.77,-102.173 157.8,-100.916"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="159.887,-103.774 167.119,-96.0305 156.637,-97.5738 159.887,-103.774"/>
 </g>
-<!-- Node18 -->
-<g id="node36" class="node"><title>Node18</title>
+<!-- Node19 -->
+<g id="node38" class="node"><title>Node19</title>
 <a xlink:href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" target="_top" xlink:title="Returns the id associated with this Thing.">
 <polygon fill="white" stroke="black" points="175,-38 175,-58 237,-58 237,-38 175,-38"/>
 <text text-anchor="middle" x="206" y="-45" font-family="FreeSans.ttf" font-size="10.00">Thing::gId</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node18 -->
-<g id="edge36" class="edge"><title>Node1&#45;&gt;Node18</title>
+<!-- Node1&#45;&gt;Node19 -->
+<g id="edge38" class="edge"><title>Node1&#45;&gt;Node19</title>
 <path fill="none" stroke="midnightblue" d="M60.1999,-246.675C67.4584,-215.082 93.5935,-118.729 152,-67 155.944,-63.5066 160.571,-60.6453 165.428,-58.304"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="167.005,-61.4406 174.934,-54.4133 164.353,-54.9622 167.005,-61.4406"/>
 </g>
-<!-- Node19 -->
-<g id="node38" class="node"><title>Node19</title>
+<!-- Node20 -->
+<g id="node40" class="node"><title>Node20</title>
 <a xlink:href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" target="_top" xlink:title="Completes a read from a file.">
 <polygon fill="white" stroke="black" points="163.5,-0 163.5,-20 248.5,-20 248.5,-0 163.5,-0"/>
 <text text-anchor="middle" x="206" y="-7" font-family="FreeSans.ttf" font-size="10.00">Utils::FileClose</text>
 </a>
 </g>
-<!-- Node1&#45;&gt;Node19 -->
-<g id="edge38" class="edge"><title>Node1&#45;&gt;Node19</title>
+<!-- Node1&#45;&gt;Node20 -->
+<g id="edge40" class="edge"><title>Node1&#45;&gt;Node20</title>
 <path fill="none" stroke="midnightblue" d="M59.2534,-246.702C64.1128,-211.206 84.9047,-92.6478 152,-29 153.433,-27.6406 154.969,-26.3777 156.583,-25.2046"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="158.408,-28.1918 165.194,-20.0557 154.815,-22.184 158.408,-28.1918"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
 <a xlink:href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" target="_top" xlink:title="Returns a string consisting of directory/file.ext.">
-<polygon fill="white" stroke="black" points="303,-494 303,-514 381,-514 381,-494 303,-494"/>
-<text text-anchor="middle" x="342" y="-501" font-family="FreeSans.ttf" font-size="10.00">Utils::DirPath</text>
+<polygon fill="white" stroke="black" points="317,-494 317,-514 395,-514 395,-494 317,-494"/>
+<text text-anchor="middle" x="356" y="-501" font-family="FreeSans.ttf" font-size="10.00">Utils::DirPath</text>
 </a>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M248.286,-504C262.341,-504 278.114,-504 292.655,-504"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="292.982,-507.5 302.982,-504 292.982,-500.5 292.982,-507.5"/>
+<path fill="none" stroke="midnightblue" d="M248.183,-504C266.388,-504 287.806,-504 306.736,-504"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="306.96,-507.5 316.96,-504 306.96,-500.5 306.96,-507.5"/>
 </g>
 <!-- Node6 -->
 <g id="node11" class="node"><title>Node6</title>
 <a xlink:href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" target="_top" xlink:title="Returns a string converted to all lowercase letters.">
-<polygon fill="white" stroke="black" points="306.5,-418 306.5,-438 377.5,-438 377.5,-418 306.5,-418"/>
-<text text-anchor="middle" x="342" y="-425" font-family="FreeSans.ttf" font-size="10.00">Utils::Lower</text>
+<polygon fill="white" stroke="black" points="320.5,-418 320.5,-438 391.5,-438 391.5,-418 320.5,-418"/>
+<text text-anchor="middle" x="356" y="-425" font-family="FreeSans.ttf" font-size="10.00">Utils::Lower</text>
 </a>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge10" class="edge"><title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M248.286,-428C263.364,-428 280.421,-428 295.81,-428"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="296.154,-431.5 306.154,-428 296.154,-424.5 296.154,-431.5"/>
+<path fill="none" stroke="midnightblue" d="M248.183,-428C267.516,-428 290.473,-428 310.224,-428"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="310.225,-431.5 320.225,-428 310.225,-424.5 310.225,-431.5"/>
 </g>
-<!-- Node13 -->
-<g id="node25" class="node"><title>Node13</title>
-<a xlink:href="namespaceUtils.xhtml#af8586b5c4d77ae0617279186b2bfdb66" target="_top" xlink:title="Returns the first delimeter separated argument from input and then erases it from input...">
-<polygon fill="white" stroke="black" points="296,-228 296,-248 388,-248 388,-228 296,-228"/>
-<text text-anchor="middle" x="342" y="-235" font-family="FreeSans.ttf" font-size="10.00">Utils::Argument</text>
+<!-- Node12 -->
+<g id="node23" class="node"><title>Node12</title>
+<a xlink:href="classLocation.xhtml#aca658255ecc7a1f000913f3aefd54fad" target="_top" xlink:title="Removes an Exit associated with this Location.">
+<polygon fill="white" stroke="black" points="296.5,-266 296.5,-286 415.5,-286 415.5,-266 296.5,-266"/>
+<text text-anchor="middle" x="356" y="-273" font-family="FreeSans.ttf" font-size="10.00">Location::RemoveExit</text>
 </a>
 </g>
-<!-- Node12&#45;&gt;Node13 -->
-<g id="edge24" class="edge"><title>Node12&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M242.088,-210.084C258.534,-214.679 278.2,-220.174 295.718,-225.068"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="295.17,-228.549 305.743,-227.869 297.054,-221.807 295.17,-228.549"/>
+<!-- Node11&#45;&gt;Node12 -->
+<g id="edge22" class="edge"><title>Node11&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M241.548,-247.005C260.993,-251.932 285.385,-258.111 306.65,-263.498"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="305.932,-266.927 316.485,-265.99 307.651,-260.141 305.932,-266.927"/>
 </g>
 <!-- Node14 -->
 <g id="node27" class="node"><title>Node14</title>
-<a xlink:href="namespaceUtils.xhtml#a11bfe61c6e77603d59116397b1d3f580" target="_top" xlink:title="Returns a pair of type T,V after receiving an input string generated from Utils::MakePair().">
-<polygon fill="white" stroke="black" points="300,-190 300,-210 384,-210 384,-190 300,-190"/>
-<text text-anchor="middle" x="342" y="-197" font-family="FreeSans.ttf" font-size="10.00">Utils::ReadPair</text>
+<a xlink:href="namespaceUtils.xhtml#af8586b5c4d77ae0617279186b2bfdb66" target="_top" xlink:title="Returns the first delimeter separated argument from input and then erases it from input...">
+<polygon fill="white" stroke="black" points="310,-228 310,-248 402,-248 402,-228 310,-228"/>
+<text text-anchor="middle" x="356" y="-235" font-family="FreeSans.ttf" font-size="10.00">Utils::Argument</text>
 </a>
 </g>
-<!-- Node12&#45;&gt;Node14 -->
-<g id="edge26" class="edge"><title>Node12&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M252.043,-200C264.084,-200 277.153,-200 289.502,-200"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="289.668,-203.5 299.668,-200 289.668,-196.5 289.668,-203.5"/>
+<!-- Node13&#45;&gt;Node14 -->
+<g id="edge26" class="edge"><title>Node13&#45;&gt;Node14</title>
+<path fill="none" stroke="midnightblue" d="M245.803,-210.084C264.44,-214.805 286.826,-220.476 306.539,-225.47"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="305.718,-228.872 316.271,-227.935 307.437,-222.087 305.718,-228.872"/>
 </g>
-<!-- Node12&#45;&gt;Node15 -->
-<g id="edge28" class="edge"><title>Node12&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M242.088,-189.916C258.534,-185.321 278.2,-179.826 295.718,-174.932"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="297.054,-178.193 305.743,-172.131 295.17,-171.451 297.054,-178.193"/>
+<!-- Node15 -->
+<g id="node29" class="node"><title>Node15</title>
+<a xlink:href="namespaceUtils.xhtml#a11bfe61c6e77603d59116397b1d3f580" target="_top" xlink:title="Returns a pair of type T,V after receiving an input string generated from Utils::MakePair().">
+<polygon fill="white" stroke="black" points="314,-190 314,-210 398,-210 398,-190 314,-190"/>
+<text text-anchor="middle" x="356" y="-197" font-family="FreeSans.ttf" font-size="10.00">Utils::ReadPair</text>
+</a>
+</g>
+<!-- Node13&#45;&gt;Node15 -->
+<g id="edge28" class="edge"><title>Node13&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M252.229,-200C268.482,-200 286.86,-200 303.585,-200"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="303.752,-203.5 313.752,-200 303.752,-196.5 303.752,-203.5"/>
+</g>
+<!-- Node13&#45;&gt;Node16 -->
+<g id="edge30" class="edge"><title>Node13&#45;&gt;Node16</title>
+<path fill="none" stroke="midnightblue" d="M245.803,-189.916C264.737,-185.12 287.541,-179.343 307.48,-174.292"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="308.474,-177.651 317.308,-171.802 306.755,-170.865 308.474,-177.651"/>
 </g>
 </g>
 </svg>
