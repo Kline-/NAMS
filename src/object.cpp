@@ -251,6 +251,9 @@ const bool Object::Unserialize()
  */
 Object::Object()
 {
+    /** Initialize attributes from parent Thing class */
+    sType( THING_TYPE_OBJECT );
+    /** Initialize attributes specific to Objects */
     m_file.clear();
     m_zone.clear();
 

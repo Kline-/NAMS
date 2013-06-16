@@ -249,6 +249,18 @@ enum THING_DESCRIPTION
     THING_DESCRIPTION_LONG  = 1, /**< A detailed description. */
     MAX_THING_DESCRIPTION   = 2  /**< Safety limit for looping. */
 };
+
+/**
+ * @enum THING_TYPE
+ */
+enum THING_TYPE
+{
+    THING_TYPE_CHARACTER = 0, /**< A Character. */
+    THING_TYPE_LOCATION  = 1, /**< A Location. */
+    THING_TYPE_OBJECT    = 2, /**< An Object. */
+    THING_TYPE_THING     = 3, /**< A Thing with no child class. */
+    MAX_THING_TYPE       = 4  /**< Safety limit for looping. */
+};
 /**@}*/
 
 /** @name Utils */ /**@{*/

@@ -418,6 +418,26 @@ const bool Utils::iFile( const string& file )
 }
 
 /**
+ * @brief Determines if name exists within input where input is a space delimited string.
+ * @param[in] name The value to search for within input.
+ * @param[in] input The string of space delimited names to search within.
+ * @retval false Returned if name does not exist within input.
+ * @retval true Returned if name exists within input.
+ */
+const bool Utils::iName( const string& name, const string& input )
+{
+    string names = input;
+
+    while ( !names.empty() )
+    {
+        if ( Utils::Argument( names ).find( name ) == 0 )
+            return true;
+    }
+
+    return false;
+}
+
+/**
  * @brief Determines if a string is only a string of numerical values.
  * @param[in] input A string to check for numerical values.
  * @retval false Returned if input is empty or the input contains non-numerical values.

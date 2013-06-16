@@ -195,6 +195,15 @@ const string Thing::gName() const
     return m_name;
 }
 
+/**
+ * @brief Returns the inherited sub-type of this Thing.
+ * @retval uint_t A value from #THING_TYPE.
+ */
+const uint_t Thing::gType() const
+{
+    return m_type;
+}
+
 /* Manipulate */
 /**
  * @brief Sets the description of the Thing from #THING_DESCRIPTION.
@@ -261,6 +270,27 @@ const bool Thing::sName( const string& name, const bool& system )
     return true;
 }
 
+/**
+ * @brief Sets the inherited sub-type of this Thing.
+ * @param[in] type A value from #THING_TYPE.
+ * @retval false Returned if there was an error setting the type.
+ * @retval true Returned if the type was set successfully.
+ */
+const bool Thing::sType( const uint_t& type )
+{
+    UFLAGS_DE( flags );
+
+    if ( type < uintmin_t || type >= MAX_THING_TYPE )
+    {
+        LOGFMT( flags, "Thing::sType()-> called with invalid type %lu", type );
+        return false;
+    }
+
+    m_type = type;
+
+    return true;
+}
+
 /* Internal */
 /**
  * @brief Generates a new unique id for this Thing.
@@ -293,6 +323,7 @@ Thing::Thing()
     m_id.clear();
     m_location = NULL;
     m_name.clear();
+    m_type = THING_TYPE_THING;
 
     return;
 }

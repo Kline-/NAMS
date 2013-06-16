@@ -156,6 +156,7 @@ namespace Utils
     }
     const bool iDirectory( const string& dir );
     const bool iFile( const string& file );
+    const bool iName( const string& name, const string& input );
     const bool iNumber( const string& input );
     const bool iReadable( const string& file );
     /**@}*/

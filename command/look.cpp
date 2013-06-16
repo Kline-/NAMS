@@ -83,7 +83,24 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
                     if ( thing == character )
                         continue;
                     else
-                        character->Send( thing->gName() + " is standing here." + CRLF );
+                    {
+                        switch ( thing->gType() )
+                        {
+                            case THING_TYPE_CHARACTER:
+                                character->Send( thing->gName() + " is standing here." + CRLF );
+                            break;
+
+                            case THING_TYPE_LOCATION:
+                            break;
+
+                            case THING_TYPE_OBJECT:
+                                character->Send( thing->gDescription( THING_DESCRIPTION_LONG ) + CRLF );
+                            break;
+
+                            case THING_TYPE_THING:
+                            break;
+                        }
+                    }
                 }
             }
         }

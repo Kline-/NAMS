@@ -49,12 +49,14 @@ class Thing
         const string gId() const;
         Location* gLocation() const;
         const string gName() const;
+        const uint_t gType() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
         const bool sDescription( const string& description, const uint_t& type );
         const bool sId( const string& id );
         const bool sName( const string& name, const bool& system = false );
+        const bool sType( const uint_t& type );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -69,6 +71,7 @@ class Thing
         string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
         Location* m_location; /**< The Location that this Thing is stored within. */
         string m_name; /**< The name of the thing. */
+        uint_t m_type; /**< The inherited sub-type of Thing. */
 };
 
 #endif

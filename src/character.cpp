@@ -364,6 +364,9 @@ Character::Character()
 {
     uint_t i = uintmin_t;
 
+    /** Initialize attributes from parent Thing class */
+    sType( THING_TYPE_CHARACTER );
+    /** Initialize attributes specific to Characters */
     m_account = NULL;
     for ( i = 0; i < MAX_CHR_CREATION; i++ )
         m_creation[i] = false;

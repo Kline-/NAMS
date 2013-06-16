@@ -278,6 +278,9 @@ const void Location::RemoveExit( Exit* exit )
  */
 Location::Location()
 {
+    /** Initialize attributes from parent Thing class */
+    sType( THING_TYPE_LOCATION );
+    /** Initialize attributes specific to Locations */
     m_exits.clear();
     m_file.clear();
     m_zone.clear();
