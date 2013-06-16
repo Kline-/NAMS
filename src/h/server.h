@@ -43,7 +43,7 @@ namespace Server
 
             /** @name Query */ /**@{*/
             vector<string> gDisabledCommands() const;
-            forward_list<string> gProhibitedNames( const uint_t& type ) const;
+            list<string> gProhibitedNames( const uint_t& type ) const;
             /**@}*/
 
             /** @name Manipulate */ /**@{*/
@@ -59,7 +59,7 @@ namespace Server
 
         private:
             vector<string> m_disabled_commands; /**< Commands that have been disabled. */
-            forward_list<string> m_prohibited_names[MAX_SVR_CFG_PROHIBITED_NAMES]; /**< Names that are illegal to use as an account name. */
+            list<string> m_prohibited_names[MAX_SVR_CFG_PROHIBITED_NAMES]; /**< Names that are illegal to use as an account name. */
     };
 
     /**
@@ -84,7 +84,7 @@ namespace Server
             /**@}*/
 
             SocketServer* m_listen; /**< The listening server-side socket. */
-            forward_list<Event*>::iterator m_next_event; /**< Used as the next iterator in all loops dealing with Event objects to prevent nested processing loop problems. */
+            list<Event*>::iterator m_next_event; /**< Used as the next iterator in all loops dealing with Event objects to prevent nested processing loop problems. */
             list<Character*>::iterator m_next_character; /**< Used as the next iterator in all loops dealing with Character objects to prevent nested processing loop problems. */
             list<SocketClient*>::iterator m_next_socket_client; /**< Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
             uint_t m_port; /**< Port number to be passed to the associated SocketServer. */
@@ -118,7 +118,7 @@ namespace Server
             ~Stats();
             /**@}*/
 
-            /** @todo: Clean this up */
+            /** @todo Clean this up, make these properly private, etc */
             uint_t m_dir_close; /**< Total number of directories closed by the Server. */
             uint_t m_dir_open; /**< Total number of directories opened by the Server. */
 

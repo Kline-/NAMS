@@ -15,40 +15,51 @@
  * You should have received a copy of the GNU General Public License       *
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.   *
  ***************************************************************************/
-/**
- * @file sysincludes.h
- * @brief All system standard includes that are used within NAMS.
- *
- *  This file is a "header of headers". All system include files are moved
- *  within this header for easier management and readability.
- */
-#ifndef DEC_SYSINCLUDES_H
-#define DEC_SYSINCLUDES_H
 
-#include <algorithm>
-#include <bitset>
-#include <chrono>
-#include <cstdarg>
-#include <cstdio>
-#include <deque>
-#include <fstream>
-#include <iostream>
-#include <iterator>
-#include <limits>
-#include <list>
-#include <map>
-#include <sstream>
-#include <vector>
+#include "pincludes.h"
 
-#include <arpa/inet.h>
-#include <arpa/telnet.h>
-#include <dirent.h>
-#include <dlfcn.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <memory.h>
-#include <netdb.h>
-#include <sys/stat.h>
-#include <unistd.h>
+class Status : public Plugin {
+    public:
+        virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
+        virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
-#endif
+        Status( const string& name, const uint_t& type );
+        ~Status();
+};
+
+const void Status::Run( Character* character, const string& cmd, const string& arg ) const
+{
+    if ( character )
+    {
+        character->Send( Server::gStatus() );
+    }
+
+    return;
+}
+
+const void Status::Run( SocketClient* client, const string& cmd, const string& arg ) const
+{
+    if ( client )
+    {
+        client->Send( Server::gStatus() );
+    }
+
+    return;
+}
+
+Status::Status( const string& name = "status", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+{
+    Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
+    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_NONE );
+
+    return;
+}
+
+Status::~Status()
+{
+}
+
+extern "C" {
+    Plugin* New() { return new Status(); }
+    void Delete( Plugin* p ) { delete p; }
+}

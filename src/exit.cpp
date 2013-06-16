@@ -24,6 +24,9 @@
 #include "h/includes.h"
 #include "h/exit.h"
 
+#include "h/list.h"
+#include "h/location.h"
+
 /* Core */
 /**
  * @brief Unload an exit from memory that was previously loaded via Exit::New().
@@ -31,6 +34,12 @@
  */
 const void Exit::Delete()
 {
+    if ( find( exit_list.begin(), exit_list.end(), this ) != exit_list.end() )
+        exit_list.erase( find( exit_list.begin(), exit_list.end(), this ) );
+
+    if ( m_location )
+        m_location->RemoveExit( this );
+
     delete this;
 
     return;
@@ -53,6 +62,8 @@ const bool Exit::New( Location* location )
     }
 
     m_location = location;
+
+    exit_list.push_back( this );
 
     return true;
 }

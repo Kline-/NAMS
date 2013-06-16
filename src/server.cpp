@@ -157,7 +157,6 @@ const void Server::LinkExits()
     Location* destination = NULL;
     Location* location = NULL;
     Exit* exit = NULL;
-    uint_t count = 0;
 
     start = chrono::high_resolution_clock::now();
     LOGSTR( 0, CFG_STR_FILE_EXIT_READ );
@@ -175,20 +174,18 @@ const void Server::LinkExits()
             {
                 LOGFMT( flags, "Server::LinkExits()-> location %s has invalid exit to %s", CSTR( location->gId() ), CSTR( exit->gDestId() ) );
                 location->RemoveExit( exit );
+                exit->Delete();
             }
             else
-            {
-                count++;
                 exit->sDestination( destination );
-            }
         }
     }
 
     finish = chrono::high_resolution_clock::now();
     if ( ( duration = chrono::duration_cast<chrono::milliseconds>( finish - start ).count() ) > 1000 )
-        LOGFMT( 0, "Linked %lu exits in %1.2fs.", count, ( duration / 1000 ) );
+        LOGFMT( 0, "Linked %lu exits in %1.2fs.", exit_list.size(), ( duration / 1000 ) );
     else
-        LOGFMT( 0, "Linked %lu exits in %1.0fms.", count, duration );
+        LOGFMT( 0, "Linked %lu exits in %1.0fms.", exit_list.size(), duration );
 
     return;
 }
@@ -545,7 +542,7 @@ const bool Server::PollSockets()
  */
 const void Server::ProcessEvents()
 {
-    ITER( forward_list, Event*, ei );
+    ITER( list, Event*, ei );
     Event* event;
 
     for ( ei = event_list.begin(); ei != event_list.end(); ei = g_global->m_next_event )
@@ -732,6 +729,9 @@ const void Server::Shutdown( const sint_t& status )
     // Cleanup events
     while ( !event_list.empty() )
         event_list.front()->Delete();
+    // Cleanup exits
+    while ( !exit_list.empty() )
+        exit_list.front()->Delete();
     // Cleanup locations
     while ( !location_list.empty() )
         location_list.front()->Delete();
@@ -745,11 +745,6 @@ const void Server::Shutdown( const sint_t& status )
     while ( !socket_client_list.empty() )
         socket_client_list.front()->Delete();
 
-    //Cleanup globals
-    g_config->Delete();
-    g_stats->Delete();
-    g_global->Delete();
-
     // Only output if the server actually booted; otherwise it probably faulted while getting a port from main()
     if ( was_running )
     {
@@ -758,6 +753,11 @@ const void Server::Shutdown( const sint_t& status )
         else
             LOGSTR( 0, CFG_STR_EXIT_FAILURE );
     }
+
+    //Cleanup globals last as logging the above depends on them
+    g_config->Delete();
+    g_stats->Delete();
+    g_global->Delete();
 
     ::exit( status );
 }
@@ -883,16 +883,16 @@ vector<string> Server::Config::gDisabledCommands() const
 /**
  * @brief Returns a a copy of the prohibited names list using type from #SVR_CFG_PROHIBITED_NAMES.
  * @param[in] type The specific prohibited names list to retrieve.
- * @retval forward_list<string> A copy of the prohibited names list referenced by type.
+ * @retval list<string> A copy of the prohibited names list referenced by type.
  */
-forward_list<string> Server::Config::gProhibitedNames( const uint_t& type ) const
+list<string> Server::Config::gProhibitedNames( const uint_t& type ) const
 {
     UFLAGS_DE( flags );
 
     if ( type < uintmin_t || type >= MAX_SVR_CFG_PROHIBITED_NAMES )
     {
         LOGFMT( flags, "Server::Config::gProhibitedNames()-> called with invalid type %lu", type );
-        return forward_list<string>();
+        return list<string>();
     }
 
     return m_prohibited_names[type];
@@ -943,11 +943,40 @@ const string Server::gHostname()
 /**
  * @brief Display miscellaneous data about the NAMS Server, such as total data transfered, objects in memory, etc.
  * @retval string A string is returned containing a pre-formatted data display of all Server information.
- * @todo Write this entire function.
  */
 const string Server::gStatus()
 {
     string output;
+    uint_t i = 0, x = 0;
+
+    // Header
+    output += "        Status Report for " CFG_STR_VERSION CRLF;
+    x = output.length() - 2; // Knock two off for the CRLF
+    output += "    ";
+    for ( i = 0; i < x; i++ )
+        output += "-";
+    output += CRLF CRLF;
+
+    // Time info
+    output += "The MUD was last booted at " + Utils::StrTime( chrono::high_resolution_clock::to_time_t( g_global->m_time_boot ) ) + "." + CRLF;
+    output += "The current system time is " + Utils::StrTime( chrono::high_resolution_clock::to_time_t( g_global->m_time_current ) ) + "." + CRLF;
+
+    // Memory info
+    output += CRLF "Objects in Memory" CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Commands", command_list.size() ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Events", event_list.size() ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Exits", exit_list.size() ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Locations", location_list.size() ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Object Templates", object_template_list.size() ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Unique Characters", character_list.size() ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Unique Objects", object_list.size() ) + CRLF;
+
+    //Runtime statistics
+    output += CRLF "Runtime Statistics" CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Total Directories Opened", g_stats->m_dir_open ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Total Directories Closed", g_stats->m_dir_close ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Total Sockets Opened", g_stats->gSocketOpen() ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Total Sockets Closed", g_stats->gSocketClose() ) + CRLF;
 
     return output;
 }
@@ -964,7 +993,7 @@ const bool Server::Config::Serialize()
     ofstream ofs;
     string value;
     stringstream line;
-    CITER( forward_list, string, li );
+    CITER( list, string, li );
     CITER( vector, string, vi );
     uint_t i = uintmin_t;
 

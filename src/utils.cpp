@@ -891,7 +891,6 @@ const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>&
     va_list args;
     string pre, post, output;
     uint_t i = 0;
-    chrono::high_resolution_clock::time_point tt;
 
     if ( fmt.empty() )
     {
@@ -907,8 +906,7 @@ const void Utils::_Logger( const uint_t& narg, const bitset<CFG_MEM_MAX_BITSET>&
         return;
 
     // prepend timestamp
-    tt = chrono::high_resolution_clock::now();
-    pre = StrTime( chrono::high_resolution_clock::to_time_t( tt ) );
+    pre = StrTime( chrono::high_resolution_clock::to_time_t( g_global->m_time_current ) );
     pre.append( " :: " );
 
     for ( i = 0; i < MAX_UTILS; i++ )

@@ -267,7 +267,6 @@ const void Location::RemoveExit( Exit* exit )
     }
 
     m_exits.erase( find( m_exits.begin(), m_exits.end(), exit ) );
-    exit->Delete();
 
     return;
 }

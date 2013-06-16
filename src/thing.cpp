@@ -43,7 +43,7 @@ const bool Thing::AddThing( Thing* thing )
         return false;
     }
 
-    /** @todo: Logic to check container size, content limits, etc. */
+    /** @todo Logic to check container size, content limits, etc. */
 
     m_contents.push_back( thing );
 
@@ -101,7 +101,7 @@ const bool Thing::RemoveThing( Thing* thing )
         return false;
     }
 
-    /** @todo: Logic to check debuffs, restrictions, etc. */
+    /** @todo Logic to check debuffs, restrictions, etc. */
 
     if ( find ( m_contents.begin(), m_contents.end(), thing ) != m_contents.end() )
         m_contents.erase( find( m_contents.begin(), m_contents.end(), thing ) );

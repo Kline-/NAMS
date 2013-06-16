@@ -46,7 +46,14 @@ multimap<const char,Command*> command_list;
  * @brief All events pending execution.
  * @param Event* A pointer to an Event object in memory.
  */
-forward_list<Event*> event_list;
+list<Event*> event_list;
+
+/**
+ * @var exit_list
+ * @brief All exits that exist within the server.
+ * @param Exit* A pointer to an Exit object in memory.
+ */
+list<Exit*> exit_list;
 
 /**
  * @var location_list

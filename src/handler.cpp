@@ -458,8 +458,8 @@ const bool Handler::CheckPlaying( const string& name )
 const bool Handler::CheckProhibited( SocketClient* client, const string& name, const uint_t& type )
 {
     UFLAGS_DE( flags );
-    ITER( forward_list, string, fi );
-    forward_list<string> search;
+    ITER( list, string, fi );
+    list<string> search;
     string comp;
     uint_t searcht = type;
 
@@ -605,8 +605,8 @@ const void Handler::Reconnect( SocketClient* client, Character* character )
 {
     UFLAGS_DE( flags );
     UFLAGS_S( flag );
-    ITER( forward_list, Event*, ei );
-    ITER( forward_list, Event*, ei_next );
+    ITER( list, Event*, ei );
+    ITER( list, Event*, ei_next );
     Event* event = NULL;
 
     if ( client == NULL )
