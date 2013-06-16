@@ -230,7 +230,7 @@ const string Utils::ReadString( ifstream& input )
     if ( value.compare( p2, 2, CFG_DAT_STR_CTR_C ) != 0 )
         return output;
 
-    output = value.substr( p1 + 2, value.length() - p1 - 4 );
+    output = value.substr( p1 + 2, value.length() - p1 - 6 );
 
     return output;
 }

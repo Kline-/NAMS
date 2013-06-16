@@ -65,7 +65,7 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
             }
 
             character->Send( location->gName() + CRLF );
-            character->Send( location->gDescription( THING_DESCRIPTION_LONG ) );
+            character->Send( location->gDescription( THING_DESCRIPTION_LONG ) + CRLF );
 
             //Contents
             loc_contents = location->gContents();

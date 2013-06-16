@@ -18,51 +18,54 @@
 
 #include "pincludes.h"
 
-#include "location.h"
-
-class Say : public Plugin {
+class Inventory : public Plugin {
     public:
         virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
-        Say( const string& name, const uint_t& type );
-        ~Say();
+        Inventory( const string& name, const uint_t& type );
+        ~Inventory();
 };
 
-const void Say::Run( Character* character, const string& cmd, const string& arg ) const
+const void Inventory::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    Location* location = NULL;
+    ITER( vector, Thing*, vi );
+    vector<Thing*> contents;
+    Thing* item = NULL;
 
     if ( character )
     {
-        if ( ( location = character->gLocation() ) != NULL )
+        contents = character->gContents();
+        character->Send( "You are carrying:" CRLF );
+
+        for ( vi = contents.begin(); vi != contents.end(); vi++ )
         {
-            character->Send( Utils::FormatString( 0, "You say '%s'.", CSTR( arg ) ) );
-            location->Send( Utils::FormatString( 0, CRLF "%s says '%s'.", CSTR( character->gName() ), CSTR( arg ) ), character );
+            item = *vi;
+            character->Send( "    " + item->gDescription( THING_DESCRIPTION_SHORT ) + CRLF );
         }
     }
 
     return;
 }
 
-const void Say::Run( SocketClient* client, const string& cmd, const string& arg ) const
+const void Inventory::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     return;
 }
 
-Say::Say( const string& name = "say", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+Inventory::Inventory( const string& name = "inventory", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
-    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_AUTH_USER );
+    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_NONE );
 
     return;
 }
 
-Say::~Say()
+Inventory::~Inventory()
 {
 }
 
 extern "C" {
-    Plugin* New() { return new Say(); }
+    Plugin* New() { return new Inventory(); }
     void Delete( Plugin* p ) { delete p; }
 }

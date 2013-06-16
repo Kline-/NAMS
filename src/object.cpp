@@ -31,19 +31,19 @@
  * @brief Clones an Object from the object_template_list into the object_list.
  * @param[in] name The name of the template object to clone.
  * @param[in] type The field to search against, from #HANDLER_FIND.
- * @retval Object* A pointer to a new cloned Object in memory or NULL if unable to find the template.
+ * @retval false Returned if there was an error cloning the Object.
+ * @retval true Returned if the Object was successfully cloned.
  */
-Object* Object::Clone( const string& name, const uint_t& type )
+const bool Object::Clone( const string& name, const uint_t& type )
 {
     UFLAGS_DE( flags );
     Object* obj = NULL;
-    Object* tobj = NULL;
     uint_t search = type;
 
     if ( name.empty() )
     {
         LOGSTR( flags, "Object::Clone()-> called with empty name" );
-        return obj;
+        return false;
     }
 
     if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
@@ -53,22 +53,20 @@ Object* Object::Clone( const string& name, const uint_t& type )
         search = HANDLER_FIND_ID;
     }
 
-    if ( ( tobj = Handler::FindObject( name, type, object_template_list ) ) == NULL )
-        return obj;
-
-    obj = new Object();
+    if ( ( obj = Handler::FindObject( name, type, object_template_list ) ) == NULL )
+        return false;
 
     /** Copy elements from Thing parent class */
     for ( search = 0; search < MAX_THING_DESCRIPTION; search++ )
-        obj->sDescription( tobj->gDescription( search ), search );
-    obj->sName( tobj->gName() );
+        sDescription( obj->gDescription( search ), search );
+    sName( obj->gName() );
     /** Copy elements internal to Object class */
-    obj->m_file = tobj->m_file;
-    obj->m_zone = tobj->m_zone;
+    m_file = obj->m_file;
+    m_zone = obj->m_zone;
 
     object_list.push_back( this );
 
-    return obj;
+    return true;
 }
 
 /**

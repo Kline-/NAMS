@@ -35,7 +35,7 @@ class Object : public Thing
 {
     public:
         /** @name Core */ /**@{*/
-        Object* Clone( const string& name, const uint_t& type );
+        const bool Clone( const string& name, const uint_t& type );
         const void Delete();
         const void Interpret( const uint_t& security, const string& cmd, const string& args );
         const bool New( const string& file );

@@ -18,51 +18,64 @@
 
 #include "pincludes.h"
 
-#include "location.h"
+#include "object.h"
 
-class Say : public Plugin {
+class AdmOload : public Plugin {
     public:
         virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
-        Say( const string& name, const uint_t& type );
-        ~Say();
+        AdmOload( const string& name, const uint_t& type );
+        ~AdmOload();
 };
 
-const void Say::Run( Character* character, const string& cmd, const string& arg ) const
+const void AdmOload::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    Location* location = NULL;
+    Object* obj = NULL;
 
     if ( character )
     {
-        if ( ( location = character->gLocation() ) != NULL )
+        if ( arg.empty() )
         {
-            character->Send( Utils::FormatString( 0, "You say '%s'.", CSTR( arg ) ) );
-            location->Send( Utils::FormatString( 0, CRLF "%s says '%s'.", CSTR( character->gName() ), CSTR( arg ) ), character );
+            character->Send( "Load -which- object id?" CRLF );
+            return;
         }
+
+        obj = new Object();
+        if ( !obj->Clone( arg, HANDLER_FIND_ID ) )
+        {
+            character->Send( "Unable to find that object." CRLF );
+            delete obj;
+
+            return;
+        }
+
+        character->Send( "You create " );
+        character->Send( obj->gDescription( THING_DESCRIPTION_SHORT ) + "." CRLF );
+        character->AddThing( obj );
     }
 
     return;
 }
 
-const void Say::Run( SocketClient* client, const string& cmd, const string& arg ) const
+const void AdmOload::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     return;
 }
 
-Say::Say( const string& name = "say", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+AdmOload::AdmOload( const string& name = "::oload", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
-    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_AUTH_USER );
+    Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_ADMIN );
 
     return;
 }
 
-Say::~Say()
+AdmOload::~AdmOload()
 {
 }
 
 extern "C" {
-    Plugin* New() { return new Say(); }
+    Plugin* New() { return new AdmOload(); }
     void Delete( Plugin* p ) { delete p; }
 }
