@@ -55,7 +55,7 @@ const void AdmReload::Run( Character* character, const string& cmd, const string
             if ( command->Authorized( security ) )
             {
                 event = new Event();
-                if ( !event->New( arg, EVENT_TYPE_RELOAD, 100 ) )
+                if ( !event->New( arg, EVENT_TYPE_RELOAD, 10 ) )
                 {
                     LOGSTR( flags, "AdmReload::Run()->Event::New()-> returned false" );
                     delete event;

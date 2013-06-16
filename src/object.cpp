@@ -63,6 +63,8 @@ const bool Object::Clone( const string& name, const uint_t& type )
     /** Copy elements internal to Object class */
     m_file = obj->m_file;
     m_zone = obj->m_zone;
+    /** Generate a unique id based on obj_list.size() and current time */
+    NewId( object_list.size() );
 
     object_list.push_back( this );
 

@@ -58,6 +58,7 @@ class Thing
         /**@}*/
 
         /** @name Internal */ /**@{*/
+        const void NewId( const uint_t& seed );
         Thing();
         virtual ~Thing();
         /**@}*/

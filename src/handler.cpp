@@ -1376,7 +1376,7 @@ const void Handler::GetNewPassword( SocketClient* client, const string& cmd, con
 
     if ( client->gLogin( SOC_LOGIN_PASSWORD ).empty() )
     {
-        client->sLogin( SOC_LOGIN_PASSWORD, crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) );
+        client->sLogin( SOC_LOGIN_PASSWORD, ::crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) );
         client->Send( CFG_STR_ACT_PASSWORD_CONFIRM );
 
         return;
@@ -1424,7 +1424,7 @@ const void Handler::GetOldPassword( SocketClient* client, const string& cmd, con
         return;
     }
 
-    client->sLogin( SOC_LOGIN_PASSWORD, crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) );
+    client->sLogin( SOC_LOGIN_PASSWORD, ::crypt( CSTR( cmd ), CSTR( Utils::Salt( client->gLogin( SOC_LOGIN_NAME ) ) ) ) );
     client->sState( SOC_STATE_LOAD_ACCOUNT );
 
     //Generate the next input prompt

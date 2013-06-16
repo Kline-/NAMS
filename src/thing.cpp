@@ -263,6 +263,24 @@ const bool Thing::sName( const string& name, const bool& system )
 
 /* Internal */
 /**
+ * @brief Generates a new unique id for this Thing.
+ * @param[in] seed Typically the size of the owning list, such as object_list.
+ * @retval void
+ */
+const void Thing::NewId( const uint_t& seed )
+{
+    string input;
+
+    input += seed;
+    input += m_name;
+    input += chrono::duration_cast<chrono::milliseconds>( g_global->m_time_current.time_since_epoch() ).count();
+
+    m_id = ::crypt( CSTR( input ), CSTR( Utils::Salt( Utils::String( chrono::duration_cast<chrono::milliseconds>( g_global->m_time_current.time_since_epoch() ).count() ) ) ) );
+
+    return;
+}
+
+/**
  * @brief Constructor for the Thing class.
  */
 Thing::Thing()
