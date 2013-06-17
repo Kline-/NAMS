@@ -18,6 +18,7 @@
 
 #include "pincludes.h"
 
+#include "account.h"
 #include "list.h"
 
 class Who : public Plugin {
@@ -31,17 +32,21 @@ class Who : public Plugin {
 
 const void Who::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    CITER( vector, Character*, ci );
-    Character* target = NULL;
+    CITER( vector, SocketClient*, si );
+    SocketClient* target = NULL;
 
     if ( character )
     {
         character->Send( CFG_STR_VERSION CRLF );
-        for ( ci = character_list.begin(); ci != character_list.end(); ci++ )
+        for ( si = socket_client_list.begin(); si != socket_client_list.end(); si++ )
         {
-            target = *ci;
+            target = *si;
 
-            character->Send( "    " + target->gName() + CRLF );
+            if ( target->gAccount() == NULL )
+                continue;
+            if ( target->gAccount()->gCharacter() == NULL )
+                continue;
+            character->Send( "    " + target->gAccount()->gCharacter()->gName() + CRLF );
         }
     }
 

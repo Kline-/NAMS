@@ -86,6 +86,7 @@ namespace Server
             SocketServer* m_listen; /**< The listening server-side socket. */
             vector<Event*>::iterator m_next_event; /**< Used as the next iterator in all loops dealing with Event objects to prevent nested processing loop problems. */
             vector<Character*>::iterator m_next_character; /**< Used as the next iterator in all loops dealing with Character objects to prevent nested processing loop problems. */
+            vector<Object*>::iterator m_next_object; /**< Used as the next iterator in all loops dealing with Object objects to prevent nested processing loop problems. */
             vector<SocketClient*>::iterator m_next_socket_client; /**< Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
             uint_t m_port; /**< Port number to be passed to the associated SocketServer. */
             bool m_shutdown; /**< Shutdown state of the game. */

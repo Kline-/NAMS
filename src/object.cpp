@@ -78,7 +78,7 @@ const bool Object::Clone( const string& name, const uint_t& type )
 const void Object::Delete()
 {
     if ( find( object_list.begin(), object_list.end(), this ) != object_list.end() )
-        object_list.erase( find( object_list.begin(), object_list.end(), this ) );
+        g_global->m_next_object = object_list.erase( find( object_list.begin(), object_list.end(), this ) );
     else if ( find( object_template_list.begin(), object_template_list.end(), this ) != object_template_list.end() )
             object_template_list.erase( find( object_template_list.begin(), object_template_list.end(), this ) );
 
