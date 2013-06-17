@@ -56,7 +56,7 @@ var searchData=
   ['socket',['Socket',['../classSocket.xhtml',1,'Socket'],['../classSocket.xhtml#a7c3256c4fc6e2c603df73201049fae5a',1,'Socket::Socket()']]],
   ['socket_2ecpp',['socket.cpp',['../socket_8cpp.xhtml',1,'']]],
   ['socket_2eh',['socket.h',['../socket_8h.xhtml',1,'']]],
-  ['socket_5fclient_5flist',['socket_client_list',['../list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb',1,'socket_client_list():&#160;list.cpp'],['../list_8h.xhtml#a0a518fc6607b121546a40295adc8c06b',1,'socket_client_list():&#160;list.cpp']]],
+  ['socket_5fclient_5flist',['socket_client_list',['../list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb',1,'socket_client_list():&#160;list.cpp'],['../list_8h.xhtml#ac3a8e7da8dece5ae90fc2a001f430ec5',1,'socket_client_list():&#160;list.cpp']]],
   ['socketclient',['SocketClient',['../classSocketClient.xhtml',1,'SocketClient'],['../classSocketClient.xhtml#a80d1b7bfb8b4126d706981a80e05c78f',1,'SocketClient::SocketClient()']]],
   ['socketclient_2ecpp',['socketclient.cpp',['../socketclient_8cpp.xhtml',1,'']]],
   ['socketclient_2eh',['socketclient.h',['../socketclient_8h.xhtml',1,'']]],

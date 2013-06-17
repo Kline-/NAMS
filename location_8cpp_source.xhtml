@@ -112,16 +112,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classLocation.xhtml#a2640eee7c5e9b2b08f84a401f7beab53">   35</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="classLocation.xhtml#a2640eee7c5e9b2b08f84a401f7beab53" title="Unload a location from memory that was previously loaded via Location::New().">Location::Delete</a>()</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit = NULL;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span> ( find( <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.end(), this ) != <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.end() )</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.erase( find( <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.end(), this ) );</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">for</span> ( ei = <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.begin(); ei != <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.end(); )</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">for</span> ( ei = <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.begin(); ei != <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.end(); )</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        exit = *ei;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        ei = <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.erase( ei );</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        ei = <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.erase( ei );</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        exit-&gt;<a class="code" href="classExit.xhtml#ac490c605f6b1581429cc59290e7bd400" title="Unload an exit from memory that was previously loaded via Exit::New().">Delete</a>();</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
@@ -167,7 +167,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">string</span> value;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    stringstream line;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( list, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( vector, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit = NULL;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">string</span> file( <a class="code" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext.">Utils::FileExt</a>( <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>(), <a class="code" href="config_8h.xhtml#a56fdb354a0a0aa4879db1e77a32d824b" title="File extension to use for location files.">CFG_DAT_FILE_LOC_EXT</a> ) );</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
@@ -190,7 +190,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="macros_8h.xhtml#a56c55a4fe68d269a30a5dbddbb210b47" title="Begins writing (name)[iter] to (stream) in key:value format.">KEYLISTLOOP</a>( ofs, <span class="stringliteral">&quot;exit&quot;</span>, i ); </div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">for</span> ( ei = <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.begin(); ei != <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.end(); ei++ )</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">for</span> ( ei = <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.begin(); ei != <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.end(); ei++ )</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        {</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            exit = *ei;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            ofs &lt;&lt; <span class="stringliteral">&quot;exit = &quot;</span> &lt;&lt; exit-&gt;<a class="code" href="classExit.xhtml#a097962625968fc2ea0e39c867f9e1f31" title="Serialize the exit data.">Serialize</a>() &lt;&lt; endl;</div>
@@ -263,7 +263,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                        exit-&gt;<a class="code" href="classExit.xhtml#ac490c605f6b1581429cc59290e7bd400" title="Unload an exit from memory that was previously loaded via Exit::New().">Delete</a>();</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                    }</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                        <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.push_back( exit );</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                        <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.push_back( exit );</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                }</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            }</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;id&quot;</span> )</div>
@@ -295,9 +295,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;}</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment">/* Query */</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno"><a class="code" href="classLocation.xhtml#ae583e2944b9f01b0cf3784040f9ba32e">  248</a></span>&#160;list&lt;Exit*&gt; <a class="code" href="classLocation.xhtml#ae583e2944b9f01b0cf3784040f9ba32e" title="Returns the list of Exits associated to this Location.">Location::gExits</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno"><a class="code" href="classLocation.xhtml#af7a9d1256754395a737da603c930ea56">  248</a></span>&#160;vector&lt;Exit*&gt; <a class="code" href="classLocation.xhtml#af7a9d1256754395a737da603c930ea56" title="Returns the list of Exits associated to this Location.">Location::gExits</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>;</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;}</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment">/* Manipulate */</span></div>
@@ -311,7 +311,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    }</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.erase( find( <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.begin(), <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.end(), exit ) );</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.erase( find( <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.begin(), <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.end(), exit ) );</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;}</div>
@@ -320,7 +320,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00278"></a><span class="lineno"><a class="code" href="classLocation.xhtml#a87790c14997fd8cdd12080c78c9794bb">  278</a></span>&#160;<a class="code" href="classLocation.xhtml#a87790c14997fd8cdd12080c78c9794bb" title="Constructor for the Location class.">Location::Location</a>()</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;{</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <a class="code" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59" title="Sets the inherited sub-type of this Thing.">sType</a>( <a class="code" href="enum_8h.xhtml#a37fc305e33c43e18f03f70aeb8bba7baac67abf2ee0bd453796a8c286c80f7aa6">THING_TYPE_LOCATION</a> );</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.clear();</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.clear();</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <a class="code" href="classLocation.xhtml#aef7bb3607c4c22375a1fae5518962ff6">m_file</a>.clear();</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <a class="code" href="classLocation.xhtml#a78f355da90860faba8b9884ac96c56b8">m_zone</a>.clear();</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
@@ -334,7 +334,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 17:23:46 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 20:59:31 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

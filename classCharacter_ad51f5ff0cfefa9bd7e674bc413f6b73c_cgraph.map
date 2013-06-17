@@ -1,29 +1,30 @@
 <map id="Character::Interpret" name="Character::Interpret">
-<area shape="rect" id="node3" href="$namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game." alt="" coords="204,157,375,185"/>
-<area shape="rect" id="node11" href="$classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run()." alt="" coords="207,207,372,235"/>
-<area shape="rect" id="node13" href="$classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function." alt="" coords="229,258,349,286"/>
-<area shape="rect" id="node19" href="$classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any." alt="" coords="439,359,564,387"/>
-<area shape="rect" id="node42" href="$namespaceHandler.xhtml#a6a66769cd9a793514515b88d44091cc7" title="Locates an Exit within a Location." alt="" coords="225,81,353,109"/>
-<area shape="rect" id="node49" href="$classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e" title="Returns the Location that this Thing is stored within." alt="" coords="227,359,352,387"/>
-<area shape="rect" id="node51" href="$classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4" title="Moves a Thing from within one Location to another Location." alt="" coords="240,410,339,438"/>
-<area shape="rect" id="node57" href="$classExit.xhtml#a798f8c836542670b5dd0dd41503a6171" title="Returns the destination that this Exit leads to." alt="" coords="223,461,356,489"/>
-<area shape="rect" id="node5" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="455,106,548,134"/>
-<area shape="rect" id="node7" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="429,157,573,185"/>
-<area shape="rect" id="node9" href="$classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object." alt="" coords="641,157,756,185"/>
-<area shape="rect" id="node15" href="$classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any." alt="" coords="425,207,577,235"/>
-<area shape="rect" id="node17" href="$classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54" title="Returns the authorized security level of the account." alt="" coords="431,258,572,286"/>
-<area shape="rect" id="node39" href="$classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e" title="Execute the primary function of the implemented class." alt="" coords="456,309,547,337"/>
-<area shape="rect" id="node21" href="$classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient." alt="" coords="636,334,761,362"/>
-<area shape="rect" id="node23" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="628,385,769,413"/>
-<area shape="rect" id="node25" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="852,233,956,261"/>
-<area shape="rect" id="node27" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="831,283,977,311"/>
-<area shape="rect" id="node29" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="828,334,980,362"/>
-<area shape="rect" id="node31" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="819,385,989,413"/>
-<area shape="rect" id="node33" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="829,435,979,463"/>
-<area shape="rect" id="node35" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="831,486,977,514"/>
-<area shape="rect" id="node37" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="831,537,977,565"/>
-<area shape="rect" id="node44" href="$classLocation.xhtml#ae583e2944b9f01b0cf3784040f9ba32e" title="Returns the list of Exits associated to this Location." alt="" coords="440,5,563,33"/>
-<area shape="rect" id="node47" href="$classExit.xhtml#a34207621e47d7bf64933eb68d05fedd9" title="Returns the name of the Exit." alt="" coords="452,55,551,83"/>
-<area shape="rect" id="node53" href="$classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e" title="Removes a Thing to the contents of this Thing." alt="" coords="427,410,576,438"/>
-<area shape="rect" id="node55" href="$classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c" title="Adds a Thing to the contents of this Thing." alt="" coords="440,461,563,489"/>
+<area shape="rect" id="node3" href="$namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game." alt="" coords="204,207,375,235"/>
+<area shape="rect" id="node11" href="$classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run()." alt="" coords="207,258,372,286"/>
+<area shape="rect" id="node13" href="$classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function." alt="" coords="229,309,349,337"/>
+<area shape="rect" id="node19" href="$classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any." alt="" coords="439,410,564,438"/>
+<area shape="rect" id="node42" href="$namespaceHandler.xhtml#a6a66769cd9a793514515b88d44091cc7" title="Locates an Exit within a Location." alt="" coords="225,106,353,134"/>
+<area shape="rect" id="node51" href="$classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1" title="Returns the Thing that this Thing is stored within." alt="" coords="223,410,356,438"/>
+<area shape="rect" id="node53" href="$classThing.xhtml#a1134d82f5d0d47167badcfc99170b8a0" title="Moves a Thing from within one Thing and into another Thing." alt="" coords="240,461,339,489"/>
+<area shape="rect" id="node59" href="$classExit.xhtml#a798f8c836542670b5dd0dd41503a6171" title="Returns the destination that this Exit leads to." alt="" coords="223,511,356,539"/>
+<area shape="rect" id="node5" href="$namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters." alt="" coords="455,157,548,185"/>
+<area shape="rect" id="node7" href="$classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object." alt="" coords="429,207,573,235"/>
+<area shape="rect" id="node9" href="$classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object." alt="" coords="641,207,756,235"/>
+<area shape="rect" id="node15" href="$classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any." alt="" coords="425,258,577,286"/>
+<area shape="rect" id="node17" href="$classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54" title="Returns the authorized security level of the account." alt="" coords="431,309,572,337"/>
+<area shape="rect" id="node39" href="$classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e" title="Execute the primary function of the implemented class." alt="" coords="456,359,547,387"/>
+<area shape="rect" id="node21" href="$classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient." alt="" coords="636,385,761,413"/>
+<area shape="rect" id="node23" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="628,435,769,463"/>
+<area shape="rect" id="node25" href="$classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" title="Return if the Socket is valid for use." alt="" coords="852,283,956,311"/>
+<area shape="rect" id="node27" href="$classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket." alt="" coords="831,334,977,362"/>
+<area shape="rect" id="node29" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="828,385,980,413"/>
+<area shape="rect" id="node31" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="819,435,989,463"/>
+<area shape="rect" id="node33" href="$classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" title="Returns the hostname associated to the Socket." alt="" coords="829,486,979,514"/>
+<area shape="rect" id="node35" href="$classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" title="Increment the total count of bytes sent by the socket." alt="" coords="831,537,977,565"/>
+<area shape="rect" id="node37" href="$classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" title="Returns the number of bytes sent by the Socket." alt="" coords="831,587,977,615"/>
+<area shape="rect" id="node44" href="$classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a" title="Returns the inherited sub&#45;type of this Thing." alt="" coords="452,5,551,33"/>
+<area shape="rect" id="node46" href="$classLocation.xhtml#af7a9d1256754395a737da603c930ea56" title="Returns the list of Exits associated to this Location." alt="" coords="440,55,563,83"/>
+<area shape="rect" id="node49" href="$classExit.xhtml#a34207621e47d7bf64933eb68d05fedd9" title="Returns the name of the Exit." alt="" coords="452,106,551,134"/>
+<area shape="rect" id="node55" href="$classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e" title="Removes a Thing to the contents of this Thing." alt="" coords="427,461,576,489"/>
+<area shape="rect" id="node57" href="$classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c" title="Adds a Thing to the contents of this Thing." alt="" coords="440,511,563,539"/>
 </map>

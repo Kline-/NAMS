@@ -93,16 +93,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="even"><td class="entry"><a class="el" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c">AddThing</a>(Thing *thing)</td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.xhtml#a2238f4fd2bdae2764e400556c0c7e310">Clone</a>(const string &amp;name, const uint_t &amp;type)</td><td class="entry"><a class="el" href="classObject.xhtml">Object</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.xhtml#a3a18a6bfb53e565749e48f32f19141c6">Delete</a>()</td><td class="entry"><a class="el" href="classObject.xhtml">Object</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classThing.xhtml#a8e27a5928fd0dbc9bee6e89ac8d09d28">gContents</a>() const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classThing.xhtml#afb35e940694ccbd0c9bc351d66251314">gDescription</a>(const uint_t &amp;type) const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">gId</a>() const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e">gLocation</a>() const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1">gContainer</a>() const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classThing.xhtml#a8e27a5928fd0dbc9bee6e89ac8d09d28">gContents</a>() const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classThing.xhtml#afb35e940694ccbd0c9bc351d66251314">gDescription</a>(const uint_t &amp;type) const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">gId</a>() const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">gName</a>() const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a">gType</a>() const </td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.xhtml#a3382beb85e23e571fe16df5a59ddc324">Interpret</a>(const uint_t &amp;security, const string &amp;cmd, const string &amp;args)</td><td class="entry"><a class="el" href="classObject.xhtml">Object</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classObject.xhtml#a932b2921431e4a46eb320a442ddd404d">m_file</a></td><td class="entry"><a class="el" href="classObject.xhtml">Object</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.xhtml#ab1ec70921999e508f7737c0a14d982e7">m_zone</a></td><td class="entry"><a class="el" href="classObject.xhtml">Object</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4">Move</a>(Location *location)</td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classThing.xhtml#a1134d82f5d0d47167badcfc99170b8a0">Move</a>(Thing *source, Thing *destination)</td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.xhtml#abbf694ca0643b6bd1e0b5fbc8d6ade24">New</a>(const string &amp;file)</td><td class="entry"><a class="el" href="classObject.xhtml">Object</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classThing.xhtml#a9d7867991d8943d81101a32597eb4df1">NewId</a>(const uint_t &amp;seed)</td><td class="entry"><a class="el" href="classThing.xhtml">Thing</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classObject.xhtml#a40860402e64d8008fb42329df7097cdb">Object</a>()</td><td class="entry"><a class="el" href="classObject.xhtml">Object</a></td><td class="entry"></td></tr>
@@ -120,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -104,8 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_1_1Global__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_1_1Global__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
@@ -122,9 +121,10 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a60944d3654141d136ae0f1af263c803b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSocketServer.xhtml">SocketServer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a></td></tr>
-<tr class="memitem:aaa0f8f02223ffe28765bc7fe3f5b2ea4"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classEvent.xhtml">Event</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">m_next_event</a></td></tr>
-<tr class="memitem:a1783142c9d2911dfd5b04488723b4987"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classCharacter.xhtml">Character</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a1783142c9d2911dfd5b04488723b4987">m_next_character</a></td></tr>
-<tr class="memitem:ac53fd9755bbb78e3dd0b77d4f81fb959"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classSocketClient.xhtml">SocketClient</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a></td></tr>
+<tr class="memitem:a97254b5ea5909c15b2a6f7fcfbf942b1"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classEvent.xhtml">Event</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a></td></tr>
+<tr class="memitem:ad08a12a2b95ea861a35c7e006f29198f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classCharacter.xhtml">Character</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#ad08a12a2b95ea861a35c7e006f29198f">m_next_character</a></td></tr>
+<tr class="memitem:aa79d617e3453e34c02041da86a4ee8dc"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#aa79d617e3453e34c02041da86a4ee8dc">m_next_object</a></td></tr>
+<tr class="memitem:a6a7e62777998eefaa09ff69bd62bace6"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classSocketClient.xhtml">SocketClient</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a></td></tr>
 <tr class="memitem:ad75b902c5e4d9bc524ac87cfa1f6ee49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#ad75b902c5e4d9bc524ac87cfa1f6ee49">m_port</a></td></tr>
 <tr class="memitem:a97b9415b50cd9bd2b9a96d23553789c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a97b9415b50cd9bd2b9a96d23553789c4">m_shutdown</a></td></tr>
 <tr class="memitem:aa67c259fe2ac90523a49a261721cde47"><td class="memItemLeft" align="right" valign="top">chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#aa67c259fe2ac90523a49a261721cde47">m_time_boot</a></td></tr>
@@ -147,12 +147,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01230">1230</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01231">1231</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a> = NULL;</div>
-<div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a1783142c9d2911dfd5b04488723b4987">m_next_character</a> = <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.begin();</div>
-<div class="line">    <a class="code" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">m_next_event</a> = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin();</div>
-<div class="line">    <a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin();</div>
+<div class="line">    <a class="code" href="classServer_1_1Global.xhtml#ad08a12a2b95ea861a35c7e006f29198f">m_next_character</a> = <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.begin();</div>
+<div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a> = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin();</div>
+<div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin();</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#ad75b902c5e4d9bc524ac87cfa1f6ee49">m_port</a> = 0;</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a97b9415b50cd9bd2b9a96d23553789c4">m_shutdown</a> = <span class="keyword">true</span>;</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#aa67c259fe2ac90523a49a261721cde47">m_time_boot</a> = chrono::high_resolution_clock::now();</div>
@@ -176,7 +176,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01247">1247</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01248">1248</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a>-&gt;<a class="code" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="Unload a server&#39;s socket from memory that was previously loaded via SocketServer::New().">Delete</a>();</div>
 <div class="line"></div>
@@ -239,12 +239,12 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1783142c9d2911dfd5b04488723b4987"></a>
+<a class="anchor" id="ad08a12a2b95ea861a35c7e006f29198f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list&lt;<a class="el" href="classCharacter.xhtml">Character</a>*&gt;::iterator Server::Global::m_next_character</td>
+          <td class="memname">vector&lt;<a class="el" href="classCharacter.xhtml">Character</a>*&gt;::iterator Server::Global::m_next_character</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -254,12 +254,12 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aaa0f8f02223ffe28765bc7fe3f5b2ea4"></a>
+<a class="anchor" id="a97254b5ea5909c15b2a6f7fcfbf942b1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list&lt;<a class="el" href="classEvent.xhtml">Event</a>*&gt;::iterator Server::Global::m_next_event</td>
+          <td class="memname">vector&lt;<a class="el" href="classEvent.xhtml">Event</a>*&gt;::iterator Server::Global::m_next_event</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -269,18 +269,33 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac53fd9755bbb78e3dd0b77d4f81fb959"></a>
+<a class="anchor" id="aa79d617e3453e34c02041da86a4ee8dc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list&lt;<a class="el" href="classSocketClient.xhtml">SocketClient</a>*&gt;::iterator Server::Global::m_next_socket_client</td>
+          <td class="memname">vector&lt;<a class="el" href="classObject.xhtml">Object</a>*&gt;::iterator Server::Global::m_next_object</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Used as the next iterator in all loops dealing with <a class="el" href="classObject.xhtml" title="A physical object within the game world.">Object</a> objects to prevent nested processing loop problems. </p>
+
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00089">89</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a7e62777998eefaa09ff69bd62bace6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="classSocketClient.xhtml">SocketClient</a>*&gt;::iterator Server::Global::m_next_socket_client</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Used as the next iterator in all loops dealing with <a class="el" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a> objects to prevent nested processing loop problems. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00089">89</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00090">90</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -295,7 +310,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Port number to be passed to the associated <a class="el" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00090">90</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00091">91</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -310,7 +325,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Shutdown state of the game. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00091">91</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00092">92</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -325,7 +340,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Time the <a class="el" href="namespaceServer.xhtml" title="The Server namespace contains OS interface functions.">Server</a> was first booted. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00092">92</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00093">93</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -340,7 +355,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Current time from the host OS. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00093">93</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00094">94</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -351,7 +366,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

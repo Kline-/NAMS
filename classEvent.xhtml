@@ -158,7 +158,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00261">261</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00262">262</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classEvent.xhtml#a35621b42f6299f5d09b685a6c0265eee">m_args</a>.clear();</div>
 <div class="line">    <a class="code" href="classEvent.xhtml#aae899d5bdca69420e326131739f81445">m_cmd</a>.clear();</div>
@@ -186,7 +186,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00277">277</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00278">278</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -215,7 +215,8 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00035">35</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
-<div class="line">    <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.remove( <span class="keyword">this</span> );</div>
+<div class="line">    <span class="keywordflow">if</span> ( find( <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.end(), this ) != <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.end() )</div>
+<div class="line">         <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a> = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.erase( find( <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.end(), this ) );</div>
 <div class="line"></div>
 <div class="line">    <span class="keyword">delete</span> <span class="keyword">this</span>;</div>
 <div class="line"></div>
@@ -252,7 +253,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00232">232</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00233">233</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a57e336815f086c624c6ec8c78f6bf122">m_character</a>;</div>
 <div class="line">}</div>
@@ -278,7 +279,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00241">241</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00242">242</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a55c2a3bc919fe48785d163aa3d6cede9">m_command</a>;</div>
 <div class="line">}</div>
@@ -304,7 +305,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00250">250</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00251">251</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a>;</div>
 <div class="line">}</div>
@@ -377,7 +378,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00055">55</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00056">56</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -412,7 +413,7 @@ Private Attributes</h2></td></tr>
 <div class="line">    <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;</div>
 <div class="line">    <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );</div>
+<div class="line">    <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_back( <span class="keyword">this</span> );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
@@ -464,7 +465,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00103">103</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00104">104</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -490,7 +491,7 @@ Private Attributes</h2></td></tr>
 <div class="line">    <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;</div>
 <div class="line">    <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );</div>
+<div class="line">    <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_back( <span class="keyword">this</span> );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
@@ -563,7 +564,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00145">145</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00146">146</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -598,7 +599,7 @@ Private Attributes</h2></td></tr>
 <div class="line">    <a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> = time;</div>
 <div class="line">    <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> = type;</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_front( <span class="keyword">this</span> );</div>
+<div class="line">    <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.push_back( <span class="keyword">this</span> );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
@@ -624,7 +625,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00189">189</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00190">190</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">switch</span> ( <a class="code" href="classEvent.xhtml#af8f7b979851e4e7d37a61fd890398801">m_type</a> )</div>
 <div class="line">    {</div>
@@ -689,7 +690,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00219">219</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
+<p>Definition at line <a class="el" href="event_8cpp_source.xhtml#l00220">220</a> of file <a class="el" href="event_8cpp_source.xhtml">event.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> ( --<a class="code" href="classEvent.xhtml#a55560cd58cd21ff93fb072afb203c4f1">m_time</a> &gt; <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a> )</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -877,7 +878,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

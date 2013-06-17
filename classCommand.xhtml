@@ -162,7 +162,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00232">232</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00220">220</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classCommand.xhtml#a7156e5eb0eee4f31336c51c7469e624b">m_disabled</a> = <span class="keyword">false</span>;</div>
 <div class="line">    <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a> = NULL;</div>
@@ -191,7 +191,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00249">249</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00237">237</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -268,7 +268,6 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00061">61</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504" title="Define an iterator variable (name) of (type1,type2) using (container).">MITER</a>( multimap, <span class="keyword">const</span> <span class="keywordtype">char</span>,<a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>*, mi );</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classCommand.xhtml#a66f3f1de201e4d1bc251eee3497e9c07">m_plg_delete</a>( <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a> );</div>
 <div class="line">    ::dlerror();</div>
@@ -276,16 +275,8 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">if</span> ( ::dlclose( <a class="code" href="classCommand.xhtml#a17fe740c7721098073d4b4f02ae3dc37">m_plg_handle</a> ) )</div>
 <div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Command::Delete()-&gt;dlclose() returned error: %s&quot;</span>, ::dlerror() );</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">for</span> ( mi = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.begin(); mi != <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.end(); )</div>
-<div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ( mi-&gt;second == <span class="keyword">this</span> )</div>
-<div class="line">        {</div>
-<div class="line">            <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.erase( mi++ );</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            ++mi;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> ( find( <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.end(), this ) != <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.end() )</div>
+<div class="line">        <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.erase( find( <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.end(), this ) );</div>
 <div class="line"></div>
 <div class="line">    <span class="keyword">delete</span> <span class="keyword">this</span>;</div>
 <div class="line"></div>
@@ -322,7 +313,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00183">183</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00171">171</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#abab79e7ca874fe2f6e4f5e02a40b8878" title="Return a pointer to the object that initialized this Plugin.">gCaller</a>();</div>
 <div class="line">}</div>
@@ -357,7 +348,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00192">192</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00180">180</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#a9d64316428b105c231cb7196f8a0a728">m_plg_file</a>;</div>
 <div class="line">}</div>
@@ -392,7 +383,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00201">201</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00189">189</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#abd48e43fb50d5265df8ea9fca53361d9">m_plg</a>-&gt;<a class="code" href="classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae" title="Return the name of the object.">gName</a>();</div>
 <div class="line">}</div>
@@ -437,7 +428,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00211">211</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00199">199</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classCommand.xhtml#a227283c6b253cedd657d0a55a2526aff">m_preempt</a>;</div>
 <div class="line">}</div>
@@ -480,7 +471,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00094">94</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00085">85</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <span class="keywordtype">string</span> path( <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#a7e0533ce20f3c090bdf24cc750916edb" title="Directory for plugins to be loaded from.">CFG_DAT_DIR_OBJ</a>, file, <a class="code" href="config_8h.xhtml#aec22aee0979a918423c5743237a25d81" title="File extension for files after they are compiled.">CFG_PLG_BUILD_EXT_OUT</a> ) );</div>
@@ -516,10 +507,7 @@ Private Attributes</h2></td></tr>
 <div class="line">            <a class="code" href="classCommand.xhtml#a7156e5eb0eee4f31336c51c7469e624b">m_disabled</a> = <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )</div>
-<div class="line">        <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.insert( pair&lt;const char,Command*&gt;( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters.">Utils::Lower</a>( <a class="code" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object.">gName</a>() )[0], <span class="keyword">this</span> ) );</div>
-<div class="line">    <span class="keywordflow">else</span></div>
-<div class="line">        <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.insert( pair&lt;const char,Command*&gt;( <a class="code" href="classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021" title="Return the name of the associated Plugin object.">gName</a>()[0], <span class="keyword">this</span> ) );</div>
+<div class="line">    <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.push_back( <span class="keyword">this</span> );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
@@ -529,7 +517,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a6b8eed27f76619d07effd72372a4be48_cgraph.svg" width="531" height="408"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCommand_a6b8eed27f76619d07effd72372a4be48_cgraph.svg" width="531" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -588,7 +576,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00145">145</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00133">133</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> ( character )</div>
 <div class="line">    {</div>
@@ -665,7 +653,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00165">165</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00153">153</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> ( client )</div>
 <div class="line">    {</div>
@@ -708,7 +696,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00221">221</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
+<p>Definition at line <a class="el" href="command_8cpp_source.xhtml#l00209">209</a> of file <a class="el" href="command_8cpp_source.xhtml">command.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classCommand.xhtml#a7156e5eb0eee4f31336c51c7469e624b">m_disabled</a> = !<a class="code" href="classCommand.xhtml#a7156e5eb0eee4f31336c51c7469e624b">m_disabled</a>;</div>
 <div class="line"></div>
@@ -918,7 +906,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

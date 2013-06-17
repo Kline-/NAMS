@@ -104,8 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config__coll__graph.svg" width="431" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config__coll__graph.svg" width="300" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
@@ -116,8 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
 <tr class="memitem:a19e57fb735f4ff3787e9e418e5789365"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#a19e57fb735f4ff3787e9e418e5789365">gDisabledCommands</a> () const </td></tr>
 <tr class="memdesc:a19e57fb735f4ff3787e9e418e5789365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a copy of the disabled commands list.  <a href="#a19e57fb735f4ff3787e9e418e5789365"></a><br/></td></tr>
-<tr class="memitem:ac5ab9debe123ba5b03bd0a127ce5db76"><td class="memItemLeft" align="right" valign="top">list&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#ac5ab9debe123ba5b03bd0a127ce5db76">gProhibitedNames</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type) const </td></tr>
-<tr class="memdesc:ac5ab9debe123ba5b03bd0a127ce5db76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a a copy of the prohibited names list using type from <a class="el" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7">SVR_CFG_PROHIBITED_NAMES</a>.  <a href="#ac5ab9debe123ba5b03bd0a127ce5db76"></a><br/></td></tr>
+<tr class="memitem:a8091a7b404c18ae36219693615eaa704"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#a8091a7b404c18ae36219693615eaa704">gProhibitedNames</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type) const </td></tr>
+<tr class="memdesc:a8091a7b404c18ae36219693615eaa704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a a copy of the prohibited names list using type from <a class="el" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7">SVR_CFG_PROHIBITED_NAMES</a>.  <a href="#a8091a7b404c18ae36219693615eaa704"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr class="memitem:a39f409e995ec914244e9eff416d4477e"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#a39f409e995ec914244e9eff416d4477e">Serialize</a> ()</td></tr>
 <tr class="memdesc:a39f409e995ec914244e9eff416d4477e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize runtime configuration settings and write them to <a class="el" href="config_8h.xhtml#a924ea8b2682938f819a03cde988804af" title="File for runtime and account settings.">CFG_DAT_FILE_SETTINGS</a>.  <a href="#a39f409e995ec914244e9eff416d4477e"></a><br/></td></tr>
@@ -134,7 +133,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a7e3331d9bb5252a4f8714362820b6eda"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#a7e3331d9bb5252a4f8714362820b6eda">m_disabled_commands</a></td></tr>
-<tr class="memitem:aa230b9c76c2a696c0bc0d5fbb09b2ecc"><td class="memItemLeft" align="right" valign="top">list&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#aa230b9c76c2a696c0bc0d5fbb09b2ecc">m_prohibited_names</a> [<a class="el" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>]</td></tr>
+<tr class="memitem:afb0fc77d7180d7c2f51441f7913b9300"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Config.xhtml#afb0fc77d7180d7c2f51441f7913b9300">m_prohibited_names</a> [<a class="el" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>]</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -153,13 +152,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01208">1208</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01209">1209</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classServer_1_1Config.xhtml#a7e3331d9bb5252a4f8714362820b6eda">m_disabled_commands</a>.clear();</div>
 <div class="line">    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>; i++ )</div>
-<div class="line">        <a class="code" href="classServer_1_1Config.xhtml#aa230b9c76c2a696c0bc0d5fbb09b2ecc">m_prohibited_names</a>[i].clear();</div>
+<div class="line">        <a class="code" href="classServer_1_1Config.xhtml#afb0fc77d7180d7c2f51441f7913b9300">m_prohibited_names</a>[i].clear();</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -179,7 +178,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01222">1222</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01223">1223</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -243,7 +242,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00878">878</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00881">881</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classServer_1_1Config.xhtml#a7e3331d9bb5252a4f8714362820b6eda">m_disabled_commands</a>;</div>
 <div class="line">}</div>
@@ -259,12 +258,12 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac5ab9debe123ba5b03bd0a127ce5db76"></a>
+<a class="anchor" id="a8091a7b404c18ae36219693615eaa704"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list&lt; string &gt; Server::Config::gProhibitedNames </td>
+          <td class="memname">vector&lt; string &gt; Server::Config::gProhibitedNames </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
@@ -280,22 +279,22 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">list&lt;string&gt;</td><td>A copy of the prohibited names list referenced by type. </td></tr>
+    <tr><td class="paramname">vector&lt;string&gt;</td><td>A copy of the prohibited names list referenced by type. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00888">888</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00891">891</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( type &lt; uintmin_t || type &gt;= <a class="code" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a> )</div>
 <div class="line">    {</div>
 <div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Server::Config::gProhibitedNames()-&gt; called with invalid type %lu&quot;</span>, type );</div>
-<div class="line">        <span class="keywordflow">return</span> list&lt;string&gt;();</div>
+<div class="line">        <span class="keywordflow">return</span> vector&lt;string&gt;();</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classServer_1_1Config.xhtml#aa230b9c76c2a696c0bc0d5fbb09b2ecc">m_prohibited_names</a>[type];</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classServer_1_1Config.xhtml#afb0fc77d7180d7c2f51441f7913b9300">m_prohibited_names</a>[type];</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 <p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -303,8 +302,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config_ac5ab9debe123ba5b03bd0a127ce5db76_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classServer_1_1Config_a8091a7b404c18ae36219693615eaa704_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -331,13 +329,12 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000011">Todo:</a></b></dt><dd>Need to find a nicer way to do this </dd></dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00990">990</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00993">993</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    ofstream ofs;</div>
 <div class="line">    <span class="keywordtype">string</span> value;</div>
 <div class="line">    stringstream line;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( list, <span class="keywordtype">string</span>, li );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( vector, <span class="keywordtype">string</span>, vi );</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
 <div class="line"></div>
@@ -373,10 +370,10 @@ Private Attributes</h2></td></tr>
 <div class="line">            ofs &lt;&lt; <span class="stringliteral">&quot;prohibited_names[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; <span class="stringliteral">&quot; = &quot;</span>;</div>
 <div class="line">            line.str( <span class="stringliteral">&quot;&quot;</span> );</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> ( !<a class="code" href="classServer_1_1Config.xhtml#aa230b9c76c2a696c0bc0d5fbb09b2ecc">m_prohibited_names</a>[i].empty() )</div>
+<div class="line">            <span class="keywordflow">if</span> ( !<a class="code" href="classServer_1_1Config.xhtml#afb0fc77d7180d7c2f51441f7913b9300">m_prohibited_names</a>[i].empty() )</div>
 <div class="line">            {</div>
-<div class="line">                <span class="keywordflow">for</span> ( li = <a class="code" href="classServer_1_1Config.xhtml#aa230b9c76c2a696c0bc0d5fbb09b2ecc">m_prohibited_names</a>[i].begin(); li != <a class="code" href="classServer_1_1Config.xhtml#aa230b9c76c2a696c0bc0d5fbb09b2ecc">m_prohibited_names</a>[i].end(); li++ )</div>
-<div class="line">                    line &lt;&lt; *li &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">                <span class="keywordflow">for</span> ( vi = <a class="code" href="classServer_1_1Config.xhtml#afb0fc77d7180d7c2f51441f7913b9300">m_prohibited_names</a>[i].begin(); vi != <a class="code" href="classServer_1_1Config.xhtml#afb0fc77d7180d7c2f51441f7913b9300">m_prohibited_names</a>[i].end(); vi++ )</div>
+<div class="line">                    line &lt;&lt; *vi &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
 <div class="line"></div>
 <div class="line">                value = line.str();</div>
 <div class="line">                value.erase( value.end() - 1 );</div>
@@ -440,7 +437,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01058">1058</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01060">1060</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* cmd = NULL;</div>
@@ -499,7 +496,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000012">Todo:</a></b></dt><dd>Need to find a nicer way to do this </dd></dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01090">1090</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01092">1092</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    ifstream ifs;</div>
@@ -551,8 +548,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                        found = <span class="keyword">true</span>;</div>
 <div class="line">                        token = <a class="code" href="namespaceUtils.xhtml#a402a36406edb7938330204e83b1abe83" title="Returns a vector of strings split at spaces based on input.">Utils::StrTokens</a>( value, <span class="keyword">true</span> );</div>
 <div class="line">                        <span class="keywordflow">for</span> ( ti = token.begin(); ti != token.end(); ti++ )</div>
-<div class="line">                            <a class="code" href="classServer_1_1Config.xhtml#aa230b9c76c2a696c0bc0d5fbb09b2ecc">m_prohibited_names</a>[i].push_front( *ti );</div>
-<div class="line">                        <a class="code" href="classServer_1_1Config.xhtml#aa230b9c76c2a696c0bc0d5fbb09b2ecc">m_prohibited_names</a>[i].reverse();</div>
+<div class="line">                            <a class="code" href="classServer_1_1Config.xhtml#afb0fc77d7180d7c2f51441f7913b9300">m_prohibited_names</a>[i].push_back( *ti );</div>
 <div class="line">                        <span class="keywordflow">break</span>;</div>
 <div class="line">                    }</div>
 <div class="line">                }</div>
@@ -615,7 +611,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa230b9c76c2a696c0bc0d5fbb09b2ecc"></a>
+<a class="anchor" id="afb0fc77d7180d7c2f51441f7913b9300"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -623,7 +619,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">list&lt;string&gt; Server::Config::m_prohibited_names[<a class="el" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>]</td>
+          <td class="memname">vector&lt;string&gt; Server::Config::m_prohibited_names[<a class="el" href="enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a7ed5feb77c107fca67e72bebebbffc94">MAX_SVR_CFG_PROHIBITED_NAMES</a>]</td>
         </tr>
       </table>
   </td>
@@ -645,7 +641,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

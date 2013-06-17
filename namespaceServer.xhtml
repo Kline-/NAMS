@@ -167,12 +167,12 @@ Functions</h2></td></tr>
 <p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00083">83</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a> *client = NULL;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>*, si );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>*, si );</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> )</div>
+<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> )</div>
 <div class="line">    {</div>
 <div class="line">        client = *si;</div>
-<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> = ++si;</div>
+<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> = ++si;</div>
 <div class="line"></div>
 <div class="line">        client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( msg );</div>
 <div class="line">        client-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>();</div>
@@ -317,7 +317,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000010">Todo:</a></b></dt><dd>Move this to Server::sHostname() and redo this func as a simple getter. Don't need to query the host server multiple times. </dd></dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00924">924</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00927">927</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <span class="keywordtype">string</span> output;</div>
@@ -366,7 +366,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00947">947</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00950">950</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordtype">string</span> output;</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = 0, x = 0;</div>
@@ -408,8 +408,7 @@ Functions</h2></td></tr>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceServer_a0cd8d593edfecdbb98403c2a2c203d64_cgraph.svg" width="384" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceServer_a0cd8d593edfecdbb98403c2a2c203d64_cgraph.svg" width="384" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -439,9 +438,9 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code" href="macros_8h.xhtml#af138bcf3c5cc79a8d4649c54ed8cfcf4" title="Define a bitset variable (name) with UTILS_TYPE_ERROR already enabled.">UFLAGS_E</a>( flags );</div>
 <div class="line">    chrono::high_resolution_clock::time_point start, finish;</div>
 <div class="line">    <span class="keywordtype">double</span> duration = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>*, li );</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
-<div class="line">    list&lt;Exit*&gt; loc_exits;</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>*, li );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
+<div class="line">    vector&lt;Exit*&gt; loc_exits;</div>
 <div class="line">    <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>* destination = NULL;</div>
 <div class="line">    <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>* location = NULL;</div>
 <div class="line">    <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit = NULL;</div>
@@ -452,7 +451,7 @@ Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">for</span> ( li = <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.begin(); li != <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.end(); li++ )</div>
 <div class="line">    {</div>
 <div class="line">        location = *li;</div>
-<div class="line">        loc_exits = location-&gt;<a class="code" href="classLocation.xhtml#ae583e2944b9f01b0cf3784040f9ba32e" title="Returns the list of Exits associated to this Location.">gExits</a>();</div>
+<div class="line">        loc_exits = location-&gt;<a class="code" href="classLocation.xhtml#af7a9d1256754395a737da603c930ea56" title="Returns the list of Exits associated to this Location.">gExits</a>();</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">for</span> ( ei = loc_exits.begin(); ei != loc_exits.end(); ei++ )</div>
 <div class="line">        {</div>
@@ -483,8 +482,7 @@ Functions</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceServer_a21b284fbb08f1d61510945f64d0673cb_cgraph.svg" width="555" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceServer_a21b284fbb08f1d61510945f64d0673cb_cgraph.svg" width="555" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -656,8 +654,7 @@ Functions</h2></td></tr>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceServer_a9b8efad79a32f2356d431788449e1f82_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceServer_a9b8efad79a32f2356d431788449e1f82_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -782,7 +779,7 @@ Functions</h2></td></tr>
 <div class="line">    fd_set exc_set;</div>
 <div class="line">    fd_set in_set;</div>
 <div class="line">    fd_set out_set;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>*, si );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>*, si );</div>
 <div class="line">    <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>* socket_client;</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> client_desc = 0, max_desc = 0, server_desc = 0;</div>
 <div class="line"></div>
@@ -800,10 +797,10 @@ Functions</h2></td></tr>
 <div class="line">    max_desc = server_desc;</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Build three file descriptor lists to be polled</span></div>
-<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> )</div>
+<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> )</div>
 <div class="line">    {</div>
 <div class="line">        socket_client = *si;</div>
-<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> = ++si;</div>
+<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> = ++si;</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )</div>
 <div class="line">        {</div>
@@ -839,10 +836,10 @@ Functions</h2></td></tr>
 <div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a>-&gt;<a class="code" href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" title="Accept a new connection on the listening port.">Accept</a>();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Process faulted connections</span></div>
-<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> )</div>
+<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> )</div>
 <div class="line">    {</div>
 <div class="line">        socket_client = *si;</div>
-<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> = ++si;</div>
+<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> = ++si;</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )</div>
 <div class="line">        {</div>
@@ -862,10 +859,10 @@ Functions</h2></td></tr>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Process input from active connections</span></div>
-<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> )</div>
+<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> )</div>
 <div class="line">    {</div>
 <div class="line">        socket_client = *si;</div>
-<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> = ++si;</div>
+<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> = ++si;</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )</div>
 <div class="line">        {</div>
@@ -926,10 +923,10 @@ Functions</h2></td></tr>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Process any pending output</span></div>
-<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> )</div>
+<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> )</div>
 <div class="line">    {</div>
 <div class="line">        socket_client = *si;</div>
-<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> = ++si;</div>
+<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> = ++si;</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )</div>
 <div class="line">        {</div>
@@ -1007,13 +1004,13 @@ Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00543">543</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>*, ei );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>*, ei );</div>
 <div class="line">    <a class="code" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>* event;</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">for</span> ( ei = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin(); ei != <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.end(); ei = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">m_next_event</a> )</div>
+<div class="line">    <span class="keywordflow">for</span> ( ei = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin(); ei != <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.end(); ei = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a> )</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keyword">event</span> = *ei;</div>
-<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">m_next_event</a> = ++ei;</div>
+<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a> = ++ei;</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span> ( !event-&gt;<a class="code" href="classEvent.xhtml#a65983b240559175bfabe83c640ed7147" title="Updates the Event by decrementing the remaining time.">Update</a>() )</div>
 <div class="line">            event-&gt;<a class="code" href="classEvent.xhtml#ae00620af2a424d3d0041676e76b9303c" title="Execute the function stored within the Event object.">Run</a>();</div>
@@ -1064,14 +1061,14 @@ Functions</h2></td></tr>
 <p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00564">564</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>*, si );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>*, si );</div>
 <div class="line">    <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>* socket_client;</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd" title="A signed integer value based upon system limits.">sint_t</a> client_desc = 0;</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> )</div>
+<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> )</div>
 <div class="line">    {</div>
 <div class="line">        socket_client = *si;</div>
-<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> = ++si;</div>
+<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> = ++si;</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span> ( ( client_desc = socket_client-&gt;<a class="code" href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" title="Returns the file descriptor associated to the Socket.">gDescriptor</a>() ) &lt; 1 )</div>
 <div class="line">        {</div>
@@ -1287,6 +1284,9 @@ Functions</h2></td></tr>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
+<div class="line">    <span class="comment">// Ensure we keep the same element order as before</span></div>
+<div class="line">    sort( <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.end() );</div>
+<div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
@@ -1336,7 +1336,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00716">716</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00719">719</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordtype">bool</span> was_running = !<a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a97b9415b50cd9bd2b9a96d23553789c4">m_shutdown</a>;</div>
 <div class="line"></div>
@@ -1348,7 +1348,7 @@ Functions</h2></td></tr>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Cleanup commands</span></div>
 <div class="line">    <span class="keywordflow">while</span> ( !<a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.empty() )</div>
-<div class="line">        <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.begin()-&gt;second-&gt;Delete();</div>
+<div class="line">        <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.front()-&gt;Delete();</div>
 <div class="line">    <span class="comment">// Cleanup events</span></div>
 <div class="line">    <span class="keywordflow">while</span> ( !<a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.empty() )</div>
 <div class="line">        <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.front()-&gt;Delete();</div>
@@ -1425,7 +1425,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00769">769</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00772">772</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classSocketServer.xhtml" title="SocketServer extends the Socket class to implement server-side socket functions.">SocketServer</a>* socket_server = NULL;</div>
@@ -1505,8 +1505,7 @@ Functions</h2></td></tr>
 <div id="dynsection-26-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-26-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceServer_a19a1e493e1fb50a56d9c77332543d565_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceServer_a19a1e493e1fb50a56d9c77332543d565_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1540,7 +1539,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00848">848</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l00851">851</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -1588,7 +1587,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

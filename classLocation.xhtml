@@ -124,8 +124,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af65d15c0c107b1fdea7711d632ac909d"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLocation.xhtml#af65d15c0c107b1fdea7711d632ac909d">Unserialize</a> ()</td></tr>
 <tr class="memdesc:af65d15c0c107b1fdea7711d632ac909d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unserialize the location data.  <a href="#af65d15c0c107b1fdea7711d632ac909d"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
-<tr class="memitem:ae583e2944b9f01b0cf3784040f9ba32e"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classExit.xhtml">Exit</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLocation.xhtml#ae583e2944b9f01b0cf3784040f9ba32e">gExits</a> () const </td></tr>
-<tr class="memdesc:ae583e2944b9f01b0cf3784040f9ba32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of Exits associated to this <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>.  <a href="#ae583e2944b9f01b0cf3784040f9ba32e"></a><br/></td></tr>
+<tr class="memitem:af7a9d1256754395a737da603c930ea56"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classExit.xhtml">Exit</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLocation.xhtml#af7a9d1256754395a737da603c930ea56">gExits</a> () const </td></tr>
+<tr class="memdesc:af7a9d1256754395a737da603c930ea56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of Exits associated to this <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>.  <a href="#af7a9d1256754395a737da603c930ea56"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr class="memitem:aca658255ecc7a1f000913f3aefd54fad"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLocation.xhtml#aca658255ecc7a1f000913f3aefd54fad">RemoveExit</a> (<a class="el" href="classExit.xhtml">Exit</a> *exit)</td></tr>
 <tr class="memdesc:aca658255ecc7a1f000913f3aefd54fad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an <a class="el" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a> associated with this <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>.  <a href="#aca658255ecc7a1f000913f3aefd54fad"></a><br/></td></tr>
@@ -137,20 +137,20 @@ Public Member Functions</h2></td></tr>
 <tr class="inherit_header pub_methods_classThing"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classThing')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classThing.xhtml">Thing</a></td></tr>
 <tr class="memitem:a1672d1e62ee2f1ef36d312d3e0d6ed2c inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c">AddThing</a> (<a class="el" href="classThing.xhtml">Thing</a> *thing)</td></tr>
 <tr class="memdesc:a1672d1e62ee2f1ef36d312d3e0d6ed2c inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1672d1e62ee2f1ef36d312d3e0d6ed2c"></a><br/></td></tr>
-<tr class="memitem:a46dfe09e636299cd0bf1bc9c37aaebf4 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4">Move</a> (<a class="el" href="classLocation.xhtml">Location</a> *location)</td></tr>
-<tr class="memdesc:a46dfe09e636299cd0bf1bc9c37aaebf4 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from within one <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> to another <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>.  <a href="#a46dfe09e636299cd0bf1bc9c37aaebf4"></a><br/></td></tr>
+<tr class="memitem:a1134d82f5d0d47167badcfc99170b8a0 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1134d82f5d0d47167badcfc99170b8a0">Move</a> (<a class="el" href="classThing.xhtml">Thing</a> *source, <a class="el" href="classThing.xhtml">Thing</a> *destination)</td></tr>
+<tr class="memdesc:a1134d82f5d0d47167badcfc99170b8a0 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from within one <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> and into another <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1134d82f5d0d47167badcfc99170b8a0"></a><br/></td></tr>
 <tr class="memitem:afcc77dab7148c2f108aa384d83a6430e inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e">RemoveThing</a> (<a class="el" href="classThing.xhtml">Thing</a> *thing)</td></tr>
 <tr class="memdesc:afcc77dab7148c2f108aa384d83a6430e inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#afcc77dab7148c2f108aa384d83a6430e"></a><br/></td></tr>
 <tr class="memitem:aea72918fcebfd612b8dd076c708c1592 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aea72918fcebfd612b8dd076c708c1592">Send</a> (const string &amp;msg, <a class="el" href="classThing.xhtml">Thing</a> *speaker=NULL) const </td></tr>
 <tr class="memdesc:aea72918fcebfd612b8dd076c708c1592 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> objects within the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> except for the speaker.  <a href="#aea72918fcebfd612b8dd076c708c1592"></a><br/></td></tr>
+<tr class="memitem:ad8015a52bd53b953dbbc904029bfa2e1 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1">gContainer</a> () const </td></tr>
+<tr class="memdesc:ad8015a52bd53b953dbbc904029bfa2e1 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within.  <a href="#ad8015a52bd53b953dbbc904029bfa2e1"></a><br/></td></tr>
 <tr class="memitem:a8e27a5928fd0dbc9bee6e89ac8d09d28 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="classThing.xhtml">Thing</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a8e27a5928fd0dbc9bee6e89ac8d09d28">gContents</a> () const </td></tr>
 <tr class="memdesc:a8e27a5928fd0dbc9bee6e89ac8d09d28 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a8e27a5928fd0dbc9bee6e89ac8d09d28"></a><br/></td></tr>
 <tr class="memitem:afb35e940694ccbd0c9bc351d66251314 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#afb35e940694ccbd0c9bc351d66251314">gDescription</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type) const </td></tr>
 <tr class="memdesc:afb35e940694ccbd0c9bc351d66251314 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the description of the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from <a class="el" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5">THING_DESCRIPTION</a>.  <a href="#afb35e940694ccbd0c9bc351d66251314"></a><br/></td></tr>
 <tr class="memitem:aea5dad4f4241b325cdf64b232e84e602 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">gId</a> () const </td></tr>
 <tr class="memdesc:aea5dad4f4241b325cdf64b232e84e602 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aea5dad4f4241b325cdf64b232e84e602"></a><br/></td></tr>
-<tr class="memitem:ad3fcacc08977cb364ede9ff490a2c35e inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLocation.xhtml">Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad3fcacc08977cb364ede9ff490a2c35e">gLocation</a> () const </td></tr>
-<tr class="memdesc:ad3fcacc08977cb364ede9ff490a2c35e inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within.  <a href="#ad3fcacc08977cb364ede9ff490a2c35e"></a><br/></td></tr>
 <tr class="memitem:a3c3c40c996ff562baa335f2ded022578 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">gName</a> () const </td></tr>
 <tr class="memdesc:a3c3c40c996ff562baa335f2ded022578 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3c3c40c996ff562baa335f2ded022578"></a><br/></td></tr>
 <tr class="memitem:aa79bfcc9b321d3e05752066e5ba1c50a inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a">gType</a> () const </td></tr>
@@ -172,7 +172,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a4bf7442a82f94726ce6ccf009b014574"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classExit.xhtml">Exit</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a></td></tr>
+<tr class="memitem:a44fd552c6c66c8e4546a630a806c03af"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classExit.xhtml">Exit</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a></td></tr>
 <tr class="memitem:aef7bb3607c4c22375a1fae5518962ff6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLocation.xhtml#aef7bb3607c4c22375a1fae5518962ff6">m_file</a></td></tr>
 <tr class="memitem:a78f355da90860faba8b9884ac96c56b8"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLocation.xhtml#a78f355da90860faba8b9884ac96c56b8">m_zone</a></td></tr>
 </table>
@@ -198,7 +198,7 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="location_8cpp_source.xhtml#l00278">278</a> of file <a class="el" href="location_8cpp_source.xhtml">location.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59" title="Sets the inherited sub-type of this Thing.">sType</a>( <a class="code" href="enum_8h.xhtml#a37fc305e33c43e18f03f70aeb8bba7baac67abf2ee0bd453796a8c286c80f7aa6">THING_TYPE_LOCATION</a> );</div>
-<div class="line">    <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.clear();</div>
+<div class="line">    <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.clear();</div>
 <div class="line">    <a class="code" href="classLocation.xhtml#aef7bb3607c4c22375a1fae5518962ff6">m_file</a>.clear();</div>
 <div class="line">    <a class="code" href="classLocation.xhtml#a78f355da90860faba8b9884ac96c56b8">m_zone</a>.clear();</div>
 <div class="line"></div>
@@ -269,16 +269,16 @@ Private Attributes</h2></td></tr>
 <p>Definition at line <a class="el" href="location_8cpp_source.xhtml#l00035">35</a> of file <a class="el" href="location_8cpp_source.xhtml">location.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit = NULL;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( find( <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.end(), this ) != <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.end() )</div>
 <div class="line">        <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.erase( find( <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#acff2cb6f4f515c3405c76c53e1c26744" title="All locations that exist within the server.">location_list</a>.end(), this ) );</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">for</span> ( ei = <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.begin(); ei != <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.end(); )</div>
+<div class="line">    <span class="keywordflow">for</span> ( ei = <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.begin(); ei != <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.end(); )</div>
 <div class="line">    {</div>
 <div class="line">        exit = *ei;</div>
 <div class="line"></div>
-<div class="line">        ei = <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.erase( ei );</div>
+<div class="line">        ei = <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.erase( ei );</div>
 <div class="line">        exit-&gt;<a class="code" href="classExit.xhtml#ac490c605f6b1581429cc59290e7bd400" title="Unload an exit from memory that was previously loaded via Exit::New().">Delete</a>();</div>
 <div class="line">    }</div>
 <div class="line"></div>
@@ -292,8 +292,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classLocation_a2640eee7c5e9b2b08f84a401f7beab53_cgraph.svg" width="491" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classLocation_a2640eee7c5e9b2b08f84a401f7beab53_cgraph.svg" width="491" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -308,12 +307,12 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae583e2944b9f01b0cf3784040f9ba32e"></a>
+<a class="anchor" id="af7a9d1256754395a737da603c930ea56"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list&lt; <a class="el" href="classExit.xhtml">Exit</a> * &gt; Location::gExits </td>
+          <td class="memname">vector&lt; <a class="el" href="classExit.xhtml">Exit</a> * &gt; Location::gExits </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -322,14 +321,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">list&lt;Exit*&gt;</td><td>A list of pointers to <a class="el" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a> objects associated with this <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>. </td></tr>
+    <tr><td class="paramname">vector&lt;Exit*&gt;</td><td>A list of pointers to <a class="el" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a> objects associated with this <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>. </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Definition at line <a class="el" href="location_8cpp_source.xhtml#l00248">248</a> of file <a class="el" href="location_8cpp_source.xhtml">location.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>;</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 <p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -337,7 +336,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLocation_ae583e2944b9f01b0cf3784040f9ba32e_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLocation_af7a9d1256754395a737da603c930ea56_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -461,8 +460,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLocation_a6396aba5eab9bcbabb000c3f6478e1a2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLocation_a6396aba5eab9bcbabb000c3f6478e1a2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -513,7 +511,7 @@ Private Attributes</h2></td></tr>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.erase( find( <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.begin(), <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.end(), exit ) );</div>
+<div class="line">    <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.erase( find( <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.begin(), <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.end(), exit ) );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -523,8 +521,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLocation_aca658255ecc7a1f000913f3aefd54fad_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLocation_aca658255ecc7a1f000913f3aefd54fad_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -569,7 +566,7 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordtype">string</span> value;</div>
 <div class="line">    stringstream line;</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( list, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( vector, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
 <div class="line">    <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit = NULL;</div>
 <div class="line">    <span class="keywordtype">string</span> file( <a class="code" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext.">Utils::FileExt</a>( <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>(), <a class="code" href="config_8h.xhtml#a56fdb354a0a0aa4879db1e77a32d824b" title="File extension to use for location files.">CFG_DAT_FILE_LOC_EXT</a> ) );</div>
 <div class="line"></div>
@@ -592,7 +589,7 @@ Private Attributes</h2></td></tr>
 <div class="line">    }</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56c55a4fe68d269a30a5dbddbb210b47" title="Begins writing (name)[iter] to (stream) in key:value format.">KEYLISTLOOP</a>( ofs, <span class="stringliteral">&quot;exit&quot;</span>, i ); </div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">for</span> ( ei = <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.begin(); ei != <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.end(); ei++ )</div>
+<div class="line">        <span class="keywordflow">for</span> ( ei = <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.begin(); ei != <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.end(); ei++ )</div>
 <div class="line">        {</div>
 <div class="line">            exit = *ei;</div>
 <div class="line">            ofs &lt;&lt; <span class="stringliteral">&quot;exit = &quot;</span> &lt;&lt; exit-&gt;<a class="code" href="classExit.xhtml#a097962625968fc2ea0e39c867f9e1f31" title="Serialize the exit data.">Serialize</a>() &lt;&lt; endl;</div>
@@ -706,7 +703,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                        exit-&gt;<a class="code" href="classExit.xhtml#ac490c605f6b1581429cc59290e7bd400" title="Unload an exit from memory that was previously loaded via Exit::New().">Delete</a>();</div>
 <div class="line">                    }</div>
 <div class="line">                    <span class="keywordflow">else</span></div>
-<div class="line">                        <a class="code" href="classLocation.xhtml#a4bf7442a82f94726ce6ccf009b014574">m_exits</a>.push_back( exit );</div>
+<div class="line">                        <a class="code" href="classLocation.xhtml#a44fd552c6c66c8e4546a630a806c03af">m_exits</a>.push_back( exit );</div>
 <div class="line">                }</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;id&quot;</span> )</div>
@@ -742,8 +739,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLocation_af65d15c0c107b1fdea7711d632ac909d_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLocation_af65d15c0c107b1fdea7711d632ac909d_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -759,7 +755,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2>Member Data Documentation</h2>
-<a class="anchor" id="a4bf7442a82f94726ce6ccf009b014574"></a>
+<a class="anchor" id="a44fd552c6c66c8e4546a630a806c03af"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -767,7 +763,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">list&lt;<a class="el" href="classExit.xhtml">Exit</a>*&gt; Location::m_exits</td>
+          <td class="memname">vector&lt;<a class="el" href="classExit.xhtml">Exit</a>*&gt; Location::m_exits</td>
         </tr>
       </table>
   </td>
@@ -835,7 +831,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

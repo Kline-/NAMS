@@ -100,8 +100,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a6a66769cd9a793514515b88d44091cc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates an <a class="el" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a> within a <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>.  <a href="#a6a66769cd9a793514515b88d44091cc7"></a><br/></td></tr>
 <tr class="memitem:a57dc60ce5522b41f1ab98b83de76779f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLocation.xhtml">Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a57dc60ce5522b41f1ab98b83de76779f">FindLocation</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr class="memdesc:a57dc60ce5522b41f1ab98b83de76779f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates a <a class="el" href="classLocation.xhtml" title="A physical location within the game world.">Location</a> associated with the game.  <a href="#a57dc60ce5522b41f1ab98b83de76779f"></a><br/></td></tr>
-<tr class="memitem:a0ee2f5e038afd5072af274d5d36b12a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.xhtml">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a0ee2f5e038afd5072af274d5d36b12a8">FindObject</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type, const list&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt; &amp;olist)</td></tr>
-<tr class="memdesc:a0ee2f5e038afd5072af274d5d36b12a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates an <a class="el" href="classObject.xhtml" title="A physical object within the game world.">Object</a> associated with the game.  <a href="#a0ee2f5e038afd5072af274d5d36b12a8"></a><br/></td></tr>
+<tr class="memitem:ac4aa107458ff170e3f933050ec42770c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObject.xhtml">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#ac4aa107458ff170e3f933050ec42770c">FindObject</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type, const vector&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt; &amp;olist)</td></tr>
+<tr class="memdesc:ac4aa107458ff170e3f933050ec42770c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates an <a class="el" href="classObject.xhtml" title="A physical object within the game world.">Object</a> associated with the game.  <a href="#ac4aa107458ff170e3f933050ec42770c"></a><br/></td></tr>
 <tr class="memitem:a139febc000c9d767a620708148e0c888"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888">LoginHandler</a> (<a class="el" href="classSocketClient.xhtml">SocketClient</a> *client, const string &amp;cmd=&quot;&quot;, const string &amp;args=&quot;&quot;)</td></tr>
 <tr class="memdesc:a139febc000c9d767a620708148e0c888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches the appropriate menu based on client state.  <a href="#a139febc000c9d767a620708148e0c888"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
@@ -832,8 +832,7 @@ Functions</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_ab5889a65de2794129b375ec39ae923ae_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_ab5889a65de2794129b375ec39ae923ae_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1383,7 +1382,7 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1" title="Define a bitset variable (name) with UTILS_TYPE_SOCKET already enabled.">UFLAGS_S</a>( flag );</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>*, si );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>*, si );</div>
 <div class="line">    <a class="code" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>* socket_client = NULL;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( client == NULL )</div>
@@ -1398,10 +1397,10 @@ Functions</h2></td></tr>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> )</div>
+<div class="line">    <span class="keywordflow">for</span> ( si = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin(); si != <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.end(); si = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> )</div>
 <div class="line">    {</div>
 <div class="line">        socket_client = *si;</div>
-<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ac53fd9755bbb78e3dd0b77d4f81fb959">m_next_socket_client</a> = ++si;</div>
+<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> = ++si;</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span> ( socket_client == client )</div>
 <div class="line">            <span class="keywordflow">continue</span>;</div>
@@ -1470,7 +1469,7 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1" title="Define a bitset variable (name) with UTILS_TYPE_SOCKET already enabled.">UFLAGS_S</a>( flag );</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>*, ci );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>*, ci );</div>
 <div class="line">    <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>* chr = NULL;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( name.empty() )</div>
@@ -1558,8 +1557,8 @@ Functions</h2></td></tr>
 <p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00458">458</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <span class="keywordtype">string</span>, fi );</div>
-<div class="line">    list&lt;string&gt; search;</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <span class="keywordtype">string</span>, fi );</div>
+<div class="line">    vector&lt;string&gt; search;</div>
 <div class="line">    <span class="keywordtype">string</span> comp;</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> searcht = type;</div>
 <div class="line"></div>
@@ -1583,7 +1582,7 @@ Functions</h2></td></tr>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Search for prohibited names</span></div>
-<div class="line">    search = <a class="code" href="globals_8h.xhtml#a23b9f1d96af6a6a4afad680b8da9d267">g_config</a>-&gt;<a class="code" href="classServer_1_1Config.xhtml#ac5ab9debe123ba5b03bd0a127ce5db76" title="Returns a a copy of the prohibited names list using type from SVR_CFG_PROHIBITED_NAMES.">gProhibitedNames</a>( searcht );</div>
+<div class="line">    search = <a class="code" href="globals_8h.xhtml#a23b9f1d96af6a6a4afad680b8da9d267">g_config</a>-&gt;<a class="code" href="classServer_1_1Config.xhtml#a8091a7b404c18ae36219693615eaa704" title="Returns a a copy of the prohibited names list using type from SVR_CFG_PROHIBITED_NAMES.">gProhibitedNames</a>( searcht );</div>
 <div class="line">    <span class="keywordflow">for</span> ( fi = search.begin(); fi != search.end(); fi++ )</div>
 <div class="line">    {</div>
 <div class="line">        comp = *fi;</div>
@@ -1599,8 +1598,7 @@ Functions</h2></td></tr>
 <div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-22-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a934fb4c3d6add91bc9e6e347b3270927_cgraph.svg" width="435" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a934fb4c3d6add91bc9e6e347b3270927_cgraph.svg" width="435" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -1694,7 +1692,7 @@ Functions</h2></td></tr>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span> ( client-&gt;<a class="code" href="classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient.">gAccount</a>()-&gt;<a class="code" href="classAccount.xhtml#a1d2b9eb6c351b9d43d16e649fa599466" title="Returns the associated Character, if any.">gCharacter</a>()-&gt;<a class="code" href="classThing.xhtml#a46dfe09e636299cd0bf1bc9c37aaebf4" title="Moves a Thing from within one Location to another Location.">Move</a>( loc ) )</div>
+<div class="line">    <span class="keywordflow">if</span> ( loc-&gt;<a class="code" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c" title="Adds a Thing to the contents of this Thing.">AddThing</a>( client-&gt;<a class="code" href="classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient.">gAccount</a>()-&gt;<a class="code" href="classAccount.xhtml#a1d2b9eb6c351b9d43d16e649fa599466" title="Returns the associated Character, if any.">gCharacter</a>() ) )</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> ( cmd == <span class="stringliteral">&quot;reboot&quot;</span> )</div>
 <div class="line">        {</div>
@@ -1721,7 +1719,7 @@ Functions</h2></td></tr>
 <div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-24-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a571519b889d3750c63b9dc3418449bcb_cgraph.svg" width="592" height="595"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a571519b889d3750c63b9dc3418449bcb_cgraph.svg" width="592" height="494"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -1778,7 +1776,7 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>* chr = NULL;</div>
 <div class="line">    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>*, ci );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>*, ci );</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> search = type;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( name.empty() )</div>
@@ -1877,25 +1875,19 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* cmd = NULL;</div>
 <div class="line">    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
-<div class="line">    pair&lt;multimap&lt;const char,Command*&gt;::iterator,multimap&lt;const char,Command*&gt;::iterator&gt; cmd_list;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#ac49d0f3d55253bd7403da9e5fcab7504" title="Define an iterator variable (name) of (type1,type2) using (container).">MITER</a>( multimap, <span class="keyword">const</span> <span class="keywordtype">char</span>,<a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>*, mi );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>*, vi );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( name.empty() )</div>
 <div class="line">        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Handler::FindCommand()-&gt; called with empty name&quot;</span> );</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )</div>
-<div class="line">        cmd_list = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.equal_range( <a class="code" href="namespaceUtils.xhtml#a9b70f9dd0af906c806695b35488e778f" title="Returns a string converted to all lowercase letters.">Utils::Lower</a>( name )[0] );</div>
-<div class="line">    <span class="keywordflow">else</span></div>
-<div class="line">        cmd_list = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.equal_range( name[0] );</div>
-<div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span> ( cmd_list.first == cmd_list.second )</div>
+<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.empty() )</div>
 <div class="line">        cmd = NULL;</div>
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">for</span> ( mi = cmd_list.first; mi != cmd_list.second; mi++ )</div>
+<div class="line">        <span class="keywordflow">for</span> ( vi = <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.begin(); vi != <a class="code" href="list_8cpp.xhtml#a622badbc988ce65ebb3b4c1c8eb197b4" title="All commands loaded into memory.">command_list</a>.end(); vi++ )</div>
 <div class="line">        {</div>
 <div class="line">            found = <span class="keyword">false</span>;</div>
-<div class="line">            cmd = mi-&gt;second;</div>
+<div class="line">            cmd = *vi;</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> ( <a class="code" href="config_8h.xhtml#ae6748b5fd865172bb53927d8b5f99b6a" title="Ignore case sensitivity on input from sockets.">CFG_GAM_CMD_IGNORE_CASE</a> )</div>
 <div class="line">            {</div>
@@ -1976,12 +1968,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00158">158</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
+<p>Definition at line <a class="el" href="handler_8cpp_source.xhtml#l00152">152</a> of file <a class="el" href="handler_8cpp_source.xhtml">handler.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit = NULL;</div>
-<div class="line">    list&lt;Exit*&gt; loc_exits;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
+<div class="line">    vector&lt;Exit*&gt; loc_exits;</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>*, ei );</div>
 <div class="line">    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( location == NULL )</div>
@@ -1990,7 +1982,13 @@ Functions</h2></td></tr>
 <div class="line">        <span class="keywordflow">return</span> exit;</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    loc_exits = location-&gt;<a class="code" href="classLocation.xhtml#ae583e2944b9f01b0cf3784040f9ba32e" title="Returns the list of Exits associated to this Location.">gExits</a>();</div>
+<div class="line">    <span class="keywordflow">if</span> ( location-&gt;<a class="code" href="classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a" title="Returns the inherited sub-type of this Thing.">gType</a>() != <a class="code" href="enum_8h.xhtml#a37fc305e33c43e18f03f70aeb8bba7baac67abf2ee0bd453796a8c286c80f7aa6">THING_TYPE_LOCATION</a> )</div>
+<div class="line">    {</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Handler::FindExit()-&gt; location has invalid thing type %lu&quot;</span>, location-&gt;<a class="code" href="classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a" title="Returns the inherited sub-type of this Thing.">gType</a>() );</div>
+<div class="line">        <span class="keywordflow">return</span> exit;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    loc_exits = location-&gt;<a class="code" href="classLocation.xhtml#af7a9d1256754395a737da603c930ea56" title="Returns the list of Exits associated to this Location.">gExits</a>();</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( loc_exits.empty() )</div>
 <div class="line">        exit = NULL;</div>
@@ -2028,7 +2026,7 @@ Functions</h2></td></tr>
 <div id="dynsection-30-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-30-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a6a66769cd9a793514515b88d44091cc7_cgraph.svg" width="310" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a6a66769cd9a793514515b88d44091cc7_cgraph.svg" width="310" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -2085,7 +2083,7 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>* loc = NULL;</div>
 <div class="line">    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>*, li );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classLocation.xhtml" title="A physical location within the game world.">Location</a>*, li );</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> search = type;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( name.empty() )</div>
@@ -2153,7 +2151,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0ee2f5e038afd5072af274d5d36b12a8"></a>
+<a class="anchor" id="ac4aa107458ff170e3f933050ec42770c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -2172,7 +2170,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const list&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">const vector&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt; &amp;&#160;</td>
           <td class="paramname"><em>olist</em>&#160;</td>
         </tr>
         <tr>
@@ -2202,7 +2200,7 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="classObject.xhtml" title="A physical object within the game world.">Object</a>* obj = NULL;</div>
 <div class="line">    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( list, <a class="code" href="classObject.xhtml" title="A physical object within the game world.">Object</a>*, oi );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( vector, <a class="code" href="classObject.xhtml" title="A physical object within the game world.">Object</a>*, oi );</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> search = type;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( name.empty() )</div>
@@ -2255,7 +2253,7 @@ Functions</h2></td></tr>
 <div id="dynsection-34-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-34-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a0ee2f5e038afd5072af274d5d36b12a8_cgraph.svg" width="318" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceHandler_ac4aa107458ff170e3f933050ec42770c_cgraph.svg" width="318" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -2264,7 +2262,7 @@ Functions</h2></td></tr>
 <div id="dynsection-35-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-35-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a0ee2f5e038afd5072af274d5d36b12a8_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_ac4aa107458ff170e3f933050ec42770c_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -2929,8 +2927,7 @@ Functions</h2></td></tr>
 <div id="dynsection-46-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-46-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a44b41bf69fdc6e615a029bea34910191_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceHandler_a44b41bf69fdc6e615a029bea34910191_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -2986,8 +2983,8 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a81c6b3420739f786f624d7ea14b0bde1" title="Define a bitset variable (name) with UTILS_TYPE_SOCKET already enabled.">UFLAGS_S</a>( flag );</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>*, ei );</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( list, <a class="code" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>*, ei_next );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>*, ei );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a05e235f398566bf49e21735cf00fc656" title="Define an iterator variable (name) of (type) using (container).">ITER</a>( vector, <a class="code" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>*, ei_next );</div>
 <div class="line">    <a class="code" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a>* <span class="keyword">event</span> = NULL;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( client == NULL )</div>
@@ -3018,10 +3015,10 @@ Functions</h2></td></tr>
 <div class="line">    client-&gt;<a class="code" href="classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient.">gAccount</a>()-&gt;<a class="code" href="classAccount.xhtml#a42914cf1147f5c5a480dbfcb9a0ff3fe" title="Sets the active Character associated with the account.">sCharacter</a>( character );</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Cleanup any pending disconnection events from the old Character</span></div>
-<div class="line">    <span class="keywordflow">for</span> ( ei = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin(); ei != <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.end(); ei = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">m_next_event</a> )</div>
+<div class="line">    <span class="keywordflow">for</span> ( ei = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin(); ei != <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.end(); ei = <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a> )</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keyword">event</span> = *ei;</div>
-<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#aaa0f8f02223ffe28765bc7fe3f5b2ea4">m_next_event</a> = ++ei;</div>
+<div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a> = ++ei;</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span> ( event-&gt;gCharacter() == character &amp;&amp; <span class="keyword">event</span>-&gt;gCommand() == <a class="code" href="namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game.">Handler::FindCommand</a>( <span class="stringliteral">&quot;quit&quot;</span> ) )</div>
 <div class="line">            event-&gt;Delete();</div>
@@ -3056,7 +3053,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 17:23:47 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
