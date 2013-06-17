@@ -61,6 +61,7 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
 {
     Command* command = NULL;
     Exit* exit = NULL;
+    Thing* source = NULL;
 
     if ( ( command = Handler::FindCommand( cmd ) ) != NULL )
     {
@@ -71,10 +72,20 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
     }
     else if ( ( exit = Handler::FindExit( dynamic_cast<Location*>( gContainer() ), cmd ) ) != NULL ) // Search for an exit
     {
-        if ( !Move( gContainer(), exit->gDestination() ) )
+        // Save the source for output messages
+        source = gContainer();
+
+        if ( Move( gContainer(), exit->gDestination() ) )
+        {
+            // Notify everyone else we moved
+            source->Send( CRLF + gName() + " leaves " + exit->gName() + "." CRLF, this );
+            gContainer()->Send( CRLF + gName() + " enters from " + exit->gName() + "." CRLF, this );
+            // Auto-look
+            if ( ( command = Handler::FindCommand( "look" ) ) != NULL ) /** @todo Make this configurable per-account/character */
+                command->Run( this );
+        }
+        else
             Send( CFG_STR_CMD_INVALID );
-        else if ( ( command = Handler::FindCommand( "look" ) ) != NULL ) /** @todo Make this configurable per-account/character */
-            command->Run( this );
     }
     else // Give up
         Send( CFG_STR_CMD_INVALID );
