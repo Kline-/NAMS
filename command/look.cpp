@@ -34,8 +34,8 @@ class Look : public Plugin {
 const void Look::Run( Character* character, const string& cmd, const string& arg ) const
 {
     Location* location = NULL;
-    list<Exit*> loc_exits;
-    CITER( list, Exit*, ei );
+    vector<Exit*> loc_exits;
+    CITER( vector, Exit*, ei );
     Exit* exit = NULL;
     vector<Thing*> loc_contents;
     CITER( vector, Thing*, ti );
@@ -43,7 +43,7 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
 
     if ( character )
     {
-        location = character->gLocation();
+        location = dynamic_cast<Location*>( character->gContainer() );
 
         if ( arg.empty() && location != NULL )
         {

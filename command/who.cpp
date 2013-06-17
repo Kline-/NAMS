@@ -31,7 +31,7 @@ class Who : public Plugin {
 
 const void Who::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    CITER( list, Character*, ci );
+    CITER( vector, Character*, ci );
     Character* target = NULL;
 
     if ( character )

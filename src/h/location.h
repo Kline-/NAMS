@@ -43,7 +43,7 @@ class Location : public Thing
         /**@}*/
 
         /** @name Query */ /**@{*/
-        list<Exit*> gExits() const;
+        vector<Exit*> gExits() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -56,7 +56,7 @@ class Location : public Thing
         /**@}*/
 
     private:
-        list<Exit*> m_exits; /**< Exits to other Locations. */
+        vector<Exit*> m_exits; /**< Exits to other Locations. */
         string m_file; /**< Path to the file on disk. */
         string m_zone; /**< Part of a larger zone / group of locations? Name, if so. */
 };

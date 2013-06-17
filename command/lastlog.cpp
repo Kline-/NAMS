@@ -31,8 +31,8 @@ class LastLog : public Plugin {
 
 const void LastLog::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    list<pair<string,string>> logins;
-    list<pair<string,string>>::const_iterator li;
+    vector<pair<string,string>> logins;
+    vector<pair<string,string>>::const_iterator li;
 
     if ( character )
     {

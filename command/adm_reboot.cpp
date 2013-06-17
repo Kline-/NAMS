@@ -35,7 +35,7 @@ class AdmReboot : public Plugin {
 const void AdmReboot::Run( Character* character, const string& cmd, const string& arg ) const
 {
     SocketClient* socket_client = NULL;
-    ITER( list, SocketClient*, si );
+    ITER( vector, SocketClient*, si );
     string desc, port;
     ofstream ofs;
 

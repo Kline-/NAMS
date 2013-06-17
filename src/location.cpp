@@ -35,7 +35,7 @@
 const void Location::Delete()
 {
     Exit* exit = NULL;
-    ITER( list, Exit*, ei );
+    ITER( vector, Exit*, ei );
 
     if ( find( location_list.begin(), location_list.end(), this ) != location_list.end() )
         location_list.erase( find( location_list.begin(), location_list.end(), this ) );
@@ -108,7 +108,7 @@ const bool Location::Serialize() const
     string value;
     stringstream line;
     uint_t i = uintmin_t;
-    CITER( list, Exit*, ei );
+    CITER( vector, Exit*, ei );
     Exit* exit = NULL;
     string file( Utils::FileExt( gId(), CFG_DAT_FILE_LOC_EXT ) );
 
@@ -243,9 +243,9 @@ const bool Location::Unserialize()
 /* Query */
 /**
  * @brief Returns the list of Exits associated to this Location.
- * @retval list<Exit*> A list of pointers to Exit objects associated with this Location.
+ * @retval vector<Exit*> A list of pointers to Exit objects associated with this Location.
  */
-list<Exit*> Location::gExits() const
+vector<Exit*> Location::gExits() const
 {
     return m_exits;
 }

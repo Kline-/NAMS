@@ -49,7 +49,7 @@ Character* Handler::FindCharacter( const string& name, const uint_t& type )
     UFLAGS_DE( flags );
     Character* chr = NULL;
     bool found = false;
-    ITER( list, Character*, ci );
+    ITER( vector, Character*, ci );
     uint_t search = type;
 
     if ( name.empty() )
@@ -107,25 +107,19 @@ Command* Handler::FindCommand( const string& name )
     UFLAGS_DE( flags );
     Command* cmd = NULL;
     bool found = false;
-    pair<multimap<const char,Command*>::iterator,multimap<const char,Command*>::iterator> cmd_list;
-    MITER( multimap, const char,Command*, mi );
+    ITER( vector, Command*, vi );
 
     if ( name.empty() )
         LOGSTR( flags, "Handler::FindCommand()-> called with empty name" );
 
-    if ( CFG_GAM_CMD_IGNORE_CASE )
-        cmd_list = command_list.equal_range( Utils::Lower( name )[0] );
-    else
-        cmd_list = command_list.equal_range( name[0] );
-
-    if ( cmd_list.first == cmd_list.second )
+    if ( command_list.empty() )
         cmd = NULL;
     else
     {
-        for ( mi = cmd_list.first; mi != cmd_list.second; mi++ )
+        for ( vi = command_list.begin(); vi != command_list.end(); vi++ )
         {
             found = false;
-            cmd = mi->second;
+            cmd = *vi;
 
             if ( CFG_GAM_CMD_IGNORE_CASE )
             {
@@ -159,13 +153,19 @@ Exit* Handler::FindExit( Location* location, const string& name )
 {
     UFLAGS_DE( flags );
     Exit* exit = NULL;
-    list<Exit*> loc_exits;
-    ITER( list, Exit*, ei );
+    vector<Exit*> loc_exits;
+    ITER( vector, Exit*, ei );
     bool found = false;
 
     if ( location == NULL )
     {
         LOGSTR( flags, "Handler::FindExit()-> called with NULL location" );
+        return exit;
+    }
+
+    if ( location->gType() != THING_TYPE_LOCATION )
+    {
+        LOGFMT( flags, "Handler::FindExit()-> location has invalid thing type %lu", location->gType() );
         return exit;
     }
 
@@ -213,7 +213,7 @@ Location* Handler::FindLocation( const string& name, const uint_t& type )
     UFLAGS_DE( flags );
     Location* loc = NULL;
     bool found = false;
-    ITER( list, Location*, li );
+    ITER( vector, Location*, li );
     uint_t search = type;
 
     if ( name.empty() )
@@ -268,12 +268,12 @@ Location* Handler::FindLocation( const string& name, const uint_t& type )
  * @param[in] olist The object list to be searched.
  * @retval Object* A pointer to the Object object associated with name, or NULL if one is not found.
  */
-Object* Handler::FindObject( const string& name, const uint_t& type, const list<Object*>& olist )
+Object* Handler::FindObject( const string& name, const uint_t& type, const vector<Object*>& olist )
 {
     UFLAGS_DE( flags );
     Object* obj = NULL;
     bool found = false;
-    CITER( list, Object*, oi );
+    CITER( vector, Object*, oi );
     uint_t search = type;
 
     if ( name.empty() )
@@ -381,7 +381,7 @@ const bool Handler::CheckCreating( SocketClient* client, const string& name )
 {
     UFLAGS_DE( flags );
     UFLAGS_S( flag );
-    ITER( list, SocketClient*, si );
+    ITER( vector, SocketClient*, si );
     SocketClient* socket_client = NULL;
 
     if ( client == NULL )
@@ -427,7 +427,7 @@ const bool Handler::CheckPlaying( const string& name )
 {
     UFLAGS_DE( flags );
     UFLAGS_S( flag );
-    ITER( list, Character*, ci );
+    ITER( vector, Character*, ci );
     Character* chr = NULL;
 
     if ( name.empty() )
@@ -458,8 +458,8 @@ const bool Handler::CheckPlaying( const string& name )
 const bool Handler::CheckProhibited( SocketClient* client, const string& name, const uint_t& type )
 {
     UFLAGS_DE( flags );
-    ITER( list, string, fi );
-    list<string> search;
+    ITER( vector, string, fi );
+    vector<string> search;
     string comp;
     uint_t searcht = type;
 
@@ -605,8 +605,8 @@ const void Handler::Reconnect( SocketClient* client, Character* character )
 {
     UFLAGS_DE( flags );
     UFLAGS_S( flag );
-    ITER( list, Event*, ei );
-    ITER( list, Event*, ei_next );
+    ITER( vector, Event*, ei );
+    ITER( vector, Event*, ei_next );
     Event* event = NULL;
 
     if ( client == NULL )

@@ -43,7 +43,7 @@ namespace Server
 
             /** @name Query */ /**@{*/
             vector<string> gDisabledCommands() const;
-            list<string> gProhibitedNames( const uint_t& type ) const;
+            vector<string> gProhibitedNames( const uint_t& type ) const;
             /**@}*/
 
             /** @name Manipulate */ /**@{*/
@@ -59,7 +59,7 @@ namespace Server
 
         private:
             vector<string> m_disabled_commands; /**< Commands that have been disabled. */
-            list<string> m_prohibited_names[MAX_SVR_CFG_PROHIBITED_NAMES]; /**< Names that are illegal to use as an account name. */
+            vector<string> m_prohibited_names[MAX_SVR_CFG_PROHIBITED_NAMES]; /**< Names that are illegal to use as an account name. */
     };
 
     /**
@@ -84,9 +84,9 @@ namespace Server
             /**@}*/
 
             SocketServer* m_listen; /**< The listening server-side socket. */
-            list<Event*>::iterator m_next_event; /**< Used as the next iterator in all loops dealing with Event objects to prevent nested processing loop problems. */
-            list<Character*>::iterator m_next_character; /**< Used as the next iterator in all loops dealing with Character objects to prevent nested processing loop problems. */
-            list<SocketClient*>::iterator m_next_socket_client; /**< Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
+            vector<Event*>::iterator m_next_event; /**< Used as the next iterator in all loops dealing with Event objects to prevent nested processing loop problems. */
+            vector<Character*>::iterator m_next_character; /**< Used as the next iterator in all loops dealing with Character objects to prevent nested processing loop problems. */
+            vector<SocketClient*>::iterator m_next_socket_client; /**< Used as the next iterator in all loops dealing with SocketClient objects to prevent nested processing loop problems. */
             uint_t m_port; /**< Port number to be passed to the associated SocketServer. */
             bool m_shutdown; /**< Shutdown state of the game. */
             chrono::high_resolution_clock::time_point m_time_boot; /**< Time the Server was first booted. */

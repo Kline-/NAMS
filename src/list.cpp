@@ -31,54 +31,53 @@
  * @brief All characters that exist within the server.
  * @param Character* A pointer to a Character object in memory.
  */
-list<Character*> character_list;
+vector<Character*> character_list;
 
 /**
  * @var command_list
  * @brief All commands loaded into memory.
- * @param "const char" The first letter of the value contained within Command->m_name.
- * @param Command*     A pointer to a Command object in memory.
+ * @param Command* A pointer to a Command object in memory.
  */
-multimap<const char,Command*> command_list;
+vector<Command*> command_list;
 
 /**
  * @var event_list
  * @brief All events pending execution.
  * @param Event* A pointer to an Event object in memory.
  */
-list<Event*> event_list;
+vector<Event*> event_list;
 
 /**
  * @var exit_list
  * @brief All exits that exist within the server.
  * @param Exit* A pointer to an Exit object in memory.
  */
-list<Exit*> exit_list;
+vector<Exit*> exit_list;
 
 /**
  * @var location_list
  * @brief All locations that exist within the server.
  * @param Location* A pointer to a Location object in memory.
  */
-list<Location*> location_list;
+vector<Location*> location_list;
 
 /**
  * @var object_list
  * @brief All objects that exist as a copy of a template within the server.
  * @param Object* A pointer to an Object copy in memory.
  */
-list<Object*> object_list;
+vector<Object*> object_list;
 
 /**
  * @var object_template_list
  * @brief All objects that exist as templates within the server.
  * @param Object* A pointer to an Object template in memory.
  */
-list<Object*> object_template_list;
+vector<Object*> object_template_list;
 
 /**
  * @var socket_client_list
  * @brief All SocketClient objects connected to the server.
  * @param SocketClient* A pointer to a SocketClient object in memory.
  */
-list<SocketClient*> socket_client_list;
+vector<SocketClient*> socket_client_list;

@@ -61,7 +61,6 @@ const bool Command::Authorized( const uint_t& sec ) const
 const void Command::Delete()
 {
     UFLAGS_DE( flags );
-    MITER( multimap, const char,Command*, mi );
 
     m_plg_delete( m_plg );
     ::dlerror();
@@ -69,16 +68,8 @@ const void Command::Delete()
     if ( ::dlclose( m_plg_handle ) )
         LOGFMT( flags, "Command::Delete()->dlclose() returned error: %s", ::dlerror() );
 
-    for ( mi = command_list.begin(); mi != command_list.end(); )
-    {
-        if ( mi->second == this )
-        {
-            command_list.erase( mi++ );
-            break;
-        }
-        else
-            ++mi;
-    }
+    if ( find( command_list.begin(), command_list.end(), this ) != command_list.end() )
+        command_list.erase( find( command_list.begin(), command_list.end(), this ) );
 
     delete this;
 
@@ -127,10 +118,7 @@ const bool Command::New( const string& file )
             m_disabled = true;
     }
 
-    if ( CFG_GAM_CMD_IGNORE_CASE )
-        command_list.insert( pair<const char,Command*>( Utils::Lower( gName() )[0], this ) );
-    else
-        command_list.insert( pair<const char,Command*>( gName()[0], this ) );
+    command_list.push_back( this );
 
     return true;
 }

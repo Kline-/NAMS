@@ -69,9 +69,9 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
         else
             Send( CFG_STR_CMD_INVALID );
     }
-    else if ( ( exit = Handler::FindExit( gLocation(), cmd ) ) != NULL ) // Search for an exit
+    else if ( ( exit = Handler::FindExit( dynamic_cast<Location*>( gContainer() ), cmd ) ) != NULL ) // Search for an exit
     {
-        if ( !Move( gLocation(), exit->gDestination() ) )
+        if ( !Move( gContainer(), exit->gDestination() ) )
             Send( CFG_STR_CMD_INVALID );
         else if ( ( command = Handler::FindCommand( "look" ) ) != NULL ) /** @todo Make this configurable per-account/character */
             command->Run( this );
@@ -155,8 +155,8 @@ const bool Character::Serialize() const
         for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
             ofs << "description[" << i << "]" << " = " << Utils::WriteString( gDescription( i ) ) << endl;
     }
-    if ( gLocation() != NULL ) // This will be NULL during creation
-        KEY( ofs, "location", gLocation()->gId() );
+    if ( gContainer() != NULL ) // This will be NULL during creation
+        KEY( ofs, "location", gContainer()->gId() );
     KEY( ofs, "name", gName() );
     KEY( ofs, "sex", m_sex );
 

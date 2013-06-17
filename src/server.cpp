@@ -83,7 +83,7 @@ const void Server::Stats::Delete()
 const void Server::Broadcast( const string& msg )
 {
     SocketClient *client = NULL;
-    ITER( list, SocketClient*, si );
+    ITER( vector, SocketClient*, si );
 
     for ( si = socket_client_list.begin(); si != socket_client_list.end(); si = g_global->m_next_socket_client )
     {
@@ -151,9 +151,9 @@ const void Server::LinkExits()
     UFLAGS_E( flags );
     chrono::high_resolution_clock::time_point start, finish;
     double duration = uintmin_t;
-    ITER( list, Location*, li );
-    ITER( list, Exit*, ei );
-    list<Exit*> loc_exits;
+    ITER( vector, Location*, li );
+    ITER( vector, Exit*, ei );
+    vector<Exit*> loc_exits;
     Location* destination = NULL;
     Location* location = NULL;
     Exit* exit = NULL;
@@ -352,7 +352,7 @@ const bool Server::PollSockets()
     fd_set exc_set;
     fd_set in_set;
     fd_set out_set;
-    ITER( list, SocketClient*, si );
+    ITER( vector, SocketClient*, si );
     SocketClient* socket_client;
     sint_t client_desc = 0, max_desc = 0, server_desc = 0;
 
@@ -542,7 +542,7 @@ const bool Server::PollSockets()
  */
 const void Server::ProcessEvents()
 {
-    ITER( list, Event*, ei );
+    ITER( vector, Event*, ei );
     Event* event;
 
     for ( ei = event_list.begin(); ei != event_list.end(); ei = g_global->m_next_event )
@@ -564,7 +564,7 @@ const void Server::ProcessEvents()
 const void Server::ProcessInput()
 {
     UFLAGS_DE( flags );
-    ITER( list, SocketClient*, si );
+    ITER( vector, SocketClient*, si );
     SocketClient* socket_client;
     sint_t client_desc = 0;
 
@@ -705,6 +705,9 @@ const bool Server::ReloadCommand( const string& name )
         return false;
     }
 
+    // Ensure we keep the same element order as before
+    sort( command_list.begin(), command_list.end() );
+
     return true;
 }
 
@@ -725,7 +728,7 @@ const void Server::Shutdown( const sint_t& status )
 
     // Cleanup commands
     while ( !command_list.empty() )
-        command_list.begin()->second->Delete();
+        command_list.front()->Delete();
     // Cleanup events
     while ( !event_list.empty() )
         event_list.front()->Delete();
@@ -883,16 +886,16 @@ vector<string> Server::Config::gDisabledCommands() const
 /**
  * @brief Returns a a copy of the prohibited names list using type from #SVR_CFG_PROHIBITED_NAMES.
  * @param[in] type The specific prohibited names list to retrieve.
- * @retval list<string> A copy of the prohibited names list referenced by type.
+ * @retval vector<string> A copy of the prohibited names list referenced by type.
  */
-list<string> Server::Config::gProhibitedNames( const uint_t& type ) const
+vector<string> Server::Config::gProhibitedNames( const uint_t& type ) const
 {
     UFLAGS_DE( flags );
 
     if ( type < uintmin_t || type >= MAX_SVR_CFG_PROHIBITED_NAMES )
     {
         LOGFMT( flags, "Server::Config::gProhibitedNames()-> called with invalid type %lu", type );
-        return list<string>();
+        return vector<string>();
     }
 
     return m_prohibited_names[type];
@@ -993,7 +996,6 @@ const bool Server::Config::Serialize()
     ofstream ofs;
     string value;
     stringstream line;
-    CITER( list, string, li );
     CITER( vector, string, vi );
     uint_t i = uintmin_t;
 
@@ -1031,8 +1033,8 @@ const bool Server::Config::Serialize()
 
             if ( !m_prohibited_names[i].empty() )
             {
-                for ( li = m_prohibited_names[i].begin(); li != m_prohibited_names[i].end(); li++ )
-                    line << *li << " ";
+                for ( vi = m_prohibited_names[i].begin(); vi != m_prohibited_names[i].end(); vi++ )
+                    line << *vi << " ";
 
                 value = line.str();
                 value.erase( value.end() - 1 );
@@ -1139,8 +1141,7 @@ const bool Server::Config::Unserialize()
                         found = true;
                         token = Utils::StrTokens( value, true );
                         for ( ti = token.begin(); ti != token.end(); ti++ )
-                            m_prohibited_names[i].push_front( *ti );
-                        m_prohibited_names[i].reverse();
+                            m_prohibited_names[i].push_back( *ti );
                         break;
                     }
                 }

@@ -18,8 +18,6 @@
 
 #include "pincludes.h"
 
-#include "location.h"
-
 class Say : public Plugin {
     public:
         virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
@@ -31,14 +29,18 @@ class Say : public Plugin {
 
 const void Say::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    Location* location = NULL;
-
     if ( character )
     {
-        if ( ( location = character->gLocation() ) != NULL )
+        if ( arg.empty() )
         {
-            character->Send( Utils::FormatString( 0, "You say '%s'.", CSTR( arg ) ) );
-            location->Send( Utils::FormatString( 0, CRLF "%s says '%s'.", CSTR( character->gName() ), CSTR( arg ) ), character );
+            character->Send( "Say what?" CRLF );
+            return;
+        }
+
+        if ( character->gContainer() != NULL )
+        {
+            character->Send( "You say '" + arg + "'." );
+            character->gContainer()->Send( CRLF + character->gName() + " says '" + arg + "'.", character );
         }
     }
 

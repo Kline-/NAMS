@@ -24,8 +24,6 @@
 #include "h/includes.h"
 #include "h/thing.h"
 
-#include "h/location.h"
-
 /* Core */
 /**
  * @brief Adds a Thing to the contents of this Thing.
@@ -45,9 +43,13 @@ const bool Thing::AddThing( Thing* thing )
 
     /** @todo Logic to check container size, content limits, etc. */
 
-    // This will occur on initial login
-    if ( m_type == THING_TYPE_LOCATION && thing->gLocation() == NULL )
-        thing->m_location = dynamic_cast<Location*>( this );
+    if ( thing->m_container == NULL )
+        thing->m_container = this;
+    else
+    {
+        LOGSTR( flags, "Thing::AddThing()-> thing container is not NULL" );
+        return false;
+    }
 
     m_contents.push_back( thing );
 
@@ -81,15 +83,9 @@ const bool Thing::Move( Thing* source, Thing* destination )
     if ( !source->RemoveThing( this ) )
         return false;
 
-    if ( source->gType() == THING_TYPE_LOCATION )
-        m_location = NULL;
-
     // Were we able to get into the destination Thing?
     if ( !destination->AddThing( this ) )
         return false;
-
-    if ( destination->gType() == THING_TYPE_LOCATION )
-        m_location = dynamic_cast<Location*>( destination );
 
     return true;
 }
@@ -113,7 +109,10 @@ const bool Thing::RemoveThing( Thing* thing )
     /** @todo Logic to check debuffs, restrictions, etc. */
 
     if ( find ( m_contents.begin(), m_contents.end(), thing ) != m_contents.end() )
+    {
         m_contents.erase( find( m_contents.begin(), m_contents.end(), thing ) );
+        thing->m_container = NULL;
+    }
 
     return true;
 }
@@ -151,6 +150,15 @@ const void Thing::Send( const string& msg, Thing* speaker ) const
 
 /* Query */
 /**
+ * @brief Returns the Thing that this Thing is stored within.
+ * @retval Thing* A pointer to the Thing that this Thing is stored within.
+ */
+Thing* Thing::gContainer() const
+{
+    return m_container;
+}
+
+/**
  * @brief Returns the contents of this Thing.
  * @retval vector<Thing*> The contents of this Thing.
  */
@@ -184,15 +192,6 @@ const string Thing::gDescription( const uint_t& type ) const
 const string Thing::gId() const
 {
     return m_id;
-}
-
-/**
- * @brief Returns the Location that this Thing is stored within.
- * @retval Location* A pointer to the Location that this Thing is stored within.
- */
-Location* Thing::gLocation() const
-{
-    return m_location;
 }
 
 /**
@@ -326,11 +325,11 @@ Thing::Thing()
 {
     uint_t i = uintmin_t;
 
+    m_container = NULL;
     m_contents.clear();
     for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
         m_description[i].clear();
     m_id.clear();
-    m_location = NULL;
     m_name.clear();
     m_type = THING_TYPE_THING;
 
@@ -345,8 +344,8 @@ Thing::~Thing()
     if ( !g_global->m_shutdown )
     {
         // To properly handle quit
-        if ( m_location != NULL )
-           m_location->RemoveThing( this );
+        if ( m_container != NULL )
+           m_container->RemoveThing( this );
     }
 
     return;

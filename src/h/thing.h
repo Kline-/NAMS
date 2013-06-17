@@ -44,10 +44,10 @@ class Thing
         /**@}*/
 
         /** @name Query */ /**@{*/
+        Thing* gContainer() const;
         const vector<Thing*> gContents() const;
         const string gDescription( const uint_t& type ) const;
         const string gId() const;
-        Location* gLocation() const;
         const string gName() const;
         const uint_t gType() const;
         /**@}*/
@@ -66,10 +66,10 @@ class Thing
         /**@}*/
 
     private:
+        Thing* m_container; /**< The Thing that this Thing is stored within. */
         vector<Thing*> m_contents; /**< Other Things that are contained within this Thing. */
         string m_description[MAX_THING_DESCRIPTION]; /**< What is displayed to other Things. */
         string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
-        Location* m_location; /**< The Location that this Thing is stored within. */
         string m_name; /**< The name of the thing. */
         uint_t m_type; /**< The inherited sub-type of Thing. */
 };

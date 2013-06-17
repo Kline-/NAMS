@@ -18,8 +18,6 @@
 
 #include "pincludes.h"
 
-#include "location.h"
-
 class Drop : public Plugin {
     public:
         virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
@@ -54,8 +52,8 @@ const void Drop::Run( Character* character, const string& cmd, const string& arg
                 found = true;
 
                 character->Send( "You drop " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF );
-                character->gLocation()->Send( CRLF + character->gName() + " drops " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF, character );
-                object->Move( character, character->gLocation() );
+                character->gContainer()->Send( CRLF + character->gName() + " drops " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF, character );
+                object->Move( character, character->gContainer() );
                 break;
             }
         }

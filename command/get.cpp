@@ -18,85 +18,71 @@
 
 #include "pincludes.h"
 
-#include "account.h"
-#include "command.h"
-#include "list.h"
-
-class Commands : public Plugin {
+class Get : public Plugin {
     public:
         virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
-        Commands( const string& name, const uint_t& type );
-        ~Commands();
+        Get( const string& name, const uint_t& type );
+        ~Get();
 };
 
-const void Commands::Run( Character* character, const string& cmd, const string& arg ) const
+const void Get::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    ITER( vector, Command*, vi );
-    Command* command = NULL;
-    vector<string> output;
-    string name;
-    CITER( vector, string, oi );
-    uint_t count = 0;
-    uint_t security = ACT_SECURITY_NONE;
+    vector<Thing*> objects;
+    Thing* object = NULL;
+    CITER( vector, Thing*, vi );
+    bool found = false;
 
     if ( character )
     {
-        if ( character->gAccount() )
-            security = character->gAccount()->gSecurity();
-
-        character->Send( "Available commands:" CRLF "    " );
-
-        for ( vi = command_list.begin(); vi != command_list.end(); vi++ )
+        if ( arg.empty() )
         {
-            command = *vi;
-
-            if ( command->Authorized( security ) )
-                output.push_back( command->gName() );
+            character->Send( "Get what?" CRLF );
+            return;
         }
 
-        sort( output.begin(), output.end() );
-
-        for( oi = output.begin(); oi != output.end(); oi++ )
+        objects = character->gContainer()->gContents();
+        for ( vi = objects.begin(); vi != objects.end(); vi++ )
         {
-            name = *oi;
+            object = *vi;
 
-            if ( ++count % 6 == 0 )
+            if ( Utils::iName( arg, object->gName() ) )
             {
-                character->Send( CRLF "    " );
-                character->Send( Utils::FormatString( 0, "%-12s", CSTR( name ) ) );
-            }
-            else
-                character->Send( Utils::FormatString( 0, "%-12s", CSTR( name ) ) );
+                found = true;
 
-            character->Send( " " );
+                character->Send( "You get " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF );
+                character->gContainer()->Send( CRLF + character->gName() + " gets " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF, character );
+                object->Move( character->gContainer(), character );
+                break;
+            }
         }
 
-        character->Send( CRLF );
+        if ( !found )
+            character->Send( "There is no " + arg + " here." CRLF );
     }
 
     return;
 }
 
-const void Commands::Run( SocketClient* client, const string& cmd, const string& arg ) const
+const void Get::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     return;
 }
 
-Commands::Commands( const string& name = "commands", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+Get::Get( const string& name = "get", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
-    Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, true );
+    Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, false );
     Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_AUTH_USER );
 
     return;
 }
 
-Commands::~Commands()
+Get::~Get()
 {
 }
 
 extern "C" {
-    Plugin* New() { return new Commands(); }
+    Plugin* New() { return new Get(); }
     void Delete( Plugin* p ) { delete p; }
 }

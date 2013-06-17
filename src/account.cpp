@@ -140,7 +140,7 @@ const bool Account::Serialize() const
     uint_t i = uintmin_t;
     string file( Utils::FileExt( m_id, CFG_DAT_FILE_ACT_EXT ) );
     CITER( vector, string, li );
-    list<pair<string,string>>::const_iterator pi;
+    vector<pair<string,string>>::const_iterator pi;
 
     Utils::FileOpen( ofs, file );
 
@@ -339,16 +339,16 @@ const string Account::gId() const
 /**
  * @brief Returns a list of either login successes or failures based on #ACT_LOGIN.
  * @param[in] type A value from #ACT_LOGIN.
- * @retval list<pair<string,string>> A list of a string pair containing the login dates and times.
+ * @retval vector<pair<string,string>> A list of a string pair containing the login dates and times.
  */
-const list<pair<string,string>> Account::gLogins( const uint_t& type ) const
+const vector<pair<string,string>> Account::gLogins( const uint_t& type ) const
 {
     UFLAGS_DE( flags );
 
     if ( type < uintmin_t || type >= MAX_ACT_LOGIN )
     {
         LOGFMT( flags, "Account::gLogins()-> called with invalid type %lu", type );
-        return list<pair<string,string>>();
+        return vector<pair<string,string>>();
     }
 
     return m_logins[type];
@@ -482,7 +482,7 @@ const bool Account::aLogin( const string& date, const string& name, const uint_t
     while ( m_logins[type].size() >= CFG_ACT_LOGIN_MAX )
         m_logins[type].pop_back();
 
-    m_logins[type].push_front( pair<string,string>( date, name ) );
+    m_logins[type].push_back( pair<string,string>( date, name ) );
 
     return true;
 }

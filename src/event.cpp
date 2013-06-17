@@ -34,7 +34,8 @@
  */
 const void Event::Delete()
 {
-    event_list.remove( this );
+    if ( find( event_list.begin(), event_list.end(), this ) != event_list.end() )
+         g_global->m_next_event = event_list.erase( find( event_list.begin(), event_list.end(), this ) );
 
     delete this;
 
@@ -87,7 +88,7 @@ const bool Event::New( const string& cmd, const string& args, Character* charact
     m_time = time;
     m_type = type;
 
-    event_list.push_front( this );
+    event_list.push_back( this );
 
     return true;
 }
@@ -126,7 +127,7 @@ const bool Event::New( const string& args, const uint_t& type, const uint_t& tim
     m_time = time;
     m_type = type;
 
-    event_list.push_front( this );
+    event_list.push_back( this );
 
     return true;
 }
@@ -177,7 +178,7 @@ const bool Event::New( const string& cmd, const string& args, SocketClient* clie
     m_time = time;
     m_type = type;
 
-    event_list.push_front( this );
+    event_list.push_back( this );
 
     return true;
 }
