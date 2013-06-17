@@ -57,8 +57,9 @@ const bool Thing::AddThing( Thing* thing )
 }
 
 /**
- * @brief Moves a Thing from within one Location to another Location.
- * @param[in] location A pointer to the destination Location that this Thing should be moved into.
+ * @brief Moves a Thing from within one Thing and into another Thing.
+ * @param[in] source A pointer to the source Thing that thisThing should be moved from.
+ * @param[in] destination A pointer to the destination Thing that this Thing should be moved into.
  * @retval false Returned if there was an error moving this Thing.
  * @retval true Returned if this Thing was successfully moved.
  */
