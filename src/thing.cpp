@@ -122,9 +122,10 @@ const bool Thing::RemoveThing( Thing* thing )
  * @brief Send data to all Thing objects within the Thing except for the speaker.
  * @param[in] msg The data to be sent.
  * @param[in] speaker The Thing originating the message.
+ * @param[in] target The Thing who is the target of the message.
  * @retval void
  */
-const void Thing::Send( const string& msg, Thing* speaker ) const
+const void Thing::Send( const string& msg, Thing* speaker, Thing* target ) const
 {
     UFLAGS_DE( flags );
     CITER( vector, Thing*, ti );
@@ -140,7 +141,7 @@ const void Thing::Send( const string& msg, Thing* speaker ) const
     {
         thing = *ti;
 
-        if ( thing == speaker )
+        if ( thing == speaker || thing == target )
             continue;
         else
             thing->Send( msg );

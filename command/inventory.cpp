@@ -38,6 +38,12 @@ const void Inventory::Run( Character* character, const string& cmd, const string
         contents = character->gContents();
         character->Send( "You are carrying:" CRLF );
 
+        if ( contents.empty() )
+        {
+            character->Send( "    Nothing." CRLF );
+            return;
+        }
+
         for ( vi = contents.begin(); vi != contents.end(); vi++ )
         {
             item = *vi;

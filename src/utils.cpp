@@ -428,9 +428,13 @@ const bool Utils::iName( const string& name, const string& input )
 {
     string names = input;
 
+    if ( CFG_GAM_CMD_IGNORE_CASE )
+        names = Utils::Lower( names );
     while ( !names.empty() )
     {
-        if ( Utils::Argument( names ).find( name ) == 0 )
+        if ( CFG_GAM_CMD_IGNORE_CASE && Utils::Argument( names ).find( Utils::Lower( name ) ) == 0 )
+            return true;
+        else if ( Utils::Argument( names ).find( name ) == 0 )
             return true;
     }
 
@@ -494,15 +498,11 @@ const bool Utils::iReadable( const string& file )
  */
 const string Utils::Argument( string& input, const string& delim )
 {
-    UFLAGS_DE( flags );
     string output;
     uint_t pos;
 
     if ( input.empty() )
-    {
-        LOGSTR( flags, "Utils::Argument() called with empty input" );
         return output;
-    }
 
     pos = input.find( delim );
 

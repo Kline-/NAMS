@@ -78,6 +78,7 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
         if ( Move( gContainer(), exit->gDestination() ) )
         {
             // Notify everyone else we moved
+            /** @todo Move this to its own function some day to properly handle grammar, etc, maybe move into Thing at that point */
             source->Send( CRLF + gName() + " leaves " + exit->gName() + "." CRLF, this );
             gContainer()->Send( CRLF + gName() + " enters from " + exit->gName() + "." CRLF, this );
             // Auto-look
@@ -124,9 +125,10 @@ const bool Character::New( const string& file, const bool& exists )
  * @brief Send data to the associated SocketClient, if any.
  * @param[in] msg The data to be sent.
  * @param[in] speaker The Thing originating the message.
+ * @param[in] target The Thing who is the target of the message.
  * @retval void
  */
-const void Character::Send( const string& msg, Thing* speaker ) const
+const void Character::Send( const string& msg, Thing* speaker, Thing* target ) const
 {
     if ( m_account )
         if ( m_account->gClient() )
@@ -288,7 +290,7 @@ const string Character::gPrompt() const
 {
     stringstream output;
 
-    output << CRLF << gId() << "> ";
+    output << CRLF << gId() << "> " CRLF;
 
     return output.str();
 }

@@ -40,7 +40,7 @@ const void Say::Run( Character* character, const string& cmd, const string& arg 
         if ( character->gContainer() != NULL )
         {
             character->Send( "You say '" + arg + "'." );
-            character->gContainer()->Send( CRLF + character->gName() + " says '" + arg + "'.", character );
+            character->gContainer()->Send( character->gName() + " says '" + arg + "'.", character );
         }
     }
 

@@ -436,9 +436,10 @@ const bool Handler::CheckPlaying( const string& name )
         return false;
     }
 
-    for ( ci = character_list.begin(); ci != character_list.end(); ci++ )
+    for ( ci = character_list.begin(); ci != character_list.end(); ci = g_global->m_next_character )
     {
         chr = *ci;
+        g_global->m_next_character = ++ci;
 
         if ( chr->gId() == name )
             return true;

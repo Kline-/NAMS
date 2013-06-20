@@ -47,12 +47,16 @@ const void Get::Run( Character* character, const string& cmd, const string& arg 
         {
             object = *vi;
 
+            // Don't want characters to pick up characters...yet
+            if ( object->gType() != THING_TYPE_OBJECT )
+                continue;
+
             if ( Utils::iName( arg, object->gName() ) )
             {
                 found = true;
 
                 character->Send( "You get " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF );
-                character->gContainer()->Send( CRLF + character->gName() + " gets " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF, character );
+                character->gContainer()->Send( character->gName() + " gets " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF, character );
                 object->Move( character->gContainer(), character );
                 break;
             }

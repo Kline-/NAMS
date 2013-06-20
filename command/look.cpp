@@ -104,6 +104,12 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
                 }
             }
         }
+
+        // check for 'in'
+        // check for characters in location
+        // check for objects in location
+        // check for exits in location
+        // check inventory
     }
 
     return;
