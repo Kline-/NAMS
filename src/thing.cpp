@@ -126,9 +126,10 @@ const bool Thing::RemoveThing( Thing* thing )
     {
         m_contents.erase( find( m_contents.begin(), m_contents.end(), thing ) );
         thing->m_container = NULL;
+        return true;
     }
 
-    return true;
+    return false;
 }
 
 /**
