@@ -18,16 +18,16 @@
 
 #include "pincludes.h"
 
-class Give : public Plugin {
+class Put : public Plugin {
     public:
         virtual const void Run( Character* character = NULL, const string& cmd = "", const string& arg = "" ) const;
         virtual const void Run( SocketClient* client = NULL, const string& cmd = "", const string& arg = "" ) const;
 
-        Give( const string& name, const uint_t& type );
-        ~Give();
+        Put( const string& name, const uint_t& type );
+        ~Put();
 };
 
-const void Give::Run( Character* character, const string& cmd, const string& arg ) const
+const void Put::Run( Character* character, const string& cmd, const string& arg ) const
 {
     vector<Thing*> objects;
     vector<Thing*> targets;
@@ -46,7 +46,7 @@ const void Give::Run( Character* character, const string& cmd, const string& arg
 
         if ( sobj.empty() || star.empty() )
         {
-            character->Send( "Give what to whom?" CRLF );
+            character->Send( "Put what in what?" CRLF );
             return;
         }
 
@@ -74,11 +74,8 @@ const void Give::Run( Character* character, const string& cmd, const string& arg
         {
             target = *ti;
 
-            if ( character == target )
-                continue;
-
-            // Don't want to 'give' an Object to another Object
-            if ( target->gType() != THING_TYPE_CHARACTER )
+            // Don't want to 'put' an Object in a Character
+            if ( target->gType() != THING_TYPE_OBJECT )
                 continue;
 
             if ( Utils::iName( star, target->gName() ) )
@@ -88,27 +85,51 @@ const void Give::Run( Character* character, const string& cmd, const string& arg
             }
         }
 
+        // If no target is found in the room, search the inventory
         if ( !found )
         {
-            character->Send( "They aren't here." CRLF );
+            targets = character->gContents();
+            for ( ti = targets.begin(); ti != targets.end(); ti++ )
+            {
+                target = *ti;
+
+                // Don't put an Object inside of itself
+                if ( object == target )
+                    continue;
+
+                // Don't want to 'put' an Object in a Character
+                if ( target->gType() != THING_TYPE_OBJECT )
+                    continue;
+
+                if ( Utils::iName( star, target->gName() ) )
+                {
+                    found = true;
+                    break;
+                }
+            }
+        }
+
+        // Final check
+        if ( !found )
+        {
+            character->Send( "There is no " + star + " here." CRLF );
             return;
         }
 
-        character->Send( "You give " + object->gDescription( THING_DESCRIPTION_SHORT ) + " to " + target->gName() + "." CRLF );
-        target->Send( character->gName() + " gives you " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." CRLF );
-        character->gContainer()->Send(  character->gName() + " gives " + object->gDescription( THING_DESCRIPTION_SHORT ) + " to " + target->gName() + "." CRLF, character, target );
+        character->Send( "You put " + object->gDescription( THING_DESCRIPTION_SHORT ) + " in " + target->gDescription( THING_DESCRIPTION_SHORT ) + "." CRLF );
+        character->gContainer()->Send(  character->gName() + " puts " + object->gDescription( THING_DESCRIPTION_SHORT ) + " in " + target->gDescription( THING_DESCRIPTION_SHORT )+ "." CRLF, character );
         object->Move( character, target );
     }
 
     return;
 }
 
-const void Give::Run( SocketClient* client, const string& cmd, const string& arg ) const
+const void Put::Run( SocketClient* client, const string& cmd, const string& arg ) const
 {
     return;
 }
 
-Give::Give( const string& name = "give", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
+Put::Put( const string& name = "put", const uint_t& type = PLG_TYPE_COMMAND ) : Plugin( name, type )
 {
     Plugin::sBool( PLG_TYPE_COMMAND_BOOL_PREEMPT, false );
     Plugin::sUint( PLG_TYPE_COMMAND_UINT_SECURITY, ACT_SECURITY_AUTH_USER );
@@ -116,11 +137,11 @@ Give::Give( const string& name = "give", const uint_t& type = PLG_TYPE_COMMAND )
     return;
 }
 
-Give::~Give()
+Put::~Put()
 {
 }
 
 extern "C" {
-    Plugin* New() { return new Give(); }
+    Plugin* New() { return new Put(); }
     void Delete( Plugin* p ) { delete p; }
 }
