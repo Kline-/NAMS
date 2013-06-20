@@ -389,7 +389,7 @@ const bool Server::PollSockets()
             continue;
         }
 
-        max_desc = max( server_desc, client_desc );
+        max_desc = max( max_desc, client_desc );
 
         // Populate lists of: exceptions, pending input, pending output
         FD_SET( client_desc, &exc_set );
