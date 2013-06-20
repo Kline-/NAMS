@@ -61,7 +61,6 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
 {
     Command* command = NULL;
     Exit* exit = NULL;
-    Thing* source = NULL;
 
     if ( ( command = Handler::FindCommand( cmd ) ) != NULL )
     {
@@ -72,15 +71,8 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
     }
     else if ( ( exit = Handler::FindExit( dynamic_cast<Location*>( gContainer() ), cmd ) ) != NULL ) // Search for an exit
     {
-        // Save the source for output messages
-        source = gContainer();
-
         if ( Move( gContainer(), exit->gDestination() ) )
         {
-            // Notify everyone else we moved
-            /** @todo Move this to its own function some day to properly handle grammar, etc, maybe move into Thing at that point */
-            source->Send( CRLF + gName() + " leaves " + exit->gName() + "." CRLF, this );
-            gContainer()->Send( CRLF + gName() + " enters from " + exit->gName() + "." CRLF, this );
             // Auto-look
             if ( ( command = Handler::FindCommand( "look" ) ) != NULL ) /** @todo Make this configurable per-account/character */
                 command->Run( this );

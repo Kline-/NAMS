@@ -24,6 +24,8 @@
 #include "h/includes.h"
 #include "h/thing.h"
 
+#include "h/exit.h"
+
 /* Core */
 /**
  * @brief Adds a Thing to the contents of this Thing.
@@ -60,10 +62,11 @@ const bool Thing::AddThing( Thing* thing )
  * @brief Moves a Thing from within one Thing and into another Thing.
  * @param[in] source A pointer to the source Thing that thisThing should be moved from.
  * @param[in] destination A pointer to the destination Thing that this Thing should be moved into.
+ * @param[in] exit A pointer to the Exit (if any) to generate movement messages.
  * @retval false Returned if there was an error moving this Thing.
  * @retval true Returned if this Thing was successfully moved.
  */
-const bool Thing::Move( Thing* source, Thing* destination )
+const bool Thing::Move( Thing* source, Thing* destination, Exit* exit )
 {
     UFLAGS_DE( flags );
 
@@ -84,9 +87,19 @@ const bool Thing::Move( Thing* source, Thing* destination )
     if ( !source->RemoveThing( this ) )
         return false;
 
+    /** @todo Move this to its own function some day to properly handle grammar, etc */
+    // Notify everyone else we moved
+    if ( exit )
+        source->Send( CRLF + gName() + " leaves " + exit->gName() + "." CRLF, this );
+
     // Were we able to get into the destination Thing?
     if ( !destination->AddThing( this ) )
         return false;
+
+    /** @todo Move this to its own function some day to properly handle grammar, etc */
+    // Notify everyone else we arrived
+    if ( exit )
+        gContainer()->Send( CRLF + gName() + " enters from " + exit->gName() + "." CRLF, this );
 
     return true;
 }

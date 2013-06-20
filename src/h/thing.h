@@ -36,7 +36,7 @@ class Thing
         const bool AddThing( Thing* thing );
         virtual const void Delete() = 0;
         virtual const void Interpret( const uint_t& security, const string& cmd, const string& args ) = 0;
-        const bool Move( Thing* source, Thing* destination );
+        const bool Move( Thing* source, Thing* destination, Exit* exit = NULL );
         const bool RemoveThing( Thing* thing );
         virtual const void Send( const string& msg, Thing* speaker = NULL, Thing* target = NULL ) const;
         virtual const bool Serialize() const = 0;
