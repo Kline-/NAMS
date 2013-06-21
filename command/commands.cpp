@@ -63,14 +63,9 @@ const void Commands::Run( Character* character, const string& cmd, const string&
             name = *oi;
 
             if ( ++count % 6 == 0 )
-            {
-                character->Send( CRLF "    " );
-                character->Send( Utils::FormatString( 0, "%-12s", CSTR( name ) ) );
-            }
+                character->Send( CRLF "    " + Utils::FormatString( 0, "%-12s ", CSTR( name ) ) );
             else
-                character->Send( Utils::FormatString( 0, "%-12s", CSTR( name ) ) );
-
-            character->Send( " " );
+                character->Send( Utils::FormatString( 0, "%-12s ", CSTR( name ) ) );
         }
 
         character->Send( CRLF );
