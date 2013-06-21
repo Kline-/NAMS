@@ -29,10 +29,7 @@ class Drop : public Plugin {
 
 const void Drop::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    vector<Thing*> objects;
     Thing* object = NULL;
-    CITER( vector, Thing*, vi );
-    bool found = false;
 
     if ( character )
     {
@@ -42,23 +39,15 @@ const void Drop::Run( Character* character, const string& cmd, const string& arg
             return;
         }
 
-        objects = character->gContents();
-        for ( vi = objects.begin(); vi != objects.end(); vi++ )
+        object = Handler::FindThing( arg, HANDLER_SCOPE_INVENTORY, character );
+
+        if ( object )
         {
-            object = *vi;
-
-            if ( Utils::iName( arg, object->gName() ) )
-            {
-                found = true;
-
-                character->Send( "You drop " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF );
-                character->gContainer()->Send( character->gName() + " drops " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF, character );
-                object->Move( character, character->gContainer() );
-                break;
-            }
+            character->Send( "You drop " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF );
+            character->gContainer()->Send( character->gName() + " drops " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF, character );
+            object->Move( character, character->gContainer() );
         }
-
-        if ( !found )
+        else
             character->Send( "You don't have that item." CRLF );
     }
 
