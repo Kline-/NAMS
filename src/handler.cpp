@@ -110,52 +110,59 @@ Command* Handler::FindCommand( const string& name )
     ITER( vector, Command*, vi );
 
     if ( name.empty() )
+    {
         LOGSTR( flags, "Handler::FindCommand()-> called with empty name" );
+        return cmd;
+    }
 
     if ( command_list.empty() )
-        cmd = NULL;
-    else
+        return cmd;
+
+    for ( vi = command_list.begin(); vi != command_list.end(); vi++ )
     {
-        for ( vi = command_list.begin(); vi != command_list.end(); vi++ )
+        found = false;
+        cmd = *vi;
+
+        if ( CFG_GAM_CMD_IGNORE_CASE )
         {
-            found = false;
-            cmd = *vi;
-
-            if ( CFG_GAM_CMD_IGNORE_CASE )
-            {
-                if ( Utils::Lower( cmd->gName() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-            }
-            else
-            {
-                if ( cmd->gName().find( name ) == 0 )
-                    found = true;
-            }
-
-            if ( found )
-                break;
+            if ( Utils::Lower( cmd->gName() ).find( Utils::Lower( name ) ) == 0 )
+                found = true;
+        }
+        else
+        {
+            if ( cmd->gName().find( name ) == 0 )
+                found = true;
         }
 
-        if ( !found )
-            cmd = NULL;
+        if ( found )
+            break;
     }
+
+    if ( !found )
+        cmd = NULL;
 
     return cmd;
 }
 
 /**
  * @brief Locates an Exit within a Location.
- * @param[in] location The Location to search for the Exit within.
  * @param[in] name The name of the Exit to search for.
+ * @param[in] location The Location to search for the Exit within.
  * @retval Exit* A pointer to the Exit within the Location.
  */
-Exit* Handler::FindExit( Location* location, const string& name )
+Exit* Handler::FindExit( const string& name, Location* location )
 {
     UFLAGS_DE( flags );
     Exit* exit = NULL;
     vector<Exit*> loc_exits;
     ITER( vector, Exit*, ei );
     bool found = false;
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Handler::FindExit()-> called with empty name" );
+        return exit;
+    }
 
     if ( location == NULL )
     {
@@ -172,32 +179,30 @@ Exit* Handler::FindExit( Location* location, const string& name )
     loc_exits = location->gExits();
 
     if ( loc_exits.empty() )
-        exit = NULL;
-    else
+        return exit;
+
+    for ( ei = loc_exits.begin(); ei != loc_exits.end(); ei++ )
     {
-        for ( ei = loc_exits.begin(); ei != loc_exits.end(); ei++ )
+        found = false;
+        exit = *ei;
+
+        if ( CFG_GAM_CMD_IGNORE_CASE )
         {
-            found = false;
-            exit = *ei;
-
-            if ( CFG_GAM_CMD_IGNORE_CASE )
-            {
-                if ( Utils::Lower( exit->gName() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-            }
-            else
-            {
-                if ( exit->gName().find( name ) == 0 )
-                    found = true;
-            }
-
-            if ( found )
-                break;
+            if ( Utils::Lower( exit->gName() ).find( Utils::Lower( name ) ) == 0 )
+                found = true;
+        }
+        else
+        {
+            if ( exit->gName().find( name ) == 0 )
+                found = true;
         }
 
-        if ( !found )
-            exit = NULL;
+        if ( found )
+            break;
     }
+
+    if ( !found )
+        exit = NULL;
 
     return exit;
 }
@@ -217,46 +222,47 @@ Location* Handler::FindLocation( const string& name, const uint_t& type )
     uint_t search = type;
 
     if ( name.empty() )
+    {
         LOGSTR( flags, "Handler::FindLocation()-> called with empty name" );
+        return loc;
+    }
 
     if ( location_list.empty() )
-        loc = NULL;
-    else
+        return loc;
+
+    if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
     {
-        if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
-        {
-            LOGFMT( flags, "Handler::FindLocation()-> called with invalid type: %lu", search );
-            LOGSTR( flags, "Handler::FindLocation()-> defaulting to HANDLER_FIND_ID" );
-            search = HANDLER_FIND_ID;
-        }
-
-        for ( li = location_list.begin(); li != location_list.end(); li++ )
-        {
-            found = false;
-            loc = *li;
-
-            if ( CFG_GAM_CMD_IGNORE_CASE )
-            {
-                if ( search == HANDLER_FIND_ID && Utils::Lower( loc->gId() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-                else if ( search == HANDLER_FIND_NAME && Utils::Lower( loc->gName() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-            }
-            else
-            {
-                if ( search == HANDLER_FIND_ID && loc->gId().find( name ) == 0 )
-                    found = true;
-                else if ( search == HANDLER_FIND_NAME && loc->gName().find( name ) == 0 )
-                    found = true;
-            }
-
-            if ( found )
-                break;
-        }
-
-        if ( !found )
-            loc = NULL;
+        LOGFMT( flags, "Handler::FindLocation()-> called with invalid type: %lu", search );
+        LOGSTR( flags, "Handler::FindLocation()-> defaulting to HANDLER_FIND_ID" );
+        search = HANDLER_FIND_ID;
     }
+
+    for ( li = location_list.begin(); li != location_list.end(); li++ )
+    {
+        found = false;
+        loc = *li;
+
+        if ( CFG_GAM_CMD_IGNORE_CASE )
+        {
+            if ( search == HANDLER_FIND_ID && Utils::Lower( loc->gId() ).find( Utils::Lower( name ) ) == 0 )
+                found = true;
+            else if ( search == HANDLER_FIND_NAME && Utils::Lower( loc->gName() ).find( Utils::Lower( name ) ) == 0 )
+                found = true;
+        }
+        else
+        {
+            if ( search == HANDLER_FIND_ID && loc->gId().find( name ) == 0 )
+                found = true;
+            else if ( search == HANDLER_FIND_NAME && loc->gName().find( name ) == 0 )
+                found = true;
+        }
+
+        if ( found )
+            break;
+    }
+
+    if ( !found )
+        loc = NULL;
 
     return loc;
 }
@@ -277,48 +283,122 @@ Object* Handler::FindObject( const string& name, const uint_t& type, const vecto
     uint_t search = type;
 
     if ( name.empty() )
-        LOGSTR( flags, "Handler::FindObject()-> called with empty name" );
-
-    if ( olist.empty() )
-        obj = NULL;
-    else
     {
-        if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
-        {
-            LOGFMT( flags, "Handler::FindObject()-> called with invalid type: %lu", search );
-            LOGSTR( flags, "Handler::FindObject()-> defaulting to HANDLER_FIND_ID" );
-            search = HANDLER_FIND_ID;
-        }
-
-        for ( oi = olist.begin(); oi != olist.end(); oi++ )
-        {
-            found = false;
-            obj = *oi;
-
-            if ( CFG_GAM_CMD_IGNORE_CASE )
-            {
-                if ( search == HANDLER_FIND_ID && Utils::Lower( obj->gId() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-                else if ( search == HANDLER_FIND_NAME && Utils::Lower( obj->gName() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-            }
-            else
-            {
-                if ( search == HANDLER_FIND_ID && obj->gId().find( name ) == 0 )
-                    found = true;
-                else if ( search == HANDLER_FIND_NAME && obj->gName().find( name ) == 0 )
-                    found = true;
-            }
-
-            if ( found )
-                break;
-        }
-
-        if ( !found )
-            obj = NULL;
+        LOGSTR( flags, "Handler::FindObject()-> called with empty name" );
+        return obj;
     }
 
+    if ( olist.empty() )
+        return obj;
+
+    if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
+    {
+        LOGFMT( flags, "Handler::FindObject()-> called with invalid type: %lu", search );
+        LOGSTR( flags, "Handler::FindObject()-> defaulting to HANDLER_FIND_ID" );
+        search = HANDLER_FIND_ID;
+    }
+
+    for ( oi = olist.begin(); oi != olist.end(); oi++ )
+    {
+        found = false;
+        obj = *oi;
+
+        if ( CFG_GAM_CMD_IGNORE_CASE )
+        {
+            if ( search == HANDLER_FIND_ID && Utils::Lower( obj->gId() ).find( Utils::Lower( name ) ) == 0 )
+                found = true;
+            else if ( search == HANDLER_FIND_NAME && Utils::Lower( obj->gName() ).find( Utils::Lower( name ) ) == 0 )
+                found = true;
+        }
+        else
+        {
+            if ( search == HANDLER_FIND_ID && obj->gId().find( name ) == 0 )
+                found = true;
+            else if ( search == HANDLER_FIND_NAME && obj->gName().find( name ) == 0 )
+                found = true;
+        }
+
+        if ( found )
+            break;
+    }
+
+    if ( !found )
+        obj = NULL;
+
     return obj;
+}
+
+/**
+ * @brief Locates a Thing within another Thing.
+ * @param[in] name The name of the Thing to search for.
+ * @param[in] type The scope of the search from #HANDLER_SCOPE.
+ * @param[in] caller The Thing whose Location and/or contents should be searched.
+ * @retval Thing* A pointer to the Thing identified by name, or NULL if not found.
+ */
+Thing* Handler::FindThing( const string& name, const uint_t& type, Thing* caller )
+{
+    UFLAGS_DE( flags );
+    Thing* thing = NULL;
+    vector<Thing*> targets;
+    CITER( vector, Thing*, ti );
+    uint_t search = type;
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Handler::FindThing()-> called with empty name" );
+        return thing;
+    }
+
+    if ( caller == NULL )
+    {
+        LOGSTR( flags, "Handler::FindThing()-> called with NULL caller" );
+        return thing;
+    }
+
+    if ( type < uintmin_t || type >= MAX_HANDLER_SCOPE )
+    {
+        LOGFMT( flags, "Handler::FindThing()-> called with invalid type: %lu", search );
+        LOGSTR( flags, "Handler::FindThing()-> defaulting to HANDLER_SCOPE_LOC_INV" );
+        search = HANDLER_SCOPE_LOC_INV;
+    }
+
+    switch ( search )
+    {
+        case HANDLER_SCOPE_INVENTORY:
+            targets = caller->gContents();
+            for ( ti = targets.begin(); ti != targets.end(); ti++ )
+            {
+                thing = *ti;
+
+                if ( Utils::iName( name, thing->gName() ) )
+                    break;
+            }
+        break;
+
+        case HANDLER_SCOPE_LOCATION:
+            if ( !caller->gContainer() )
+            {
+                LOGSTR( flags, "Handler::FindThing()->Thing::gContainer()-> returned NULL" );
+                return thing;
+            }
+
+            targets = caller->gContainer()->gContents();
+            for ( ti = targets.begin(); ti != targets.end(); ti++ )
+            {
+                thing = *ti;
+
+                if ( Utils::iName( name, thing->gName() ) )
+                    break;
+            }
+        break;
+
+        case HANDLER_SCOPE_LOC_INV:
+            if ( ( thing = FindThing( name, HANDLER_SCOPE_LOCATION, caller ) ) == NULL )
+                thing = FindThing( name, HANDLER_SCOPE_INVENTORY, caller );
+        break;
+    }
+
+    return thing;
 }
 
 /**

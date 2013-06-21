@@ -142,6 +142,17 @@ enum HANDLER_FIND
     HANDLER_FIND_NAME = 1, /**< Search for object by name, such as "Chris". */
     MAX_HANDLER_FIND  = 2  /**< Safety limit for looping. */
 };
+
+/**
+ * @enum HANDLER_SCOPE
+ */
+enum HANDLER_SCOPE
+{
+    HANDLER_SCOPE_INVENTORY = 0, /**< Search only within thing->gContents(). */
+    HANDLER_SCOPE_LOCATION  = 1, /**< Search only within thing->gContainer(). */
+    HANDLER_SCOPE_LOC_INV   = 2, /**< Search within thing->gContainer() then thing->gContents(). */
+    MAX_HANDLER_SCOPE       = 3, /**< Safety limit for looping. */
+};
 /**@}*/
 
 /** @name Plugin */ /**@{*/
