@@ -331,17 +331,18 @@ Object* Handler::FindObject( const string& name, const uint_t& type, const vecto
 /**
  * @brief Locates a Thing within another Thing.
  * @param[in] name The name of the Thing to search for.
- * @param[in] type The scope of the search from #HANDLER_SCOPE.
+ * @param[in] type The type of Thing to search for, from #THING_TYPE.
+ * @param[in] scope The scope of the search from #HANDLER_SCOPE.
  * @param[in] caller The Thing whose Location and/or contents should be searched.
  * @retval Thing* A pointer to the Thing identified by name, or NULL if not found.
  */
-Thing* Handler::FindThing( const string& name, const uint_t& type, Thing* caller )
+Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t& scope, Thing* caller )
 {
     UFLAGS_DE( flags );
     Thing* thing = NULL;
     vector<Thing*> targets;
     CITER( vector, Thing*, ti );
-    uint_t search = type;
+    uint_t ltype = type, lscope = scope;
 
     if ( name.empty() )
     {
@@ -355,20 +356,34 @@ Thing* Handler::FindThing( const string& name, const uint_t& type, Thing* caller
         return thing;
     }
 
-    if ( type < uintmin_t || type >= MAX_HANDLER_SCOPE )
+    if ( ltype < uintmin_t || ltype >= MAX_THING_TYPE )
     {
-        LOGFMT( flags, "Handler::FindThing()-> called with invalid type: %lu", search );
-        LOGSTR( flags, "Handler::FindThing()-> defaulting to HANDLER_SCOPE_LOC_INV" );
-        search = HANDLER_SCOPE_LOC_INV;
+        LOGFMT( flags, "Handler::FindThing()-> called with invalid type: %lu", ltype );
+        LOGSTR( flags, "Handler::FindThing()-> defaulting to THING_TYPE_THING" );
+        ltype = THING_TYPE_THING;
     }
 
-    switch ( search )
+    if ( lscope < uintmin_t || lscope >= MAX_HANDLER_SCOPE )
+    {
+        LOGFMT( flags, "Handler::FindThing()-> called with invalid scope: %lu", lscope );
+        LOGSTR( flags, "Handler::FindThing()-> defaulting to HANDLER_SCOPE_LOC_INV" );
+        lscope = HANDLER_SCOPE_LOC_INV;
+    }
+
+    switch ( lscope )
     {
         case HANDLER_SCOPE_INVENTORY:
             targets = caller->gContents();
             for ( ti = targets.begin(); ti != targets.end(); ti++ )
             {
                 thing = *ti;
+
+                // Shouldn't ever happen anyways...
+                if ( thing == caller )
+                    continue;
+
+                if ( thing->gType() != ltype )
+                    continue;
 
                 if ( Utils::iName( name, thing->gName() ) )
                     break;
@@ -387,14 +402,21 @@ Thing* Handler::FindThing( const string& name, const uint_t& type, Thing* caller
             {
                 thing = *ti;
 
+                // Shouldn't ever happen anyways...
+                if ( thing == caller )
+                    continue;
+
+                if ( thing->gType() != ltype )
+                    continue;
+
                 if ( Utils::iName( name, thing->gName() ) )
                     break;
             }
         break;
 
         case HANDLER_SCOPE_LOC_INV:
-            if ( ( thing = FindThing( name, HANDLER_SCOPE_LOCATION, caller ) ) == NULL )
-                thing = FindThing( name, HANDLER_SCOPE_INVENTORY, caller );
+            if ( ( thing = FindThing( name, ltype, HANDLER_SCOPE_LOCATION, caller ) ) == NULL )
+                thing = FindThing( name, ltype, HANDLER_SCOPE_INVENTORY, caller );
         break;
     }
 
