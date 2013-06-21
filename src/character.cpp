@@ -267,7 +267,7 @@ const bool Character::gCreation( const uint_t& pos )
 
     if ( pos < uintmin_t || pos >= MAX_CHR_CREATION )
     {
-        LOGFMT( flags, "Character::sCreation()-> called with invalid pos %lu", pos );
+        LOGFMT( flags, "Character::sCreation()-> called with invalid pos: %lu", pos );
         return false;
     }
 
@@ -331,7 +331,7 @@ const bool Character::sCreation( const uint_t& pos, const bool& val )
 
     if ( pos < uintmin_t || pos >= MAX_CHR_CREATION )
     {
-        LOGFMT( flags, "Character::sCreation()-> called with invalid pos %lu", pos );
+        LOGFMT( flags, "Character::sCreation()-> called with invalid pos: %lu", pos );
         return false;
     }
 
@@ -352,7 +352,7 @@ const bool Character::sSex( const uint_t& sex )
 
     if ( sex < uintmin_t || sex >= MAX_CHR_SEX )
     {
-        LOGFMT( flags, "Character::sSex()-> called with invalid sex %lu", sex );
+        LOGFMT( flags, "Character::sSex()-> called with invalid sex: %lu", sex );
         return false;
     }
 

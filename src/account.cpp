@@ -347,7 +347,7 @@ const vector<pair<string,string>> Account::gLogins( const uint_t& type ) const
 
     if ( type < uintmin_t || type >= MAX_ACT_LOGIN )
     {
-        LOGFMT( flags, "Account::gLogins()-> called with invalid type %lu", type );
+        LOGFMT( flags, "Account::gLogins()-> called with invalid type: %lu", type );
         return vector<pair<string,string>>();
     }
 
@@ -475,7 +475,7 @@ const bool Account::aLogin( const string& date, const string& name, const uint_t
 
     if ( type >= MAX_ACT_LOGIN )
     {
-        LOGSTR( flags, "Account::aHost()-> called with invalid type" );
+        LOGFMT( flags, "Account::aHost()-> called with invalid type: %lu", type );
         return false;
     }
 

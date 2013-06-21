@@ -71,13 +71,13 @@ const bool Event::New( const string& cmd, const string& args, Character* charact
 
     if ( type == EVENT_TYPE_RELOAD )
     {
-        LOGSTR( flags, "Event::New() called with invalid type" );
+        LOGFMT( flags, "Event::New() called with invalid type: %lu", type );
         return false;
     }
 
     if ( time < uintmin_t )
     {
-        LOGSTR( flags, "Event::New() called with invalid time" );
+        LOGFMT( flags, "Event::New() called with invalid time: %lu", time );
         return false;
     }
 
@@ -113,13 +113,13 @@ const bool Event::New( const string& args, const uint_t& type, const uint_t& tim
 
     if ( type != EVENT_TYPE_RELOAD )
     {
-        LOGSTR( flags, "Event::New() called with invalid type" );
+        LOGFMT( flags, "Event::New() called with invalid type: %lu", type );
         return false;
     }
 
     if ( time < uintmin_t )
     {
-        LOGSTR( flags, "Event::New() called with invalid time" );
+        LOGFMT( flags, "Event::New() called with invalid time: %lu", time );
         return false;
     }
 
@@ -161,13 +161,13 @@ const bool Event::New( const string& cmd, const string& args, SocketClient* clie
 
     if ( type == EVENT_TYPE_RELOAD )
     {
-        LOGSTR( flags, "Event::New() called with invalid type" );
+        LOGFMT( flags, "Event::New() called with invalid type: %lu", type );
         return false;
     }
 
     if ( time < uintmin_t )
     {
-        LOGSTR( flags, "Event::New() called with invalid time" );
+        LOGFMT( flags, "Event::New() called with invalid time: %lu", time );
         return false;
     }
 
