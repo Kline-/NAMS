@@ -339,6 +339,7 @@ Object* Handler::FindObject( const string& name, const uint_t& type, const vecto
 Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t& scope, Thing* caller )
 {
     UFLAGS_DE( flags );
+    bool found = false;
     Thing* thing = NULL;
     vector<Thing*> targets;
     CITER( vector, Thing*, ti );
@@ -386,7 +387,10 @@ Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t&
                     continue;
 
                 if ( Utils::iName( name, thing->gName() ) )
+                {
+                    found = true;
                     break;
+                }
             }
         break;
 
@@ -410,7 +414,10 @@ Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t&
                     continue;
 
                 if ( Utils::iName( name, thing->gName() ) )
+                {
+                    found = true;
                     break;
+                }
             }
         break;
 
@@ -419,6 +426,9 @@ Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t&
                 thing = FindThing( name, ltype, HANDLER_SCOPE_INVENTORY, caller );
         break;
     }
+
+    if ( !found )
+        thing = NULL;
 
     return thing;
 }

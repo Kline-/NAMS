@@ -34,28 +34,35 @@ class Look : public Plugin {
 const void Look::Run( Character* character, const string& cmd, const string& arg ) const
 {
     Location* location = NULL;
-    vector<Exit*> loc_exits;
+    vector<Exit*> exits;
     CITER( vector, Exit*, ei );
     Exit* exit = NULL;
-    vector<Thing*> loc_contents;
+    vector<Thing*> contents;
+    CITER( vector, Thing*, ci );
+    Thing* content = NULL;
+    vector<Thing*> targets;
     CITER( vector, Thing*, ti );
-    Thing* thing = NULL;
+    //Thing* target = NULL;
+    string args, sobj, star;
 
     if ( character )
     {
+        args = arg;
+        sobj = Utils::Argument( args );
+        star = Utils::Argument( args );
         location = dynamic_cast<Location*>( character->gContainer() );
 
-        if ( arg.empty() && location != NULL )
+        if ( arg.empty() && location != NULL ) // no args, display the room
         {
-            loc_exits = location->gExits();
+            exits = location->gExits();
 
             character->Send( "[Exits:");
 
-            if ( loc_exits.empty() )
+            if ( exits.empty() )
                 character->Send( " none]" CRLF );
             else
             {
-                for ( ei = loc_exits.begin(); ei != loc_exits.end(); ei++ )
+                for ( ei = exits.begin(); ei != exits.end(); ei++ )
                 {
                     exit = *ei;
                     character->Send( " " + exit->gName() );
@@ -68,33 +75,33 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
             character->Send( location->gDescription( THING_DESCRIPTION_LONG ) + CRLF );
 
             //Contents
-            loc_contents = location->gContents();
+            contents = location->gContents();
 
-            if ( !loc_contents.empty() )
+            if ( !contents.empty() )
             {
                 // We are not alone
-                if ( loc_contents.size() > 1 )
+                if ( contents.size() > 1 )
                     character->Send( CRLF );
 
-                for ( ti = loc_contents.begin(); ti != loc_contents.end(); ti++ )
+                for ( ci = contents.begin(); ci != contents.end(); ci++ )
                 {
-                    thing = *ti;
+                    content = *ci;
 
-                    if ( thing == character )
+                    if ( content == character )
                         continue;
                     else
                     {
-                        switch ( thing->gType() )
+                        switch ( content->gType() )
                         {
                             case THING_TYPE_CHARACTER:
-                                character->Send( thing->gName() + " is standing here." + CRLF );
+                                character->Send( content->gName() + " is standing here." + CRLF );
                             break;
 
                             case THING_TYPE_LOCATION:
                             break;
 
                             case THING_TYPE_OBJECT:
-                                character->Send( thing->gDescription( THING_DESCRIPTION_LONG ) + CRLF );
+                                character->Send( content->gDescription( THING_DESCRIPTION_LONG ) + CRLF );
                             break;
 
                             case THING_TYPE_THING:
@@ -104,8 +111,18 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
                 }
             }
         }
+        else if ( sobj == "i" || sobj == "in" ) // check for 'in'
+        {
+            if ( star.empty() )
+            {
+                character->Send( "Look in what?" CRLF );
+                return;
+            }
 
-        // check for 'in'
+            //objects
+        }
+
+
         // check for characters in location
         // check for objects in location
         // check for exits in location

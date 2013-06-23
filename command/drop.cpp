@@ -39,7 +39,7 @@ const void Drop::Run( Character* character, const string& cmd, const string& arg
             return;
         }
 
-        object = Handler::FindThing( arg, HANDLER_SCOPE_INVENTORY, character );
+        object = Handler::FindThing( arg, THING_TYPE_OBJECT, HANDLER_SCOPE_INVENTORY, character );
 
         if ( object )
         {

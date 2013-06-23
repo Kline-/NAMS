@@ -29,14 +29,9 @@ class Get : public Plugin {
 
 const void Get::Run( Character* character, const string& cmd, const string& arg ) const
 {
-    vector<Thing*> objects;
-    vector<Thing*> targets;
     Thing* object = NULL;
     Thing* target = NULL;
-    CITER( vector, Thing*, oi );
-    CITER( vector, Thing*, ti );
     string args, sobj, star;
-    bool found = false;
 
     if ( character )
     {
@@ -53,102 +48,43 @@ const void Get::Run( Character* character, const string& cmd, const string& arg 
         // No 'from' target specified, so search the room
         if ( star.empty() )
         {
-            objects = character->gContainer()->gContents();
-            for ( oi = objects.begin(); oi != objects.end(); oi++ )
+            object = Handler::FindThing( sobj, THING_TYPE_OBJECT, HANDLER_SCOPE_LOCATION, character );
+
+            if ( object )
             {
-                object = *oi;
-
-                // Don't want characters to pick up characters...yet
-                if ( object->gType() != THING_TYPE_OBJECT )
-                    continue;
-
-                if ( Utils::iName( sobj, object->gName() ) )
-                {
-                    found = true;
-                    break;
-                }
+                character->Send( "You get " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF );
+                character->gContainer()->Send( character->gName() + " gets " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF, character );
+                object->Move( character->gContainer(), character );
             }
-
-            if ( !found )
+            else
             {
                 character->Send( "There is no " + arg + " here." CRLF );
                 return;
             }
-
-            character->Send( "You get " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF );
-            character->gContainer()->Send( character->gName() + " gets " + object->gDescription( THING_DESCRIPTION_SHORT ) + "." + CRLF, character );
-            object->Move( character->gContainer(), character );
         }
         else
         {
-            targets = character->gContainer()->gContents();
-            for ( ti = targets.begin(); ti != targets.end(); ti++ )
-            {
-                target = *ti;
+            target = Handler::FindThing( star, THING_TYPE_OBJECT, HANDLER_SCOPE_LOC_INV, character );
 
-                // Don't want characters to pick up characters...yet
-                if ( target->gType() != THING_TYPE_OBJECT )
-                    continue;
-
-                if ( Utils::iName( star, target->gName() ) )
-                {
-                    found = true;
-                    break;
-                }
-            }
-
-            // If no target is found in the room, search the inventory
-            if ( !found )
-            {
-                targets = character->gContents();
-                for ( ti = targets.begin(); ti != targets.end(); ti++ )
-                {
-                    target = *ti;
-
-                    // Don't want characters to pick up characters...yet
-                    if ( target->gType() != THING_TYPE_OBJECT )
-                        continue;
-
-                    if ( Utils::iName( star, target->gName() ) )
-                    {
-                        found = true;
-                        break;
-                    }
-                }
-            }
-
-            // Final check
-            if ( !found )
+            if ( !target )
             {
                 character->Send( "There is no " + star + " here." CRLF );
                 return;
             }
 
-            objects = target->gContents();
-            for ( oi = objects.begin(); oi != objects.end(); oi++ )
+            object = Handler::FindThing( sobj, THING_TYPE_OBJECT, HANDLER_SCOPE_INVENTORY, target );
+
+            if ( object )
             {
-                object = *oi;
-
-                // Don't want characters to pick up characters...yet
-                if ( target->gType() != THING_TYPE_OBJECT )
-                    continue;
-
-                if ( Utils::iName( sobj, target->gName() ) )
-                {
-                    found = true;
-                    break;
-                }
+                character->Send( "You get " + object->gDescription( THING_DESCRIPTION_SHORT ) + " from " + target->gDescription( THING_DESCRIPTION_SHORT ) + "." CRLF );
+                character->gContainer()->Send(  character->gName() + " gets " + object->gDescription( THING_DESCRIPTION_SHORT ) + " from " + target->gDescription( THING_DESCRIPTION_SHORT )+ "." CRLF, character );
+                object->Move( target, character );
             }
-
-            if ( !found )
+            else
             {
                 character->Send( "There is no " + sobj + " inside the " + target->gDescription( THING_DESCRIPTION_SHORT ) + "." CRLF );
                 return;
             }
-
-            character->Send( "You get " + object->gDescription( THING_DESCRIPTION_SHORT ) + " from " + target->gDescription( THING_DESCRIPTION_SHORT ) + "." CRLF );
-            character->gContainer()->Send(  character->gName() + " gets " + object->gDescription( THING_DESCRIPTION_SHORT ) + " from " + target->gDescription( THING_DESCRIPTION_SHORT )+ "." CRLF, character );
-            object->Move( target, character );
         }
     }
 
