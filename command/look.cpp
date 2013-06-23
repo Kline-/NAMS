@@ -109,8 +109,9 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
                 }
             }
         }
-        else if ( sobj == "i" || sobj == "in" ) // check for 'in'
+        else if ( Utils::String( "in" ).find( sobj ) == 0 )
         {
+            // check for 'in'
             if ( star.empty() )
             {
                 character->Send( "Look in what?" CRLF );
@@ -140,11 +141,35 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
                 character->Send( "    " + content->gDescription( THING_DESCRIPTION_SHORT ) + CRLF );
             }
         }
-
-        // check for characters in location
-        // check for objects in location
-        // check for exits in location
-        // check inventory
+        else if ( ( Utils::String( "self" ).find( arg ) == 0 ) || ( ( target = Handler::FindThing( arg, THING_TYPE_CHARACTER, HANDLER_SCOPE_LOCATION, character, true ) ) != NULL ) )
+        {
+            // check for characters in location, including self
+            if ( Utils::String( "self" ).find( arg ) == 0 )
+                target = character;
+            character->Send( target->gName() + " is here." CRLF );
+            if ( character != target )
+                target->Send( character->gName() + " looks at you." CRLF );
+            character->gContainer()->Send( character->gName() + " looks at " + target->gName() + "." CRLF, character, target );
+        }
+        else if ( ( target = Handler::FindThing( arg, THING_TYPE_OBJECT, HANDLER_SCOPE_LOCATION, character ) ) != NULL )
+        {
+            // check for objects in location
+            character->Send( target->gDescription( THING_DESCRIPTION_LONG ) + CRLF );
+            character->gContainer()->Send( character->gName() + " looks at " + target->gDescription( THING_DESCRIPTION_SHORT ) + "." CRLF, character );
+        }
+        else if ( ( character->gContainer()->gType() == THING_TYPE_LOCATION ) && ( ( exit = Handler::FindExit( arg, dynamic_cast<Location*>( character->gContainer() ) ) ) != NULL ) )
+        {
+            // check for exits in location
+            character->Send( "You look through " + exit->gName() + " and see " + exit->gDestination()->gName() + "." CRLF );
+            character->gContainer()->Send( character->gName() +" looks " + exit->gName() + "." CRLF, character );
+        }
+        else if ( ( target = Handler::FindThing( arg, THING_TYPE_OBJECT, HANDLER_SCOPE_INVENTORY, character ) ) != NULL )
+        {
+            // check inventory
+            character->Send( target->gDescription( THING_DESCRIPTION_LONG ) + CRLF );
+        }
+        else
+            character->Send( "You don't see that here." CRLF );
     }
 
     return;

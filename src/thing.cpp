@@ -90,7 +90,7 @@ const bool Thing::Move( Thing* source, Thing* destination, Exit* exit )
     /** @todo Move this to its own function some day to properly handle grammar, etc */
     // Notify everyone else we moved
     if ( exit )
-        source->Send( CRLF + gName() + " leaves " + exit->gName() + "." CRLF, this );
+        source->Send( gName() + " leaves " + exit->gName() + "." CRLF, this );
 
     // Were we able to get into the destination Thing?
     if ( !destination->AddThing( this ) )
@@ -99,7 +99,7 @@ const bool Thing::Move( Thing* source, Thing* destination, Exit* exit )
     /** @todo Move this to its own function some day to properly handle grammar, etc */
     // Notify everyone else we arrived
     if ( exit )
-        gContainer()->Send( CRLF + gName() + " enters from " + exit->gName() + "." CRLF, this );
+        gContainer()->Send( gName() + " enters from " + exit->gName() + "." CRLF, this );
 
     return true;
 }

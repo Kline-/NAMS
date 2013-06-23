@@ -71,7 +71,7 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
     }
     else if ( ( exit = Handler::FindExit( cmd, dynamic_cast<Location*>( gContainer() ) ) ) != NULL ) // Search for an exit
     {
-        if ( Move( gContainer(), exit->gDestination() ) )
+        if ( Move( gContainer(), exit->gDestination(), exit ) )
         {
             // Auto-look
             if ( ( command = Handler::FindCommand( "look" ) ) != NULL ) /** @todo Make this configurable per-account/character */

@@ -334,9 +334,10 @@ Object* Handler::FindObject( const string& name, const uint_t& type, const vecto
  * @param[in] type The type of Thing to search for, from #THING_TYPE.
  * @param[in] scope The scope of the search from #HANDLER_SCOPE.
  * @param[in] caller The Thing whose Location and/or contents should be searched.
+ * @param[in] self If true, allows caller to return itself as the Thing found.
  * @retval Thing* A pointer to the Thing identified by name, or NULL if not found.
  */
-Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t& scope, Thing* caller )
+Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t& scope, Thing* caller, const bool& self )
 {
     UFLAGS_DE( flags );
     bool found = false;
@@ -380,7 +381,7 @@ Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t&
                 thing = *ti;
 
                 // Shouldn't ever happen anyways...
-                if ( thing == caller )
+                if ( thing == caller && !self )
                     continue;
 
                 if ( thing->gType() != ltype )
@@ -407,7 +408,7 @@ Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t&
                 thing = *ti;
 
                 // Shouldn't ever happen anyways...
-                if ( thing == caller )
+                if ( thing == caller && !self )
                     continue;
 
                 if ( thing->gType() != ltype )
