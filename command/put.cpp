@@ -66,6 +66,12 @@ const void Put::Run( Character* character, const string& cmd, const string& arg 
             return;
         }
 
+        if ( object == target )
+        {
+            character->Send( "You can't put an object inside of itself." CRLF );
+            return;
+        }
+
         character->Send( "You put " + object->gDescription( THING_DESCRIPTION_SHORT ) + " in " + target->gDescription( THING_DESCRIPTION_SHORT ) + "." CRLF );
         character->gContainer()->Send(  character->gName() + " puts " + object->gDescription( THING_DESCRIPTION_SHORT ) + " in " + target->gDescription( THING_DESCRIPTION_SHORT )+ "." CRLF, character );
         object->Move( character, target );

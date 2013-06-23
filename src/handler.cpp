@@ -424,6 +424,9 @@ Thing* Handler::FindThing( const string& name, const uint_t& type, const uint_t&
         case HANDLER_SCOPE_LOC_INV:
             if ( ( thing = FindThing( name, ltype, HANDLER_SCOPE_LOCATION, caller ) ) == NULL )
                 thing = FindThing( name, ltype, HANDLER_SCOPE_INVENTORY, caller );
+
+            if ( thing )
+                found = true;
         break;
     }
 

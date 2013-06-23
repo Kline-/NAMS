@@ -40,9 +40,7 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
     vector<Thing*> contents;
     CITER( vector, Thing*, ci );
     Thing* content = NULL;
-    vector<Thing*> targets;
-    CITER( vector, Thing*, ti );
-    //Thing* target = NULL;
+    Thing* target = NULL;
     string args, sobj, star;
 
     if ( character )
@@ -119,9 +117,29 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
                 return;
             }
 
-            //objects
-        }
+            target = Handler::FindThing( star, THING_TYPE_OBJECT, HANDLER_SCOPE_LOC_INV, character );
 
+            if ( !target )
+            {
+                character->Send( "There is no " + star + " here." CRLF );
+                return;
+            }
+
+            character->Send( target->gDescription( THING_DESCRIPTION_SHORT ) + " contains:" CRLF );
+            contents = target->gContents();
+
+            if ( contents.empty() )
+            {
+                character->Send( "    Nothing." CRLF );
+                return;
+            }
+
+            for ( ci = contents.begin(); ci != contents.end(); ci++ )
+            {
+                content = *ci;
+                character->Send( "    " + content->gDescription( THING_DESCRIPTION_SHORT ) + CRLF );
+            }
+        }
 
         // check for characters in location
         // check for objects in location
