@@ -36,7 +36,6 @@ const void Put::Run( Character* character, const string& cmd, const string& arg 
     CITER( vector, Thing*, oi );
     CITER( vector, Thing*, ti );
     string args, sobj, star;
-    bool found = false;
 
     if ( character )
     {
@@ -50,67 +49,18 @@ const void Put::Run( Character* character, const string& cmd, const string& arg 
             return;
         }
 
-        objects = character->gContents();
-        for ( oi = objects.begin(); oi != objects.end(); oi++ )
-        {
-            object = *oi;
+        object = Handler::FindThing( sobj, THING_TYPE_OBJECT, HANDLER_SCOPE_INVENTORY, character );
 
-            if ( Utils::iName( sobj, object->gName() ) )
-            {
-                found = true;
-                break;
-            }
-        }
-
-        if ( !found )
+        if ( !object )
         {
             character->Send( "You don't have that item." CRLF );
             return;
         }
 
-        found = false;
-        targets = character->gContainer()->gContents();
-        for ( ti = targets.begin(); ti != targets.end(); ti++ )
-        {
-            target = *ti;
-
-            // Don't want to 'put' an Object in a Character
-            if ( target->gType() != THING_TYPE_OBJECT )
-                continue;
-
-            if ( Utils::iName( star, target->gName() ) )
-            {
-                found = true;
-                break;
-            }
-        }
-
-        // If no target is found in the room, search the inventory
-        if ( !found )
-        {
-            targets = character->gContents();
-            for ( ti = targets.begin(); ti != targets.end(); ti++ )
-            {
-                target = *ti;
-
-                // Don't put an Object inside of itself
-                if ( object == target )
-                    continue;
-
-                // Don't want to 'put' an Object in a Character
-                if ( target->gType() != THING_TYPE_OBJECT )
-                    continue;
-
-                if ( Utils::iName( star, target->gName() ) )
-                {
-                    found = true;
-                    break;
-                }
-            }
-        }
+        target = Handler::FindThing( star, THING_TYPE_OBJECT, HANDLER_SCOPE_LOC_INV, character );
 
         // Final check
-        if ( !found )
+        if ( !target )
         {
             character->Send( "There is no " + star + " here." CRLF );
             return;

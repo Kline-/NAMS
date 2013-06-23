@@ -36,7 +36,6 @@ const void Give::Run( Character* character, const string& cmd, const string& arg
     CITER( vector, Thing*, oi );
     CITER( vector, Thing*, ti );
     string args, sobj, star;
-    bool found = false;
 
     if ( character )
     {
@@ -50,45 +49,17 @@ const void Give::Run( Character* character, const string& cmd, const string& arg
             return;
         }
 
-        objects = character->gContents();
-        for ( oi = objects.begin(); oi != objects.end(); oi++ )
-        {
-            object = *oi;
+        object = Handler::FindThing( sobj, THING_TYPE_OBJECT, HANDLER_SCOPE_INVENTORY, character );
 
-            if ( Utils::iName( sobj, object->gName() ) )
-            {
-                found = true;
-                break;
-            }
-        }
-
-        if ( !found )
+        if ( !object )
         {
             character->Send( "You don't have that item." CRLF );
             return;
         }
 
-        found = false;
-        targets = character->gContainer()->gContents();
-        for ( ti = targets.begin(); ti != targets.end(); ti++ )
-        {
-            target = *ti;
+        target = Handler::FindThing( star, THING_TYPE_CHARACTER, HANDLER_SCOPE_LOCATION, character );
 
-            if ( character == target )
-                continue;
-
-            // Don't want to 'give' an Object to another Object
-            if ( target->gType() != THING_TYPE_CHARACTER )
-                continue;
-
-            if ( Utils::iName( star, target->gName() ) )
-            {
-                found = true;
-                break;
-            }
-        }
-
-        if ( !found )
+        if ( !target )
         {
             character->Send( "They aren't here." CRLF );
             return;
