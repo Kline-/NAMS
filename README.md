@@ -11,16 +11,16 @@ of Git not tracking empty directories.
 
 __Support for this code is provided both via GitHub and the project website.__
 
-Documentation   - http://kline-.github.com/NAMS/
-GitHub          - https://github.com/Kline-/NAMS
-Project Website - http://www.ackmud.net
+* Documentation   - http://kline-.github.com/NAMS/  
+* GitHub          - https://github.com/Kline-/NAMS  
+* Project Website - http://www.ackmud.net  
 
 ### Directory Layout
-  account/ -- All accounts, each is represented as a directory
-  command/ -- All game commands to be built as plugins
-  doc/     -- Miscellaneous docs on changes/install, Valgrind suppressions, etc
-  etc/     -- Runtime configurations, world persistence, and miscelaneous data
-  log/     -- All server log files
-  obj/     -- Compiled plugin object files
-  src/     -- Source code, header files within h/ and object files within o/
-  var/     -- Storage for temporary files during write operations
+* account/ -- All accounts, each is represented as a directory  
+* command/ -- All game commands to be built as plugins  
+* doc/     -- Miscellaneous docs on changes/install, Valgrind suppressions, etc  
+* etc/     -- Runtime configurations, world persistence, and miscelaneous data  
+* log/     -- All server log files  
+* obj/     -- Compiled plugin object files  
+* src/     -- Source code, header files within h/ and object files within o/  
+* var/     -- Storage for temporary files during write operations  
