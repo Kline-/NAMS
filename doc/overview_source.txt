@@ -91,9 +91,6 @@ are also grouped here.
     account.cpp
         Contains all non-template member functions of the Account class.
 
-    brain.cpp
-        Contains all non-template member functions of the Brain class.
-
     character.cpp
         Contains all non-template member functions of the Character class.
 
@@ -128,7 +125,7 @@ are also grouped here.
         Contains all non-template member functions of the Reset class.
 
     server.cpp
-        Contains all non-template member functions of the Server class.
+        Contains all functions within the Server namespace.
 
     socket.cpp
         Contains all non-template member functions of the Socket class.
@@ -161,9 +158,6 @@ are also grouped here.
 
     account.h
         Contains the Account class and templates.
-
-    brain.h
-        Contains the Brain class and templates.
 
     character.h
         Contains the Character class and templates.
@@ -238,7 +232,7 @@ are also grouped here.
         Contains the Reset class and templates.
 
     server.h
-        Contains the Server class and templates.
+        Contains the Server namespace, templates, and trivial member functions.
 
     socket.h
         Contains the Socket class and templates.

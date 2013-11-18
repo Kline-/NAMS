@@ -256,6 +256,16 @@ Account* Character::gAccount() const
 }
 
 /**
+ * @brief Returns the Brain associated with this Character.
+ * @retval Character::Brain* A pointer to the associated Brain.
+ * @return
+ */
+Character::Brain* Character::gBrain() const
+{
+    return m_brain;
+}
+
+/**
  * @brief Gets the creation states of this character from #CHR_CREATION.
  * @param[in] pos The creation state to get.
  * @retval false Returned if the state is set to false.
@@ -363,6 +373,22 @@ const bool Character::sSex( const uint_t& sex )
 
 /* Internal */
 /**
+ * @brief Constructor for the Character::Brain class.
+ */
+Character::Brain::Brain()
+{
+    return;
+}
+
+/**
+ * @brief Destructor for the Character::Brain class.
+ */
+Character::Brain::~Brain()
+{
+    return;
+}
+
+/**
  * @brief Constructor for the Character class.
  */
 Character::Character()
@@ -373,6 +399,7 @@ Character::Character()
     sType( THING_TYPE_CHARACTER );
     /** Initialize attributes specific to Characters */
     m_account = NULL;
+    m_brain = new Character::Brain();
     for ( i = 0; i < MAX_CHR_CREATION; i++ )
         m_creation[i] = false;
     m_file.clear();
@@ -386,5 +413,7 @@ Character::Character()
  */
 Character::~Character()
 {
+    delete m_brain;
+
     return;
 }

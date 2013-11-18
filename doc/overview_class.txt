@@ -6,6 +6,7 @@ within the NAMS server.
 
 Namespace
     Handler     All non-member process control functions are within this namespace.
+    Server      The Server namespace contains OS interface functions.
     Telopt      All non-member telnet negotiation functions are within this namespace.
     Utils       Currently all non-member functions are kept within this namespace.
 
@@ -91,20 +92,6 @@ Class
         A reset is a "spawn" instance within the game world. A reset defines
         how many Objects or NPCs will be generated within a Location and
         within what timeframe.
-
-    Server
-        Inherits: None
-        Children: None
-        Internal: Config
-
-        The server core. Currently, NAMS is designed utilizing a single
-        Server instance. However, it would be possible for this to be
-        forked or threaded into multiple instances such as alternative
-        ports or game worlds.
-
-        Each Server maintains an internal Config class. The Config class
-        stores runtime configuration data that is written to disk and
-        loaded at boot time.
 
     Socket
         Inherits: None
