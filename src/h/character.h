@@ -45,9 +45,11 @@ class Character : public Thing
             /**@}*/
 
             /** @name Query */ /**@{*/
+            Account* gAccount() const;
             /**@}*/
 
             /** @name Manipulate */ /**@{*/
+            const bool sAccount( Account* account );
             /**@}*/
 
             /** @name Internal */ /**@{*/
@@ -56,6 +58,7 @@ class Character : public Thing
             /**@}*/
 
         private:
+            Account* m_account; /**< The associated Account, if any. */
     };
 
     public:
@@ -69,7 +72,6 @@ class Character : public Thing
         /**@}*/
 
         /** @name Query */ /**@{*/
-        Account* gAccount() const;
         Character::Brain* gBrain() const;
         const bool gCreation( const uint_t& pos );
         const string gPrompt() const;
@@ -77,7 +79,6 @@ class Character : public Thing
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
-        const bool sAccount( Account* account );
         const bool sCreation( const uint_t& pos, const bool& val );
         const bool sSex( const uint_t& sex );
         /**@}*/
@@ -88,7 +89,6 @@ class Character : public Thing
         /**@}*/
 
     private:
-        Account* m_account; /**< The associated Account, if any. */
         Character::Brain* m_brain; /**< Brain abstraction layer for PC/NPC. */
         bool m_creation[MAX_CHR_CREATION]; /**< Track if all creation options have been set. */
         string m_file; /**< Path to the file on disk. */

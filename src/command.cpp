@@ -134,7 +134,7 @@ const void Command::Run( Character* character, const string& cmd, const string& 
 {
     if ( character )
     {
-        if ( m_disabled && character->gAccount()->gSecurity() < ACT_SECURITY_ADMIN )
+        if ( m_disabled && character->gBrain()->gAccount()->gSecurity() < ACT_SECURITY_ADMIN )
             character->Send( CFG_STR_CMD_DISABLED );
         else
             m_plg->Run( character, cmd, arg );

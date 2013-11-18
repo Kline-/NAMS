@@ -33,10 +33,10 @@ const void Quit::Run( Character* character, const string& cmd, const string& arg
 {
     if ( character )
     {
-        if ( character->gAccount() == NULL )
+        if ( character->gBrain()->gAccount() == NULL )
             character->Delete();
         else
-            character->gAccount()->gClient()->Quit();
+            character->gBrain()->gAccount()->gClient()->Quit();
     }
 
     return;

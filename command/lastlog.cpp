@@ -36,14 +36,14 @@ const void LastLog::Run( Character* character, const string& cmd, const string& 
 
     if ( character )
     {
-        if ( character->gAccount() )
+        if ( character->gBrain()->gAccount() )
         {
-            logins = character->gAccount()->gLogins( ACT_LOGIN_FAILURE );
+            logins = character->gBrain()->gAccount()->gLogins( ACT_LOGIN_FAILURE );
             character->Send( Utils::FormatString( 0, "Last %lu failed logins:" CRLF, CFG_ACT_LOGIN_MAX ) );
             for ( li = logins.begin(); li != logins.end(); li++ )
                 character->Send( Utils::FormatString( 0, "    [%s] %s" CRLF, CSTR( li->first ), CSTR( li->second ) ) );
 
-            logins = character->gAccount()->gLogins( ACT_LOGIN_SUCCESS );
+            logins = character->gBrain()->gAccount()->gLogins( ACT_LOGIN_SUCCESS );
             character->Send( Utils::FormatString( 0, "Last %lu successful logins:" CRLF, CFG_ACT_LOGIN_MAX ) );
             for ( li = logins.begin(); li != logins.end(); li++ )
                 character->Send( Utils::FormatString( 0, "    [%s] %s" CRLF, CSTR( li->first ), CSTR( li->second ) ) );

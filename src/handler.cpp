@@ -741,16 +741,16 @@ const void Handler::Reconnect( SocketClient* client, Character* character )
     LOGFMT( flag, "%s@%s kicking off old link.", CSTR( character->gName() ), CSTR( client->gHostname() ) );
 
     // De-associate from the existing login session, if one exists
-    if ( character->gAccount() )
+    if ( character->gBrain()->gAccount() )
     {
-        character->gAccount()->sCharacter( NULL );
-        character->gAccount()->gClient()->sState( SOC_STATE_DISC_LINKDEAD );
-        character->gAccount()->gClient()->Quit();
-        character->sAccount( NULL );
+        character->gBrain()->gAccount()->sCharacter( NULL );
+        character->gBrain()->gAccount()->gClient()->sState( SOC_STATE_DISC_LINKDEAD );
+        character->gBrain()->gAccount()->gClient()->Quit();
+        character->gBrain()->sAccount( NULL );
     }
 
     // Now re-associate to the new one
-    character->sAccount( client->gAccount() );
+    character->gBrain()->sAccount( client->gAccount() );
     client->gAccount()->sCharacter( character );
 
     // Cleanup any pending disconnection events from the old Character
@@ -1058,7 +1058,7 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
     if ( client->gAccount()->gCharacter() == NULL )
     {
         chr = new Character();
-        chr->sAccount( client->gAccount() );
+        chr->gBrain()->sAccount( client->gAccount() );
 
         if ( !chr->New( cmd, false ) )
         {
@@ -1576,7 +1576,7 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
     }
 
     chr = new Character();
-    chr->sAccount( client->gAccount() );
+    chr->gBrain()->sAccount( client->gAccount() );
     // Id for characters owned by accounts is account_name.character_name
     id << client->gAccount()->gId() << "." << client->gLogin( SOC_LOGIN_CHARACTER );
 

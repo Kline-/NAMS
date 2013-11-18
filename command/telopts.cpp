@@ -35,9 +35,9 @@ const void Telopts::Run( Character* character, const string& cmd, const string& 
     {
         character->Send( "Telopt Status" CRLF );
         character->Send( "    Echo: " );
-        character->Send( character->gAccount()->gClient()->gTermInfo()->gTelopt( SOC_TELOPT_ECHO ) ? "true" : "false" CRLF );
+        character->Send( character->gBrain()->gAccount()->gClient()->gTermInfo()->gTelopt( SOC_TELOPT_ECHO ) ? "true" : "false" CRLF );
         character->Send( "     MSP: " );
-        character->Send( character->gAccount()->gClient()->gTermInfo()->gTelopt( SOC_TELOPT_MSP ) ? "true" : "false" CRLF  );
+        character->Send( character->gBrain()->gAccount()->gClient()->gTermInfo()->gTelopt( SOC_TELOPT_MSP ) ? "true" : "false" CRLF  );
     }
 
     return;

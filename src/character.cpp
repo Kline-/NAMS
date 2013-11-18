@@ -42,8 +42,8 @@ const void Character::Delete()
     if ( find( character_list.begin(), character_list.end(), this ) != character_list.end() )
         g_global->m_next_character = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
 
-    if ( m_account )
-        m_account->sCharacter( NULL );
+    if ( gBrain()->gAccount() )
+        gBrain()->gAccount()->sCharacter( NULL );
 
     delete this;
 
@@ -122,9 +122,9 @@ const bool Character::New( const string& file, const bool& exists )
  */
 const void Character::Send( const string& msg, Thing* speaker, Thing* target ) const
 {
-    if ( m_account )
-        if ( m_account->gClient() )
-            m_account->gClient()->Send( msg );
+    if ( gBrain()->gAccount() )
+        if ( gBrain()->gAccount()->gClient() )
+            gBrain()->gAccount()->gClient()->Send( msg );
 
     return;
 }
@@ -166,7 +166,7 @@ const bool Character::Serialize() const
     KEY( ofs, "sex", m_sex );
     KEY( ofs, "zone", gZone() );
 
-    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gId() ), CSTR( file ) );
+    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gBrain()->gAccount()->gId() ), CSTR( file ) );
 
     return true;
 }
@@ -186,7 +186,7 @@ const bool Character::Unserialize()
     bool found = false, maxb = false;
     uint_t revision = uintmin_t;
 
-    Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gId() ), m_file ) );
+    Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gBrain()->gAccount()->gId() ), m_file ) );
 
     if ( !ifs.good() )
     {
@@ -220,7 +220,7 @@ const bool Character::Unserialize()
             else if ( key == "location" )
             {
                 found = true;
-                gAccount()->gClient()->sLogin( SOC_LOGIN_LOCATION, value );
+                gBrain()->gAccount()->gClient()->sLogin( SOC_LOGIN_LOCATION, value );
             }
             else if ( key == "name" )
             {
@@ -252,10 +252,10 @@ const bool Character::Unserialize()
 
 /* Query */
 /**
- * @brief Returns the Account associated with this Character, if any.
+ * @brief Returns the Account associated with this character's brain, if any.
  * @retval Account* A pointer to the associated account, or NULL if none.
  */
-Account* Character::gAccount() const
+Account* Character::Brain::gAccount() const
 {
     return m_account;
 }
@@ -313,18 +313,18 @@ const uint_t Character::gSex() const
 
 /* Manipulate */
 /**
- * @brief Sets the account of this character.
- * @param[in] account A pointer to the Account to be associated with this character.
- * @retval false Returned if unable to associate the account with this character.
+ * @brief Sets the account of this character's brain.
+ * @param[in] account A pointer to the Account to be associated with this character's brain.
+ * @retval false Returned if unable to associate the account with this character's brain.
  * @retval true Returned if the account was successfully associated.
  */
-const bool Character::sAccount( Account* account )
+const bool Character::Brain::sAccount( Account* account )
 {
     UFLAGS_DE( flags );
 
     if ( m_account != NULL && account != NULL )
     {
-        LOGSTR( flags, "Character::sAccount()-> called while m_account is not NULL" );
+        LOGSTR( flags, "Character::Brain::sAccount()-> called while m_account is not NULL" );
         return false;
     }
 
@@ -382,6 +382,8 @@ const bool Character::sSex( const uint_t& sex )
  */
 Character::Brain::Brain()
 {
+    m_account = NULL;
+
     return;
 }
 
@@ -403,7 +405,6 @@ Character::Character()
     /** Initialize attributes from parent Thing class */
     sType( THING_TYPE_CHARACTER );
     /** Initialize attributes specific to Characters */
-    m_account = NULL;
     m_brain = new Character::Brain();
     for ( i = 0; i < MAX_CHR_CREATION; i++ )
         m_creation[i] = false;

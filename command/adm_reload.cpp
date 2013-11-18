@@ -49,8 +49,8 @@ const void AdmReload::Run( Character* character, const string& cmd, const string
 
         if ( ( command = Handler::FindCommand( arg ) ) != NULL )
         {
-            if ( character->gAccount() )
-                security = character->gAccount()->gSecurity();
+            if ( character->gBrain()->gAccount() )
+                security = character->gBrain()->gAccount()->gSecurity();
 
             if ( command->Authorized( security ) )
             {

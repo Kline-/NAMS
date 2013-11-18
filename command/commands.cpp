@@ -43,8 +43,8 @@ const void Commands::Run( Character* character, const string& cmd, const string&
 
     if ( character )
     {
-        if ( character->gAccount() )
-            security = character->gAccount()->gSecurity();
+        if ( character->gBrain()->gAccount() )
+            security = character->gBrain()->gAccount()->gSecurity();
 
         character->Send( "Available commands:" CRLF "    " );
 

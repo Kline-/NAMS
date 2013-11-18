@@ -520,7 +520,7 @@ const bool Server::PollSockets()
                             Event* event = new Event();
 
                             socket_client->sState( SOC_STATE_DISC_LINKDEAD );
-                            socket_client->gAccount()->gCharacter()->sAccount( NULL );
+                            socket_client->gAccount()->gCharacter()->gBrain()->sAccount( NULL );
                             event->New( "quit", "quit", socket_client->gAccount()->gCharacter(), Handler::FindCommand( "quit" ), EVENT_TYPE_CMD_CHARACTER, CFG_CHR_MAX_IDLE );
                             socket_client->gAccount()->sCharacter( NULL );
                         }
@@ -709,7 +709,7 @@ const void Server::RebootRecovery( const bool& reboot )
             {
                 character = new Character();
                 client->gAccount()->sCharacter( character );
-                character->sAccount( client->gAccount() );
+                character->gBrain()->sAccount( client->gAccount() );
                 character->New( client->gAccount()->gId() + "." + value + "." + CFG_DAT_FILE_PLR_EXT, true );
                 Handler::EnterGame( client, "reboot", silent );
             }
