@@ -34,6 +34,53 @@
 
 /* Core */
 /**
+ * @brief Clones a Character from the character_template_list into the character_list.
+ * @param[in] name The name of the template character to clone.
+ * @param[in] type The field to search against, from #HANDLER_FIND.
+ * @retval false Returned if there was an error cloning the Character.
+ * @retval true Returned if the Character was successfully cloned.
+ */
+const bool Character::Clone( const string& name, const uint_t& type )
+{
+    UFLAGS_DE( flags );
+    Character* chr = NULL;
+    uint_t search = type;
+
+    if ( name.empty() )
+    {
+        LOGSTR( flags, "Character::Clone()-> called with empty name" );
+        return false;
+    }
+
+    if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
+    {
+        LOGFMT( flags, "Character::Clone()-> called with invalid type: %lu", search );
+        LOGSTR( flags, "Character::Clone()-> defaulting to HANDLER_FIND_ID" );
+        search = HANDLER_FIND_ID;
+    }
+
+    if ( ( chr = Handler::FindCharacter( name, type, character_template_list ) ) == NULL )
+        return false;
+
+    /** Copy elements from Thing parent class */
+    for ( search = 0; search < MAX_THING_DESCRIPTION; search++ )
+        sDescription( chr->gDescription( search ), search );
+    sName( chr->gName() );
+    sZone( chr->gZone() );
+    /** Copy elements internal to Character class */
+    for ( search = 0; search < MAX_CHR_CREATION; search++ )
+        sCreation( chr->gCreation( search ), search );
+    m_file = chr->m_file;
+    m_sex = chr->m_sex;
+    /** Generate a unique id based on obj_list.size() and current time */
+    NewId( character_list.size() );
+
+    character_list.push_back( this );
+
+    return true;
+}
+
+/**
  * @brief Unload a character from memory that was previously loaded via Character::New().
  * @retval void
  */

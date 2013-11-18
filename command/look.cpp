@@ -92,7 +92,11 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
                         switch ( content->gType() )
                         {
                             case THING_TYPE_CHARACTER:
-                                character->Send( content->gName() + " is standing here." + CRLF );
+                                // If an Account is attached, treat as a player character, otherwise treat as a NPC
+                                if ( content->gBrain()->gAccount() )
+                                    character->Send( content->gName() + " is standing here." + CRLF );
+                                else
+                                    character->Send( content->gDescription( THING_DESCRIPTION_LONG ) + CRLF );
                             break;
 
                             case THING_TYPE_LOCATION:
@@ -146,7 +150,11 @@ const void Look::Run( Character* character, const string& cmd, const string& arg
             // check for characters in location, including self
             if ( Utils::String( "self" ).find( arg ) == 0 )
                 target = character;
-            character->Send( target->gName() + " is here." CRLF );
+            // If an Account is attached, treat as a player character, otherwise treat as a NPC
+            if ( target->gBrain()->gAccount() )
+                character->Send( target->gName() + " is here." CRLF );
+            else
+                character->Send( target->gDescription( THING_DESCRIPTION_SHORT ) + CRLF );
             if ( character != target )
                 target->Send( character->gName() + " looks at you." CRLF );
             character->gContainer()->Send( character->gName() + " looks at " + target->gName() + "." CRLF, character, target );

@@ -42,57 +42,56 @@
  * @brief Locates a Character within the game.
  * @param[in] name The name of the Character to search for.
  * @param[in] type The field to search against, from #HANDLER_FIND.
+ * @param[in] clist The character list to be searched.
  * @retval Character* A pointer to the Character object associated with name, or NULL if one is not found.
  */
-Character* Handler::FindCharacter( const string& name, const uint_t& type )
+Character* Handler::FindCharacter( const string& name, const uint_t& type, const vector<Character*>& clist )
 {
     UFLAGS_DE( flags );
     Character* chr = NULL;
     bool found = false;
-    ITER( vector, Character*, ci );
+    CITER( vector, Character*, ci );
     uint_t search = type;
 
     if ( name.empty() )
         LOGSTR( flags, "Handler::FindCharacter()-> called with empty name" );
 
-    if ( character_list.empty() )
-        chr = NULL;
-    else
+    if ( clist.empty() )
+        return chr;
+
+    if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
     {
-        if ( search < uintmin_t || search >= MAX_HANDLER_FIND )
-        {
-            LOGFMT( flags, "Handler::FindCharacter()-> called with invalid type: %lu", search );
-            LOGSTR( flags, "Handler::FindCharacter()-> defaulting to HANDLER_FIND_ID" );
-            search = HANDLER_FIND_ID;
-        }
-
-        for ( ci = character_list.begin(); ci != character_list.end(); ci++ )
-        {
-            found = false;
-            chr = *ci;
-
-            if ( CFG_GAM_CMD_IGNORE_CASE )
-            {
-                if ( search == HANDLER_FIND_ID && Utils::Lower( chr->gId() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-                else if ( search == HANDLER_FIND_NAME && Utils::Lower( chr->gName() ).find( Utils::Lower( name ) ) == 0 )
-                    found = true;
-            }
-            else
-            {
-                if ( search == HANDLER_FIND_ID && chr->gId().find( name ) == 0 )
-                    found = true;
-                else if ( search == HANDLER_FIND_NAME && chr->gName().find( name ) == 0 )
-                    found = true;
-            }
-
-            if ( found )
-                break;
-        }
-
-        if ( !found )
-            chr = NULL;
+        LOGFMT( flags, "Handler::FindCharacter()-> called with invalid type: %lu", search );
+        LOGSTR( flags, "Handler::FindCharacter()-> defaulting to HANDLER_FIND_ID" );
+        search = HANDLER_FIND_ID;
     }
+
+    for ( ci = clist.begin(); ci != clist.end(); ci++ )
+    {
+        found = false;
+        chr = *ci;
+
+        if ( CFG_GAM_CMD_IGNORE_CASE )
+        {
+            if ( search == HANDLER_FIND_ID && Utils::Lower( chr->gId() ).find( Utils::Lower( name ) ) == 0 )
+                found = true;
+            else if ( search == HANDLER_FIND_NAME && Utils::Lower( chr->gName() ).find( Utils::Lower( name ) ) == 0 )
+                found = true;
+        }
+        else
+        {
+            if ( search == HANDLER_FIND_ID && chr->gId().find( name ) == 0 )
+                found = true;
+            else if ( search == HANDLER_FIND_NAME && chr->gName().find( name ) == 0 )
+                found = true;
+        }
+
+        if ( found )
+            break;
+    }
+
+    if ( !found )
+        chr = NULL;
 
     return chr;
 }
@@ -552,6 +551,7 @@ const bool Handler::CheckPlaying( const string& name )
         return false;
     }
 
+    /** @todo Change this to use FindCharacter()? */
     for ( ci = character_list.begin(); ci != character_list.end(); ci = g_global->m_next_character )
     {
         chr = *ci;
@@ -1586,7 +1586,7 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
         chr->Delete();
 
         client->sState( SOC_STATE_RECONNECTING );
-        chr = FindCharacter( id.str(), HANDLER_FIND_ID );
+        chr = FindCharacter( id.str(), HANDLER_FIND_ID, character_list );
         Reconnect( client, chr );
 
         return;

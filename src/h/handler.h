@@ -32,11 +32,11 @@ using namespace std;
 namespace Handler
 {
     /** @name Core */ /**@{*/
-    Character* FindCharacter( const string& name, const uint_t& type );
+    Character* FindCharacter( const string& name, const uint_t& type, const vector<Character*>& clist );
     Command* FindCommand( const string& name );
     Exit* FindExit( const string& name, Location* location );
     Location* FindLocation( const string& name, const uint_t& type );
-    Object* FindObject( const string& name, const uint_t& type,  const vector<Object*>& olist );
+    Object* FindObject( const string& name, const uint_t& type, const vector<Object*>& olist );
     Thing* FindThing( const string& name, const uint_t& type, const uint_t& scope, Thing* caller, const bool& self = false );
     const void LoginHandler( SocketClient* client, const string& cmd = "", const string& args = "" );
     /**@}*/

@@ -488,7 +488,7 @@ const bool Server::PollSockets()
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
             LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
-            // todo: save character
+            // @todo save character
             socket_client->Delete();
             continue;
         }
@@ -500,7 +500,7 @@ const bool Server::PollSockets()
             if ( !socket_client->sIdle( 0 ) )
             {
                 LOGFMT( flags, "Server::PollSockets()->SocketClient::sIdle()-> descriptor %ld returned false setting idle: 0", client_desc );
-                // todo: save character
+                // @todo save character
                 socket_client->Delete();
                 continue;
             }
@@ -536,7 +536,7 @@ const bool Server::PollSockets()
             if ( !socket_client->sIdle( socket_client->gIdle() + 1 ) )
             {
                 LOGFMT( flags, "Server::PollSockets()->SocketClient::sIdle()-> descriptor %ld returned false setting idle: %lu", client_desc, socket_client->gIdle() + 1 );
-                // todo: save character
+                // @todo save character
                 socket_client->Delete();
                 continue;
             }
@@ -552,7 +552,7 @@ const bool Server::PollSockets()
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
             LOGFMT( flags, "Server::PollSockets()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
-            // todo: save character
+            // @todo save character
             socket_client->Delete();
             continue;
         }
@@ -563,7 +563,7 @@ const bool Server::PollSockets()
             LOGFMT( flags, "Server::PollSockets()->SocketClient::gIdle()-> disconnecting idle descriptor: %ld", client_desc );
             socket_client->Send( CFG_STR_IDLE );
             socket_client->Delete();
-            // todo: save character
+            // @todo save character
             continue;
         }
 
@@ -575,7 +575,7 @@ const bool Server::PollSockets()
             {
                 LOGFMT( flags, "Server::PollSockets()->SocketClient::PendingOutput()->SocketClient::Send()-> descriptor %ld returned false", client_desc );
                 socket_client->Delete();
-                // todo: save character
+                // @todo save character
                 continue;
             }
         }
@@ -624,7 +624,7 @@ const void Server::ProcessInput()
         if ( ( client_desc = socket_client->gDescriptor() ) < 1 )
         {
             LOGFMT( flags, "Server::ProcessInput()->SocketClient::gDescriptor()-> returned invalid descriptor: %ld", client_desc );
-            // todo: save character
+            // @todo save character
             socket_client->Delete();
             continue;
         }
@@ -632,7 +632,7 @@ const void Server::ProcessInput()
         if ( !socket_client->ProcessInput() )
         {
             LOGFMT( flags, "Server::ProcessInput()->SocketClient::ProcessInput()-> descriptor %ld returned false", client_desc );
-            // todo: save character
+            // @todo save character
             socket_client->Delete();
             continue;
         }
@@ -642,7 +642,7 @@ const void Server::ProcessInput()
             if ( !socket_client->ProcessCommand() )
             {
                 LOGFMT( flags, "Server::ProcessInput()->SocketClient::PendingCommand()->SocketClient::ProcessCommand()-> descriptor %ld returned false", client_desc );
-                // todo: save character
+                // @todo save character
                 socket_client->Delete();
                 continue;
             }

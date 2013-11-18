@@ -60,9 +60,9 @@ const bool Object::Clone( const string& name, const uint_t& type )
     for ( search = 0; search < MAX_THING_DESCRIPTION; search++ )
         sDescription( obj->gDescription( search ), search );
     sName( obj->gName() );
+    sZone( obj->gZone() );
     /** Copy elements internal to Object class */
     m_file = obj->m_file;
-    sZone( obj->gZone() );
     /** Generate a unique id based on obj_list.size() and current time */
     NewId( object_list.size() );
 
