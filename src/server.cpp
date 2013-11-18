@@ -560,6 +560,9 @@ const bool Server::PollSockets()
         // Disconnect sockets that have been idle for too long
         if ( socket_client->gIdle() >= CFG_SOC_MAX_IDLE )
         {
+            // Disable the idle timeout for admins
+            if ( socket_client->gAccount() && socket_client->gAccount()->gSecurity() >= ACT_SECURITY_ADMIN )
+                continue;
             LOGFMT( flags, "Server::PollSockets()->SocketClient::gIdle()-> disconnecting idle descriptor: %ld", client_desc );
             socket_client->Send( CFG_STR_IDLE );
             socket_client->Delete();
