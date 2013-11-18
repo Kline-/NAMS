@@ -62,6 +62,14 @@ class Character : public Thing
         /**@}*/
 
     private:
+        /**
+         * @brief Abstraction layer between player characters (Account->SocketClient) and non-player characters (AI).
+         */
+        class Brain
+        {
+
+        };
+
         Account* m_account; /**< The associated Account, if any. */
         bool m_creation[MAX_CHR_CREATION]; /**< Track if all creation options have been set. */
         string m_file; /**< Path to the file on disk. */

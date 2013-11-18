@@ -37,7 +37,6 @@
 #include "h/exit.h"
 #include "h/list.h"
 #include "h/location.h"
-#include "h/npc.h"
 #include "h/object.h"
 #include "h/socketclient.h"
 #include "h/socketserver.h"
