@@ -332,7 +332,7 @@ const bool Thing::sId( const string& id )
 
 /**
  * @brief Sets the location id of this Thing.
- * @param[in] name A string containing the location id this Thing should be set to.
+ * @param[in] location A string containing the location id this Thing should be set to.
  * @retval false Returned if there was an error setting the location id.
  * @retval true Returned if the location id was set successfully.
  */
@@ -388,7 +388,7 @@ const bool Thing::sType( const uint_t& type )
 
 /**
  * @brief Sets the zone of this Thing.
- * @param[in] name A string containing the zone this Thing should be set to.
+ * @param[in] zone A string containing the zone this Thing should be set to.
  * @retval false Returned if there was an error setting the zone.
  * @retval true Returned if the zone was set successfully.
  */
