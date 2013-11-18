@@ -37,6 +37,7 @@
 #include "h/exit.h"
 #include "h/list.h"
 #include "h/location.h"
+#include "h/npc.h"
 #include "h/object.h"
 #include "h/socketclient.h"
 #include "h/socketserver.h"
@@ -293,6 +294,54 @@ const bool Server::LoadLocations()
 }
 
 /**
+ * @brief Search all subfolders of #CFG_DAT_DIR_WORLD and call Character::New() to load each file found to memory.
+ * @retval false Returned if a fault is experienced trying to obtain a directory listing to process.
+ * @retval true Returned if 0 or more Character objects are loaded from disk.
+ */
+const bool Server::LoadNPCs()
+{/*
+    UFLAGS_DE( flags );
+    chrono::high_resolution_clock::time_point start, finish;
+    double duration = uintmin_t;
+    Character* character = NULL;
+    multimap<bool,string> files;
+    MITER( multimap, bool,string, mi );
+
+    start = chrono::high_resolution_clock::now();
+    LOGSTR( 0, CFG_STR_FILE_NPC_READ );
+
+    // Populate the multimap with a recursive listing of the NPCs folder
+    Utils::ListDirectory( CFG_DAT_DIR_WORLD, true, true, files, g_stats->m_dir_close, g_stats->m_dir_open );
+
+    if ( files.empty() )
+    {
+        LOGSTR( flags, "Server::LoadNPCs()->Utils::ListDirectory()-> CFG_DAT_DIR_WORLD returned NULL" );
+        return false;
+    }
+
+    for ( mi = files.begin(); mi != files.end(); mi++ )
+    {
+        if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ) == CFG_DAT_FILE_NPC_EXT ) )
+        {
+            character = new Character();
+            if ( !character->New( mi->second, true ) )
+            {
+                LOGFMT( flags, "Server::LoadNPCs()->Character::New()-> character %s returned false", CSTR( mi->second ) );
+                character->Delete();
+            }
+        }
+    }
+
+    finish = chrono::high_resolution_clock::now();
+    if ( ( duration = chrono::duration_cast<chrono::milliseconds>( finish - start ).count() ) > 1000 )
+        LOGFMT( 0, "Loaded %lu NPCs in %1.2fs.", object_template_list.size(), ( duration / 1000 ) );
+    else
+        LOGFMT( 0, "Loaded %lu NPCs in %1.0fms.", object_template_list.size(), duration );
+*/
+    return true;
+}
+
+/**
  * @brief Search all subfolders of #CFG_DAT_DIR_WORLD and call Object::New() to load each file found to memory.
  * @retval false Returned if a fault is experienced trying to obtain a directory listing to process.
  * @retval true Returned if 0 or more Object objects are loaded from disk.
@@ -309,7 +358,7 @@ const bool Server::LoadObjects()
     start = chrono::high_resolution_clock::now();
     LOGSTR( 0, CFG_STR_FILE_OBJECT_READ );
 
-    // Populate the multimap with a recursive listing of the objectss folder
+    // Populate the multimap with a recursive listing of the objects folder
     Utils::ListDirectory( CFG_DAT_DIR_WORLD, true, true, files, g_stats->m_dir_close, g_stats->m_dir_open );
 
     if ( files.empty() )
@@ -826,6 +875,11 @@ const void Server::Startup( const sint_t& desc )
         LOGSTR( flags, "Server::Startup()->Server::LoadLocations()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
+    if ( !LoadNPCs() )
+    {
+        LOGSTR( flags, "Server::Startup()->Server::LoadNPCs()-> returned false" );
+        Shutdown( EXIT_FAILURE );
+    }
     if ( !LoadObjects() )
     {
         LOGSTR( flags, "Server::Startup()->Server::LoadObjects()-> returned false" );
@@ -1233,6 +1287,7 @@ Server::Global::Global()
     m_listen = NULL;
     m_next_character = character_list.begin();
     m_next_event = event_list.begin();
+    m_next_object = object_list.begin();
     m_next_socket_client = socket_client_list.begin();
     m_port = 0;
     m_shutdown = true;

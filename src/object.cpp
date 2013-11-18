@@ -19,7 +19,7 @@
  * @file object.cpp
  * @brief All non-template member functions of the Object class.
  *
- * An Object is a representation of a physical location within the game world.
+ * An Object is a representation of a physical object within the game world.
  */
 #include "h/includes.h"
 #include "h/object.h"

@@ -181,6 +181,13 @@
 #define CFG_DAT_FILE_LOC_EXT "loc"
 
 /**
+ * @def CFG_DAT_FILE_NPC_EXT
+ * @brief File extension to use for NPC files.
+ * @par Default: "npc"
+ */
+#define CFG_DAT_FILE_NPC_EXT "npc"
+
+/**
  * @def CFG_DAT_FILE_OBJ_EXT
  * @brief File extension to use for object files.
  * @par Default: "obj"
@@ -637,6 +644,13 @@
  * @par Default: "Loading locations..."
  */
 #define CFG_STR_FILE_LOCATION_READ "Loading locations..."
+
+/**
+ * @def CFG_STR_FILE_NPC_READ
+ * @brief String to output prior to loading NPC files.
+ * @par Default: "Loading NPCs..."
+ */
+#define CFG_STR_FILE_NPC_READ "Loading NPCs..."
 
 /**
  * @def CFG_STR_FILE_OBJECT_READ
