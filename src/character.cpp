@@ -41,6 +41,8 @@ const void Character::Delete()
 {
     if ( find( character_list.begin(), character_list.end(), this ) != character_list.end() )
         g_global->m_next_character = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
+    else if ( find( character_template_list.begin(), character_template_list.end(), this ) != character_template_list.end() )
+            character_template_list.erase( find( character_template_list.begin(), character_template_list.end(), this ) );
 
     if ( gBrain()->gAccount() )
         gBrain()->gAccount()->sCharacter( NULL );
@@ -89,11 +91,12 @@ const void Character::Interpret( const uint_t& security, const string& cmd, cons
 /**
  * @brief Create a new character.
  * @param[in] file The filename to load without any path prepended to it.
+ * @param[in] itemplate True if the character should be loaded into the character_template_list, otherwise it will be loaded into the character_list.
  * @param[in] exists True if the character should be loaded, false if a new one need be created.
  * @retval false Returned if a new Character was successfully created or loaded.
  * @retval true Returned if a new Character was unable to be created.
  */
-const bool Character::New( const string& file, const bool& exists )
+const bool Character::New( const string& file, const bool& itemplate, const bool& exists )
 {
     UFLAGS_DE( flags );
 
@@ -108,7 +111,10 @@ const bool Character::New( const string& file, const bool& exists )
         }
     }
 
-    character_list.push_back( this );
+    if ( itemplate )
+        character_template_list.push_back( this );
+    else
+        character_list.push_back( this );
 
     return true;
 }

@@ -37,7 +37,7 @@ class Character : public Thing
         /** @name Core */ /**@{*/
         const void Delete();
         const void Interpret( const uint_t& security, const string& cmd, const string& args );
-        const bool New( const string& file, const bool& exists );
+        const bool New( const string& file, const bool& itemplate, const bool& exists );
         const void Send( const string& msg, Thing* speaker = NULL, Thing* target = NULL ) const;
         const bool Serialize() const;
         const bool Unserialize();

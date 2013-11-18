@@ -1060,7 +1060,7 @@ const void Handler::CharacterCreateName( SocketClient* client, const string& cmd
         chr = new Character();
         chr->gBrain()->sAccount( client->gAccount() );
 
-        if ( !chr->New( cmd, false ) )
+        if ( !chr->New( cmd, false, false ) )
         {
             client->Send( CFG_STR_CHR_NEW_ERROR );
             chr->Delete();
@@ -1591,7 +1591,7 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
 
         return;
     }
-    else if ( !chr->New( Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT ), true ) )
+    else if ( !chr->New( Utils::FileExt( id.str(), CFG_DAT_FILE_PLR_EXT ), false, true ) )
     {
         LOGFMT( flags, "Handler::LoadCharacter()->Character::New()-> returned false for character %s", CSTR( id.str() ) );
         chr->Delete();

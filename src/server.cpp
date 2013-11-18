@@ -323,7 +323,7 @@ const bool Server::LoadNPCs()
         if ( mi->first == UTILS_IS_FILE && ( mi->second.substr( mi->second.find_last_of( "." ) + 1 ) == CFG_DAT_FILE_NPC_EXT ) )
         {
             character = new Character();
-            if ( !character->New( mi->second, true ) )
+            if ( !character->New( mi->second, true, true ) )
             {
                 LOGFMT( flags, "Server::LoadNPCs()->Character::New()-> character %s returned false", CSTR( mi->second ) );
                 character->Delete();
@@ -710,7 +710,7 @@ const void Server::RebootRecovery( const bool& reboot )
                 character = new Character();
                 client->gAccount()->sCharacter( character );
                 character->gBrain()->sAccount( client->gAccount() );
-                character->New( client->gAccount()->gId() + "." + value + "." + CFG_DAT_FILE_PLR_EXT, true );
+                character->New( client->gAccount()->gId() + "." + value + "." + CFG_DAT_FILE_PLR_EXT, false, true );
                 Handler::EnterGame( client, "reboot", silent );
             }
         }
@@ -872,16 +872,19 @@ const void Server::Startup( const sint_t& desc )
         LOGSTR( flags, "Server::Startup()->Server::LoadCommands()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
+
     if ( !LoadLocations() )
     {
         LOGSTR( flags, "Server::Startup()->Server::LoadLocations()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
+
     if ( !LoadNPCs() )
     {
         LOGSTR( flags, "Server::Startup()->Server::LoadNPCs()-> returned false" );
         Shutdown( EXIT_FAILURE );
     }
+
     if ( !LoadObjects() )
     {
         LOGSTR( flags, "Server::Startup()->Server::LoadObjects()-> returned false" );
@@ -1026,6 +1029,7 @@ const string Server::gStatus()
     output += "    " + Utils::FormatString( 0, "%-5lu Events", event_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Exits", exit_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Locations", location_list.size() ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Character Templates", character_template_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Object Templates", object_template_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Unique Characters", character_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Unique Objects", object_list.size() ) + CRLF;
