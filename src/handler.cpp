@@ -1380,8 +1380,8 @@ const void Handler::EnterGame( SocketClient* client, const string& cmd, const st
         return;
     }
 
-    if ( !client->gLogin( SOC_LOGIN_LOCATION ).empty() )
-        loc = FindLocation( client->gLogin( SOC_LOGIN_LOCATION ), HANDLER_FIND_ID );
+    if ( !client->gAccount()->gCharacter()->gLocation().empty() )
+        loc = FindLocation( client->gAccount()->gCharacter()->gLocation(), HANDLER_FIND_ID );
 
     if ( loc == NULL )
     {

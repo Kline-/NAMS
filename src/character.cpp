@@ -147,7 +147,13 @@ const bool Character::Serialize() const
     string value;
     stringstream line;
     uint_t i = uintmin_t;
-    string file( Utils::FileExt( gId(), CFG_DAT_FILE_PLR_EXT ) );
+    string file;
+
+    // If the Brain is attached to an account, serialize as a player character, otherwise serialize as a NPC
+    if ( gBrain()->gAccount() )
+        file = Utils::FileExt( gId(), CFG_DAT_FILE_PLR_EXT );
+    else
+        file = Utils::FileExt( gId(), CFG_DAT_FILE_NPC_EXT );
 
     Utils::FileOpen( ofs, file );
 
@@ -172,7 +178,11 @@ const bool Character::Serialize() const
     KEY( ofs, "sex", m_sex );
     KEY( ofs, "zone", gZone() );
 
-    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gBrain()->gAccount()->gId() ), CSTR( file ) );
+    // If the Brain is attached to an account, serialize as a player character, otherwise serialize as a NPC
+    if ( gBrain()->gAccount() )
+        Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gBrain()->gAccount()->gId() ), CSTR( file ) );
+    else
+        Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_WORLD, gZone() ), CSTR( file ) );
 
     return true;
 }
@@ -192,7 +202,11 @@ const bool Character::Unserialize()
     bool found = false, maxb = false;
     uint_t revision = uintmin_t;
 
-    Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gBrain()->gAccount()->gId() ), m_file ) );
+    // If the Brain is attached to an account, load as a player character, otherwise load as a NPC
+    if ( gBrain()->gAccount() )
+        Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gBrain()->gAccount()->gId() ), m_file ) );
+    else
+        Utils::FileOpen( ifs, m_file );
 
     if ( !ifs.good() )
     {
@@ -226,7 +240,7 @@ const bool Character::Unserialize()
             else if ( key == "location" )
             {
                 found = true;
-                gBrain()->gAccount()->gClient()->sLogin( SOC_LOGIN_LOCATION, value );
+                sLocation( value );
             }
             else if ( key == "name" )
             {

@@ -230,6 +230,15 @@ const string Thing::gId() const
 }
 
 /**
+ * @brief Returns the location id associated with this Thing.
+ * @retval string A string containing the location id associated with this Thing.
+ */
+const string Thing::gLocation() const
+{
+    return m_location;
+}
+
+/**
  * @brief Returns the name associated with this Thing.
  * @retval string A string containing the name associated with this Thing.
  */
@@ -322,6 +331,19 @@ const bool Thing::sId( const string& id )
 }
 
 /**
+ * @brief Sets the location id of this Thing.
+ * @param[in] name A string containing the location id this Thing should be set to.
+ * @retval false Returned if there was an error setting the location id.
+ * @retval true Returned if the location id was set successfully.
+ */
+const bool Thing::sLocation( const string& location )
+{
+    m_location = location;
+
+    return true;
+}
+
+/**
  * @brief Sets the name of this Thing.
  * @param[in] name A string containing the name this Thing should be set to.
  * @param[in] system If true, denotes a system-level call (NPCs, etc) and will bypass length limits.
@@ -372,8 +394,6 @@ const bool Thing::sType( const uint_t& type )
  */
 const bool Thing::sZone( const string& zone )
 {
-    UFLAGS_DE( flags );
-
     m_zone = zone;
 
     return true;
@@ -429,6 +449,7 @@ Thing::Thing()
     for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
         m_description[i].clear();
     m_id.clear();
+    m_location.clear();
     m_name.clear();
     m_type = THING_TYPE_THING;
     m_zone.clear();
