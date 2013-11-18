@@ -84,6 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classThing-members.xhtml">List of all members</a>  </div>
   <div class="headertitle">
@@ -107,9 +108,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classThing__coll__graph.svg" width="371" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing_1_1Brain.xhtml">Brain</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction layer between player characters (Account-&gt;<a class="el" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>) and non-player characters (AI).  <a href="classThing_1_1Brain.xhtml#details">More...</a><br/></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
@@ -117,15 +123,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1672d1e62ee2f1ef36d312d3e0d6ed2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1672d1e62ee2f1ef36d312d3e0d6ed2c"></a><br/></td></tr>
 <tr class="memitem:a9538999261b5bba766e3b04768ce2700"><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a9538999261b5bba766e3b04768ce2700">Delete</a> ()=0</td></tr>
 <tr class="memitem:a00bb611784d9e852ad307d83e82f8738"><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a00bb611784d9e852ad307d83e82f8738">Interpret</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;security, const string &amp;cmd, const string &amp;args)=0</td></tr>
-<tr class="memitem:a1134d82f5d0d47167badcfc99170b8a0"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1134d82f5d0d47167badcfc99170b8a0">Move</a> (<a class="el" href="classThing.xhtml">Thing</a> *source, <a class="el" href="classThing.xhtml">Thing</a> *destination)</td></tr>
-<tr class="memdesc:a1134d82f5d0d47167badcfc99170b8a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from within one <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> and into another <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1134d82f5d0d47167badcfc99170b8a0"></a><br/></td></tr>
+<tr class="memitem:aa325821371b36adbe2a2afe2f673f0f6"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa325821371b36adbe2a2afe2f673f0f6">Move</a> (<a class="el" href="classThing.xhtml">Thing</a> *source, <a class="el" href="classThing.xhtml">Thing</a> *destination, <a class="el" href="classExit.xhtml">Exit</a> *exit=NULL)</td></tr>
+<tr class="memdesc:aa325821371b36adbe2a2afe2f673f0f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from within one <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> and into another <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aa325821371b36adbe2a2afe2f673f0f6"></a><br/></td></tr>
 <tr class="memitem:afcc77dab7148c2f108aa384d83a6430e"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e">RemoveThing</a> (<a class="el" href="classThing.xhtml">Thing</a> *thing)</td></tr>
 <tr class="memdesc:afcc77dab7148c2f108aa384d83a6430e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#afcc77dab7148c2f108aa384d83a6430e"></a><br/></td></tr>
-<tr class="memitem:aea72918fcebfd612b8dd076c708c1592"><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aea72918fcebfd612b8dd076c708c1592">Send</a> (const string &amp;msg, <a class="el" href="classThing.xhtml">Thing</a> *speaker=NULL) const </td></tr>
-<tr class="memdesc:aea72918fcebfd612b8dd076c708c1592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> objects within the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> except for the speaker.  <a href="#aea72918fcebfd612b8dd076c708c1592"></a><br/></td></tr>
+<tr class="memitem:a7ad4eaf9c9d4ba80d74d1187986d81d0"><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a7ad4eaf9c9d4ba80d74d1187986d81d0">Send</a> (const string &amp;msg, <a class="el" href="classThing.xhtml">Thing</a> *speaker=NULL, <a class="el" href="classThing.xhtml">Thing</a> *target=NULL) const </td></tr>
+<tr class="memdesc:a7ad4eaf9c9d4ba80d74d1187986d81d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> objects within the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> except for the speaker.  <a href="#a7ad4eaf9c9d4ba80d74d1187986d81d0"></a><br/></td></tr>
 <tr class="memitem:a19051d1b895bf1c3ab933a723f1ae79c"><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a19051d1b895bf1c3ab933a723f1ae79c">Serialize</a> () const =0</td></tr>
 <tr class="memitem:a56e59bba2e3602b8935dc07b6768dd0a"><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a56e59bba2e3602b8935dc07b6768dd0a">Unserialize</a> ()=0</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
+<tr class="memitem:a3f000485c50c93ba3a41a6627b45f7dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThing_1_1Brain.xhtml">Thing::Brain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc">gBrain</a> () const </td></tr>
+<tr class="memdesc:a3f000485c50c93ba3a41a6627b45f7dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classThing_1_1Brain.xhtml" title="Abstraction layer between player characters (Account-&gt;SocketClient) and non-player characters (AI)...">Brain</a> associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3f000485c50c93ba3a41a6627b45f7dc"></a><br/></td></tr>
 <tr class="memitem:ad8015a52bd53b953dbbc904029bfa2e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1">gContainer</a> () const </td></tr>
 <tr class="memdesc:ad8015a52bd53b953dbbc904029bfa2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within.  <a href="#ad8015a52bd53b953dbbc904029bfa2e1"></a><br/></td></tr>
 <tr class="memitem:a8e27a5928fd0dbc9bee6e89ac8d09d28"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="classThing.xhtml">Thing</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a8e27a5928fd0dbc9bee6e89ac8d09d28">gContents</a> () const </td></tr>
@@ -134,19 +142,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afb35e940694ccbd0c9bc351d66251314"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the description of the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from <a class="el" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5">THING_DESCRIPTION</a>.  <a href="#afb35e940694ccbd0c9bc351d66251314"></a><br/></td></tr>
 <tr class="memitem:aea5dad4f4241b325cdf64b232e84e602"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">gId</a> () const </td></tr>
 <tr class="memdesc:aea5dad4f4241b325cdf64b232e84e602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aea5dad4f4241b325cdf64b232e84e602"></a><br/></td></tr>
+<tr class="memitem:a1dd6cdc428b439069c32ef3664fa76df"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1dd6cdc428b439069c32ef3664fa76df">gLocation</a> () const </td></tr>
+<tr class="memdesc:a1dd6cdc428b439069c32ef3664fa76df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the location id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1dd6cdc428b439069c32ef3664fa76df"></a><br/></td></tr>
 <tr class="memitem:a3c3c40c996ff562baa335f2ded022578"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">gName</a> () const </td></tr>
 <tr class="memdesc:a3c3c40c996ff562baa335f2ded022578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3c3c40c996ff562baa335f2ded022578"></a><br/></td></tr>
 <tr class="memitem:aa79bfcc9b321d3e05752066e5ba1c50a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a">gType</a> () const </td></tr>
 <tr class="memdesc:aa79bfcc9b321d3e05752066e5ba1c50a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the inherited sub-type of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aa79bfcc9b321d3e05752066e5ba1c50a"></a><br/></td></tr>
+<tr class="memitem:af4ebcdb4555620bacba408c09faf996b"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#af4ebcdb4555620bacba408c09faf996b">gZone</a> () const </td></tr>
+<tr class="memdesc:af4ebcdb4555620bacba408c09faf996b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the zone associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#af4ebcdb4555620bacba408c09faf996b"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
 <tr class="memitem:adf1753595ae5f94906663f88b7d38edd"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#adf1753595ae5f94906663f88b7d38edd">sDescription</a> (const string &amp;description, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr class="memdesc:adf1753595ae5f94906663f88b7d38edd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the description of the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from <a class="el" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5">THING_DESCRIPTION</a>.  <a href="#adf1753595ae5f94906663f88b7d38edd"></a><br/></td></tr>
 <tr class="memitem:a946fbf68bcd90ea5b26f4cce0b37132b"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b">sId</a> (const string &amp;id)</td></tr>
 <tr class="memdesc:a946fbf68bcd90ea5b26f4cce0b37132b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a946fbf68bcd90ea5b26f4cce0b37132b"></a><br/></td></tr>
+<tr class="memitem:a68389cd23d3066b89d8e06b5b60ea369"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a68389cd23d3066b89d8e06b5b60ea369">sLocation</a> (const string &amp;location)</td></tr>
+<tr class="memdesc:a68389cd23d3066b89d8e06b5b60ea369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the location id of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a68389cd23d3066b89d8e06b5b60ea369"></a><br/></td></tr>
 <tr class="memitem:a69568f79edcdf1b0225f1b764a7ceb41"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41">sName</a> (const string &amp;name, const bool &amp;system=false)</td></tr>
 <tr class="memdesc:a69568f79edcdf1b0225f1b764a7ceb41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a69568f79edcdf1b0225f1b764a7ceb41"></a><br/></td></tr>
 <tr class="memitem:adf1d92efe54e7f5934d22e10b4374c59"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59">sType</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr class="memdesc:adf1d92efe54e7f5934d22e10b4374c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the inherited sub-type of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#adf1d92efe54e7f5934d22e10b4374c59"></a><br/></td></tr>
+<tr class="memitem:a99013771892bba4f6410f16f1b1ac127"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a99013771892bba4f6410f16f1b1ac127">sZone</a> (const string &amp;zone)</td></tr>
+<tr class="memdesc:a99013771892bba4f6410f16f1b1ac127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the zone of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a99013771892bba4f6410f16f1b1ac127"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal</div></td></tr>
 <tr class="memitem:a9d7867991d8943d81101a32597eb4df1"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a9d7867991d8943d81101a32597eb4df1">NewId</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;seed)</td></tr>
 <tr class="memdesc:a9d7867991d8943d81101a32597eb4df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new unique id for this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a9d7867991d8943d81101a32597eb4df1"></a><br/></td></tr>
@@ -157,12 +173,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a47e192e94365c67779f7cfeb579bfb30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThing_1_1Brain.xhtml">Thing::Brain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a47e192e94365c67779f7cfeb579bfb30">m_brain</a></td></tr>
 <tr class="memitem:ab18eea093b0b678e860fb814297de282"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ab18eea093b0b678e860fb814297de282">m_container</a></td></tr>
 <tr class="memitem:ade0266a3024027bc9930267efca61879"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classThing.xhtml">Thing</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a></td></tr>
 <tr class="memitem:ae288065a185df35851bac9773ce2b926"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ae288065a185df35851bac9773ce2b926">m_description</a> [<a class="el" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5a5916fe4a04746e062eb4e16f3ee8daeb">MAX_THING_DESCRIPTION</a>]</td></tr>
 <tr class="memitem:a72953c57b3abed7d9923e03283877d90"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a></td></tr>
+<tr class="memitem:a791722b5d5228cfd4a644e0e7b551789"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a791722b5d5228cfd4a644e0e7b551789">m_location</a></td></tr>
 <tr class="memitem:a5d808b32cbeb76c0900b05cef6454abc"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a></td></tr>
 <tr class="memitem:aaa3b863bb133cd48c81cad01dc58b056"><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aaa3b863bb133cd48c81cad01dc58b056">m_type</a></td></tr>
+<tr class="memitem:aa06fae5f937163e1d50b68c0395d661c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa06fae5f937163e1d50b68c0395d661c">m_zone</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -181,17 +200,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00325">325</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00442">442</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
 <div class="line"></div>
+<div class="line">    <a class="code" href="classThing.xhtml#a47e192e94365c67779f7cfeb579bfb30">m_brain</a> = <span class="keyword">new</span> <a class="code" href="classThing_1_1Brain.xhtml" title="Abstraction layer between player characters (Account-&gt;SocketClient) and non-player characters (AI)...">Thing::Brain</a>();</div>
 <div class="line">    <a class="code" href="classThing.xhtml#ab18eea093b0b678e860fb814297de282">m_container</a> = NULL;</div>
 <div class="line">    <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>.clear();</div>
 <div class="line">    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5a5916fe4a04746e062eb4e16f3ee8daeb">MAX_THING_DESCRIPTION</a>; i++ )</div>
 <div class="line">        <a class="code" href="classThing.xhtml#ae288065a185df35851bac9773ce2b926">m_description</a>[i].clear();</div>
 <div class="line">    <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>.clear();</div>
+<div class="line">    <a class="code" href="classThing.xhtml#a791722b5d5228cfd4a644e0e7b551789">m_location</a>.clear();</div>
 <div class="line">    <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>.clear();</div>
 <div class="line">    <a class="code" href="classThing.xhtml#aaa3b863bb133cd48c81cad01dc58b056">m_type</a> = <a class="code" href="enum_8h.xhtml#a37fc305e33c43e18f03f70aeb8bba7baa62f265de699a8eeddac180ef8ed5c075">THING_TYPE_THING</a>;</div>
+<div class="line">    <a class="code" href="classThing.xhtml#aa06fae5f937163e1d50b68c0395d661c">m_zone</a>.clear();</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -219,8 +241,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00343">343</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00463">463</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keyword">delete</span> <a class="code" href="classThing.xhtml#a47e192e94365c67779f7cfeb579bfb30">m_brain</a>;</div>
+<div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( !<a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#a97b9415b50cd9bd2b9a96d23553789c4">m_shutdown</a> )</div>
 <div class="line">    {</div>
 <div class="line">        <span class="comment">// To properly handle quit</span></div>
@@ -269,9 +293,9 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000015">Todo:</a></b></dt><dd>Logic to check container size, content limits, etc. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000016">Todo:</a></b></dt><dd>Logic to check container size, content limits, etc. </dd></dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00034">34</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00036">36</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -299,8 +323,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a1672d1e62ee2f1ef36d312d3e0d6ed2c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a1672d1e62ee2f1ef36d312d3e0d6ed2c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -327,7 +350,43 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classObject.xhtml#a3a18a6bfb53e565749e48f32f19141c6">Object</a>, <a class="el" href="classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53">Character</a>, and <a class="el" href="classLocation.xhtml#a2640eee7c5e9b2b08f84a401f7beab53">Location</a>.</p>
+<p>Implemented in <a class="el" href="classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53">Character</a>, <a class="el" href="classObject.xhtml#a3a18a6bfb53e565749e48f32f19141c6">Object</a>, and <a class="el" href="classLocation.xhtml#a2640eee7c5e9b2b08f84a401f7beab53">Location</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3f000485c50c93ba3a41a6627b45f7dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classThing_1_1Brain.xhtml">Thing::Brain</a> * Thing::gBrain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Thing::Brain*</td><td>A pointer to the associated <a class="el" href="classThing_1_1Brain.xhtml" title="Abstraction layer between player characters (Account-&gt;SocketClient) and non-player characters (AI)...">Brain</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00182">182</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a47e192e94365c67779f7cfeb579bfb30">m_brain</a>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a3f000485c50c93ba3a41a6627b45f7dc_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
 
 </div>
 </div>
@@ -350,16 +409,16 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00157">157</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00191">191</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#ab18eea093b0b678e860fb814297de282">m_container</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_ad8015a52bd53b953dbbc904029bfa2e1_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -385,11 +444,20 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00166">166</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00200">200</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classThing_a8e27a5928fd0dbc9bee6e89ac8d09d28_icgraph.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afb35e940694ccbd0c9bc351d66251314"></a>
@@ -418,7 +486,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00176">176</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00210">210</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -431,11 +499,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#ae288065a185df35851bac9773ce2b926">m_description</a>[type];</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_afb35e940694ccbd0c9bc351d66251314_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -461,17 +529,52 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00193">193</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00227">227</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a72953c57b3abed7d9923e03283877d90">m_id</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_aea5dad4f4241b325cdf64b232e84e602_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1dd6cdc428b439069c32ef3664fa76df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string Thing::gLocation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A string containing the location id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00236">236</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a791722b5d5228cfd4a644e0e7b551789">m_location</a>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a1dd6cdc428b439069c32ef3664fa76df_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -496,16 +599,16 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00202">202</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00245">245</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#a5d808b32cbeb76c0900b05cef6454abc">m_name</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a3c3c40c996ff562baa335f2ded022578_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -531,17 +634,52 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00211">211</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00254">254</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#aaa3b863bb133cd48c81cad01dc58b056">m_type</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_aa79bfcc9b321d3e05752066e5ba1c50a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_aa79bfcc9b321d3e05752066e5ba1c50a_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af4ebcdb4555620bacba408c09faf996b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string Thing::gZone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">string</td><td>A value containing the zone associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00263">263</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classThing.xhtml#aa06fae5f937163e1d50b68c0395d661c">m_zone</a>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_af4ebcdb4555620bacba408c09faf996b_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -585,11 +723,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classObject.xhtml#a3382beb85e23e571fe16df5a59ddc324">Object</a>, <a class="el" href="classCharacter.xhtml#ad51f5ff0cfefa9bd7e674bc413f6b73c">Character</a>, and <a class="el" href="classLocation.xhtml#a1585bb5ec9637a31a47115463d325e7b">Location</a>.</p>
+<p>Implemented in <a class="el" href="classCharacter.xhtml#ad51f5ff0cfefa9bd7e674bc413f6b73c">Character</a>, <a class="el" href="classObject.xhtml#a3382beb85e23e571fe16df5a59ddc324">Object</a>, and <a class="el" href="classLocation.xhtml#a1585bb5ec9637a31a47115463d325e7b">Location</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1134d82f5d0d47167badcfc99170b8a0"></a>
+<a class="anchor" id="aa325821371b36adbe2a2afe2f673f0f6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -603,7 +741,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td>
-          <td class="paramname"><em>destination</em>&#160;</td>
+          <td class="paramname"><em>destination</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classExit.xhtml">Exit</a> *&#160;</td>
+          <td class="paramname"><em>exit</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -616,6 +760,7 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">source</td><td>A pointer to the source <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> that thisThing should be moved from. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">destination</td><td>A pointer to the destination <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> should be moved into. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exit</td><td>A pointer to the <a class="el" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a> (if any) to generate movement messages. </td></tr>
   </table>
   </dd>
 </dl>
@@ -626,8 +771,10 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000017">Todo:</a></b></dt><dd>Move this to its own function some day to properly handle grammar, etc </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000018">Todo:</a></b></dt><dd>Move this to its own function some day to properly handle grammar, etc </dd></dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00066">66</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00069">69</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -648,28 +795,36 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">if</span> ( !source-&gt;<a class="code" href="classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e" title="Removes a Thing to the contents of this Thing.">RemoveThing</a>( <span class="keyword">this</span> ) )</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"></div>
+<div class="line">    <span class="comment">// Notify everyone else we moved</span></div>
+<div class="line">    <span class="keywordflow">if</span> ( exit )</div>
+<div class="line">        source-&gt;<a class="code" href="classThing.xhtml#a7ad4eaf9c9d4ba80d74d1187986d81d0" title="Send data to all Thing objects within the Thing except for the speaker.">Send</a>( <a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() + <span class="stringliteral">&quot; leaves &quot;</span> + exit-&gt;<a class="code" href="classExit.xhtml#a34207621e47d7bf64933eb68d05fedd9" title="Returns the name of the Exit.">gName</a>() + <span class="stringliteral">&quot;.&quot;</span> <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a>, this );</div>
+<div class="line"></div>
 <div class="line">    <span class="comment">// Were we able to get into the destination Thing?</span></div>
 <div class="line">    <span class="keywordflow">if</span> ( !destination-&gt;<a class="code" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c" title="Adds a Thing to the contents of this Thing.">AddThing</a>( <span class="keyword">this</span> ) )</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"></div>
+<div class="line">    <span class="comment">// Notify everyone else we arrived</span></div>
+<div class="line">    <span class="keywordflow">if</span> ( exit )</div>
+<div class="line">        <a class="code" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1" title="Returns the Thing that this Thing is stored within.">gContainer</a>()-&gt;<a class="code" href="classThing.xhtml#a7ad4eaf9c9d4ba80d74d1187986d81d0" title="Send data to all Thing objects within the Thing except for the speaker.">Send</a>( <a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() + <span class="stringliteral">&quot; enters from &quot;</span> + exit-&gt;<a class="code" href="classExit.xhtml#a34207621e47d7bf64933eb68d05fedd9" title="Returns the name of the Exit.">gName</a>() + <span class="stringliteral">&quot;.&quot;</span> <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a>, this );</div>
+<div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classThing_a1134d82f5d0d47167badcfc99170b8a0_cgraph.svg" width="307" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classThing_aa325821371b36adbe2a2afe2f673f0f6_cgraph.svg" width="307" height="315"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a1134d82f5d0d47167badcfc99170b8a0_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_aa325821371b36adbe2a2afe2f673f0f6_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -701,7 +856,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00309">309</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00426">426</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordtype">string</span> input;</div>
 <div class="line"></div>
@@ -714,21 +869,21 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classThing_a9d7867991d8943d81101a32597eb4df1_cgraph.svg" width="259" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classThing_a9d7867991d8943d81101a32597eb4df1_icgraph.svg" width="270" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classThing_a9d7867991d8943d81101a32597eb4df1_icgraph.svg" width="294" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -760,9 +915,9 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000016">Todo:</a></b></dt><dd>Logic to check debuffs, restrictions, etc. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000019">Todo:</a></b></dt><dd>Logic to check debuffs, restrictions, etc. </dd></dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00100">100</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00113">113</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -776,18 +931,18 @@ Private Attributes</h2></td></tr>
 <div class="line">    {</div>
 <div class="line">        <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>.erase( find( <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>.begin(), <a class="code" href="classThing.xhtml#ade0266a3024027bc9930267efca61879">m_contents</a>.end(), thing ) );</div>
 <div class="line">        thing-&gt;<a class="code" href="classThing.xhtml#ab18eea093b0b678e860fb814297de282">m_container</a> = NULL;</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_afcc77dab7148c2f108aa384d83a6430e_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_afcc77dab7148c2f108aa384d83a6430e_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -831,7 +986,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00224">224</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00297">297</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -846,18 +1001,18 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_adf1753595ae5f94906663f88b7d38edd_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aea72918fcebfd612b8dd076c708c1592"></a>
+<a class="anchor" id="a7ad4eaf9c9d4ba80d74d1187986d81d0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -874,7 +1029,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td>
-          <td class="paramname"><em>speaker</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>speaker</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td>
+          <td class="paramname"><em>target</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -892,6 +1053,7 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>The data to be sent. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">speaker</td><td>The <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> originating the message. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">target</td><td>The <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> who is the target of the message. </td></tr>
   </table>
   </dd>
 </dl>
@@ -902,9 +1064,9 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018">Character</a>.</p>
+<p>Reimplemented in <a class="el" href="classCharacter.xhtml#a09f9ebcfe608c8eb3ef959830f5c8c64">Character</a>.</p>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00127">127</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00142">142</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#ae55287491ba1907e91a3a9fa09ef9d9a" title="Define a const iterator variable (name) of (type) using (container).">CITER</a>( vector, <a class="code" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>*, ti );</div>
@@ -920,30 +1082,30 @@ Private Attributes</h2></td></tr>
 <div class="line">    {</div>
 <div class="line">        thing = *ti;</div>
 <div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ( thing == speaker )</div>
+<div class="line">        <span class="keywordflow">if</span> ( thing == speaker || thing == target )</div>
 <div class="line">            <span class="keywordflow">continue</span>;</div>
 <div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            thing-&gt;<a class="code" href="classThing.xhtml#aea72918fcebfd612b8dd076c708c1592" title="Send data to all Thing objects within the Thing except for the speaker.">Send</a>( msg );</div>
+<div class="line">            thing-&gt;<a class="code" href="classThing.xhtml#a7ad4eaf9c9d4ba80d74d1187986d81d0" title="Send data to all Thing objects within the Thing except for the speaker.">Send</a>( msg );</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classThing_aea72918fcebfd612b8dd076c708c1592_cgraph.svg" width="110" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classThing_a7ad4eaf9c9d4ba80d74d1187986d81d0_cgraph.svg" width="110" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classThing_aea72918fcebfd612b8dd076c708c1592_icgraph.svg" width="110" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a7ad4eaf9c9d4ba80d74d1187986d81d0_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1001,7 +1163,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00245">245</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00318">318</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -1016,12 +1178,57 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a946fbf68bcd90ea5b26f4cce0b37132b_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a68389cd23d3066b89d8e06b5b60ea369"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool Thing::sLocation </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>location</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">location</td><td>A string containing the location id this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> should be set to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error setting the location id. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the location id was set successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00339">339</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <a class="code" href="classThing.xhtml#a791722b5d5228cfd4a644e0e7b551789">m_location</a> = location;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p><div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a68389cd23d3066b89d8e06b5b60ea369_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1065,7 +1272,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00267">267</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00353">353</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -1080,11 +1287,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a69568f79edcdf1b0225f1b764a7ceb41_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -1118,7 +1325,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00288">288</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00374">374</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -1133,12 +1340,57 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classThing_adf1d92efe54e7f5934d22e10b4374c59_icgraph.svg" width="315" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a99013771892bba4f6410f16f1b1ac127"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool Thing::sZone </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>zone</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">zone</td><td>A string containing the zone this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> should be set to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error setting the zone. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the zone was set successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="thing_8cpp_source.xhtml#l00395">395</a> of file <a class="el" href="thing_8cpp_source.xhtml">thing.cpp</a>.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <a class="code" href="classThing.xhtml#aa06fae5f937163e1d50b68c0395d661c">m_zone</a> = zone;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p><div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classThing_a99013771892bba4f6410f16f1b1ac127_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -1170,6 +1422,29 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2>Member Data Documentation</h2>
+<a class="anchor" id="a47e192e94365c67779f7cfeb579bfb30"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classThing_1_1Brain.xhtml">Thing::Brain</a>* Thing::m_brain</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="classThing_1_1Brain.xhtml" title="Abstraction layer between player characters (Account-&gt;SocketClient) and non-player characters (AI)...">Brain</a> abstraction layer for PC/NPC. </p>
+
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00102">102</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ab18eea093b0b678e860fb814297de282"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1189,7 +1464,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within. </p>
 
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00069">69</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00103">103</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 
 </div>
 </div>
@@ -1212,7 +1487,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Other Things that are contained within this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </p>
 
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00070">70</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00104">104</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 
 </div>
 </div>
@@ -1235,7 +1510,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>What is displayed to other Things. </p>
 
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00071">71</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00105">105</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 
 </div>
 </div>
@@ -1258,7 +1533,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>An identifier to denote ownership. For characters, id = account.name </p>
 
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00072">72</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00106">106</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a791722b5d5228cfd4a644e0e7b551789"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Thing::m_location</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The location id of where this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is located. </p>
+
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00107">107</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 
 </div>
 </div>
@@ -1281,7 +1579,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The name of the thing. </p>
 
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00073">73</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00108">108</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 
 </div>
 </div>
@@ -1304,7 +1602,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The inherited sub-type of <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>. </p>
 
-<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00074">74</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00109">109</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa06fae5f937163e1d50b68c0395d661c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Thing::m_zone</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Part of a larger zone / group of locations? Name, if so. </p>
+
+<p>Definition at line <a class="el" href="thing_8h_source.xhtml#l00110">110</a> of file <a class="el" href="thing_8h_source.xhtml">thing.h</a>.</p>
 
 </div>
 </div>
@@ -1315,7 +1636,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 17 2013 22:09:44 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -113,21 +113,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Core</div></td></tr>
+<tr class="memitem:a13ee03b0f19ce2938d23115d6d661280"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a13ee03b0f19ce2938d23115d6d661280">Clone</a> (const string &amp;name, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
+<tr class="memdesc:a13ee03b0f19ce2938d23115d6d661280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clones a <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> from the character_template_list into the character_list.  <a href="#a13ee03b0f19ce2938d23115d6d661280"></a><br/></td></tr>
 <tr class="memitem:a4f7ff295f5de0fa4f8fece0acb7aaa53"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53">Delete</a> ()</td></tr>
-<tr class="memdesc:a4f7ff295f5de0fa4f8fece0acb7aaa53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a character from memory that was previously loaded via <a class="el" href="classCharacter.xhtml#a829a28ec5f8573f3f53684ac4dcb75bb" title="Create a new character.">Character::New()</a>.  <a href="#a4f7ff295f5de0fa4f8fece0acb7aaa53"></a><br/></td></tr>
+<tr class="memdesc:a4f7ff295f5de0fa4f8fece0acb7aaa53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a character from memory that was previously loaded via <a class="el" href="classCharacter.xhtml#a59fd38e0e8347e4e242603cc82ae551b" title="Create a new character.">Character::New()</a>.  <a href="#a4f7ff295f5de0fa4f8fece0acb7aaa53"></a><br/></td></tr>
 <tr class="memitem:ad51f5ff0cfefa9bd7e674bc413f6b73c"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#ad51f5ff0cfefa9bd7e674bc413f6b73c">Interpret</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;security, const string &amp;cmd, const string &amp;args)</td></tr>
 <tr class="memdesc:ad51f5ff0cfefa9bd7e674bc413f6b73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interprets cmd with args at level security.  <a href="#ad51f5ff0cfefa9bd7e674bc413f6b73c"></a><br/></td></tr>
-<tr class="memitem:a829a28ec5f8573f3f53684ac4dcb75bb"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a829a28ec5f8573f3f53684ac4dcb75bb">New</a> (const string &amp;file, const bool &amp;exists)</td></tr>
-<tr class="memdesc:a829a28ec5f8573f3f53684ac4dcb75bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new character.  <a href="#a829a28ec5f8573f3f53684ac4dcb75bb"></a><br/></td></tr>
-<tr class="memitem:a0121996391ec2a3fb12ec76406dd6018"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018">Send</a> (const string &amp;msg, <a class="el" href="classThing.xhtml">Thing</a> *speaker=NULL) const </td></tr>
-<tr class="memdesc:a0121996391ec2a3fb12ec76406dd6018"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to the associated <a class="el" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>, if any.  <a href="#a0121996391ec2a3fb12ec76406dd6018"></a><br/></td></tr>
+<tr class="memitem:a59fd38e0e8347e4e242603cc82ae551b"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a59fd38e0e8347e4e242603cc82ae551b">New</a> (const string &amp;file, const bool &amp;itemplate, const bool &amp;exists)</td></tr>
+<tr class="memdesc:a59fd38e0e8347e4e242603cc82ae551b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new character.  <a href="#a59fd38e0e8347e4e242603cc82ae551b"></a><br/></td></tr>
+<tr class="memitem:a09f9ebcfe608c8eb3ef959830f5c8c64"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a09f9ebcfe608c8eb3ef959830f5c8c64">Send</a> (const string &amp;msg, <a class="el" href="classThing.xhtml">Thing</a> *speaker=NULL, <a class="el" href="classThing.xhtml">Thing</a> *target=NULL) const </td></tr>
+<tr class="memdesc:a09f9ebcfe608c8eb3ef959830f5c8c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to the associated <a class="el" href="classSocketClient.xhtml" title="SocketClient extends the Socket class to implement remote-host socket functions.">SocketClient</a>, if any.  <a href="#a09f9ebcfe608c8eb3ef959830f5c8c64"></a><br/></td></tr>
 <tr class="memitem:acbf271cc1d8bf64bd5bd4c286f508f67"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67">Serialize</a> () const </td></tr>
 <tr class="memdesc:acbf271cc1d8bf64bd5bd4c286f508f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize the character data.  <a href="#acbf271cc1d8bf64bd5bd4c286f508f67"></a><br/></td></tr>
 <tr class="memitem:a91193d9bb29423c2ec95fb56c27d6bb3"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a91193d9bb29423c2ec95fb56c27d6bb3">Unserialize</a> ()</td></tr>
 <tr class="memdesc:a91193d9bb29423c2ec95fb56c27d6bb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unserialize the character data.  <a href="#a91193d9bb29423c2ec95fb56c27d6bb3"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Query</div></td></tr>
-<tr class="memitem:a9dce3d7ce7ac17f02397d198e47707ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAccount.xhtml">Account</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef">gAccount</a> () const </td></tr>
-<tr class="memdesc:a9dce3d7ce7ac17f02397d198e47707ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a> associated with this <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>, if any.  <a href="#a9dce3d7ce7ac17f02397d198e47707ef"></a><br/></td></tr>
 <tr class="memitem:ad3d3db7ed1d44cf53fb7ae4b991a1c18"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#ad3d3db7ed1d44cf53fb7ae4b991a1c18">gCreation</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos)</td></tr>
 <tr class="memdesc:ad3d3db7ed1d44cf53fb7ae4b991a1c18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the creation states of this character from <a class="el" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2f">CHR_CREATION</a>.  <a href="#ad3d3db7ed1d44cf53fb7ae4b991a1c18"></a><br/></td></tr>
 <tr class="memitem:a611f85cc5c7c7c6977fdfca257530f3a"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a611f85cc5c7c7c6977fdfca257530f3a">gPrompt</a> () const </td></tr>
@@ -135,8 +135,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3687af665ff3b9fe94176ecde8a7beca"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a3687af665ff3b9fe94176ecde8a7beca">gSex</a> () const </td></tr>
 <tr class="memdesc:a3687af665ff3b9fe94176ecde8a7beca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sex of this character from <a class="el" href="enum_8h.xhtml#a5a21b8ad48605bcc6bd9d5091c46dc1f">CHR_SEX</a>.  <a href="#a3687af665ff3b9fe94176ecde8a7beca"></a><br/></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Manipulate</div></td></tr>
-<tr class="memitem:a622c35f2465a934848d493cd2a596584"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a622c35f2465a934848d493cd2a596584">sAccount</a> (<a class="el" href="classAccount.xhtml">Account</a> *account)</td></tr>
-<tr class="memdesc:a622c35f2465a934848d493cd2a596584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the account of this character.  <a href="#a622c35f2465a934848d493cd2a596584"></a><br/></td></tr>
 <tr class="memitem:a324f4ec56476961fd22781a1d4e381ed"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a324f4ec56476961fd22781a1d4e381ed">sCreation</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;pos, const bool &amp;val)</td></tr>
 <tr class="memdesc:a324f4ec56476961fd22781a1d4e381ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the creation states of this character from <a class="el" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2f">CHR_CREATION</a>.  <a href="#a324f4ec56476961fd22781a1d4e381ed"></a><br/></td></tr>
 <tr class="memitem:add25d4f2e5c883884b6852f695e96851"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#add25d4f2e5c883884b6852f695e96851">sSex</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;sex)</td></tr>
@@ -149,10 +147,12 @@ Public Member Functions</h2></td></tr>
 <tr class="inherit_header pub_methods_classThing"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classThing')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classThing.xhtml">Thing</a></td></tr>
 <tr class="memitem:a1672d1e62ee2f1ef36d312d3e0d6ed2c inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c">AddThing</a> (<a class="el" href="classThing.xhtml">Thing</a> *thing)</td></tr>
 <tr class="memdesc:a1672d1e62ee2f1ef36d312d3e0d6ed2c inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1672d1e62ee2f1ef36d312d3e0d6ed2c"></a><br/></td></tr>
-<tr class="memitem:a1134d82f5d0d47167badcfc99170b8a0 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1134d82f5d0d47167badcfc99170b8a0">Move</a> (<a class="el" href="classThing.xhtml">Thing</a> *source, <a class="el" href="classThing.xhtml">Thing</a> *destination)</td></tr>
-<tr class="memdesc:a1134d82f5d0d47167badcfc99170b8a0 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from within one <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> and into another <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1134d82f5d0d47167badcfc99170b8a0"></a><br/></td></tr>
+<tr class="memitem:aa325821371b36adbe2a2afe2f673f0f6 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa325821371b36adbe2a2afe2f673f0f6">Move</a> (<a class="el" href="classThing.xhtml">Thing</a> *source, <a class="el" href="classThing.xhtml">Thing</a> *destination, <a class="el" href="classExit.xhtml">Exit</a> *exit=NULL)</td></tr>
+<tr class="memdesc:aa325821371b36adbe2a2afe2f673f0f6 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from within one <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> and into another <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aa325821371b36adbe2a2afe2f673f0f6"></a><br/></td></tr>
 <tr class="memitem:afcc77dab7148c2f108aa384d83a6430e inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e">RemoveThing</a> (<a class="el" href="classThing.xhtml">Thing</a> *thing)</td></tr>
 <tr class="memdesc:afcc77dab7148c2f108aa384d83a6430e inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#afcc77dab7148c2f108aa384d83a6430e"></a><br/></td></tr>
+<tr class="memitem:a3f000485c50c93ba3a41a6627b45f7dc inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThing_1_1Brain.xhtml">Thing::Brain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc">gBrain</a> () const </td></tr>
+<tr class="memdesc:a3f000485c50c93ba3a41a6627b45f7dc inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classThing_1_1Brain.xhtml" title="Abstraction layer between player characters (Account-&gt;SocketClient) and non-player characters (AI)...">Brain</a> associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3f000485c50c93ba3a41a6627b45f7dc"></a><br/></td></tr>
 <tr class="memitem:ad8015a52bd53b953dbbc904029bfa2e1 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1">gContainer</a> () const </td></tr>
 <tr class="memdesc:ad8015a52bd53b953dbbc904029bfa2e1 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within.  <a href="#ad8015a52bd53b953dbbc904029bfa2e1"></a><br/></td></tr>
 <tr class="memitem:a8e27a5928fd0dbc9bee6e89ac8d09d28 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="classThing.xhtml">Thing</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a8e27a5928fd0dbc9bee6e89ac8d09d28">gContents</a> () const </td></tr>
@@ -161,18 +161,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afb35e940694ccbd0c9bc351d66251314 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the description of the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from <a class="el" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5">THING_DESCRIPTION</a>.  <a href="#afb35e940694ccbd0c9bc351d66251314"></a><br/></td></tr>
 <tr class="memitem:aea5dad4f4241b325cdf64b232e84e602 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">gId</a> () const </td></tr>
 <tr class="memdesc:aea5dad4f4241b325cdf64b232e84e602 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aea5dad4f4241b325cdf64b232e84e602"></a><br/></td></tr>
+<tr class="memitem:a1dd6cdc428b439069c32ef3664fa76df inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1dd6cdc428b439069c32ef3664fa76df">gLocation</a> () const </td></tr>
+<tr class="memdesc:a1dd6cdc428b439069c32ef3664fa76df inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the location id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1dd6cdc428b439069c32ef3664fa76df"></a><br/></td></tr>
 <tr class="memitem:a3c3c40c996ff562baa335f2ded022578 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">gName</a> () const </td></tr>
 <tr class="memdesc:a3c3c40c996ff562baa335f2ded022578 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3c3c40c996ff562baa335f2ded022578"></a><br/></td></tr>
 <tr class="memitem:aa79bfcc9b321d3e05752066e5ba1c50a inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a">gType</a> () const </td></tr>
 <tr class="memdesc:aa79bfcc9b321d3e05752066e5ba1c50a inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the inherited sub-type of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aa79bfcc9b321d3e05752066e5ba1c50a"></a><br/></td></tr>
+<tr class="memitem:af4ebcdb4555620bacba408c09faf996b inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#af4ebcdb4555620bacba408c09faf996b">gZone</a> () const </td></tr>
+<tr class="memdesc:af4ebcdb4555620bacba408c09faf996b inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the zone associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#af4ebcdb4555620bacba408c09faf996b"></a><br/></td></tr>
 <tr class="memitem:adf1753595ae5f94906663f88b7d38edd inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#adf1753595ae5f94906663f88b7d38edd">sDescription</a> (const string &amp;description, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr class="memdesc:adf1753595ae5f94906663f88b7d38edd inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the description of the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from <a class="el" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5">THING_DESCRIPTION</a>.  <a href="#adf1753595ae5f94906663f88b7d38edd"></a><br/></td></tr>
 <tr class="memitem:a946fbf68bcd90ea5b26f4cce0b37132b inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b">sId</a> (const string &amp;id)</td></tr>
 <tr class="memdesc:a946fbf68bcd90ea5b26f4cce0b37132b inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a946fbf68bcd90ea5b26f4cce0b37132b"></a><br/></td></tr>
+<tr class="memitem:a68389cd23d3066b89d8e06b5b60ea369 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a68389cd23d3066b89d8e06b5b60ea369">sLocation</a> (const string &amp;location)</td></tr>
+<tr class="memdesc:a68389cd23d3066b89d8e06b5b60ea369 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the location id of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a68389cd23d3066b89d8e06b5b60ea369"></a><br/></td></tr>
 <tr class="memitem:a69568f79edcdf1b0225f1b764a7ceb41 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41">sName</a> (const string &amp;name, const bool &amp;system=false)</td></tr>
 <tr class="memdesc:a69568f79edcdf1b0225f1b764a7ceb41 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a69568f79edcdf1b0225f1b764a7ceb41"></a><br/></td></tr>
 <tr class="memitem:adf1d92efe54e7f5934d22e10b4374c59 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59">sType</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr class="memdesc:adf1d92efe54e7f5934d22e10b4374c59 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the inherited sub-type of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#adf1d92efe54e7f5934d22e10b4374c59"></a><br/></td></tr>
+<tr class="memitem:a99013771892bba4f6410f16f1b1ac127 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a99013771892bba4f6410f16f1b1ac127">sZone</a> (const string &amp;zone)</td></tr>
+<tr class="memdesc:a99013771892bba4f6410f16f1b1ac127 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the zone of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a99013771892bba4f6410f16f1b1ac127"></a><br/></td></tr>
 <tr class="memitem:a9d7867991d8943d81101a32597eb4df1 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a9d7867991d8943d81101a32597eb4df1">NewId</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;seed)</td></tr>
 <tr class="memdesc:a9d7867991d8943d81101a32597eb4df1 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new unique id for this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a9d7867991d8943d81101a32597eb4df1"></a><br/></td></tr>
 <tr class="memitem:a39968586a8e98dfef67c72ca54e00a43 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43">Thing</a> ()</td></tr>
@@ -182,7 +190,6 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ae7a8013b7af11a6b6dd0ea09534caf7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAccount.xhtml">Account</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a></td></tr>
 <tr class="memitem:a1c2a00e9ddb021cc0258cf1504c1b0d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a> [<a class="el" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a>]</td></tr>
 <tr class="memitem:a32489f7db50dddbed3e8920e8c4d3418"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a></td></tr>
 <tr class="memitem:a752ec2cc1fb8e5535679a73c97b611a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a></td></tr>
@@ -206,12 +213,11 @@ Private Attributes</h2></td></tr>
 <p>Initialize attributes from parent <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> class</p>
 <p>Initialize attributes specific to Characters </p>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00363">363</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00410">410</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59" title="Sets the inherited sub-type of this Thing.">sType</a>( <a class="code" href="enum_8h.xhtml#a37fc305e33c43e18f03f70aeb8bba7baac0eec9324dd51ebf65a7466f34ab8093">THING_TYPE_CHARACTER</a> );</div>
-<div class="line">    <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> = NULL;</div>
 <div class="line">    <span class="keywordflow">for</span> ( i = 0; i &lt; <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a>; i++ )</div>
 <div class="line">        <a class="code" href="classCharacter.xhtml#a1c2a00e9ddb021cc0258cf1504c1b0d7">m_creation</a>[i] = <span class="keyword">false</span>;</div>
 <div class="line">    <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a>.clear();</div>
@@ -244,7 +250,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00382">382</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00428">428</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -252,6 +258,95 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="a13ee03b0f19ce2938d23115d6d661280"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool Character::Clone </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>The name of the template character to clone. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>The field to search against, from <a class="el" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406">HANDLER_FIND</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">false</td><td>Returned if there was an error cloning the <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>. </td></tr>
+    <tr><td class="paramname">true</td><td>Returned if the <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> was successfully cloned. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Copy elements from <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> parent class</p>
+<p>Copy elements internal to <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> class</p>
+<p>Generate a unique id based on obj_list.size() and current time </p>
+
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00043">43</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
+<div class="line">    <a class="code" href="classCharacter.xhtml" title="An actor within the game world.">Character</a>* chr = NULL;</div>
+<div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> search = type;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> ( name.empty() )</div>
+<div class="line">    {</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Character::Clone()-&gt; called with empty name&quot;</span> );</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> ( search &lt; uintmin_t || search &gt;= <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a76f1872093e830545839a2ec938b3098">MAX_HANDLER_FIND</a> )</div>
+<div class="line">    {</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::Clone()-&gt; called with invalid type: %lu&quot;</span>, search );</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Character::Clone()-&gt; defaulting to HANDLER_FIND_ID&quot;</span> );</div>
+<div class="line">        search = <a class="code" href="enum_8h.xhtml#a935364c6740bf6ab6b2fa9969ab6a406a9316081309157c0cf6f4508b8d91fedd">HANDLER_FIND_ID</a>;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> ( ( chr = <a class="code" href="namespaceHandler.xhtml#a49507bd28d189d30063ba103fb50062f" title="Locates a Character within the game.">Handler::FindCharacter</a>( name, type, <a class="code" href="list_8cpp.xhtml#a5b81c1ba881cc1dd476bdeed7a9b2977" title="All characters that exist as templates within the server.">character_template_list</a> ) ) == NULL )</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">for</span> ( search = 0; search &lt; <a class="code" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5a5916fe4a04746e062eb4e16f3ee8daeb">MAX_THING_DESCRIPTION</a>; search++ )</div>
+<div class="line">        <a class="code" href="classThing.xhtml#adf1753595ae5f94906663f88b7d38edd" title="Sets the description of the Thing from THING_DESCRIPTION.">sDescription</a>( chr-&gt;<a class="code" href="classThing.xhtml#afb35e940694ccbd0c9bc351d66251314" title="Returns the description of the Thing from THING_DESCRIPTION.">gDescription</a>( search ), search );</div>
+<div class="line">    <a class="code" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41" title="Sets the name of this Thing.">sName</a>( chr-&gt;<a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() );</div>
+<div class="line">    <a class="code" href="classThing.xhtml#a99013771892bba4f6410f16f1b1ac127" title="Sets the zone of this Thing.">sZone</a>( chr-&gt;<a class="code" href="classThing.xhtml#af4ebcdb4555620bacba408c09faf996b" title="Returns the zone associated with this Thing.">gZone</a>() );</div>
+<div class="line">    <span class="keywordflow">for</span> ( search = 0; search &lt; <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a>; search++ )</div>
+<div class="line">        <a class="code" href="classCharacter.xhtml#a324f4ec56476961fd22781a1d4e381ed" title="Sets the creation states of this character from CHR_CREATION.">sCreation</a>( chr-&gt;<a class="code" href="classCharacter.xhtml#ad3d3db7ed1d44cf53fb7ae4b991a1c18" title="Gets the creation states of this character from CHR_CREATION.">gCreation</a>( search ), search );</div>
+<div class="line">    <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a> = chr-&gt;<a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a>;</div>
+<div class="line">    <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a> = chr-&gt;<a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a>;</div>
+<div class="line">    <a class="code" href="classThing.xhtml#a9d7867991d8943d81101a32597eb4df1" title="Generates a new unique id for this Thing.">NewId</a>( <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.size() );</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.push_back( <span class="keyword">this</span> );</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a13ee03b0f19ce2938d23115d6d661280_cgraph.svg" width="518" height="570"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a4f7ff295f5de0fa4f8fece0acb7aaa53"></a>
 <div class="memitem">
 <div class="memproto">
@@ -281,69 +376,36 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classThing.xhtml#a9538999261b5bba766e3b04768ce2700">Thing</a>.</p>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00040">40</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00087">87</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> ( find( <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.end(), this ) != <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.end() )</div>
 <div class="line">        <a class="code" href="globals_8h.xhtml#a4746b8ff4575e45ad5e0850f331e713e">g_global</a>-&gt;<a class="code" href="classServer_1_1Global.xhtml#ad08a12a2b95ea861a35c7e006f29198f">m_next_character</a> = <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.erase( find( <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.end(), this ) );</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( find( <a class="code" href="list_8cpp.xhtml#a5b81c1ba881cc1dd476bdeed7a9b2977" title="All characters that exist as templates within the server.">character_template_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a5b81c1ba881cc1dd476bdeed7a9b2977" title="All characters that exist as templates within the server.">character_template_list</a>.end(), this ) != <a class="code" href="list_8cpp.xhtml#a5b81c1ba881cc1dd476bdeed7a9b2977" title="All characters that exist as templates within the server.">character_template_list</a>.end() )</div>
+<div class="line">            <a class="code" href="list_8cpp.xhtml#a5b81c1ba881cc1dd476bdeed7a9b2977" title="All characters that exist as templates within the server.">character_template_list</a>.erase( find( <a class="code" href="list_8cpp.xhtml#a5b81c1ba881cc1dd476bdeed7a9b2977" title="All characters that exist as templates within the server.">character_template_list</a>.begin(), <a class="code" href="list_8cpp.xhtml#a5b81c1ba881cc1dd476bdeed7a9b2977" title="All characters that exist as templates within the server.">character_template_list</a>.end(), this ) );</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> )</div>
-<div class="line">        <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>-&gt;<a class="code" href="classAccount.xhtml#a42914cf1147f5c5a480dbfcb9a0ff3fe" title="Sets the active Character associated with the account.">sCharacter</a>( NULL );</div>
+<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;<a class="code" href="classThing_1_1Brain.xhtml#aedfc5e3f688c409a33070650ec88acd5" title="Returns the Account associated with this thing&#39;s brain, if any.">gAccount</a>() )</div>
+<div class="line">        <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;<a class="code" href="classThing_1_1Brain.xhtml#aedfc5e3f688c409a33070650ec88acd5" title="Returns the Account associated with this thing&#39;s brain, if any.">gAccount</a>()-&gt;<a class="code" href="classAccount.xhtml#a42914cf1147f5c5a480dbfcb9a0ff3fe" title="Sets the active Character associated with the account.">sCharacter</a>( NULL );</div>
 <div class="line"></div>
 <div class="line">    <span class="keyword">delete</span> <span class="keyword">this</span>;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a4f7ff295f5de0fa4f8fece0acb7aaa53_cgraph.svg" width="347" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
 <p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a4f7ff295f5de0fa4f8fece0acb7aaa53_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a4f7ff295f5de0fa4f8fece0acb7aaa53_cgraph.svg" width="360" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-</div>
-</div>
-<a class="anchor" id="a9dce3d7ce7ac17f02397d198e47707ef"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classAccount.xhtml">Account</a> * Character::gAccount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">Account*</td><td>A pointer to the associated account, or NULL if none. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00248">248</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>;</div>
-<div class="line">}</div>
-</div><!-- fragment -->
 <p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a9dce3d7ce7ac17f02397d198e47707ef_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a4f7ff295f5de0fa4f8fece0acb7aaa53_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -376,13 +438,13 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00259">259</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00327">327</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a> )</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::sCreation()-&gt; called with invalid pos %lu&quot;</span>, pos );</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::sCreation()-&gt; called with invalid pos: %lu&quot;</span>, pos );</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
@@ -419,11 +481,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00276">276</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00344">344</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    stringstream output;</div>
 <div class="line"></div>
-<div class="line">    output &lt;&lt; <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> &lt;&lt; <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() &lt;&lt; <span class="stringliteral">&quot;&gt; &quot;</span>;</div>
+<div class="line">    output &lt;&lt; <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a> &lt;&lt; <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() &lt;&lt; <span class="stringliteral">&quot;&gt; &quot;</span> <a class="code" href="macros_8h.xhtml#a6cb23a858b0a21bdaa644b9181dc415f" title="Output a carriage return \ line feed.">CRLF</a>;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> output.str();</div>
 <div class="line">}</div>
@@ -458,7 +520,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00289">289</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00357">357</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a>;</div>
 <div class="line">}</div>
@@ -529,7 +591,7 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classThing.xhtml#a00bb611784d9e852ad307d83e82f8738">Thing</a>.</p>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00060">60</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00109">109</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classCommand.xhtml" title="Functions that are built and loaded independently as Plugin objects.">Command</a>* command = NULL;</div>
 <div class="line">    <a class="code" href="classExit.xhtml" title="A link between two locations within the game world.">Exit</a>* exit = NULL;</div>
@@ -539,17 +601,21 @@ Private Attributes</h2></td></tr>
 <div class="line">        <span class="keywordflow">if</span> ( command-&gt;<a class="code" href="classCommand.xhtml#a1ccef73405910cf3e44943a3244b645b" title="Check if sec is &gt;= m_security for permission to call Command::Run().">Authorized</a>( security ) )</div>
 <div class="line">            command-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <span class="keyword">this</span>, cmd, args );</div>
 <div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
+<div class="line">            <a class="code" href="classCharacter.xhtml#a09f9ebcfe608c8eb3ef959830f5c8c64" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( ( exit = <a class="code" href="namespaceHandler.xhtml#a6a66769cd9a793514515b88d44091cc7" title="Locates an Exit within a Location.">Handler::FindExit</a>( dynamic_cast&lt;Location*&gt;( <a class="code" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1" title="Returns the Thing that this Thing is stored within.">gContainer</a>() ), cmd ) ) != NULL ) <span class="comment">// Search for an exit</span></div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( ( exit = <a class="code" href="namespaceHandler.xhtml#a1541ed8653b973ffb4657e9f43a1f30f" title="Locates an Exit within a Location.">Handler::FindExit</a>( cmd, dynamic_cast&lt;Location*&gt;( <a class="code" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1" title="Returns the Thing that this Thing is stored within.">gContainer</a>() ) ) ) != NULL ) <span class="comment">// Search for an exit</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ( !<a class="code" href="classThing.xhtml#a1134d82f5d0d47167badcfc99170b8a0" title="Moves a Thing from within one Thing and into another Thing.">Move</a>( <a class="code" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1" title="Returns the Thing that this Thing is stored within.">gContainer</a>(), exit-&gt;<a class="code" href="classExit.xhtml#a798f8c836542670b5dd0dd41503a6171" title="Returns the destination that this Exit leads to.">gDestination</a>() ) )</div>
-<div class="line">            <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( ( command = <a class="code" href="namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game.">Handler::FindCommand</a>( <span class="stringliteral">&quot;look&quot;</span> ) ) != NULL ) </div>
-<div class="line">            command-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <span class="keyword">this</span> );</div>
+<div class="line">        <span class="keywordflow">if</span> ( <a class="code" href="classThing.xhtml#aa325821371b36adbe2a2afe2f673f0f6" title="Moves a Thing from within one Thing and into another Thing.">Move</a>( <a class="code" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1" title="Returns the Thing that this Thing is stored within.">gContainer</a>(), exit-&gt;<a class="code" href="classExit.xhtml#a798f8c836542670b5dd0dd41503a6171" title="Returns the destination that this Exit leads to.">gDestination</a>(), exit ) )</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// Auto-look</span></div>
+<div class="line">            <span class="keywordflow">if</span> ( ( command = <a class="code" href="namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game.">Handler::FindCommand</a>( <span class="stringliteral">&quot;look&quot;</span> ) ) != NULL ) </div>
+<div class="line">                command-&gt;<a class="code" href="classCommand.xhtml#a6cef42c7b0a50d8aa3b4424aef29b0bd" title="Execute a Plugin object&#39;s primary function.">Run</a>( <span class="keyword">this</span> );</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">            <a class="code" href="classCharacter.xhtml#a09f9ebcfe608c8eb3ef959830f5c8c64" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="comment">// Give up</span></div>
-<div class="line">        <a class="code" href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
+<div class="line">        <a class="code" href="classCharacter.xhtml#a09f9ebcfe608c8eb3ef959830f5c8c64" title="Send data to the associated SocketClient, if any.">Send</a>( <a class="code" href="config_8h.xhtml#ac99cc23a3caa3959e24a3475ab43adbc" title="String sent when an invalid command is received.">CFG_STR_CMD_INVALID</a> );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -559,8 +625,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_ad51f5ff0cfefa9bd7e674bc413f6b73c_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_ad51f5ff0cfefa9bd7e674bc413f6b73c_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -575,7 +640,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a829a28ec5f8573f3f53684ac4dcb75bb"></a>
+<a class="anchor" id="a59fd38e0e8347e4e242603cc82ae551b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -584,6 +649,12 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>itemplate</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -601,6 +672,7 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>The filename to load without any path prepended to it. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">itemplate</td><td>True if the character should be loaded into the character_template_list, otherwise it will be loaded into the character_list. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">exists</td><td>True if the character should be loaded, false if a new one need be created. </td></tr>
   </table>
   </dd>
@@ -613,7 +685,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00092">92</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00146">146</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
@@ -628,7 +700,10 @@ Private Attributes</h2></td></tr>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.push_back( <span class="keyword">this</span> );</div>
+<div class="line">    <span class="keywordflow">if</span> ( itemplate )</div>
+<div class="line">        <a class="code" href="list_8cpp.xhtml#a5b81c1ba881cc1dd476bdeed7a9b2977" title="All characters that exist as templates within the server.">character_template_list</a>.push_back( <span class="keyword">this</span> );</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.push_back( <span class="keyword">this</span> );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
@@ -638,7 +713,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a829a28ec5f8573f3f53684ac4dcb75bb_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a59fd38e0e8347e4e242603cc82ae551b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -647,60 +722,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a829a28ec5f8573f3f53684ac4dcb75bb_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a622c35f2465a934848d493cd2a596584"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const bool Character::sAccount </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classAccount.xhtml">Account</a> *&#160;</td>
-          <td class="paramname"><em>account</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">account</td><td>A pointer to the <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a> to be associated with this character. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">false</td><td>Returned if unable to associate the account with this character. </td></tr>
-    <tr><td class="paramname">true</td><td>Returned if the account was successfully associated. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00301">301</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
-<div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> != NULL &amp;&amp; account != NULL )</div>
-<div class="line">    {</div>
-<div class="line">        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Character::sAccount()-&gt; called while m_account is not NULL&quot;</span> );</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"></div>
-<div class="line">    <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> = account;</div>
-<div class="line"></div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a622c35f2465a934848d493cd2a596584_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a59fd38e0e8347e4e242603cc82ae551b_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -744,13 +766,13 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00323">323</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00370">370</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( pos &lt; uintmin_t || pos &gt;= <a class="code" href="enum_8h.xhtml#a9f0bc0c7c0d28ca194ebb36d4a6d1c2faf58cf9eab72ac90c69b2030b99d6c8c1">MAX_CHR_CREATION</a> )</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::sCreation()-&gt; called with invalid pos %lu&quot;</span>, pos );</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::sCreation()-&gt; called with invalid pos: %lu&quot;</span>, pos );</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
@@ -759,18 +781,18 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a324f4ec56476961fd22781a1d4e381ed_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a0121996391ec2a3fb12ec76406dd6018"></a>
+<a class="anchor" id="a09f9ebcfe608c8eb3ef959830f5c8c64"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -787,7 +809,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td>
-          <td class="paramname"><em>speaker</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>speaker</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td>
+          <td class="paramname"><em>target</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -805,6 +833,7 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>The data to be sent. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">speaker</td><td>The <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> originating the message. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">target</td><td>The <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> who is the target of the message. </td></tr>
   </table>
   </dd>
 </dl>
@@ -815,32 +844,32 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classThing.xhtml#aea72918fcebfd612b8dd076c708c1592">Thing</a>.</p>
+<p>Reimplemented from <a class="el" href="classThing.xhtml#a7ad4eaf9c9d4ba80d74d1187986d81d0">Thing</a>.</p>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00118">118</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00176">176</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
-<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a> )</div>
-<div class="line">        <span class="keywordflow">if</span> ( <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>() )</div>
-<div class="line">            <a class="code" href="classCharacter.xhtml#ae7a8013b7af11a6b6dd0ea09534caf7d">m_account</a>-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>()-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( msg );</div>
+<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;gAccount() )</div>
+<div class="line">        <span class="keywordflow">if</span> ( <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;gAccount()-&gt;gClient() )</div>
+<div class="line">            <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;<a class="code" href="classThing_1_1Brain.xhtml#aedfc5e3f688c409a33070650ec88acd5" title="Returns the Account associated with this thing&#39;s brain, if any.">gAccount</a>()-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>()-&gt;<a class="code" href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket.">Send</a>( msg );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a0121996391ec2a3fb12ec76406dd6018_cgraph.svg" width="550" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_a09f9ebcfe608c8eb3ef959830f5c8c64_cgraph.svg" width="571" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a0121996391ec2a3fb12ec76406dd6018_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a09f9ebcfe608c8eb3ef959830f5c8c64_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -877,14 +906,20 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classThing.xhtml#a19051d1b895bf1c3ab933a723f1ae79c">Thing</a>.</p>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00132">132</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00190">190</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    ofstream ofs;</div>
 <div class="line">    <span class="keywordtype">string</span> value;</div>
 <div class="line">    stringstream line;</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> i = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
-<div class="line">    <span class="keywordtype">string</span> file( <a class="code" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext.">Utils::FileExt</a>( <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>(), <a class="code" href="config_8h.xhtml#a2339c99068cee7dd8024d0097583cdee" title="File extension to use for player character files.">CFG_DAT_FILE_PLR_EXT</a> ) );</div>
+<div class="line">    <span class="keywordtype">string</span> file;</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// If the Brain is attached to an account, serialize as a player character, otherwise serialize as a NPC</span></div>
+<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;gAccount() )</div>
+<div class="line">        file = <a class="code" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext.">Utils::FileExt</a>( <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>(), <a class="code" href="config_8h.xhtml#a2339c99068cee7dd8024d0097583cdee" title="File extension to use for player character files.">CFG_DAT_FILE_PLR_EXT</a> );</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        file = <a class="code" href="namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext.">Utils::FileExt</a>( <a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>(), <a class="code" href="config_8h.xhtml#a1cc6c7c9490d16ef3538023d229873c8" title="File extension to use for NPC files.">CFG_DAT_FILE_NPC_EXT</a> );</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ofs, file );</div>
 <div class="line"></div>
@@ -907,26 +942,31 @@ Private Attributes</h2></td></tr>
 <div class="line">        <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;location&quot;</span>, <a class="code" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1" title="Returns the Thing that this Thing is stored within.">gContainer</a>()-&gt;<a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;name&quot;</span>, <a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;sex&quot;</span>, <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a> );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;zone&quot;</span>, <a class="code" href="classThing.xhtml#af4ebcdb4555620bacba408c09faf996b" title="Returns the zone associated with this Thing.">gZone</a>() );</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ofs, <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#a5820804ddbdd36a88754b698a1a28220" title="Directory for accounts to be loaded from.">CFG_DAT_DIR_ACCOUNT</a>, <a class="code" href="classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any.">gAccount</a>()-&gt;<a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ) );</div>
+<div class="line">    <span class="comment">// If the Brain is attached to an account, serialize as a player character, otherwise serialize as a NPC</span></div>
+<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;gAccount() )</div>
+<div class="line">        <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ofs, <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#a5820804ddbdd36a88754b698a1a28220" title="Directory for accounts to be loaded from.">CFG_DAT_DIR_ACCOUNT</a>, <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;gAccount()-&gt;<a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ) );</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ofs, <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#aeb234d51b0a7b1a2c836059fb76c5770" title="Directory for game world files: rooms, objects, NPCs, etc.">CFG_DAT_DIR_WORLD</a>, <a class="code" href="classThing.xhtml#af4ebcdb4555620bacba408c09faf996b" title="Returns the zone associated with this Thing.">gZone</a>() ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ) );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_acbf271cc1d8bf64bd5bd4c286f508f67_cgraph.svg" width="512" height="494"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacter_acbf271cc1d8bf64bd5bd4c286f508f67_cgraph.svg" width="502" height="544"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
-<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_acbf271cc1d8bf64bd5bd4c286f508f67_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -960,13 +1000,13 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00344">344</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00391">391</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( sex &lt; uintmin_t || sex &gt;= <a class="code" href="enum_8h.xhtml#a5a21b8ad48605bcc6bd9d5091c46dc1fa06107e14022a0ca1f5b2c92ecfc748d2">MAX_CHR_SEX</a> )</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::sSex()-&gt; called with invalid sex %lu&quot;</span>, sex );</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Character::sSex()-&gt; called with invalid sex: %lu&quot;</span>, sex );</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
@@ -975,11 +1015,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_add25d4f2e5c883884b6852f695e96851_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -1016,7 +1056,7 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classThing.xhtml#a56e59bba2e3602b8935dc07b6768dd0a">Thing</a>.</p>
 
-<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00173">173</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
+<p>Definition at line <a class="el" href="character_8cpp_source.xhtml#l00242">242</a> of file <a class="el" href="character_8cpp_source.xhtml">character.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a56f9e62010649bf59e47724b826e3502" title="Define a bitset variable (name) with UTILS_DEBUG and UTILS_TYPE_ERROR already enabled.">UFLAGS_DE</a>( flags );</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#a6e32552c1b3df78e64aa5205ddf6dae9" title="Define a bitset variable (name) with UTILS_TYPE_INFO already enabled.">UFLAGS_I</a>( finfo );</div>
@@ -1026,7 +1066,11 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>, maxb = <span class="keyword">false</span>;</div>
 <div class="line">    <a class="code" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a" title="An unsigned integer value based upon system limits.">uint_t</a> revision = <a class="code" href="limits_8h.xhtml#ace307ffbe4c934f4565176f184b38d78" title="The minimum value of any uint_t variable.">uintmin_t</a>;</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ifs, <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#a5820804ddbdd36a88754b698a1a28220" title="Directory for accounts to be loaded from.">CFG_DAT_DIR_ACCOUNT</a>, <a class="code" href="classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any.">gAccount</a>()-&gt;<a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() ), <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a> ) );</div>
+<div class="line">    <span class="comment">// If the Brain is attached to an account, load as a player character, otherwise load as a NPC</span></div>
+<div class="line">    <span class="keywordflow">if</span> ( <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;gAccount() )</div>
+<div class="line">        <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ifs, <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#a5820804ddbdd36a88754b698a1a28220" title="Directory for accounts to be loaded from.">CFG_DAT_DIR_ACCOUNT</a>, <a class="code" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing.">gBrain</a>()-&gt;gAccount()-&gt;<a class="code" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing.">gId</a>() ), <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a> ) );</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        <a class="code" href="namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file.">Utils::FileOpen</a>( ifs, <a class="code" href="classCharacter.xhtml#a32489f7db50dddbed3e8920e8c4d3418">m_file</a> );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( !ifs.good() )</div>
 <div class="line">    {</div>
@@ -1060,14 +1104,18 @@ Private Attributes</h2></td></tr>
 <div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;location&quot;</span> )</div>
 <div class="line">            {</div>
 <div class="line">                found = <span class="keyword">true</span>;</div>
-<div class="line">                <a class="code" href="classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any.">gAccount</a>()-&gt;<a class="code" href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" title="Returns the associated SocketClient.">gClient</a>()-&gt;<a class="code" href="classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484" title="Set the login command or arguments to be passed between handler functions.">sLogin</a>( <a class="code" href="enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa33577c51ed92b3437fdc0968a99172f2">SOC_LOGIN_LOCATION</a>, value );</div>
+<div class="line">                <a class="code" href="classThing.xhtml#a68389cd23d3066b89d8e06b5b60ea369" title="Sets the location id of this Thing.">sLocation</a>( value );</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;name&quot;</span> )</div>
 <div class="line">            {</div>
 <div class="line">                found = <span class="keyword">true</span>;</div>
 <div class="line">                <a class="code" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41" title="Sets the name of this Thing.">sName</a>( value );</div>
 <div class="line">            }</div>
-<div class="line"></div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;zone&quot;</span> )</div>
+<div class="line">            {</div>
+<div class="line">                found = <span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="classThing.xhtml#a99013771892bba4f6410f16f1b1ac127" title="Sets the zone of this Thing.">sZone</a>( value );</div>
+<div class="line">            }</div>
 <div class="line">            <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" title="If the contents of keyd == valu, assigns loc = item.">Utils::KeySet</a>( <span class="keyword">true</span>, found, key, <span class="stringliteral">&quot;revision&quot;</span>, value, revision, <a class="code" href="config_8h.xhtml#a3bac5bd1c73b98a0a8ea4dc4b86c80de" title="The Character file format revision. Used to ensure backwards compatibility if necessary.">CFG_CHR_REVISION</a>, maxb );</div>
 <div class="line">            <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" title="If the contents of keyd == valu, assigns loc = item.">Utils::KeySet</a>( <span class="keyword">true</span>, found, key, <span class="stringliteral">&quot;sex&quot;</span>, value, <a class="code" href="classCharacter.xhtml#a752ec2cc1fb8e5535679a73c97b611a4">m_sex</a>, <a class="code" href="enum_8h.xhtml#a5a21b8ad48605bcc6bd9d5091c46dc1fa06107e14022a0ca1f5b2c92ecfc748d2">MAX_CHR_SEX</a>, maxb );</div>
 <div class="line"></div>
@@ -1086,20 +1134,20 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a91193d9bb29423c2ec95fb56c27d6bb3_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
-<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacter_a91193d9bb29423c2ec95fb56c27d6bb3_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
@@ -1107,29 +1155,6 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2>Member Data Documentation</h2>
-<a class="anchor" id="ae7a8013b7af11a6b6dd0ea09534caf7d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classAccount.xhtml">Account</a>* Character::m_account</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>The associated <a class="el" href="classAccount.xhtml" title="Security structure to maintain characters, roles, and permissions.">Account</a>, if any. </p>
-
-<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00065">65</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a1c2a00e9ddb021cc0258cf1504c1b0d7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1149,7 +1174,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Track if all creation options have been set. </p>
 
-<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00066">66</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
+<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00064">64</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
 
 </div>
 </div>
@@ -1172,7 +1197,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Path to the file on disk. </p>
 
-<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00067">67</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
+<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00065">65</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
 
 </div>
 </div>
@@ -1195,7 +1220,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The sex of the character. </p>
 
-<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00068">68</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
+<p>Definition at line <a class="el" href="character_8h_source.xhtml#l00066">66</a> of file <a class="el" href="character_8h_source.xhtml">character.h</a>.</p>
 
 </div>
 </div>
@@ -1206,7 +1231,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 20:59:31 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 17 2013 22:09:44 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

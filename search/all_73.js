@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['saccount',['sAccount',['../classCharacter.xhtml#a622c35f2465a934848d493cd2a596584',1,'Character::sAccount()'],['../classSocketClient.xhtml#aaa13ed7d0aa65770b617cbf72a5c28d9',1,'SocketClient::sAccount()']]],
+  ['saccount',['sAccount',['../classSocketClient.xhtml#aaa13ed7d0aa65770b617cbf72a5c28d9',1,'SocketClient::sAccount()'],['../classThing_1_1Brain.xhtml#a9bd0667bba0b14f45b399da9aff683cd',1,'Thing::Brain::sAccount()']]],
   ['salt',['Salt',['../namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0',1,'Utils']]],
   ['sbool',['sBool',['../classPlugin.xhtml#ad677e15fe0ce01a5306fbc74683dae85',1,'Plugin']]],
   ['scaller',['sCaller',['../classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859',1,'Plugin']]],
@@ -9,7 +9,7 @@ var searchData=
   ['sdescription',['sDescription',['../classThing.xhtml#adf1753595ae5f94906663f88b7d38edd',1,'Thing']]],
   ['sdescriptor',['sDescriptor',['../classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a',1,'Socket']]],
   ['sdestination',['sDestination',['../classExit.xhtml#ae4b375ca6875ef63c9de87bd4f945323',1,'Exit']]],
-  ['send',['Send',['../classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018',1,'Character::Send()'],['../classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80',1,'SocketClient::Send()'],['../classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a',1,'SocketClient::Send(const string &amp;msg)'],['../classThing.xhtml#aea72918fcebfd612b8dd076c708c1592',1,'Thing::Send()'],['../namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f',1,'Telopt::Send()']]],
+  ['send',['Send',['../classCharacter.xhtml#a09f9ebcfe608c8eb3ef959830f5c8c64',1,'Character::Send()'],['../classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80',1,'SocketClient::Send()'],['../classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a',1,'SocketClient::Send(const string &amp;msg)'],['../classThing.xhtml#a7ad4eaf9c9d4ba80d74d1187986d81d0',1,'Thing::Send()'],['../namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f',1,'Telopt::Send()']]],
   ['serialize',['Serialize',['../classAccount.xhtml#a87dfcb1fd6c275ea89ec6f279e7ee8ff',1,'Account::Serialize()'],['../classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67',1,'Character::Serialize()'],['../classExit.xhtml#a097962625968fc2ea0e39c867f9e1f31',1,'Exit::Serialize()'],['../classLocation.xhtml#a4f364ffc1f0910ac60bcb2e7cf9e7e20',1,'Location::Serialize()'],['../classObject.xhtml#a17108a2fecfd2c0542290f4cccfc6a6b',1,'Object::Serialize()'],['../classReset.xhtml#ae20741be9c77ca8933d52d2f0c0abdde',1,'Reset::Serialize()'],['../classServer_1_1Config.xhtml#a39f409e995ec914244e9eff416d4477e',1,'Server::Config::Serialize()'],['../classSocket.xhtml#a2f38fa86bcb79d7b2d6139331fd95436',1,'Socket::Serialize()'],['../classSocketClient.xhtml#ae1cc85ca3320df2f78727f76e40fc5a3',1,'SocketClient::Serialize()'],['../classSocketServer.xhtml#a340c4c7856273cbe7760b4552ecb323f',1,'SocketServer::Serialize()'],['../classThing.xhtml#a19051d1b895bf1c3ab933a723f1ae79c',1,'Thing::Serialize()']]],
   ['server',['Server',['../namespaceServer.xhtml',1,'']]],
   ['server_2ecpp',['server.cpp',['../server_8cpp.xhtml',1,'']]],
@@ -21,12 +21,12 @@ var searchData=
   ['sint_5ft',['sint_t',['../limits_8h.xhtml#a4b065143310513611ddcce5fb87f9dbd',1,'limits.h']]],
   ['sintmax_5ft',['sintmax_t',['../limits_8h.xhtml#aebe7e0b7dfb9e7afa6c28b51a4cc137e',1,'limits.h']]],
   ['sintmin_5ft',['sintmin_t',['../limits_8h.xhtml#a9698df90d76cdc260431fe109ce29675',1,'limits.h']]],
+  ['slocation',['sLocation',['../classThing.xhtml#a68389cd23d3066b89d8e06b5b60ea369',1,'Thing']]],
   ['slogin',['sLogin',['../classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484',1,'SocketClient']]],
   ['sname',['sName',['../classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41',1,'Thing']]],
   ['snegotiated',['sNegotiated',['../classSocketClient_1_1TermInfo.xhtml#aa576f2ec6f9de8d4160ccee6cbd1dc34',1,'SocketClient::TermInfo']]],
   ['soc_5flogin',['SOC_LOGIN',['../enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2a',1,'enum.h']]],
   ['soc_5flogin_5fcharacter',['SOC_LOGIN_CHARACTER',['../enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa308cffe1aa77261b903e800618977368',1,'enum.h']]],
-  ['soc_5flogin_5flocation',['SOC_LOGIN_LOCATION',['../enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa33577c51ed92b3437fdc0968a99172f2',1,'enum.h']]],
   ['soc_5flogin_5fname',['SOC_LOGIN_NAME',['../enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa2795241d82649418f379522adb32897a',1,'enum.h']]],
   ['soc_5flogin_5fpassword',['SOC_LOGIN_PASSWORD',['../enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aaef7df213742c1c08fe0d427288d8f819',1,'enum.h']]],
   ['soc_5fstate',['SOC_STATE',['../enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7',1,'enum.h']]],
@@ -87,5 +87,6 @@ var searchData=
   ['svr_5fcfg_5fprohibited_5fnames_5faccount',['SVR_CFG_PROHIBITED_NAMES_ACCOUNT',['../enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7ace193a596bade4a7d0d31de31b2c563b',1,'enum.h']]],
   ['svr_5fcfg_5fprohibited_5fnames_5fcharacter',['SVR_CFG_PROHIBITED_NAMES_CHARACTER',['../enum_8h.xhtml#a78dd6653d08a6753832f7620341c0fb7a0b97df46a200cf2a2446c483fad0c6c6',1,'enum.h']]],
   ['sx',['SX',['../macros_8h.xhtml#a7a8f554f6ea8ea5af44d22d1b6e58650',1,'macros.h']]],
-  ['sysincludes_2eh',['sysincludes.h',['../sysincludes_8h.xhtml',1,'']]]
+  ['sysincludes_2eh',['sysincludes.h',['../sysincludes_8h.xhtml',1,'']]],
+  ['szone',['sZone',['../classThing.xhtml#a99013771892bba4f6410f16f1b1ac127',1,'Thing']]]
 ];

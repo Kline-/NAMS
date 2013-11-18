@@ -6,6 +6,7 @@ var searchData=
   ['loadcharacter',['LoadCharacter',['../namespaceHandler.xhtml#ae70e4e50054c729c14493eafefe01b5c',1,'Handler']]],
   ['loadcommands',['LoadCommands',['../namespaceServer.xhtml#ac2e1d14caee54a38a89c2394abe6e5a5',1,'Server']]],
   ['loadlocations',['LoadLocations',['../namespaceServer.xhtml#a9b8efad79a32f2356d431788449e1f82',1,'Server']]],
+  ['loadnpcs',['LoadNPCs',['../namespaceServer.xhtml#a04744ab6fef0eabc2a6c30d111b9074f',1,'Server']]],
   ['loadobjects',['LoadObjects',['../namespaceServer.xhtml#a0a8c7c124f8cc8e5e6a9c7b067be5ff5',1,'Server']]],
   ['location',['Location',['../classLocation.xhtml#a87790c14997fd8cdd12080c78c9794bb',1,'Location']]],
   ['loginhandler',['LoginHandler',['../namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888',1,'Handler']]],

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['gaccount',['gAccount',['../classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef',1,'Character::gAccount()'],['../classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c',1,'SocketClient::gAccount()']]],
+  ['gaccount',['gAccount',['../classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c',1,'SocketClient::gAccount()'],['../classThing_1_1Brain.xhtml#aedfc5e3f688c409a33070650ec88acd5',1,'Thing::Brain::gAccount()']]],
   ['gbool',['gBool',['../classPlugin.xhtml#a669870333a99490518fdd59054deaade',1,'Plugin']]],
+  ['gbrain',['gBrain',['../classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc',1,'Thing']]],
   ['gbytesrecvd',['gBytesRecvd',['../classSocket.xhtml#ad7ac03a288e6ef47a45e6837f7fef002',1,'Socket']]],
   ['gbytessent',['gBytesSent',['../classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c',1,'Socket']]],
   ['gcaller',['gCaller',['../classCommand.xhtml#a0763aba641a70e0085116b05bcfd632c',1,'Command::gCaller()'],['../classPlugin.xhtml#abab79e7ca874fe2f6e4f5e02a40b8878',1,'Plugin::gCaller()']]],
@@ -26,7 +27,7 @@ var searchData=
   ['gid',['gId',['../classAccount.xhtml#acee0aed5b91b420a7dbcf37b4b5d08e8',1,'Account::gId()'],['../classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602',1,'Thing::gId()']]],
   ['gidle',['gIdle',['../classSocketClient.xhtml#a9c982fdda7a3daa5b153eada40a3b6fb',1,'SocketClient']]],
   ['global',['Global',['../classServer_1_1Global.xhtml#a2b3effe974a7f4e8e813fc08eac57cdb',1,'Server::Global']]],
-  ['glocation',['gLocation',['../classExit.xhtml#ae6fefb2ecc09630f3ce9e4d74663d366',1,'Exit::gLocation()'],['../classReset.xhtml#ac01ffe6dac9ba1e5f37d48822e610a66',1,'Reset::gLocation()']]],
+  ['glocation',['gLocation',['../classExit.xhtml#ae6fefb2ecc09630f3ce9e4d74663d366',1,'Exit::gLocation()'],['../classReset.xhtml#ac01ffe6dac9ba1e5f37d48822e610a66',1,'Reset::gLocation()'],['../classThing.xhtml#a1dd6cdc428b439069c32ef3664fa76df',1,'Thing::gLocation()']]],
   ['glogin',['gLogin',['../classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796',1,'SocketClient']]],
   ['glogins',['gLogins',['../classAccount.xhtml#ad92c4b7dbfd16606b770e79b668c4ecf',1,'Account']]],
   ['gname',['gName',['../classCommand.xhtml#a7e591e2b82f59fd73d9b25daaa192021',1,'Command::gName()'],['../classExit.xhtml#a34207621e47d7bf64933eb68d05fedd9',1,'Exit::gName()'],['../classPlugin.xhtml#af031147ea2e2d7e7f73f7edb9a5921ae',1,'Plugin::gName()'],['../classReset.xhtml#a05b0a8d00a0881980f9cc9e98299c399',1,'Reset::gName()'],['../classThing.xhtml#a3c3c40c996ff562baa335f2ded022578',1,'Thing::gName()']]],
@@ -46,5 +47,6 @@ var searchData=
   ['gterminfo',['gTermInfo',['../classSocketClient.xhtml#aaad671b55573cb36a5d0bcc1e4a518fb',1,'SocketClient']]],
   ['gtime',['gTime',['../classEvent.xhtml#aba97749a9852eb777c5d8d5ccbc16dc4',1,'Event']]],
   ['gtype',['gType',['../classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a',1,'Thing']]],
-  ['guint',['gUint',['../classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43',1,'Plugin']]]
+  ['guint',['gUint',['../classPlugin.xhtml#aaabc3015bb64b744ac26c14318b9cb43',1,'Plugin']]],
+  ['gzone',['gZone',['../classThing.xhtml#af4ebcdb4555620bacba408c09faf996b',1,'Thing']]]
 ];

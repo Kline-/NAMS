@@ -107,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classObject__coll__graph.svg" width="455" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classObject__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 <center><span class="legend">[<a href="graph_legend.xhtml">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
@@ -133,12 +133,14 @@ Public Member Functions</h2></td></tr>
 <tr class="inherit_header pub_methods_classThing"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classThing')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classThing.xhtml">Thing</a></td></tr>
 <tr class="memitem:a1672d1e62ee2f1ef36d312d3e0d6ed2c inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1672d1e62ee2f1ef36d312d3e0d6ed2c">AddThing</a> (<a class="el" href="classThing.xhtml">Thing</a> *thing)</td></tr>
 <tr class="memdesc:a1672d1e62ee2f1ef36d312d3e0d6ed2c inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1672d1e62ee2f1ef36d312d3e0d6ed2c"></a><br/></td></tr>
-<tr class="memitem:a1134d82f5d0d47167badcfc99170b8a0 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1134d82f5d0d47167badcfc99170b8a0">Move</a> (<a class="el" href="classThing.xhtml">Thing</a> *source, <a class="el" href="classThing.xhtml">Thing</a> *destination)</td></tr>
-<tr class="memdesc:a1134d82f5d0d47167badcfc99170b8a0 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from within one <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> and into another <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1134d82f5d0d47167badcfc99170b8a0"></a><br/></td></tr>
+<tr class="memitem:aa325821371b36adbe2a2afe2f673f0f6 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa325821371b36adbe2a2afe2f673f0f6">Move</a> (<a class="el" href="classThing.xhtml">Thing</a> *source, <a class="el" href="classThing.xhtml">Thing</a> *destination, <a class="el" href="classExit.xhtml">Exit</a> *exit=NULL)</td></tr>
+<tr class="memdesc:aa325821371b36adbe2a2afe2f673f0f6 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from within one <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> and into another <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aa325821371b36adbe2a2afe2f673f0f6"></a><br/></td></tr>
 <tr class="memitem:afcc77dab7148c2f108aa384d83a6430e inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#afcc77dab7148c2f108aa384d83a6430e">RemoveThing</a> (<a class="el" href="classThing.xhtml">Thing</a> *thing)</td></tr>
 <tr class="memdesc:afcc77dab7148c2f108aa384d83a6430e inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> to the contents of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#afcc77dab7148c2f108aa384d83a6430e"></a><br/></td></tr>
-<tr class="memitem:aea72918fcebfd612b8dd076c708c1592 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aea72918fcebfd612b8dd076c708c1592">Send</a> (const string &amp;msg, <a class="el" href="classThing.xhtml">Thing</a> *speaker=NULL) const </td></tr>
-<tr class="memdesc:aea72918fcebfd612b8dd076c708c1592 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> objects within the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> except for the speaker.  <a href="#aea72918fcebfd612b8dd076c708c1592"></a><br/></td></tr>
+<tr class="memitem:a7ad4eaf9c9d4ba80d74d1187986d81d0 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">virtual const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a7ad4eaf9c9d4ba80d74d1187986d81d0">Send</a> (const string &amp;msg, <a class="el" href="classThing.xhtml">Thing</a> *speaker=NULL, <a class="el" href="classThing.xhtml">Thing</a> *target=NULL) const </td></tr>
+<tr class="memdesc:a7ad4eaf9c9d4ba80d74d1187986d81d0 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> objects within the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> except for the speaker.  <a href="#a7ad4eaf9c9d4ba80d74d1187986d81d0"></a><br/></td></tr>
+<tr class="memitem:a3f000485c50c93ba3a41a6627b45f7dc inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThing_1_1Brain.xhtml">Thing::Brain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc">gBrain</a> () const </td></tr>
+<tr class="memdesc:a3f000485c50c93ba3a41a6627b45f7dc inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classThing_1_1Brain.xhtml" title="Abstraction layer between player characters (Account-&gt;SocketClient) and non-player characters (AI)...">Brain</a> associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3f000485c50c93ba3a41a6627b45f7dc"></a><br/></td></tr>
 <tr class="memitem:ad8015a52bd53b953dbbc904029bfa2e1 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThing.xhtml">Thing</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1">gContainer</a> () const </td></tr>
 <tr class="memdesc:ad8015a52bd53b953dbbc904029bfa2e1 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> that this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> is stored within.  <a href="#ad8015a52bd53b953dbbc904029bfa2e1"></a><br/></td></tr>
 <tr class="memitem:a8e27a5928fd0dbc9bee6e89ac8d09d28 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="classThing.xhtml">Thing</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a8e27a5928fd0dbc9bee6e89ac8d09d28">gContents</a> () const </td></tr>
@@ -147,18 +149,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afb35e940694ccbd0c9bc351d66251314 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the description of the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from <a class="el" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5">THING_DESCRIPTION</a>.  <a href="#afb35e940694ccbd0c9bc351d66251314"></a><br/></td></tr>
 <tr class="memitem:aea5dad4f4241b325cdf64b232e84e602 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602">gId</a> () const </td></tr>
 <tr class="memdesc:aea5dad4f4241b325cdf64b232e84e602 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aea5dad4f4241b325cdf64b232e84e602"></a><br/></td></tr>
+<tr class="memitem:a1dd6cdc428b439069c32ef3664fa76df inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a1dd6cdc428b439069c32ef3664fa76df">gLocation</a> () const </td></tr>
+<tr class="memdesc:a1dd6cdc428b439069c32ef3664fa76df inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the location id associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a1dd6cdc428b439069c32ef3664fa76df"></a><br/></td></tr>
 <tr class="memitem:a3c3c40c996ff562baa335f2ded022578 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578">gName</a> () const </td></tr>
 <tr class="memdesc:a3c3c40c996ff562baa335f2ded022578 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a3c3c40c996ff562baa335f2ded022578"></a><br/></td></tr>
 <tr class="memitem:aa79bfcc9b321d3e05752066e5ba1c50a inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#aa79bfcc9b321d3e05752066e5ba1c50a">gType</a> () const </td></tr>
 <tr class="memdesc:aa79bfcc9b321d3e05752066e5ba1c50a inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the inherited sub-type of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#aa79bfcc9b321d3e05752066e5ba1c50a"></a><br/></td></tr>
+<tr class="memitem:af4ebcdb4555620bacba408c09faf996b inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#af4ebcdb4555620bacba408c09faf996b">gZone</a> () const </td></tr>
+<tr class="memdesc:af4ebcdb4555620bacba408c09faf996b inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the zone associated with this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#af4ebcdb4555620bacba408c09faf996b"></a><br/></td></tr>
 <tr class="memitem:adf1753595ae5f94906663f88b7d38edd inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#adf1753595ae5f94906663f88b7d38edd">sDescription</a> (const string &amp;description, const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr class="memdesc:adf1753595ae5f94906663f88b7d38edd inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the description of the <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> from <a class="el" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5">THING_DESCRIPTION</a>.  <a href="#adf1753595ae5f94906663f88b7d38edd"></a><br/></td></tr>
 <tr class="memitem:a946fbf68bcd90ea5b26f4cce0b37132b inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b">sId</a> (const string &amp;id)</td></tr>
 <tr class="memdesc:a946fbf68bcd90ea5b26f4cce0b37132b inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a946fbf68bcd90ea5b26f4cce0b37132b"></a><br/></td></tr>
+<tr class="memitem:a68389cd23d3066b89d8e06b5b60ea369 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a68389cd23d3066b89d8e06b5b60ea369">sLocation</a> (const string &amp;location)</td></tr>
+<tr class="memdesc:a68389cd23d3066b89d8e06b5b60ea369 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the location id of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a68389cd23d3066b89d8e06b5b60ea369"></a><br/></td></tr>
 <tr class="memitem:a69568f79edcdf1b0225f1b764a7ceb41 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41">sName</a> (const string &amp;name, const bool &amp;system=false)</td></tr>
 <tr class="memdesc:a69568f79edcdf1b0225f1b764a7ceb41 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a69568f79edcdf1b0225f1b764a7ceb41"></a><br/></td></tr>
 <tr class="memitem:adf1d92efe54e7f5934d22e10b4374c59 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59">sType</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;type)</td></tr>
 <tr class="memdesc:adf1d92efe54e7f5934d22e10b4374c59 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the inherited sub-type of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#adf1d92efe54e7f5934d22e10b4374c59"></a><br/></td></tr>
+<tr class="memitem:a99013771892bba4f6410f16f1b1ac127 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a99013771892bba4f6410f16f1b1ac127">sZone</a> (const string &amp;zone)</td></tr>
+<tr class="memdesc:a99013771892bba4f6410f16f1b1ac127 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the zone of this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a99013771892bba4f6410f16f1b1ac127"></a><br/></td></tr>
 <tr class="memitem:a9d7867991d8943d81101a32597eb4df1 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a9d7867991d8943d81101a32597eb4df1">NewId</a> (const <a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a> &amp;seed)</td></tr>
 <tr class="memdesc:a9d7867991d8943d81101a32597eb4df1 inherit pub_methods_classThing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new unique id for this <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a>.  <a href="#a9d7867991d8943d81101a32597eb4df1"></a><br/></td></tr>
 <tr class="memitem:a39968586a8e98dfef67c72ca54e00a43 inherit pub_methods_classThing"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThing.xhtml#a39968586a8e98dfef67c72ca54e00a43">Thing</a> ()</td></tr>
@@ -169,7 +179,6 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a932b2921431e4a46eb320a442ddd404d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.xhtml#a932b2921431e4a46eb320a442ddd404d">m_file</a></td></tr>
-<tr class="memitem:ab1ec70921999e508f7737c0a14d982e7"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObject.xhtml#ab1ec70921999e508f7737c0a14d982e7">m_zone</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -190,11 +199,10 @@ Private Attributes</h2></td></tr>
 <p>Initialize attributes from parent <a class="el" href="classThing.xhtml" title="A generic &quot;thing&quot;: creature, character, room, object, etc.">Thing</a> class</p>
 <p>Initialize attributes specific to Objects </p>
 
-<p>Definition at line <a class="el" href="object_8cpp_source.xhtml#l00252">252</a> of file <a class="el" href="object_8cpp_source.xhtml">object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="object_8cpp_source.xhtml#l00256">256</a> of file <a class="el" href="object_8cpp_source.xhtml">object.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59" title="Sets the inherited sub-type of this Thing.">sType</a>( <a class="code" href="enum_8h.xhtml#a37fc305e33c43e18f03f70aeb8bba7baaf6e1f4509f0f58245a3113dc0bd95ba6">THING_TYPE_OBJECT</a> );</div>
 <div class="line">    <a class="code" href="classObject.xhtml#a932b2921431e4a46eb320a442ddd404d">m_file</a>.clear();</div>
-<div class="line">    <a class="code" href="classObject.xhtml#ab1ec70921999e508f7737c0a14d982e7">m_zone</a>.clear();</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -223,7 +231,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="object_8cpp_source.xhtml#l00266">266</a> of file <a class="el" href="object_8cpp_source.xhtml">object.cpp</a>.</p>
+<p>Definition at line <a class="el" href="object_8cpp_source.xhtml#l00269">269</a> of file <a class="el" href="object_8cpp_source.xhtml">object.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
@@ -297,8 +305,8 @@ Private Attributes</h2></td></tr>
 <div class="line">    <span class="keywordflow">for</span> ( search = 0; search &lt; <a class="code" href="enum_8h.xhtml#a35a583fe01e1320c8c8d04f1dff08bf5a5916fe4a04746e062eb4e16f3ee8daeb">MAX_THING_DESCRIPTION</a>; search++ )</div>
 <div class="line">        <a class="code" href="classThing.xhtml#adf1753595ae5f94906663f88b7d38edd" title="Sets the description of the Thing from THING_DESCRIPTION.">sDescription</a>( obj-&gt;<a class="code" href="classThing.xhtml#afb35e940694ccbd0c9bc351d66251314" title="Returns the description of the Thing from THING_DESCRIPTION.">gDescription</a>( search ), search );</div>
 <div class="line">    <a class="code" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41" title="Sets the name of this Thing.">sName</a>( obj-&gt;<a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() );</div>
+<div class="line">    <a class="code" href="classThing.xhtml#a99013771892bba4f6410f16f1b1ac127" title="Sets the zone of this Thing.">sZone</a>( obj-&gt;<a class="code" href="classThing.xhtml#af4ebcdb4555620bacba408c09faf996b" title="Returns the zone associated with this Thing.">gZone</a>() );</div>
 <div class="line">    <a class="code" href="classObject.xhtml#a932b2921431e4a46eb320a442ddd404d">m_file</a> = obj-&gt;<a class="code" href="classObject.xhtml#a932b2921431e4a46eb320a442ddd404d">m_file</a>;</div>
-<div class="line">    <a class="code" href="classObject.xhtml#ab1ec70921999e508f7737c0a14d982e7">m_zone</a> = obj-&gt;<a class="code" href="classObject.xhtml#ab1ec70921999e508f7737c0a14d982e7">m_zone</a>;</div>
 <div class="line">    <a class="code" href="classThing.xhtml#a9d7867991d8943d81101a32597eb4df1" title="Generates a new unique id for this Thing.">NewId</a>( <a class="code" href="list_8cpp.xhtml#a408253363e78188e2f70717ee46e7fcc" title="All objects that exist as a copy of a template within the server.">object_list</a>.size() );</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="list_8cpp.xhtml#a408253363e78188e2f70717ee46e7fcc" title="All objects that exist as a copy of a template within the server.">object_list</a>.push_back( <span class="keyword">this</span> );</div>
@@ -311,7 +319,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classObject_a2238f4fd2bdae2764e400556c0c7e310_cgraph.svg" width="472" height="367"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classObject_a2238f4fd2bdae2764e400556c0c7e310_cgraph.svg" width="472" height="468"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -529,7 +537,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000008">Todo:</a></b></dt><dd>Need to find a nicer way to do this </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.xhtml#_todo000009">Todo:</a></b></dt><dd>Need to find a nicer way to do this </dd></dl>
 
 <p>Implements <a class="el" href="classThing.xhtml#a19051d1b895bf1c3ab933a723f1ae79c">Thing</a>.</p>
 
@@ -560,9 +568,9 @@ Private Attributes</h2></td></tr>
 <div class="line">            ofs &lt;&lt; <span class="stringliteral">&quot;description[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; <a class="code" href="namespaceUtils.xhtml#a446c2842f342ba8c9e9ba3cf5d971df7" title="Wraps a string in container edges suitable for multi-line read/writing.">Utils::WriteString</a>( <a class="code" href="classThing.xhtml#afb35e940694ccbd0c9bc351d66251314" title="Returns the description of the Thing from THING_DESCRIPTION.">gDescription</a>( i ) ) &lt;&lt; endl;</div>
 <div class="line">    }</div>
 <div class="line">    <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;name&quot;</span>, <a class="code" href="classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing.">gName</a>() );</div>
-<div class="line">    <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;zone&quot;</span>, <a class="code" href="classObject.xhtml#ab1ec70921999e508f7737c0a14d982e7">m_zone</a> );</div>
+<div class="line">    <a class="code" href="macros_8h.xhtml#ae82f16e6bd484cc5cb600fb899b8c24d" title="Write (name) and (value) to (stream) in key:value format.">KEY</a>( ofs, <span class="stringliteral">&quot;zone&quot;</span>, <a class="code" href="classThing.xhtml#af4ebcdb4555620bacba408c09faf996b" title="Returns the zone associated with this Thing.">gZone</a>() );</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ofs, <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#aeb234d51b0a7b1a2c836059fb76c5770" title="Directory for game world files: rooms, objects, NPCs, etc.">CFG_DAT_DIR_WORLD</a>, <a class="code" href="classObject.xhtml#ab1ec70921999e508f7737c0a14d982e7">m_zone</a> ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ) );</div>
+<div class="line">    <a class="code" href="namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file.">Utils::FileClose</a>( ofs, <a class="code" href="namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext.">Utils::DirPath</a>( <a class="code" href="config_8h.xhtml#aeb234d51b0a7b1a2c836059fb76c5770" title="Directory for game world files: rooms, objects, NPCs, etc.">CFG_DAT_DIR_WORLD</a>, <a class="code" href="classThing.xhtml#af4ebcdb4555620bacba408c09faf996b" title="Returns the zone associated with this Thing.">gZone</a>() ), <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( file ) );</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
@@ -572,7 +580,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classObject_a17108a2fecfd2c0542290f4cccfc6a6b_cgraph.svg" width="480" height="392"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classObject_a17108a2fecfd2c0542290f4cccfc6a6b_cgraph.svg" width="480" height="443"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -657,8 +665,12 @@ Private Attributes</h2></td></tr>
 <div class="line">                found = <span class="keyword">true</span>;</div>
 <div class="line">                <a class="code" href="classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41" title="Sets the name of this Thing.">sName</a>( value );</div>
 <div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( key == <span class="stringliteral">&quot;zone&quot;</span> )</div>
+<div class="line">            {</div>
+<div class="line">                found = <span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="classThing.xhtml#a99013771892bba4f6410f16f1b1ac127" title="Sets the zone of this Thing.">sZone</a>( value );</div>
+<div class="line">            }</div>
 <div class="line">            <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" title="If the contents of keyd == valu, assigns loc = item.">Utils::KeySet</a>( <span class="keyword">true</span>, found, key, <span class="stringliteral">&quot;revision&quot;</span>, value, revision, <a class="code" href="config_8h.xhtml#aa9812dc823fc510de5a9bb471c6d7c7a" title="The Object file format revision. Used to ensure backwards compatibility if necessary.">CFG_OBJ_REVISION</a>, maxb );</div>
-<div class="line">            <a class="code" href="namespaceUtils.xhtml#aba8fca9daa0f767d7f5af5e2b1d6b81d" title="If the contents of keyd == valu, assigns loc = item.">Utils::KeySet</a>( <span class="keyword">true</span>, found, key, <span class="stringliteral">&quot;zone&quot;</span>, value, <a class="code" href="classObject.xhtml#ab1ec70921999e508f7737c0a14d982e7">m_zone</a> );</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> ( !found )</div>
 <div class="line">                <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Object::Unserialize()-&gt; key not found: %s&quot;</span>, <a class="code" href="macros_8h.xhtml#a5e53b0e3450b3de556a9b2326ad5cfcc" title="Output std::string to const char*.">CSTR</a>( key ) );</div>
@@ -680,7 +692,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classObject_a194a597210a8466f7a1668d6383c5b70_cgraph.svg" width="496" height="544"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classObject_a194a597210a8466f7a1668d6383c5b70_cgraph.svg" width="496" height="595"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -719,29 +731,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab1ec70921999e508f7737c0a14d982e7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string Object::m_zone</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Part of a larger zone / group of locations? Name, if so. </p>
-
-<p>Definition at line <a class="el" href="object_8h_source.xhtml#l00059">59</a> of file <a class="el" href="object_8h_source.xhtml">object.h</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>h/<a class="el" href="object_8h_source.xhtml">object.h</a></li>
 <li><a class="el" href="object_8cpp_source.xhtml">object.cpp</a></li>
@@ -749,7 +738,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 17 2013 22:09:44 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

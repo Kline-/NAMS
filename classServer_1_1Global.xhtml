@@ -121,8 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a60944d3654141d136ae0f1af263c803b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSocketServer.xhtml">SocketServer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a></td></tr>
-<tr class="memitem:a97254b5ea5909c15b2a6f7fcfbf942b1"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classEvent.xhtml">Event</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a></td></tr>
 <tr class="memitem:ad08a12a2b95ea861a35c7e006f29198f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classCharacter.xhtml">Character</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#ad08a12a2b95ea861a35c7e006f29198f">m_next_character</a></td></tr>
+<tr class="memitem:a97254b5ea5909c15b2a6f7fcfbf942b1"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classEvent.xhtml">Event</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a></td></tr>
 <tr class="memitem:aa79d617e3453e34c02041da86a4ee8dc"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classObject.xhtml">Object</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#aa79d617e3453e34c02041da86a4ee8dc">m_next_object</a></td></tr>
 <tr class="memitem:a6a7e62777998eefaa09ff69bd62bace6"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classSocketClient.xhtml">SocketClient</a> * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a></td></tr>
 <tr class="memitem:ad75b902c5e4d9bc524ac87cfa1f6ee49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="limits_8h.xhtml#a83d6866a5b3c76f2ad436a370ecd5b5a">uint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServer_1_1Global.xhtml#ad75b902c5e4d9bc524ac87cfa1f6ee49">m_port</a></td></tr>
@@ -147,11 +147,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01231">1231</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01291">1291</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a> = NULL;</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#ad08a12a2b95ea861a35c7e006f29198f">m_next_character</a> = <a class="code" href="list_8cpp.xhtml#a6e5a305399253b1fdc5f2ee6b6aece2c" title="All characters that exist within the server.">character_list</a>.begin();</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a97254b5ea5909c15b2a6f7fcfbf942b1">m_next_event</a> = <a class="code" href="list_8cpp.xhtml#a13278fb7b3325a6779fcb97c172c16ce" title="All events pending execution.">event_list</a>.begin();</div>
+<div class="line">    <a class="code" href="classServer_1_1Global.xhtml#aa79d617e3453e34c02041da86a4ee8dc">m_next_object</a> = <a class="code" href="list_8cpp.xhtml#a408253363e78188e2f70717ee46e7fcc" title="All objects that exist as a copy of a template within the server.">object_list</a>.begin();</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a6a7e62777998eefaa09ff69bd62bace6">m_next_socket_client</a> = <a class="code" href="list_8cpp.xhtml#a5c8453510b62fb7a9d2a31b599ae26fb" title="All SocketClient objects connected to the server.">socket_client_list</a>.begin();</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#ad75b902c5e4d9bc524ac87cfa1f6ee49">m_port</a> = 0;</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a97b9415b50cd9bd2b9a96d23553789c4">m_shutdown</a> = <span class="keyword">true</span>;</div>
@@ -176,7 +177,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01248">1248</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
+<p>Definition at line <a class="el" href="server_8cpp_source.xhtml#l01309">1309</a> of file <a class="el" href="server_8cpp_source.xhtml">server.cpp</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    <a class="code" href="classServer_1_1Global.xhtml#a60944d3654141d136ae0f1af263c803b">m_listen</a>-&gt;<a class="code" href="classSocketServer.xhtml#a4fb2589ed01cea5daae154b2f06b4f41" title="Unload a server&#39;s socket from memory that was previously loaded via SocketServer::New().">Delete</a>();</div>
 <div class="line"></div>
@@ -250,7 +251,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Used as the next iterator in all loops dealing with <a class="el" href="classCharacter.xhtml" title="An actor within the game world.">Character</a> objects to prevent nested processing loop problems. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00088">88</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00087">87</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -265,7 +266,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Used as the next iterator in all loops dealing with <a class="el" href="classEvent.xhtml" title="Actions that execute after a specified delay.">Event</a> objects to prevent nested processing loop problems. </p>
 
-<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00087">87</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
+<p>Definition at line <a class="el" href="server_8h_source.xhtml#l00088">88</a> of file <a class="el" href="server_8h_source.xhtml">server.h</a>.</p>
 
 </div>
 </div>
@@ -366,7 +367,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 20:59:32 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 17 2013 22:09:44 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

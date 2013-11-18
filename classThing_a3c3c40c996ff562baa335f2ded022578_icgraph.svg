@@ -32,635 +32,693 @@
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 1364;
+var viewWidth = 1328;
 var viewHeight = 786;
-var sectionId = 'dynsection-7';
+var sectionId = 'dynsection-10';
 </script>
 <script xlink:href="svgpan.js"/>
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>Thing::gName</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-782 1361,-782 1361,5 -4,5"/>
+<polygon fill="white" stroke="white" points="-4,5 -4,-782 1325,-782 1325,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="0.5,-190 0.5,-210 83.5,-210 83.5,-190 0.5,-190"/>
-<text text-anchor="middle" x="42" y="-197" font-family="FreeSans.ttf" font-size="10.00">Thing::gName</text>
+<polygon fill="#bfbfbf" stroke="black" points="0.5,-418 0.5,-438 83.5,-438 83.5,-418 0.5,-418"/>
+<text text-anchor="middle" x="42" y="-425" font-family="FreeSans.ttf" font-size="10.00">Thing::gName</text>
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67" target="_top" xlink:title="Serialize the character data.">
-<polygon fill="white" stroke="black" points="125,-335 125,-355 235,-355 235,-335 125,-335"/>
-<text text-anchor="middle" x="180" y="-342" font-family="FreeSans.ttf" font-size="10.00">Character::Serialize</text>
+<a xlink:href="classCharacter.xhtml#a13ee03b0f19ce2938d23115d6d661280" target="_top" xlink:title="Clones a Character from the character_template_list into the character_list.">
+<polygon fill="white" stroke="black" points="303.5,-665 303.5,-685 400.5,-685 400.5,-665 303.5,-665"/>
+<text text-anchor="middle" x="352" y="-672" font-family="FreeSans.ttf" font-size="10.00">Character::Clone</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M58.9912,-217.853C88.1641,-248.506 146.883,-310.203 170.165,-334.666"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="61.354,-215.259 51.9246,-210.428 56.2834,-220.085 61.354,-215.259"/>
+<path fill="none" stroke="midnightblue" d="M45.9543,-448.063C56.3667,-498.713 86.0859,-629.601 120,-656 172.618,-696.959 253.786,-693.012 304.842,-685.031"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="49.3383,-447.138 43.9297,-438.028 42.4765,-448.522 49.3383,-447.138"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="namespaceHandler.xhtml#a2e4ebf6ed049eb872aa4948d54c4932c" target="_top" xlink:title="Attempt to write a new character to disk after creation was completed.">
-<polygon fill="white" stroke="black" points="276.5,-425 276.5,-445 415.5,-445 415.5,-425 276.5,-425"/>
-<text text-anchor="middle" x="346" y="-432" font-family="FreeSans.ttf" font-size="10.00">Handler::AttachCharacter</text>
+<a xlink:href="classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67" target="_top" xlink:title="Serialize the character data.">
+<polygon fill="white" stroke="black" points="128,-513 128,-533 238,-533 238,-513 128,-513"/>
+<text text-anchor="middle" x="183" y="-520" font-family="FreeSans.ttf" font-size="10.00">Character::Serialize</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
-<g id="edge124" class="edge"><title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M46.0426,-220.011C54.0376,-254.453 75.1268,-324.989 120,-364 163.686,-401.978 227.651,-419.658 276.39,-427.878"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="49.4489,-219.204 43.8933,-210.182 42.6104,-220.699 49.4489,-219.204"/>
-</g>
-<!-- Node7 -->
-<g id="node16" class="node"><title>Node7</title>
-<a xlink:href="namespaceHandler.xhtml#ad04998a7a6ece2486bc441052a57c2d7" target="_top" xlink:title="Main Character creation menu.">
-<polygon fill="white" stroke="black" points="634,-746 634,-778 774,-778 774,-746 634,-746"/>
-<text text-anchor="start" x="642" y="-765" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterCreate</text>
-<text text-anchor="middle" x="704" y="-753" font-family="FreeSans.ttf" font-size="10.00">MenuMain</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node7 -->
-<g id="edge128" class="edge"><title>Node1&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M43.421,-220.095C47.6792,-268.41 63.7633,-393.345 120,-478 239.31,-657.601 506.293,-727.357 633.716,-751.154"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="46.9006,-219.7 42.6103,-210.013 39.9231,-220.261 46.9006,-219.7"/>
-</g>
-<!-- Node8 -->
-<g id="node19" class="node"><title>Node8</title>
-<a xlink:href="namespaceHandler.xhtml#ab5889a65de2794129b375ec39ae923ae" target="_top" xlink:title="Select a new Character name.">
-<polygon fill="white" stroke="black" points="619.5,-708 619.5,-728 788.5,-728 788.5,-708 619.5,-708"/>
-<text text-anchor="middle" x="704" y="-715" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterCreateName</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node8 -->
-<g id="edge130" class="edge"><title>Node1&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M45.082,-220.229C52.0335,-259.927 72.2109,-349.114 120,-406 284.196,-601.453 376.163,-606.286 614,-699 623.225,-702.596 633.26,-705.565 643.173,-707.999"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="48.5094,-219.501 43.428,-210.205 41.6028,-220.641 48.5094,-219.501"/>
-</g>
-<!-- Node28 -->
-<g id="node71" class="node"><title>Node28</title>
-<a xlink:href="namespaceHandler.xhtml#ae660d7a3f4c95db9639d74e965e82df6" target="_top" xlink:title="Reconnects an existing in&#45;game Character to a new SocketClient.">
-<polygon fill="white" stroke="black" points="460,-228 460,-248 570,-248 570,-228 460,-228"/>
-<text text-anchor="middle" x="515" y="-235" font-family="FreeSans.ttf" font-size="10.00">Handler::Reconnect</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node28 -->
-<g id="edge126" class="edge"><title>Node1&#45;&gt;Node28</title>
-<path fill="none" stroke="midnightblue" d="M93.6759,-210.15C102.435,-211.619 111.458,-212.977 120,-214 240.742,-228.454 383.347,-234.394 459.863,-236.683"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="94.0114,-206.656 83.5592,-208.388 92.8104,-213.552 94.0114,-206.656"/>
-</g>
-<!-- Node29 -->
-<g id="node75" class="node"><title>Node29</title>
-<a xlink:href="namespaceHandler.xhtml#ab2e9bf0a670cbf82be7a440065151516" target="_top" xlink:title="Locates a Character within the game.">
-<polygon fill="white" stroke="black" points="452,-190 452,-210 578,-210 578,-190 452,-190"/>
-<text text-anchor="middle" x="515" y="-197" font-family="FreeSans.ttf" font-size="10.00">Handler::FindCharacter</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node29 -->
-<g id="edge92" class="edge"><title>Node1&#45;&gt;Node29</title>
-<path fill="none" stroke="midnightblue" d="M93.7602,-200C181.105,-200 357.454,-200 451.901,-200"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="93.5611,-196.5 83.561,-200 93.561,-203.5 93.5611,-196.5"/>
-</g>
-<!-- Node30 -->
-<g id="node78" class="node"><title>Node30</title>
-<a xlink:href="namespaceHandler.xhtml#a57dc60ce5522b41f1ab98b83de76779f" target="_top" xlink:title="Locates a Location associated with the game.">
-<polygon fill="white" stroke="black" points="120.5,-152 120.5,-172 239.5,-172 239.5,-152 120.5,-152"/>
-<text text-anchor="middle" x="180" y="-159" font-family="FreeSans.ttf" font-size="10.00">Handler::FindLocation</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node30 -->
-<g id="edge96" class="edge"><title>Node1&#45;&gt;Node30</title>
-<path fill="none" stroke="midnightblue" d="M88.2835,-187.255C106.168,-182.331 126.344,-176.775 143.21,-172.131"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="87.3311,-183.887 78.6192,-189.916 89.1895,-190.636 87.3311,-183.887"/>
-</g>
-<!-- Node35 -->
-<g id="node92" class="node"><title>Node35</title>
-<a xlink:href="namespaceHandler.xhtml#ac4aa107458ff170e3f933050ec42770c" target="_top" xlink:title="Locates an Object associated with the game.">
-<polygon fill="white" stroke="black" points="125,-114 125,-134 235,-134 235,-114 125,-114"/>
-<text text-anchor="middle" x="180" y="-121" font-family="FreeSans.ttf" font-size="10.00">Handler::FindObject</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node35 -->
-<g id="edge114" class="edge"><title>Node1&#45;&gt;Node35</title>
-<path fill="none" stroke="midnightblue" d="M61.4228,-183.026C76.535,-170.534 98.4874,-153.897 120,-143 126.823,-139.544 134.401,-136.557 141.81,-134.041"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="58.7517,-180.701 53.3704,-189.827 63.2685,-186.048 58.7517,-180.701"/>
-</g>
-<!-- Node36 -->
-<g id="node94" class="node"><title>Node36</title>
-<a xlink:href="classObject.xhtml#a2238f4fd2bdae2764e400556c0c7e310" target="_top" xlink:title="Clones an Object from the object_template_list into the object_list.">
-<polygon fill="white" stroke="black" points="306,-0 306,-20 386,-20 386,-0 306,-0"/>
-<text text-anchor="middle" x="346" y="-7" font-family="FreeSans.ttf" font-size="10.00">Object::Clone</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node36 -->
-<g id="edge134" class="edge"><title>Node1&#45;&gt;Node36</title>
-<path fill="none" stroke="midnightblue" d="M52.9387,-180.922C66.1796,-159.468 90.4219,-125.02 120,-105 166.329,-73.6426 192.588,-96.695 240,-67 259.717,-54.6512 256.031,-40.9358 276,-29 285.079,-23.5731 295.737,-19.662 305.96,-16.8562"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="49.7783,-179.387 47.6495,-189.766 55.786,-182.98 49.7783,-179.387"/>
-</g>
-<!-- Node39 -->
-<g id="node105" class="node"><title>Node39</title>
-<a xlink:href="classLocation.xhtml#a4f364ffc1f0910ac60bcb2e7cf9e7e20" target="_top" xlink:title="Serialize the location data.">
-<polygon fill="white" stroke="black" points="128,-38 128,-58 232,-58 232,-38 128,-38"/>
-<text text-anchor="middle" x="180" y="-45" font-family="FreeSans.ttf" font-size="10.00">Location::Serialize</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node39 -->
-<g id="edge132" class="edge"><title>Node1&#45;&gt;Node39</title>
-<path fill="none" stroke="midnightblue" d="M49.2497,-180.444C60.4381,-152.741 84.4096,-102.1 120,-72 126.939,-66.1317 135.493,-61.5743 143.947,-58.0856"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="45.9552,-179.259 45.5899,-189.848 52.4785,-181.798 45.9552,-179.259"/>
-</g>
-<!-- Node40 -->
-<g id="node108" class="node"><title>Node40</title>
-<a xlink:href="classObject.xhtml#a17108a2fecfd2c0542290f4cccfc6a6b" target="_top" xlink:title="Serialize the object data.">
-<polygon fill="white" stroke="black" points="133,-0 133,-20 227,-20 227,-0 133,-0"/>
-<text text-anchor="middle" x="180" y="-7" font-family="FreeSans.ttf" font-size="10.00">Object::Serialize</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node40 -->
-<g id="edge136" class="edge"><title>Node1&#45;&gt;Node40</title>
-<path fill="none" stroke="midnightblue" d="M45.6852,-179.673C53.2114,-143.99 73.7094,-69.9917 120,-29 124.09,-25.3781 128.871,-22.4462 133.918,-20.073"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="42.1848,-179.332 43.6811,-189.821 49.0522,-180.688 42.1848,-179.332"/>
-</g>
-<!-- Node2&#45;&gt;Node3 -->
-<g id="edge4" class="edge"><title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M207.646,-359.989C241.571,-378.382 298.172,-409.069 327.349,-424.888"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="209.179,-356.839 198.72,-355.149 205.843,-362.992 209.179,-356.839"/>
-</g>
-<!-- Node27 -->
-<g id="node69" class="node"><title>Node27</title>
-<a xlink:href="classSocketClient.xhtml#ad8ab017dd47d5e8b20ad30f72773a759" target="_top" xlink:title="Flags a client as quitting to break out of nested loops.">
-<polygon fill="white" stroke="black" points="295,-335 295,-355 397,-355 397,-335 295,-335"/>
-<text text-anchor="middle" x="346" y="-342" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Quit</text>
-</a>
-</g>
-<!-- Node2&#45;&gt;Node27 -->
-<g id="edge84" class="edge"><title>Node2&#45;&gt;Node27</title>
-<path fill="none" stroke="midnightblue" d="M245.371,-345C261.825,-345 279.248,-345 294.89,-345"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="245.276,-341.5 235.276,-345 245.276,-348.5 245.276,-341.5"/>
+<g id="edge4" class="edge"><title>Node1&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M57.8011,-445.758C72.5898,-461.499 95.9561,-484.218 120,-499 129.073,-504.578 139.657,-509.223 149.53,-512.894"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="60.2359,-443.235 50.8913,-438.242 55.0826,-447.972 60.2359,-443.235"/>
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888" target="_top" xlink:title="Dispatches the appropriate menu based on client state.">
-<polygon fill="white" stroke="black" points="453.5,-442 453.5,-462 576.5,-462 576.5,-442 453.5,-442"/>
-<text text-anchor="middle" x="515" y="-449" font-family="FreeSans.ttf" font-size="10.00">Handler::LoginHandler</text>
+<a xlink:href="namespaceHandler.xhtml#a2e4ebf6ed049eb872aa4948d54c4932c" target="_top" xlink:title="Attempt to write a new character to disk after creation was completed.">
+<polygon fill="white" stroke="black" points="282.5,-437 282.5,-457 421.5,-457 421.5,-437 282.5,-437"/>
+<text text-anchor="middle" x="352" y="-444" font-family="FreeSans.ttf" font-size="10.00">Handler::AttachCharacter</text>
 </a>
+</g>
+<!-- Node1&#45;&gt;Node4 -->
+<g id="edge130" class="edge"><title>Node1&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M94.0802,-431.192C145.781,-434.361 225.356,-439.238 282.442,-442.737"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="94.0034,-427.681 83.808,-430.562 93.5751,-434.668 94.0034,-427.681"/>
+</g>
+<!-- Node8 -->
+<g id="node18" class="node"><title>Node8</title>
+<a xlink:href="namespaceHandler.xhtml#ad04998a7a6ece2486bc441052a57c2d7" target="_top" xlink:title="Main Character creation menu.">
+<polygon fill="white" stroke="black" points="638,-632 638,-664 778,-664 778,-632 638,-632"/>
+<text text-anchor="start" x="646" y="-651" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterCreate</text>
+<text text-anchor="middle" x="708" y="-639" font-family="FreeSans.ttf" font-size="10.00">MenuMain</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node8 -->
+<g id="edge134" class="edge"><title>Node1&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M82.8775,-440.863C94.7558,-444.237 107.813,-447.598 120,-450 132.674,-452.497 572.093,-494.71 582,-503 624.703,-538.734 578.225,-584.033 618,-623 623.676,-628.561 630.477,-632.909 637.763,-636.305"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="83.8021,-437.487 73.2221,-438.047 81.8421,-444.207 83.8021,-437.487"/>
+</g>
+<!-- Node9 -->
+<g id="node21" class="node"><title>Node9</title>
+<a xlink:href="namespaceHandler.xhtml#ab5889a65de2794129b375ec39ae923ae" target="_top" xlink:title="Select a new Character name.">
+<polygon fill="white" stroke="black" points="623.5,-190 623.5,-210 792.5,-210 792.5,-190 623.5,-190"/>
+<text text-anchor="middle" x="708" y="-197" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterCreateName</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node9 -->
+<g id="edge136" class="edge"><title>Node1&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M93.9371,-426.691C183.834,-423.787 364.35,-414.955 422,-390 435.261,-384.259 605.069,-225.45 618,-219 625.288,-215.364 633.244,-212.423 641.313,-210.044"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="93.585,-423.201 83.6984,-427.009 93.8022,-430.197 93.585,-423.201"/>
+</g>
+<!-- Node29 -->
+<g id="node73" class="node"><title>Node29</title>
+<a xlink:href="namespaceHandler.xhtml#ae660d7a3f4c95db9639d74e965e82df6" target="_top" xlink:title="Reconnects an existing in&#45;game Character to a new SocketClient.">
+<polygon fill="white" stroke="black" points="465,-589 465,-609 575,-609 575,-589 465,-589"/>
+<text text-anchor="middle" x="520" y="-596" font-family="FreeSans.ttf" font-size="10.00">Handler::Reconnect</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node29 -->
+<g id="edge132" class="edge"><title>Node1&#45;&gt;Node29</title>
+<path fill="none" stroke="midnightblue" d="M45.6894,-448.209C53.0756,-482.151 73.1729,-549.848 120,-580 175.458,-615.709 368.461,-608.921 464.641,-603.016"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="49.0579,-447.207 43.6515,-438.095 42.1958,-448.59 49.0579,-447.207"/>
+</g>
+<!-- Node30 -->
+<g id="node77" class="node"><title>Node30</title>
+<a xlink:href="namespaceHandler.xhtml#a49507bd28d189d30063ba103fb50062f" target="_top" xlink:title="Locates a Character within the game.">
+<polygon fill="white" stroke="black" points="120,-627 120,-647 246,-647 246,-627 120,-627"/>
+<text text-anchor="middle" x="183" y="-634" font-family="FreeSans.ttf" font-size="10.00">Handler::FindCharacter</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node30 -->
+<g id="edge94" class="edge"><title>Node1&#45;&gt;Node30</title>
+<path fill="none" stroke="midnightblue" d="M45.2453,-448.65C52.2148,-486.352 72.0522,-566.703 120,-613 126.231,-619.016 134.123,-623.56 142.197,-626.979"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="48.627,-447.664 43.4787,-438.404 41.7288,-448.853 48.627,-447.664"/>
+</g>
+<!-- Node31 -->
+<g id="node81" class="node"><title>Node31</title>
+<a xlink:href="namespaceHandler.xhtml#a57dc60ce5522b41f1ab98b83de76779f" target="_top" xlink:title="Locates a Location associated with the game.">
+<polygon fill="white" stroke="black" points="123.5,-361 123.5,-381 242.5,-381 242.5,-361 123.5,-361"/>
+<text text-anchor="middle" x="183" y="-368" font-family="FreeSans.ttf" font-size="10.00">Handler::FindLocation</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node31 -->
+<g id="edge100" class="edge"><title>Node1&#45;&gt;Node31</title>
+<path fill="none" stroke="midnightblue" d="M74.3382,-414.008C88.3305,-408.035 104.924,-401.058 120,-395 131.729,-390.287 144.774,-385.279 155.938,-381.064"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="72.9303,-410.804 65.1175,-417.96 75.6877,-417.238 72.9303,-410.804"/>
+</g>
+<!-- Node36 -->
+<g id="node95" class="node"><title>Node36</title>
+<a xlink:href="namespaceHandler.xhtml#ac4aa107458ff170e3f933050ec42770c" target="_top" xlink:title="Locates an Object associated with the game.">
+<polygon fill="white" stroke="black" points="128,-323 128,-343 238,-343 238,-323 128,-323"/>
+<text text-anchor="middle" x="183" y="-330" font-family="FreeSans.ttf" font-size="10.00">Handler::FindObject</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node36 -->
+<g id="edge118" class="edge"><title>Node1&#45;&gt;Node36</title>
+<path fill="none" stroke="midnightblue" d="M56.3523,-409.633C70.7236,-392.417 94.3408,-367.126 120,-352 126.003,-348.461 132.723,-345.53 139.476,-343.118"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="53.3044,-407.834 49.718,-417.804 58.7386,-412.247 53.3044,-407.834"/>
+</g>
+<!-- Node37 -->
+<g id="node97" class="node"><title>Node37</title>
+<a xlink:href="classObject.xhtml#a2238f4fd2bdae2764e400556c0c7e310" target="_top" xlink:title="Clones an Object from the object_template_list into the object_list.">
+<polygon fill="white" stroke="black" points="312,-0 312,-20 392,-20 392,-0 312,-0"/>
+<text text-anchor="middle" x="352" y="-7" font-family="FreeSans.ttf" font-size="10.00">Object::Clone</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node37 -->
+<g id="edge140" class="edge"><title>Node1&#45;&gt;Node37</title>
+<path fill="none" stroke="midnightblue" d="M50.3337,-408.385C62.1472,-382.908 86.1539,-338.773 120,-314 167.199,-279.454 207.828,-320.319 246,-276 318.686,-191.61 207.591,-110.874 282,-28 289.629,-19.5034 300.679,-14.7729 311.754,-12.2047"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="47.0319,-407.196 46.1514,-417.754 53.4239,-410.049 47.0319,-407.196"/>
+</g>
+<!-- Node40 -->
+<g id="node104" class="node"><title>Node40</title>
+<a xlink:href="namespaceHandler.xhtml#a6eb7e25d52b1ecf7d91a229ca116b583" target="_top" xlink:title="Locates a Thing within another Thing.">
+<polygon fill="white" stroke="black" points="131,-247 131,-267 235,-267 235,-247 131,-247"/>
+<text text-anchor="middle" x="183" y="-254" font-family="FreeSans.ttf" font-size="10.00">Handler::FindThing</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node40 -->
+<g id="edge128" class="edge"><title>Node1&#45;&gt;Node40</title>
+<path fill="none" stroke="midnightblue" d="M47.5409,-408.147C57.2251,-376.915 80.0971,-316.243 120,-281 126.755,-275.034 135.146,-270.486 143.578,-267.042"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="44.1433,-407.294 44.6592,-417.876 50.8551,-409.282 44.1433,-407.294"/>
+</g>
+<!-- Node41 -->
+<g id="node110" class="node"><title>Node41</title>
+<a xlink:href="classLocation.xhtml#a4f364ffc1f0910ac60bcb2e7cf9e7e20" target="_top" xlink:title="Serialize the location data.">
+<polygon fill="white" stroke="black" points="131,-209 131,-229 235,-229 235,-209 131,-209"/>
+<text text-anchor="middle" x="183" y="-216" font-family="FreeSans.ttf" font-size="10.00">Location::Serialize</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node41 -->
+<g id="edge138" class="edge"><title>Node1&#45;&gt;Node41</title>
+<path fill="none" stroke="midnightblue" d="M44.5929,-407.519C50.5959,-368.716 69.0564,-284.244 120,-238 123.976,-234.391 128.615,-231.467 133.54,-229.098"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="41.103,-407.201 43.1601,-417.594 48.0333,-408.186 41.103,-407.201"/>
+</g>
+<!-- Node42 -->
+<g id="node113" class="node"><title>Node42</title>
+<a xlink:href="classObject.xhtml#a17108a2fecfd2c0542290f4cccfc6a6b" target="_top" xlink:title="Serialize the object data.">
+<polygon fill="white" stroke="black" points="136,-171 136,-191 230,-191 230,-171 136,-171"/>
+<text text-anchor="middle" x="183" y="-178" font-family="FreeSans.ttf" font-size="10.00">Object::Serialize</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node42 -->
+<g id="edge142" class="edge"><title>Node1&#45;&gt;Node42</title>
+<path fill="none" stroke="midnightblue" d="M42.9786,-407.519C46.2173,-363.186 60.1502,-257.692 120,-200 124.524,-195.639 130.012,-192.275 135.841,-189.681"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="39.4771,-407.436 42.3527,-417.634 46.4637,-407.869 39.4771,-407.436"/>
+</g>
+<!-- Node43 -->
+<g id="node115" class="node"><title>Node43</title>
+<a xlink:href="classThing.xhtml#aa325821371b36adbe2a2afe2f673f0f6" target="_top" xlink:title="Moves a Thing from within one Thing and into another Thing.">
+<polygon fill="white" stroke="black" points="146,-551 146,-571 220,-571 220,-551 146,-551"/>
+<text text-anchor="middle" x="183" y="-558" font-family="FreeSans.ttf" font-size="10.00">Thing::Move</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node43 -->
+<g id="edge144" class="edge"><title>Node1&#45;&gt;Node43</title>
+<path fill="none" stroke="midnightblue" d="M50.3337,-447.615C62.1472,-473.092 86.1539,-517.227 120,-542 127.559,-547.533 136.74,-551.471 145.727,-554.267"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="53.4239,-445.951 46.1514,-438.246 47.0319,-448.804 53.4239,-445.951"/>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge6" class="edge"><title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M426.011,-436.307C442.633,-437.916 459.488,-439.898 473.992,-441.992"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="425.994,-432.791 415.714,-435.355 425.35,-439.761 425.994,-432.791"/>
+<path fill="none" stroke="midnightblue" d="M214.796,-508.701C248.338,-493.617 300.323,-470.239 329.734,-457.013"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="213.127,-505.614 205.442,-512.908 215.998,-511.998 213.127,-505.614"/>
 </g>
-<!-- Node4&#45;&gt;Node3 -->
-<g id="edge12" class="edge"><title>Node4&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M443.143,-451.454C424.089,-449.743 404.157,-447.476 387.342,-445.056"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="443.047,-454.959 453.308,-452.321 443.642,-447.984 443.047,-454.959"/>
+<!-- Node28 -->
+<g id="node71" class="node"><title>Node28</title>
+<a xlink:href="classSocketClient.xhtml#ad8ab017dd47d5e8b20ad30f72773a759" target="_top" xlink:title="Flags a client as quitting to break out of nested loops.">
+<polygon fill="white" stroke="black" points="301,-513 301,-533 403,-533 403,-513 301,-513"/>
+<text text-anchor="middle" x="352" y="-520" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Quit</text>
+</a>
+</g>
+<!-- Node3&#45;&gt;Node28 -->
+<g id="edge86" class="edge"><title>Node3&#45;&gt;Node28</title>
+<path fill="none" stroke="midnightblue" d="M248.419,-523C265.805,-523 284.329,-523 300.832,-523"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="248.337,-519.5 238.337,-523 248.337,-526.5 248.337,-519.5"/>
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
-<a xlink:href="namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" target="_top" xlink:title="Create a new account object, or load an existing one, with a name and password.">
-<polygon fill="white" stroke="black" points="638.5,-442 638.5,-462 769.5,-462 769.5,-442 638.5,-442"/>
-<text text-anchor="middle" x="704" y="-449" font-family="FreeSans.ttf" font-size="10.00">Handler::AttachAccount</text>
+<a xlink:href="namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888" target="_top" xlink:title="Dispatches the appropriate menu based on client state.">
+<polygon fill="white" stroke="black" points="458.5,-437 458.5,-457 581.5,-457 581.5,-437 458.5,-437"/>
+<text text-anchor="middle" x="520" y="-444" font-family="FreeSans.ttf" font-size="10.00">Handler::LoginHandler</text>
 </a>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge8" class="edge"><title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M586.961,-445.424C603.807,-445.16 621.668,-445.197 638.228,-445.535"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="586.553,-441.931 576.624,-445.627 586.691,-448.93 586.553,-441.931"/>
-</g>
-<!-- Node6 -->
-<g id="node13" class="node"><title>Node6</title>
-<a xlink:href="namespaceHandler.xhtml#a73ed6064f2698dbffb5f4c247a02b661" target="_top" xlink:title="Send initial account interface menu.">
-<polygon fill="white" stroke="black" points="630,-670 630,-690 778,-690 778,-670 630,-670"/>
-<text text-anchor="middle" x="704" y="-677" font-family="FreeSans.ttf" font-size="10.00">Handler::AccountMenuMain</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node6 -->
-<g id="edge14" class="edge"><title>Node4&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M555.353,-467.939C563.928,-474.593 572.148,-482.78 578,-492 617.059,-553.54 562.119,-600.803 614,-652 623.662,-661.534 636.829,-666.832 650.11,-669.985"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="557.263,-465.002 547.088,-462.045 553.198,-470.701 557.263,-465.002"/>
-</g>
-<!-- Node4&#45;&gt;Node7 -->
-<g id="edge18" class="edge"><title>Node4&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M516.209,-472.392C520.259,-523.462 537.837,-656.517 614,-728 622.868,-736.323 634.265,-741.915 645.948,-745.889"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="519.691,-472.005 515.503,-462.273 512.708,-472.493 519.691,-472.005"/>
-</g>
-<!-- Node4&#45;&gt;Node8 -->
-<g id="edge22" class="edge"><title>Node4&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M523.25,-471.81C543.614,-526.451 595.929,-674.815 614,-690 625.615,-699.76 641.003,-704.892 655.765,-707.948"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="526.428,-470.318 519.622,-462.198 519.879,-472.79 526.428,-470.318"/>
-</g>
-<!-- Node9 -->
-<g id="node22" class="node"><title>Node9</title>
-<a xlink:href="namespaceHandler.xhtml#ae5086bcf5857eb572beedd09158c3065" target="_top" xlink:title="Select a new Character sex.">
-<polygon fill="white" stroke="black" points="625,-404 625,-424 783,-424 783,-404 625,-404"/>
-<text text-anchor="middle" x="704" y="-411" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterCreateSex</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node9 -->
-<g id="edge26" class="edge"><title>Node4&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M550.641,-439.418C571.646,-434.086 599.096,-428.15 624.958,-423.223"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="549.667,-436.055 540.883,-441.979 551.444,-442.825 549.667,-436.055"/>
-</g>
-<!-- Node10 -->
-<g id="node25" class="node"><title>Node10</title>
-<a xlink:href="namespaceHandler.xhtml#a97a198bfc72285b2aca4f36978db715e" target="_top" xlink:title="Main Character deletion confirmation.">
-<polygon fill="white" stroke="black" points="634.5,-354 634.5,-386 773.5,-386 773.5,-354 634.5,-354"/>
-<text text-anchor="start" x="642.5" y="-373" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterDelete</text>
-<text text-anchor="middle" x="704" y="-361" font-family="FreeSans.ttf" font-size="10.00">Confirm</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node10 -->
-<g id="edge30" class="edge"><title>Node4&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M530.493,-435.061C549.462,-419.88 582.908,-399.024 614,-386 620.432,-383.306 627.242,-380.812 634.122,-378.568"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="528.184,-432.43 522.857,-441.589 532.733,-437.751 528.184,-432.43"/>
-</g>
-<!-- Node11 -->
-<g id="node28" class="node"><title>Node11</title>
-<a xlink:href="namespaceHandler.xhtml#afc470ec6e82b7a9a1560588a368734f9" target="_top" xlink:title="Main Character deletion menu.">
-<polygon fill="white" stroke="black" points="634.5,-304 634.5,-336 773.5,-336 773.5,-304 634.5,-304"/>
-<text text-anchor="start" x="642.5" y="-323" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterDelete</text>
-<text text-anchor="middle" x="704" y="-311" font-family="FreeSans.ttf" font-size="10.00">MenuMain</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node11 -->
-<g id="edge34" class="edge"><title>Node4&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M523.869,-432.79C539.358,-406.423 573.573,-360.652 614,-336 620.23,-332.201 627.051,-328.965 634.063,-326.26"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="520.632,-431.412 518.875,-441.86 526.764,-434.788 520.632,-431.412"/>
-</g>
-<!-- Node12 -->
-<g id="node31" class="node"><title>Node12</title>
-<a xlink:href="namespaceHandler.xhtml#a02b1b954749641ab646f6548a5360d3b" target="_top" xlink:title="Main Character load menu.">
-<polygon fill="white" stroke="black" points="614.5,-266 614.5,-286 793.5,-286 793.5,-266 614.5,-266"/>
-<text text-anchor="middle" x="704" y="-273" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterLoadMenuMain</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node12 -->
-<g id="edge38" class="edge"><title>Node4&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M519.953,-432.014C531.186,-396.109 561.752,-322.372 614,-286 614.131,-285.909 614.262,-285.818 614.394,-285.728"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="516.522,-431.28 517.085,-441.86 523.243,-433.238 516.522,-431.28"/>
-</g>
-<!-- Node13 -->
-<g id="node34" class="node"><title>Node13</title>
-<a xlink:href="namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" target="_top" xlink:title="Select a new account name.">
-<polygon fill="white" stroke="black" points="635.5,-632 635.5,-652 772.5,-652 772.5,-632 635.5,-632"/>
-<text text-anchor="middle" x="704" y="-639" font-family="FreeSans.ttf" font-size="10.00">Handler::GetNewAccount</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node13 -->
-<g id="edge42" class="edge"><title>Node4&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M554.675,-468.03C563.353,-474.709 571.79,-482.89 578,-492 609.844,-538.712 572.48,-575.632 614,-614 624.438,-623.646 638.497,-628.881 652.396,-631.985"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="556.523,-465.05 546.345,-462.106 552.466,-470.754 556.523,-465.05"/>
-</g>
-<!-- Node14 -->
-<g id="node37" class="node"><title>Node14</title>
-<a xlink:href="namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" target="_top" xlink:title="Create a new account.">
-<polygon fill="white" stroke="black" points="633,-594 633,-614 775,-614 775,-594 633,-594"/>
-<text text-anchor="middle" x="704" y="-601" font-family="FreeSans.ttf" font-size="10.00">Handler::GetNewPassword</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node14 -->
-<g id="edge46" class="edge"><title>Node4&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M553.154,-467.988C562.116,-474.761 571.064,-483.014 578,-492 602.817,-524.154 582.596,-550.24 614,-576 625.977,-585.824 641.798,-590.931 656.832,-593.975"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="555.162,-465.121 544.976,-462.204 551.12,-470.836 555.162,-465.121"/>
-</g>
-<!-- Node15 -->
-<g id="node40" class="node"><title>Node15</title>
-<a xlink:href="namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" target="_top" xlink:title="Compare a received password against an existing account.">
-<polygon fill="white" stroke="black" points="635.5,-556 635.5,-576 772.5,-576 772.5,-556 635.5,-556"/>
-<text text-anchor="middle" x="704" y="-563" font-family="FreeSans.ttf" font-size="10.00">Handler::GetOldPassword</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node15 -->
-<g id="edge50" class="edge"><title>Node4&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M549.572,-467.812C559.183,-474.877 569.348,-483.374 578,-492 596.385,-510.33 591.969,-524.267 614,-538 629.992,-547.968 650.363,-552.784 667.678,-555.96"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="551.514,-464.898 541.322,-462.004 547.484,-470.622 551.514,-464.898"/>
-</g>
-<!-- Node16 -->
-<g id="node43" class="node"><title>Node16</title>
-<a xlink:href="namespaceHandler.xhtml#ae70e4e50054c729c14493eafefe01b5c" target="_top" xlink:title="Load a character from the account to enter into the game with.">
-<polygon fill="white" stroke="black" points="638.5,-190 638.5,-210 769.5,-210 769.5,-190 638.5,-190"/>
-<text text-anchor="middle" x="704" y="-197" font-family="FreeSans.ttf" font-size="10.00">Handler::LoadCharacter</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node16 -->
-<g id="edge54" class="edge"><title>Node4&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M516.776,-431.728C522.391,-384.401 543.769,-267.792 614,-210 621.029,-204.216 629.389,-200.066 638.14,-197.208"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="513.266,-431.636 515.69,-441.95 520.227,-432.376 513.266,-431.636"/>
-</g>
-<!-- Node17 -->
-<g id="node46" class="node"><title>Node17</title>
-<a xlink:href="namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191" target="_top" xlink:title="Send initial greeting and request for account name.">
-<polygon fill="white" stroke="black" points="644.5,-518 644.5,-538 763.5,-538 763.5,-518 644.5,-518"/>
-<text text-anchor="middle" x="704" y="-525" font-family="FreeSans.ttf" font-size="10.00">Handler::LoginScreen</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node17 -->
-<g id="edge58" class="edge"><title>Node4&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M553.507,-466.589C571.454,-475.739 593.363,-486.945 614,-495 638.555,-504.584 668.327,-511.693 686.719,-517.917"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="555.011,-463.428 544.51,-462.019 551.841,-469.669 555.011,-463.428"/>
-</g>
-<!-- Node18 -->
-<g id="node49" class="node"><title>Node18</title>
-<a xlink:href="classSocketClient.xhtml#a8399ef20292e9f3ec83b5c4bec2e105b" target="_top" xlink:title="Build a SocketClient for a new client connection and set all attributes.">
-<polygon fill="white" stroke="black" points="652.5,-228 652.5,-248 755.5,-248 755.5,-228 652.5,-228"/>
-<text text-anchor="middle" x="704" y="-235" font-family="FreeSans.ttf" font-size="10.00">SocketClient::New</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node18 -->
-<g id="edge62" class="edge"><title>Node4&#45;&gt;Node18</title>
-<path fill="none" stroke="midnightblue" d="M519.092,-432.113C528.401,-392.182 555.081,-302.213 614,-257 624.895,-248.639 638.627,-243.751 652.06,-240.947"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="515.654,-431.451 516.915,-441.97 522.489,-432.961 515.654,-431.451"/>
-</g>
-<!-- Node25 -->
-<g id="node64" class="node"><title>Node25</title>
-<a xlink:href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" target="_top" xlink:title="Interpret the command at the front of the queue.">
-<polygon fill="white" stroke="black" points="830,-426 830,-446 1000,-446 1000,-426 830,-426"/>
-<text text-anchor="middle" x="915" y="-433" font-family="FreeSans.ttf" font-size="10.00">SocketClient::ProcessCommand</text>
-</a>
-</g>
-<!-- Node4&#45;&gt;Node25 -->
-<g id="edge78" class="edge"><title>Node4&#45;&gt;Node25</title>
-<path fill="none" stroke="midnightblue" d="M567.685,-464.03C582.577,-466.906 598.853,-469.56 614,-471 693.641,-478.573 714.792,-482.226 794,-471 827.127,-466.305 863.877,-454.72 888.087,-446.158"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="568.119,-460.548 557.627,-462.015 566.744,-467.411 568.119,-460.548"/>
+<path fill="none" stroke="midnightblue" d="M431.841,-440.257C440.789,-440.226 449.8,-440.296 458.467,-440.469"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="431.76,-436.758 421.788,-440.337 431.815,-443.758 431.76,-436.758"/>
 </g>
 <!-- Node5&#45;&gt;Node4 -->
-<g id="edge10" class="edge"><title>Node5&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M627.77,-458.637C610.769,-458.85 592.949,-458.762 576.624,-458.373"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="628.287,-462.129 638.228,-458.465 628.172,-455.13 628.287,-462.129"/>
+<g id="edge14" class="edge"><title>Node5&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M448.271,-453.686C439.495,-453.778 430.535,-453.771 421.788,-453.663"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="448.521,-457.182 458.467,-453.531 448.415,-450.183 448.521,-457.182"/>
 </g>
-<!-- Node6&#45;&gt;Node4 -->
-<g id="edge16" class="edge"><title>Node6&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M620.869,-675.706C618.433,-674 616.131,-672.103 614,-670 562.119,-618.803 617.059,-571.54 578,-510 564.486,-488.708 538.345,-472.924 524.361,-462.345"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="619.212,-678.792 629.616,-680.795 622.732,-672.741 619.212,-678.792"/>
+<!-- Node6 -->
+<g id="node11" class="node"><title>Node6</title>
+<a xlink:href="namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" target="_top" xlink:title="Create a new account object, or load an existing one, with a name and password.">
+<polygon fill="white" stroke="black" points="642.5,-304 642.5,-324 773.5,-324 773.5,-304 642.5,-304"/>
+<text text-anchor="middle" x="708" y="-311" font-family="FreeSans.ttf" font-size="10.00">Handler::AttachAccount</text>
+</a>
 </g>
-<!-- Node7&#45;&gt;Node4 -->
-<g id="edge20" class="edge"><title>Node7&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M625.01,-754.298C621.06,-751.898 617.35,-749.144 614,-746 527.493,-664.81 516.565,-504.187 515.195,-462.013"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="623.511,-757.464 633.994,-759 626.758,-751.262 623.511,-757.464"/>
+<!-- Node5&#45;&gt;Node6 -->
+<g id="edge10" class="edge"><title>Node5&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M546.922,-433.559C558.945,-429.187 572.511,-423.384 582,-414 612.633,-383.708 585.027,-351.726 618,-324 625.089,-318.039 633.586,-313.804 642.488,-310.923"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="545.579,-430.321 537.308,-436.942 547.903,-436.924 545.579,-430.321"/>
 </g>
-<!-- Node8&#45;&gt;Node4 -->
-<g id="edge24" class="edge"><title>Node8&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M612.743,-704.287C584.331,-663.348 530.008,-504.768 517.57,-462.252"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="610.203,-706.702 619.367,-712.019 615.519,-702.147 610.203,-706.702"/>
+<!-- Node7 -->
+<g id="node15" class="node"><title>Node7</title>
+<a xlink:href="namespaceHandler.xhtml#a73ed6064f2698dbffb5f4c247a02b661" target="_top" xlink:title="Send initial account interface menu.">
+<polygon fill="white" stroke="black" points="634,-682 634,-702 782,-702 782,-682 634,-682"/>
+<text text-anchor="middle" x="708" y="-689" font-family="FreeSans.ttf" font-size="10.00">Handler::AccountMenuMain</text>
+</a>
 </g>
-<!-- Node9&#45;&gt;Node4 -->
-<g id="edge28" class="edge"><title>Node9&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M668.023,-426.667C642.238,-433.199 606.866,-440.624 576.624,-445.983"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="668.963,-430.039 677.751,-424.12 667.19,-423.268 668.963,-430.039"/>
+<!-- Node5&#45;&gt;Node7 -->
+<g id="edge16" class="edge"><title>Node5&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M551.641,-463.587C562.786,-473.324 574.414,-486.138 582,-500 617.825,-565.462 565.021,-611.445 618,-664 627.523,-673.447 640.487,-678.74 653.608,-681.906"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="553.632,-460.694 543.676,-457.07 549.199,-466.111 553.632,-460.694"/>
 </g>
-<!-- Node10&#45;&gt;Node4 -->
-<g id="edge32" class="edge"><title>Node10&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M658.123,-388.92C643.739,-393.235 627.976,-398.146 614,-404 588.207,-414.804 560.794,-430.998 541.37,-441.864"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="659.242,-392.239 667.822,-386.025 657.239,-385.532 659.242,-392.239"/>
+<!-- Node5&#45;&gt;Node8 -->
+<g id="edge20" class="edge"><title>Node5&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M583.475,-465.143C622.439,-518.985 572.117,-566.321 618,-614 625.984,-622.296 636.462,-627.914 647.436,-631.892"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="586.047,-462.756 577.056,-457.151 580.589,-467.14 586.047,-462.756"/>
 </g>
-<!-- Node11&#45;&gt;Node4 -->
-<g id="edge36" class="edge"><title>Node11&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M648.221,-339.098C636.409,-342.9 624.384,-347.668 614,-354 574.89,-377.848 541.595,-421.462 525.442,-441.789"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="649.498,-342.368 658.053,-336.117 647.467,-335.669 649.498,-342.368"/>
+<!-- Node5&#45;&gt;Node9 -->
+<g id="edge24" class="edge"><title>Node5&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M549.579,-433.787C561.32,-429.635 573.926,-423.822 582,-414 640.467,-342.88 553.994,-276.179 618,-210 619.665,-208.278 621.444,-206.693 623.318,-205.236"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="548.436,-430.478 540.037,-436.936 550.63,-437.126 548.436,-430.478"/>
 </g>
-<!-- Node12&#45;&gt;Node4 -->
-<g id="edge40" class="edge"><title>Node12&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M653.359,-288.1C639.679,-291.248 625.496,-295.997 614,-304 561.636,-340.452 531.05,-414.436 519.879,-441.924"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="654.102,-291.521 663.185,-286.068 652.684,-284.666 654.102,-291.521"/>
+<!-- Node10 -->
+<g id="node24" class="node"><title>Node10</title>
+<a xlink:href="namespaceHandler.xhtml#ae5086bcf5857eb572beedd09158c3065" target="_top" xlink:title="Select a new Character sex.">
+<polygon fill="white" stroke="black" points="629,-266 629,-286 787,-286 787,-266 629,-266"/>
+<text text-anchor="middle" x="708" y="-273" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterCreateSex</text>
+</a>
 </g>
-<!-- Node13&#45;&gt;Node4 -->
-<g id="edge44" class="edge"><title>Node13&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M626.013,-640.51C621.678,-638.162 617.621,-635.346 614,-632 572.48,-593.632 609.844,-556.712 578,-510 563.639,-488.934 537.376,-472.837 523.739,-462.107"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="624.697,-643.756 635.25,-644.694 627.585,-637.38 624.697,-643.756"/>
+<!-- Node5&#45;&gt;Node10 -->
+<g id="edge28" class="edge"><title>Node5&#45;&gt;Node10</title>
+<path fill="none" stroke="midnightblue" d="M548.123,-433.74C560.053,-429.487 573.205,-423.675 582,-414 621.752,-370.272 574.855,-326.383 618,-286 621.265,-282.944 624.892,-280.33 628.763,-278.108"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="546.859,-430.473 538.511,-436.997 549.105,-437.102 546.859,-430.473"/>
 </g>
-<!-- Node14&#45;&gt;Node4 -->
-<g id="edge48" class="edge"><title>Node14&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M623.486,-600.429C620.137,-598.556 616.952,-596.421 614,-594 582.596,-568.24 602.817,-542.154 578,-510 562.422,-489.817 536.692,-473.334 523.45,-462.316"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="622.153,-603.671 632.689,-604.794 625.154,-597.346 622.153,-603.671"/>
+<!-- Node11 -->
+<g id="node27" class="node"><title>Node11</title>
+<a xlink:href="namespaceHandler.xhtml#a97a198bfc72285b2aca4f36978db715e" target="_top" xlink:title="Main Character deletion confirmation.">
+<polygon fill="white" stroke="black" points="638.5,-582 638.5,-614 777.5,-614 777.5,-582 638.5,-582"/>
+<text text-anchor="start" x="646.5" y="-601" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterDelete</text>
+<text text-anchor="middle" x="708" y="-589" font-family="FreeSans.ttf" font-size="10.00">Confirm</text>
+</a>
 </g>
-<!-- Node15&#45;&gt;Node4 -->
-<g id="edge52" class="edge"><title>Node15&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M625.576,-562.054C621.547,-560.292 617.659,-558.281 614,-556 591.969,-542.267 596.385,-528.33 578,-510 559.552,-491.608 534.223,-473.803 522.069,-462.078"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="624.598,-565.427 635.189,-565.725 627.095,-558.888 624.598,-565.427"/>
+<!-- Node5&#45;&gt;Node11 -->
+<g id="edge32" class="edge"><title>Node5&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M583.399,-464.928C611.446,-501.099 585.198,-533.367 618,-564 626.889,-572.301 638.294,-577.884 649.979,-581.856"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="585.785,-462.341 576.55,-457.15 580.532,-466.968 585.785,-462.341"/>
 </g>
-<!-- Node16&#45;&gt;Node4 -->
-<g id="edge56" class="edge"><title>Node16&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M646.884,-212.325C635.044,-215.508 623.345,-220.31 614,-228 542.73,-286.647 521.769,-405.865 516.537,-441.847"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="647.874,-215.688 656.814,-210.003 646.28,-208.872 647.874,-215.688"/>
+<!-- Node12 -->
+<g id="node30" class="node"><title>Node12</title>
+<a xlink:href="namespaceHandler.xhtml#afc470ec6e82b7a9a1560588a368734f9" target="_top" xlink:title="Main Character deletion menu.">
+<polygon fill="white" stroke="black" points="638.5,-532 638.5,-564 777.5,-564 777.5,-532 638.5,-532"/>
+<text text-anchor="start" x="646.5" y="-551" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterDelete</text>
+<text text-anchor="middle" x="708" y="-539" font-family="FreeSans.ttf" font-size="10.00">MenuMain</text>
+</a>
 </g>
-<!-- Node17&#45;&gt;Node4 -->
-<g id="edge60" class="edge"><title>Node17&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M634.699,-520.16C627.637,-517.994 620.628,-515.587 614,-513 578.733,-499.235 539.752,-476.269 523.177,-462.128"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="633.752,-523.53 644.332,-522.959 635.706,-516.808 633.752,-523.53"/>
+<!-- Node5&#45;&gt;Node12 -->
+<g id="edge36" class="edge"><title>Node5&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M582.614,-463.703C602.583,-483.095 597.418,-499.365 618,-514 629.63,-522.27 643.9,-527.808 657.619,-531.881"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="584.674,-460.858 574.805,-457.004 580.117,-466.172 584.674,-460.858"/>
+</g>
+<!-- Node13 -->
+<g id="node33" class="node"><title>Node13</title>
+<a xlink:href="namespaceHandler.xhtml#a02b1b954749641ab646f6548a5360d3b" target="_top" xlink:title="Main Character load menu.">
+<polygon fill="white" stroke="black" points="618.5,-494 618.5,-514 797.5,-514 797.5,-494 618.5,-494"/>
+<text text-anchor="middle" x="708" y="-501" font-family="FreeSans.ttf" font-size="10.00">Handler::CharacterLoadMenuMain</text>
+</a>
+</g>
+<!-- Node5&#45;&gt;Node13 -->
+<g id="edge40" class="edge"><title>Node5&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M578.424,-460.614C579.627,-461.079 580.82,-461.542 582,-462 598.005,-468.21 601.547,-471.1 618,-476 642.029,-483.157 670.435,-488.681 688.812,-493.96"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="579.665,-457.341 569.075,-457.021 577.154,-463.875 579.665,-457.341"/>
+</g>
+<!-- Node14 -->
+<g id="node36" class="node"><title>Node14</title>
+<a xlink:href="namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" target="_top" xlink:title="Select a new account name.">
+<polygon fill="white" stroke="black" points="639.5,-456 639.5,-476 776.5,-476 776.5,-456 639.5,-456"/>
+<text text-anchor="middle" x="708" y="-463" font-family="FreeSans.ttf" font-size="10.00">Handler::GetNewAccount</text>
+</a>
+</g>
+<!-- Node5&#45;&gt;Node14 -->
+<g id="edge44" class="edge"><title>Node5&#45;&gt;Node14</title>
+<path fill="none" stroke="midnightblue" d="M591.722,-447.67C616.667,-449.8 643.833,-452.823 665.63,-455.97"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="591.809,-444.166 581.558,-446.842 591.241,-451.142 591.809,-444.166"/>
+</g>
+<!-- Node15 -->
+<g id="node39" class="node"><title>Node15</title>
+<a xlink:href="namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" target="_top" xlink:title="Create a new account.">
+<polygon fill="white" stroke="black" points="637,-418 637,-438 779,-438 779,-418 637,-418"/>
+<text text-anchor="middle" x="708" y="-425" font-family="FreeSans.ttf" font-size="10.00">Handler::GetNewPassword</text>
+</a>
+</g>
+<!-- Node5&#45;&gt;Node15 -->
+<g id="edge48" class="edge"><title>Node5&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M572.315,-435.591C592.272,-432.931 615.372,-430.447 636.792,-428.626"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="571.615,-432.155 562.191,-436.996 572.577,-439.088 571.615,-432.155"/>
+</g>
+<!-- Node16 -->
+<g id="node42" class="node"><title>Node16</title>
+<a xlink:href="namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" target="_top" xlink:title="Compare a received password against an existing account.">
+<polygon fill="white" stroke="black" points="639.5,-380 639.5,-400 776.5,-400 776.5,-380 639.5,-380"/>
+<text text-anchor="middle" x="708" y="-387" font-family="FreeSans.ttf" font-size="10.00">Handler::GetOldPassword</text>
+</a>
+</g>
+<!-- Node5&#45;&gt;Node16 -->
+<g id="edge52" class="edge"><title>Node5&#45;&gt;Node16</title>
+<path fill="none" stroke="midnightblue" d="M538.527,-432.178C550.851,-426.07 567.396,-419.666 582,-414 598.005,-407.79 601.547,-404.9 618,-400 624.887,-397.949 632.134,-396.031 639.401,-394.313"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="536.782,-429.143 529.667,-436.993 540.125,-435.293 536.782,-429.143"/>
+</g>
+<!-- Node17 -->
+<g id="node45" class="node"><title>Node17</title>
+<a xlink:href="namespaceHandler.xhtml#ae70e4e50054c729c14493eafefe01b5c" target="_top" xlink:title="Load a character from the account to enter into the game with.">
+<polygon fill="white" stroke="black" points="642.5,-758 642.5,-778 773.5,-778 773.5,-758 642.5,-758"/>
+<text text-anchor="middle" x="708" y="-765" font-family="FreeSans.ttf" font-size="10.00">Handler::LoadCharacter</text>
+</a>
+</g>
+<!-- Node5&#45;&gt;Node17 -->
+<g id="edge56" class="edge"><title>Node5&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M540.786,-464.943C554.6,-481.783 571.982,-507.565 582,-533 616.221,-619.885 553.164,-672.796 618,-740 627.092,-749.424 639.593,-754.76 652.387,-757.956"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="543.123,-462.293 533.944,-457.001 537.819,-466.861 543.123,-462.293"/>
+</g>
+<!-- Node18 -->
+<g id="node48" class="node"><title>Node18</title>
+<a xlink:href="namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191" target="_top" xlink:title="Send initial greeting and request for account name.">
+<polygon fill="white" stroke="black" points="648.5,-342 648.5,-362 767.5,-362 767.5,-342 648.5,-342"/>
+<text text-anchor="middle" x="708" y="-349" font-family="FreeSans.ttf" font-size="10.00">Handler::LoginScreen</text>
+</a>
+</g>
+<!-- Node5&#45;&gt;Node18 -->
+<g id="edge60" class="edge"><title>Node5&#45;&gt;Node18</title>
+<path fill="none" stroke="midnightblue" d="M544.36,-433.189C556.556,-428.486 571.021,-422.65 582,-414 604.08,-396.604 594.591,-377.561 618,-362 627.044,-355.989 637.633,-351.83 648.308,-349.133"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="542.831,-430.027 534.775,-436.908 545.364,-436.553 542.831,-430.027"/>
 </g>
 <!-- Node19 -->
 <g id="node51" class="node"><title>Node19</title>
-<a xlink:href="namespaceServer.xhtml#a16ea0639731dee10e1a253375b508a02" target="_top" xlink:title="Recovers the server state and re&#45;connects client sockets after a reboot.">
-<polygon fill="white" stroke="black" points="850,-152 850,-172 980,-172 980,-152 850,-152"/>
-<text text-anchor="middle" x="915" y="-159" font-family="FreeSans.ttf" font-size="10.00">Server::RebootRecovery</text>
+<a xlink:href="classSocketClient.xhtml#a8399ef20292e9f3ec83b5c4bec2e105b" target="_top" xlink:title="Build a SocketClient for a new client connection and set all attributes.">
+<polygon fill="white" stroke="black" points="656.5,-228 656.5,-248 759.5,-248 759.5,-228 656.5,-228"/>
+<text text-anchor="middle" x="708" y="-235" font-family="FreeSans.ttf" font-size="10.00">SocketClient::New</text>
 </a>
 </g>
-<!-- Node18&#45;&gt;Node19 -->
-<g id="edge64" class="edge"><title>Node18&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M765.815,-226.937C775.352,-224.661 785.012,-222.02 794,-219 832.08,-206.205 873.951,-184.672 897.099,-172.055"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="764.93,-223.548 755.954,-229.176 766.481,-230.375 764.93,-223.548"/>
+<!-- Node5&#45;&gt;Node19 -->
+<g id="edge64" class="edge"><title>Node5&#45;&gt;Node19</title>
+<path fill="none" stroke="midnightblue" d="M571.555,-432.047C575.442,-429.491 579.007,-426.499 582,-423 631.066,-365.627 564.472,-310.234 618,-257 628.191,-246.865 642.34,-241.508 656.404,-238.822"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="569.69,-429.079 562.63,-436.979 573.075,-435.206 569.69,-429.079"/>
 </g>
-<!-- Node22 -->
-<g id="node57" class="node"><title>Node22</title>
-<a xlink:href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" target="_top" xlink:title="Accept a new connection on the listening port.">
-<polygon fill="white" stroke="black" points="855,-228 855,-248 975,-248 975,-228 855,-228"/>
-<text text-anchor="middle" x="915" y="-235" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Accept</text>
+<!-- Node26 -->
+<g id="node66" class="node"><title>Node26</title>
+<a xlink:href="classSocketClient.xhtml#ad4f63c7d906310dc56a1217136047d7f" target="_top" xlink:title="Interpret the command at the front of the queue.">
+<polygon fill="white" stroke="black" points="623,-720 623,-740 793,-740 793,-720 623,-720"/>
+<text text-anchor="middle" x="708" y="-727" font-family="FreeSans.ttf" font-size="10.00">SocketClient::ProcessCommand</text>
 </a>
 </g>
-<!-- Node18&#45;&gt;Node22 -->
-<g id="edge70" class="edge"><title>Node18&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M765.731,-238C793.855,-238 827.024,-238 854.944,-238"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="765.616,-234.5 755.616,-238 765.616,-241.5 765.616,-234.5"/>
+<!-- Node5&#45;&gt;Node26 -->
+<g id="edge80" class="edge"><title>Node5&#45;&gt;Node26</title>
+<path fill="none" stroke="midnightblue" d="M534.784,-465.133C548.976,-483.447 569.978,-513.088 582,-542 611.485,-612.911 563.647,-656.746 618,-711 621.504,-714.497 625.479,-717.426 629.759,-719.873"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="537.383,-462.777 528.434,-457.105 531.893,-467.12 537.383,-462.777"/>
+</g>
+<!-- Node6&#45;&gt;Node5 -->
+<g id="edge12" class="edge"><title>Node6&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M650.03,-326.377C638.448,-329.57 627.071,-334.372 618,-342 585.027,-369.726 612.633,-401.708 582,-432 580.194,-433.785 578.241,-435.441 576.179,-436.971"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="650.851,-329.78 659.761,-324.047 649.221,-322.972 650.851,-329.78"/>
+</g>
+<!-- Node7&#45;&gt;Node5 -->
+<g id="edge18" class="edge"><title>Node7&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M624.855,-687.721C622.423,-686.011 620.126,-684.109 618,-682 565.021,-629.445 617.825,-583.462 582,-518 567.969,-492.361 540.109,-470.306 527.057,-457.083"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="623.19,-690.801 633.591,-692.82 626.719,-684.756 623.19,-690.801"/>
+</g>
+<!-- Node8&#45;&gt;Node5 -->
+<g id="edge22" class="edge"><title>Node8&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M628.857,-640.845C624.914,-638.311 621.25,-635.378 618,-632 569.861,-581.976 627.621,-532.33 582,-480 571.154,-467.559 553.079,-461.528 539.236,-457.059"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="627.426,-644.052 637.88,-645.771 630.78,-637.907 627.426,-644.052"/>
+</g>
+<!-- Node9&#45;&gt;Node5 -->
+<g id="edge26" class="edge"><title>Node9&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M642.619,-212.99C633.387,-216.276 624.757,-221.014 618,-228 553.994,-294.179 640.467,-360.88 582,-432 580.534,-433.783 578.919,-435.434 577.186,-436.959"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="643.828,-216.282 652.403,-210.059 641.82,-209.576 643.828,-216.282"/>
+</g>
+<!-- Node10&#45;&gt;Node5 -->
+<g id="edge30" class="edge"><title>Node10&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M645.896,-288.705C635.607,-291.947 625.775,-296.723 618,-304 574.855,-344.383 621.752,-388.272 582,-432 580.37,-433.794 578.589,-435.454 576.695,-436.987"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="647.097,-292.007 655.849,-286.035 645.283,-285.246 647.097,-292.007"/>
+</g>
+<!-- Node11&#45;&gt;Node5 -->
+<g id="edge34" class="edge"><title>Node11&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M629.271,-590.424C625.226,-587.995 621.426,-585.199 618,-582 582.865,-549.188 615.479,-514.5 582,-480 570.184,-467.824 551.495,-461.718 537.722,-457.021"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="627.979,-593.696 638.47,-595.172 631.189,-587.476 627.979,-593.696"/>
+</g>
+<!-- Node12&#45;&gt;Node5 -->
+<g id="edge38" class="edge"><title>Node12&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M629.11,-538.728C625.226,-536.722 621.494,-534.484 618,-532 595.092,-515.711 604.08,-497.396 582,-480 567.947,-468.928 548.183,-462.466 534.775,-457.092"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="627.859,-542.005 638.407,-542.994 630.778,-535.643 627.859,-542.005"/>
+</g>
+<!-- Node13&#45;&gt;Node5 -->
+<g id="edge42" class="edge"><title>Node13&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M608.723,-490.98C599.302,-487.62 594.379,-484.803 582,-480 563.492,-472.819 541.866,-464.453 529.667,-457.007"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="607.868,-494.382 618.46,-494.137 610.026,-487.723 607.868,-494.382"/>
+</g>
+<!-- Node14&#45;&gt;Node5 -->
+<g id="edge46" class="edge"><title>Node14&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M629.271,-464.714C606.26,-462.63 581.995,-459.868 562.191,-457.004"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="629.121,-468.214 639.386,-465.592 629.726,-461.24 629.121,-468.214"/>
+</g>
+<!-- Node15&#45;&gt;Node5 -->
+<g id="edge50" class="edge"><title>Node15&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M655.717,-439.405C632.715,-442.471 605.532,-445.304 581.558,-447.158"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="656.205,-442.87 665.63,-438.03 655.244,-435.937 656.205,-442.87"/>
+</g>
+<!-- Node16&#45;&gt;Node5 -->
+<g id="edge54" class="edge"><title>Node16&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M679.021,-402.664C661.232,-407.175 638.087,-412.017 618,-418 601.547,-422.9 598.005,-425.79 582,-432 577.803,-433.628 573.446,-435.317 569.075,-436.979"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="680.059,-406.009 688.812,-400.04 678.247,-399.248 680.059,-406.009"/>
+</g>
+<!-- Node17&#45;&gt;Node5 -->
+<g id="edge58" class="edge"><title>Node17&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M632.712,-768.698C627.273,-765.937 622.262,-762.418 618,-758 553.164,-690.796 616.221,-637.885 582,-551 567.349,-513.801 536.948,-475.861 524.988,-457.259"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="631.636,-772.041 642.213,-772.652 634.326,-765.578 631.636,-772.041"/>
+</g>
+<!-- Node18&#45;&gt;Node5 -->
+<g id="edge62" class="edge"><title>Node18&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M659.082,-364.082C644.95,-367.236 630.093,-371.962 618,-380 594.591,-395.561 604.08,-414.604 582,-432 579.733,-433.786 577.318,-435.452 574.805,-436.996"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="660.086,-367.45 669.194,-362.037 658.698,-360.588 660.086,-367.45"/>
 </g>
 <!-- Node20 -->
 <g id="node53" class="node"><title>Node20</title>
-<a xlink:href="namespaceServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" target="_top" xlink:title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
-<polygon fill="white" stroke="black" points="1049,-114 1049,-134 1139,-134 1139,-114 1049,-114"/>
-<text text-anchor="middle" x="1094" y="-121" font-family="FreeSans.ttf" font-size="10.00">Server::Startup</text>
+<a xlink:href="namespaceServer.xhtml#a16ea0639731dee10e1a253375b508a02" target="_top" xlink:title="Recovers the server state and re&#45;connects client sockets after a reboot.">
+<polygon fill="white" stroke="black" points="834,-152 834,-172 964,-172 964,-152 834,-152"/>
+<text text-anchor="middle" x="899" y="-159" font-family="FreeSans.ttf" font-size="10.00">Server::RebootRecovery</text>
 </a>
 </g>
 <!-- Node19&#45;&gt;Node20 -->
 <g id="edge66" class="edge"><title>Node19&#45;&gt;Node20</title>
-<path fill="none" stroke="midnightblue" d="M972.467,-149.8C997.157,-144.559 1025.59,-138.522 1048.75,-133.606"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="971.554,-146.416 962.499,-151.916 973.008,-153.263 971.554,-146.416"/>
+<path fill="none" stroke="midnightblue" d="M769.665,-227.606C779.292,-225.236 789.018,-222.39 798,-219 830.588,-206.699 865.256,-184.993 884.311,-172.211"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="768.661,-224.246 759.706,-229.907 770.237,-231.066 768.661,-224.246"/>
+</g>
+<!-- Node23 -->
+<g id="node59" class="node"><title>Node23</title>
+<a xlink:href="classSocketServer.xhtml#afdbc60c3bc840875d2214b59c6213f63" target="_top" xlink:title="Accept a new connection on the listening port.">
+<polygon fill="white" stroke="black" points="839,-228 839,-248 959,-248 959,-228 839,-228"/>
+<text text-anchor="middle" x="899" y="-235" font-family="FreeSans.ttf" font-size="10.00">SocketServer::Accept</text>
+</a>
+</g>
+<!-- Node19&#45;&gt;Node23 -->
+<g id="edge72" class="edge"><title>Node19&#45;&gt;Node23</title>
+<path fill="none" stroke="midnightblue" d="M769.953,-238C792.041,-238 816.872,-238 838.809,-238"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="769.687,-234.5 759.687,-238 769.687,-241.5 769.687,-234.5"/>
 </g>
 <!-- Node21 -->
 <g id="node55" class="node"><title>Node21</title>
-<a xlink:href="main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" target="_top" xlink:title="The default function required to execute the server.">
-<polygon fill="white" stroke="black" points="1314.5,-190 1314.5,-210 1355.5,-210 1355.5,-190 1314.5,-190"/>
-<text text-anchor="middle" x="1335" y="-197" font-family="FreeSans.ttf" font-size="10.00">main</text>
+<a xlink:href="namespaceServer.xhtml#a19a1e493e1fb50a56d9c77332543d565" target="_top" xlink:title="Start the NAMS Server. Responsible for calling all critical boot&#45;time functions such as SocketServer ...">
+<polygon fill="white" stroke="black" points="1013,-114 1013,-134 1103,-134 1103,-114 1013,-114"/>
+<text text-anchor="middle" x="1058" y="-121" font-family="FreeSans.ttf" font-size="10.00">Server::Startup</text>
 </a>
 </g>
 <!-- Node20&#45;&gt;Node21 -->
 <g id="edge68" class="edge"><title>Node20&#45;&gt;Node21</title>
-<path fill="none" stroke="midnightblue" d="M1135.6,-137.119C1187.6,-153.518 1274.59,-180.951 1314.21,-193.444"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1136.59,-133.762 1126,-134.092 1134.49,-140.438 1136.59,-133.762"/>
+<path fill="none" stroke="midnightblue" d="M950.94,-149.587C971.982,-144.558 995.963,-138.826 1015.89,-134.065"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="950.104,-146.188 941.192,-151.916 951.731,-152.996 950.104,-146.188"/>
 </g>
-<!-- Node23 -->
-<g id="node59" class="node"><title>Node23</title>
-<a xlink:href="namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" target="_top" xlink:title="Poll all SocketClient objects that are communicating with the associated SocketServer object...">
-<polygon fill="white" stroke="black" points="1039.5,-228 1039.5,-248 1148.5,-248 1148.5,-228 1039.5,-228"/>
-<text text-anchor="middle" x="1094" y="-235" font-family="FreeSans.ttf" font-size="10.00">Server::PollSockets</text>
+<!-- Node22 -->
+<g id="node57" class="node"><title>Node22</title>
+<a xlink:href="main_8cpp.xhtml#ad53223b8779f25caeddb70a3b9172967" target="_top" xlink:title="The default function required to execute the server.">
+<polygon fill="white" stroke="black" points="1278.5,-190 1278.5,-210 1319.5,-210 1319.5,-190 1278.5,-190"/>
+<text text-anchor="middle" x="1299" y="-197" font-family="FreeSans.ttf" font-size="10.00">main</text>
 </a>
 </g>
-<!-- Node22&#45;&gt;Node23 -->
-<g id="edge72" class="edge"><title>Node22&#45;&gt;Node23</title>
-<path fill="none" stroke="midnightblue" d="M985.268,-238C1003.28,-238 1022.39,-238 1039.48,-238"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="985.102,-234.5 975.102,-238 985.102,-241.5 985.102,-234.5"/>
+<!-- Node21&#45;&gt;Node22 -->
+<g id="edge70" class="edge"><title>Node21&#45;&gt;Node22</title>
+<path fill="none" stroke="midnightblue" d="M1099.6,-137.119C1151.6,-153.518 1238.59,-180.951 1278.21,-193.444"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1100.59,-133.762 1090,-134.092 1098.49,-140.438 1100.59,-133.762"/>
 </g>
 <!-- Node24 -->
 <g id="node61" class="node"><title>Node24</title>
-<a xlink:href="namespaceServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
-<polygon fill="white" stroke="black" points="1188.5,-228 1188.5,-248 1277.5,-248 1277.5,-228 1188.5,-228"/>
-<text text-anchor="middle" x="1233" y="-235" font-family="FreeSans.ttf" font-size="10.00">Server::Update</text>
+<a xlink:href="namespaceServer.xhtml#a39dbe16fdc8c5f6fbd678c6540fbcd6c" target="_top" xlink:title="Poll all SocketClient objects that are communicating with the associated SocketServer object...">
+<polygon fill="white" stroke="black" points="1003.5,-228 1003.5,-248 1112.5,-248 1112.5,-228 1003.5,-228"/>
+<text text-anchor="middle" x="1058" y="-235" font-family="FreeSans.ttf" font-size="10.00">Server::PollSockets</text>
 </a>
 </g>
 <!-- Node23&#45;&gt;Node24 -->
 <g id="edge74" class="edge"><title>Node23&#45;&gt;Node24</title>
-<path fill="none" stroke="midnightblue" d="M1158.57,-238C1168.69,-238 1178.94,-238 1188.47,-238"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1158.54,-234.5 1148.54,-238 1158.54,-241.5 1158.54,-234.5"/>
+<path fill="none" stroke="midnightblue" d="M969.438,-238C980.788,-238 992.389,-238 1003.3,-238"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="969.111,-234.5 959.111,-238 969.111,-241.5 969.111,-234.5"/>
 </g>
-<!-- Node24&#45;&gt;Node21 -->
-<g id="edge76" class="edge"><title>Node24&#45;&gt;Node21</title>
-<path fill="none" stroke="midnightblue" d="M1269.61,-224.36C1284.63,-218.766 1301.46,-212.496 1314.28,-207.718"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1268.22,-221.146 1260.07,-227.916 1270.66,-227.705 1268.22,-221.146"/>
+<!-- Node25 -->
+<g id="node63" class="node"><title>Node25</title>
+<a xlink:href="namespaceServer.xhtml#a50b81aa91d8fdaee6f52c5c5ec987990" target="_top" xlink:title="The core update loop of NAMS. This loop spawns all other subsystem update routines and then sleeps fo...">
+<polygon fill="white" stroke="black" points="1152.5,-228 1152.5,-248 1241.5,-248 1241.5,-228 1152.5,-228"/>
+<text text-anchor="middle" x="1197" y="-235" font-family="FreeSans.ttf" font-size="10.00">Server::Update</text>
+</a>
 </g>
-<!-- Node26 -->
-<g id="node66" class="node"><title>Node26</title>
+<!-- Node24&#45;&gt;Node25 -->
+<g id="edge76" class="edge"><title>Node24&#45;&gt;Node25</title>
+<path fill="none" stroke="midnightblue" d="M1122.57,-238C1132.69,-238 1142.94,-238 1152.47,-238"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1122.54,-234.5 1112.54,-238 1122.54,-241.5 1122.54,-234.5"/>
+</g>
+<!-- Node25&#45;&gt;Node22 -->
+<g id="edge78" class="edge"><title>Node25&#45;&gt;Node22</title>
+<path fill="none" stroke="midnightblue" d="M1233.61,-224.36C1248.63,-218.766 1265.46,-212.496 1278.28,-207.718"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1232.22,-221.146 1224.07,-227.916 1234.66,-227.705 1232.22,-221.146"/>
+</g>
+<!-- Node27 -->
+<g id="node68" class="node"><title>Node27</title>
 <a xlink:href="namespaceServer.xhtml#a2b4cec469bb99c2a45e49de5ba74d1ae" target="_top" xlink:title="Processes input from all active SocketClient objects.">
-<polygon fill="white" stroke="black" points="1036,-373 1036,-393 1152,-393 1152,-373 1036,-373"/>
-<text text-anchor="middle" x="1094" y="-380" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessInput</text>
+<polygon fill="white" stroke="black" points="1000,-493 1000,-513 1116,-513 1116,-493 1000,-493"/>
+<text text-anchor="middle" x="1058" y="-500" font-family="FreeSans.ttf" font-size="10.00">Server::ProcessInput</text>
 </a>
 </g>
-<!-- Node25&#45;&gt;Node26 -->
-<g id="edge80" class="edge"><title>Node25&#45;&gt;Node26</title>
-<path fill="none" stroke="midnightblue" d="M958.834,-423.021C990.029,-413.785 1031.33,-401.555 1060.04,-393.056"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="957.685,-419.711 949.09,-425.906 959.672,-426.423 957.685,-419.711"/>
+<!-- Node26&#45;&gt;Node27 -->
+<g id="edge82" class="edge"><title>Node26&#45;&gt;Node27</title>
+<path fill="none" stroke="midnightblue" d="M783.381,-716.878C788.418,-715.153 793.337,-713.203 798,-711 910.371,-657.906 1017.38,-547.283 1048.78,-513.211"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="782.097,-713.613 773.589,-719.927 784.177,-720.296 782.097,-713.613"/>
 </g>
-<!-- Node26&#45;&gt;Node24 -->
-<g id="edge82" class="edge"><title>Node26&#45;&gt;Node24</title>
-<path fill="none" stroke="midnightblue" d="M1111.11,-365.147C1140.5,-334.494 1199.64,-272.797 1223.09,-248.334"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1108.39,-362.931 1104,-372.572 1113.44,-367.775 1108.39,-362.931"/>
+<!-- Node27&#45;&gt;Node25 -->
+<g id="edge84" class="edge"><title>Node27&#45;&gt;Node25</title>
+<path fill="none" stroke="midnightblue" d="M1067.94,-484.056C1095.29,-431.912 1171.02,-287.528 1191.72,-248.075"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="1064.82,-482.454 1063.28,-492.935 1071.02,-485.705 1064.82,-482.454"/>
 </g>
-<!-- Node27&#45;&gt;Node6 -->
-<g id="edge90" class="edge"><title>Node27&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M364.885,-362.176C379.602,-376.013 400.133,-396.336 416,-416 434.346,-438.737 434.487,-447.615 452,-471 485.26,-515.413 566.307,-632.643 614,-661 620.04,-664.591 626.662,-667.509 633.488,-669.879"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="367.083,-359.441 357.373,-355.201 362.32,-364.57 367.083,-359.441"/>
+<!-- Node28&#45;&gt;Node7 -->
+<g id="edge92" class="edge"><title>Node28&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M406.377,-511.379C457.567,-503.803 533.432,-501.709 582,-542 628.472,-580.552 574.04,-631.607 618,-673 622.651,-677.379 628.045,-680.853 633.838,-683.599"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="405.808,-507.926 396.484,-512.957 406.91,-514.839 405.808,-507.926"/>
 </g>
-<!-- Node27&#45;&gt;Node28 -->
-<g id="edge86" class="edge"><title>Node27&#45;&gt;Node28</title>
-<path fill="none" stroke="midnightblue" d="M370.597,-329.427C405.754,-307.168 469.39,-266.877 499.02,-248.118"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="368.476,-326.627 361.899,-334.934 372.22,-332.541 368.476,-326.627"/>
+<!-- Node28&#45;&gt;Node29 -->
+<g id="edge88" class="edge"><title>Node28&#45;&gt;Node29</title>
+<path fill="none" stroke="midnightblue" d="M377.034,-538.276C398.092,-550.677 429.277,-568.012 458,-580 465.896,-583.295 474.568,-586.309 482.86,-588.917"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="378.775,-535.238 368.392,-533.128 375.192,-541.252 378.775,-535.238"/>
 </g>
-<!-- Node28&#45;&gt;Node16 -->
-<g id="edge88" class="edge"><title>Node28&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M575.048,-225.927C600.459,-220.818 629.722,-214.934 653.942,-210.065"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="574.266,-222.514 565.152,-227.916 575.646,-229.377 574.266,-222.514"/>
+<!-- Node29&#45;&gt;Node17 -->
+<g id="edge90" class="edge"><title>Node29&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M570.643,-613.739C574.838,-616.346 578.72,-619.406 582,-623 621.266,-666.014 575.397,-709.289 618,-749 624.892,-755.424 633.388,-759.897 642.382,-762.975"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="572.159,-610.582 561.682,-609.004 568.888,-616.771 572.159,-610.582"/>
 </g>
-<!-- Node29&#45;&gt;Node16 -->
-<g id="edge94" class="edge"><title>Node29&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M588.312,-200C604.776,-200 622.144,-200 638.276,-200"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="588.197,-196.5 578.197,-200 588.197,-203.5 588.197,-196.5"/>
+<!-- Node30&#45;&gt;Node2 -->
+<g id="edge96" class="edge"><title>Node30&#45;&gt;Node2</title>
+<path fill="none" stroke="midnightblue" d="M237.903,-649.345C260.341,-654.39 285.965,-660.152 307.239,-664.935"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="238.369,-645.863 227.845,-647.084 236.834,-652.692 238.369,-645.863"/>
 </g>
-<!-- Node31 -->
-<g id="node80" class="node"><title>Node31</title>
-<a xlink:href="namespaceHandler.xhtml#a571519b889d3750c63b9dc3418449bcb" target="_top" xlink:title="Places the character loaded against the account into the game world.">
-<polygon fill="white" stroke="black" points="288.5,-152 288.5,-172 403.5,-172 403.5,-152 288.5,-152"/>
-<text text-anchor="middle" x="346" y="-159" font-family="FreeSans.ttf" font-size="10.00">Handler::EnterGame</text>
-</a>
-</g>
-<!-- Node30&#45;&gt;Node31 -->
-<g id="edge98" class="edge"><title>Node30&#45;&gt;Node31</title>
-<path fill="none" stroke="midnightblue" d="M250.058,-162C262.829,-162 276.019,-162 288.378,-162"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="249.93,-158.5 239.93,-162 249.93,-165.5 249.93,-158.5"/>
+<!-- Node30&#45;&gt;Node17 -->
+<g id="edge98" class="edge"><title>Node30&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M256.478,-636C304.355,-637.009 367.772,-641.505 422,-656 515.15,-680.898 526.644,-718.163 618,-749 628.289,-752.473 639.462,-755.442 650.323,-757.929"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="256.256,-632.496 246.2,-635.831 256.141,-639.495 256.256,-632.496"/>
 </g>
 <!-- Node32 -->
-<g id="node84" class="node"><title>Node32</title>
-<a xlink:href="classLocation.xhtml#a6396aba5eab9bcbabb000c3f6478e1a2" target="_top" xlink:title="Create a new location.">
-<polygon fill="white" stroke="black" points="473.5,-76 473.5,-96 556.5,-96 556.5,-76 473.5,-76"/>
-<text text-anchor="middle" x="515" y="-83" font-family="FreeSans.ttf" font-size="10.00">Location::New</text>
+<g id="node83" class="node"><title>Node32</title>
+<a xlink:href="namespaceHandler.xhtml#a571519b889d3750c63b9dc3418449bcb" target="_top" xlink:title="Places the character loaded against the account into the game world.">
+<polygon fill="white" stroke="black" points="294.5,-361 294.5,-381 409.5,-381 409.5,-361 294.5,-361"/>
+<text text-anchor="middle" x="352" y="-368" font-family="FreeSans.ttf" font-size="10.00">Handler::EnterGame</text>
 </a>
 </g>
-<!-- Node30&#45;&gt;Node32 -->
-<g id="edge104" class="edge"><title>Node30&#45;&gt;Node32</title>
-<path fill="none" stroke="midnightblue" d="M229.686,-148.185C233.257,-146.614 236.734,-144.889 240,-143 258.789,-132.134 256.19,-118.871 276,-110 340.322,-81.1974 423.876,-79.9639 473.239,-82.452"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="228.098,-145.05 220.093,-151.99 230.679,-151.556 228.098,-145.05"/>
+<!-- Node31&#45;&gt;Node32 -->
+<g id="edge102" class="edge"><title>Node31&#45;&gt;Node32</title>
+<path fill="none" stroke="midnightblue" d="M252.987,-371C266.76,-371 281.064,-371 294.374,-371"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="252.583,-367.5 242.583,-371 252.583,-374.5 252.583,-367.5"/>
+</g>
+<!-- Node33 -->
+<g id="node87" class="node"><title>Node33</title>
+<a xlink:href="classLocation.xhtml#a6396aba5eab9bcbabb000c3f6478e1a2" target="_top" xlink:title="Create a new location.">
+<polygon fill="white" stroke="black" points="478.5,-114 478.5,-134 561.5,-134 561.5,-114 478.5,-114"/>
+<text text-anchor="middle" x="520" y="-121" font-family="FreeSans.ttf" font-size="10.00">Location::New</text>
+</a>
+</g>
+<!-- Node31&#45;&gt;Node33 -->
+<g id="edge108" class="edge"><title>Node31&#45;&gt;Node33</title>
+<path fill="none" stroke="midnightblue" d="M235.743,-357.192C239.298,-355.627 242.753,-353.901 246,-352 358.851,-285.948 347.754,-218.315 458,-148 466.856,-142.352 477.25,-137.687 486.969,-134.019"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="234.19,-354.042 226.173,-360.968 236.759,-360.553 234.19,-354.042"/>
+</g>
+<!-- Node35 -->
+<g id="node92" class="node"><title>Node35</title>
+<a xlink:href="namespaceServer.xhtml#a21b284fbb08f1d61510945f64d0673cb" target="_top" xlink:title="Links Exit pointers together after all locations are loaded.">
+<polygon fill="white" stroke="black" points="851.5,-76 851.5,-96 946.5,-96 946.5,-76 851.5,-76"/>
+<text text-anchor="middle" x="899" y="-83" font-family="FreeSans.ttf" font-size="10.00">Server::LinkExits</text>
+</a>
+</g>
+<!-- Node31&#45;&gt;Node35 -->
+<g id="edge114" class="edge"><title>Node31&#45;&gt;Node35</title>
+<path fill="none" stroke="midnightblue" d="M242.715,-355.21C243.869,-354.204 244.967,-353.136 246,-352 300.608,-291.975 229.705,-235.051 282,-173 336.041,-108.878 375.913,-122.143 458,-105 598.653,-75.6266 769.842,-79.0882 851.385,-83.0438"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="240.624,-352.401 234.399,-360.975 244.612,-358.154 240.624,-352.401"/>
+</g>
+<!-- Node32&#45;&gt;Node5 -->
+<g id="edge104" class="edge"><title>Node32&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M383.608,-385.299C416.952,-400.383 468.629,-423.761 497.866,-436.987"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="384.863,-382.025 374.309,-381.092 381.978,-388.403 384.863,-382.025"/>
+</g>
+<!-- Node32&#45;&gt;Node20 -->
+<g id="edge106" class="edge"><title>Node32&#45;&gt;Node20</title>
+<path fill="none" stroke="midnightblue" d="M369.154,-353.318C408.685,-313.904 511.032,-219.306 618,-181 688.661,-155.696 775.613,-153.906 833.914,-156.529"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="366.45,-351.075 361.897,-360.642 371.422,-356.002 366.45,-351.075"/>
 </g>
 <!-- Node34 -->
 <g id="node89" class="node"><title>Node34</title>
-<a xlink:href="namespaceServer.xhtml#a21b284fbb08f1d61510945f64d0673cb" target="_top" xlink:title="Links Exit pointers together after all locations are loaded.">
-<polygon fill="white" stroke="black" points="867.5,-114 867.5,-134 962.5,-134 962.5,-114 867.5,-114"/>
-<text text-anchor="middle" x="915" y="-121" font-family="FreeSans.ttf" font-size="10.00">Server::LinkExits</text>
-</a>
-</g>
-<!-- Node30&#45;&gt;Node34 -->
-<g id="edge110" class="edge"><title>Node30&#45;&gt;Node34</title>
-<path fill="none" stroke="midnightblue" d="M232.727,-149.934C246.721,-147.18 261.872,-144.597 276,-143 495.741,-118.161 760.519,-120.478 867.113,-122.725"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="231.875,-146.536 222.772,-151.958 233.269,-153.396 231.875,-146.536"/>
-</g>
-<!-- Node31&#45;&gt;Node4 -->
-<g id="edge100" class="edge"><title>Node31&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M357.206,-181.23C389.898,-237.328 484.398,-399.488 509.057,-441.802"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="360.074,-179.199 352.015,-172.321 354.026,-182.723 360.074,-179.199"/>
-</g>
-<!-- Node31&#45;&gt;Node19 -->
-<g id="edge102" class="edge"><title>Node31&#45;&gt;Node19</title>
-<path fill="none" stroke="midnightblue" d="M413.702,-162C524.005,-162 741.076,-162 849.764,-162"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="413.69,-158.5 403.69,-162 413.69,-165.5 413.69,-158.5"/>
-</g>
-<!-- Node33 -->
-<g id="node86" class="node"><title>Node33</title>
 <a xlink:href="namespaceServer.xhtml#a9b8efad79a32f2356d431788449e1f82" target="_top" xlink:title="Search all subfolders of CFG_DAT_DIR_WORLD and call Location::New() to load each file found to memory...">
-<polygon fill="white" stroke="black" points="853.5,-76 853.5,-96 976.5,-96 976.5,-76 853.5,-76"/>
-<text text-anchor="middle" x="915" y="-83" font-family="FreeSans.ttf" font-size="10.00">Server::LoadLocations</text>
+<polygon fill="white" stroke="black" points="837.5,-114 837.5,-134 960.5,-134 960.5,-114 837.5,-114"/>
+<text text-anchor="middle" x="899" y="-121" font-family="FreeSans.ttf" font-size="10.00">Server::LoadLocations</text>
 </a>
 </g>
-<!-- Node32&#45;&gt;Node33 -->
-<g id="edge106" class="edge"><title>Node32&#45;&gt;Node33</title>
-<path fill="none" stroke="midnightblue" d="M567.075,-86C640.634,-86 774.734,-86 853.229,-86"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="566.675,-82.5001 556.675,-86 566.675,-89.5001 566.675,-82.5001"/>
+<!-- Node33&#45;&gt;Node34 -->
+<g id="edge110" class="edge"><title>Node33&#45;&gt;Node34</title>
+<path fill="none" stroke="midnightblue" d="M571.866,-124C641.058,-124 763.398,-124 837.263,-124"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="571.644,-120.5 561.644,-124 571.644,-127.5 571.644,-120.5"/>
 </g>
-<!-- Node33&#45;&gt;Node20 -->
-<g id="edge108" class="edge"><title>Node33&#45;&gt;Node20</title>
-<path fill="none" stroke="midnightblue" d="M972.467,-98.1997C997.157,-103.441 1025.59,-109.478 1048.75,-114.394"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="973.008,-94.7365 962.499,-96.0835 971.554,-101.584 973.008,-94.7365"/>
+<!-- Node34&#45;&gt;Node21 -->
+<g id="edge112" class="edge"><title>Node34&#45;&gt;Node21</title>
+<path fill="none" stroke="midnightblue" d="M971.152,-124C985.304,-124 999.769,-124 1012.73,-124"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="970.929,-120.5 960.929,-124 970.929,-127.5 970.929,-120.5"/>
 </g>
-<!-- Node34&#45;&gt;Node20 -->
-<g id="edge112" class="edge"><title>Node34&#45;&gt;Node20</title>
-<path fill="none" stroke="midnightblue" d="M973.26,-124C997.846,-124 1026.03,-124 1048.98,-124"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="972.969,-120.5 962.969,-124 972.969,-127.5 972.969,-120.5"/>
+<!-- Node35&#45;&gt;Node21 -->
+<g id="edge116" class="edge"><title>Node35&#45;&gt;Node21</title>
+<path fill="none" stroke="midnightblue" d="M950.94,-98.4133C971.982,-103.442 995.963,-109.174 1015.89,-113.935"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="951.731,-95.004 941.192,-96.0835 950.104,-101.812 951.731,-95.004"/>
 </g>
-<!-- Node35&#45;&gt;Node36 -->
-<g id="edge116" class="edge"><title>Node35&#45;&gt;Node36</title>
-<path fill="none" stroke="midnightblue" d="M226.367,-109.539C231.291,-106.848 235.965,-103.692 240,-100 266.103,-76.117 248.563,-51.3371 276,-29 284.496,-22.0833 295.302,-17.6734 305.867,-14.8653"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="224.812,-106.403 217.32,-113.894 227.849,-112.71 224.812,-106.403"/>
-</g>
-<!-- Node37 -->
-<g id="node96" class="node"><title>Node37</title>
-<a xlink:href="classObject.xhtml#abbf694ca0643b6bd1e0b5fbc8d6ade24" target="_top" xlink:title="Create a new object.">
-<polygon fill="white" stroke="black" points="309,-38 309,-58 383,-58 383,-38 309,-38"/>
-<text text-anchor="middle" x="346" y="-45" font-family="FreeSans.ttf" font-size="10.00">Object::New</text>
-</a>
-</g>
-<!-- Node35&#45;&gt;Node37 -->
-<g id="edge118" class="edge"><title>Node35&#45;&gt;Node37</title>
-<path fill="none" stroke="midnightblue" d="M219.259,-110.145C226.33,-107.134 233.51,-103.723 240,-100 257.583,-89.9147 258.17,-81.6407 276,-72 286.397,-66.3784 298.362,-61.6977 309.424,-58.0077"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="217.715,-106.994 209.761,-113.992 220.343,-113.482 217.715,-106.994"/>
+<!-- Node36&#45;&gt;Node37 -->
+<g id="edge120" class="edge"><title>Node36&#45;&gt;Node37</title>
+<path fill="none" stroke="midnightblue" d="M236.503,-317.846C240.07,-315.336 243.307,-312.41 246,-309 322.4,-212.267 203.982,-129.433 282,-34 289.481,-24.8493 300.625,-19.176 311.834,-15.6627"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="234.565,-314.924 227.685,-322.981 238.088,-320.973 234.565,-314.924"/>
 </g>
 <!-- Node38 -->
-<g id="node98" class="node"><title>Node38</title>
-<a xlink:href="namespaceServer.xhtml#a0a8c7c124f8cc8e5e6a9c7b067be5ff5" target="_top" xlink:title="Search all subfolders of CFG_DAT_DIR_WORLD and call Object::New() to load each file found to memory...">
-<polygon fill="white" stroke="black" points="458.5,-38 458.5,-58 571.5,-58 571.5,-38 458.5,-38"/>
-<text text-anchor="middle" x="515" y="-45" font-family="FreeSans.ttf" font-size="10.00">Server::LoadObjects</text>
+<g id="node99" class="node"><title>Node38</title>
+<a xlink:href="classObject.xhtml#abbf694ca0643b6bd1e0b5fbc8d6ade24" target="_top" xlink:title="Create a new object.">
+<polygon fill="white" stroke="black" points="483,-38 483,-58 557,-58 557,-38 483,-38"/>
+<text text-anchor="middle" x="520" y="-45" font-family="FreeSans.ttf" font-size="10.00">Object::New</text>
 </a>
 </g>
-<!-- Node37&#45;&gt;Node38 -->
-<g id="edge120" class="edge"><title>Node37&#45;&gt;Node38</title>
-<path fill="none" stroke="midnightblue" d="M393.298,-48C413.504,-48 437.256,-48 458.387,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="393.088,-44.5001 383.088,-48 393.088,-51.5001 393.088,-44.5001"/>
+<!-- Node36&#45;&gt;Node38 -->
+<g id="edge122" class="edge"><title>Node36&#45;&gt;Node38</title>
+<path fill="none" stroke="midnightblue" d="M236.427,-317.785C240.01,-315.288 243.272,-312.382 246,-309 312.892,-226.075 204.795,-145.42 282,-72 335.868,-20.7729 430.765,-29.4499 482.978,-39.3042"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="234.487,-314.863 227.582,-322.899 237.991,-320.923 234.487,-314.863"/>
 </g>
-<!-- Node38&#45;&gt;Node20 -->
-<g id="edge122" class="edge"><title>Node38&#45;&gt;Node20</title>
-<path fill="none" stroke="midnightblue" d="M581.838,-40.259C676.998,-31.5346 855.961,-23.683 1000,-67 1032.35,-76.7286 1064.9,-100.253 1081.91,-113.845"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="581.4,-36.7848 571.775,-41.2138 582.061,-43.7535 581.4,-36.7848"/>
+<!-- Node39 -->
+<g id="node101" class="node"><title>Node39</title>
+<a xlink:href="namespaceServer.xhtml#a0a8c7c124f8cc8e5e6a9c7b067be5ff5" target="_top" xlink:title="Search all subfolders of CFG_DAT_DIR_WORLD and call Object::New() to load each file found to memory...">
+<polygon fill="white" stroke="black" points="842.5,-38 842.5,-58 955.5,-58 955.5,-38 842.5,-38"/>
+<text text-anchor="middle" x="899" y="-45" font-family="FreeSans.ttf" font-size="10.00">Server::LoadObjects</text>
+</a>
+</g>
+<!-- Node38&#45;&gt;Node39 -->
+<g id="edge124" class="edge"><title>Node38&#45;&gt;Node39</title>
+<path fill="none" stroke="midnightblue" d="M567.281,-48C637.054,-48 767.392,-48 842.236,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="567.03,-44.5001 557.03,-48 567.03,-51.5001 567.03,-44.5001"/>
+</g>
+<!-- Node39&#45;&gt;Node21 -->
+<g id="edge126" class="edge"><title>Node39&#45;&gt;Node21</title>
+<path fill="none" stroke="midnightblue" d="M949.202,-61.2356C954.267,-62.9972 959.279,-64.9214 964,-67 994.044,-80.2277 1026.15,-101.411 1043.98,-113.889"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="950.053,-57.8315 939.46,-58.0502 947.878,-64.4848 950.053,-57.8315"/>
+</g>
+<!-- Node44 -->
+<g id="node117" class="node"><title>Node44</title>
+<a xlink:href="classCharacter.xhtml#ad51f5ff0cfefa9bd7e674bc413f6b73c" target="_top" xlink:title="Interprets cmd with args at level security.">
+<polygon fill="white" stroke="black" points="464.5,-551 464.5,-571 575.5,-571 575.5,-551 464.5,-551"/>
+<text text-anchor="middle" x="520" y="-558" font-family="FreeSans.ttf" font-size="10.00">Character::Interpret</text>
+</a>
+</g>
+<!-- Node43&#45;&gt;Node44 -->
+<g id="edge146" class="edge"><title>Node43&#45;&gt;Node44</title>
+<path fill="none" stroke="midnightblue" d="M230.214,-561C291.645,-561 398.828,-561 464.206,-561"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="230.029,-557.5 220.029,-561 230.029,-564.5 230.029,-557.5"/>
+</g>
+<!-- Node44&#45;&gt;Node26 -->
+<g id="edge148" class="edge"><title>Node44&#45;&gt;Node26</title>
+<path fill="none" stroke="midnightblue" d="M578.135,-576.492C579.494,-577.583 580.787,-578.751 582,-580 624.068,-623.314 574.04,-669.607 618,-711 621.72,-714.503 625.917,-717.427 630.413,-719.863"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="580.027,-573.547 569.733,-571.039 576.216,-579.419 580.027,-573.547"/>
 </g>
 </g>
 </svg>

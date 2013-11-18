@@ -1,7 +1,6 @@
 var searchData=
 [
   ['soc_5flogin_5fcharacter',['SOC_LOGIN_CHARACTER',['../enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa308cffe1aa77261b903e800618977368',1,'enum.h']]],
-  ['soc_5flogin_5flocation',['SOC_LOGIN_LOCATION',['../enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa33577c51ed92b3437fdc0968a99172f2',1,'enum.h']]],
   ['soc_5flogin_5fname',['SOC_LOGIN_NAME',['../enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aa2795241d82649418f379522adb32897a',1,'enum.h']]],
   ['soc_5flogin_5fpassword',['SOC_LOGIN_PASSWORD',['../enum_8h.xhtml#a24c6d1cb52c9ac856a707a99c2308b2aaef7df213742c1c08fe0d427288d8f819',1,'enum.h']]],
   ['soc_5fstate_5faccount_5fmenu',['SOC_STATE_ACCOUNT_MENU',['../enum_8h.xhtml#a183c84f479d3dfb8ea89c5fa6db3c5c7a90fc5e4c3d955995d4a087794c0121f9',1,'enum.h']]],

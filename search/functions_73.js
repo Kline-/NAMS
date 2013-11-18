@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['saccount',['sAccount',['../classCharacter.xhtml#a622c35f2465a934848d493cd2a596584',1,'Character::sAccount()'],['../classSocketClient.xhtml#aaa13ed7d0aa65770b617cbf72a5c28d9',1,'SocketClient::sAccount()']]],
+  ['saccount',['sAccount',['../classSocketClient.xhtml#aaa13ed7d0aa65770b617cbf72a5c28d9',1,'SocketClient::sAccount()'],['../classThing_1_1Brain.xhtml#a9bd0667bba0b14f45b399da9aff683cd',1,'Thing::Brain::sAccount()']]],
   ['salt',['Salt',['../namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0',1,'Utils']]],
   ['sbool',['sBool',['../classPlugin.xhtml#ad677e15fe0ce01a5306fbc74683dae85',1,'Plugin']]],
   ['scaller',['sCaller',['../classPlugin.xhtml#af51cf34cdaa8ce00ec838b26b465f859',1,'Plugin']]],
@@ -9,12 +9,13 @@ var searchData=
   ['sdescription',['sDescription',['../classThing.xhtml#adf1753595ae5f94906663f88b7d38edd',1,'Thing']]],
   ['sdescriptor',['sDescriptor',['../classSocket.xhtml#a60b2aa97e6b50c485486e510a1f14d0a',1,'Socket']]],
   ['sdestination',['sDestination',['../classExit.xhtml#ae4b375ca6875ef63c9de87bd4f945323',1,'Exit']]],
-  ['send',['Send',['../classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018',1,'Character::Send()'],['../classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80',1,'SocketClient::Send()'],['../classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a',1,'SocketClient::Send(const string &amp;msg)'],['../classThing.xhtml#aea72918fcebfd612b8dd076c708c1592',1,'Thing::Send()'],['../namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f',1,'Telopt::Send()']]],
+  ['send',['Send',['../classCharacter.xhtml#a09f9ebcfe608c8eb3ef959830f5c8c64',1,'Character::Send()'],['../classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80',1,'SocketClient::Send()'],['../classSocketClient.xhtml#a472a64c9b811361791c107498eebf57a',1,'SocketClient::Send(const string &amp;msg)'],['../classThing.xhtml#a7ad4eaf9c9d4ba80d74d1187986d81d0',1,'Thing::Send()'],['../namespaceTelopt.xhtml#a4f56b29258351832660a550c61bda34f',1,'Telopt::Send()']]],
   ['serialize',['Serialize',['../classAccount.xhtml#a87dfcb1fd6c275ea89ec6f279e7ee8ff',1,'Account::Serialize()'],['../classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67',1,'Character::Serialize()'],['../classExit.xhtml#a097962625968fc2ea0e39c867f9e1f31',1,'Exit::Serialize()'],['../classLocation.xhtml#a4f364ffc1f0910ac60bcb2e7cf9e7e20',1,'Location::Serialize()'],['../classObject.xhtml#a17108a2fecfd2c0542290f4cccfc6a6b',1,'Object::Serialize()'],['../classReset.xhtml#ae20741be9c77ca8933d52d2f0c0abdde',1,'Reset::Serialize()'],['../classServer_1_1Config.xhtml#a39f409e995ec914244e9eff416d4477e',1,'Server::Config::Serialize()'],['../classSocket.xhtml#a2f38fa86bcb79d7b2d6139331fd95436',1,'Socket::Serialize()'],['../classSocketClient.xhtml#ae1cc85ca3320df2f78727f76e40fc5a3',1,'SocketClient::Serialize()'],['../classSocketServer.xhtml#a340c4c7856273cbe7760b4552ecb323f',1,'SocketServer::Serialize()'],['../classThing.xhtml#a19051d1b895bf1c3ab933a723f1ae79c',1,'Thing::Serialize()']]],
   ['shostname',['sHostname',['../classSocket.xhtml#a14e5e2493abcae97043297dd170e7a39',1,'Socket']]],
   ['shutdown',['Shutdown',['../namespaceServer.xhtml#a9b7082bbc9faca6eb84180f856116762',1,'Server']]],
   ['sid',['sId',['../classThing.xhtml#a946fbf68bcd90ea5b26f4cce0b37132b',1,'Thing']]],
   ['sidle',['sIdle',['../classSocketClient.xhtml#a686aea73a8e9c9dbaac6438ec1b24293',1,'SocketClient']]],
+  ['slocation',['sLocation',['../classThing.xhtml#a68389cd23d3066b89d8e06b5b60ea369',1,'Thing']]],
   ['slogin',['sLogin',['../classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484',1,'SocketClient']]],
   ['sname',['sName',['../classThing.xhtml#a69568f79edcdf1b0225f1b764a7ceb41',1,'Thing']]],
   ['snegotiated',['sNegotiated',['../classSocketClient_1_1TermInfo.xhtml#aa576f2ec6f9de8d4160ccee6cbd1dc34',1,'SocketClient::TermInfo']]],
@@ -38,5 +39,6 @@ var searchData=
   ['strtime',['StrTime',['../namespaceUtils.xhtml#a2b2dad8fa1999271cf613dc735f851d4',1,'Utils']]],
   ['strtokens',['StrTokens',['../namespaceUtils.xhtml#a402a36406edb7938330204e83b1abe83',1,'Utils']]],
   ['stype',['sType',['../classThing.xhtml#adf1d92efe54e7f5934d22e10b4374c59',1,'Thing']]],
-  ['suint',['sUint',['../classPlugin.xhtml#ad40c46018ad9822b1c910b3f3b26d14c',1,'Plugin']]]
+  ['suint',['sUint',['../classPlugin.xhtml#ad40c46018ad9822b1c910b3f3b26d14c',1,'Plugin']]],
+  ['szone',['sZone',['../classThing.xhtml#a99013771892bba4f6410f16f1b1ac127',1,'Thing']]]
 ];

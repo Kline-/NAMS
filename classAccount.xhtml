@@ -330,7 +330,7 @@ Private Attributes</h2></td></tr>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( type &gt;= <a class="code" href="enum_8h.xhtml#a5ed7c456fadb6b481136921090268797a72df719bd3dcc79326c55af673f3f6f4">MAX_ACT_LOGIN</a> )</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code" href="macros_8h.xhtml#acd5f0d05a4501b560a2fbc0799039598" title="Wrap Utils::Logger() for brevity and ease of future maintenance.">LOGSTR</a>( flags, <span class="stringliteral">&quot;Account::aHost()-&gt; called with invalid type&quot;</span> );</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Account::aHost()-&gt; called with invalid type: %lu&quot;</span>, type );</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"></div>
@@ -510,7 +510,7 @@ Private Attributes</h2></td></tr>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classAccount_aa82e62e930fb3a8ac58a4592f323db75_cgraph.svg" width="555" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classAccount_aa82e62e930fb3a8ac58a4592f323db75_cgraph.svg" width="568" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -697,7 +697,7 @@ Private Attributes</h2></td></tr>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span> ( type &lt; uintmin_t || type &gt;= <a class="code" href="enum_8h.xhtml#a5ed7c456fadb6b481136921090268797a72df719bd3dcc79326c55af673f3f6f4">MAX_ACT_LOGIN</a> )</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Account::gLogins()-&gt; called with invalid type %lu&quot;</span>, type );</div>
+<div class="line">        <a class="code" href="macros_8h.xhtml#ac116c157aff5572959fd33c0ecd913da" title="Wrap Utils::FormatString() within Utils::Logger() for brevity and ease of future maintenance.">LOGFMT</a>( flags, <span class="stringliteral">&quot;Account::gLogins()-&gt; called with invalid type: %lu&quot;</span>, type );</div>
 <div class="line">        <span class="keywordflow">return</span> vector&lt;pair&lt;string,string&gt;&gt;();</div>
 <div class="line">    }</div>
 <div class="line"></div>
@@ -1373,7 +1373,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 16 2013 20:59:31 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 17 2013 22:09:44 for NAMS - Not Another MUD Server by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -1,51 +1,51 @@
 <map id="Handler::AttachCharacter" name="Handler::AttachCharacter">
-<area shape="rect" id="node3" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="973,1630,1144,1658"/>
-<area shape="rect" id="node5" href="$classAccount.xhtml#a1d2b9eb6c351b9d43d16e649fa599466" title="Returns the associated Character, if any." alt="" coords="757,1351,909,1379"/>
-<area shape="rect" id="node7" href="$classAccount.xhtml#abce4ced500d49ec0ed48bd3049c0bb4e" title="Adds a character name to the list of associated characters." alt="" coords="247,490,399,518"/>
-<area shape="rect" id="node9" href="$classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing." alt="" coords="779,743,888,771"/>
-<area shape="rect" id="node11" href="$classAccount.xhtml#a87dfcb1fd6c275ea89ec6f279e7ee8ff" title="Serialize the account data." alt="" coords="991,895,1127,923"/>
-<area shape="rect" id="node24" href="$classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67" title="Serialize the character data." alt="" coords="500,338,647,366"/>
-<area shape="rect" id="node41" href="$classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53" title="Unload a character from memory that was previously loaded via Character::New()." alt="" coords="992,845,1125,873"/>
-<area shape="rect" id="node45" href="$classAccount.xhtml#a9d26a3cae2d36c829a42cab3d5c9fe05" title="This will set the m_character pointer to NULL, invalidating any references. This exists outside of sC..." alt="" coords="744,1047,923,1075"/>
-<area shape="rect" id="node47" href="$classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket." alt="" coords="757,1807,909,1835"/>
-<area shape="rect" id="node49" href="$namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888" title="Dispatches the appropriate menu based on client state." alt="" coords="241,1926,404,1954"/>
-<area shape="rect" id="node13" href="$namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext." alt="" coords="1219,667,1317,695"/>
-<area shape="rect" id="node15" href="$namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file." alt="" coords="1212,566,1324,594"/>
-<area shape="rect" id="node17" href="$namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext." alt="" coords="1392,870,1496,898"/>
-<area shape="rect" id="node19" href="$namespaceUtils.xhtml#a1cd33b86e538bb0c765d5c0bcde259e1" title="Generates a string from the pair of t and v." alt="" coords="1211,921,1325,949"/>
-<area shape="rect" id="node21" href="$namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file." alt="" coords="1212,617,1324,645"/>
-<area shape="rect" id="node27" href="$classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing." alt="" coords="792,237,875,265"/>
-<area shape="rect" id="node30" href="$namespaceUtils.xhtml#a446c2842f342ba8c9e9ba3cf5d971df7" title="Wraps a string in container edges suitable for multi&#45;line read/writing." alt="" coords="771,287,896,315"/>
-<area shape="rect" id="node32" href="$classThing.xhtml#afb35e940694ccbd0c9bc351d66251314" title="Returns the description of the Thing from THING_DESCRIPTION." alt="" coords="761,338,905,366"/>
-<area shape="rect" id="node34" href="$classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1" title="Returns the Thing that this Thing is stored within." alt="" coords="767,389,900,417"/>
-<area shape="rect" id="node39" href="$classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" title="Returns the Account associated with this Character, if any." alt="" coords="757,186,909,214"/>
-<area shape="rect" id="node43" href="$classAccount.xhtml#a42914cf1147f5c5a480dbfcb9a0ff3fe" title="Sets the active Character associated with the account." alt="" coords="1192,794,1344,822"/>
-<area shape="rect" id="node51" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="983,2263,1135,2291"/>
-<area shape="rect" id="node54" href="$namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191" title="Send initial greeting and request for account name." alt="" coords="495,1665,652,1693"/>
-<area shape="rect" id="node77" href="$namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" title="Compare a received password against an existing account." alt="" coords="483,2210,664,2238"/>
-<area shape="rect" id="node88" href="$namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" title="Select a new account name." alt="" coords="483,1985,664,2013"/>
-<area shape="rect" id="node97" href="$namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" title="Create a new account." alt="" coords="479,2157,668,2185"/>
-<area shape="rect" id="node106" href="$namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" title="Create a new account object, or load an existing one, with a name and password." alt="" coords="487,2363,660,2391"/>
-<area shape="rect" id="node124" href="$namespaceHandler.xhtml#a73ed6064f2698dbffb5f4c247a02b661" title="Send initial account interface menu." alt="" coords="475,1867,672,1895"/>
-<area shape="rect" id="node130" href="$namespaceHandler.xhtml#ad04998a7a6ece2486bc441052a57c2d7" title="Main Character creation menu." alt="" coords="480,1373,667,1417"/>
-<area shape="rect" id="node140" href="$namespaceHandler.xhtml#ab5889a65de2794129b375ec39ae923ae" title="Select a new Character name." alt="" coords="461,1271,685,1299"/>
-<area shape="rect" id="node152" href="$namespaceHandler.xhtml#ae5086bcf5857eb572beedd09158c3065" title="Select a new Character sex." alt="" coords="468,1817,679,1845"/>
-<area shape="rect" id="node160" href="$namespaceHandler.xhtml#afc470ec6e82b7a9a1560588a368734f9" title="Main Character deletion menu." alt="" coords="481,2086,665,2130"/>
-<area shape="rect" id="node167" href="$namespaceHandler.xhtml#a97a198bfc72285b2aca4f36978db715e" title="Main Character deletion confirmation." alt="" coords="481,1918,665,1962"/>
-<area shape="rect" id="node176" href="$namespaceHandler.xhtml#a02b1b954749641ab646f6548a5360d3b" title="Main Character load menu." alt="" coords="455,2035,692,2063"/>
-<area shape="rect" id="node183" href="$namespaceHandler.xhtml#ae70e4e50054c729c14493eafefe01b5c" title="Load a character from the account to enter into the game with." alt="" coords="487,921,660,949"/>
-<area shape="rect" id="node192" href="$namespaceHandler.xhtml#a571519b889d3750c63b9dc3418449bcb" title="Places the character loaded against the account into the game world." alt="" coords="497,1715,649,1743"/>
-<area shape="rect" id="node56" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="763,2010,904,2038"/>
-<area shape="rect" id="node60" href="$namespaceUtils.xhtml#a36780f0aa565047ca0db53bda2aff5fc" title="Checks to ensure an input is entirely alphanumeric." alt="" coords="781,1199,885,1227"/>
-<area shape="rect" id="node63" href="$namespaceHandler.xhtml#a934fb4c3d6add91bc9e6e347b3270927" title="Checks to see if a name is on the server&#39;s prohibited list." alt="" coords="743,1301,924,1329"/>
-<area shape="rect" id="node65" href="$namespaceHandler.xhtml#a120400154c1559acfc874fe8a0bfbf88" title="Check to see if the current account is already being created." alt="" coords="747,1706,920,1734"/>
-<area shape="rect" id="node68" href="$classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key." alt="" coords="983,1959,1135,1987"/>
-<area shape="rect" id="node71" href="$classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484" title="Set the login command or arguments to be passed between handler functions." alt="" coords="759,2213,908,2241"/>
-<area shape="rect" id="node73" href="$namespaceUtils.xhtml#ac41c505e3efccab8549238e6843b0d2e" title="Determines if a directory exists on disk." alt="" coords="777,1453,889,1481"/>
-<area shape="rect" id="node79" href="$namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c" title="Negotiate requested options." alt="" coords="768,2466,899,2494"/>
-<area shape="rect" id="node83" href="$namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0" title="Returns a salt value for use with crypt." alt="" coords="792,2365,875,2393"/>
-<area shape="rect" id="node92" href="$namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a" title="Returns if string s1 is a prefix of string s2." alt="" coords="777,2111,889,2139"/>
-<area shape="rect" id="node110" href="$classAccount.xhtml#adc4545f17264112e532b5a48abe94baf" title="Create a new account." alt="" coords="779,2567,888,2595"/>
-<area shape="rect" id="node115" href="$classAccount.xhtml#aa82e62e930fb3a8ac58a4592f323db75" title="Unload an account from memory that was previously loaded via Account::New()." alt="" coords="772,2517,895,2545"/>
-<area shape="rect" id="node118" href="$namespaceHandler.xhtml#a02ba68c0c416219816c97189ea8bae4d" title="Locates a Command associated with the game." alt="" coords="748,2618,919,2646"/>
+<area shape="rect" id="node3" href="$classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" title="Returns the Account object associated to this SocketClient." alt="" coords="973,1727,1144,1755"/>
+<area shape="rect" id="node5" href="$classAccount.xhtml#a1d2b9eb6c351b9d43d16e649fa599466" title="Returns the associated Character, if any." alt="" coords="757,663,909,691"/>
+<area shape="rect" id="node7" href="$classAccount.xhtml#abce4ced500d49ec0ed48bd3049c0bb4e" title="Adds a character name to the list of associated characters." alt="" coords="247,309,399,337"/>
+<area shape="rect" id="node9" href="$classThing.xhtml#a3c3c40c996ff562baa335f2ded022578" title="Returns the name associated with this Thing." alt="" coords="1004,461,1113,489"/>
+<area shape="rect" id="node11" href="$classAccount.xhtml#a87dfcb1fd6c275ea89ec6f279e7ee8ff" title="Serialize the account data." alt="" coords="991,993,1127,1021"/>
+<area shape="rect" id="node24" href="$classCharacter.xhtml#acbf271cc1d8bf64bd5bd4c286f508f67" title="Serialize the character data." alt="" coords="760,207,907,235"/>
+<area shape="rect" id="node43" href="$classCharacter.xhtml#a4f7ff295f5de0fa4f8fece0acb7aaa53" title="Unload a character from memory that was previously loaded via Character::New()." alt="" coords="767,562,900,590"/>
+<area shape="rect" id="node50" href="$classAccount.xhtml#a9d26a3cae2d36c829a42cab3d5c9fe05" title="This will set the m_character pointer to NULL, invalidating any references. This exists outside of sC..." alt="" coords="744,258,923,286"/>
+<area shape="rect" id="node52" href="$classSocketClient.xhtml#ab5e6737c8acd4aaa21268e10c1a050b4" title="Set the connection state value of the socket." alt="" coords="757,1626,909,1654"/>
+<area shape="rect" id="node54" href="$namespaceHandler.xhtml#a139febc000c9d767a620708148e0c888" title="Dispatches the appropriate menu based on client state." alt="" coords="241,1626,404,1654"/>
+<area shape="rect" id="node13" href="$namespaceUtils.xhtml#a3e236b07fd628bcaf2e7c5854dd2a281" title="Returns a string consisting of file.ext." alt="" coords="1200,866,1299,894"/>
+<area shape="rect" id="node15" href="$namespaceUtils.xhtml#a67fd451200ee8a3cc646aeba5cb9513b" title="Begins a write to a temporary file that is intended to replace a live file." alt="" coords="1193,967,1305,995"/>
+<area shape="rect" id="node17" href="$namespaceUtils.xhtml#ad21617b756ef242fbc66e63dec3e4e4d" title="Returns a string consisting of directory/file.ext." alt="" coords="1355,1018,1459,1046"/>
+<area shape="rect" id="node19" href="$namespaceUtils.xhtml#a1cd33b86e538bb0c765d5c0bcde259e1" title="Generates a string from the pair of t and v." alt="" coords="1192,1069,1307,1097"/>
+<area shape="rect" id="node21" href="$namespaceUtils.xhtml#a7008f8effca71806721305d1834bde1e" title="Completes a read from a file." alt="" coords="1193,917,1305,945"/>
+<area shape="rect" id="node26" href="$classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" title="Returns the Brain associated with this Thing." alt="" coords="1007,511,1111,539"/>
+<area shape="rect" id="node29" href="$classThing.xhtml#aea5dad4f4241b325cdf64b232e84e602" title="Returns the id associated with this Thing." alt="" coords="1017,157,1100,185"/>
+<area shape="rect" id="node32" href="$namespaceUtils.xhtml#a446c2842f342ba8c9e9ba3cf5d971df7" title="Wraps a string in container edges suitable for multi&#45;line read/writing." alt="" coords="996,207,1121,235"/>
+<area shape="rect" id="node34" href="$classThing.xhtml#afb35e940694ccbd0c9bc351d66251314" title="Returns the description of the Thing from THING_DESCRIPTION." alt="" coords="987,258,1131,286"/>
+<area shape="rect" id="node36" href="$classThing.xhtml#ad8015a52bd53b953dbbc904029bfa2e1" title="Returns the Thing that this Thing is stored within." alt="" coords="992,5,1125,33"/>
+<area shape="rect" id="node39" href="$classThing.xhtml#af4ebcdb4555620bacba408c09faf996b" title="Returns the zone associated with this Thing." alt="" coords="1005,55,1112,83"/>
+<area shape="rect" id="node46" href="$classThing_1_1Brain.xhtml#aedfc5e3f688c409a33070650ec88acd5" title="Returns the Account associated with this thing&#39;s brain, if any." alt="" coords="976,562,1141,590"/>
+<area shape="rect" id="node48" href="$classAccount.xhtml#a42914cf1147f5c5a480dbfcb9a0ff3fe" title="Sets the active Character associated with the account." alt="" coords="983,765,1135,793"/>
+<area shape="rect" id="node56" href="$classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" title="Returns the connection state of the client from SOC_STATE." alt="" coords="983,1373,1135,1401"/>
+<area shape="rect" id="node59" href="$namespaceHandler.xhtml#a44b41bf69fdc6e615a029bea34910191" title="Send initial greeting and request for account name." alt="" coords="495,1423,652,1451"/>
+<area shape="rect" id="node82" href="$namespaceHandler.xhtml#adfe13cc9748392348f3941656a1323b6" title="Compare a received password against an existing account." alt="" coords="483,1727,664,1755"/>
+<area shape="rect" id="node93" href="$namespaceHandler.xhtml#a00bc24564bfd267e0329643c569da1e4" title="Select a new account name." alt="" coords="483,2013,664,2041"/>
+<area shape="rect" id="node102" href="$namespaceHandler.xhtml#a744adadcf407cdb3a9c33365afd5a7c2" title="Create a new account." alt="" coords="479,1778,668,1806"/>
+<area shape="rect" id="node111" href="$namespaceHandler.xhtml#a33a19d69ead678af81fbe96907eceaf0" title="Create a new account object, or load an existing one, with a name and password." alt="" coords="487,1626,660,1654"/>
+<area shape="rect" id="node124" href="$namespaceHandler.xhtml#a73ed6064f2698dbffb5f4c247a02b661" title="Send initial account interface menu." alt="" coords="475,1677,672,1705"/>
+<area shape="rect" id="node130" href="$namespaceHandler.xhtml#ad04998a7a6ece2486bc441052a57c2d7" title="Main Character creation menu." alt="" coords="480,613,667,657"/>
+<area shape="rect" id="node140" href="$namespaceHandler.xhtml#ab5889a65de2794129b375ec39ae923ae" title="Select a new Character name." alt="" coords="461,866,685,894"/>
+<area shape="rect" id="node153" href="$namespaceHandler.xhtml#ae5086bcf5857eb572beedd09158c3065" title="Select a new Character sex." alt="" coords="468,1525,679,1553"/>
+<area shape="rect" id="node161" href="$namespaceHandler.xhtml#afc470ec6e82b7a9a1560588a368734f9" title="Main Character deletion menu." alt="" coords="481,1829,665,1873"/>
+<area shape="rect" id="node168" href="$namespaceHandler.xhtml#a97a198bfc72285b2aca4f36978db715e" title="Main Character deletion confirmation." alt="" coords="481,1946,665,1990"/>
+<area shape="rect" id="node177" href="$namespaceHandler.xhtml#a02b1b954749641ab646f6548a5360d3b" title="Main Character load menu." alt="" coords="455,1895,692,1923"/>
+<area shape="rect" id="node184" href="$namespaceHandler.xhtml#ae70e4e50054c729c14493eafefe01b5c" title="Load a character from the account to enter into the game with." alt="" coords="487,917,660,945"/>
+<area shape="rect" id="node194" href="$namespaceHandler.xhtml#a571519b889d3750c63b9dc3418449bcb" title="Places the character loaded against the account into the game world." alt="" coords="497,1575,649,1603"/>
+<area shape="rect" id="node61" href="$classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" title="Process data from the client&#39;s send buffer and transmit it via the socket." alt="" coords="763,1677,904,1705"/>
+<area shape="rect" id="node65" href="$namespaceUtils.xhtml#a36780f0aa565047ca0db53bda2aff5fc" title="Checks to ensure an input is entirely alphanumeric." alt="" coords="781,1069,885,1097"/>
+<area shape="rect" id="node68" href="$namespaceHandler.xhtml#a934fb4c3d6add91bc9e6e347b3270927" title="Checks to see if a name is on the server&#39;s prohibited list." alt="" coords="743,1170,924,1198"/>
+<area shape="rect" id="node70" href="$namespaceHandler.xhtml#a120400154c1559acfc874fe8a0bfbf88" title="Check to see if the current account is already being created." alt="" coords="747,1373,920,1401"/>
+<area shape="rect" id="node73" href="$classSocketClient.xhtml#acdff38db903da34b2a9fcc3e12d6a796" title="Returns the value of a SOC_LOGIN key." alt="" coords="983,1550,1135,1578"/>
+<area shape="rect" id="node76" href="$classSocketClient.xhtml#ad6d652d220b5b6820e0d15a328ad9484" title="Set the login command or arguments to be passed between handler functions." alt="" coords="759,1981,908,2009"/>
+<area shape="rect" id="node78" href="$namespaceUtils.xhtml#ac41c505e3efccab8549238e6843b0d2e" title="Determines if a directory exists on disk." alt="" coords="777,1271,889,1299"/>
+<area shape="rect" id="node84" href="$namespaceTelopt.xhtml#a71c731d78947d4c909f93df74950b64c" title="Negotiate requested options." alt="" coords="768,1829,899,1857"/>
+<area shape="rect" id="node88" href="$namespaceUtils.xhtml#adafa6fa32d5b637ea62db12aa35db6e0" title="Returns a salt value for use with crypt." alt="" coords="792,1879,875,1907"/>
+<area shape="rect" id="node97" href="$namespaceUtils.xhtml#acf9ee675ffc2d73b7b2a2a71aa68e36a" title="Returns if string s1 is a prefix of string s2." alt="" coords="777,2335,889,2363"/>
+<area shape="rect" id="node115" href="$classAccount.xhtml#adc4545f17264112e532b5a48abe94baf" title="Create a new account." alt="" coords="779,1322,888,1350"/>
 </map>

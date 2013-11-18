@@ -32,7 +32,7 @@
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 558;
+var viewWidth = 566;
 var viewHeight = 256;
 var sectionId = 'dynsection-10';
 </script>
@@ -40,7 +40,7 @@ var sectionId = 'dynsection-10';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>Command::Run</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-252 555,-252 555,5 -4,5"/>
+<polygon fill="white" stroke="white" points="-4,5 -4,-252 563,-252 563,5 -4,5"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
 <polygon fill="#bfbfbf" stroke="black" points="0,-152 0,-172 90,-172 90,-152 0,-152"/>
@@ -48,159 +48,181 @@ var sectionId = 'dynsection-10';
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="classCharacter.xhtml#a9dce3d7ce7ac17f02397d198e47707ef" target="_top" xlink:title="Returns the Account associated with this Character, if any.">
-<polygon fill="white" stroke="black" points="126.5,-209 126.5,-229 241.5,-229 241.5,-209 126.5,-209"/>
-<text text-anchor="middle" x="184" y="-216" font-family="FreeSans.ttf" font-size="10.00">Character::gAccount</text>
+<a xlink:href="classThing.xhtml#a3f000485c50c93ba3a41a6627b45f7dc" target="_top" xlink:title="Returns the Brain associated with this Thing.">
+<polygon fill="white" stroke="black" points="292.5,-228 292.5,-248 371.5,-248 371.5,-228 292.5,-228"/>
+<text text-anchor="middle" x="332" y="-235" font-family="FreeSans.ttf" font-size="10.00">Thing::gBrain</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M64.6752,-172.057C80.8971,-180.148 104.631,-191.524 126,-200 130.862,-201.928 136.005,-203.819 141.14,-205.616"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="140.335,-209.039 150.93,-208.939 142.585,-202.41 140.335,-209.039"/>
+<path fill="none" stroke="midnightblue" d="M62.4396,-172.113C78.4663,-180.985 103.134,-193.594 126,-201 177.895,-217.808 239.765,-227.626 282.066,-232.873"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="281.768,-236.363 292.114,-234.079 282.603,-229.412 281.768,-236.363"/>
 </g>
 <!-- Node3 -->
 <g id="node5" class="node"><title>Node3</title>
-<a xlink:href="classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54" target="_top" xlink:title="Returns the authorized security level of the account.">
-<polygon fill="white" stroke="black" points="130.5,-171 130.5,-191 237.5,-191 237.5,-171 130.5,-171"/>
-<text text-anchor="middle" x="184" y="-178" font-family="FreeSans.ttf" font-size="10.00">Account::gSecurity</text>
+<a xlink:href="classThing_1_1Brain.xhtml#aedfc5e3f688c409a33070650ec88acd5" target="_top" xlink:title="Returns the Account associated with this thing&#39;s brain, if any.">
+<polygon fill="white" stroke="black" points="270,-190 270,-210 394,-210 394,-190 270,-190"/>
+<text text-anchor="middle" x="332" y="-197" font-family="FreeSans.ttf" font-size="10.00">Thing::Brain::gAccount</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge4" class="edge"><title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M90.1293,-168.169C99.7608,-169.485 110.107,-170.9 120.287,-172.291"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="119.997,-175.784 130.379,-173.67 120.945,-168.848 119.997,-175.784"/>
+<path fill="none" stroke="midnightblue" d="M83.1023,-172.084C96.5742,-175.344 111.886,-178.705 126,-181 170.188,-188.185 220.184,-192.878 259.856,-195.802"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="259.746,-199.303 269.97,-196.525 260.246,-192.32 259.746,-199.303"/>
 </g>
 <!-- Node4 -->
 <g id="node7" class="node"><title>Node4</title>
-<a xlink:href="classCharacter.xhtml#a0121996391ec2a3fb12ec76406dd6018" target="_top" xlink:title="Send data to the associated SocketClient, if any.">
-<polygon fill="white" stroke="black" points="136.5,-133 136.5,-153 231.5,-153 231.5,-133 136.5,-133"/>
-<text text-anchor="middle" x="184" y="-140" font-family="FreeSans.ttf" font-size="10.00">Character::Send</text>
+<a xlink:href="classAccount.xhtml#a9a9ee5a78d3353c688c6418c2a88ba54" target="_top" xlink:title="Returns the authorized security level of the account.">
+<polygon fill="white" stroke="black" points="126.5,-114 126.5,-134 233.5,-134 233.5,-114 126.5,-114"/>
+<text text-anchor="middle" x="180" y="-121" font-family="FreeSans.ttf" font-size="10.00">Account::gSecurity</text>
 </a>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge6" class="edge"><title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M90.1293,-155.831C101.648,-154.257 114.19,-152.542 126.247,-150.894"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="126.793,-154.352 136.226,-149.53 125.844,-147.417 126.793,-154.352"/>
-</g>
-<!-- Node14 -->
-<g id="node27" class="node"><title>Node14</title>
-<a xlink:href="classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e" target="_top" xlink:title="Execute the primary function of the implemented class.">
-<polygon fill="white" stroke="black" points="150,-95 150,-115 218,-115 218,-95 150,-95"/>
-<text text-anchor="middle" x="184" y="-102" font-family="FreeSans.ttf" font-size="10.00">Plugin::Run</text>
-</a>
-</g>
-<!-- Node1&#45;&gt;Node14 -->
-<g id="edge26" class="edge"><title>Node1&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M64.6752,-151.943C80.8971,-143.852 104.631,-132.476 126,-124 130.862,-122.072 136.005,-120.181 141.14,-118.384"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="142.585,-121.59 150.93,-115.061 140.335,-114.961 142.585,-121.59"/>
+<path fill="none" stroke="midnightblue" d="M80.8231,-151.916C97.1477,-147.321 116.669,-141.826 134.058,-136.932"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="135.332,-140.209 144.01,-134.131 133.435,-133.471 135.332,-140.209"/>
 </g>
 <!-- Node5 -->
 <g id="node9" class="node"><title>Node5</title>
+<a xlink:href="classCharacter.xhtml#a09f9ebcfe608c8eb3ef959830f5c8c64" target="_top" xlink:title="Send data to the associated SocketClient, if any.">
+<polygon fill="white" stroke="black" points="132.5,-152 132.5,-172 227.5,-172 227.5,-152 132.5,-152"/>
+<text text-anchor="middle" x="180" y="-159" font-family="FreeSans.ttf" font-size="10.00">Character::Send</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node5 -->
+<g id="edge8" class="edge"><title>Node1&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M90.3286,-162C100.545,-162 111.524,-162 122.174,-162"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="122.25,-165.5 132.25,-162 122.25,-158.5 122.25,-165.5"/>
+</g>
+<!-- Node15 -->
+<g id="node31" class="node"><title>Node15</title>
+<a xlink:href="classPlugin.xhtml#a40f8facb58b11e24951052ad0080a51e" target="_top" xlink:title="Execute the primary function of the implemented class.">
+<polygon fill="white" stroke="black" points="146,-76 146,-96 214,-96 214,-76 146,-76"/>
+<text text-anchor="middle" x="180" y="-83" font-family="FreeSans.ttf" font-size="10.00">Plugin::Run</text>
+</a>
+</g>
+<!-- Node1&#45;&gt;Node15 -->
+<g id="edge32" class="edge"><title>Node1&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M56.9476,-151.992C72.1816,-139.621 99.7086,-118.546 126,-105 129.575,-103.158 133.37,-101.423 137.224,-99.8085"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="138.802,-102.95 146.841,-96.0475 136.253,-96.4304 138.802,-102.95"/>
+</g>
+<!-- Node5&#45;&gt;Node2 -->
+<g id="edge10" class="edge"><title>Node5&#45;&gt;Node2</title>
+<path fill="none" stroke="midnightblue" d="M193.375,-172.091C210.405,-184.548 241.097,-205.711 270,-219 274.373,-221.011 279.014,-222.879 283.712,-224.598"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="282.773,-227.976 293.368,-227.911 285.045,-221.355 282.773,-227.976"/>
+</g>
+<!-- Node5&#45;&gt;Node3 -->
+<g id="edge12" class="edge"><title>Node5&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M220.334,-172.084C239.219,-176.805 261.904,-182.476 281.88,-187.47"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="281.191,-190.905 291.741,-189.935 282.889,-184.114 281.191,-190.905"/>
+</g>
+<!-- Node6 -->
+<g id="node13" class="node"><title>Node6</title>
 <a xlink:href="classAccount.xhtml#a1314e9f054a5354c77c20f48e1c6d7f9" target="_top" xlink:title="Returns the associated SocketClient.">
 <polygon fill="white" stroke="black" points="284.5,-152 284.5,-172 379.5,-172 379.5,-152 284.5,-152"/>
 <text text-anchor="middle" x="332" y="-159" font-family="FreeSans.ttf" font-size="10.00">Account::gClient</text>
 </a>
 </g>
-<!-- Node4&#45;&gt;Node5 -->
-<g id="edge8" class="edge"><title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M231.643,-149.116C245.242,-150.862 260.208,-152.783 274.337,-154.597"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="274.082,-158.093 284.446,-155.895 274.974,-151.15 274.082,-158.093"/>
+<!-- Node5&#45;&gt;Node6 -->
+<g id="edge14" class="edge"><title>Node5&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M227.677,-162C242.39,-162 258.757,-162 274.082,-162"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="274.492,-165.5 284.492,-162 274.492,-158.5 274.492,-165.5"/>
 </g>
-<!-- Node6 -->
-<g id="node11" class="node"><title>Node6</title>
+<!-- Node7 -->
+<g id="node15" class="node"><title>Node7</title>
 <a xlink:href="classSocketClient.xhtml#a6268f3d184970ec0076da657c39d2e80" target="_top" xlink:title="Process data from the client&#39;s send buffer and transmit it via the socket.">
 <polygon fill="white" stroke="black" points="278.5,-114 278.5,-134 385.5,-134 385.5,-114 278.5,-114"/>
 <text text-anchor="middle" x="332" y="-121" font-family="FreeSans.ttf" font-size="10.00">SocketClient::Send</text>
 </a>
 </g>
-<!-- Node4&#45;&gt;Node6 -->
-<g id="edge10" class="edge"><title>Node4&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M231.643,-136.884C243.262,-135.392 255.878,-133.772 268.118,-132.201"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="268.808,-135.641 278.281,-130.896 267.917,-128.698 268.808,-135.641"/>
-</g>
-<!-- Node7 -->
-<g id="node13" class="node"><title>Node7</title>
-<a xlink:href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" target="_top" xlink:title="Return if the Socket is valid for use.">
-<polygon fill="white" stroke="black" points="447,-228 447,-248 525,-248 525,-228 447,-228"/>
-<text text-anchor="middle" x="486" y="-235" font-family="FreeSans.ttf" font-size="10.00">Socket::Valid</text>
-</a>
-</g>
-<!-- Node6&#45;&gt;Node7 -->
-<g id="edge12" class="edge"><title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M372.358,-134.11C377.305,-136.485 382.013,-139.408 386,-143 413.767,-168.018 393.619,-194.68 422,-219 426.511,-222.865 431.78,-225.944 437.324,-228.397"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="436.235,-231.727 446.827,-231.962 438.694,-225.173 436.235,-231.727"/>
+<!-- Node5&#45;&gt;Node7 -->
+<g id="edge16" class="edge"><title>Node5&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M220.334,-151.916C239.219,-147.195 261.904,-141.524 281.88,-136.53"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="282.889,-139.886 291.741,-134.065 281.191,-133.095 282.889,-139.886"/>
 </g>
 <!-- Node8 -->
-<g id="node15" class="node"><title>Node8</title>
-<a xlink:href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" target="_top" xlink:title="Returns the file descriptor associated to the Socket.">
-<polygon fill="white" stroke="black" points="430.5,-190 430.5,-210 541.5,-210 541.5,-190 430.5,-190"/>
-<text text-anchor="middle" x="486" y="-197" font-family="FreeSans.ttf" font-size="10.00">Socket::gDescriptor</text>
+<g id="node17" class="node"><title>Node8</title>
+<a xlink:href="classSocket.xhtml#a508457b48e6296d1e86c7cc72af65948" target="_top" xlink:title="Return if the Socket is valid for use.">
+<polygon fill="white" stroke="black" points="455,-228 455,-248 533,-248 533,-228 455,-228"/>
+<text text-anchor="middle" x="494" y="-235" font-family="FreeSans.ttf" font-size="10.00">Socket::Valid</text>
 </a>
 </g>
-<!-- Node6&#45;&gt;Node8 -->
-<g id="edge14" class="edge"><title>Node6&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M368.273,-134.077C374.431,-136.53 380.58,-139.485 386,-143 405.519,-155.659 402.173,-168.83 422,-181 425.005,-182.845 428.2,-184.519 431.497,-186.038"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="430.404,-189.372 440.985,-189.918 433.054,-182.893 430.404,-189.372"/>
+<!-- Node7&#45;&gt;Node8 -->
+<g id="edge18" class="edge"><title>Node7&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M379.87,-134.101C384.98,-136.469 389.827,-139.392 394,-143 422.274,-167.445 401.619,-194.68 430,-219 434.511,-222.865 439.78,-225.944 445.324,-228.397"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="444.235,-231.727 454.827,-231.962 446.694,-225.173 444.235,-231.727"/>
 </g>
 <!-- Node9 -->
-<g id="node17" class="node"><title>Node9</title>
-<a xlink:href="classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" target="_top" xlink:title="Returns the connection state of the client from SOC_STATE.">
-<polygon fill="white" stroke="black" points="428.5,-152 428.5,-172 543.5,-172 543.5,-152 428.5,-152"/>
-<text text-anchor="middle" x="486" y="-159" font-family="FreeSans.ttf" font-size="10.00">SocketClient::gState</text>
+<g id="node19" class="node"><title>Node9</title>
+<a xlink:href="classSocket.xhtml#a45d3aa99d71b868921543a4708471f82" target="_top" xlink:title="Returns the file descriptor associated to the Socket.">
+<polygon fill="white" stroke="black" points="438.5,-190 438.5,-210 549.5,-210 549.5,-190 438.5,-190"/>
+<text text-anchor="middle" x="494" y="-197" font-family="FreeSans.ttf" font-size="10.00">Socket::gDescriptor</text>
 </a>
 </g>
-<!-- Node6&#45;&gt;Node9 -->
-<g id="edge16" class="edge"><title>Node6&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M372.865,-134.084C392.086,-138.826 415.192,-144.528 435.497,-149.538"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="434.664,-152.938 445.212,-151.935 436.341,-146.141 434.664,-152.938"/>
+<!-- Node7&#45;&gt;Node9 -->
+<g id="edge20" class="edge"><title>Node7&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M375.283,-134.1C381.803,-136.507 388.259,-139.441 394,-143 413.774,-155.257 410.173,-168.83 430,-181 433.005,-182.845 436.2,-184.519 439.497,-186.038"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="438.404,-189.372 448.985,-189.918 441.054,-182.893 438.404,-189.372"/>
 </g>
 <!-- Node10 -->
-<g id="node19" class="node"><title>Node10</title>
-<a xlink:href="classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" target="_top" xlink:title="Returns the Account object associated to this SocketClient.">
-<polygon fill="white" stroke="black" points="422,-114 422,-134 550,-134 550,-114 422,-114"/>
-<text text-anchor="middle" x="486" y="-121" font-family="FreeSans.ttf" font-size="10.00">SocketClient::gAccount</text>
+<g id="node21" class="node"><title>Node10</title>
+<a xlink:href="classSocketClient.xhtml#aa0badca8f614127e98281995c02cb385" target="_top" xlink:title="Returns the connection state of the client from SOC_STATE.">
+<polygon fill="white" stroke="black" points="436.5,-152 436.5,-172 551.5,-172 551.5,-152 436.5,-152"/>
+<text text-anchor="middle" x="494" y="-159" font-family="FreeSans.ttf" font-size="10.00">SocketClient::gState</text>
 </a>
 </g>
-<!-- Node6&#45;&gt;Node10 -->
-<g id="edge18" class="edge"><title>Node6&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M385.862,-124C394.216,-124 402.97,-124 411.679,-124"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="411.854,-127.5 421.854,-124 411.854,-120.5 411.854,-127.5"/>
+<!-- Node7&#45;&gt;Node10 -->
+<g id="edge22" class="edge"><title>Node7&#45;&gt;Node10</title>
+<path fill="none" stroke="midnightblue" d="M374.988,-134.084C395.299,-138.848 419.734,-144.58 441.165,-149.607"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="440.558,-153.059 451.093,-151.935 442.156,-146.244 440.558,-153.059"/>
 </g>
 <!-- Node11 -->
-<g id="node21" class="node"><title>Node11</title>
-<a xlink:href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" target="_top" xlink:title="Returns the hostname associated to the Socket.">
-<polygon fill="white" stroke="black" points="430,-76 430,-96 542,-96 542,-76 430,-76"/>
-<text text-anchor="middle" x="486" y="-83" font-family="FreeSans.ttf" font-size="10.00">Socket::gHostname</text>
+<g id="node23" class="node"><title>Node11</title>
+<a xlink:href="classSocketClient.xhtml#a56e10cbe469179d7d7bc18eae6ca351c" target="_top" xlink:title="Returns the Account object associated to this SocketClient.">
+<polygon fill="white" stroke="black" points="430,-114 430,-134 558,-134 558,-114 430,-114"/>
+<text text-anchor="middle" x="494" y="-121" font-family="FreeSans.ttf" font-size="10.00">SocketClient::gAccount</text>
 </a>
 </g>
-<!-- Node6&#45;&gt;Node11 -->
-<g id="edge20" class="edge"><title>Node6&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M372.865,-113.916C392.086,-109.174 415.192,-103.472 435.497,-98.4617"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="436.341,-101.859 445.212,-96.0647 434.664,-95.0623 436.341,-101.859"/>
+<!-- Node7&#45;&gt;Node11 -->
+<g id="edge24" class="edge"><title>Node7&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M385.944,-124C396.726,-124 408.23,-124 419.562,-124"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="419.895,-127.5 429.895,-124 419.895,-120.5 419.895,-127.5"/>
 </g>
 <!-- Node12 -->
-<g id="node23" class="node"><title>Node12</title>
-<a xlink:href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" target="_top" xlink:title="Increment the total count of bytes sent by the socket.">
-<polygon fill="white" stroke="black" points="430.5,-38 430.5,-58 541.5,-58 541.5,-38 430.5,-38"/>
-<text text-anchor="middle" x="486" y="-45" font-family="FreeSans.ttf" font-size="10.00">Socket::aBytesSent</text>
+<g id="node25" class="node"><title>Node12</title>
+<a xlink:href="classSocket.xhtml#adc72a37934a4f2d10f6ae8fc94bb4ca7" target="_top" xlink:title="Returns the hostname associated to the Socket.">
+<polygon fill="white" stroke="black" points="438,-76 438,-96 550,-96 550,-76 438,-76"/>
+<text text-anchor="middle" x="494" y="-83" font-family="FreeSans.ttf" font-size="10.00">Socket::gHostname</text>
 </a>
 </g>
-<!-- Node6&#45;&gt;Node12 -->
-<g id="edge22" class="edge"><title>Node6&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M345.357,-113.868C362.367,-101.368 393.039,-80.1623 422,-67 426.448,-64.9783 431.167,-63.1073 435.946,-61.392"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="437.409,-64.5929 445.775,-58.0918 435.181,-57.957 437.409,-64.5929"/>
+<!-- Node7&#45;&gt;Node12 -->
+<g id="edge26" class="edge"><title>Node7&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M374.988,-113.916C395.299,-109.152 419.734,-103.42 441.165,-98.3934"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="442.156,-101.756 451.093,-96.0647 440.558,-94.9409 442.156,-101.756"/>
 </g>
 <!-- Node13 -->
-<g id="node25" class="node"><title>Node13</title>
-<a xlink:href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" target="_top" xlink:title="Returns the number of bytes sent by the Socket.">
-<polygon fill="white" stroke="black" points="430.5,-0 430.5,-20 541.5,-20 541.5,-0 430.5,-0"/>
-<text text-anchor="middle" x="486" y="-7" font-family="FreeSans.ttf" font-size="10.00">Socket::gBytesSent</text>
+<g id="node27" class="node"><title>Node13</title>
+<a xlink:href="classSocket.xhtml#a688f0d2182f7ca098de3f76156efad0a" target="_top" xlink:title="Increment the total count of bytes sent by the socket.">
+<polygon fill="white" stroke="black" points="438.5,-38 438.5,-58 549.5,-58 549.5,-38 438.5,-38"/>
+<text text-anchor="middle" x="494" y="-45" font-family="FreeSans.ttf" font-size="10.00">Socket::aBytesSent</text>
 </a>
 </g>
-<!-- Node6&#45;&gt;Node13 -->
-<g id="edge24" class="edge"><title>Node6&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M338.879,-113.739C352.453,-94.2852 384.63,-51.9376 422,-29 425.005,-27.1555 428.2,-25.481 431.497,-23.9623"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="433.054,-27.1069 440.985,-20.0825 430.404,-20.6277 433.054,-27.1069"/>
+<!-- Node7&#45;&gt;Node13 -->
+<g id="edge28" class="edge"><title>Node7&#45;&gt;Node13</title>
+<path fill="none" stroke="midnightblue" d="M346.691,-113.952C365.366,-101.539 398.921,-80.4229 430,-67 434.733,-64.9557 439.754,-63.0482 444.82,-61.2916"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="446.138,-64.5426 454.552,-58.1034 443.959,-57.8905 446.138,-64.5426"/>
+</g>
+<!-- Node14 -->
+<g id="node29" class="node"><title>Node14</title>
+<a xlink:href="classSocket.xhtml#a3bb9f40d6e5f32cfa960a86323322c0c" target="_top" xlink:title="Returns the number of bytes sent by the Socket.">
+<polygon fill="white" stroke="black" points="438.5,-0 438.5,-20 549.5,-20 549.5,-0 438.5,-0"/>
+<text text-anchor="middle" x="494" y="-7" font-family="FreeSans.ttf" font-size="10.00">Socket::gBytesSent</text>
+</a>
+</g>
+<!-- Node7&#45;&gt;Node14 -->
+<g id="edge30" class="edge"><title>Node7&#45;&gt;Node14</title>
+<path fill="none" stroke="midnightblue" d="M339.712,-113.766C354.869,-94.3596 390.523,-52.0888 430,-29 433.242,-27.1037 436.689,-25.3831 440.237,-23.824"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="441.768,-26.9827 449.793,-20.0646 439.206,-20.4687 441.768,-26.9827"/>
 </g>
 </g>
 </svg>
