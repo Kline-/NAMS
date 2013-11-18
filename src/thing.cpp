@@ -166,6 +166,25 @@ const void Thing::Send( const string& msg, Thing* speaker, Thing* target ) const
 
 /* Query */
 /**
+ * @brief Returns the Account associated with this thing's brain, if any.
+ * @retval Account* A pointer to the associated account, or NULL if none.
+ */
+Account* Thing::Brain::gAccount() const
+{
+    return m_account;
+}
+
+/**
+ * @brief Returns the Brain associated with this Thing.
+ * @retval Thing::Brain* A pointer to the associated Brain.
+ * @return
+ */
+Thing::Brain* Thing::gBrain() const
+{
+    return m_brain;
+}
+
+/**
  * @brief Returns the Thing that this Thing is stored within.
  * @retval Thing* A pointer to the Thing that this Thing is stored within.
  */
@@ -238,6 +257,27 @@ const string Thing::gZone() const
 }
 
 /* Manipulate */
+/**
+ * @brief Sets the account of this thing's brain.
+ * @param[in] account A pointer to the Account to be associated with this thing's brain.
+ * @retval false Returned if unable to associate the account with this thing's brain.
+ * @retval true Returned if the account was successfully associated.
+ */
+const bool Thing::Brain::sAccount( Account* account )
+{
+    UFLAGS_DE( flags );
+
+    if ( m_account != NULL && account != NULL )
+    {
+        LOGSTR( flags, "Thing::Brain::sAccount()-> called while m_account is not NULL" );
+        return false;
+    }
+
+    m_account = account;
+
+    return true;
+}
+
 /**
  * @brief Sets the description of the Thing from #THING_DESCRIPTION.
  * @param[in] description The description.
@@ -341,6 +381,24 @@ const bool Thing::sZone( const string& zone )
 
 /* Internal */
 /**
+ * @brief Constructor for the Thing::Brain class.
+ */
+Thing::Brain::Brain()
+{
+    m_account = NULL;
+
+    return;
+}
+
+/**
+ * @brief Destructor for the Thing::Brain class.
+ */
+Thing::Brain::~Brain()
+{
+    return;
+}
+
+/**
  * @brief Generates a new unique id for this Thing.
  * @param[in] seed Typically the size of the owning list, such as object_list.
  * @retval void
@@ -365,6 +423,7 @@ Thing::Thing()
 {
     uint_t i = uintmin_t;
 
+    m_brain = new Thing::Brain();
     m_container = NULL;
     m_contents.clear();
     for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
@@ -382,6 +441,8 @@ Thing::Thing()
  */
 Thing::~Thing()
 {
+    delete m_brain;
+
     if ( !g_global->m_shutdown )
     {
         // To properly handle quit

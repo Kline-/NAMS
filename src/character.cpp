@@ -252,25 +252,6 @@ const bool Character::Unserialize()
 
 /* Query */
 /**
- * @brief Returns the Account associated with this character's brain, if any.
- * @retval Account* A pointer to the associated account, or NULL if none.
- */
-Account* Character::Brain::gAccount() const
-{
-    return m_account;
-}
-
-/**
- * @brief Returns the Brain associated with this Character.
- * @retval Character::Brain* A pointer to the associated Brain.
- * @return
- */
-Character::Brain* Character::gBrain() const
-{
-    return m_brain;
-}
-
-/**
  * @brief Gets the creation states of this character from #CHR_CREATION.
  * @param[in] pos The creation state to get.
  * @retval false Returned if the state is set to false.
@@ -312,27 +293,6 @@ const uint_t Character::gSex() const
 }
 
 /* Manipulate */
-/**
- * @brief Sets the account of this character's brain.
- * @param[in] account A pointer to the Account to be associated with this character's brain.
- * @retval false Returned if unable to associate the account with this character's brain.
- * @retval true Returned if the account was successfully associated.
- */
-const bool Character::Brain::sAccount( Account* account )
-{
-    UFLAGS_DE( flags );
-
-    if ( m_account != NULL && account != NULL )
-    {
-        LOGSTR( flags, "Character::Brain::sAccount()-> called while m_account is not NULL" );
-        return false;
-    }
-
-    m_account = account;
-
-    return true;
-}
-
 /**
  * @brief Sets the creation states of this character from #CHR_CREATION.
  * @param[in] pos The creation state to set.
@@ -378,24 +338,6 @@ const bool Character::sSex( const uint_t& sex )
 
 /* Internal */
 /**
- * @brief Constructor for the Character::Brain class.
- */
-Character::Brain::Brain()
-{
-    m_account = NULL;
-
-    return;
-}
-
-/**
- * @brief Destructor for the Character::Brain class.
- */
-Character::Brain::~Brain()
-{
-    return;
-}
-
-/**
  * @brief Constructor for the Character class.
  */
 Character::Character()
@@ -405,7 +347,6 @@ Character::Character()
     /** Initialize attributes from parent Thing class */
     sType( THING_TYPE_CHARACTER );
     /** Initialize attributes specific to Characters */
-    m_brain = new Character::Brain();
     for ( i = 0; i < MAX_CHR_CREATION; i++ )
         m_creation[i] = false;
     m_file.clear();
@@ -419,7 +360,5 @@ Character::Character()
  */
 Character::~Character()
 {
-    delete m_brain;
-
     return;
 }

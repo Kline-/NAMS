@@ -33,34 +33,6 @@ using namespace std;
  */
 class Character : public Thing
 {
-    /**
-     * @brief Abstraction layer between player characters (Account->SocketClient) and non-player characters (AI).
-     */
-    class Brain
-    {
-        public:
-            /** @name Core */ /**@{*/
-            const bool Delete();
-            const bool New();
-            /**@}*/
-
-            /** @name Query */ /**@{*/
-            Account* gAccount() const;
-            /**@}*/
-
-            /** @name Manipulate */ /**@{*/
-            const bool sAccount( Account* account );
-            /**@}*/
-
-            /** @name Internal */ /**@{*/
-            Brain();
-            ~Brain();
-            /**@}*/
-
-        private:
-            Account* m_account; /**< The associated Account, if any. */
-    };
-
     public:
         /** @name Core */ /**@{*/
         const void Delete();
@@ -72,7 +44,6 @@ class Character : public Thing
         /**@}*/
 
         /** @name Query */ /**@{*/
-        Character::Brain* gBrain() const;
         const bool gCreation( const uint_t& pos );
         const string gPrompt() const;
         const uint_t gSex() const;
@@ -89,7 +60,6 @@ class Character : public Thing
         /**@}*/
 
     private:
-        Character::Brain* m_brain; /**< Brain abstraction layer for PC/NPC. */
         bool m_creation[MAX_CHR_CREATION]; /**< Track if all creation options have been set. */
         string m_file; /**< Path to the file on disk. */
         uint_t m_sex; /**< The sex of the character. */
