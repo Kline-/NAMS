@@ -298,7 +298,7 @@ const bool Server::LoadLocations()
  * @retval true Returned if 0 or more Character objects are loaded from disk.
  */
 const bool Server::LoadNPCs()
-{/*
+{
     UFLAGS_DE( flags );
     chrono::high_resolution_clock::time_point start, finish;
     double duration = uintmin_t;
@@ -333,10 +333,10 @@ const bool Server::LoadNPCs()
 
     finish = chrono::high_resolution_clock::now();
     if ( ( duration = chrono::duration_cast<chrono::milliseconds>( finish - start ).count() ) > 1000 )
-        LOGFMT( 0, "Loaded %lu NPCs in %1.2fs.", object_template_list.size(), ( duration / 1000 ) );
+        LOGFMT( 0, "Loaded %lu NPCs in %1.2fs.", character_template_list.size(), ( duration / 1000 ) );
     else
-        LOGFMT( 0, "Loaded %lu NPCs in %1.0fms.", object_template_list.size(), duration );
-*/
+        LOGFMT( 0, "Loaded %lu NPCs in %1.0fms.", character_template_list.size(), duration );
+
     return true;
 }
 
