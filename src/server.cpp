@@ -775,6 +775,9 @@ const void Server::Shutdown( const sint_t& status )
     // Write runtime settings
     g_config->Serialize();
 
+    // Cleanup character templates
+    while ( !character_template_list.empty() )
+        character_template_list.front()->Delete();
     // Cleanup commands
     while ( !command_list.empty() )
         command_list.front()->Delete();

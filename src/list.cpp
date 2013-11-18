@@ -34,6 +34,13 @@
 vector<Character*> character_list;
 
 /**
+ * @var character_template_list
+ * @brief All characters that exist as templates within the server.
+ * @param Character* A pointer to a Character template in memory.
+ */
+vector<Character*> character_template_list;
+
+/**
  * @var command_list
  * @brief All commands loaded into memory.
  * @param Command* A pointer to a Command object in memory.
