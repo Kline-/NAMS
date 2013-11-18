@@ -58,7 +58,6 @@ class Location : public Thing
     private:
         vector<Exit*> m_exits; /**< Exits to other Locations. */
         string m_file; /**< Path to the file on disk. */
-        string m_zone; /**< Part of a larger zone / group of locations? Name, if so. */
 };
 
 #endif

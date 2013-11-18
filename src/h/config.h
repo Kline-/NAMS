@@ -821,7 +821,7 @@
 /**
  * @def CFG_THG_NAME_MIN_LEN
  * @brief The minimum allowable length for a thing name when the thing is associated to an account.
- * @par Default: 128
+ * @par Default: 4
  */
 #define CFG_THG_NAME_MIN_LEN 4
 /**@}*/

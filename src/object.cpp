@@ -62,7 +62,7 @@ const bool Object::Clone( const string& name, const uint_t& type )
     sName( obj->gName() );
     /** Copy elements internal to Object class */
     m_file = obj->m_file;
-    m_zone = obj->m_zone;
+    sZone( obj->gZone() );
     /** Generate a unique id based on obj_list.size() and current time */
     NewId( object_list.size() );
 
@@ -162,9 +162,9 @@ const bool Object::Serialize() const
             ofs << "description[" << i << "]" << " = " << Utils::WriteString( gDescription( i ) ) << endl;
     }
     KEY( ofs, "name", gName() );
-    KEY( ofs, "zone", m_zone );
+    KEY( ofs, "zone", gZone() );
 
-    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_WORLD, m_zone ), CSTR( file ) );
+    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_WORLD, gZone() ), CSTR( file ) );
 
     return true;
 }
@@ -223,8 +223,12 @@ const bool Object::Unserialize()
                 found = true;
                 sName( value );
             }
+            else if ( key == "zone" )
+            {
+                found = true;
+                sZone( value );
+            }
             Utils::KeySet( true, found, key, "revision", value, revision, CFG_OBJ_REVISION, maxb );
-            Utils::KeySet( true, found, key, "zone", value, m_zone );
 
             if ( !found )
                 LOGFMT( flags, "Object::Unserialize()-> key not found: %s", CSTR( key ) );
@@ -255,7 +259,6 @@ Object::Object()
     sType( THING_TYPE_OBJECT );
     /** Initialize attributes specific to Objects */
     m_file.clear();
-    m_zone.clear();
 
     return;
 }

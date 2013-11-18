@@ -164,6 +164,7 @@ const bool Character::Serialize() const
         KEY( ofs, "location", gContainer()->gId() );
     KEY( ofs, "name", gName() );
     KEY( ofs, "sex", m_sex );
+    KEY( ofs, "zone", gZone() );
 
     Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gAccount()->gId() ), CSTR( file ) );
 
@@ -226,7 +227,11 @@ const bool Character::Unserialize()
                 found = true;
                 sName( value );
             }
-
+            else if ( key == "zone" )
+            {
+                found = true;
+                sZone( value );
+            }
             Utils::KeySet( true, found, key, "revision", value, revision, CFG_CHR_REVISION, maxb );
             Utils::KeySet( true, found, key, "sex", value, m_sex, MAX_CHR_SEX, maxb );
 

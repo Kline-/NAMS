@@ -228,6 +228,15 @@ const uint_t Thing::gType() const
     return m_type;
 }
 
+/**
+ * @brief Returns the zone associated with this Thing.
+ * @retval string A value containing the zone associated with this Thing.
+ */
+const string Thing::gZone() const
+{
+    return m_zone;
+}
+
 /* Manipulate */
 /**
  * @brief Sets the description of the Thing from #THING_DESCRIPTION.
@@ -315,6 +324,21 @@ const bool Thing::sType( const uint_t& type )
     return true;
 }
 
+/**
+ * @brief Sets the zone of this Thing.
+ * @param[in] name A string containing the zone this Thing should be set to.
+ * @retval false Returned if there was an error setting the zone.
+ * @retval true Returned if the zone was set successfully.
+ */
+const bool Thing::sZone( const string& zone )
+{
+    UFLAGS_DE( flags );
+
+    m_zone = zone;
+
+    return true;
+}
+
 /* Internal */
 /**
  * @brief Generates a new unique id for this Thing.
@@ -348,6 +372,7 @@ Thing::Thing()
     m_id.clear();
     m_name.clear();
     m_type = THING_TYPE_THING;
+    m_zone.clear();
 
     return;
 }

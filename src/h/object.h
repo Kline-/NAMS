@@ -56,7 +56,6 @@ class Object : public Thing
 
     private:
         string m_file; /**< Path to the file on disk. */
-        string m_zone; /**< Part of a larger zone / group of locations? Name, if so. */
 };
 
 #endif

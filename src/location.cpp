@@ -138,9 +138,9 @@ const bool Location::Serialize() const
         }
     }
     KEY( ofs, "name", gName() );
-    KEY( ofs, "zone", m_zone );
+    KEY( ofs, "zone", gZone() );
 
-    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_WORLD, m_zone ), CSTR( file ) );
+    Utils::FileClose( ofs, Utils::DirPath( CFG_DAT_DIR_WORLD, gZone() ), CSTR( file ) );
 
     return true;
 }
@@ -222,8 +222,12 @@ const bool Location::Unserialize()
                 found = true;
                 sName( value );
             }
+            else if ( key == "zone" )
+            {
+                found = true;
+                sZone( value );
+            }
             Utils::KeySet( true, found, key, "revision", value, revision, CFG_LOC_REVISION, maxb );
-            Utils::KeySet( true, found, key, "zone", value, m_zone );
 
             if ( !found )
                 LOGFMT( flags, "Location::Unserialize()-> key not found: %s", CSTR( key ) );
@@ -282,7 +286,6 @@ Location::Location()
     /** Initialize attributes specific to Locations */
     m_exits.clear();
     m_file.clear();
-    m_zone.clear();
 
     return;
 }

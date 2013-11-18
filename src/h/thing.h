@@ -50,6 +50,7 @@ class Thing
         const string gId() const;
         const string gName() const;
         const uint_t gType() const;
+        const string gZone() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
@@ -57,6 +58,7 @@ class Thing
         const bool sId( const string& id );
         const bool sName( const string& name, const bool& system = false );
         const bool sType( const uint_t& type );
+        const bool sZone( const string& zone );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -72,6 +74,7 @@ class Thing
         string m_id; /**< An identifier to denote ownership. For characters, id = account.name */
         string m_name; /**< The name of the thing. */
         uint_t m_type; /**< The inherited sub-type of Thing. */
+        string m_zone; /**< Part of a larger zone / group of locations? Name, if so. */
 };
 
 #endif
