@@ -38,11 +38,11 @@ class AIProg
         /**@}*/
 
         /** @name Query */ /**@{*/
-        Thing* gThing() const;
+        Brain* gBrain() const;
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
-        const bool sThing( Thing* thing );
+        const bool sBrain( Brain* brain );
         /**@}*/
 
         /** @name Internal */ /**@{*/
@@ -51,7 +51,7 @@ class AIProg
         /**@}*/
 
     private:
-        Thing* m_thing; /**< The associated Thing. */
+        Brain* m_brain; /**< The associated Brain. */
 };
 
 #endif

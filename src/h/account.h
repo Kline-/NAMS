@@ -33,7 +33,6 @@ class Account
 {
     public:
         /** @name Core */ /**@{*/
-        const void ClearCharacter();
         const void Delete();
         const bool New( SocketClient* client, const bool& exists );
         const bool Serialize() const;
@@ -41,6 +40,7 @@ class Account
         /**@}*/
 
         /** @name Query */ /**@{*/
+        Brain* gBrain() const;
         Character* gCharacter() const;
         const vector<string> gCharacters() const;
         SocketClient* gClient() const;
@@ -50,6 +50,7 @@ class Account
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sBrain( Brain* brain );
         const bool aCharacter( const string& name );
         const bool dCharacter( const string& name );
         const bool sCharacter( Character* character );
@@ -63,6 +64,7 @@ class Account
         /**@}*/
 
     private:
+        Brain* m_brain; /**< The associated Brain. */
         Character* m_character; /**< The active Character, if any. */
         vector<string> m_characters; /**< The names of all characters associated with the account. */
         SocketClient* m_client; /**< The client attached to the account. */

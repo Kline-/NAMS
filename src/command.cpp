@@ -31,6 +31,7 @@
 #include "h/includes.h"
 #include "h/command.h"
 
+#include "h/brain.h"
 #include "h/character.h"
 #include "h/list.h"
 #include "h/plugin.h"

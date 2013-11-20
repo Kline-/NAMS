@@ -48,33 +48,32 @@ const bool AIProg::New()
 
 /* Query */
 /**
- * @brief Returns the Thing associated with this AIProg.
- * @retval Thing* A pointer to the associated thing.
+ * @brief Returns the Brain associated with this AIProg.
+ * @retval Brain* A pointer to the associated brain.
  */
-Thing* AIProg::gThing() const
+Brain* AIProg::gBrain() const
 {
-    return m_thing;
+    return m_brain;
 }
 
 /* Manipulate */
-
 /**
- * @brief Sets the thing associated with this aiprog.
- * @param[in] thing A pointer to the Thing to be associated with this aiprog.
- * @retval false Returned if unable to associate the thing with this aiprog.
- * @retval true Returned if the thing was successfully associated.
+ * @brief Sets the brain associated with this aiprog.
+ * @param[in] brain A pointer to the Brain to be associated with this aiprog.
+ * @retval false Returned if unable to associate the brain with this aiprog.
+ * @retval true Returned if the brain was successfully associated.
  */
-const bool AIProg::sThing( Thing* thing )
+const bool AIProg::sBrain( Brain* brain )
 {
     UFLAGS_DE( flags );
 
-    if ( m_thing != NULL && thing != NULL )
+    if ( m_brain != NULL && brain != NULL )
     {
-        LOGSTR( flags, "AIProg::sThing()-> called while m_thing is not NULL" );
+        LOGSTR( flags, "AIProg::sBrain()-> called while m_brain is not NULL" );
         return false;
     }
 
-    m_thing = thing;
+    m_brain = brain;
 
     return true;
 }
@@ -85,7 +84,7 @@ const bool AIProg::sThing( Thing* thing )
  */
 AIProg::AIProg()
 {
-    m_thing = NULL;
+    m_brain = NULL;
 
     return;
 }

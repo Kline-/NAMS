@@ -28,6 +28,7 @@
 #include "h/handler.h"
 
 #include "h/account.h"
+#include "h/brain.h"
 #include "h/character.h"
 #include "h/command.h"
 #include "h/event.h"
@@ -703,7 +704,7 @@ const void Handler::AttachCharacter( SocketClient* client, const string& cmd, co
     client->gAccount()->Serialize();
     client->gAccount()->gCharacter()->Serialize();
     client->gAccount()->gCharacter()->Delete();
-    client->gAccount()->ClearCharacter();
+    client->gAccount()->sCharacter( NULL );
 
     // All went well, off to the account menu
     client->sState( SOC_STATE_ACCOUNT_MENU );
@@ -964,7 +965,7 @@ const void Handler::CharacterCreateMenuMain( SocketClient* client, const string&
             if ( client->gAccount()->gCharacter() != NULL )
             {
                 client->gAccount()->gCharacter()->Delete();
-                client->gAccount()->ClearCharacter();
+                client->gAccount()->sCharacter( NULL );
             }
             client->sState( SOC_STATE_ACCOUNT_MENU );
             LoginHandler( client );
@@ -1561,6 +1562,7 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
 {
     UFLAGS_DE( flags );
     Character* chr = NULL;
+    Brain* brain = NULL;
     stringstream id;
 
     if ( client == NULL )
@@ -1575,8 +1577,11 @@ const void Handler::LoadCharacter( SocketClient* client, const string& cmd, cons
         return;
     }
 
+    brain = new Brain();
+    brain->sAccount( client->gAccount() );
+    brain->sThing( chr );
     chr = new Character();
-    chr->gBrain()->sAccount( client->gAccount() );
+    chr->sBrain( brain );
     // Id for characters owned by accounts is account_name.character_name
     id << client->gAccount()->gId() << "." << client->gLogin( SOC_LOGIN_CHARACTER );
 

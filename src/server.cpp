@@ -1037,6 +1037,7 @@ const string Server::gStatus()
     // Memory info
     output += CRLF "Objects in Memory" CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu AI Programs", aiprog_list.size() ) + CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu Brains", brain_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Commands", command_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Events", event_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Exits", exit_list.size() ) + CRLF;

@@ -26,6 +26,7 @@
 #include "h/character.h"
 
 #include "h/account.h"
+#include "h/brain.h"
 #include "h/command.h"
 #include "h/list.h"
 #include "h/location.h"
@@ -90,9 +91,6 @@ const void Character::Delete()
         g_global->m_next_character = character_list.erase( find( character_list.begin(), character_list.end(), this ) );
     else if ( find( character_template_list.begin(), character_template_list.end(), this ) != character_template_list.end() )
             character_template_list.erase( find( character_template_list.begin(), character_template_list.end(), this ) );
-
-    if ( gBrain()->gAccount() )
-        gBrain()->gAccount()->sCharacter( NULL );
 
     delete this;
 
@@ -250,7 +248,7 @@ const bool Character::Unserialize()
     uint_t revision = uintmin_t;
 
     // If the Brain is attached to an account, load as a player character, otherwise load as a NPC
-    if ( gBrain()->gAccount() )
+    if ( gBrain() && gBrain()->gAccount() )
         Utils::FileOpen( ifs, Utils::DirPath( Utils::DirPath( CFG_DAT_DIR_ACCOUNT, gBrain()->gAccount()->gId() ), m_file ) );
     else
         Utils::FileOpen( ifs, m_file );

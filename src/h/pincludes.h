@@ -28,6 +28,7 @@
 
 #include "includes.h"
 #include "plugin.h"
+#include "brain.h"
 #include "character.h"
 #include "socketclient.h"
 

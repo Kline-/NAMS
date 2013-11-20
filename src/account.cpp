@@ -29,17 +29,6 @@
 
 /* Core */
 /**
- * @brief This will set the m_character pointer to NULL, invalidating any references. This exists outside of sCharacter() to ensure that there is an explicit desire to invalidate the character pointer.
- * @retval void
- */
-const void Account::ClearCharacter()
-{
-    m_character = NULL;
-
-    return;
-}
-
-/**
  * @brief Unload an account from memory that was previously loaded via Account::New().
  * @retval void
  */
@@ -301,6 +290,15 @@ const bool Account::Unserialize()
 
 /* Query */
 /**
+ * @brief Returns the Brain associated with this Account.
+ * @retval Brain* A pointer to the associated brain.
+ */
+Brain* Account::gBrain() const
+{
+    return m_brain;
+}
+
+/**
  * @brief Returns the associated Character, if any.
  * @retval Character* A pointer to the associated Character, or NULL.
  */
@@ -364,6 +362,27 @@ const uint_t Account::gSecurity() const
 }
 
 /* Manipulate */
+/**
+ * @brief Sets the brain associated with this account.
+ * @param[in] brain A pointer to the Brain to be associated with this account.
+ * @retval false Returned if unable to associate the brain with this account.
+ * @retval true Returned if the brain was successfully associated.
+ */
+const bool Account::sBrain( Brain* brain )
+{
+    UFLAGS_DE( flags );
+
+    if ( m_brain != NULL && brain != NULL )
+    {
+        LOGSTR( flags, "Account::sBrain()-> called while m_brain is not NULL" );
+        return false;
+    }
+
+    m_brain = brain;
+
+    return true;
+}
+
 /**
  * @brief Adds a character name to the list of associated characters.
  * @param[in] name The name of the character to add.
@@ -516,6 +535,7 @@ Account::Account()
 {
     uint_t i = uintmin_t;
 
+    m_brain = NULL;
     m_character = NULL;
     m_characters.clear();
     m_client = NULL;

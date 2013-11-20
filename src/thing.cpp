@@ -24,6 +24,7 @@
 #include "h/includes.h"
 #include "h/thing.h"
 
+#include "h/brain.h"
 #include "h/exit.h"
 
 /* Core */
@@ -166,20 +167,11 @@ const void Thing::Send( const string& msg, Thing* speaker, Thing* target ) const
 
 /* Query */
 /**
- * @brief Returns the Account associated with this thing's brain, if any.
- * @retval Account* A pointer to the associated account, or NULL if none.
- */
-Account* Thing::Brain::gAccount() const
-{
-    return m_account;
-}
-
-/**
  * @brief Returns the Brain associated with this Thing.
- * @retval Thing::Brain* A pointer to the associated Brain.
+ * @retval Brain* A pointer to the associated Brain.
  * @return
  */
-Thing::Brain* Thing::gBrain() const
+Brain* Thing::gBrain() const
 {
     return m_brain;
 }
@@ -267,22 +259,22 @@ const string Thing::gZone() const
 
 /* Manipulate */
 /**
- * @brief Sets the account of this thing's brain.
- * @param[in] account A pointer to the Account to be associated with this thing's brain.
- * @retval false Returned if unable to associate the account with this thing's brain.
- * @retval true Returned if the account was successfully associated.
+ * @brief Sets the brain associated with this thing.
+ * @param[in] brain A pointer to the Brain to be associated with this thing.
+ * @retval false Returned if unable to associate the brain with this thing.
+ * @retval true Returned if the brain was successfully associated.
  */
-const bool Thing::Brain::sAccount( Account* account )
+const bool Thing::sBrain( Brain* brain )
 {
     UFLAGS_DE( flags );
 
-    if ( m_account != NULL && account != NULL )
+    if ( m_brain != NULL && brain != NULL )
     {
-        LOGSTR( flags, "Thing::Brain::sAccount()-> called while m_account is not NULL" );
+        LOGSTR( flags, "Thing::sBrain()-> called while m_brain is not NULL" );
         return false;
     }
 
-    m_account = account;
+    m_brain = brain;
 
     return true;
 }
@@ -401,24 +393,6 @@ const bool Thing::sZone( const string& zone )
 
 /* Internal */
 /**
- * @brief Constructor for the Thing::Brain class.
- */
-Thing::Brain::Brain()
-{
-    m_account = NULL;
-
-    return;
-}
-
-/**
- * @brief Destructor for the Thing::Brain class.
- */
-Thing::Brain::~Brain()
-{
-    return;
-}
-
-/**
  * @brief Generates a new unique id for this Thing.
  * @param[in] seed Typically the size of the owning list, such as object_list.
  * @retval void
@@ -443,7 +417,7 @@ Thing::Thing()
 {
     uint_t i = uintmin_t;
 
-    m_brain = new Thing::Brain();
+    m_brain = NULL;
     m_container = NULL;
     m_contents.clear();
     for ( i = 0; i < MAX_THING_DESCRIPTION; i++ )
@@ -462,7 +436,8 @@ Thing::Thing()
  */
 Thing::~Thing()
 {
-    delete m_brain;
+    if ( m_brain )
+        m_brain->Delete();
 
     if ( !g_global->m_shutdown )
     {

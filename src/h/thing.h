@@ -31,34 +31,6 @@ using namespace std;
  */
 class Thing
 {
-    /**
-     * @brief Abstraction layer between player characters (Account->SocketClient) and non-player characters (AI).
-     */
-    class Brain
-    {
-        public:
-            /** @name Core */ /**@{*/
-            const bool Delete();
-            const bool New();
-            /**@}*/
-
-            /** @name Query */ /**@{*/
-            Account* gAccount() const;
-            /**@}*/
-
-            /** @name Manipulate */ /**@{*/
-            const bool sAccount( Account* account );
-            /**@}*/
-
-            /** @name Internal */ /**@{*/
-            Brain();
-            ~Brain();
-            /**@}*/
-
-        private:
-            Account* m_account; /**< The associated Account, if any. */
-    };
-
     public:
         /** @name Core */ /**@{*/
         const bool AddThing( Thing* thing );
@@ -72,7 +44,7 @@ class Thing
         /**@}*/
 
         /** @name Query */ /**@{*/
-        Thing::Brain* gBrain() const;
+        Brain* gBrain() const;
         Thing* gContainer() const;
         const vector<Thing*> gContents() const;
         const string gDescription( const uint_t& type ) const;
@@ -84,6 +56,7 @@ class Thing
         /**@}*/
 
         /** @name Manipulate */ /**@{*/
+        const bool sBrain( Brain* brain );
         const bool sDescription( const string& description, const uint_t& type );
         const bool sId( const string& id );
         const bool sLocation( const string& location );
@@ -99,7 +72,7 @@ class Thing
         /**@}*/
 
     private:
-        Thing::Brain* m_brain; /**< Brain abstraction layer for PC/NPC. */
+        Brain* m_brain; /**< The associated Brain. */
         Thing* m_container; /**< The Thing that this Thing is stored within. */
         vector<Thing*> m_contents; /**< Other Things that are contained within this Thing. */
         string m_description[MAX_THING_DESCRIPTION]; /**< What is displayed to other Things. */
