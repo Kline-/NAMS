@@ -27,6 +27,8 @@
 #define DEC_CLASS_H
 
 class Account;
+class AIProg;
+class Brain;
 class Command;
 class Event;
 class Exit;

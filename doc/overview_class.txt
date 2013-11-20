@@ -21,6 +21,23 @@ Class
         loaded once a SocketClient is fully connected, and all characters
         inherit permissions based on the account security and role.
 
+    AIProg
+        Inherits: None
+        Children: None
+        Internal: None
+
+        An AIProg is analogous to an Account. It provides intelligence behind certain NPCs,
+        locations, and objects.
+
+    Brain
+        Inherits: None
+        Children: None
+        Internal: None
+
+        A brain is an abstraction layer between Accounts (player characters) and AIProgs
+        (non-player characters) and the Character class. The brain serves as a single
+        interface to interact with the higher level PC and NPC classes.
+
     Character
         Inherits: Thing
         Children: None
@@ -128,7 +145,7 @@ Class
     Thing
         Inherits: None
         Children: Character, Location, Object
-        Internal: Brain
+        Internal: None
 
         A Thing is a generic parent class for all in-game objects:
         creatures players, rooms, items, etc.
