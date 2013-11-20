@@ -27,6 +27,20 @@
 #include "h/list.h"
 
 /**
+ * @var aiprog_list
+ * @brief All aiprogs that exist within the server.
+ * @param AIProg* A pointer to an AIProg object in memory.
+ */
+vector<AIProg*> aiprog_list;
+
+/**
+ * @var brain_list
+ * @brief All brains that exist within the server.
+ * @param Brain* A pointer to a Brain object in memory.
+ */
+vector<Brain*> brain_list;
+
+/**
  * @var character_list
  * @brief All characters that exist within the server.
  * @param Character* A pointer to a Character object in memory.

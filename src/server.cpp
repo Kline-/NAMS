@@ -31,6 +31,8 @@
 #include "h/server.h"
 
 #include "h/account.h"
+#include "h/aiprog.h"
+#include "h/brain.h"
 #include "h/character.h"
 #include "h/command.h"
 #include "h/event.h"
@@ -777,6 +779,12 @@ const void Server::Shutdown( const sint_t& status )
     // Write runtime settings
     g_config->Serialize();
 
+    // Cleanup aiprogs
+    while ( !aiprog_list.empty() )
+        aiprog_list.front()->Delete();
+    // Cleanup brains
+    while ( !brain_list.empty() )
+        brain_list.front()->Delete();
     // Cleanup character templates
     while ( !character_template_list.empty() )
         character_template_list.front()->Delete();
@@ -1028,6 +1036,7 @@ const string Server::gStatus()
 
     // Memory info
     output += CRLF "Objects in Memory" CRLF;
+    output += "    " + Utils::FormatString( 0, "%-5lu AI Programs", aiprog_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Commands", command_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Events", event_list.size() ) + CRLF;
     output += "    " + Utils::FormatString( 0, "%-5lu Exits", exit_list.size() ) + CRLF;
