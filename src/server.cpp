@@ -669,6 +669,7 @@ const void Server::RebootRecovery( const bool& reboot )
     string key, value, line, silent;
     SocketClient *client = NULL;
     Account *account = NULL;
+    Brain *brain = NULL;
     Character *character = NULL;
 
     if ( reboot )
@@ -712,10 +713,13 @@ const void Server::RebootRecovery( const bool& reboot )
             }
             else if ( key == "char" )
             {
+                brain = new Brain();
+                brain->sAccount( client->gAccount() );
+                brain->sThing( character );
                 character = new Character();
-                client->gAccount()->sCharacter( character );
-                character->gBrain()->sAccount( client->gAccount() );
+                character->sBrain( brain );
                 character->New( client->gAccount()->gId() + "." + value + "." + CFG_DAT_FILE_PLR_EXT, false, true );
+                client->gAccount()->sCharacter( character );
                 Handler::EnterGame( client, "reboot", silent );
             }
         }
