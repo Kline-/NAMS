@@ -694,7 +694,7 @@ const bool SocketClient::sIdle( const uint_t& idle )
 {
     UFLAGS_DE( flags );
 
-    if ( idle < uintmin_t || idle > CFG_SOC_MAX_IDLE )
+    if ( idle < uintmin_t || idle > uintmax_t )
     {
         LOGFMT( flags, "SocketClient::sIdle()-> called with invalid idle: %lu", idle );
         return false;
